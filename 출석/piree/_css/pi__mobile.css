@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* PIREE.CO.KR 피리 검은아이 */
+
+
+/* 주요_가로_목록 */
+.mobile_hor__list h2                { display:block; padding-left:7px; font-size:1.3em; color:#222; font-weight:bold; }
+.mobile_hor__list ul                { position:relative; list-style:none; zoom:1; }
+.mobile_hor__list ul:after          { display:block; visibility:hidden; clear:both; content:""; }
+.mobile_hor__list a                 { position:relative; display:block; font-size:1.1em; padding:9px 0 12px 8px; background:#fff; color:#444; text-align:left; cursor:pointer; }
+.mobile_hor__list li                { float:left; width:100%; height:auto; border-top:1px solid #f5f5f5; padding:0; }
+.mobile_hor__list li a              { position:relative; display:block; font-size:1.1em; padding:8px 0 11px 16px; background:#fff; color:#444; text-align:left; cursor:pointer; }
+.mobile_hor__list li .cont_padd_6   { float:left;padding:6px 0 6px 6px;text-decoration:none;}
+.mobile_hor__list li .cont_padd_8   { float:left;padding:8px 0 8px 8px;text-decoration:none;}
+.mobile_hor__list a:focus           { text-decoration:none; }
+.mobile_hor__list a:active          { text-decoration:none; }
+.mobile_hor__list .mobile_hor__list_on  { z-index:2; border:1px solid #565e60; background:#fff; color:#000; }
+.mobile_hor__list .mobile_hor__list_emp { z-index:2; border:1px solid #93acca; background:#eef6ff; color:#0000ff; }
+.mobile_hor__list .mobile_hor_choose  { color:#1f60aa; }
+
+
+
+
+/* 게시글_목록 */
+#article_news h2 {width:0;height:0;font-size:0;line-height:0;overflow:hidden}
+#article_news ul {padding-left:1px;zoom:1}
+#article_news ul:after {display:block;visibility:hidden;clear:both;content:""}
+#article_news li {border-bottom:1px solid #efefef;width:100%;line-height:2.0em; padding:0; }
+#article_news a {display:block;position:relative;margin-left:-1px;padding:0; background:#fff;color:#444;text-align:left;text-decoration:none; }
+#article_news .wall_aaa     {color:#aaa; padding:0 8px 0 8px; }
+#article_news .wr_nick #article_news .wr_datetime #article_news .wr_hit { color:#888;text-decoration:none; }
+#article_news .span_aaa { color:#aaa;text-decoration:none; }
+#article_news .wr_mem_mn_n     { color:#444; padding:0 0 0 10px; }
+#article_news .wr_mem_mn_s     { color:#888; padding:0 0 0 4px; }
+#article_news li .div_center_50  {float:left;width:50px;text-align:center}
+#article_news li .div_left_40    {float:left;width:40px; padding:0 0 0 4px;}
+#article_news li .div_left_50    {float:left;width:50px; padding:0 0 0 4px;}
+#article_news li .div_left_60    {float:left;width:60px;}
+#article_news li .div_left_70    {float:left;width:70px;}
+#article_news li .div_left_80    {float:left;width:80px;}
+#article_news li .div_left_90    {float:left;width:90px;}
+#article_news li .div_left_100   {float:left;width:100px;}
+#article_news li .div_left_110   {float:left;width:110px;}
+#article_news li .div_left_140   {float:left;width:140px;}
+#article_news li .div_left_cont  {float:left;width:auto;}
+#article_news li .left_span {position:relative;display:inline-block;overflow:hidden;float:left;width:auto;top:-10px;left:5px; }
+#article_news li .comm_span {position:relative;display:inline-block;overflow:hidden;float:right;width:auto;top:-50px;right:5px; }
+#article_news li .arti_comm {display:inline-block;padding:2px 8px 2px 8px; font-size:11px; color:#00a213; text-align:center;border:2px solid #efefef; }
+#article_news li .member_mn {display:inline-block;padding:2px 8px 2px 8px; font-size:1.2em; color:#2376ff; text-align:center;border:2px solid #aacaff; font-weight:bold; }
+#article_news .article_news_choose { color:#00a213; }
