@@ -17,6 +17,8 @@ if (G5_IS_MOBILE) {
 include_once(G5_PATH.'/head.php');
 ?>
 
+<div>Hello</div>
+
 
 <style>
 * {box-sizing: border-box;}
