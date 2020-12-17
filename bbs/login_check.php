@@ -86,7 +86,7 @@ if ($auto_login) {
     set_cookie('ck_auto', '', 0);
 }
 
-//$url = '/bbs/userinfo.php';
+$url = G5_URL.'/bbs/userinfo.php';
 
 if ($url) {
     // url 체크
@@ -129,9 +129,9 @@ if(function_exists('social_login_success_after')){
 
 run_event('member_login_check', $mb, $link, $is_social_login);
 
-if($member['mb_level']==26)
+/* if($member['mb_level']==26)
 $link = G5_BBS_URL.'/userinfo.php';
-else $link = G5_URL;
-
+else $link = G5_URL;  */
+ 
 goto_url($link);
 ?>
