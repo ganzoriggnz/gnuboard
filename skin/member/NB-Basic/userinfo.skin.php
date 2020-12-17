@@ -30,7 +30,7 @@ if($member['mb_id']){
 				<div id="user_cate_list" class="sly-wrap flex-grow-1">
 					<ul id="user_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
 						<li class="active">
-                            <a class="py2 px-3" href= <?php echo G5_BBS_PATH.'/userinfo.php' ?> >
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/userinfo.php" >
                                 <span>
                                 <i class="fa fa-user">
                                 회원정보
@@ -57,10 +57,10 @@ if($member['mb_id']){
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "#">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
                                 <span>
                                 <i class="fa fa-gem">
-                                파운드 : 
+                                파운드 : <b><?php echo number_format($member['mb_point']);?></b>
                                 </i>
                                 </span>
                             </a>
@@ -75,7 +75,7 @@ if($member['mb_id']){
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "#">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_create.php">
                                 <span>
                                 <i class="fa fa-cubes">
                                 쿠폰지원
@@ -102,6 +102,7 @@ if($member['mb_id']){
                             </a>
                         </li>
                     </ul>
+                    <hr/>
 				</div>
 			</div>
 		</div>
@@ -115,8 +116,33 @@ if($member['mb_id']){
                         <div class="photo pull-left">
                             <i class="fa fa-user"></i>				</div>
                     </a>
-                </dd>      
-                <dt>출근부</dt><dd><span style="font-size:20px; font-weight:900"><a href="/bbs/write.php?w=u&amp;bo_table=lp_0130&amp;wr_id=127771"><font color="blue"><b><i class="fa fa-pencil-square-o"></i> 출근부 수정</b></font></a></span></dd>
+                </dd> 
+                <?php if( $member['mb_level'] == 26)
+				{ ?>     
+                <dt>출근부</dt><dd><span style="font-size:15px; font-weight:900">
+                <?php
+					$g5['connect_db'];
+					$result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
+					while ( $row=sql_fetch_array($result))
+					{
+						$bo_table = $row['bo_table'];
+						
+						$res = sql_fetch("select wr_id from ".$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}'");
+						
+						if($res){ 
+							//  odoogiin huudas undsen nuur huudas bnuu 
+						     if(defined('_INDEX_')) {?>    
+							<!-- <i class="far fa-edit" style="margin-right: 2px; border-color: #BFAF88"; ></i> -->			
+							<a href="./bbs/write.php?w=u&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>&page=" style="color: #BFAF88;" ><font color="blue"><b><i class="fa fa-pencil-square-o"></i> 업소정보 수정</b></font></a>
+					<?php break;}
+							 else{?>    
+								<!-- <i class="far fa-edit" style="margin-right: 2px; border-color: #BFAF88"; ></i> -->			
+								<a href="./write.php?w=u&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>&page=" style="color: #BFAF88;" ><font color="blue"><b><i class="fa fa-pencil-square-o"></i> 업소정보 수정</b></font></a>
+					<?php break;}
+								}	
+					}	 
+				}
+				?></span></dd>
             
             <dt>쿠폰</dt><dd><a href="//opssfriend.com/plugin/member_info/coupon.php"><i class="fa fa-paperclip"></i> <span class="hidden-xs">쿠폰</span></a></dd>
             <dt>지역-업종</dt><dd>태릉-휴게텔</dd><dt>제휴기간</dt><dd>2017-04-12 ~ 2020-12-19 - [ <a href="//opssfriend.com/bbs/board.php?bo_table=cus_0010" target="_blank"><font color="red"><b>3일 남음</b></font></a> ]</dd><dt>제휴 연장 안내</dt><dd><p>제휴기간이 조만간 마감될 예정이니 운영자쪽지 혹은</p>

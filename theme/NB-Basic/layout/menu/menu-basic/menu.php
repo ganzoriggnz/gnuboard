@@ -224,13 +224,13 @@ $is_col_all = 6;
 
 					</ul>
 				</div>
-				<div class="me-icon order-1 me-li<?php echo ($is_index) ? ' on' : ' on'; ?> menu_border" style="width:43px;">
+				<div class="me-icon order-1 me-li<?php echo ($is_index) ? ' on' : ' on'; ?>" style="width:43px; height:43px;">
 					<a href="<?php echo NT_HOME_URL ?>"  class="me-a f-md" title="메인화면">
 						<!-- <i class="fa fa-home" aria-hidden="true"></i> -->
 						<img src="<?php echo G5_URL?>/img/house.png" >
 					</a>
 				</div>
-				<div class="me-icon order-3 me-li on menu_border" style="width:43px;">
+				<div class="me-icon order-3 me-li on" style="width:43px; height:43px;">
 					<a href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" class="me-a f-md" title="마이메뉴">
 						<!-- <i class="fa fa-toggle-on" aria-hidden="true"></i> -->
 						<img src="<?php echo G5_URL?>/img/menu.png" >

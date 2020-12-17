@@ -84,9 +84,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 <?php } ?>
 
 <!-- hulan nemsen  -->
-<div class="side_cate" style="line-height: 45px; border-bottom:0; width: 235px; height: 45px; background-image: url('<?php echo G5_URL?>/img/sidebar_head.png'); clear: both;">
-    <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery" style="color: #D5BD79; font-size: 20px;">
-        <img src="<?php echo G5_URL?>/img/group_255.png" style="margin-left: 12px;">  제휴업체 전체보기</a>
+<div class="side_cate">
+    <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
+        <img src="<?php echo G5_URL?>/img/side_top_img.png"></a>
 </div>
     <br>
 

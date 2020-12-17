@@ -8,10 +8,10 @@ if( !isset($g5['member_table']) ){
 
 // 내용
 
-if (G5_IS_MOBILE) {
+/* if (G5_IS_MOBILE) {
     include_once(G5_MOBILE_PATH.'/userinfo.php');
     return;
-}
+} */
 
 include_once('./_head.php');
 ?>
