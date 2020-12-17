@@ -196,7 +196,7 @@ $is_col_all = 6;
 								</a>
 						    </li>
 							<li class="col p-0 me-li me-icon menu_border" style="width:43px;">
-							    <a class="me-a f-md en" href="#" target="_self" title="알림확인">
+							    <a class="me-a f-md en" href="http://210.114.18.63/bbs/noti.php" target="_self" title="알림확인">
 									<!--<i class="fa fa-bell" aria-hidden="true"></i>-->
 									<img src="http://210.114.18.63/img/baseline-notifications-24px.png" >
 								</a>

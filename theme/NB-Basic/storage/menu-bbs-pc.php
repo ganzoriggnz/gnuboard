@@ -723,20 +723,7 @@ $data=array (
     'id' => 'link',
     's' =>
     array (
-      0 =>
-      array (
-        'text' => '출석체크',
-        'href' => '3',
-        /* 'icon' => 'fa-users', */
-        'icon'  => 'chat-icon',
-        'target' => '_self',
-        'line' => '공지사항',
-        'sp' => '1',
-        'limit' => '',
-        'grade' => 0,
-        'id' => 'link',
-      ),
-      1 =>
+         0 =>
       array (
         'text' => '공지사항',
         'href' => 'http://210.114.18.63/bbs/board.php?bo_table=notice',
@@ -749,7 +736,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      2 =>
+      1 =>
       array (
         'text' => '가입 인사',
         'href' => 'http://localhost/gnuboard/bbs/board.php?bo_table=Greeting',
@@ -765,7 +752,7 @@ $data=array (
         'wr_id' => NULL,
         'sca' => NULL,
       ),
-      3 =>
+      2 =>
       array (
         'text' => '자유 게시판',
         'href' => 'http://210.114.18.63/bbs/board.php?bo_table=free',
@@ -778,7 +765,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      4 =>
+      3 =>
       array (
         'text' => ' 미수다(女)',
         'href' => 'http://210.114.18.63/bbs/board.php?bo_table=woman',
@@ -791,7 +778,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      5 =>
+      4 =>
       array (
         'text' => ' 이벤트',
         'href' => 'http://210.114.18.63/bbs/board.php?bo_table=event',
@@ -804,7 +791,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      6 =>
+      5 =>
       array (
         'text' => '쿠폰구매',
         'href' => '#',
@@ -817,7 +804,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      7 =>
+      6 =>
       array (
         'text' => '정모 게시판',
         'href' => '#',
@@ -830,7 +817,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      8 =>
+      7 =>
       array (
         'text' => '외성 게시판',
         'href' => '#',
@@ -843,7 +830,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      9 =>
+      8 =>
       array (
         'text' => '왕궁 게시판',
         'href' => 'http://210.114.18.63/bbs/board.php?bo_table=Palace',
@@ -856,7 +843,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      10 =>
+      9 =>
       array (
         'text' => '아이템샵',
         'href' => '#',
@@ -869,7 +856,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      11 =>
+      10 =>
       array (
         'text' => '건의사항',
         'href' => 'http://210.114.18.63/bbs/board.php?bo_table=Suggestions',
@@ -882,7 +869,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      12 =>
+      11 =>
       array (
         'text' => '트위터 인증',
         'href' => '#',

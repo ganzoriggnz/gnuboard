@@ -291,7 +291,7 @@ if ($is_member)
 
 
 
-			<?php if ($is_admin || ($is_member && $gr_id != "attendance") ) { ?>
+			<?php if ($is_admin ) { ?>
 				<?php if ($is_category) { ?>
 					<li class="list-group-item">
 						<div class="form-group row mb-0">

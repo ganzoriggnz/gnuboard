@@ -13,7 +13,7 @@ legend {position:absolute;margin:0;padding:0;font-size:0;line-height:0;text-inde
 label, input, button, select, img {vertical-align:middle}
 input, button {margin:0;padding:0;font-family:'Malgun Gothic',"맑은 고딕",AppleGothic,Dotum,"돋움", sans-serif;font-size:1em}
 button,input[type="submit"] {cursor:pointer}
-textarea, select {font-family:'Malgun Gothic',"맑은 고딕",AppleGothic,Dotum,"돋움", sans-serif;;font-size:1em}
+textarea, select {font-family:'Malgun Gothic',"맑은 고딕",AppleGothic,Dotum,"돋움", sans-serif;font-size:1em}
 select {margin:0}
 p {margin:0;padding:0;word-break:break-all}
 pre {overflow-x:scroll;font-size:1.1em}
@@ -39,7 +39,7 @@ h2{font-size: 1.083em;font-weight: bold;margin:10px 0}
 #tnb{float:right;padding:10px}
 #tnb ul:after{display:block;visibility:hidden;clear:both;content:""}
 #tnb li{float:left;position:relative;margin-left:3px}
-#tnb a{color:#fff;;padding:0 10px;display:block;line-height:30px;}
+#tnb a{color:#fff;padding:0 10px;display:block;line-height:30px;}
 #tnb .tnb_service{border-radius:3px;background:#4e5eb7;color:#fff;padding:0 10px;text-align:left;height:30px;line-height:30px;}
 #tnb .tnb_service:hover{background:#5969c3}
 #tnb  button{width:100px;;border:0;border-radius:3px;background:#4e5eb7;color:#fff;padding:0 30px 0 10px;text-align:left;height:30px;position:relative;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}

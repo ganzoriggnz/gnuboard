@@ -102,21 +102,23 @@ for ($i=0; $i < $list_cnt; $i++) {
             <div class="na-title" style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
 			<a href="<?php echo $list[$i]['href'] ?>" class="na-subject" style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;" <?php echo $target ?>>
 					<?php echo $wr_icon ?>
-					<?php echo $list[$i]['subject'] ?>
-				</a>
+					<?php echo $list[$i]['wr_4'] ?>
+				</a> 
                 <p style="font-weight: bold; overflow: hidden;"><?php
-	    global $g5;
-	    $link = $g5['connect_db'];
-	    $error=G5_DISPLAY_SQL_ERROR;
-	    $sql="select * from {$g5['member_table']} where mb_id = '{$list[$i]['mb_id']}'";
-	    $zzzzz = sql_query($sql);
-            if($zzzzz->num_rows > 0){
-				$publisher = $zzzzz->fetch_array(MYSQLI_ASSOC); echo $publisher['mb_addr1'].'</p><div style="display: flex; align-items: center; line-height: 1.5;">
-				<p>'.$publisher['mb_hp'].'</p> </div></div>  ';
+	    // global $g5;
+	    // $link = $g5['connect_db'];
+	    // $error=G5_DISPLAY_SQL_ERROR;
+	    // $sql="select * from {$g5['member_table']} where mb_id = '{$list[$i]['mb_id']}'";
+	    // $zzzzz = sql_query($sql);
+        //     if($zzzzz->num_rows > 0){
+		// 		$publisher = $zzzzz->fetch_array(MYSQLI_ASSOC); echo $publisher['mb_addr1'].'</p><div style="display: flex; align-items: center; line-height: 1.5;">
+		// 		<p>'.$publisher['mb_hp'].'</p> </div></div>  ';
 
-			}
-	    else {echo "false";}
-	?>
+		// 	}
+		// else {echo "false";}
+		echo $list[$i]['wr_3'] ?></p><div style="display: flex; align-items: center; line-height: 1.5;">
+	 		<p><?php echo $list[$i]['wr_2'] ?></p> </div></div>
+
         </div>
         <div style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('http://210.114.18.63/img/main_780.png'); width: 100%; height: 52px;">
             <div>

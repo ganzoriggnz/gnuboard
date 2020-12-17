@@ -1,6 +1,11 @@
 <?php
+// hulan nemsen
 if (!defined('_GNUBOARD_')) exit;
-
+define('G5_ADMIN_BBS_DIR',        'adm/bbs');
+define('G5_ADMIN_BBS_URL',        G5_URL.'/'.G5_ADMIN_BBS_DIR);
+define('G5_ADMIN_HTTP_BBS_URL',  https_url(G5_ADMIN_BBS_DIR, false));
+define('G5_ADMIN_HTTPS_BBS_URL', https_url(G5_ADMIN_BBS_DIR, true));
+// //////////////////////////////////////////////////////////////////ene hurtel 
 /*
 // 081022 : CSRF 방지를 위해 코드를 작성했으나 효과가 없어 주석처리 함
 if (!get_session('ss_admin')) {

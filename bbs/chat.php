@@ -2,7 +2,8 @@
             
  <?php
             include_once("_common.php");
-
+        if($member['mb_level'] >= 6) { // 레벨 6 이상 입장 가능
+            
             if (!function_exists('uchat_array2data')) {
                 function uchat_array2data($arr)
                 {
@@ -40,5 +41,6 @@
             ?>
             <script async src="//client.uchat.io/uchat.js"></script>
             <u-chat room='<?php echo $joinData['room']; ?>' user_data='<?php echo uchat_array2data($joinData); ?>' style="display:inline-block; width:500px; height:500px;"></u-chat>
-
+       <?php     }
+            else echo "채팅방 입장 권한 없습니다 " ; ?>
           <!--   //////////////////////////////////////////////////////////////// -->

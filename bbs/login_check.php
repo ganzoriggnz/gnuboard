@@ -86,6 +86,8 @@ if ($auto_login) {
     set_cookie('ck_auto', '', 0);
 }
 
+//$url = '/bbs/userinfo.php';
+
 if ($url) {
     // url 체크
     check_url_host($url, '', G5_URL, true);
@@ -99,7 +101,7 @@ if ($url) {
 
     // $_POST 배열변수에서 아래의 이름을 가지지 않은 것만 넘김
     $post_check_keys = array('mb_id', 'mb_password', 'x', 'y', 'url');
-    
+
     //소셜 로그인 추가
     if($is_social_login){
         $post_check_keys[] = 'provider';

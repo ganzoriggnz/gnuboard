@@ -53,6 +53,12 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 				}
 				?>
 				<!-- ////////////////////////////////////////// -->
+
+				<?php if( $member['mb_level'] > 17 && $member['mb_level'] < 23  )
+				{
+					echo "칭호 설정";
+
+				} ?> 
 				
 				<?php if ($is_admin == 'super' || $member['is_auth']) { ?>
 					<span class="na-bar"></span>
