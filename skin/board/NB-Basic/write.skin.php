@@ -221,7 +221,7 @@ if ($is_member)
 							<label class="col-md-2 col-form-label" for="$write['wr_3']">* 세부 지역</label>
 							<div class="col-md-7">
 								<?php echo $write['wr_3'] ?>
-								<a href="//210.114.18.63/bbs/member_confirm.php?url=register_form.php" target="_blank" style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
+								<a href="<?php echo G5_URL?>/bbs/member_confirm.php?url=register_form.php" target="_blank" style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
 									<i class="fa fa-map"></i><span>&nbsp;세부지역 변경</span></a>
 								<?php echo "  ※ 배너에 출력되는 주소 / 수정은 개인정보수정에서 가능 ( ex:서울 강남역 2번출구 )" ?>
 							</div>

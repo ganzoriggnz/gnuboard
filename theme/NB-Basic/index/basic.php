@@ -115,9 +115,9 @@ if ($nt_wing_path)
             include_once($search_skin_path . '/search.skin.php');
             ?>
 
-            <h3 class="h3 f-lg en"><img src="http://210.114.18.63/img/img-flag5-on.png">
+            <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
                 쿠폰 지원업소
-                <a href="http://210.114.18.63/bbs/board.php?bo_table=gallery">
+                <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
                     <span class="float-right">
                         <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> 쿠폰 지원업소 전체보기
                     </span>
@@ -129,10 +129,10 @@ if ($nt_wing_path)
                 <?php echo na_widget('basic-wr-gallery', 'gallery-1', 'bo_list=video ca_list=게임 rows=8'); ?>
             </div>
 
-            <h3 class="h3 f-lg en"><img src="http://210.114.18.63/img/img-flag5-on.png">
+            <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
 
                 신규 제휴 업소
-                <a href="http://210.114.18.63/bbs/board.php?bo_table=gallery">
+                <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
                     <span class="float-right">
                         <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> 신규 제휴업소 Best50 보기
                     </span>
@@ -147,7 +147,7 @@ if ($nt_wing_path)
 
                 <div style="position: fixed; bottom:0px; right:14px; z-index:9999">
 		<a onclick="window.open('/bbs/chat.php','채팅방참여','width=500,height=550,scrollbars=yes,top=10,left=100'); ">
-		<img src="http://210.114.18.63/img/chat.png" title=""></a>
+		<img src="<?php echo G5_URL?>/img/chat.png" title=""></a>
 
             </div>
 

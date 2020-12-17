@@ -84,16 +84,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 <?php } ?>
 
 <!-- hulan nemsen  -->
-<div class="side_cate" style="line-height: 45px; border-bottom:0; width: 235px; height: 45px; background-image: url('http://210.114.18.63/img/sidebar_head.png'); clear: both;">
-    <a href="http://210.114.18.63/bbs/board.php?bo_table=gallery" style="color: #D5BD79; font-size: 20px;">
-        <img src="http://210.114.18.63/img/group_255.png" style="margin-left: 12px;">  제휴업체 전체보기</a>
+<div class="side_cate" style="line-height: 45px; border-bottom:0; width: 235px; height: 45px; background-image: url('<?php echo G5_URL?>/img/sidebar_head.png'); clear: both;">
+    <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery" style="color: #D5BD79; font-size: 20px;">
+        <img src="<?php echo G5_URL?>/img/group_255.png" style="margin-left: 12px;">  제휴업체 전체보기</a>
 </div>
     <br>
 
     <!-- //////////////////////////////////////////////////// -->
     <ul class="sub-ul mb-3">
         <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">
-        <img src="http://210.114.18.63/img/img-flag5-on.png"> <?php echo $menu[0]['text']?>
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[0]['text']?>
         </li>
         <?php for ($i=0; $i < count($menu[0]['s']); $i++) {
             $me = $menu[0]['s'][$i];
@@ -124,7 +124,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 
     <ul class="sub-ul mb-3">
         <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 18px; padding-bottom: 2px;">
-        <img src="http://210.114.18.63/img/img-flag5-on.png"> <?php echo $menu[2]['text']?>
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[2]['text']?>
         </li>
         <?php for ($i=0; $i < count($menu[2]['s']); $i++) {
             $me = $menu[2]['s'][$i];
@@ -136,7 +136,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
                 <?php } ?>
                 <div class="col-6 m-0 px-0">
                     <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                       href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="http://210.114.18.63/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                       href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                     </a>
                 </div>
                 <?php if ($i%2==1) { ?>
@@ -152,7 +152,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 
     <ul class="sub-ul mb-3">
         <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 18px; padding-bottom: 2px;">
-        <img src="http://210.114.18.63/img/img-flag5-on.png"> <?php echo $menu[3]['text']?>
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[3]['text']?>
         </li>
         <?php for ($i=0; $i < count($menu[3]['s']); $i++) {
             $me = $menu[3]['s'][$i];
@@ -164,7 +164,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
             <?php } ?>
             <div class="col-6 m-0 px-0">
                         <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                              href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="http://210.114.18.63/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                              href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                         </a>
             </div>
             <?php if ($i%2==1) { ?>
@@ -180,7 +180,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 
     <ul class="sub-ul mb-3">
         <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 18px; padding-bottom: 2px;">
-        <img src="http://210.114.18.63/img/img-flag5-on.png"> <?php echo $menu[4]['text']?>
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[4]['text']?>
         </li>
         <?php for ($i=0; $i < count($menu[4]['s']); $i++) {
             $me = $menu[4]['s'][$i];
@@ -192,7 +192,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
             <?php } ?>
             <div class="col-6 m-0 px-0">
                         <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                              href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="http://210.114.18.63/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                              href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                         </a>
             </div>
             <?php if ($i%2==1) { ?>
@@ -208,7 +208,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 
     <ul class="sub-ul mb-3">
         <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 18px; padding-bottom: 2px;">
-        <img src="http://210.114.18.63/img/img-flag5-on.png"> <?php echo $menu[5]['text']?>
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[5]['text']?>
         </li>
         <?php for ($i=0; $i < count($menu[5]['s']); $i++) {
             $me = $menu[5]['s'][$i];
@@ -220,7 +220,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
             <?php } ?>
             <div class="col-6 m-0 px-0">
                 <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                   href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="http://210.114.18.63/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                   href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                 </a>
             </div>
             <?php if ($i%2==1) { ?>
@@ -236,7 +236,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 
     <ul class="sub-ul mb-3">
         <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 18px; padding-bottom: 2px;">
-        <img src="http://210.114.18.63/img/img-flag5-on.png"> <?php echo $menu[6]['text']?>
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[6]['text']?>
         </li>
         <?php for ($i=0; $i < count($menu[6]['s']); $i++) {
             $me = $menu[6]['s'][$i];
@@ -248,7 +248,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
             <?php } ?>
             <div class="col-6 m-0 px-0">
                 <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                   href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="http://210.114.18.63/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                   href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                 </a>
             </div>
             <?php if ($i%2==1) { ?>
@@ -318,7 +318,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 			<td style="width:50%; padding:10px;">
 
 				<li class="gnb_2da active">
-				<a href="//210.114.18.63/bbs/board.php?bo_table=work_board">
+				<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=work_board">
 				<i class="fa fa-heartbeat"></i>
 				실장 업무 게시판</a>
             </li>

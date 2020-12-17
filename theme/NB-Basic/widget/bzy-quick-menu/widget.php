@@ -16,63 +16,63 @@ global $config, $member, $is_member, $urlencode, $is_admin;
         <div style="padding: 0px 14px;">
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-keyboard_voice-24px.png" style="margin-right: 5px; border-color: #707070;" >
-                <a href="http://210.114.18.63/bbs/board.php?bo_table=notice" style="color: #BFAF88;">공지사항</a>
+                <img src="<?php echo G5_URL?>/img/baseline-keyboard_voice-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <a href= "<?php echo G5_URL?>/bbs/board.php?bo_table=notice" style="color: #BFAF88;">공지사항</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-import_contacts-24px.png" style="margin-right: 5px; border-color: #707070;" >
-                <a href="http://210.114.18.63/bbs/content.php?co_id=company" style="color: #BFAF88;">사이트안내</a>
+                <img src="<?php echo G5_URL?>/img/baseline-import_contacts-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <a href="<?php echo G5_URL?>/bbs/content.php?co_id=company" style="color: #BFAF88;">사이트안내</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-portrait-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <img src="<?php echo G5_URL?>/img/baseline-portrait-24px.png" style="margin-right: 5px; border-color: #707070;" >
                 <a href="#" style="color: #BFAF88;">회원검색</a>
             </div>
         </div>
         <div style="padding: 0px 14px;">
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-card_giftcard-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <img src="<?php echo G5_URL?>/img/baseline-card_giftcard-24px.png" style="margin-right: 5px; border-color: #707070;" >
                 <a href="#" style="color: #BFAF88;">아이템 샵</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-wc-24px.png" style="margin-right: 5px; border-color: #707070;" >
-                <a href="http://210.114.18.63/bbs/board.php?bo_table=event" style="color: #BFAF88;">이벤트모임</a>
+                <img src="<?php echo G5_URL?>/img/baseline-wc-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=event" style="color: #BFAF88;">이벤트모임</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-chat-24px.png" style="margin-right: 5px; border-color: #707070;" >
-                <a href="http://210.114.18.63/bbs/qalist.php?sca=%EC%A0%9C%ED%9C%B4%EB%AC%B8%EC%9D%98" style="color: #BFAF88;">제휴문의</a>
+                <img src="<?php echo G5_URL?>/img/baseline-chat-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <a href="<?php echo G5_URL?>/bbs/qalist.php?sca=%EC%A0%9C%ED%9C%B4%EB%AC%B8%EC%9D%98" style="color: #BFAF88;">제휴문의</a>
             </div>
         </div>
         <div style="padding: 0px 14px;">
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-adb-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <img src="<?php echo G5_URL?>/img/baseline-adb-24px.png" style="margin-right: 5px; border-color: #707070;" >
                 <a href="#" style="color: #BFAF88;">펫 기르기</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-ballot-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <img src="<?php echo G5_URL?>/img/baseline-ballot-24px.png" style="margin-right: 5px; border-color: #707070;" >
                 <a href="#" style="color: #BFAF88;">일일미션</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-forum-24px.png" style="margin-right: 5px; border-color: #707070;" >
-                <a href="http://210.114.18.63/bbs/board.php?bo_table=free" style="color: #BFAF88;">자유게시판</a>
+                <img src="<?php echo G5_URL?>/img/baseline-forum-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=free" style="color: #BFAF88;">자유게시판</a>
             </div>
         </div>
         <div style="padding: 0px 14px;">
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-swap_horizontal_circle-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <img src="<?php echo G5_URL?>/img/baseline-swap_horizontal_circle-24px.png" style="margin-right: 5px; border-color: #707070;" >
                 <a href="#" style="color: #BFAF88;">페니로전환</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="http://210.114.18.63/img/baseline-monetization_on-24.png" style="margin-right: 5px; border-color: #707070;" >
+                <img src="<?php echo G5_URL?>/img/baseline-monetization_on-24.png" style="margin-right: 5px; border-color: #707070;" >
                 <a href="#" style="color: #BFAF88;">페니구매</a>
             </div>
 

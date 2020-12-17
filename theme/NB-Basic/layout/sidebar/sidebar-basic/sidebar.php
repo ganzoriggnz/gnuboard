@@ -209,25 +209,25 @@ $menu_cnt = count($menu);
 		<div class="px-3">
 			<ul class="d-flex justify-content-between text-center f-de mt-3 mb-2">
 				<li>
-					<a href="http://210.114.18.63/bbs/board.php?bo_table=notice">
+					<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=notice">
 						<i class="fa fa-bullhorn circle light-circle normal" aria-hidden="true"></i>
 						<span class="d-block mt-2">공지사항</span>
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo G5_BBS_URL; ?>/current_connect.php">
+					<a href="<?php echo G5_BBS_URL?>/content.php?co_id=company">
 						<i class="fas fa-atlas circle light-circle normal" aria-hidden="true"></i>
 						<span class="d-block mt-2">사이트안내</span>
 					</a>
 				</li>
 				<li>
-					<a href="http://210.114.18.63/bbs/board.php?bo_table=event">
+					<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=event">
 						<i class="fas fa-glass-cheers circle light-circle normal" aria-hidden="true"></i>
 						<span class="d-block mt-2">이벤트/모임</span>
 					</a>
 				</li>
 				<li>
-					<a href="http://210.114.18.63/bbs/qalist.php">
+					<a href="<?php echo G5_BBS_URL?>/qalist.php">
 						<i class="fas fa-handshake circle light-circle normal" aria-hidden="true"></i>
 						<span class="d-block mt-2">1:1 문의</span>
 					</a>

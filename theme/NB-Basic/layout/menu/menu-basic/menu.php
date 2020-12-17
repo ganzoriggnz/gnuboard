@@ -30,16 +30,16 @@ $is_col_all = 6;
 
 	<!-- Mobile Header -->
 	<header id="header_mo" class="d-block d-md-none">
-		<div class="px-sm-4" style="background-image:url('http://210.114.18.63/img/mpath_6382.png'), url('http://210.114.18.63/img/mgrid_12.png'); max-height: 44px;">
+		<div class="px-sm-4" style="background-image:url('<?php echo G5_URL?>/img/mpath_6382.png'), url('<?php echo G5_URL?>/img/mgrid_12.png'); max-height: 44px;">
 			<!-- <h3 class="clearfix text-center f-mo font-weight-bold en"> -->
 				<a href="<?php echo NT_HOME_URL ?>" class="float-left">
 					<!-- <i class="fa fa-home text-white" aria-hidden="true"></i> -->
-					<img src="http://210.114.18.63/img/group_306.png">
+					<img src="<?php echo G5_URL?>/img/group_306.png">
 					<span class="sr-only">메뉴</span>
 				</a>
 				<a href="javascript:;" onclick="sidebar_open('sidebar-menu');" class="float-right">
 					<!-- <?php echo $tset['logo_text'] ?>  -->
-					<img src="http://210.114.18.63/img/group_305.png">
+					<img src="<?php echo G5_URL?>/img/group_305.png">
 				</a>
 				<div style="display: flex;">
 					<img style="margin-top: 5px; margin-right: auto; margin-left: auto;" id="logo_img3" src="<?php echo $tset['logo_img3'] ?>" alt="<?php echo get_text($config['cf_title']) ?>" >
@@ -92,7 +92,7 @@ $is_col_all = 6;
 					?>
 						<li class="nav-item dropdown col p-0 me-li<?php echo ($me['on']) ? ' on' : ''; ?> menu_border">
 							<a data-toggle="dropdown" class="me-a f-md en nav-link <?php echo count($me['s'])>1 ? ' dropdown-toggle' : ''; ?>" href="<?php echo $me['href'];?>" target="<?php echo $me['target'];?>">
-								<img src="http://210.114.18.63/img/<?php echo $me['icon'] ?>.png" style="margin-left: 3.3px;">
+								<img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" style="margin-left: 3.3px;">
 								<?php echo $me['text'];?>
 							</a>
 							<?php if(isset($me['s'])) { //Is Sub Menu ?>
@@ -108,7 +108,7 @@ $is_col_all = 6;
 										<li class="dropdown-submenu sub-1dli<?php echo ($me1['on']) ? ' on' : ''; ?>" style="flex:1;">
 											<a href="<?php echo $me1['href'];?>" data-toggle="dropdown" class="dropdown-item <?php echo count($me1['s'])>1 ? ' dropdown-toggle' : ''?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : '';?>" target="<?php echo $me1['target'];?>">
 												<!-- <i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i> -->
-												<img src="http://210.114.18.63/img/<?php echo $me1['icon'] ?>.png" >
+												<img src="<?php echo G5_URL?>/img/<?php echo $me1['icon'] ?>.png" >
 												<?php echo $me1['text'];?>
 											</a>
 											<?php if(isset($me1['s'])) { // Is Sub Menu ?>
@@ -131,7 +131,7 @@ $is_col_all = 6;
 														<li class="sub-2dli<?php echo ($me2['on']) ? ' on' : ''; ?>">
 															<a href="<?php echo $me2['href'] ?>" class="dropdown-item me-sh sub-2da" target="<?php echo $me2['target'] ?>">
 																<!-- <i class="fa <?php echo $me2['icon'] ?> fa-fw" aria-hidden="true"></i> -->
-																<img src="http://210.114.18.63/img/<?php echo $me2['img'] ?>.png" >
+																<img src="<?php echo G5_URL?>/img/<?php echo $me2['img'] ?>.png" >
 																<?php echo $me2['text'];?>
 															</a>
 														</li>
@@ -158,25 +158,25 @@ $is_col_all = 6;
                             <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
 							    <a class="me-a f-md en" href="#" target="_self" title="텔레그램채널">
 									<!--<i class="fa fa-paper-plane-o" aria-hidden="true"></i>-->
-									<img src="http://210.114.18.63/img/twitter.png" >
+									<img src="<?php echo G5_URL?>/img/twitter.png" >
 								</a>
 							</li>
                             <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
 							    <a class="me-a f-md en" href="#" target="_self" title="주소변경공지">
 									<!--<i class="fa fa-wikipedia-w" aria-hidden="true"></i>-->
-									<img src="http://210.114.18.63/img/baseline-input-24px.png" >
+									<img src="<?php echo G5_URL?>/img/baseline-input-24px.png" >
 								</a>
                         	</li>
                             <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
 							    <a class="me-a f-md en" href="#" target="_self" title="트위터">
 									<!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
-									<img src="http://210.114.18.63/img/twitter.png" >
+									<img src="<?php echo G5_URL?>/img/twitter.png" >
 								</a>
 							</li>
                             <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
-							    <a class="me-a f-md en" href="http://210.114.18.63/?device=mobile" target="_self" title="모바일로 보기">
+							    <a class="me-a f-md en" href="<?php echo G5_URL?>/?device=mobile" target="_self" title="모바일로 보기">
 									<!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
-									<img src="http://210.114.18.63/img/baseline-person-24px.png" >
+									<img src="<?php echo G5_URL?>/img/baseline-person-24px.png" >
 								</a>
 							</li>
 
@@ -184,7 +184,7 @@ $is_col_all = 6;
 
 							<!-- 로그인 후 메뉴 -->
                             <!--<li class="col p-0 me-li">
-    							<a class="me-a f-md en" href="http://210.114.18.63/bbs/mypage.php" target="_self" title="마이페이지">
+    							<a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/mypage.php" target="_self" title="마이페이지">
 									<i class="fa fa-user-o" aria-hidden="true"></i>
 									<img src="http://localhost/gnuboard/img/twitter.png" >
 		    					</a>
@@ -192,31 +192,31 @@ $is_col_all = 6;
                             <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
 							    <a class="me-a f-md en" href="#" target="_self" title="검색">
 									<!--<i class="fa fa-search" aria-hidden="true"></i>-->
-									<img src="http://210.114.18.63/img/icon_search.png" >
+									<img src="<?php echo G5_URL?>/img/icon_search.png" >
 								</a>
 						    </li>
 							<li class="col p-0 me-li me-icon menu_border" style="width:43px;">
-							    <a class="me-a f-md en" href="http://210.114.18.63/bbs/noti.php" target="_self" title="알림확인">
+							    <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/noti.php" target="_self" title="알림확인">
 									<!--<i class="fa fa-bell" aria-hidden="true"></i>-->
-									<img src="http://210.114.18.63/img/baseline-notifications-24px.png" >
+									<img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png" >
 								</a>
 						    </li>
 							<li class="col p-0 me-li me-icon menu_border" style="width:43px;">
 							    <a class="me-a f-md en" href="#" target="_self" title="쪽지">
 									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-									<img src="http://210.114.18.63/img/baseline-email-24px.png" >
+									<img src="<?php echo G5_URL?>/img/baseline-email-24px.png" >
 								</a>
 						    </li>
 							<li class="col p-0 me-li me-icon menu_border" style="width:43px;">
 							    <a class="me-a f-md en" href="#" target="_self" title="앱스토어 바로가기">
 									<!--<i class="fa fa-app-store" aria-hidden="true"></i>-->
-									<img src="http://210.114.18.63/img/baseline-person-add-24px.png" >
+									<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" >
 								</a>
 						    </li>
 							<li class="col p-0 me-li me-icon menu_border" style="width:43px;">
 							    <a class="me-a f-md en" href="#" target="_self" title="친구등록">
 									<!--<i class="fas fa-atlas" aria-hidden="true"></i>-->
-									<img src="http://210.114.18.63/img/icon_setting.png" >
+									<img src="<?php echo G5_URL?>/img/icon_setting.png" >
 								</a>
 						    </li>
                         </div>
@@ -227,13 +227,13 @@ $is_col_all = 6;
 				<div class="me-icon order-1 me-li<?php echo ($is_index) ? ' on' : ' on'; ?> menu_border" style="width:43px;">
 					<a href="<?php echo NT_HOME_URL ?>"  class="me-a f-md" title="메인화면">
 						<!-- <i class="fa fa-home" aria-hidden="true"></i> -->
-						<img src="http://210.114.18.63/img/house.png" >
+						<img src="<?php echo G5_URL?>/img/house.png" >
 					</a>
 				</div>
 				<div class="me-icon order-3 me-li on menu_border" style="width:43px;">
 					<a href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" class="me-a f-md" title="마이메뉴">
 						<!-- <i class="fa fa-toggle-on" aria-hidden="true"></i> -->
-						<img src="http://210.114.18.63/img/menu.png" >
+						<img src="<?php echo G5_URL?>/img/menu.png" >
 					</a>
 				</div>
 			</div>

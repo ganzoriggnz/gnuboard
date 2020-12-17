@@ -18,7 +18,7 @@ $data=array (
       0 =>
       array (
         'text' => '오피-강남영토',
-        'href' => 'http://210.114.18.63/bbs/board.php?bo_table=opiGangnam_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opiGangnam_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',

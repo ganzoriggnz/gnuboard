@@ -134,14 +134,14 @@ for ($i=0; $i < $list_cnt; $i++) {
             <span class="sr-only">등록자</span>
             <span class="sv_wrap">
                 <span class="sv">
-                    <a href="http://210.114.18.63/bbs/memo_form.php?me_recv_mb_id=user1" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-                    <a href="http://210.114.18.63/bbs/profile.php?mb_id=user1" onclick="win_profile(this.href); return false;">자기소개</a>
-                    <a href="http://210.114.18.63/bbs/new.php?mb_id=user1" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+                    <a href="<?php echo G5_BBS_URL ?>/memo_form.php?me_recv_mb_id=user1" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+                    <a href="<?php echo G5_BBS_URL ?>/profile.php?mb_id=user1" onclick="win_profile(this.href); return false;">자기소개</a>
+                    <a href="<?php echo G5_BBS_URL ?>/new.php?mb_id=user1" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
                 </span>
                 <noscript class="sv_nojs"><span class="sv">
-                    <a href="http://210.114.18.63/bbs/memo_form.php?me_recv_mb_id=user1" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-                    <a href="http://210.114.18.63/bbs/profile.php?mb_id=user1" onclick="win_profile(this.href); return false;">자기소개</a>
-                    <a href="http://210.114.18.63/bbs/new.php?mb_id=user1" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+                    <a href="<?php echo G5_BBS_URL ?>/memo_form.php?me_recv_mb_id=user1" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+                    <a href="<?php echo G5_BBS_URL ?>/profile.php?mb_id=user1" onclick="win_profile(this.href); return false;">자기소개</a>
+                    <a href="<?php echo G5_BBS_URL ?>/new.php?mb_id=user1" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
                 </span>
                 </noscript>
             </span>

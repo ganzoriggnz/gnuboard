@@ -27,7 +27,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$search_skin_url.'/style.css">', 
     <span class="sch_wr"> -->
     <div style="clear: both; margin: 10px auto 10px auto; text-align: center;">
         <input type="text" name="stx" value="<?php echo $text_stx ?>" id="stx" required="" placeholder="지역 이나 특정한 지명 또는 업소명을 입력하세요" style="display: inline-block; outline:0; width: 389px; height: 26px;" size="40">
-        <button type="submit" class="btn_submit" style="display: inline-block; outline: 0; position: relative; width: 62px; height: 26px;"><img src="http://210.114.18.63/img/btn_search.png" style="position: absolute; top: 6.5px; left: 24.5px;"></button>
+        <button type="submit" class="btn_submit" style="display: inline-block; outline: 0; position: relative; width: 62px; height: 26px;"><img src="<?php echo G5_URL?>/img/btn_search.png" style="position: absolute; top: 6.5px; left: 24.5px;"></button>
 </div>
     <!-- </span> -->
 

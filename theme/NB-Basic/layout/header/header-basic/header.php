@@ -7,7 +7,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_header_url.'/header.css">', 0
 ?>
 
 <!-- PC Header -->
-<header id="header_pc" class="d-none d-md-block" style="background-image:url('http://210.114.18.63/img/path_6382.png'), url('http://210.114.18.63/img/grid_12.png');">
+<header id="header_pc" class="d-none d-md-block" style="background-image:url('<?php echo G5_URL?>/img/path_6382.png'), url('<?php echo G5_URL?>/img/grid_12.png');">
 	<div class="nt-container py-4 px-3 px-sm-4 px-xl-0">
 		<div class="d-flex">
 			<div class="align-self-center pr-4">
