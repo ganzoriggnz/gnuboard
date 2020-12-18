@@ -6,8 +6,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$search_skin_url.'/style.css">', 
 ?>
 
 <!-- 전체검색 시작 { -->
-<div style="background-color: #E1E1E1; border: 1px solid #D5D5D5; width: 100%; height: 49px; margin-bottom: 25px;">
-<form name="fsearch" onsubmit="return fsearch_submit(this);" method="get">
+<div class="sch_div mb-3">
+<form name="fsearch" onsubmit="return fsearch_submit(this);" method="get" class="m-auto" style="max-width:451px;"> 
 <input type="hidden" name="srows" value="<?php echo $srows ?>">
 <!-- <fieldset id="sch_res_detail">
     <legend>상세검색</legend>
@@ -25,12 +25,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$search_skin_url.'/style.css">', 
 
     <!-- <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
     <span class="sch_wr"> -->
-    <div style="clear: both; margin: 10px auto 10px auto; text-align: center;">
-        <input type="text" name="stx" value="<?php echo $text_stx ?>" id="stx" required="" placeholder="지역 이나 특정한 지명 또는 업소명을 입력하세요" style="display: inline-block; outline:0; width: 389px; height: 26px;" size="40">
-        <button type="submit" class="btn_submit" style="display: inline-block; outline: 0; position: relative; width: 62px; height: 26px;"><img src="<?php echo G5_URL?>/img/btn_search.png" style="position: absolute; top: 6.5px; left: 24.5px;"></button>
-</div>
+            <div class="input-group">
+				<input type="text" name="stx" value="<?php echo $text_stx ?>" id="stx" required="" class="form-control sch_input" maxlength="15" placeholder="지역 이나 특정한 지명 또는 업소명을 입력하세요">
+				<div class="input-group-append">
+					<button type="submit" class="sch_btn" title="검색하기">
+                    <img src="<?php echo G5_URL?>/img/btn_search.png">
+					<span class="sr-only">검색하기</span>
+					</button>
+				</div>
+			</div>
     <!-- </span> -->
-
     <script>
     function fsearch_submit(f)
     {

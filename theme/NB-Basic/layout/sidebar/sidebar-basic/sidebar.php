@@ -166,7 +166,7 @@ $menu_cnt = count($menu);
 			<div class="btn-group w-100" role="group">
 					<a class="btn btn-primary text-white rounded-0" href="<?php echo G5_BBS_URL ?>/login.php?url=<?php echo $urlencode ?>">
 						<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-						<b>로그인</b> 해주세요.
+						<b>로그인</b>
 					</a>
 					<a class="btn btn-primary" href="<?php echo G5_BBS_URL ?>/register.php">
 						회원가입

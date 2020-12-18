@@ -160,10 +160,15 @@ if ($category_option) {
 					<span class="sr-only">검색</span>
 				</button>
 				<?php if ($write_href) { ?>
-					<a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="문의 등록" rolo="button">
+					<!-- <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="문의 등록" rolo="button">
 						<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 						<span class="sr-only">문의 등록</span>
-					</a>
+					</a> -->
+					<div id="btn_write">		
+						<button type="button" class="btn_bbs" onclick="location.href='<?php echo $write_href ?>'">
+								<i class="fas fa-pencil-alt"></i> 문의 등록
+						</button>
+					</div>
 				<?php } ?>
 			</div>
 		</div>

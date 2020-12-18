@@ -8,7 +8,9 @@ $qaconfig = get_qa_config();
 
 $g5['title'] = $qaconfig['qa_title'];
 include_once('./qahead.php');
-
+?>
+<div id="bo_v">
+<?php
 $skin_file = $qa_skin_path.'/list.skin.php';
 
 $category_option = '';
@@ -119,6 +121,8 @@ if(is_file($skin_file)) {
 } else {
     echo '<div>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</div>';
 }
-
+?>
+</div>
+<?php
 include_once('./qatail.php');
 ?>

@@ -90,7 +90,7 @@ $is_col_all = 6;
 					<?php for ($i=0; $i < $menu_cnt; $i++) {
 						$me = $menu[$i];
 					?>
-						<li class="nav-item dropdown col p-0 me-li<?php echo ($me['on']) ? ' on' : ''; ?> menu_border">
+						<li class="nav-item dropdown col p-0 me-li<?php echo ($me['on']) ? ' on' : ''; ?> right_border">
 							<a data-toggle="dropdown" class="me-a f-md en nav-link <?php echo count($me['s'])>1 ? ' dropdown-toggle' : ''; ?>" href="<?php echo $me['href'];?>" target="<?php echo $me['target'];?>">
 								<img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" style="margin-left: 3.3px;">
 								<?php echo $me['text'];?>
@@ -155,25 +155,25 @@ $is_col_all = 6;
 						</li>
 					<?php } ?>
                         <div style="display: flex; flex-direction: row; justify-content: space-between; width: 27.3691%;">
-                            <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
+                            <li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="#" target="_self" title="텔레그램채널">
 									<!--<i class="fa fa-paper-plane-o" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/twitter.png" >
 								</a>
 							</li>
-                            <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
+                            <li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="#" target="_self" title="주소변경공지">
 									<!--<i class="fa fa-wikipedia-w" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-input-24px.png" >
 								</a>
                         	</li>
-                            <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
+                            <li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="#" target="_self" title="트위터">
 									<!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/twitter.png" >
 								</a>
 							</li>
-                            <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
+                            <li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="<?php echo G5_URL?>/?device=mobile" target="_self" title="모바일로 보기">
 									<!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-person-24px.png" >
@@ -189,31 +189,31 @@ $is_col_all = 6;
 									<img src="http://localhost/gnuboard/img/twitter.png" >
 		    					</a>
 							</li>-->
-                            <li class="col p-0 me-li me-icon menu_border" style="width:43px;">
+                            <li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="#" target="_self" title="검색">
 									<!--<i class="fa fa-search" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/icon_search.png" >
 								</a>
 						    </li>
-							<li class="col p-0 me-li me-icon menu_border" style="width:43px;">
+							<li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/noti.php" target="_self" title="알림확인">
 									<!--<i class="fa fa-bell" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png" >
 								</a>
 						    </li>
-							<li class="col p-0 me-li me-icon menu_border" style="width:43px;">
+							<li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="#" target="_self" title="쪽지">
 									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-email-24px.png" >
 								</a>
 						    </li>
-							<li class="col p-0 me-li me-icon menu_border" style="width:43px;">
+							<li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="#" target="_self" title="앱스토어 바로가기">
 									<!--<i class="fa fa-app-store" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" >
 								</a>
 						    </li>
-							<li class="col p-0 me-li me-icon menu_border" style="width:43px;">
+							<li class="col p-0 me-li me-icon right_border_red">
 							    <a class="me-a f-md en" href="#" target="_self" title="친구등록">
 									<!--<i class="fas fa-atlas" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/icon_setting.png" >
@@ -224,13 +224,13 @@ $is_col_all = 6;
 
 					</ul>
 				</div>
-				<div class="me-icon order-1 me-li<?php echo ($is_index) ? ' on' : ' on'; ?>" style="width:43px; height:43px;">
+				<div class="me-icon order-1 me-li<?php echo ($is_index) ? ' on' : ' on'; ?>" style="width:43px;">
 					<a href="<?php echo NT_HOME_URL ?>"  class="me-a f-md" title="메인화면">
 						<!-- <i class="fa fa-home" aria-hidden="true"></i> -->
 						<img src="<?php echo G5_URL?>/img/house.png" >
 					</a>
 				</div>
-				<div class="me-icon order-3 me-li on" style="width:43px; height:43px;">
+				<div class="me-icon order-3 me-li on" style="width:43px;">
 					<a href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" class="me-a f-md" title="마이메뉴">
 						<!-- <i class="fa fa-toggle-on" aria-hidden="true"></i> -->
 						<img src="<?php echo G5_URL?>/img/menu.png" >

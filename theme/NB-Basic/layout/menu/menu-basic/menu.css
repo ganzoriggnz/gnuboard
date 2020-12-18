@@ -164,11 +164,13 @@
 	top:0;
 }
 
-.menu_border {
-	border-top: 1px solid #D5D5D5;
+.right_border {
 	border-right: 0.5px solid #D5D5D5;
-
 }
+.right_border_red {
+	border-right: 0.5px solid #e73d2f;
+}
+
 
 .dropdown-submenu {
 	position: relative;
@@ -178,3 +180,5 @@
 	top: 0;
 	left: 100%;
 }
+
+

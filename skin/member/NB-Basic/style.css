@@ -65,7 +65,7 @@
 	border-color: #e4c980;
   }
 
-  #user_cate {margin: 0 25px;} 
+#user_cate {margin: 0 25px;} 
 #user_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #user_cate ul {zoom:1}
 #user_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
