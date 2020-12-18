@@ -1,7 +1,7 @@
 <?php
-if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+//if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 include_once('./_common.php');
-include_once($board_skin_path.'/config.php');
+//include_once($board_skin_path.'/config.php');
 //필요한 전역변수 선언
 global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 

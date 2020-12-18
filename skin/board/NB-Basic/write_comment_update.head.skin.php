@@ -53,5 +53,6 @@ if ( $w != 'cu'  && !$is_admin && $member['mb_level'] != 26 ) {
 }
 ////////////////////////////////////////////////
 
+include_once(G5_EXTEND_PATH.'/check_period.php');
 
 ?>

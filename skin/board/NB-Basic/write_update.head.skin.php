@@ -51,4 +51,6 @@ if($w == '' && $is_subject) {
 	$wr_subject = na_cut_text($wr_content, 40); // 글내용 40자 자르기
 }
 $config['cf_delay_sec'] = 600;   // 원글 쓰기 간격 
+
+include_once(G5_EXTEND_PATH.'/check_period.php');
 ?>
