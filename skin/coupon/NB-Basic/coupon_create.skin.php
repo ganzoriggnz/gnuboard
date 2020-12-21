@@ -30,7 +30,7 @@ if($member['mb_id']){
 				<div id="user_cate_list" class="sly-wrap flex-grow-1">
 					<ul id="user_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
 						<li>
-                            <a class="py2 px-3" href= <?php echo G5_BBS_PATH.'/userinfo.php' ?> >
+                            <a class="py2 px-3" href= <?php echo G5_BBS_URL.'/userinfo.php' ?> >
                                 <span>
                                 <i class="fa fa-user">
                                 회원정보
@@ -75,7 +75,7 @@ if($member['mb_id']){
                             </a>
                         </li>
                         <li class="active">
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_PATH.'/coupon_create.php' ?>">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL.'/coupon_create.php' ?>">
                                 <span>
                                 <i class="fa fa-cubes">
                                 쿠폰지원

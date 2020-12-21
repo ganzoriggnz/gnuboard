@@ -86,7 +86,7 @@ if ($auto_login) {
     set_cookie('ck_auto', '', 0);
 }
 
-//$url = G5_URL.'/bbs/userinfo.php';
+$url = G5_URL.'/bbs/userinfo.php';
 
 if ($url) {
     // url 체크
