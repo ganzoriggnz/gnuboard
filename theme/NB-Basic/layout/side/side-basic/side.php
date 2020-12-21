@@ -104,13 +104,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
                 <div>
                     <?php echo $me['text'];?>
 
-                    <a class="cat_1_bg <?php echo ($menu[1]['s'][$i]['active']) ? ' active' : ''?>"
+                    <!-- <a class="cat_1_bg <?php echo ($menu[1]['s'][$i]['active']) ? ' active' : ''?>"
                        href="<?php echo $menu[1]['s'][$i]['href']; ?>"
                        target="_<?php echo $me['me_target']; ?>">
                         후기
                     </a>
                     <a class="cat_2_bg <?php echo ($me['active']) ? ' active' : ''?>"
                        href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>">정보
+                    </a> -->
+                    <a class="cat_1_bg"
+                       href="<?php echo $menu[1]['s'][$i]['href']; ?>"
+                       target="_self">
+                        후기
+                    </a>
+                    <a class="cat_2_bg"
+                       href="<?php echo $me['href']; ?>" target="_self">정보
                     </a>
                 </div>
             </li>
@@ -135,8 +143,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
                 <?php if(isset($me['s'])) { //Is Sub Menu ?>
                 <?php } ?>
                 <div class="col-6 m-0 px-0">
-                    <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                    <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                        href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                    </a> -->
+                    <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                       href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                     </a>
                 </div>
                 <?php if ($i%2==1) { ?>
@@ -163,8 +174,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
             <?php if(isset($me['s'])) { //Is Sub Menu ?>
             <?php } ?>
             <div class="col-6 m-0 px-0">
-                        <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                        <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                               href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                        </a> -->
+                        <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                              href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                         </a>
             </div>
             <?php if ($i%2==1) { ?>
@@ -191,8 +205,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
             <?php if(isset($me['s'])) { //Is Sub Menu ?>
             <?php } ?>
             <div class="col-6 m-0 px-0">
-                        <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                        <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                               href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                        </a> -->
+                        <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                              href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                         </a>
             </div>
             <?php if ($i%2==1) { ?>
@@ -219,8 +236,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
             <?php if(isset($me['s'])) { //Is Sub Menu ?>
             <?php } ?>
             <div class="col-6 m-0 px-0">
-                <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                    href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                </a> -->
+                <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                   href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                 </a>
             </div>
             <?php if ($i%2==1) { ?>
@@ -247,8 +267,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
             <?php if(isset($me['s'])) { //Is Sub Menu ?>
             <?php } ?>
             <div class="col-6 m-0 px-0">
-                <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                    href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
+                </a> -->
+                <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                   href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                 </a>
             </div>
             <?php if ($i%2==1) { ?>
