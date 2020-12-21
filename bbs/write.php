@@ -280,7 +280,7 @@ if($member['mb_level'] == 26 && $gr_id == 'attendance') {
 
 $is_category = false;
 $category_option = '';
-if ($board['bo_use_category'] ) {
+if ($board['bo_use_category'] && $member['mb_level'] !== 26) {
     $ca_name = "";
     if (isset($write['ca_name']))
         $ca_name = $write['ca_name'];

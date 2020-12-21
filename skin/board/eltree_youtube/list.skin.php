@@ -118,7 +118,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 <div class="bo_tit">
 
                   <?php
-                    $tmp_wr_link1 = explode("https://youtu.be/", $list[$i][wr_link1]);
+                    $tmp_wr_link1 = explode("https://youtu.be/", $list[$i]['wr_link1']);
 
                   // 본문내용
                     $str_content = cut_str(nl2br(strip_tags($list[$i]['wr_content'])), $board['bo_1']);

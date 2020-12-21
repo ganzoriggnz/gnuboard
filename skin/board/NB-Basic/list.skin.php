@@ -95,7 +95,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 		<input type="hidden" name="sod" value="<?php echo $sod ?>">
 		<input type="hidden" name="page" value="<?php echo $page ?>">
 		<input type="hidden" name="sw" value="">
-		<?php if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" )       // hulan nemsen 1 mur  door haalt ni bgaa
+		<?php if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")       // hulan nemsen 1 mur  door haalt ni bgaa bichih zereg haragdahgui bhaar 
 		{ ?>
 		
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
@@ -233,7 +233,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 		<!-- 게시물 목록 시작 { -->
 		<?php
 
-		if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist")  //  hulan nemsen 1 mur 
+		if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")  //  hulan nemsen 1 mur 
 			// 목록스킨
 			if (is_file($list_skin_path . '/list.skin.php')) {
 				
@@ -245,7 +245,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 		<!-- } 게시물 목록 끝 -->
 
 
-		<?php if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist") { ?>  <!--  hulan nemsen 1 mur -->
+		<?php if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>  <!--  hulan nemsen 1 mur -->
 		<!-- 페이지 시작 { -->
 		<div class="font-weight-normal px-3 px-sm-0">
 			<ul class="pagination justify-content-center en mb-0">
@@ -354,3 +354,4 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 <?php if ($bo_table == "boardadmlist") {
 	include_once($board_skin_path . '/boardadmlist.php');
 } ?>
+

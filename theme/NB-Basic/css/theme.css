@@ -176,7 +176,7 @@ a.btn02:focus, .btn02:hover {text-decoration:none}
 button.btn02 {display:inline-block;margin:0;border:1px solid #3b3c3f;background:#4b545e;color:#fff;text-decoration:none}
 
 .btn_confirm {text-align:center}
-.btn_submit { border:0; background:#E73D2F; color:#fff; cursor:pointer; padding:10px 0px; line-height:1.4; }
+.btn_submit { border:0; background:#e6dcc1; color:#fff; cursor:pointer; padding:10px 0px; line-height:1.4; }
 .btn_submit:hover {background:#c97a75}
 .btn_close { border:1px solid #dcdcdc; cursor:pointer; border-radius:3px; background:#fff }
 a.btn_close { }

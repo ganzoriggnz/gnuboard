@@ -252,7 +252,8 @@ if ($is_member)
 						</div>
 					</li>
 				<?php } ?>
-
+					 
+				<!-- level 26 zasah deer garah shaardlagagui admin page deer garad admin utga oruulj uguh -->
 				<?php if ($is_cat_name) { ?>
 					<li class="list-group-item">
 						<div class="form-group row mb-0">

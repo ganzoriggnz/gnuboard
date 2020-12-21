@@ -53,7 +53,7 @@ if ($member['mb_level'] < 23 && $member['mb_id']) {
 <tbody>
 <?php
 $rank_rows = 100; //출력 수
-$sql = " select * from {$g5[member_table]} where mb_point > '{$row[mb_point]}' {$sql_common} order by mb_point desc, mb_today_login desc limit {$rank_rows} ";
+$sql = " select * from {$g5['member_table']} where mb_point > '{$row['mb_point']}' {$sql_common} order by mb_point desc, mb_today_login desc limit {$rank_rows} ";
 $result = sql_query($sql);
 
 for ($i=0; $row=sql_fetch_array($result); $i++) {

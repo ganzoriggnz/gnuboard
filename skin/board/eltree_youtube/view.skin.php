@@ -90,7 +90,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	    </div>
 
   <?php
-  $tmp_wr_link1 = explode("https://youtu.be/", $view[wr_link1]);
+  $tmp_wr_link1 = explode("https://youtu.be/", $view['wr_link1']);
   //$prn_wr_link1 = $tmp_wr_link1[1];
   ?>
   <div style="padding-bottom:12px; text-align:center;">

@@ -86,16 +86,17 @@ for ($i=0; $i < $list_cnt; $i++) {
 
 
 <li class="col px-2 pb-4" style="width: 229px; height: 280px;">
+
     <div style="background-image:url('http://210.114.18.63/img/main_bgpicture.png')" style="height: 148px;">
         <div>
             <div class="img-wrap bg-light mb-2">
-                <div class="img-item">
+                <div class="img-item" >
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
 						<?php if($thumb) { ?>
 							<img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
-						<?php } ?>
+							<?php } ?>
 					</a>
                 </div>
             </div>
