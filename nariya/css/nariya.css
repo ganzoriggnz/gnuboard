@@ -264,12 +264,3 @@ i.orangered { color: orangered; }
         opacity: 1;
     }
 }
-
-#bo_list_wrap, #bo_v {
-    background: #fff;
-}
-
-.btn_bbs {
-    margin-top:2px;color:#fff;background:#cfb56ed0; border:none;
-}
-

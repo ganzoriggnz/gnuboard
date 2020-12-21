@@ -14,7 +14,7 @@ $data=array (
   'na_gcancel' => '',
   'na_gtimes' => '',
   'editor_mo' => '',
-  'na_shingo' => '',
+  'na_shingo' => '1',
   'xp_write' => '',
   'xp_comment' => '',
 );

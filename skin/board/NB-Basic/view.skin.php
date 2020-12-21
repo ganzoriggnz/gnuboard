@@ -1,4 +1,7 @@
 	<?php
+
+use function PHPSTORM_META\map;
+
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 
@@ -194,10 +197,10 @@ $view_subject = get_text($view['wr_subject']);
         <h3 class="sr-only">본문</h3>
         <!-- 본문 내용 시작 { -->
         <div id="bo_v_con" class="mb-4 px-3">
-
+	<!-- hulan nemsen 블라인드 처리 된 글 관리자에서 보이고 회원 페이지에서 삭제 처럼 안보이게 처리  -->
 			<?php if(IS_NA_BBS && $is_admin && $view['as_type'] == "-1") { // 신고처리 ?>
 				<div class="alert alert-danger text-center" role="alert">
-					신고 처리된 게시물입니다.
+					블라인드 처리된 게시물입니다.
 				</div>
 			<?php } ?>
 
@@ -274,12 +277,15 @@ $view_subject = get_text($view['wr_subject']);
 							<span class="sr-only">SNS 공유</span>
 						</button>
 					<?php } ?>
-					<?php if (IS_NA_BBS && $boset['na_shingo']) { // 신고 ?>
-						<button type="button" class="btn btn-basic" onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="신고">
+					<!--  level 24,25 and admin can blind  -->
+					<?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin ||$member['mb_id'] == $board['bo_admin'] || $member['mb_id'] == $group['gr_admin'])) { // 신고 ?>
+					
+						<button type="button" class="btn btn-basic" onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="블라인드">
 							<i class="fa fa-ban" aria-hidden="true"></i>
-							<span class="sr-only">신고</span>
+							<span class="sr-only">블라인드</span>
 						</button>
-					<?php } ?>
+						<?php } ?>
+					
 				</div>
 			</div>
 		<?php } ?>
