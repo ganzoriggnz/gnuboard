@@ -25,6 +25,8 @@ $coupon_create_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_create_skin_url  = get_skin_url('coupon', 'NB-Basic');
 $skin_file = $coupon_create_skin_path.'/coupon_create.skin.php';
 
+$coupon_action_url = G5_BBS_URL.'/coupon_create_form.php';
+
 if(is_file($skin_file)) {
     include($skin_file);
 } else {

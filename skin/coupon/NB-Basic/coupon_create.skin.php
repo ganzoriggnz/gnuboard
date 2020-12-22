@@ -2,7 +2,8 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
-add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
+add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.css">', 0);
+/* add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/jquery-ui.min.css">', 0); */
 if($member['mb_id']){
     global $g5;
     $sql = " select * from {$g5['member_table']} where mb_id = '{$member['mb_id']}'";
@@ -24,7 +25,7 @@ if($member['mb_id']){
 
 ?>
 
-<nav id="user_cate" class="sly-tab font-weight-normal mb-2">
+    <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
 		<div class="px-3 px-sm-0">
 			<div class="d-flex">
 				<div id="user_cate_list" class="sly-wrap flex-grow-1">
@@ -107,12 +108,90 @@ if($member['mb_id']){
 			</div>
 		</div>
     </nav>
-    <div style="float:left;">
+    <div class="coupon_noti">
         <ul>
             <li>매월 1~3일까지 수정 가능합니다.</li>
             <li>매월 4일부터 수정이 불가합니다.</li>
             <li>매월 1일 모든 쿠폰은 0으로 리셋됩니다.</li>
         </ul>
     </div>
+    <div class="coupon_info">
+        <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>"  method="post" enctype="multipart/form-data" autocomplete="off">
+            <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
+            <input type="hidden" name="mb_name" value="<?php echo $member['mb_name'] ?>">
+
+            <div class="p-20">
+                <div class="coupon_label">원가권 :</div>
+                <input type="number" name="co_sale" value="" placeholder="Please, insert quantity of sale coupon" class="coupon_input">
+            </div>
+            <div class="p-20">
+                <div class="coupon_label">무료권 :</div>
+                <input type="number" name="co_free" value="" placeholder="Please, insert quantity of free coupon" class="coupon_input">
+            </div>
+            <div class="p-20">
+                <div class="coupon_label"></div>
+                <button type="submit" id="btn_submit" class="btn btn-primary coupon_btn">저장</button>
+            </div>
+        </form>
+        
+        <script>
+
+        /* function fcouponcreate_submit(f) {
+                if (!f.co_sale) {
+                    alert("Please insert quantity of sale coupon!");
+                    f.co_sale.focus();
+                    return false;
+                }
+
+                if (!f.co_free) {
+                    alert("Please insert quantity of free coupon!");
+                    f.co_free.focus();
+                    return false;
+                }
+                return true;
+        } 
+ */
+        $(function () {
+    'use strict';
+
+    function confirmDialog(title, message, success) {
+        var confirmdialog = $('<div></div>').appendTo('body')
+            .html('<div><h6>' + message + '</h6></div>')
+            .dialog({
+                modal: true,
+                title: title,
+                zIndex: 10000,
+                autoOpen: false,
+                width: 'auto',
+                resizable: false,
+                buttons: {
+                    Yes: function () {
+                        success();
+                        $(this).dialog("close");
+                    },
+                    No: function () {
+                        $(this).dialog("close");
+                    }
+                },
+                close: function() {
+                    $(this).remove();
+                }
+            });
+
+        return confirmdialog.dialog("open");
+    }
+
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        var form = this;
+
+        confirmDialog('Confirm', '수정은 매월 1일부터 3일까지만 가능합니다.', function () {
+            form.submit();
+        });
+    });
+});
+        </script>
+    </div>
+ 
   
 

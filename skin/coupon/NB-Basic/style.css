@@ -1,4 +1,4 @@
-user_cate {margin: 0 25px;} 
+#user_cate {margin: 0;} 
 #user_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #user_cate ul {zoom:1}
 #user_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
@@ -21,3 +21,14 @@ box-shadow:inset 0 2px 5px rgb(33, 135, 202)}
 .sly-tab .sly-btn:hover { background:#fafafa; }
 .sly-tab .sly-btn.sly-next { border-left:0; }
 .sly-tab hr { display:block; border-top:1px solid #e5e5e5; height:1px; margin:0; margin-top:-1px; padding:0; }
+
+/* Coupon */
+.coupon_noti {float:right; margin-top:20px; margin-right: 300px;}
+.coupon_noti ul {margin:10px;}
+.coupon_noti ul li {list-style-type:disc; margin-left:12px; margin-bottom:5px;}
+
+.coupon_info {float:left;margin-top:80px;}
+.coupon_info .p-20 {padding:25px 0px;}
+.coupon_info .p-20 .coupon_label {font-size:12px; line-height: 1.5; padding: 5px 25px; float:left;margin:0px 20px;}
+.coupon_info .p-20 .coupon_input {font-size:12px; line-height: 1.5; padding: 5px 0px; float:left; width: 250px;}
+.coupon_info .p-20 .coupon_btn {padding-left: 20px; padding-right:20px; margin-left: 45px;margin-top: 20px;}
