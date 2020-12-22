@@ -65,7 +65,7 @@ $list_cnt = count($list);
 		$wr_icon = '';
 		$is_lock = false;
 		if ($list[$i]['icon_secret']) {
-			$wr_icon = '<span class="na-icon na-secret"></span>';
+			$wr_icon = '<span class="na-icon na-hot"></span>';
 			$is_lock = true;
 		} else if ($list[$i]['icon_hot']) {
 			$wr_icon = '<span class="na-icon na-hot"></span>';

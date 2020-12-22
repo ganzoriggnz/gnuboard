@@ -309,7 +309,7 @@ function na_shingo(bo_table, wr_id, c_id) {
 
 	var	href = g5_url + '/nariya/extend/bbs/shingo.php?bo_table=' + bo_table + '&wr_id=' + wr_id + '&c_id=' + c_id;
 
-	if (confirm("한번 신고하면 취소할 수 없습니다.\n\n정말 신고하시겠습니까?")) {
+	if (confirm("블라인드 처리하면 회원이 글을 읽을 수 없습니다.\n\n정말 블라인드 처리 하시겠습니까?")) {
 		$.post(href, function(data) {
 			if(data) {
 				alert(data);

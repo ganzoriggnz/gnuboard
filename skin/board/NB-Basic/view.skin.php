@@ -277,15 +277,13 @@ $view_subject = get_text($view['wr_subject']);
 							<span class="sr-only">SNS 공유</span>
 						</button>
 					<?php } ?>
-					<!--  level 24,25 and admin can blind  -->
+					<!--  hulan zassan level 24,25is board .grou admin, and admin or group admin board admin can blind  -->
 					<?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin ||$member['mb_id'] == $board['bo_admin'] || $member['mb_id'] == $group['gr_admin'])) { // 신고 ?>
-					
-						<button type="button" class="btn btn-basic" onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="블라인드">
+					<button type="button" class="btn btn-basic" onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="블라인드">
 							<i class="fa fa-ban" aria-hidden="true"></i>
 							<span class="sr-only">블라인드</span>
 						</button>
 						<?php } ?>
-					
 				</div>
 			</div>
 		<?php } ?>

@@ -44,7 +44,7 @@ if($is_admin) {
 		// 잠금 해제
 		sql_query(" update $write_table set wr_option = '$unlock', as_type = '0' where wr_id = '$wr_id' ", false);
 
-		die('신고 해제를 하였습니다.');
+		die('블라인드 해제를 하였습니다.');
 
 	} else {
 
@@ -86,7 +86,7 @@ if($is_admin) {
 		// 게시물 잠금 처리
 		sql_query(" update $write_table set wr_option = '$lock', as_type = '-1' where wr_id = '$wr_id' ", false);
 
-		die('잠금 처리를 하였습니다.');
+		die('블라인드 처리를 하였습니다.');
 	}
 
 } else {
@@ -166,7 +166,7 @@ if($is_admin) {
 				regdate = '".G5_TIME_YMDHIS."' ", false);
 	}
 
-	die('신고하셨습니다.');
+	die('블라인드 처리되었습니다.');
 }
 
 ?>

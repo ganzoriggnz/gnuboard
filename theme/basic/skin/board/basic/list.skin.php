@@ -128,7 +128,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     <a href="<?php echo $list[$i]['href'] ?>">
                         <?php echo $list[$i]['icon_reply'] ?>
                         <?php
-                            if (isset($list[$i]['icon_secret'])) echo rtrim($list[$i]['icon_secret']);
+                            if (isset($list[$i]['icon_secret'])) ;
                          ?>
                         <?php echo $list[$i]['subject'] ?>
                     </a>

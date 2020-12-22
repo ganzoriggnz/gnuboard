@@ -97,22 +97,31 @@ $list_cnt = count($list);
 			$list[$i]['num'] = '<span class="sr-only">번호</span>'.$list[$i]['num'];
 		}
 	?>
+		<?php if (!strstr($list[$i]['wr_option'], "secret") || $is_admin)  {?>
 		<li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css;?>">
 			<div class="d-none d-md-table-cell nw-5 f-sm font-weight-normal py-md-2 px-md-1">
 				<?php echo $list[$i]['num'] ?>
 			</div>
+			 
 			<div class="d-md-table-cell text-left py-md-2 pr-md-1">
 				<div class="na-title float-md-left">
 					<div class="na-item">
 						<?php if ($is_checkbox) { ?>
 							<input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
 						<?php } ?>
-						<a href="<?php echo $list[$i]['href'] ?>"<?php if ($list[$i]['wr_1']) { echo " style='color:".$list[$i]['wr_1']."' "; } ?> class="na-subject"<?php echo $target ?>>
+						<a href="<?php echo $list[$i]['href'] ?>"<?php 
+						// secret bolson bgaad admin bol doorh style 
+						
+						if (strstr($list[$i]['wr_option'], "secret") && $is_admin) { echo "style='color:#bababa;text-decoration: line-through' "; } 
+						//elseif(strstr($list[$i]['wr_option'], "secret") && $is_member) { echo "style='display: none;' "; } 
+						if ($list[$i]['wr_1']) { echo " style='color:".$list[$i]['wr_1']."' "; } ?> 
+						class="na-subject"<?php echo $target ?>>
 							<?php
 								if($list[$i]['icon_reply'])
 									echo '<span class="na-hicon na-reply"></span>'.PHP_EOL;
 
 								echo $wr_icon;
+								
 							?>
 							<?php echo $list[$i]['subject'] ?>
 						</a>
@@ -163,7 +172,8 @@ $list_cnt = count($list);
 			<?php } ?>
 			<div class="clearfix d-block d-md-none"></div>
 		</li>
-	<?php } ?>
+		<?php } ?>
+		<?php } ?>
 	</ul>
 	<?php if (!$list_cnt) { ?>
 		<div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">게시물이 없습니다.</div>

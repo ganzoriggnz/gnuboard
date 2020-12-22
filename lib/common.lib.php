@@ -453,6 +453,7 @@ function get_list($write_row, $board, $skin_url, $subject_len=40, $BBS_PATH = G5
     if (strstr($list['wr_option'], 'secret'))
         $list['icon_secret'] = '<i class="fa fa-lock" aria-hidden="true"></i> ';
 
+    
     // 링크
     for ($i=1; $i<=G5_LINK_COUNT; $i++) {
         $list['link'][$i] = set_http(get_text($list["wr_link{$i}"]));
