@@ -41,7 +41,7 @@ $mb_nick = isset($_POST['mb_nick']) ? trim(strip_tags($_POST['mb_nick'])) : '';
 if ($msg = valid_mb_nick($mb_nick))     alert($msg, "", true, true);
 
 $sql_common = "  mb_name = '{$_POST['mb_name']}',
-                 mb_nick = if('{$_POST['mb_1']}' =  '여', '♥{$mb_nick}', '{$mb_nick}'),
+                 mb_nick = if('{$_POST['mb_1']}' =  '여' && '{$_POST['mb_level']}' > 23, REPLACE('{$mb_nick}', '♥',''), '{$mb_nick}'),
                  mb_email = '{$mb_email}',
                  mb_homepage = '{$_POST['mb_homepage']}',
                  mb_tel = '{$_POST['mb_tel']}',
