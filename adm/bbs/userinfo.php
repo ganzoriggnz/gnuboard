@@ -86,7 +86,7 @@ include_once(G5_PATH.'/head.sub.php');
 <!-- hulan nemsen -->
 
 <div style="position: fixed; bottom:0px; right:14px; z-index:9999">
-  <a onclick="window.open('/bbs/chat.php','채팅방참여','width=500,height=550,scrollbars=yes,top=10,left=100'); ">
+  <a onclick="window.open('/bbs/chat.php','채팅방참여','width=420,height=550,scrollbars=yes,top=10,left=100'); ">
 <img src="http://localhost/gnuboard/img/chat.png" title=""></a>
 
 </div>
