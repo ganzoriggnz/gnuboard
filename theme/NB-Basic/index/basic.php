@@ -145,7 +145,7 @@ if ($nt_wing_path)
 
             <!-- hulan nemsen -->
 
-                <div style="position: fixed; bottom:0px; right:14px; z-index:9999">
+                <div style="position: fixed; bottom:0px; right:40px; z-index:9999">
 		<a onclick="window.open('/bbs/chat.php','채팅방참여','width=500,height=550,scrollbars=yes,top=10,left=100'); ">
 		<img src="<?php echo G5_URL?>/img/chat.png" title=""></a>
 

@@ -121,11 +121,11 @@
 ■ Go Top & Bottom : 상단/하단 이동버튼
 ********************************************************/
 #nt_bottom .go-btn { 
-	display:none; 
+	display: block; 
 	position: fixed; 
 	width: 40px; 
 	bottom: 20px; 
-	right: 25px; 
+	right: 5px; 
 	z-index: 2; 
 }
 #nt_bottom .go-btn span { 
@@ -140,9 +140,29 @@
 	line-height: 42px !important; 
 	font-size: 19px; 
 }
-#nt_bottom .go-btn .go-bottom { 
-	display:none; 
+
+#nt_top .go-btn { 
+	display: block; 
+	position: fixed; 
+	width: 40px; 
+	top: 195px; 
+	right: 5px; 
+	z-index: 2; 
 }
+#nt_top .go-btn span { 
+	display: block; 
+	color:#fff; 
+	background: rgba(0,0,0,0.5); 
+	margin:5px 0; 
+	text-align: center; 
+	border-radius: 50%; 
+	width: 42px; 
+	height: 42px; 
+	line-height: 42px !important; 
+	font-size: 19px; 
+}
+
+
 @media (max-width: 767px) {
 	.responsive #nt_top { 
 		display:none !important; 

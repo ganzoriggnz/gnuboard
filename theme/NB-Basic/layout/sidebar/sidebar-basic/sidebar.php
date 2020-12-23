@@ -37,6 +37,11 @@ $menu_cnt = count($menu);
 </script>
 <script src="<?php echo $sidebar_url; ?>/sidebar.js"></script>
 
+<div id="nt_top">
+	<div class="go-btn">
+		<span class="go-bottom cursor"><i class="fa fa-chevron-down"></i></span>
+	</div>
+</div>
 <!-- nt_sidebar -->
 <aside id="nt_sidebar" class="h-100 bg-light font-weight-normal">
 
@@ -362,8 +367,7 @@ $menu_cnt = count($menu);
 
 <!-- 상단이동 버튼 -->
 <div id="nt_bottom">
-	<div id="nt_top" class="go-btn">
+	<div class="go-btn">
 		<span class="go-top cursor"><i class="fa fa-chevron-up"></i></span>
-		<span class="go-bottom cursor"><i class="fa fa-chevron-down"></i></span>
 	</div>
 </div>

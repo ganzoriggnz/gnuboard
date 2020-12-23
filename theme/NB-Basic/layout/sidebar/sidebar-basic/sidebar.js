@@ -126,20 +126,23 @@ function sidebar_login(f) {
 
 	// Top & Bottom Button
 	$(window).scroll(function(){
-		if ($(this).scrollTop() > 250) {
-			$('#nt_top').fadeIn();
-		} else {
+		if ($(this).scrollTop() > 250) {			
+			$('#nt_bottom').fadeIn();
 			$('#nt_top').fadeOut();
+		} else {
+			$('#nt_bottom').fadeOut();
+			$('#nt_top').fadeIn();
+			
 		}
 	});
 
-	$('#nt_top .go-top').on('click', function () {
+	$('#nt_bottom .go-top').on('click', function () {
 		$('html, body').animate({ scrollTop: '0px' }, 500);
 		return false;
 	});
 
 	$('#nt_top .go-bottom').on('click', function () {
-		$('html, body').animate({ scrollTop: $(document).height() }, 500);
+		$('html, body').animate({ scrollTop: $(document).height()-$(window).height()}, 500);
 		return false;
 	});
 
