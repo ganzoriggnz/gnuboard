@@ -73,13 +73,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 				</ul>
 			<?php } //is_sub ?>
 		</div>
-		<!-- <script>
+		<script>
 		$(document).ready(function () {
 			$(document).on('click', '#nt_side_menu .tree-toggle', function () {
 				$(this).parent().children('ul.tree').toggle(200);
 			});
 		});
-		</script> -->
+		</script> 
 	<?php } ?>
 <?php } ?>
 
