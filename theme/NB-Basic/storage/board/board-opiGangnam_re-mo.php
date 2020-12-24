@@ -4,9 +4,9 @@ $data=array (
   'list_skin' => 'basic',
   'head_skin' => '',
   'head_color' => '',
+  'search_open' => '1',
   'target' => '',
   'bo_admin' => '',
-  'noti_mb' => '',
   'na_crows' => '',
   'na_cob' => 'old',
   'na_lucky_point' => '',
@@ -15,7 +15,5 @@ $data=array (
   'na_gtimes' => '',
   'editor_mo' => 'cheditor5',
   'na_shingo' => '1',
-  'xp_write' => '',
-  'xp_comment' => '',
 );
 ?>
