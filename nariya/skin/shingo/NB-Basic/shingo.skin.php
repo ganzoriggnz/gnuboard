@@ -224,6 +224,7 @@ function fshingo_submit(f) {
 		if (!confirm("선택한 게시물을 정말 "+document.pressed+" 하시겠습니까?\n\n잠금처리시 해당 게시물은 비밀글로 자동 전환 됩니다.")) {
 			return false;
 		}
+		
 	}
 
 	if(document.pressed == "잠금해제") {
