@@ -103,7 +103,7 @@ $list_cnt = count($list);
 			<div class="d-none d-md-table-cell nw-5 f-sm font-weight-normal py-md-2 px-md-1">
 				<?php echo $list[$i]['num'] ?>
 			</div>
-			 
+			
 			<div class="d-md-table-cell text-left py-md-2 pr-md-1">
 				<div class="na-title float-md-left">
 					<div class="na-item">
@@ -146,6 +146,10 @@ $list_cnt = count($list);
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-10 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<span class="sr-only">등록자</span>
+				<!-- hulan nemsen 계급 마크  -->
+				<?php 
+					echo get_level($list[$i]['mb_id']);  ?>
+					<!-- //////////////////////////////////// -->
 				<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">

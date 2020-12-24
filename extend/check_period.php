@@ -59,7 +59,7 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $r
                
 
             } else {
-              echo "khulan";
+            
                 $mb_level = $member['mb_level'];
                 $sql = "update {$g5['member_table']} set mb_level =  '{$mb_level}' where mb_id = '{$mb_id}'";
                 sql_query($sql);
