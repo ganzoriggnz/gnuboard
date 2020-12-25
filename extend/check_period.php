@@ -2,18 +2,18 @@
 //if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 //include_once('../common.php');
 // 기간에 따라 레벨이 변경
-
    
-function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $reviewpost){
-   
+function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $reviewpost, $bonuspoint){
+    
     global $g5, $member;
 
     $strDate = date("Y-m-d"); //현재요일
     $countpost = 0;
-    $countcomment = 0;
+    $countcomment1 = 0;
+    $countcomment2 = 0;
     $countreview =0;
     if($strDate > $st_date && $strDate > $et_date) {
-        
+      
         // 다른 게시글 , 댓글 수 구하기
         $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='community'");
         while ( $row=sql_fetch_array($result))
@@ -23,10 +23,12 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $r
            {
                 if($res['wr_is_comment'] == 0){
                 $countpost ++;
+              
             }
          
             else 
-            $countcomment ++;
+            $countcomment1 ++;
+            
            }
         }
                 // 후기 게시글 수 구하기
@@ -37,17 +39,27 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $r
             while ($resrev = sql_fetch_array($resre)) {
                 if ($resrev['wr_is_comment'] == 0) {
                     $countreview++;
-                }
+                  }
+                  else 
+                  $countcomment2 ++;
             }
         }
-
+        $countcomment = $countcomment1 + $countcomment2;
+    
+           
             if ($countpost >= $wrpost && $countcomment >= $wrcomment && $countreview >= $reviewpost) {
-
+                echo $member['mb_level'];
                 $mb_level = $member['mb_level'] + 1;
                 $sql = "update {$g5['member_table']} set mb_level = '{$mb_level}' where mb_id = '{$mb_id}'";
                 sql_query($sql);
+                if ($member['mb_level'] >= 18){
+                    insert_point($member['mb_id'],  $bonuspoint,"레벨 등업 축하파운드", '', '' , "레벨 등업 축하파운드");
+                }
                 alert("축하합니다" .$member['mb_nick']."님 등업원료되었습니다.");
+               
+
             } else {
+            
                 $mb_level = $member['mb_level'];
                 $sql = "update {$g5['member_table']} set mb_level =  '{$mb_level}' where mb_id = '{$mb_id}'";
                 sql_query($sql);
@@ -57,8 +69,9 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $r
      }
 }
 
+
 if($is_member && !$is_admin && $member['mb_level'] < 22){ //회원이고 , 23레벨 이하, 관리자가 아닐경우에만 실행
-    
+   
     $st_date = date('Y-m-d', strtotime($member['mb_datetime']));   // 가입한 날짜 시간 배고
    
     if ($member['mb_level'] == 2){
@@ -142,30 +155,35 @@ if($is_member && !$is_admin && $member['mb_level'] < 22){ //회원이고 , 23레
         $wrcomment = 1000;
         $reviewpost = 90;}
     else if ($member['mb_level'] == 18){
-        $et_date = date('Y-m-d', strtotime($st_date. ' +  700 days')); 
-        $wrpost = 500;
-        $wrcomment = 1200;
-        $reviewpost = 100;}
+    //    user11 deer test hiihiin tuld medeelel buruu oruulsan bgaa test duusaad butsaaj zasah 
+        $et_date = date('Y-m-d', strtotime($st_date. ' +  7 days')); 
+        $wrpost = 1;
+        $wrcomment = 4;
+        $reviewpost = 1;
+        $bonuspoint = 100000;}
     else if ($member['mb_level'] == 19){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  800 days'));  
         $wrpost = 600;
         $wrcomment = 1500;
-        $reviewpost = 120;}
+        $reviewpost = 120;
+        $bonuspoint = 200000;}
     else if ($member['mb_level'] == 20){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  900 days')); 
         $wrpost = 700;
         $wrcomment = 1700;
-        $reviewpost = 140;}
+        $reviewpost = 140;
+        $bonuspoint = 300000;}
     else if ($member['mb_level'] == 21){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  1000 days')); 
         $wrpost = 800;
         $wrcomment = 2000;
-        $reviewpost = 160;}
+        $reviewpost = 160;
+        $bonuspoint = 500000;}
     
 
     
     
-    check_member_period($st_date, $et_date, $member['mb_id'], $wrpost, $wrcomment, $reviewpost);
+    check_member_period($st_date, $et_date, $member['mb_id'], $wrpost, $wrcomment, $reviewpost, $bonuspoint);
 }
 
 ?>

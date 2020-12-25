@@ -97,12 +97,13 @@ $list_cnt = count($list);
 			$list[$i]['num'] = '<span class="sr-only">번호</span>'.$list[$i]['num'];
 		}
 	?>
-		<?php if (!strstr($list[$i]['wr_option'], "secret") || $is_admin)  {?>
+	<!-- hulan nemsen admin bgaad secret bolson bol  -->
+		<?php if (!strstr($list[$i]['wr_option'], "secret") || $is_admin)  {?>  
 		<li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css;?>">
 			<div class="d-none d-md-table-cell nw-5 f-sm font-weight-normal py-md-2 px-md-1">
 				<?php echo $list[$i]['num'] ?>
 			</div>
-			 
+			
 			<div class="d-md-table-cell text-left py-md-2 pr-md-1">
 				<div class="na-title float-md-left">
 					<div class="na-item">
@@ -110,7 +111,7 @@ $list_cnt = count($list);
 							<input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
 						<?php } ?>
 						<a href="<?php echo $list[$i]['href'] ?>"<?php 
-						// secret bolson bgaad admin bol doorh style 
+						// hulan nemsen secret bolson bgaad admin bol doorh style 
 						
 						if (strstr($list[$i]['wr_option'], "secret") && $is_admin) { echo "style='color:#bababa;text-decoration: line-through' "; } 
 						//elseif(strstr($list[$i]['wr_option'], "secret") && $is_member) { echo "style='display: none;' "; } 
@@ -145,6 +146,10 @@ $list_cnt = count($list);
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-10 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<span class="sr-only">등록자</span>
+				<!-- hulan nemsen 계급 마크  -->
+				<?php 
+					echo get_level($list[$i]['mb_id']);  ?>
+					<!-- //////////////////////////////////// -->
 				<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
