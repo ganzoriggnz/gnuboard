@@ -67,7 +67,7 @@ if($member['mb_id']){
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "#">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/scrap.php">
                                 <span>
                                 <i class="fa fa-paperclip">
                                 스크랩

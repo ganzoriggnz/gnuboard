@@ -70,7 +70,7 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 		</div>
 		
 		<div class="btn-group w-100" role="group" aria-label="Member Menu">
-			<a class="btn btn-primary text-white" data-toggle="collapse" href="#mymenu_outlogin" role="button" aria-expanded="false" aria-controls="mymenu_outlogin">
+			<a class="btn btn-primary text-white" href="<?php echo G5_BBS_URL ?>/userinfo.php" role="button" aria-expanded="false" aria-controls="mymenu_outlogin">
 				마이메뉴
 			</a>
 			<?php if(IS_NA_NOTI) { // 알림 ?>
