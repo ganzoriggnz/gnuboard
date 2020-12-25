@@ -160,7 +160,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		</li>
 		<?php
 		}
-
+		$sum_point3 = $sum_point1 + $sum_point2;
 		if ($i == 0)
 			echo '<li class="list-group-item border-left-0 border-right-0 f-de font-weight-normal py-5 text-muted text-center">자료가 없습니다.</li>';
 		else {
@@ -184,27 +184,33 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			<strong class="float-right en">
 				<?php if($sum_point1) { ?>
 					<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto text-md-right f-sm font-weight-normal py-md-2 pr-md-1">
-						<?php echo $sum_point1 ?></span>
+						<?php echo $sum_point1 ?>
 					</div>
 				<?php } ?>
 				<?php if($sum_point2) { ?>
 					<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto text-md-right f-sm font-weight-normal py-md-2 pr-md-1">
-						<?php echo $sum_point2 ?></span>
+						<?php echo $sum_point2 ?>
 					</div>
 				<?php } ?>
-			</strong>
-			
+			</strong>		
 		</li>
-	</ul>
-	<!-- <ul>
 		<li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom  bg-light">
+			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto text-md-right f-sm font-weight-normal py-md-2 pr-md-1">
+			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-20 nw-md-auto text-center f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<b class="float-left">
-					포인트 소계
+					보유포인트
 				</b>
 			</div>
+			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto text-md-right f-sm font-weight-normal py-md-2 pr-md-1">
+			</div>
+			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto text-md-right f-sm font-weight-normal py-md-2 pr-md-1">
+			</div>
+			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto text-md-right f-sm font-weight-normal py-md-2 pr-md-1">
+				<?php echo $sum_point3 ?>
+			</div>
 		</li>
-	</ul> -->
+	</ul>
 	<div class="font-weight-normal px-3 mt-4">
 		<ul class="pagination justify-content-center en mb-0">
 			<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, $_SERVER['SCRIPT_NAME'].'?'.$qstr.'&amp;page='); ?>
