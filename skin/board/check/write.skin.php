@@ -72,7 +72,7 @@ $qstr = ($qstr ? $qstr.'&amp;' : '').'date='.$date;
     }
     echo $option_hidden;
     ?>
-<?php if ($is_admin || ($gr_id != 'attendance' && $member['mb_level'] != 26)) { ?>
+<?php if ($is_admin || ($gr_id != 'attendance' && $member['mb_level'] != 27)) { ?>
     <?php if ($is_category) { ?>
     <div class="bo_w_select write_div">
         <label for="ca_name" class="sound_only">분류<strong>필수</strong></label>

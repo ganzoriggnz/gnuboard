@@ -186,6 +186,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 							<th scope="col">24등급</th>
 							<th scope="col">25등급</th>
 							<th scope="col">26등급</th>
+							<th scope="col">27등급</th>
 							<th scope="col">30등급</th>
 						</tr>
 						</thead>
@@ -271,6 +272,9 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 							</td>
 							<td>
 								<input type="text" name="na[mb_gn26]" value="<?php echo $nariya['mb_gn26'] ?>" class="frm_input">
+							</td>
+							<td>
+								<input type="text" name="na[mb_gn27]" value="<?php echo $nariya['mb_gn27'] ?>" class="frm_input">
 							</td>
 							<td>
 								<input type="text" name="na[mb_gn30]" value="<?php echo $nariya['mb_gn30'] ?>" class="frm_input">

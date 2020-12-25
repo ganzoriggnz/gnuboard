@@ -383,13 +383,13 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 			<?php } ?>
 
 			<li class="list-group-item pt-3 pt-sm-4">
-				<div class="form-group row mb-1">
-					<label class="col-sm-2 col-form-label">자동등록방지</label>
-					<div class="col-sm-8">
-						<?php echo captcha_html(); ?>
-					</div>
-				</div>
-			</li>
+                <div class="form-group row mb-1">
+                    <label class="col-sm-2 col-form-label">자동등록방지</label>
+                    <div class="col-sm-8">
+                        <?php echo captcha_html(); ?>
+                    </div>
+                </div>
+            </li>
 		</ul>
 
 		<div class="px-3 px-sm-0 mb-4">

@@ -12,7 +12,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // 게시판 하루 글등록수 제한하기
  // 하루 글제한수 $post_limit = 1;
- if($w != 'u' && !$is_admin && $member['mb_level'] != 26) { //글수정이 아니면 작동
+ if($w != 'u' && !$is_admin && $member['mb_level'] != 26 && $member['mb_level'] != 27) { //글수정이 아니면 작동
 	// 오늘 체크
 	$sql_today = na_sql_term('today', 'wr_datetime'); // 기간(일수,today,yesterday,month,prev)
 	if($is_member) { // 회원이면 mb_id로 체크
@@ -31,7 +31,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
   
 	// 게시판 하루 글등록수 제한하기
    $post_limit = 2; // 하루 글제한수
-   if(!$is_admin && $member['mb_level'] != 26 && $w != 'u' ) { //관리자가 아니고 26레벨 아니고 글수정이 아니면 작동
+   if(!$is_admin && $member['mb_level'] != 26 &&  $member['mb_level'] != 27 && $w != 'u' ) { //관리자가 아니고 26레벨 아니고 글수정이 아니면 작동
    // 오늘 체크
    $sql_today = na_sql_term('today', 'wr_datetime'); // 기간(일수,today,yesterday,month,prev)
    if($is_member) { // 회원이면 mb_id로 체크

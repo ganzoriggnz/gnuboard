@@ -28,7 +28,7 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 				
 				<!-- hulan nemsen 출근부 수정 -->
 
-				<?php if( $member['mb_level'] == 26)
+				<?php if( $member['mb_level'] == 27)
 				{ 
 					$g5['connect_db'];
 					$result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");

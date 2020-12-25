@@ -2,10 +2,10 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 /////////////////////////////hulan/////////////////////// 글작성 제한
-if (!$is_admin && !$member['mb_level'] == 26 && $w != 'u') {
+if (!$is_admin && !$member['mb_level'] == 27 && $w != 'u') {
     $sql = " select count(*) as cnt from $write_table where wr_ip = '$_SERVER[REMOTE_ADDR]' and datediff(wr_datetime , now()) = 0  AND wr_is_comment ='0'  having count(*)  >= $board[bo_9] ";
     $row = sql_fetch($sql);
-        if ($row[cnt] ) {
+        if ($row['cnt'] ) {
         alert("이 게시판은 하루에 $board[bo_9]개의 글만 쓸 수 있습니다.");
         }
 }

@@ -136,7 +136,7 @@ if ($w == '' || $w == 'u') {
     //     alert('관리자만 공지할 수 있습니다.');
     // }
     // hulan nemsen 공지글 권한 레벨에 따라
-    if (!$is_admin && $member['mb_level'] < 23 && $member['mb_level'] != 26 && $notice) {
+    if (!$is_admin && $member['mb_level'] < 23 && $member['mb_level'] != 27 && $notice) {
         alert('관리자만 공지할 수 있습니다.');
     }
     //회원 자신이 쓴글을 수정할 경우 공지가 풀리는 경우가 있음 

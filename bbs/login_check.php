@@ -129,7 +129,7 @@ if(function_exists('social_login_success_after')){
 
 run_event('member_login_check', $mb, $link, $is_social_login);
 
-/* if($member['mb_level']==26)
+/* if($member['mb_level']==27)
 $link = G5_BBS_URL.'/userinfo.php';
 else $link = G5_URL;  */
  

@@ -336,7 +336,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 <!-- 위젯 끝-->
     <!-- hulan nemsen  -->
 
-        <?php if ($member['mb_level'] == 26) { ?>
+        <?php if ($member['mb_level'] == 27) { ?>
         <tbody><tr>
 			<td style="width:50%; padding:10px;">
 

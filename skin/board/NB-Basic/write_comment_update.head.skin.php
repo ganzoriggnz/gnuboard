@@ -18,7 +18,7 @@ if($w == "cu") {
 
 // 댓글 작성 하루 개수 제한
  // 댓글 작성 개수  $comment_limit = 2;hulan nemsen///////////////////
- if($w != 'cu' && !$is_admin && $member['mb_level'] != 26) { //글수정이 아니면 작동
+ if($w != 'cu' && !$is_admin && $member['mb_level'] != 26 && $member['mb_level'] != 27) { //글수정이 아니면 작동
 	// 오늘 체크
 	$sql_today = na_sql_term('today', 'wr_datetime'); // 기간(일수,today,yesterday,month,prev)
 	if($is_member) { // 회원이면 mb_id로 체크
@@ -46,7 +46,7 @@ for ( $i = 1; $bo = sql_fetch_array( $ress ); ) {
   //echo $i."--".$member[mb_id]; // 확인
  }
 }
-if ( $w != 'cu'  && !$is_admin && $member['mb_level'] != 26 ) {
+if ( $w != 'cu'  && !$is_admin && $member['mb_level'] != 26 && $member['mb_level'] != 27 ) {
  if ( !$is_admin && $wr_sum >= $gr_limit && $gr_id == $set_id ) {
   alert( "후기 게시판에는 {$gr_limit}회 만 댓글 쓸 수 있습니다. 변경내용이 있다면 기존글을 수정하십시오." );
  }

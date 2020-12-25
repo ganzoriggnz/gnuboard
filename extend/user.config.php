@@ -9,6 +9,7 @@ if($bo_table == 'Palace')
     alert('권한이 없이 접근할 수 없습니다.', G5_URL);
 }
 ?>
+<!-- hulan nemsen level 17s deesh hereglegchiin urd image oruulah -->
 <?php
 function get_level($mb_id = '') {
     global $g5;
@@ -20,6 +21,7 @@ function get_level($mb_id = '') {
     
 }
 ?>
+<!-- ////////////////////////////////////////////////////////////////// -->
  
 
  

@@ -270,7 +270,7 @@ if ($is_guest || ($is_admin && $w == 'u' && $member['mb_id'] !== $write['mb_id']
     $is_cat_name = true;
 }
 //  hulan nemsen 출근부 수정 페이지  adm dotor bas bga
-if($member['mb_level'] == 26 && $gr_id == 'attendance') {
+if($member['mb_level'] == 27 && $gr_id == 'attendance') {
     
     $is_phone = true;
     $is_address = true;
@@ -280,7 +280,7 @@ if($member['mb_level'] == 26 && $gr_id == 'attendance') {
 
 $is_category = false;
 $category_option = '';
-if ($board['bo_use_category'] && $member['mb_level'] !== 26) {
+if ($board['bo_use_category'] && $member['mb_level'] !== 27) {
     $ca_name = "";
     if (isset($write['ca_name']))
         $ca_name = $write['ca_name'];

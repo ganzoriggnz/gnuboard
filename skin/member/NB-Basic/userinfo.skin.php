@@ -117,7 +117,7 @@ if($member['mb_id']){
                             <i class="fa fa-user"></i>				</div>
                     </a>
                 </dd> 
-                <?php if( $member['mb_level'] == 26)
+                <?php if( $member['mb_level'] == 27)
 				{ ?>     
                 <dt>출근부</dt><dd><span style="font-size:15px; font-weight:900">
                 <?php

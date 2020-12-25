@@ -105,10 +105,10 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
 
 <!-- hulan solison /////////////////////////////// uur gazraas baisan kodiig ni oruulah hergtei butsaah bol 댓글 작성 제한-->
 <?php
-		if (!$is_admin && !$member['mb_level'] == 26 && $w != 'u') {
+		if (!$is_admin && !$member['mb_level'] == 27 && $w != 'u') {
 			$sql = " select count(*) as cnt from $write_table where wr_ip = '$_SERVER[REMOTE_ADDR]' and datediff(wr_datetime , now()) = 0  AND wr_is_comment ='1'  having count(*)  >= $board[bo_10] ";
 			$row = sql_fetch($sql);
-			if ($row[cnt]) {
+			if ($row['cnt']) {
 				$is_comment_write = 0;
 				echo "<center><font color=red>이 게시판은 하루에 $board[bo_10]개의 댓글만 달 수 있습니다.</font></center><br>";
 			}
