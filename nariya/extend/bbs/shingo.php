@@ -53,8 +53,8 @@ if($is_admin) {
 			if (!$row['wr_is_comment'])
 			{
 									
-		insert_point($row['mb_id'],  $board['bo_write_point'], "{$board['bo_subject']} $wr_id 글 블라인드 해제", $bo_table, $wr_id, "블라인드");}}
-				// ////////////////////////////////////////////////////////////////////ene hurtel nemsen
+		insert_point($row['mb_id'],  $board['bo_write_point'], "{$board['bo_subject']} $wr_id 글 블라인드", $bo_table, $wr_id, "블라인드");}}
+
 		die('블라인드 해제를 하였습니다.');
 
 	} else {
@@ -97,7 +97,7 @@ if($is_admin) {
 
 		// 게시물 잠금 처리
 		sql_query(" update $write_table set wr_option = '$lock', as_type = '-1' where wr_id = '$wr_id' ", false);
-		// hulan nemsen blind bolbol point hasah////////////////////////////////////////////
+		// hulan nemsen blind bolbol point hasah
 		$sql = " select wr_id, mb_id, wr_is_comment, wr_content from $write_table where wr_parent = '{$write['wr_id']}' order by wr_id ";
 		$result = sql_query($sql);
 		while ($row = sql_fetch_array($result))
@@ -108,8 +108,8 @@ if($is_admin) {
 				// 원글 포인트 삭제
 				if (!delete_point($row['mb_id'], $bo_table, $row['wr_id'], '쓰기'))
 					
-		insert_point($row['mb_id'],  $board['bo_write_point'] * -1, "{$board['bo_subject']} $wr_id 글 블라인드 처리", $bo_table, $wr_id, "블라인드");}}
-				////////////////////////////ene hurtel nemsen///////////////////////////////////
+		insert_point($row['mb_id'],  $board['bo_write_point'] * -1, "{$board['bo_subject']} $wr_id 글 블라인드", $bo_table, $wr_id, "블라인드");}}
+
 		die('블라인드 처리를 하였습니다.');
 		
 	}

@@ -62,7 +62,7 @@ $menu_cnt = count($menu);
 	<!-- sidebar Content -->
 	<div id="sidebar-content" class="sidebar-content">
 
-	<!-- login orj ireh heseg hulan nemeh -->
+	<!-- sidebard login heseg nemeh hulan -->
 
 			<!-- Login -->
 			<?php if ($is_member) { ?>

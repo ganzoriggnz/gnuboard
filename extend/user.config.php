@@ -8,6 +8,7 @@ if($bo_table == 'Palace')
     if (!$is_admin &&  $member['mb_level'] > 22 )
     alert('권한이 없이 접근할 수 없습니다.', G5_URL);
 }
+<<<<<<< HEAD
 ?>
 <!-- hulan nemsen level 17s deesh hereglegchiin urd image oruulah -->
 <?php
@@ -28,3 +29,6 @@ function get_level($mb_id = '') {
 
  
 
+=======
+?>
+>>>>>>> parent of 8c74fdd... Merge branch 'main' of https://github.com/BzyFuzy/gnuboard into main

@@ -1,6 +1,6 @@
 	<?php
 
-// use function PHPSTORM_META\map;
+use function PHPSTORM_META\map;
 
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
@@ -76,6 +76,7 @@ $view_subject = get_text($view['wr_subject']);
 		<?php if ($category_name) { ?>
 			<div class="f-sm text-muted">
 				<span class="sr-only">분류</span>
+				<?php echo $view['ca_name'] ?>
 			</div>
 		<?php } ?>
 		<!-- <h1 id="bo_v_title"> hulan tailbar bolgood doodohoor uurchilsen -->  
@@ -104,7 +105,7 @@ $view_subject = get_text($view['wr_subject']);
 				</li>
 			</ul>
 		</div>
-					
+
 		<div class="clearfix f-sm text-muted pl-3 pt-2 pr-2">
 	        <h3 class="sr-only">컨텐츠 정보</h3>
 			<ul class="d-flex align-items-center">
@@ -121,7 +122,6 @@ $view_subject = get_text($view['wr_subject']);
 					</li>
 				<?php } ?>
 				<li id="bo_v_btn" class="flex-grow-1 text-right">
-				
 					<!-- 게시물 상단 버튼 시작 { -->
 					<?php ob_start(); ?>
 					<div class="btn-group" role="group">
