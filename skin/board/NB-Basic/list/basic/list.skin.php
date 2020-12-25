@@ -28,11 +28,21 @@ switch($boset['target']) {
 $list_cnt = count($list);
 
 ?>
+<!-- hulan nemsen level mark duudah heseg -->
+<?php
+function get_level($mb_id = '') {
+    global $g5;
+	$result = sql_fetch(" SELECT `mb_level` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
+	if ($result['mb_level'] > 17) 
+    return '<img src='.G5_URL.'/img/'.$result['mb_level'].'.gif>';
+}
+?>
+
 
 <section id="bo_list" class="mb-4">
 
 	<!-- 목록 헤드 -->
-	<div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:4px;"></div>
+	<div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:4px;"></div>s
 
 	<div class="na-table d-none d-md-table w-100 mb-0">
 		<div class="<?php echo $head_class ?> d-md-table-row">
@@ -145,6 +155,7 @@ $list_cnt = count($list);
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-10 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<span class="sr-only">등록자</span>
+				<?php echo get_level($list[$i]['mb_id']); ?>
 				<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">

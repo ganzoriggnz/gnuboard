@@ -91,6 +91,8 @@ $view_subject = get_text($view['wr_subject']);
 			<ul class="d-flex align-items-center">
 				<li class="pr-2">
 					<span class="sr-only">작성자</span>
+					<!-- hulan nemsen level mark -->
+					
 					<?php echo na_name_photo($view['mb_id'], $view['name']); ?>
 				</li>
 				<?php if ($is_ip_view) { ?>
@@ -153,7 +155,8 @@ $view_subject = get_text($view['wr_subject']);
 										글수정
 									</a>
 								<?php } ?>
-								<?php if ($delete_href) { ?>
+								<!-- hulan nemsen level 24.25 can not delete post  -->
+								<?php if ($delete_href && $member['mb_level'] != 24 && $member['mb_level'] != 25) { ?>
 									<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;" class="btn btn-primary py-2" role="button">
 										<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
 										글삭제
