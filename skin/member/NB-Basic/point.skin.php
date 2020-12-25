@@ -104,8 +104,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			<div class="d-md-table-cell nw-6 px-md-1 text-md-center">일시</div>
 			<div class="d-md-table-cell nw-20 pl-2 px-md-1 pr-md-1 text-md-center">내용</div>
 			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">만료일</div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">지급포인트</div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">사용포인트</div>
+			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">지급파운드</div>
+			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">사용파운드</div>
 		</div>
 	</div>
 
@@ -174,7 +174,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			</div>	
 			<div class="float-left float-md-none d-md-table-cell nw-20 nw-md-auto text-center f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<b class="float-left">
-					포인트 소계
+				  파운드 소계
 				</b>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
