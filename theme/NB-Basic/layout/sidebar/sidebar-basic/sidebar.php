@@ -35,7 +35,6 @@ $menu_cnt = count($menu);
 	var sidebar_url = "<?php echo $sidebar_url; ?>";
 	var sidebar_time = "<?php echo $response_check_time; ?>";
 </script>
-<script src="<?php echo $sidebar_url; ?>/sidebar.js"></script>
 
 <div id="nt_top">
 	<div class="go-btn">
