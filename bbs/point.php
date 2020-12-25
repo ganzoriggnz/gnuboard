@@ -1,6 +1,11 @@
 <?php
 include_once('./_common.php');
 
+include_once('./_head.php');
+
+// add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
+add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
+
 if ($is_guest)
     alert_close('회원만 조회하실 수 있습니다.');
 
@@ -21,7 +26,15 @@ $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
 $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
-include_once($member_skin_path.'/point.skin.php');
+$point_skin_path = get_skin_path('member', $config['cf_member_skin']);
+$point_skin_url  = get_skin_url('member', $config['cf_member_skin']);
+$skin_file = $point_skin_path.'/point.skin.php';
 
-include_once(G5_PATH.'/tail.sub.php');
+if(is_file($skin_file)) {
+    include($skin_file);
+} else {
+    echo '<p>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</p>';
+}
+
+include_once(G5_PATH.'./_tail.php');
 ?>
