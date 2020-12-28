@@ -34,13 +34,17 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 // 리스트 헤드
 
 @include_once($list_skin_path . '/list.head.skin.php');
-
+// 인기글
+add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
+// 인기글
 ?>
 
 
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list_wrap" class="mb-4">
-
+<!-- 인기글 { -->
+	<?php include_once('hit_latest.php'); ?>
+	<br>
 	<!-- 검색창 시작 { -->
 	<div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">
 		<div class="alert bg-light border p-2 p-sm-3 mb-3 mx-3 mx-sm-0">
@@ -84,6 +88,8 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 	if ($is_category)
 		include_once($board_skin_path . '/category.skin.php');
 	?>
+	
+	
 
 	<form name="fboardlist" id="fboardlist" action="./board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
 		<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
@@ -97,12 +103,20 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 		<input type="hidden" name="sw" value="">
 		<?php if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")       // hulan nemsen 1 mur  door haalt ni bgaa bichih zereg haragdahgui bhaar 
 		{ ?>
-		
+
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
 			<div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0">
 				<div class="d-flex align-items-center">
 					<div id="bo_list_total" class="flex-grow-1">
-						Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page
+						<!-- Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page -->
+						<!-- hulan deed taliig tailbar bolgood dood taliig nemsen board, group admin hevleh heseg -->
+						<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
+						<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
+						<?php echo "방장 : " ?>
+
+						<?php echo get_level($row['mb_id']), $row['mb_nick'], "  ",  get_level($row1['mb_id']), $row1['mb_nick'],  " / " ?>
+						<?php echo "[ 글 작성 ", $board['bo_write_point'], " 파운드 /  댓글 작성 ", $board['bo_comment_point'], " 파운드 획득]" ?>
+						<!-- ///ene hurtel /////////////////////////////////////////// -->
 					</div>
 					<div class="btn-group" role="group">
 						<?php if ($admin_href) { ?>
@@ -126,11 +140,11 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 								<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 								<span class="sr-only">글쓰기</span>
 							</a>  -->
-							<div id="btn_write">		
+							<div id="btn_write">
 								<button type="button" class="btn_bbs" onclick="location.href='<?php echo $write_href ?>'">
-										<i class="fas fa-pencil-alt"></i> 글쓰기
+									<i class="fas fa-pencil-alt"></i> 글쓰기
 								</button>
-							</div>										
+							</div>
 						<?php } ?>
 						<div class="btn-group" role="group">
 							<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
@@ -236,7 +250,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 		if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")  //  hulan nemsen 1 mur 
 			// 목록스킨
 			if (is_file($list_skin_path . '/list.skin.php')) {
-				
+
 				include_once($list_skin_path . '/list.skin.php');
 			} else {
 				echo '<div class="alert alert-warning text-center" role="alert">' . $boset['list_skin'] . ' 목록 스킨이 존재하지 않습니다.</div>' . PHP_EOL;
@@ -245,22 +259,23 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 		<!-- } 게시물 목록 끝 -->
 
 
-		<?php if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>  <!--  hulan nemsen 1 mur -->
-		<!-- 페이지 시작 { -->
-		<div class="font-weight-normal px-3 px-sm-0">
-			<ul class="pagination justify-content-center en mb-0">
-				<?php if ($prev_part_href) { ?>
-					<li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
-				<?php } ?>
-				<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . '&amp;page=')); ?>
-				<?php if ($next_part_href) { ?>
-					<li class="page-item"><a class="page-link" href="<?php echo $next_part_href; ?>">Next</a></li>
-				<?php } ?>
-			</ul>
-		</div>
-          
-		<!-- } 페이지 끝 -->
-				<?php }?> 
+		<?php if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
+			<!--  hulan nemsen 1 mur -->
+			<!-- 페이지 시작 { -->
+			<div class="font-weight-normal px-3 px-sm-0">
+				<ul class="pagination justify-content-center en mb-0">
+					<?php if ($prev_part_href) { ?>
+						<li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
+					<?php } ?>
+					<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . '&amp;page=')); ?>
+					<?php if ($next_part_href) { ?>
+						<li class="page-item"><a class="page-link" href="<?php echo $next_part_href; ?>">Next</a></li>
+					<?php } ?>
+				</ul>
+			</div>
+
+			<!-- } 페이지 끝 -->
+		<?php } ?>
 	</form>
 
 </div>
@@ -354,4 +369,3 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 <?php if ($bo_table == "boardadmlist") {
 	include_once($board_skin_path . '/boardadmlist.php');
 } ?>
-

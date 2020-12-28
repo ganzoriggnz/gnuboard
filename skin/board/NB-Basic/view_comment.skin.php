@@ -120,7 +120,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 							<ul class="d-flex align-items-center">
 								<li class="pr-2">
 									<!-- hulan nemsen mark -->
-									
+									<?php echo get_level($list[$i]['mb_id']); ?>
 									<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']); ?>
 									<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); // SNS 
 									?>

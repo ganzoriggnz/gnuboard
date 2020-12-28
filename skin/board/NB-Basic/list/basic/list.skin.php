@@ -28,21 +28,13 @@ switch($boset['target']) {
 $list_cnt = count($list);
 
 ?>
-<!-- hulan nemsen level mark duudah heseg -->
-<?php
-function get_level($mb_id = '') {
-    global $g5;
-	$result = sql_fetch(" SELECT `mb_level` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
-	if ($result['mb_level'] > 17) 
-    return '<img src='.G5_URL.'/img/'.$result['mb_level'].'.gif>';
-}
-?>
+
 
 
 <section id="bo_list" class="mb-4">
 
 	<!-- 목록 헤드 -->
-	<div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:4px;"></div>s
+	<div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:4px;"></div>
 
 	<div class="na-table d-none d-md-table w-100 mb-0">
 		<div class="<?php echo $head_class ?> d-md-table-row">

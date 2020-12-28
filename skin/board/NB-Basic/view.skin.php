@@ -92,7 +92,7 @@ $view_subject = get_text($view['wr_subject']);
 				<li class="pr-2">
 					<span class="sr-only">작성자</span>
 					<!-- hulan nemsen level mark -->
-					
+					<?php echo get_level($view['mb_id']); ?> 
 					<?php echo na_name_photo($view['mb_id'], $view['name']); ?>
 				</li>
 				<?php if ($is_ip_view) { ?>
