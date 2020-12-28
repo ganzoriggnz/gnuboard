@@ -449,3 +449,5 @@ hr.hr::after {
 .is-square .list-group-item {
 	border-radius:0 !important; 
 }
+
+#bo_list_wrap, #bo_v {background: #fff;}
