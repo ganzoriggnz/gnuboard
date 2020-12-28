@@ -155,6 +155,7 @@ function get_level($mb_id = '') {
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-10 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<span class="sr-only">등록자</span>
+				<!-- hulan nemsen level mark hevleh heseg -->
 				<?php echo get_level($list[$i]['mb_id']); ?>
 				<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
 			</div>
