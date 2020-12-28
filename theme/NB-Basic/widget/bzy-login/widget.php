@@ -207,6 +207,22 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 					</a>
 				</div>
 			</div>
+			<script>
+				var element1 = document.getElementById("outlogin_mb_id");
+				var element2 = document.getElementById("outlogin_mb_password");
+				element1.addEventListener("focus", handler);
+				element1.addEventListener("blur", handler);
+				element2.addEventListener("focus", handler);
+				element2.addEventListener("blur", handler);
+
+				function handler(evt) {
+					if (evt.type == "focus")
+						evt.target.style.backgroundColor = "#fff";
+					else if (evt.type == "blur") {
+						evt.target.style.backgroundColor = "#3B3B45;";
+					}
+				}
+			</script>
 		</form>
 
         <?php
@@ -215,20 +231,5 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
         ?>
 
 	<?php } //End ?>
-	<script>
-		var element1 = document.getElementById("outlogin_mb_id");
-		var element2 = document.getElementById("outlogin_mb_password");
-		element1.addEventListener("focus", handler);
-		element1.addEventListener("blur", handler);
-		element2.addEventListener("focus", handler);
-		element2.addEventListener("blur", handler);
-
-		function handler(evt) {
-			if (evt.type == "focus")
-				evt.target.style.backgroundColor = "#fff";
-			else if (evt.type == "blur") {
-				evt.target.style.backgroundColor = "#3B3B45;";
-			}
-		}
-	</script>
+	
 </div>
