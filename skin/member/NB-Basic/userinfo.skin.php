@@ -120,9 +120,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                                 <a href="./write.php?w=u&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>&page=" style="color: #BFAF88;" ><font color="blue"><b><i class="fa fa-pencil-square-o"></i> 업소정보 수정</b></font></a>
                                 <?php break;} ?>                              
                             <?php }
-                            }	
-                    } ?>
-                    </span></dd>
+                            } ?>	
+                            </span></dd>
+                <?php } ?>
+                    
                 <dt>쿠폰</dt><dd><a href="<?php echo G5_BBS_URL ?>/coupon_create.php"><i class="fa fa-paperclip"></i> <span class="hidden-xs">쿠폰</span></a></dd>
                 <dt>지역-업종</dt><dd><?php echo $res['ca_name']." - ".$res['wr_5']; ?></dd>
                 <dt>제휴기간</dt><dd>2020-11-12 ~ 2021-02-12 <!-- - [ <a href="#" target="_blank"><font color="red"><b>3일 남음</b></font></a> ] --></dd> 
