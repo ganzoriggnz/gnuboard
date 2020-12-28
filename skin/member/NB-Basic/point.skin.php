@@ -19,7 +19,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "#">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/mypost.php">
                                 <span>
                                 <i class="fa fa-pencil-alt">
                                 내 글
@@ -73,7 +73,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "#">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/myreview.php">
                                 <span>
                                 <i class="fa fa-pencil-alt">
                                 후기보기

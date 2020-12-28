@@ -6,6 +6,9 @@ if( !isset($g5['member_table']) ){
     die('<meta charset="utf-8">관리자 모드에서 게시판관리->내용 관리를 먼저 확인해 주세요.');
 }
 
+if (!$is_member)
+    alert_close('회원만 조회하실 수 있습니다.');
+
 // 내용
 
 /* if (G5_IS_MOBILE) {
