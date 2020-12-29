@@ -4,8 +4,8 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">', 0);
 ?>
-<div class="bo_v">   
-    <table cellspacing="0" cellpadding="0" width="100%" align="center" style="border:1px solid #d3d3d3; padding:10px" id="level-up">
+<div id="bo_v">   
+    <table cellspacing="0" cellpadding="0" width="100%" align="center" style="border:1px solid #d3d3d3; padding:10px; margin-top: 20px;" id="level-up">
 		<thead>
 			<tr>
 				<th class="cl_tr">수행 No</th>
@@ -19,12 +19,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				
 			<tr>
 				<td class="cl_td">1</td>
-				<td class="cl_td">입궐명부</td>	
+				<td class="cl_td">출석체크</td>	
 				<td class="cl_td_l">출석체크 하기									
 				</td>
 				<td class="cl_td_r">
 				5 
-				점				</td>
+				점				
+				</td>
 				<td class="cl_td">
 					<div class="miss_but_1">
                         <a href="#" target="_blank">				
@@ -36,14 +37,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			<tr>
 				<td class="cl_td">2</td>
 				<td class="cl_td">자유게시판</td>	
-				<td class="cl_td_l">자유게시판에 글 1회 작성하기					( 0 / 1 )				
+				<td class="cl_td_l">자유게시판에 글 1회 작성하기(0/1)				
 				</td>
 				<td class="cl_td_r">
 				10 
-				점				</td>
+				점				
+				</td>
 				<td class="cl_td">
 					<div class="miss_but_1">
-                        <a href="#" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>																
 				</td>
@@ -51,8 +53,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 								
 			<tr>
 				<td class="cl_td">3</td>
-				<td class="cl_td">자유게시판</td>	
-				<td class="cl_td_l">자유게시판에 글 3회 작성하기					( 0 / 3 )				
+				<td class="cl_td">펫 기르기 게시판</td>	
+				<td class="cl_td_l">펫 먹이주기, 청소하기,쓰담쓰담해주기(0/3)				
 				</td>
 				<td class="cl_td_r">
 				50 
@@ -60,17 +62,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="miss_but_1">
-                        <a href="//cho-bam.com/bbs/board.php?bo_table=ccc_0020" target="_blank">				
+                        <a href="#" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>															
 				</td>
-			</tr>
-			
+			</tr>		
 					
 			<tr>
 				<td class="cl_td">4</td>
-				<td class="cl_td">댓글작성</td>	
-				<td class="cl_td_l">후기, 자유게시판에 댓글 1회 작성하기					( 0 / 1 )				
+				<td class="cl_td">댓글작성 후기</td>	
+				<td class="cl_td_l">자유게시판에 댓글 1회 작성하기(0/1)				
 				</td>
 				<td class="cl_td_r">
 				5 
@@ -78,17 +79,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="miss_but_1">
-                        <a href="//cho-bam.com/bbs/board.php?bo_table=ccc_0020" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>													
 				</td>
 			</tr>
-			
-					
+								
 			<tr>
 				<td class="cl_td">5</td>
-				<td class="cl_td">댓글작성</td>	
-				<td class="cl_td_l">후기, 자유게시판에 댓글 3회 작성하기					( 0 / 3 )				
+				<td class="cl_td">댓글작성 후기</td>	
+				<td class="cl_td_l">자유게시판에 댓글 5회 작성하기(0/3)				
 				</td>
 				<td class="cl_td_r">
 				10 
@@ -96,7 +96,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="miss_but_1">
-                        <a href="//cho-bam.com/bbs/board.php?bo_table=ccc_0020" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>																
 				</td>
@@ -105,8 +105,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 					
 			<tr>
 				<td class="cl_td">6</td>
-				<td class="cl_td">댓글작성</td>	
-				<td class="cl_td_l">후기, 자유게시판에 댓글 10회 작성하기					( 0 / 10 )				
+				<td class="cl_td">댓글작성 후기</td>	
+				<td class="cl_td_l">자유게시판에 댓글 10회 작성하기(0/10)				
 				</td>
 				<td class="cl_td_r">
 				50 
@@ -114,7 +114,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="miss_but_1">
-                        <a href="//cho-bam.com/bbs/board.php?bo_table=ccc_0020" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>													
 				</td>
@@ -123,7 +123,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			<tr>
 				<td class="cl_td">7</td>
 				<td class="cl_td">출근부</td>	
-				<td class="cl_td_l">출근부 5회 읽기					(  / 5 )				
+				<td class="cl_td_l">출근부 5회 읽기(0/5)				
 				</td>
 				<td class="cl_td_r">
 				10 
@@ -131,7 +131,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="miss_but_1">
-                        <a href="//cho-bam.com/bbs/board.php?bo_table=lp_0010" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=attendance" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>												
 				</td>
@@ -140,7 +140,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			<tr>
 				<td class="cl_td">8</td>
 				<td class="cl_td">출근부</td>	
-				<td class="cl_td_l">출근부 10회 읽기					(  / 10 )				
+				<td class="cl_td_l">출근부 10회 읽기(0/10)				
 				</td>
 				<td class="cl_td_r">
 				20 
@@ -148,7 +148,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="miss_but_1">
-                        <a href="//cho-bam.com/bbs/board.php?bo_table=lp_0010" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=attendance" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>												
 				</td>
@@ -157,7 +157,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			<tr>
 				<td class="cl_td">9</td>
 				<td class="cl_td">후기</td>	
-				<td class="cl_td_l">후기 5회 읽기					(  / 5 )				
+				<td class="cl_td_l">후기 5회 읽기(0/5)				
 				</td>
 				<td class="cl_td_r">
 				10 
@@ -165,7 +165,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="miss_but_1">
-                        <a href="//cho-bam.com/bbs/board.php?bo_table=bo_0010" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=review" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>					
 				</td>
@@ -174,7 +174,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			<tr>
 				<td class="cl_td">10</td>
 				<td class="cl_td">후기</td>	
-				<td class="cl_td_l">후기 10회 읽기					(  / 10 )				
+				<td class="cl_td_l">후기 10회 읽기(0/10)				
 				</td>
 				<td class="cl_td_r">
 				20 
@@ -182,7 +182,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
                     <div class="miss_but_1">
-                        <a href="//cho-bam.com/bbs/board.php?bo_table=bo_0010" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=review" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>							
 				</td>

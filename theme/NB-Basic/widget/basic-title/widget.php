@@ -79,7 +79,7 @@ $id = 'carousel_'.na_rid();
 		}
 	<?php } ?>
 </style>
-<div id="<?php echo $id;?>" class="carousel slide<?php echo $fade ?>" data-ride="carousel" data-interval="<?php echo $interval;?>">
+<!-- <div id="<?php echo $id;?>" class="carousel slide<?php echo $fade ?>" data-ride="carousel" data-interval="<?php echo $interval;?>">
 	<div class="carousel-inner">
 		<?php for ($i=0; $i < $list_cnt; $i++) { ?>
 			<div class="carousel-item<?php echo (!$i) ? ' active' : '';?>">
@@ -104,9 +104,9 @@ $id = 'carousel_'.na_rid();
 				</div>
 			</div>
 		<?php } ?>
-	</div>
+	</div> -->
 	<!-- Controls -->
-	<a class="carousel-control-prev" href="#<?php echo $id;?>" role="button" data-slide="prev">
+	<!-- <a class="carousel-control-prev" href="#<?php echo $id;?>" role="button" data-slide="prev">
 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 		<span class="sr-only">Previous</span>
 	</a>
@@ -114,15 +114,15 @@ $id = 'carousel_'.na_rid();
 		<span class="carousel-control-next-icon" aria-hidden="true"></span>
 		<span class="sr-only">Next</span>
 	</a>
-	<?php if(!$wset['nav']) { ?>
+	<?php if(!$wset['nav']) { ?> -->
 		 <!-- Indicators -->
-		<ol class="carousel-indicators">
+		<!-- <ol class="carousel-indicators">
 			<?php for ($i=0; $i < $list_cnt; $i++) { ?>
 				<li data-target="#<?php echo $id;?>" data-slide-to="<?php echo $i;?>"<?php echo (!$i) ? ' class="active"' : '';?>></li>
 			<?php } ?>
 		</ol>
 	<?php } ?>
-</div>
+</div>  -->
 
 <?php 
 //그림자 
