@@ -66,10 +66,11 @@ function latest_popular($bo_table, $rows=10, $subject_len=40, $term='', $options
     echo "<a href=\"".$list[$i]['href']."\">";
     echo "<div class=\"num\">".($i+1)."</div> ";
     echo $list[$i]['subject'];
-  //  ner oruulj ireh
-  echo $list[$i]['wr_good'];
-    echo "</a>";
     ?>
+  <!-- //  ner oruulj ireh -->
+  <div style="float:right;margin-right:10px"> ★ 익명</div>
+   <?php echo "</a>"; ?>
+   
     </li>
     <?php
 	if (($i+1)%($rows/2)==0) echo "</ul></div><div class='lt2'><ul>";
@@ -84,8 +85,8 @@ return $content;
 }
 ?>
 <style type=text/css>
-ul.rumitab {margin:0;padding:0;list-style:none;height:40px;background:#eee;border:1px solid #ddd;border-top:none;width:100%;font-size:1.1em;}
-ul.rumitab li {float:left; display:inline-block;padding:0 10px;text-align:center;cursor:pointer;height:38px;left:-1px;line-height:38px;border:1px solid #ddd;border-left:none;border-bottom:none;font-weight:bold;overflow:hidden;position: relative;}
+ul.rumitab {margin:0;padding:0;list-style:none;height:40px;background:#fafafa;border:1px solid #e5e5e5;border-top:none;width:100%;font-size:1.0em;}
+ul.rumitab li {float:left; display:inline-block;padding:0 10px;text-align:center;cursor:pointer;height:38px;left:-1px;line-height:38px;border:1px solid #ddd;border-left:none;border-bottom:none; overflow:hidden;position: relative;}
 ul.rumitab li:hover {color:red;} 
 ul.rumitab li.active {background:#FFFFFF;color:#333333;border-top:3px solid #aaa;line-height:40px;height:40px;border-bottom:1px solid #fff;}
 ul.rumitab li.active a {color:#333333; pointer-events:none;}
@@ -94,7 +95,7 @@ ul.rumitab li.active a {color:#333333; pointer-events:none;}
 .rumitab_box {width:100%;border:1px solid #ddd;overflow:hidden;}
 .lt2 {float:left;width:49%;overflow:hidden;}
 .lt2 ul {margin:0 0 0 0;padding:0;list-style:none;}
-.lt2 li {padding:5px 0;white-space:nowrap;font-size:1.2em}
+.lt2 li {padding:5px 0;white-space:nowrap;font-size:1.0em}
 .num {background:#f7f7f7;color:#555;border-radius:3px;padding:0;width:20px;text-align:center;margin:0;display:inline-block;}
 </style>
 <script src="<?php echo G5_JS_URL; ?>/jquery.rumiTab.js"></script>
@@ -106,7 +107,7 @@ $hits = $data['today_count'];
 ?>
 <div id="TAB_A" class="rumitab_box">
   <ul class="rumitab">
-	<?php  if("10" <= $hits){ ?>
+	<?php  if("1" <= $hits){ ?>
     <li rel="A_tab1">일간 조회수 베스트 10</li>
     <li rel="A_tab2">일간 추천수 베스트 10</li>
 	<?php } ?>
@@ -116,14 +117,15 @@ $hits = $data['today_count'];
     <li rel="A_tab6">월간 추천수 베스트 10</li>
   </ul>
   <div class="rumitab_container">
-	<?php  if("10" <= $hits){ ?>
+	<?php  if("1" <= $hits){ ?>
     <div id="A_tab1" class="rumitab_content">
       <?php echo latest_popular($bo_table, 10, 40, '일간', 'wr_hit desc'); ?>
     </div>
-    <?php } ?>
+    
     <div id="A_tab2" class="rumitab_content">
       <?php echo latest_popular($bo_table, 10, 40, '일간', 'wr_good desc'); ?>
     </div>
+    <?php } ?>
 	<div id="A_tab3" class="rumitab_content">
       <?php echo latest_popular($bo_table, 10, 40, '주간', 'wr_hit desc'); ?>
     </div>

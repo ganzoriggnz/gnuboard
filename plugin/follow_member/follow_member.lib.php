@@ -77,7 +77,7 @@ class Follow_member{
     }
   }
 
-  function get_follow_photo_display($count=5, $mb_level="2,3"){
+  function get_follow_photo_display($count=5, $mb_level="2,3,4,5,6,26,27,30"){
 
   	$str = '<ul class="randprofil_box">'.PHP_EOL;
   			$arrphoto = $this->get_follow_photo($count, $mb_level);
@@ -100,7 +100,7 @@ class Follow_member{
   }
 
   //회원사진 가져오기
-  function get_follow_photo($count=5, $mb_level="2,3"){
+  function get_follow_photo($count=5, $mb_level="2,3,4"){
   	$que = "select a.mb_id, a.mb_name
   	from ".$this->g5['member_table']." a
   	where a.mb_id != '".$this->member['mb_id']."' and a.mb_id != 'admin' and length(a.mb_id) > 0 and a.mb_level in ($mb_level)
@@ -264,15 +264,15 @@ class Follow_member{
   }
 
   function insert_friend_table($arrset, $debug=false){
-    return $this->db->insert_table( FRIEND, $arrset, $debug );
+    return $this->db->insert_table( 'FRIEND', $arrset, $debug );
   }
 
   function select_friend_one_table($arrwhere, $column="*"){
-    return $this->db->select_one_table(FRIEND, $arrwhere, $column);
+    return $this->db->select_one_table('FRIEND', $arrwhere, $column);
   }
 
   function update_friend_table($arrset, $arrwhere="", $debug=false){
-    return $this->update_table( FRIEND, $arrset, $arrwhere, $debug );
+    return $this->update_table( 'FRIEND', $arrset, $arrwhere, $debug );
   }
 
 

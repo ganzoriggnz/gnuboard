@@ -20,7 +20,7 @@
 	if( $f['f_idx'] ){
     $arrset['followersyn'] = "N";
     $arrwhere['f_idx'] = $f['f_idx'];
-		$follow_member->update_friend_table($arrset, $arrwhere){
+		$follow_member->update_friend_table($arrset, $arrwhere)
 		$mb_name = $f['mb_name'];
 	}else{
 	   alert( "거절할 친구가 없습니다.");
