@@ -1,0 +1,12 @@
+.pet_text {text-align: center;}
+.pet_text h1 {font-size:40px; color:#272727;margin-bottom:36px;}
+.pet_p{font-size:14px;}
+.pet_img_div {display: flex; justify-content: center; margin-top: 40px;}
+.pet_img2 {margin-left:129px;}
+.red {color:red;}
+.row_btn {display: flex; justify-content: center; margin-top:54px;}
+.row_btn.mt_54 {margin-top:54px;}
+.row_btn.mt_24 {margin-top:24.5px;}
+.btn_pet_first {width:221px; height:33.5px;background:#D5BD79; color:#fff; font-size:14px;}
+.btn_pet_second {width:221px; height:33.5px;background:#D5BD79; margin-left:172.9px; color:#fff; font-size:14px;}
+.pet_bottom {margin-top: 30px; text-align:right; padding-bottom: 20px;}
