@@ -201,10 +201,10 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 					<a href="<?php echo G5_BBS_URL ?>/register.php" style="color: #AEAEAE;">
 						회원가입
 					</a>
-					<span class="na-bar"></span>
+					<!-- <span class="na-bar"></span>
 					<a href="<?php echo G5_BBS_URL ?>/password_lost.php" class="win_password_lost" style="color: #AEAEAE;">
 						정보찾기
-					</a>
+					</a> -->
 				</div>
 			</div>
 			<script>

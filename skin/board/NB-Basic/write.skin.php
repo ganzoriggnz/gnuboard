@@ -209,7 +209,7 @@ if ($is_member)
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label" for="$write['ca_name']">* 지역</label>
 							<div class="col-md-7">
-								<?php echo $write['ca_name'] . "    (지역과 업소명은 제휴신청때 작성된 정보가 자동입력됩니다. 변경시 제휴문의에 글 남기시거나 관리자에게 쪽지주세요.)" ?>
+								<?php echo $write['ca_name'] . "  (지역과 업소명은 제휴신청때 작성된 정보가 자동입력됩니다. 변경시 제휴문의에 글 남기시거나 관리자에게 쪽지주세요.)" ?>
 							</div>
 						</div>
 					</li>
@@ -253,7 +253,7 @@ if ($is_member)
 					</li>
 				<?php } ?>
 					 
-				<!-- level 26 zasah deer garah shaardlagagui admin page deer garad admin utga oruulj uguh -->
+				<!-- level 26.27 zasah deer garah shaardlagagui admin page deer garad admin utga oruulj uguh -->
 				<?php if ($is_cat_name) { ?>
 					<li class="list-group-item">
 						<div class="form-group row mb-0">

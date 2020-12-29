@@ -176,9 +176,9 @@ $menu_cnt = count($menu);
 						회원가입
 					</a>
 					<!--<span class="na-bar"></span>-->
-					<a class="btn btn-primary" href="<?php echo G5_BBS_URL ?>/password_lost.php" class="win_password_lost">
+					<!-- <a class="btn btn-primary" href="<?php echo G5_BBS_URL ?>/password_lost.php" class="win_password_lost">
 						정보찾기
-					</a>
+					</a> -->
 			</div>
 			</div>
 		<?php } ?>
