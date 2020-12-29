@@ -35,37 +35,10 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 			<li class="list-group-item border-top-0">
 				<h5>사이트 이용정보 입력</h5>
 			</li>
-			<li class="list-group-item pt-3 pt-sm-4">
-				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" for="reg_mb_id">아이디<strong class="sr-only">필수</strong></label>
-					<div class="col-sm-4">
-						<input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" <?php echo $required ?> <?php echo $readonly ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
-					</div>
-					<div class="col-sm-6">
-						<p class="form-control-plaintext f-de text-muted pb-0">
-							영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력 가능
-							<div id="msg_mb_id"></div>
-						</p>
-					</div>
-				</div>
 
-				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" for="reg_mb_password">비밀번호<strong class="sr-only">필수</strong></label>
-					<div class="col-sm-4">
-						<input type="password" name="mb_password" id="reg_mb_password" <?php echo $required ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
-					</div>
-					<label class="col-sm-2 col-form-label" for="reg_mb_password_re">비밀번호 확인<strong class="sr-only">필수</strong></label>
-					<div class="col-sm-4">
-						<input type="password" name="mb_password_re" id="reg_mb_password_re" <?php echo $required ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
-					</div>
-				</div>
-			</li class="list-group-item pt-3 pt-sm-4">
-			<li class="list-group-item pt-5">
-				<h5>개인정보 입력</h5>
-			</li>
-			<!-- hulan nemsen 성별 정보 받기 -->
 			<li class="list-group-item pt-3 pt-sm-4">
-				<div class="form-group row">
+				<!-- hulan nemsen 성별 정보 받기 -->
+			<div class="form-group row">
 					<label class="col-sm-2 control-label" for="reg_mb_1"><b>성별</b><strong class="sound_only">필수</strong></label>
 					<div class="col-sm-10">
 						<div class="custom-control custom-radio custom-control-inline">
@@ -83,10 +56,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					</div>
 
 				</div>
-				<!-- /////ene hurtel///// -->
-			</li>
-
-			<li class="list-group-item pt-3 pt-sm-4">
 				<?php if ($req_nick) { ?>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label" for="reg_mb_nick">닉네임<strong class="sr-only">필수</strong></label>
@@ -112,11 +81,55 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						<?php } ?>
 					</div>
 				<?php } ?>
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label" for="reg_mb_id">아이디<strong class="sr-only">필수</strong></label>
+					<div class="col-sm-4">
+						<input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" <?php echo $required ?> <?php echo $readonly ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
+					</div>
+					<div class="col-sm-6">
+						<p class="form-control-plaintext f-de text-muted pb-0">
+							영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력 가능
+							<div id="msg_mb_id"></div>
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label" for="reg_mb_password">비밀번호<strong class="sr-only">필수</strong></label>
+					<div class="col-sm-4">
+						<input type="password" name="mb_password" id="reg_mb_password" <?php echo $required ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
+					</div>
+					
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label" for="reg_mb_password_re">비밀번호 확인<strong class="sr-only">필수</strong></label>
+					<div class="col-sm-4">
+						<input type="password" name="mb_password_re" id="reg_mb_password_re" <?php echo $required ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
+					</div>
+				</div>
+				
+                <div class="form-group row mb-1">
+                    <label class="col-sm-2 col-form-label">자동등록방지</label>
+                    <div class="col-sm-8">
+                        <?php echo captcha_html(); ?>
+                    </div>
+                </div>
+            
+			</li class="list-group-item pt-3 pt-sm-4">
+			<!-- <li class="list-group-item pt-5">
+				<h5>개인정보 입력</h5>
+			</li> -->
+		
+		
+
+
+			<li class="list-group-item pt-3 pt-sm-4" style="display: none;">
+				
 
 				<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="reg_mb_name">이름<strong class="sr-only">필수</strong></label>
 					<div class="col-sm-4">
-						<input type="text" id="reg_mb_name" name="mb_name" value="<?php echo get_text($member['mb_name']) ?>" <?php echo $required ?> <?php echo $readonly ?> class="form-control <?php echo $required ?>">
+						<input type="hidden" id="reg_mb_name" name="mb_name" value="공백"  <?php echo $required ?> <?php echo $readonly ?> class="form-control <?php echo $required ?>">
 					</div>
 				</div>
 
@@ -152,7 +165,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					<label class="col-sm-2 col-form-label" for="reg_mb_email">E-mail<strong class="sr-only">필수</strong></label>
 					<div class="col-sm-10">
 						<input type="hidden" name="old_email" value="<?php echo $member['mb_email'] ?>">
-						<input type="text" name="mb_email" value="<?php echo isset($member['mb_email']) ? $member['mb_email'] : ''; ?>" id="reg_mb_email" required class="form-control email required" size="70" maxlength="100">
+						<input type="hidden" name="mb_email" value="<?php echo isset($member['mb_email'])?$member['mb_email']:''; ?>" id="reg_mb_email"  class="form-control email " size="70" maxlength="100">
 						<?php if ($config['cf_use_email_certify']) { ?>
 							<p class="form-control-plaintext f-de pb-0">
 								<?php if ($w == '') {
@@ -229,10 +242,10 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<?php } ?>
 			</li>
 
-			<li class="list-group-item pt-5">
+			<li class="list-group-item pt-5" style="display: none;">
 				<h5>기타 개인설정</h5>
 			</li>
-			<li class="list-group-item pt-3 pt-sm-4">
+			<li class="list-group-item pt-3 pt-sm-4" style="display: none;">
 				<?php if ($config['cf_use_signature']) { ?>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label" for="reg_mb_signature">서명<?php if ($config['cf_req_signature']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
@@ -310,7 +323,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					</div>
 				<?php }  ?>
 
-				<div class="form-group row">
+				<div class="form-group row" >
 					<label class="col-sm-2 col-form-label" for="reg_mb_mailling">메일링서비스</label>
 					<div class="col-sm-8">
 						<p class="form-control-plaintext f-de pt-1 pb-0 float-left">
@@ -372,7 +385,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 			?>
 
 			<?php if ($w == "" && $config['cf_use_recommend']) { ?>
-				<li class="list-group-item pt-3 pt-sm-4">
+				<li class="list-group-item pt-3 pt-sm-4" style="display: none;">
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label" for="reg_mb_recommend">추천인아이디</label>
 						<div class="col-sm-3">
@@ -382,14 +395,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				</li>
 			<?php } ?>
 
-			<li class="list-group-item pt-3 pt-sm-4">
-                <div class="form-group row mb-1">
-                    <label class="col-sm-2 col-form-label">자동등록방지</label>
-                    <div class="col-sm-8">
-                        <?php echo captcha_html(); ?>
-                    </div>
-                </div>
-            </li>
+			
 		</ul>
 
 		<div class="px-3 px-sm-0 mb-4">
@@ -527,14 +533,14 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 		}
 
 		// E-mail 검사
-		if ((f.w.value == "") || (f.w.value == "u" && f.mb_email.defaultValue != f.mb_email.value)) {
-			var msg = reg_mb_email_check();
-			if (msg) {
-				alert(msg);
-				f.reg_mb_email.select();
-				return false;
-			}
-		}
+		// if ((f.w.value == "") || (f.w.value == "u" && f.mb_email.defaultValue != f.mb_email.value)) {
+		// 	var msg = reg_mb_email_check();
+		// 	if (msg) {
+		// 		alert(msg);
+		// 		f.reg_mb_email.select();
+		// 		return false;
+		// 	}
+		// }
 
 		<?php if (($config['cf_use_hp'] || $config['cf_cert_hp']) && $config['cf_req_hp']) {  ?>
 			// 휴대폰번호 체크

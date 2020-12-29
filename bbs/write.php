@@ -259,7 +259,7 @@ $is_address = false;
 $is_comname = false;
 $is_cat_name = false;
 
-if ($is_guest || ($is_admin && $w == 'u' && $member['mb_id'] !== $write['mb_id'] ) && $gr_id == 'attendance') {
+if ($is_guest || ($is_admin && $w == 'u' && $member['mb_id'] !== $write['mb_id'] ) && $member['mb_level'] != 27) {
     $is_name = true;
     $is_password = true;
     $is_email = true;

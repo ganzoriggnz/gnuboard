@@ -10,6 +10,8 @@ $g5['title'] = '게시글 저장';
 
 $msg = array();
 
+// hulan nemsen level27 아닌 경우 실행
+if($member['mb_level'] != 27 && $member['mb_level'] != 26 && $gr_id != 'attendance' ){
 if($board['bo_use_category']) {
     $ca_name = trim($_POST['ca_name']);
     if(!$ca_name) {
@@ -24,6 +26,7 @@ if($board['bo_use_category']) {
     }
 } else {
     $ca_name = '';
+}
 }
 
 $wr_subject = '';

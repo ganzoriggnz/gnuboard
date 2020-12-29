@@ -59,7 +59,7 @@ if(is_file($skin_file)) {
 <?php include_once(G5_PLUGIN_PATH.'/follow_member/follow_member.lib.php');?>
 <?php echo $follow_member->get_follow_photo_display(10);?>
 
-
+<?php include_once(G5_PLUGIN_URL.'/follow_member/follow_member_list.php');?>
 
 <?php
     include_once('./_tail.php');
