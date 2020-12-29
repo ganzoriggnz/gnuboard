@@ -26,8 +26,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
         <button type="button" id="btn_dog1" class="btn_pet_second">청소하기</button>
     </div>
     <div class="row_btn mt_24">
-        <button type="button" id="btn_cat2" class="btn_pet_first">청소하기</button>
-        <button type="button" id="btn_dog2" class="btn_pet_second">청소하기</button>
+        <button type="button" id="btn_cat2" class="btn_pet_first">쓰담쓰담 하기</button>
+        <button type="button" id="btn_dog2" class="btn_pet_second">쓰담쓰담 하기</button>
     </div>
     <div class="row_btn mt_24">
         <button type="button" id="btn_cat3" class="btn_pet_first">청소하기</button>
@@ -45,8 +45,35 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
 
             }); 
 
-        }
-        )
+        });
+
+        // function to disable and enable buttons, receives an array with button IDs 
+// from https://coursesweb.net/javascript 
+function disableEnableBtn(ids){ 
+ // traverses the array with IDs 
+ var nrids = ids.length; 
+ for(var i=0; i<nrids; i++){ 
+ // registers onclick event to each button 
+ if(document.getElementById(ids[i])) { 
+ document.getElementById(ids[i]).onclick = function() { 
+ this.setAttribute('disabled', 'disabled'); // disables the button by adding the disabled attribute 
+ //this.innerHTML = 'Disabled'; // changes the button text 
+ var idbtn = this.id; // stores the button ID 
+ 
+ // calls a function after 2 sec. (2000 milliseconds) 
+ setTimeout(()=>{ 
+ document.getElementById(idbtn).removeAttribute('disabled'); // removes the disabled attribute 
+ //document.getElementById(idbtn).innerHTML = 'Click'; // changes tne button text 
+ }, 3000000 ); 
+ } 
+ } 
+ } 
+} 
+ 
+// array with IDs of buttons 
+var btnid = ['btn_cat1', 'btn_cat2', 'btn_cat3', 'btn_dog1', 'btn_dog2', 'btn_dog3']; 
+ 
+disableEnableBtn(btnid); // calls the function
        
     </script>
     
