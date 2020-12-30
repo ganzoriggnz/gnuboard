@@ -86,11 +86,14 @@ for ($i=0; $i < $list_cnt; $i++) {
 
 
 <li class="col px-2 pb-4" style="width: 229px; height: 280px;">
+	
+
 
     <div style="background-image:url('http://210.114.18.63/img/main_bgpicture.png')" style="height: 148px;">
         <div>
             <div class="img-wrap bg-light mb-2">
-                <div class="img-item" >
+				<?php if($list[$i]['wr_5'] == "안마" ){?>
+                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/anma5.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
@@ -98,7 +101,52 @@ for ($i=0; $i < $list_cnt; $i++) {
 							<img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
 							<?php } ?>
 					</a>
-                </div>
+				</div>
+				<?php }?>
+				<?php if($list[$i]['wr_5'] == "오피" ){?>
+                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/office.png')" style="height: 148px;">
+					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
+						<?php echo $wr_tack ?>
+						<?php echo $wr_cap ?>
+						<?php if($thumb) { ?>
+							<img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
+							<?php } ?>
+					</a>
+				</div>
+				<?php }?>
+				<?php if($list[$i]['wr_5'] == "휴게텔" ){?>
+                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/yupcatel.png')" style="height: 148px;">
+					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
+						<?php echo $wr_tack ?>
+						<?php echo $wr_cap ?>
+						<?php if($thumb) { ?>
+							<img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
+							<?php } ?>
+					</a>
+				</div>
+				<?php }?>
+				<?php if($list[$i]['wr_5'] == "건마" ){?>
+                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/gonma5.png')" style="height: 148px;">
+					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
+						<?php echo $wr_tack ?>
+						<?php echo $wr_cap ?>
+						<?php if($thumb) { ?>
+							<img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
+							<?php } ?>
+					</a>
+				</div>
+				<?php }?>
+				<?php if($list[$i]['wr_5'] == "립카페" ){?>
+                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/cafe5.png')" style="height: 148px;">
+					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
+						<?php echo $wr_tack ?>
+						<?php echo $wr_cap ?>
+						<?php if($thumb) { ?>
+							<img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
+							<?php } ?>
+					</a>
+				</div>
+				<?php }?>
             </div>
             <div class="na-title" style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
 			<a href="<?php echo $list[$i]['href'] ?>" class="na-subject" style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;" <?php echo $target ?>>
