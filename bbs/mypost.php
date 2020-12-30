@@ -34,8 +34,8 @@ include_once(G5_PATH.'/head.sub.php');
     } 
 }  */
 
-/* $sql_common = " from {$g5['scrap_table']} where mb_id = '{$member['mb_id']}' ";
-$sql_order = " order by ms_id desc ";
+$sql_common = " from {$g5['autosave_table']} where mb_id = '{$member['mb_id']}' ";
+$sql_order = " order by as_id desc ";
 
 $sql = " select count(*) as cnt $sql_common ";
 $row = sql_fetch($sql);
@@ -62,25 +62,25 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $num = $total_count - ($page - 1) * $rows - $i;
 
     // 게시판 제목
-    $sql2 = " select bo_subject from {$g5['board_table']} where bo_table = '{$row['bo_table']}' ";
+    /* $sql2 = " select bo_subject from {$g5['board_table']} where bo_table = '{$row['bo_table']}' ";
     $row2 = sql_fetch($sql2);
-    if (!$row2['bo_subject']) $row2['bo_subject'] = '[게시판 없음]';
+    if (!$row2['bo_subject']) $row2['bo_subject'] = '[게시판 없음]'; */
 
     // 게시물 제목
-    $tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
+    /* $tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
     $sql3 = " select wr_subject from $tmp_write_table where wr_id = '{$row['wr_id']}' ";
     $row3 = sql_fetch($sql3, FALSE);
     $subject = get_text(cut_str($row3['wr_subject'], 100));
     if (!$row3['wr_subject'])
-        $row3['wr_subject'] = '[글 없음]';
+        $row3['wr_subject'] = '[글 없음]'; */
 
     $list[$i]['num'] = $num;
-    $list[$i]['opener_href'] = get_pretty_url($row['bo_table']);
+    /* $list[$i]['opener_href'] = get_pretty_url($row['bo_table']);
     $list[$i]['opener_href_wr_id'] = get_pretty_url($row['bo_table'], $row['wr_id']);
     $list[$i]['bo_subject'] = $row2['bo_subject'];
     $list[$i]['subject'] = $subject;
-    $list[$i]['del_href'] = './scrap_delete.php?ms_id='.$row['ms_id'].'&amp;page='.$page;
-} */
+    $list[$i]['del_href'] = './scrap_delete.php?ms_id='.$row['ms_id'].'&amp;page='.$page; */
+}
 
 $mypost_skin_path = get_skin_path('member', $config['cf_member_skin']);
 $mypost_skin_url  = get_skin_url('member', $config['cf_member_skin']);

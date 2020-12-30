@@ -92,7 +92,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
     <section id="bo_list" class="mb-4"> 
         <div id="scrap_info" class="font-weight-normal px-3 pb-2 pt-4">
-            전체 <?php echo number_format($count) ?>건 / <?php echo $page ?>페이지
+            전체 <?php echo number_format($total_count) ?>건 / <?php echo $page ?>페이지
         </div>
 
         <div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
@@ -113,40 +113,31 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
         <ul class="na-table d-md-table w-100">
         <?php 
-        $count=0;
-        $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
-        while ( $row=sql_fetch_array($result))
-        {
-            $bo_table = $row['bo_table'];
-            
-            $res = sql_fetch("select * from ".$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}'");
-            $count++;	
-            if($res){ ?>
+        for ($i=0; $i < count($list); $i++) { ?>
                 
                     <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
                         <div class="d-none d-md-table-cell nw-4 f-sm font-weight-normal py-md-2 px-md-1">
-                            <?php echo $res['ca_name'] ?> 
+                            <?php echo 6666; ?> 
                         </div>
                         <div class="d-none d-md-table-cell nw-6 text-left f-sm font-weight-normal py-md-2 px-md-1">
                             <a href="./write.php?w=u&bo_table=<?=$bo_table?>" style="color: #BFAF88;" >
-                            <?php echo $res['wr_5']; ?></a> 
+                            <?php echo 5555; ?></a> 
                         </div>
                         <div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
                             <a href="./write.php?w=u&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>" style="color: #BFAF88;" >
-                                <?php echo $res['wr_subject']; ?>
+                                <?php echo $list[$i]['as_subject']; ?>
                             </a> 
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
-                            <span class="sr-only">등록일</span>
-                            <?php echo $res['wr_name'] ?>
+                            <?php echo $list[$i]['mb_id']; ?>
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
-                                <?php echo $res['wr_last']; ?>
+                                <span class="sr-only">등록일</span>
+                                <?php echo $list[$i]['as_datetime']; ?>
                         </div>
                         <div class="clearfix d-block d-md-none"></div>
                     </li>
-                <?php  }
-        }	?> 
+        <?php  } ?> 
             
         </ul>
         <?php if ($i==0) { ?>

@@ -43,12 +43,13 @@ function autosave() {
 
 $(function(){
 
-    if (g5_is_member) {
+    /* if (g5_is_member) {
         setInterval(autosave, AUTOSAVE_INTERVAL * 1000);
-    }
-
+    } */
+    if (g5_is_member) {
     // 임시저장된 글목록을 가져옴
     $("#btn_autosave").click(function(){
+        autosave();
         if ($("#autosave_pop").is(":hidden")) {
             $.get(g5_bbs_url+"/ajax.autosavelist.php", function(data){
                 //alert(data);
@@ -118,5 +119,6 @@ $(function(){
     $(".autosave_close").click(function(){ 
 		//$("#autosave_pop").hide(); 
 		$('#saveModal').modal('hide');
-	});
+    });
+}
 });
