@@ -75,7 +75,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 }
                 else
                 {
-                    if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 1)
+                    if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 30)
                     {
                         $("#" + this.id).css("background","#4D4D4D");
                         lastClickedTime = new Date($.now());
