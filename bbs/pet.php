@@ -3,9 +3,6 @@ include_once('./_common.php');
 
 include_once('./_head.php');
 
-// add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
-add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
-
 if ($is_guest)
     alert_close('회원만 조회하실 수 있습니다.');
 
