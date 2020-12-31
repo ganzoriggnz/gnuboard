@@ -100,7 +100,7 @@ class Follow_member{
   }
 
   //회원사진 가져오기
-  function get_follow_photo($count=5, $mb_level="2,3,4"){
+  function get_follow_photo($count=5, $mb_level="2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22"){
   	$que = "select a.mb_id, a.mb_name
   	from ".$this->g5['member_table']." a
   	where a.mb_id != '".$this->member['mb_id']."' and a.mb_id != 'admin' and length(a.mb_id) > 0 and a.mb_level in ($mb_level)
