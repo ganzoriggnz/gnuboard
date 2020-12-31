@@ -79,6 +79,12 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 					<?php if ($member['as_noti']) { ?><b><?php echo number_format($member['as_noti']) ?></b><?php } ?>
 				</a>
 			<?php } ?>
+
+			
+				<a href="<?php echo G5_ATTENDANCE_URL ?>/attendance.php/" class="btn btn-primary text-white" role="button">
+					<i class="fas fa-calendar-check"></i></font></a>
+					
+
 			<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
 				<i class="fa fa-envelope" aria-hidden="true"></i>
 				<?php if ($member['mb_memo_cnt']) { ?><b><?php echo number_format($member['mb_memo_cnt']);?></b><?php } ?>

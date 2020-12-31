@@ -1,0 +1,38 @@
+ul, li {list-style:none outside;}
+A {text-decoration:none;}
+
+
+/* date */
+#att_layer {text-align:left;}
+
+#att_layer #box {width:120px;}
+#att_layer #box .top {padding-top:4px; width:20px; float:left;}
+#att_layer #box .day {width:80px; float:left;}
+
+#att_layer .w {font-weight:bold; line-height:20px; color:#333333; font-size:15px; font-family:굴림,돋움;}
+#att_layer .attendance {background:url('./img/attendance.gif') no-repeat;}
+#att_layer .attendance_off {background:url('./img/attendance_off.gif') no-repeat;}
+#att_layer .m_attendance {background:url('./img/m_attendance.gif') no-repeat;}
+#att_layer .m_attendance_off {background:url('./img/m_attendance_off.gif') no-repeat;}
+#att_layer .title_sun {background-color:#efefef; font-weight:bold; color:#ea3d3e; font-size:12px; font-family:굴림,돋움; padding:0 0 0 1px;}
+#att_layer .title_day {background-color:#efefef; font-weight:bold; color:#565656; border-left:1px solid #e4e4e4; font-size:12px; font-family:굴림,돋움; padding:0 0 0 1px;}
+#att_layer .title_sat {background-color:#efefef; font-weight:bold; color:#3d7aea; border-left:1px solid #e4e4e4; font-size:12px; font-family:굴림,돋움; padding:0 0 0 1px;}
+
+#att_layer .sun_1 {padding:0 0 0 10px; color:#ea3d3e; font-size:12px; font-family:굴림,돋움;}
+#att_layer .sat_1 {padding:0 0 0 10px; color:#3d7aea; font-size:12px; font-family:굴림,돋움;}
+#att_layer .day_1 {padding:0 0 0 10px; color:#333333; font-size:12px; font-family:굴림,돋움;}
+
+#att_layer .sun_2 {padding:0 0 0 10px; font-weight:bold; color:#ea3d3e; font-size:15px; font-family:굴림,돋움;}
+#att_layer .sat_2 {padding:0 0 0 10px; font-weight:bold; color:#3d7aea; font-size:15px; font-family:굴림,돋움;}
+#att_layer .day_2 {padding:0 0 0 10px; font-weight:bold; color:#ff7700; font-size:15px; font-family:굴림,돋움;}
+
+#att_layer .dot {color:#000000; font-size:12px; font-family:굴림,돋움;}
+
+#att_layer .check {color:#126420; font-size:11px; font-family:굴림,돋움;}
+#att_layer .check2 {color:#999999; font-size:11px; font-family:굴림,돋움;}
+
+.board_list { clear:both; }
+.board_list tr.bg0 { background-color:#fafafa; } 
+.board_list tr.bg1 { background-color:#ffffff; } 
+
+.input {height:22px}
