@@ -363,6 +363,9 @@ $menu_cnt = count($menu);
 </aside>
 
 <div id="nt_sidebar_mask" class="sidebar-close"></div>
+<div class="flower_img">
+	<img src="<?php echo G5_URL?>/img/decor_3_by_diza.png"/>
+</div>
 
 <!-- 상단이동 버튼 -->
 <div id="nt_bottom">

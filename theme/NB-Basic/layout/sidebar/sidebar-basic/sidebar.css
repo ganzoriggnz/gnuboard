@@ -206,4 +206,15 @@
 	#nt_sidebar .sidebar-wing-icon { display:none; }
 }
 
+/********************************************************
+■ Flower Image : 
+********************************************************/
+.flower_img { 
+	float:right;
+	position: fixed;
+	width:295px;
+	height:331px; 
+	right: -1px;
+	bottom: 170px;   
+}
 

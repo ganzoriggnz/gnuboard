@@ -7,10 +7,6 @@ body {
 	margin:0;
 	padding:0;
 	color:#000;
-	background-image: url('http://210.114.18.63/img/decor_3_by_diza.png');
-	background-repeat: no-repeat;
-	background-position: bottom 182px right -45px;
-	z-index: 10000;
 	position: relative;
 }
 
@@ -20,8 +16,8 @@ body::after{
 	position: absolute;
 	background: url('http://210.114.18.63/img/bg_img.png');
 	top: 240px;
-            right: 0;
-            left: 0;
+	right: 0;
+	left: 0;
 	bottom: 0;	
 	opacity: 0.1;
 	z-index: -1;
