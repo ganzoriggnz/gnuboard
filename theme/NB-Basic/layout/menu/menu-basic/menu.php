@@ -153,7 +153,7 @@ $is_col_all = 6;
 						<li class="flex-grow-1 order-2 me-li">
 							<a class="me-a f-md" href="javascript:;">테마설정 > 메뉴설정에서 메뉴를 등록해 주세요.</a>
 						</li>
-					<?php } ?>
+					<?php } if($is_member) {?>
                         <div style="display: flex; flex-direction: row; justify-content: space-between; width: 27.3691%;">
                             <li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="#" target="_self" title="텔레그램채널">
@@ -221,7 +221,7 @@ $is_col_all = 6;
 						    </li>
                         </div>
 
-
+					<?php } ?>
 					</ul>
 				</div>
 				<div class="me-icon order-1 me-li<?php echo ($is_index) ? ' on' : ' on'; ?>" style="width:43px;">
