@@ -210,9 +210,8 @@
 ■ Flower Image : 
 ********************************************************/
 .flower_img { 
-	display: block;
 	float:right;
-	position: fixed;
+	position: absolute;
 	width:295px;
 	height:331px; 
 	right: -1px;
