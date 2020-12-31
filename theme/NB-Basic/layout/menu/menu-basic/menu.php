@@ -153,8 +153,8 @@ $is_col_all = 6;
 						<li class="flex-grow-1 order-2 me-li">
 							<a class="me-a f-md" href="javascript:;">테마설정 > 메뉴설정에서 메뉴를 등록해 주세요.</a>
 						</li>
-					<?php } if($is_member) {?>
-                        <div style="display: flex; flex-direction: row; justify-content: space-between; width: 27.3691%;">
+					<?php } ?>
+                        <div style="display: flex; flex-direction: row; justify-content: space-between; width: <?php echo $is_member ? '27.3691%;' : '9.12103' ?>">
                             <li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="#" target="_self" title="텔레그램채널">
 									<!--<i class="fa fa-paper-plane-o" aria-hidden="true"></i>-->
@@ -173,14 +173,13 @@ $is_col_all = 6;
 									<img src="<?php echo G5_URL?>/img/twitter.png" >
 								</a>
 							</li>
+							<?php if($is_member) { ?>
                             <li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="<?php echo G5_URL?>/?device=mobile" target="_self" title="모바일로 보기">
+							    <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/mypage.php" target="_self" title="마이페이지">
 									<!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-person-24px.png" >
 								</a>
 							</li>
-
-
 
 							<!-- 로그인 후 메뉴 -->
                             <!--<li class="col p-0 me-li">
