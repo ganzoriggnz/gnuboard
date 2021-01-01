@@ -112,11 +112,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 
             <div class="p-20">
                 <div class="coupon_label">원가권 :</div>
-                <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="Please, insert quantity of sale coupon" class="coupon_input">
+                <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="" class="coupon_input">
             </div>
             <div class="p-20">
                 <div class="coupon_label">무료권 :</div>
-                <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="Please, insert quantity of free coupon" class="coupon_input">
+                <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="" class="coupon_input">
             </div>
             <div class="p-20">
                 <div class="coupon_label"></div>
@@ -159,10 +159,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
         <h6>이번달 잔여 쿠폰 개수</h6>
 
         <div class="coupon_div">
-            <p class="count"><span><?php echo $diff_s;?></span><span>/</span><span><?php echo $row1['co_sale_num']; ?></span></p>
+            <p class="count"><span><?php echo $diff_s; ?></span><span>/</span><span><?php echo $row1['co_sale_num']; ?></span></p>
         </div>
         <div class="coupon_div">
-            <p class="count"><span><?php echo $diff_f;?></span><span>/</span><span><?php echo $row1['co_free_num']; ?></span></p>
+            <p class="count"><span><?php echo $diff_f; ?></span><span>/</span><span><?php echo $row1['co_free_num']; ?></span></p>
         </div>
     </div>
 </div> 

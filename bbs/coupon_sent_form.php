@@ -54,6 +54,5 @@ if($cos_type == 'S'){
     sql_query($sql1);
 }
 
-
 goto_url(G5_HTTP_BBS_URL.'/coupon_list.php?bo_table='.$cos_link); 
 ?>

@@ -164,20 +164,9 @@ $row = sql_fetch($sql);
 
 $sql1 = "SELECT * FROM $g5[coupon_table] WHERE mb_id = '{$member['mb_id']}' AND co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
 $row1 = sql_fetch($sql1);
-$co_sale_num = number_format($row1['co_sale_num']);
-$co_free_num = number_format($row1['co_free_num']);
-$co_no = $row1['co_no'];
 
-$sql2 = "SELECT COUNT(cos_no) as cnt FROM $g5[coupon_sent_table] WHERE co_no = '{$co_no}' AND cos_type = 'S' ";
-$row2 = sql_fetch($sql2);
-$s2= number_format($row2['cnt']);
-
-$sql3 = "SELECT COUNT(cos_no) as cnt FROM $g5[coupon_sent_table] WHERE co_no = '{$co_no}' AND cos_type = 'F' ";
-$row3 = sql_fetch($sql3);
-$f2 = number_format($row3['cnt']);
-
-$diff_s = $co_sale_num - $s2;
-$diff_f = $co_free_num - $f2; 
+$diff_s = number_format($row1['co_sale_num'] - $row1['co_sent_snum']);
+$diff_f = number_format($row1['co_free_num'] - $row1['co_sent_fnum']);
 
 //dbconfig파일에 $g5['content_table'] 배열변수가 있는지 체크
 if( !isset($g5['member_table']) ){

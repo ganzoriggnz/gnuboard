@@ -56,12 +56,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 			</div> 
 			<div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
 			   <a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-link="<?php echo $bo_table;?>">
-			   		<?php echo "원가권 ".$row['co_sale_num']."개";?>
+			   		<?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
 				</a>
             </div> 
             <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
 				<a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-link="<?php echo $bo_table;?>">
-			   		<?php echo "무료권 ".$row['co_free_num']."개";?>
+			   		<?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
 				</a>
             </div>
 			<div class="float-left float-md-none d-table-cell nw-30 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
@@ -71,8 +71,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 				$sql1 = sql_query($sql);
 				for($k=0; $row1 = sql_fetch_array($sql1); $k++){
 				?>
-					<?php if($row1['cos_accept'] == 'N' && $row1['cos_post'] == 'N') { echo '<li>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></li> <?php } ?>
-					<?php if($row1['cos_accept'] == 'Y') { echo '<li><a data-toggle="modal" href="#couponDelete" class="coupon-delete" style="color:blue;" data-type ='?><?php echo $row1['cos_type']." data-code = " ?><?php echo $row1['cos_code']." data-no = ";?><?php echo $row1['cos_no']." data-co-no = "; ?><?php echo $row1['co-no']." data-link = ";?><?php echo $bo_table.'>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></a></li><?php } ?>
+					<?php if($row1['cos_accept'] == 'N' && $row1['cos_alt_quantity'] == '0') { echo '<li>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></li> <?php } ?>
+					<?php if($row1['cos_accept'] == 'Y') { echo '<li><a data-toggle="modal" href="#couponDelete" class="coupon-delete" style="color:blue;" data-type ='?><?php echo $row1['cos_type']." data-code = " ?><?php echo $row1['cos_code']." data-no = ";?><?php echo $row1['cos_no']." data-co-no = "; ?><?php echo $row1['co_no']." data-link = ";?><?php echo $bo_table.'>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></a></li><?php } ?>
 					<?php if($row1['cos_alt_quantity'] > 0) { echo '<li><a data-toggle="modal" href="#couponAlert" class="coupon-alert" style="color:red;" data-entity ='?><?php echo $row1['cos_entity']." data-nick = " ?><?php echo $row1['cos_nick']." data-link = ";?><?php echo $bo_table.'>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')';?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')'; ?></a></li> <?php } ?>					 
 				<?php
 				}
