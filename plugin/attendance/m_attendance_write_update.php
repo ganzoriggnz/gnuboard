@@ -1,6 +1,7 @@
 <?php
 include_once("./_setup.php");
 
+
 // 비회원
 if (!$is_member) {
 

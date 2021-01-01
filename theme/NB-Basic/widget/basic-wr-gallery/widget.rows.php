@@ -171,10 +171,10 @@ for ($i=0; $i < $list_cnt; $i++) {
         </div>
         <div style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('http://210.114.18.63/img/main_780.png'); width: 100%; height: 52px;">
             <div>
-                <button style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex; flex-direction: column;align-items: center; justify-content: center; width: 43px; height: 35px; margin-left: 44px; padding: 2px 2px;"><img src="http://210.114.18.63/img/baseline-ballot_main-24px.png"><!-- <i class="fa fa-calendar"></i> --> 출근부</button>
+                <button type="button" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'" style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex; flex-direction: column;align-items: center; justify-content: center; width: 43px; height: 35px; margin-left: 44px; padding: 2px 2px;"><img src="http://210.114.18.63/img/baseline-ballot_main-24px.png"><!-- <i class="fa fa-calendar"></i> --> 정보</button>
             </div>
             <div>
-                <button style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex;flex-direction: column; align-items: center; justify-content: center; width: 43px; height: 35px; margin-right: 44px; padding: 2px 2px;"><img src="http://210.114.18.63/img/chat_icon_main.png"><!-- <i class="fa fa-comments"></i> --> 후기</button>
+                <button type="button" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>'" style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex;flex-direction: column; align-items: center; justify-content: center; width: 43px; height: 35px; margin-right: 44px; padding: 2px 2px;"><img src="http://210.114.18.63/img/chat_icon_main.png"><!-- <i class="fa fa-comments"></i> --> 후기</button>
             </div>
         </div>
     </div>

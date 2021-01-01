@@ -1,6 +1,7 @@
 <?php
 $G5_PATH = "../../";
 include_once("$G5_PATH/common.php");
+//include_once("../../common.php");
 
 // 변수 선언
 $G5_SERVER_TIME = G5_SERVER_TIME;
@@ -34,16 +35,16 @@ $attendance['day'] = "7"; // 지정한 날짜마다
 $attendance['monthly'] = "30"; // 지정한 매월마다
 
 // 개근
-$attendance['year'] = "365"; // 지정한 년도마다
+$attendance['year1'] = "365"; // 지정한 년도마다
 
-// // 개근
-// $attendance['year1'] = "500"; // 지정한 년도마다
+// 개근
+$attendance['year2'] = "500"; // 지정한 년도마다
 
-// // 개근
-// $attendance['year2'] = "700"; // 지정한 년도마다
+// 개근
+$attendance['year3'] = "700"; // 지정한 년도마다
 
-// // 개근
-// $attendance['year3'] = "1000"; // 지정한 년도마다
+// 개근
+$attendance['year'] = "1000"; // 지정한 년도마다
 
 
 // 개근시 포인트
@@ -53,16 +54,16 @@ $attendance['day_point'] = "100"; // 지정한 날짜마다 포인트 지급
 $attendance['monthly_point'] = "1000"; // 지정한 매월마다 포인트 지급
 
 // 개근시 포인트
-$attendance['year_point'] = "30000"; // 지정한 년도마다 포인트 지급
+$attendance['year1_point'] = "30000"; // 지정한 년도마다 포인트 지급
 
-// // 개근시 포인트
-// $attendance['year_point1'] = "50000"; // 지정한 년도마다 포인트 지급
+// 개근시 포인트
+$attendance['year2_point'] = "50000"; // 지정한 년도마다 포인트 지급
 
-// // 개근시 포인트
-// $attendance['year_point2'] = "100000"; // 지정한 년도마다 포인트 지급
+// 개근시 포인트
+$attendance['year3_point'] = "100000"; // 지정한 년도마다 포인트 지급
 
-// // 개근시 포인트
-// $attendance['year_point3'] = "200000"; // 지정한 년도마다 포인트 지급
+// 개근시 포인트
+$attendance['year_point'] = "200000"; // 지정한 년도마다 포인트 지급
 
 
 // 일일 출석 포인트

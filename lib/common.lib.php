@@ -642,7 +642,6 @@ function get_sql_search($search_ca_name, $search_field, $search_text, $search_op
             }
         }
 
-        
     }
        
             
