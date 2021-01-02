@@ -3,25 +3,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.css">', 0);
-/* add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/jquery-ui.min.css">', 0); */
-if($member['mb_id']){
-    global $g5;
-    $sql = " select * from {$g5['member_table']} where mb_id = '{$member['mb_id']}'";
-    $row = sql_fetch($sql); 
-    $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
-    
-    /* for($i=0; $row=sql_fetch_array($result); $i++)
-    {
-      $bo_table = $row['bo_table'];
-
-      $result1 = sql_query("select * from ".$g5['write_prefix'].$bo_table. " where mb_id = '{$member['mb_id']}'");
-      if($result1){
-        $row1 = sql_fetch($result1);
-        echo $row1['wr_datetime'];
-      }
-      
-    } */
-}
 
 ?>
 
@@ -116,27 +97,34 @@ if($member['mb_id']){
         </ul>
     </div>
     <div class="coupon_info">
-        <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>"  method="post" enctype="multipart/form-data" autocomplete="off">
+        <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
             <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
-            <input type="hidden" name="mb_name" value="<?php echo $member['mb_name'] ?>">
+            <input type="hidden" name="co_entity" value="<?php echo $member['mb_name'] ?>">
 
             <div class="p-20">
                 <div class="coupon_label">원가권 :</div>
-                <input type="number" name="co_sale" value="" placeholder="Please, insert quantity of sale coupon" class="coupon_input">
+                <input type="number" name="co_sale" value="<?php echo $row['co_sale']; ?>" placeholder="Please, insert quantity of sale coupon" class="coupon_input" <?php echo ($now >= $fdate && $row['co_no']) ? ' disabled="disabled"' : '' ?>>
             </div>
             <div class="p-20">
                 <div class="coupon_label">무료권 :</div>
-                <input type="number" name="co_free" value="" placeholder="Please, insert quantity of free coupon" class="coupon_input">
+                <input type="number" name="co_free" value="<?php echo $row['co_free']; ?>" placeholder="Please, insert quantity of free coupon" class="coupon_input" <?php echo ($now >= $fdate && $row['co_no']) ? ' disabled="disabled"' : '' ?>>
             </div>
             <div class="p-20">
                 <div class="coupon_label"></div>
-                <button type="submit" id="btn_submit" class="btn btn-primary coupon_btn">저장</button>
+                <button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary coupon_btn">저장</button>
+            </div>
+            <div class="popup_box1">
+                <h1>쿠폰</h1>
+                <label>수정은 매월 1일부터 3일까지만 가능합니다.</label>
+                <div class="btns1">
+                    <a href="#" class="btn1">확인</a>
+                </div>
             </div>
         </form>
         
         <script>
 
-        /* function fcouponcreate_submit(f) {
+        function fcouponcreate_submit(f) {
                 if (!f.co_sale) {
                     alert("Please insert quantity of sale coupon!");
                     f.co_sale.focus();
@@ -148,48 +136,14 @@ if($member['mb_id']){
                     f.co_free.focus();
                     return false;
                 }
-                return true;
-        } 
- */
-        $(function () {
-    'use strict';
 
-    function confirmDialog(title, message, success) {
-        var confirmdialog = $('<div></div>').appendTo('body')
-            .html('<div><h6>' + message + '</h6></div>')
-            .dialog({
-                modal: true,
-                title: title,
-                zIndex: 10000,
-                autoOpen: false,
-                width: 'auto',
-                resizable: false,
-                buttons: {
-                    Yes: function () {
-                        success();
-                        $(this).dialog("close");
-                    },
-                    No: function () {
-                        $(this).dialog("close");
-                    }
-                },
-                close: function() {
-                    $(this).remove();
-                }
-            });
-
-        return confirmdialog.dialog("open");
-    }
-
-    $('form').on('submit', function (e) {
-        e.preventDefault();
-        var form = this;
-
-        confirmDialog('Confirm', '수정은 매월 1일부터 3일까지만 가능합니다.', function () {
-            form.submit();
-        });
-    });
-});
+                var agree=confirm("수정은 매월 1일부터 3일까지만 가능합니다.");
+                if(agree)
+                    return true;
+                else 
+                    return false;              
+                            
+        }
         </script>
     </div>
  
