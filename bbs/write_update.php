@@ -29,6 +29,8 @@ if($board['bo_use_category']) {
 }
 }
 
+
+
 $wr_subject = '';
 if (isset($_POST['wr_subject'])) {
     $wr_subject = substr(trim($_POST['wr_subject']),0,255);

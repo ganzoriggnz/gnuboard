@@ -81,8 +81,10 @@ $list_cnt = count($list);
 		}
 
 		// 전체 보기에서 분류 출력하기
+		if($board['gr_id'] !== "review" && $board['gr_id'] !== "attendance"){
 		if(!$sca && $is_category && $list[$i]['ca_name']) {
 			$list[$i]['subject'] = $list[$i]['ca_name'].' <span class="na-bar"></span> '.$list[$i]['subject'];
+		}
 		}
 
 		// 공지, 현재글 스타일 체크
@@ -125,7 +127,14 @@ $list_cnt = count($list);
 								echo $wr_icon;
 								
 							?>
-							<?php echo $list[$i]['subject'] ?>
+							<!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
+							<?php if($board['gr_id'] == "review" ){?>
+							<?php echo "[",$list[$i]['wr_4'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
+							elseif($board['gr_id'] == "attendance"){
+								echo "[",$list[$i]['wr_4'],"]", $list[$i]['subject'] ;} 
+								else{echo  $list[$i]['subject'] ;}
+							?>
+							
 						</a>
 						<?php
 							if(isset($list[$i]['icon_file']))

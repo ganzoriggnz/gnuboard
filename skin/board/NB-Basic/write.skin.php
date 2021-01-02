@@ -22,7 +22,6 @@ if ($bo_table == "free" || $gr_id == "review" || $bo_table == "event") {
 			}
 		}
 		$is_event = true;
-
 	}
 }
 // ////////////////////////////////////////////////////////
@@ -221,7 +220,7 @@ if ($is_member)
 							<label class="col-md-2 col-form-label" for="$write['wr_3']">* 세부 지역</label>
 							<div class="col-md-7">
 								<?php echo $write['wr_3'] ?>
-								<a href="<?php echo G5_URL?>/bbs/member_confirm.php?url=register_form.php" target="_blank" style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
+								<a href="<?php echo G5_URL ?>/bbs/member_confirm.php?url=register_form.php" target="_blank" style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
 									<i class="fa fa-map"></i><span>&nbsp;세부지역 변경</span></a>
 								<?php echo "  ※ 배너에 출력되는 주소 / 수정은 개인정보수정에서 가능 ( ex:서울 강남역 2번출구 )" ?>
 							</div>
@@ -252,7 +251,7 @@ if ($is_member)
 						</div>
 					</li>
 				<?php } ?>
-					 
+
 				<!-- level 26.27 zasah deer garah shaardlagagui admin page deer garad admin utga oruulj uguh -->
 				<?php if ($is_cat_name) { ?>
 					<li class="list-group-item">
@@ -291,6 +290,20 @@ if ($is_member)
 			<?php } ?>
 
 			<?php if ($is_admin || $gr_id != 'attendance') { ?>
+				<!-- hulan nemsen -->
+				<!-- <? if ($is_category) { ?>
+				<form name="fcategory" method="get">
+					<li class="list-group-item">
+						<div class="form-group row mb-0">
+							<select name=wr_4 onchange="location='<?= $category_location ?>&sca='+this.form.sca.value;">
+								<option value=''><?= $board['bo_4_subj'] ?></option><?= $bo_4_option ?>
+							</select>
+							
+						</div>
+					</li>
+				</form>
+				<? } ?> -->
+
 				<?php if ($is_category) { ?>
 					<li class="list-group-item">
 						<div class="form-group row mb-0">
@@ -304,6 +317,47 @@ if ($is_member)
 						</div>
 					</li>
 				<?php } ?>
+
+				<!-- hulan nemsen review board write post  -->
+				<?php if ($board['gr_id'] == "review") { ?>
+					<?php  $scount = strlen($bo_table)-2;      // temdegt tooloh
+					$bo_table =  substr($bo_table, 0, $scount);    // suuliin 2iig hasaad hevleh
+					$sql = "select * from " . $g5['write_prefix'] . $bo_table . "at" ;
+					$result_scate = sql_query($sql);?>
+					
+									
+					<?php if ($is_category) { ?>
+
+						<li class="list-group-item">
+							<div class="form-group row mb-0">
+								<label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
+								<div class="col-md-4">
+									<select name="wr_4" id="wr_4" required class="custom-select">
+									<option value="">선택하세요</option>
+									<?php while ($res = sql_fetch_array($result_scate)){?>
+										<!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['wr_4'];?></option> -->
+										<option value=<?php echo $res['wr_4'];?> <?php if($write['wr_4']==$res['wr_4']) echo " selected ";?>><?php echo $res['wr_4'];?></option>
+									<?php } ?>
+										</select>
+								</div>
+							</div>
+						</li>
+						<?php } ?>
+						
+						
+							<li class="list-group-item">
+							<div class="form-group row mb-0">
+								<label class="col-md-2 col-form-label" for="wr_4">매니저 명</label>
+								<div class="col-md-7">
+									<input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" class="form-control">
+								</div>
+							</div>
+						</li>	
+					
+						
+					
+				<?php } ?>
+				<!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 
 				<?php if ($is_address) { ?>

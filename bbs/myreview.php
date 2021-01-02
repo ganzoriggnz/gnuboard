@@ -14,25 +14,25 @@ if (!$is_member)
 $g5['title'] = get_text($member['mb_nick']).'님의 스크랩';
 include_once(G5_PATH.'/head.sub.php');
 
-/* if($member['mb_id']){
-    global $g5;
-    $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
+//  if($member['mb_id']){
+//     global $g5;
+//     $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
     
-    $list = array();
-    for($i=0; $row=sql_fetch_array($result); $i++)
-    {
-      $bo_table = $row['bo_table'];
+//     $list = array();
+//     for($i=0; $row=sql_fetch_array($result); $i++)
+//     {
+//       $bo_table = $row['bo_table'];
 
-      $result1 = sql_query("select * from ".$g5['write_prefix'].$bo_table. " where mb_id = '{$member['mb_id']}'");
-      if($result1){
-          for($j=0;$row1 = sql_fetch_array($result1); $j++){
-            array[i][j]=$row1;
-          }
+//       $result1 = sql_query("select * from ".$g5['write_prefix'].$bo_table. " where mb_id = '{$member['mb_id']}'");
+//       if($result1){
+//           for($j=0;$row1 = sql_fetch_array($result1); $j++){
+//             array[i][j]=$row1;
+//           }
         
-      }
+//       }
       
-    } 
-}  */
+//     } 
+// }  
 
 
 $myreview_skin_path = get_skin_path('member', $config['cf_member_skin']);

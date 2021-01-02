@@ -88,12 +88,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			</div>
 		</div>
     </nav>
-<!-- 스크랩 목록 시작 { -->
+<!-- 후기 목록 시작 { -->
 
 <section id="bo_list" class="mb-4"> 
-	<div id="scrap_info" class="font-weight-normal px-3 pb-2 pt-4">
+	<!-- <div id="scrap_info" class="font-weight-normal px-3 pb-2 pt-4">
 		전체 <?php echo number_format($total_count) ?>건 / <?php echo $page ?>페이지
-	</div>
+    </div> -->
+    <br>
+    <br>
+
+    <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>"><font color="blue"><b>후기게시판 바로가기</b></font></a>
 
 	<div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
 

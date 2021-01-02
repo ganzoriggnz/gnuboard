@@ -620,32 +620,12 @@ function html_purifier($html)
 // 검색 구문을 얻는다.
 function get_sql_search($search_ca_name, $search_field, $search_text, $search_operator='and')
 {
-    global $g5,  $wr_5 ,$wr_4, $board;
-    
+    global $g5;
+
     $str = "";
     if ($search_ca_name)
         $str = " ca_name = '$search_ca_name' ";
 
-    if ($board['bo_table'] == "gallery") {
-        if ($wr_4) {
-            if ($str) {
-                $str = "(" . $str . " and wr_4 = '$wr_4') ";
-            } else {
-                $str = " wr_4 = '$wr_4' ";
-            }
-        }
-        if ($wr_5) {
-            if ($str) {
-                $str = "(" . $str . " and wr_5 = '$wr_5') ";
-            } else {
-                $str = " wr_5 = '$wr_5' ";
-            }
-        }
-
-    }
-       
-            
-          
     $search_text = strip_tags(($search_text));
     $search_text = trim(stripslashes($search_text));
 

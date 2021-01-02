@@ -89,11 +89,11 @@ for ($i=0; $i < $list_cnt; $i++) {
 	
 
 
-    <div style="background-image:url('http://210.114.18.63/img/main_bgpicture.png')" style="height: 148px;">
+    <div style="background-image:url('<?php echo G5_IMG_URL?>/main_bgpicture.png')" style="height: 148px;">
         <div>
             <div class="img-wrap bg-light mb-2">
 				<?php if($list[$i]['wr_5'] == "안마" ){?>
-                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/anma5.png')" style="height: 148px;">
+                <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/anma5.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
@@ -104,7 +104,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 				</div>
 				<?php }?>
 				<?php if($list[$i]['wr_5'] == "오피" ){?>
-                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/office.png')" style="height: 148px;">
+                <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/office.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
@@ -115,7 +115,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 				</div>
 				<?php }?>
 				<?php if($list[$i]['wr_5'] == "휴게텔" ){?>
-                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/yupcatel.png')" style="height: 148px;">
+                <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/yupcatel.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
@@ -126,7 +126,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 				</div>
 				<?php }?>
 				<?php if($list[$i]['wr_5'] == "건마" ){?>
-                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/gonma5.png')" style="height: 148px;">
+                <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/gonma5.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
@@ -137,7 +137,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 				</div>
 				<?php }?>
 				<?php if($list[$i]['wr_5'] == "립카페" ){?>
-                <div class="img-item" style="background-image:url('http://localhost/gnuboard/img/cafe5.png')" style="height: 148px;">
+                <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/cafe5.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
@@ -169,12 +169,12 @@ for ($i=0; $i < $list_cnt; $i++) {
 	 		<p><?php echo $list[$i]['wr_2'] ?></p> </div></div>
 
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('http://210.114.18.63/img/main_780.png'); width: 100%; height: 52px;">
+        <div style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
             <div>
-                <button type="button" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'" style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex; flex-direction: column;align-items: center; justify-content: center; width: 43px; height: 35px; margin-left: 44px; padding: 2px 2px;"><img src="http://210.114.18.63/img/baseline-ballot_main-24px.png"><!-- <i class="fa fa-calendar"></i> --> 정보</button>
+                <button type="button" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'" style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex; flex-direction: column;align-items: center; justify-content: center; width: 43px; height: 35px; margin-left: 44px; padding: 2px 2px;"><img src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png"><!-- <i class="fa fa-calendar"></i> --> 정보</button>
             </div>
             <div>
-                <button type="button" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>'" style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex;flex-direction: column; align-items: center; justify-content: center; width: 43px; height: 35px; margin-right: 44px; padding: 2px 2px;"><img src="http://210.114.18.63/img/chat_icon_main.png"><!-- <i class="fa fa-comments"></i> --> 후기</button>
+                <button type="button" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>'" style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex;flex-direction: column; align-items: center; justify-content: center; width: 43px; height: 35px; margin-right: 44px; padding: 2px 2px;"><img src="<?php echo G5_IMG_URL?>/chat_icon_main.png"><!-- <i class="fa fa-comments"></i> --> 후기</button>
             </div>
         </div>
     </div>

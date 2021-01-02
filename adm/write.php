@@ -272,6 +272,7 @@ $is_address = false;
 $is_comname = false;
 $is_cat_name = false;   // 업종
 
+
 if ($is_guest || ($is_admin && $w == 'u' && $member['mb_id'] !== $write['mb_id']) && $member['mb_level'] != 27 ) {
     $is_name = true;
     $is_password = true;
@@ -281,7 +282,7 @@ if ($is_guest || ($is_admin && $w == 'u' && $member['mb_id'] !== $write['mb_id']
     $is_address = true;
     $is_comname = true;
     $is_cat_name = true;
-    
+  
 }
 //  hulan nemsen 출근부 수정 페이지 bbs dotor bas ijil bga
 if($member['mb_level'] == 27 && $gr_id == 'attendance'){
@@ -301,6 +302,7 @@ if ($board['bo_use_category']  && $member['mb_level'] !== 27 ) {
     $category_option = get_category_option($bo_table, $ca_name);
     $is_category = true;
 }
+
 
 $is_link = false;
 if ($member['mb_level'] >= $board['bo_link_level']) {
