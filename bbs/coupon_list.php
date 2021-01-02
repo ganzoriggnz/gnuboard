@@ -135,10 +135,13 @@ while($row2 = sql_fetch_array($res2)){
     } 
 } 
 
-$sql_acc = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' and cos_accepted_datetime > '0000-00-00 00:00:00'";
+$sql_acc = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='N'";
+
 $res_acc = sql_query($sql_acc);
 while($row_acc = sql_fetch_array($res_acc)){
-    if($now > $row_acc['cos_accepted_datetime']){
+    $date = date($row_acc['cos_created_datetime']);
+    $finish_date = date('Y-m-d H:i:s', strtotime('+7 days', strtotime($date)));
+    if($now >= $finish_date){
         $sql_ac = "DELETE FROM $g5[coupon_sent_table] WHERE cos_nick = '{$row_acc['cos_nick']}' AND cos_no = '{$row_acc['cos_no']}'";
         sql_query($sql_ac);
     }
