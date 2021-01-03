@@ -113,7 +113,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 						<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
 						<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
 						<?php echo "방장 : " ?>
-
+							<!-- 계급마크 출력-->
 						<?php echo get_level($row['mb_id']), $row['mb_nick'], "  ",  get_level($row1['mb_id']), $row1['mb_nick'],  " / " ?>
 						<?php echo "[ 글 작성 ", $board['bo_write_point'], " 파운드 /  댓글 작성 ", $board['bo_comment_point'], " 파운드 획득]" ?>
 						<!-- ///ene hurtel /////////////////////////////////////////// -->
@@ -146,11 +146,15 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 								<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 								<span class="sr-only">글쓰기</span>
 							</a>  -->
-							<div id="btn_write">
+							<?php if(($board['gr_id'] == "review" && ($member['mb_level'] !== 27 || $member['mb_level'] !== 26)) || ($board['gr_id'] !== "review" && ($member['mb_level'] == 27 || $member['mb_level'] == 26)) || $is_admin){?>
+								<div id="btn_write">
 								<button type="button" class="btn_bbs" onclick="location.href='<?php echo $write_href ?>'">
 									<i class="fas fa-pencil-alt"></i> 글쓰기
 								</button>
 							</div>
+							<?php }?>
+						
+													
 						<?php } ?>
 						<div class="btn-group" role="group">
 							<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">

@@ -324,7 +324,7 @@ if ($is_member)
 					$bo_table =  substr($bo_table, 0, $scount);    // suuliin 2iig hasaad hevleh
 					$sql = "select * from " . $g5['write_prefix'] . $bo_table . "at" ;
 					$result_scate = sql_query($sql);?>
-					
+					<?php echo $res['wr_4'];?>
 									
 					<?php if ($is_category) { ?>
 

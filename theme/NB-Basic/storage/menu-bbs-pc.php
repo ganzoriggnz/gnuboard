@@ -70,7 +70,7 @@ $data=array (
       4 =>
       array (
         'text' => '오피-강원/충청/대전',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiDaejeon',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opiDaejeon_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -148,7 +148,7 @@ $data=array (
       10 =>
       array (
         'text' => '건마-서울영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gonma_seoul',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gonma_seoul_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -304,7 +304,7 @@ $data=array (
       22 =>
       array (
         'text' => '키스방-전국영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=kissAll',
+        'href' => G5_BBS_URL.'/board.php?bo_table=kissAll_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -385,7 +385,7 @@ $data=array (
       1 =>
       array (
         'text' => '오피-비강남',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiBigangnam',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opiBigangnam_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -684,7 +684,7 @@ $data=array (
       24 =>
       array (
         'text' => '핸플/패티쉬영토',
-        'href' => '#',
+        'href' => G5_BBS_URL.'/board.php?bo_table=show_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -723,7 +723,20 @@ $data=array (
     'id' => 'link',
     's' =>
     array (
-         0 =>
+      0 =>
+      array (
+        'text' => '출석체크',
+        'href' => G5_PLUGIN_URL.'/attendance/attendance.php',
+        /* 'icon' => 'fa-users', */
+        'icon'  => 'chat-icon',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'link',
+      ),   
+      1 =>
       array (
         'text' => '공지사항',
         'href' => G5_BBS_URL.'/board.php?bo_table=notice',
@@ -736,7 +749,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      1 =>
+      2 =>
       array (
         'text' => '가입 인사',
         'href' => G5_BBS_URL.'/board.php?bo_table=Greeting',
@@ -751,7 +764,7 @@ $data=array (
         'wr_id' => NULL,
         'sca' => NULL,
       ),
-      2 =>
+      3 =>
       array (
         'text' => '자유 게시판',
         'href' => G5_BBS_URL.'/board.php?bo_table=free',
@@ -764,7 +777,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      3 =>
+      4 =>
       array (
         'text' => ' 미수다(女)',
         'href' => G5_BBS_URL.'/board.php?bo_table=woman',
@@ -777,7 +790,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      4 =>
+      5 =>
       array (
         'text' => ' 이벤트',
         'href' => G5_BBS_URL.'/board.php?bo_table=event',
@@ -790,7 +803,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      5 =>
+      6 =>
       array (
         'text' => '쿠폰구매',
         'href' => '#',
@@ -803,22 +816,22 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      6 =>
-      array (
-        'text' => '정모 게시판',
-        'href' => '#',
-        /* 'icon' => 'fa-users', */
-        'icon'  => 'chat-icon',
-        'target' => '_self',
-        'line' => '',
-        'sp' => '',
-        'limit' => '',
-        'grade' => 0,
-        'id' => 'link',
-      ),
+      // 7 =>   삭제
+      // array (
+      //   'text' => '정모 게시판',
+      //   'href' => '#',
+      //   /* 'icon' => 'fa-users', */
+      //   'icon'  => 'chat-icon',
+      //   'target' => '_self',
+      //   'line' => '',
+      //   'sp' => '',
+      //   'limit' => '',
+      //   'grade' => 0,
+      //   'id' => 'link',
+      // ),
       7 =>
       array (
-        'text' => '외성 게시판',
+        'text' => '가문 게시판',
         'href' => '#',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
@@ -871,7 +884,7 @@ $data=array (
       11 =>
       array (
         'text' => '트위터 인증',
-        'href' => '#',
+        'href' => G5_BBS_URL.'/board.php?bo_table=twitter',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_self',
@@ -952,7 +965,7 @@ $data=array (
       4 =>
       array (
         'text' => '장터게시판',
-        'href' => '#',
+        'href' => G5_BBS_URL.'/board.php?bo_table=market',
         /* 'icon' => 'fa-cogs', */
         'icon'  => 'baseline-headset_mic-24px',
         'target' => '_self',
@@ -965,7 +978,7 @@ $data=array (
       5 =>
       array (
         'text' => '구인구직 게시판',
-        'href' => '#',
+        'href' =>  G5_BBS_URL.'/board.php?bo_table=job',
         /* 'icon' => 'fa-cogs', */
         'icon'  => 'baseline-headset_mic-24px',
         'target' => '_self',
@@ -978,7 +991,7 @@ $data=array (
       6 =>
       array (
         'text' => '실장업무게시판',
-        'href' => '#',
+        'href' => G5_BBS_URL.'/board.php?bo_table=work_board',
         /* 'icon' => 'fa-cogs', */
         'icon'  => 'baseline-headset_mic-24px',
         'target' => '_self',
@@ -1007,7 +1020,7 @@ $data=array (
       0 =>
       array (
         'text' => '계급 랭킹',
-        'href' => G5_BBS_URL.'/board.php?bo_table=bestmember',
+        'href' => G5_BBS_URL.'/board.php?bo_table=levelrank',
         /* 'icon' => 'fa-trophy', */
         'icon'  => 'emoji_events-24px',
         'target' => '_self',
@@ -1020,7 +1033,7 @@ $data=array (
       1 =>
       array (
         'text' => '파운드 랭킹',
-        'href' => '#',
+        'href' => G5_BBS_URL.'/board.php?bo_table=pointrank',
         /* 'icon' => 'fa-trophy', */
         'icon'  => 'emoji_events-24px',
         'target' => '_self',
@@ -1032,7 +1045,20 @@ $data=array (
       ),
       2 =>
       array (
-        'text' => '외성 랭킹',
+        'text' => '페니 랭킹',
+        'href' => G5_BBS_URL.'/board.php?bo_table=pointrank',
+        /* 'icon' => 'fa-trophy', */
+        'icon'  => 'emoji_events-24px',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'link',
+      ),
+      3 =>
+      array (
+        'text' => '가문 랭킹',
         'href' => '#',
         /* 'icon' => 'fa-trophy', */
         'icon'  => 'emoji_events-24px',

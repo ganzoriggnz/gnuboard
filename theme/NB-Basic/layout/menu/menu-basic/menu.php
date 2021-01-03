@@ -156,9 +156,9 @@ $is_col_all = 6;
 					<?php } ?>
                         <div style="display: flex; flex-direction: row; justify-content: space-between; width: <?php echo $is_member ? '27.3691%;' : '9.12103' ?>">
                             <li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="#" target="_self" title="텔레그램채널">
+							    <a class="me-a f-md en" href="https://web.telegram.org" target="_blank" title="텔레그램채널">
 									<!--<i class="fa fa-paper-plane-o" aria-hidden="true"></i>-->
-									<img src="<?php echo G5_URL?>/img/twitter.png" >
+									<img src="<?php echo G5_URL?>/img/telegram.png" >
 								</a>
 							</li>
                             <li class="col p-0 me-li me-icon right_border">
@@ -168,14 +168,20 @@ $is_col_all = 6;
 								</a>
                         	</li>
                             <li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="#" target="_self" title="트위터">
+							    <a class="me-a f-md en" href="https://twitter.com" target="_blank" title="트위터">
 									<!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/twitter.png" >
 								</a>
 							</li>
+							<li class="col p-0 me-li me-icon right_border">
+							    <a class="me-a f-md en" href="<?php echo G5_BBS_URL?>/register_form.php" target="_self" title="">
+									<!--<i class="fa fa-app-store" aria-hidden="true"></i>-->
+									<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" >
+								</a>
+						    </li>
 							<?php if($is_member) { ?>
                             <li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/mypage.php" target="_self" title="마이페이지">
+							    <a class="me-a f-md en" href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" target="_self" title="마이페이지">
 									<!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-person-24px.png" >
 								</a>
@@ -201,17 +207,12 @@ $is_col_all = 6;
 								</a>
 						    </li>
 							<li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="#" target="_self" title="쪽지">
+							    <a class="me-a f-md en" href="<?php echo G5_BBS_URL?>/memo.php" target="_self" title="쪽지">
 									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-email-24px.png" >
 								</a>
 						    </li>
-							<li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="#" target="_self" title="앱스토어 바로가기">
-									<!--<i class="fa fa-app-store" aria-hidden="true"></i>-->
-									<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" >
-								</a>
-						    </li>
+							
 							<li class="col p-0 me-li me-icon right_border_red">
 							    <a class="me-a f-md en" href="#" target="_self" title="친구등록">
 									<!--<i class="fas fa-atlas" aria-hidden="true"></i>-->
