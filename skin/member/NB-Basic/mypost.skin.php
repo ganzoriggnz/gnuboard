@@ -111,25 +111,44 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             </div>
         </div>
 
+
+        <!-- hulan nemsen -->
+       <?php  $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
+        while ($row = sql_fetch_array($result)) {
+            $bo_table = $row['bo_table'];
+               
+            $res = sql_fetch("select * from " . $g5['write_prefix'] . $bo_table . " where mb_id='{$member['mb_id']}'");
+            if ($res) {
+                $wr_id = $res['wr_id'];
+                $nowbo_table = $bo_table;
+                $result1 = sql_fetch("select bo_subject from {$g5['board_table']} where bo_table='{$bo_table}'");
+                if($result1){
+                    $bo_subject = $result1['bo_subject'];
+                    
+                }
+                
+            }
+        }
+       ?>
         <ul class="na-table d-md-table w-100">
         <?php 
         for ($i=0; $i < count($list); $i++) { ?>
                 
                     <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
                         <div class="d-none d-md-table-cell nw-4 f-sm font-weight-normal py-md-2 px-md-1">
-                            <?php echo 6666; ?> 
+                            <?php echo "출근부"; ?> 
                         </div>
                         <div class="d-none d-md-table-cell nw-6 text-left f-sm font-weight-normal py-md-2 px-md-1">
-                            <a href="./write.php?w=u&bo_table=<?=$bo_table?>" style="color: #BFAF88;" >
-                            <?php echo 5555; ?></a> 
+                            <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $nowbo_table ?>" style="color: #6c757d;" >
+                            <?php echo  $bo_subject; ?></a> 
                         </div>
                         <div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-                            <a href="./write.php?w=u&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>" style="color: #BFAF88;" >
+                            <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $nowbo_table ?><?php echo "&wr_id=", $wr_id?>" style="color: #6c757d;" >
                                 <?php echo $list[$i]['as_subject']; ?>
                             </a> 
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
-                            <?php echo $list[$i]['mb_id']; ?>
+                            <?php echo $res['wr_name']; ?>
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
                                 <span class="sr-only">등록일</span>

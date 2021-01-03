@@ -158,7 +158,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                                 <?php echo $res['bo_subject']; ?></a>
                         </div> -->
                         <div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-                            <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $bo_table."re"?><?php echo "&wr_id=",$res1['wr_id']?>" style="color: #BFAF88;">
+                            <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $bo_table."re"?><?php echo "&wr_id=",$res1['wr_id']?>" style="color: #6c757d;">
                                 <?php echo $res1['wr_subject']; ?>
                             </a>
                         </div>

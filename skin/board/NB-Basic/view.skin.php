@@ -76,7 +76,7 @@ $view_subject = get_text($view['wr_subject']);
 		<?php if ($category_name) { ?>
 			<div class="f-sm text-muted">
 				<span class="sr-only">분류</span>
-				<?php echo $view['ca_name'] ?>
+				<!-- <?php echo $view['ca_name'] ?> -->
 			</div>
 		<?php } ?>
 		<!-- <h1 id="bo_v_title"> hulan tailbar bolgood doodohoor uurchilsen -->  
