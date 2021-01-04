@@ -133,32 +133,20 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
     </div>
 
     <ul class="na-table d-md-table w-100">
-        <?php
-        $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
+        <?php 
+        $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='review'");
+        
         while ($row = sql_fetch_array($result)) {
             $bo_table = $row['bo_table'];
-
-            $res = sql_fetch("select * from " . $g5['write_prefix'] . $bo_table . " where mb_id='{$member['mb_id']}'");
-            /* $bo = sql_fetch("select * from ".$g5['board_table']." where bo_table = '{$bo_table}'); */
-            if ($res) {
-                $scount = strlen($bo_table) - 2;
-                $bo_table =  substr($bo_table, 0, $scount);
-                $sql = "select * from " . $g5['write_prefix'] . $bo_table . "re" . " where wr_4 ='{$res['wr_4']}' ";
-                $result_scate = sql_query($sql);
-                while ($res1 = sql_fetch_array($result_scate)) {?>
-
-        
-
+                $res = sql_query("select * from " . $g5['write_prefix'] . $bo_table . " where wr_7 ='{$member['mb_name']}'");
+                while ($res1 = sql_fetch_array( $res)) {?>
+                        
                     <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
                         <div class="d-none d-md-table-cell nw-4 f-sm font-weight-normal py-md-2 px-md-1">
                             <?php echo $res1['wr_id'] ?>
                         </div>
-                        <!-- <div class="d-none d-md-table-cell nw-6 text-left f-sm font-weight-normal py-md-2 px-md-1">
-                            <a href="" style="color: #BFAF88;">
-                                <?php echo $res['bo_subject']; ?></a>
-                        </div> -->
                         <div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-                            <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $bo_table."re"?><?php echo "&wr_id=",$res1['wr_id']?>" style="color: #6c757d;">
+                            <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $bo_table?><?php echo "&wr_id=",$res1['wr_id']?>" style="color: #6c757d;">
                                 <?php echo $res1['wr_subject']; ?>
                             </a>
                         </div>
@@ -172,7 +160,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                         <div class="clearfix d-block d-md-none"></div>
                     </li>
                <?php  }
-            }
+            
         } ?>
 
     </ul>

@@ -208,7 +208,8 @@ if ($is_member)
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label" for="$write['ca_name']">* 지역</label>
 							<div class="col-md-7">
-								<?php echo $write['ca_name'] . "  (지역과 업소명은 제휴신청때 작성된 정보가 자동입력됩니다. 변경시 제휴문의에 글 남기시거나 관리자에게 쪽지주세요.)" ?>
+								<?php echo $write['ca_name']."  (지역과 업소명은 제휴신청때 작성된 정보가 자동입력됩니다. 변경시 제휴문의에 글 남기시거나 관리자에게 쪽지주세요.)" ?>
+							<input type='hidden' name='ca_name' value='<?php echo $write['ca_name']?>' > 
 							</div>
 						</div>
 					</li>
@@ -219,7 +220,7 @@ if ($is_member)
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label" for="$write['wr_3']">* 세부 지역</label>
 							<div class="col-md-7">
-								<?php echo $write['wr_3'] ?>
+								<?php echo $member['mb_addr2'] ?>
 								<a href="<?php echo G5_URL ?>/bbs/member_confirm.php?url=register_form.php" target="_blank" style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
 									<i class="fa fa-map"></i><span>&nbsp;세부지역 변경</span></a>
 								<?php echo "  ※ 배너에 출력되는 주소 / 수정은 개인정보수정에서 가능 ( ex:서울 강남역 2번출구 )" ?>
@@ -233,7 +234,7 @@ if ($is_member)
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label" for="wr_2">* 전화 번호</label>
 							<div class="col-md-7">
-								<?php echo $write['wr_2'] ?>
+								<?php echo $member['mb_hp'] ?>
 								<input type="button" name="" value='전화번호 변경요청'>
 								<?php echo "※ 전화번호는 운영자가 확인 후 변경처리됩니다." ?>
 							</div>
@@ -246,19 +247,7 @@ if ($is_member)
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label" for="wr_4">* 업소명</label>
 							<div class="col-md-7">
-								<?php echo $write['wr_4'] ?>
-							</div>
-						</div>
-					</li>
-				<?php } ?>
-
-				<!-- level 26.27 zasah deer garah shaardlagagui admin page deer garad admin utga oruulj uguh -->
-				<?php if ($is_cat_name) { ?>
-					<li class="list-group-item">
-						<div class="form-group row mb-0">
-							<label class="col-md-2 col-form-label" for="wr_4">* 업종</label>
-							<div class="col-md-7">
-								<?php echo $write['wr_5'] ?>
+								<?php echo $member['mb_name'] ?>
 							</div>
 						</div>
 					</li>
@@ -290,20 +279,7 @@ if ($is_member)
 			<?php } ?>
 
 			<?php if ($is_admin || $gr_id != 'attendance') { ?>
-				<!-- hulan nemsen -->
-				<!-- <? if ($is_category) { ?>
-				<form name="fcategory" method="get">
-					<li class="list-group-item">
-						<div class="form-group row mb-0">
-							<select name=wr_4 onchange="location='<?= $category_location ?>&sca='+this.form.sca.value;">
-								<option value=''><?= $board['bo_4_subj'] ?></option><?= $bo_4_option ?>
-							</select>
-							
-						</div>
-					</li>
-				</form>
-				<? } ?> -->
-
+				
 				<?php if ($is_category) { ?>
 					<li class="list-group-item">
 						<div class="form-group row mb-0">
@@ -317,6 +293,7 @@ if ($is_member)
 						</div>
 					</li>
 				<?php } ?>
+			<?php } ?>
 
 				<!-- hulan nemsen review board write post  -->
 				<?php if ($board['gr_id'] == "review") { ?>
@@ -332,11 +309,11 @@ if ($is_member)
 							<div class="form-group row mb-0">
 								<label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
 								<div class="col-md-4">
-									<select name="wr_4" id="wr_4" required class="custom-select">
+									<select name="wr_7" id="wr_7" required class="custom-select">
 									<option value="">선택하세요</option>
 									<?php while ($res = sql_fetch_array($result_scate)){?>
 										<!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['wr_4'];?></option> -->
-										<option value=<?php echo $res['wr_4'];?> <?php if($write['wr_4']==$res['wr_4']) echo " selected ";?>><?php echo $res['wr_4'];?></option>
+										<option value=<?php echo $res['wr_4'];?> <?php if($write['wr_7']==$res['wr_4']) echo " selected ";?>><?php echo $res['wr_4'];?></option>
 									<?php } ?>
 										</select>
 								</div>
@@ -347,7 +324,7 @@ if ($is_member)
 						
 							<li class="list-group-item">
 							<div class="form-group row mb-0">
-								<label class="col-md-2 col-form-label" for="wr_4">매니저 명</label>
+								<label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
 								<div class="col-md-7">
 									<input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" class="form-control">
 								</div>
@@ -359,51 +336,8 @@ if ($is_member)
 				<?php } ?>
 				<!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-
-				<?php if ($is_address) { ?>
-					<li class="list-group-item">
-						<div class="form-group row mb-0">
-							<label class="col-md-2 col-form-label" for="$write['wr_3']">* 세부 지역</label>
-							<div class="col-md-7">
-								<input type="text" name="wr_3" value="<?php echo $write['wr_3'] ?>" class="form-control">
-							</div>
-						</div>
-					</li>
-				<?php } ?>
-
-				<?php if ($is_phone) { ?>
-					<li class="list-group-item">
-						<div class="form-group row mb-0">
-							<label class="col-md-2 col-form-label" for="wr_2">* 전화 번호</label>
-							<div class="col-md-7">
-								<input type="text" name="wr_2" value="<?php echo $write['wr_2'] ?>" class="form-control">
-							</div>
-						</div>
-					</li>
-				<?php } ?>
-
-				<?php if ($is_comname) { ?>
-					<li class="list-group-item">
-						<div class="form-group row mb-0">
-							<label class="col-md-2 col-form-label" for="wr_4">* 업소명</label>
-							<div class="col-md-7">
-								<input type="text" name="wr_4" value="<?php echo $write['wr_4'] ?>" class="form-control">
-							</div>
-						</div>
-					</li>
-				<?php } ?>
-
-				<?php if ($is_cat_name) { ?>
-					<li class="list-group-item">
-						<div class="form-group row mb-0">
-							<label class="col-md-2 col-form-label" for="wr_4">* 업종</label>
-							<div class="col-md-7">
-								<input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" class="form-control">
-							</div>
-						</div>
-					</li>
-				<?php } ?>
-			<?php } ?>
+					
+			
 
 			<?php if ($option) { ?>
 				<li class="list-group-item">

@@ -129,7 +129,7 @@ $list_cnt = count($list);
 							?>
 							<!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
 							<?php if($board['gr_id'] == "review" ){?>
-							<?php echo "[",$list[$i]['wr_4'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
+							<?php echo "[",$list[$i]['wr_7'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
 							elseif($board['gr_id'] == "attendance"){
 								echo "[",$list[$i]['wr_4'],"]", $list[$i]['subject'] ;} 
 								else{echo  $list[$i]['subject'] ;}

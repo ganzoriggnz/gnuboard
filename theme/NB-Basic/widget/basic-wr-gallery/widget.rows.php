@@ -92,7 +92,8 @@ for ($i=0; $i < $list_cnt; $i++) {
     <div style="background-image:url('<?php echo G5_IMG_URL?>/main_bgpicture.png')" style="height: 148px;">
         <div>
             <div class="img-wrap bg-light mb-2">
-				<?php if($list[$i]['wr_5'] == "안마" ){?>
+				<?php echo $member['mb_2'];?>
+				<?php if($member['mb_2'] == "안마" ){?>
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/anma5.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
@@ -151,7 +152,7 @@ for ($i=0; $i < $list_cnt; $i++) {
             <div class="na-title" style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
 			<a href="<?php echo $list[$i]['href'] ?>" class="na-subject" style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;" <?php echo $target ?>>
 					<?php echo $wr_icon ?>
-					<?php echo $list[$i]['wr_4'] ?>
+					<?php echo $list[$i]['mb_name'] ?>
 				</a> 
                 <p style="font-weight: bold; overflow: hidden;"><?php
 	    // global $g5;

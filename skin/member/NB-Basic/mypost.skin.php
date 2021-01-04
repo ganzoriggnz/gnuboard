@@ -126,7 +126,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     $bo_subject = $result1['bo_subject'];
                     
                 }
-                
             }
         }
        ?>
@@ -148,7 +147,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             </a> 
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
-                            <?php echo $res['wr_name']; ?>
+                            <?php echo get_level($member['mb_id']),$member['mb_nick']; ?>
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
                                 <span class="sr-only">등록일</span>

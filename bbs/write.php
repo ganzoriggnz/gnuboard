@@ -264,10 +264,7 @@ if ($is_guest || ($is_admin && $w == 'u' && $member['mb_id'] !== $write['mb_id']
     $is_password = true;
     $is_email = true;
     $is_homepage = true;
-    $is_phone = true;
-    $is_address = true;
-    $is_comname = true;
-    $is_cat_name = true;
+   
 }
 //  hulan nemsen 출근부 수정 페이지  adm dotor bas bga
 if($member['mb_level'] == 27 && $gr_id == 'attendance') {
@@ -275,7 +272,7 @@ if($member['mb_level'] == 27 && $gr_id == 'attendance') {
     $is_phone = true;
     $is_address = true;
     $is_comname = true;
-   
+    $is_cat_name = true;
 }
 
 $is_category = false;
