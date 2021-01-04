@@ -135,6 +135,13 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 							<i class="fa fa-search fa-md" aria-hidden="true"></i>
 							<span class="sr-only">게시판 검색</span>
 						</button>
+						<?php if($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id']) { ?>
+							<div id="btn_coupon">
+								<button type="button" class="btn_bbs" onclick="#" style="margin-right: 10px;">
+									쿠폰지원내역
+								</button>
+							</div>
+						<?php } ?>
 						<?php if ($write_href) { ?>
 							<!-- <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
 								<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
