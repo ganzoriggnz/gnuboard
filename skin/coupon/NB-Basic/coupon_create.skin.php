@@ -111,7 +111,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             </div>
             <div class="p-20">
                 <div class="coupon_label"></div>
-                <button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary coupon_btn">저장</button>
+                <button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary coupon_btn" <?php echo ($now >= $fdate && $row['co_no']) ? ' disabled="disabled"' : '' ?>>저장</button>
             </div>
             <div class="popup_box1">
                 <h1>쿠폰</h1>
@@ -141,9 +141,49 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 if(agree)
                     return true;
                 else 
-                    return false;              
+                    return false;            
                             
         }
+ 
+       /*  $(function () {
+    'use strict';
+
+    function confirmDialog(title, message, success) {
+        var confirmdialog = $('<div></div>').appendTo('body')
+            .html('<div><h6>' + message + '</h6></div>')
+            .dialog({
+                modal: true,
+                title: title,
+                zIndex: 10000,
+                autoOpen: false,
+                width: 'auto',
+                resizable: false,
+                buttons: {
+                    확인: function () {
+                        success();
+                        $(this).dialog("close");
+                    },
+                    No: function () {
+                        $(this).dialog("close");
+                    }
+                },
+                close: function() {
+                    $(this).remove();
+                }
+            });
+
+        return confirmdialog.dialog("open");
+    }
+
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        var form = this;
+
+        confirmDialog('Confirm', 'Are you sure?', function () {
+            form.submit();
+        });
+    });
+}); */
         </script>
     </div>
  
