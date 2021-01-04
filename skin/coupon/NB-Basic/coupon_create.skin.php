@@ -111,7 +111,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             </div>
             <div class="p-20">
                 <div class="coupon_label"></div>
-                <button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary coupon_btn" <?php echo ($now >= $fdate && $row['co_no']) ? ' disabled="disabled"' : '' ?>>저장</button>
+                <button type="submit" id="btn_submit" accesskey="s" <?php echo ($now >= $fdate && $row['co_no']) ? ' disabled="disabled" class="btn coupon_btn" style="background:grey;"' : ' class="btn btn-primary coupon_btn"' ?>>저장</button>
             </div>
             <div class="popup_box1">
                 <h1>쿠폰</h1>
