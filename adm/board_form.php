@@ -838,6 +838,31 @@ $pg_anchor = '<ul class="anchor">
                 <label for="chk_all_use_captcha">전체적용</label>
             </td>
         </tr>
+        <!-- hulan nemsen 신고 기능 -->
+        <tr>
+            <th scope="row"><label for="bo_use_captcha">신고 사용</label></th>
+            <td colspan="2">
+                <?php echo help("체크하면 게시글 신고 버튼이 나타납니다.") ?>
+                <input type="checkbox" name="bo_1" value="1" <?php echo $board['bo_1']?'checked':''; ?> id="bo_use_singo">
+                사용
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><label for="bo_use_captcha">비회원 사용</label></th>
+            <td colspan="2">
+                <?php echo help("체크하면 비회원도 신고가 가능합니다.") ?>
+                <input type="checkbox" name="bo_2" value="1" <?php echo $board['bo_2']?'checked':''; ?> id="bo_singo_member">
+                비회원 가능
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><label for="bo_use_captcha">중복신고 사용</label></th>
+            <td colspan="2">
+                <?php echo help("체크하면 한 아이디로 여러번 신고가 가능합니다. 비회원의 경우 아이피로 체크합니다.") ?>
+                <input type="checkbox" name="bo_3" value="1" <?php echo $board['bo_3']?'checked':''; ?> id="bo_singo_overlap">
+                중복신고 가능
+            </td>
+        </tr>
         </tbody>
         </table>
     </div>

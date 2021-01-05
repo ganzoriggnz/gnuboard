@@ -1529,7 +1529,7 @@ function sql_connect($host, $user, $pass, $db=G5_MYSQL_DB)
             die('Connect Error: '.mysqli_connect_error());
         }
     } else {
-        $link = mysql_connect($host, $user, $pass);
+        $link = mysqli_connect($host, $user, $pass);
     }
 
     return $link;
@@ -1544,7 +1544,7 @@ function sql_select_db($db, $connect)
     if(function_exists('mysqli_select_db') && G5_MYSQLI_USE)
         return @mysqli_select_db($connect, $db);
     else
-        return @mysql_select_db($db, $connect);
+        return @mysqli_select_db($db, $connect);
 }
 
 
@@ -1558,7 +1558,7 @@ function sql_set_charset($charset, $link=null)
     if(function_exists('mysqli_set_charset') && G5_MYSQLI_USE)
         mysqli_set_charset($link, $charset);
     else
-        mysql_query(" set names {$charset} ", $link);
+        mysqli_query(" set names {$charset} ", $link);
 }
 
 function sql_data_seek($result, $offset=0)

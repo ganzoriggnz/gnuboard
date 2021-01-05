@@ -92,8 +92,7 @@ for ($i=0; $i < $list_cnt; $i++) {
     <div style="background-image:url('<?php echo G5_IMG_URL?>/main_bgpicture.png')" style="height: 148px;">
         <div>
             <div class="img-wrap bg-light mb-2">
-				<?php echo $member['mb_2'];?>
-				<?php if($member['mb_2'] == "안마" ){?>
+				<?php if($list[$i]['mb_2'] == "안마" ){?>
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/anma5.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
@@ -104,7 +103,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 					</a>
 				</div>
 				<?php }?>
-				<?php if($list[$i]['wr_5'] == "오피" ){?>
+				<?php if($list[$i]['mb_2'] == "오피" ){?>
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/office.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
@@ -115,7 +114,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 					</a>
 				</div>
 				<?php }?>
-				<?php if($list[$i]['wr_5'] == "휴게텔" ){?>
+				<?php if($list[$i]['mb_2'] == "휴게텔" ){?>
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/yupcatel.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
@@ -126,7 +125,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 					</a>
 				</div>
 				<?php }?>
-				<?php if($list[$i]['wr_5'] == "건마" ){?>
+				<?php if($list[$i]['mb_2'] == "건마" ){?>
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/gonma5.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
@@ -137,7 +136,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 					</a>
 				</div>
 				<?php }?>
-				<?php if($list[$i]['wr_5'] == "립카페" ){?>
+				<?php if($list[$i]['mb_2'] == "립카페" ){?>
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/cafe5.png')" style="height: 148px;">
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
@@ -166,8 +165,8 @@ for ($i=0; $i < $list_cnt; $i++) {
 
 		// 	}
 		// else {echo "false";}
-		echo $list[$i]['wr_3'] ?></p><div style="display: flex; align-items: center; line-height: 1.5;">
-	 		<p><?php echo $list[$i]['wr_2'] ?></p> </div></div>
+		echo $list[$i]['mb_addr2'] ?></p><div style="display: flex; align-items: center; line-height: 1.5;">
+	 		<p><?php echo $list[$i]['mb_hp'] ?></p> </div></div>
 
         </div>
         <div style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
