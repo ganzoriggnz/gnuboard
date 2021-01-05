@@ -25,6 +25,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     $text_stx = "";
     $srows = 0;
 
+    //-------------------------------------------------------------------------
+    $wset['thumb_w'] = ($wset['thumb_w'] == "") ? 400 : (int)$wset['thumb_w'];
+    $wset['thumb_h'] = ($wset['thumb_h'] == "") ? 225 : (int)$wset['thumb_h'];
+
+    if($wset['thumb_w'] && $wset['thumb_h']) {
+        $img_height = ($wset['thumb_h'] / $wset['thumb_w']) * 100;
+    } else {
+        $img_height = ($wset['thumb_d']) ? $wset['thumb_d'] : '56.25';
+    }
+    
+    $wset['sideview'] = 0;
+    $list = na_board_rows($wset);
+    $list_cnt = count($list); 
+    //-------------------------------------------------------------------------
+
 
 
     $group_select = '<label for="gr_id" class="sound_only">게시판 그룹선택</label><select name="gr_id" id="gr_id" class="select"><option value="">전체 분류';
@@ -91,7 +106,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <?php } ?>
 
     <ul id="gall_ul" class="gall_row">
-        <?php for ($i=0; $i<count($list); $i++) {
+        <?php 
+        
+        for ($i=0; $i<count($list); $i++) {
 
             $classes = array();
             
@@ -106,16 +123,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 $classes[] = 'gall_now';
             }
          ?>
+
+
         <li class="<?php echo implode(' ', $classes); ?>">
-            <div class="gall_box" style="background-image:url('http://localhost/gnuboard/img/main_bgpicture.png')" style="width: 100%; height: 148px;">
-                <div class="gall_chk chk_box">
+            <div class="gall_box" style="background-image:url('<?php echo G5_IMG_URL?>/main_bgpicture.png')" style="width: 100%; height: 148px;">
+                <div class="gall_chk chk_box" >
 	                <?php if ($is_checkbox) { ?>
 					<input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>" class="selec_chk">
 	                <label for="chk_wr_id_<?php echo $i ?>">
 	                	<span></span>
 	                	<b class="sound_only"><?php echo $list[$i]['subject'] ?></b>
 	                </label>
-	                
+
 	                <?php } ?>
 	                <span class="sound_only">
 	                    <?php
@@ -127,21 +146,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	                </span>
                 </div>
                 <div class="gall_con">
-                    <div class="gall_img">
+                    <div class="gall_img" >
                         <a href="<?php echo $list[$i]['href'] ?>">
                         <?php
                         if ($list[$i]['is_notice']) { // 공지사항  ?>
                             <span class="is_notice">공지</span>
                         <?php } else {
-                            $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_gallery_width'], $board['bo_gallery_height'], false, true);
-
-                            if($thumb['src']) {
-                                $img_content = '<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" >';
-                            } else {
-                                $img_content = '<span class="no_image">no image</span>';
-                            }
-
-                            echo $img_content;
+                        $picname = '';
+                        if($list[$i]['mb_2'] == "안마" )
+                        {$picname = "anma5";}
+                        else if($list[$i]['mb_2'] == "오피" )
+                        {$picname = "office";}
+                        else if($list[$i]['mb_2'] == "건마" )
+                        {$picname = "gonma5";}
+                        else if($list[$i]['mb_2'] == "립카페" )
+                        {$picname = "cafe5";}
+                        else if($list[$i]['mb_2'] == "휴게텔" )
+                        {$picname = "yupcatel";}
+                          $imagee = '<img src="'.G5_IMG_URL.'/'.$picname.'.png">';
+                        echo $imagee;
                         }
                          ?>
                         </a>

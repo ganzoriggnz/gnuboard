@@ -29,13 +29,12 @@ if ($sca || $stx || $stx === '0') {     //검색이면
     $row = sql_fetch($sql);
     $total_count = $row['cnt'];
     /*
-    $sql = " select distinct wr_parent from {$write_table} where {$sql_search} ";
+    $sql = "select distinct wr_parent from {$write_table} where {$sql_search} ";
     $result = sql_query($sql);
     $total_count = sql_num_rows($result);
     */
 } else {
     $sql_search = "";
-
     $total_count = $board['bo_count_write'];
 }
 
@@ -246,10 +245,8 @@ if ($board['bo_use_category']) {
     for ($i=0; $i<count($categories); $i++) {
       
          $category = trim($categories[$i]);
-        if ($category=='') continue;
-       
-         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';
-         
+        if ($category=='') continue;       
+         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
         $category_msg = '';
         if ($category==$sca) { // 현재 선택된 카테고리라면
             
@@ -259,8 +256,7 @@ if ($board['bo_use_category']) {
         }
         else
         $category_option .= '>'.$category_msg.$category.'</a></li>';
-    }
-    
+    }    
 }
 
 include_once($board_skin_path.'/list.skin.php');
