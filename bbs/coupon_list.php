@@ -13,42 +13,9 @@ $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
 
 $list = array();
-$co_created = date('Y-m-d H:i:s');
-$currentmonth = substr($co_created, 5, 2);
-$co_start = date_create($co_created);
-$s_begin_date = date_format($co_start, 'Y-m-01 00:00:00');
+$result = "select * from $g5[coupon_table] where mb_id = '{$member['mb_id']}'";
 
-if($currentmonth == '01')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '02')
-$s_end_date = date_format($co_start, 'Y-m-28 23:59:59');
-else if($currentmonth == '03')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '04')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '05')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '06')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '07')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '08')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '09')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '10')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '11')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '12')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
-
-$result = "SELECT * FROM $g5[coupon_table] WHERE mb_id = '{$member['mb_id']}'";
-$now = date('Ymd', time());
-$year = substr($now, 0, 4);
-$month = substr($now, 4, 2);
-
-$sql1 = "select COUNT(*) as cnt from $g5[coupon_table] where mb_id = '{$member['mb_id']}' AND co_begin_date='$s_begin_date' AND co_end_date='$s_end_date'";
+$sql1 = "select COUNT(*) as cnt from $g5[coupon_table] where mb_id = '{$member['mb_id']}'";
 $row1 = sql_fetch($sql1);
 $total_count = $row1['cnt']; 
 

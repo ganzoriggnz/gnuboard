@@ -6,30 +6,27 @@ $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
 
 if (!sql_query("select count(*) as cnt from $g5[coupon_table]",false)) { // 쿠폰 테이블이 없다면 생성
-    $sql_table = "create table $g5[coupon_table] (   
-        co_code varchar(4) NOT NULL UNIQUE,         
+    $sql_table = "create table $g5[coupon_table] (            
+        co_no int(11) NOT NULL auto_increment,
         mb_id varchar(50) NOT NULL default '',
         co_entity varchar(20) NOT NULL default '',
-        co_sale_num int(11) NOT NULL default '0',
-        co_free_num int(11) NOT NULL default '0',
-        co_status varchar(1) NOT NULL default '',
-        co_user varchar(20) NOT NULL default '',
-        co_created datetime NOT NULL default '0000-00-00 00:00:00',
-        co_updated datetime NOT NULL default '0000-00-00 00:00:00',
-        co_begin_date datetime NOT NULL default '0000-00-00 00:00:00',
-        co_end_date datetime NOT NULL default '0000-00-00 00:00:00'
+        co_sale int(11) NOT NULL default '0',
+        co_free int(11) NOT NULL default '0',
+        co_created_date datetime NOT NULL default '0000-00-00 00:00:00',
+        co_updated_date datetime NOT NULL default '0000-00-00 00:00:00',
+        PRIMARY KEY  (co_no),
+        KEY co_no (mb_id)
     )";
-
    sql_query($sql_table, false);
 } 
 
 $sql = "select * from $g5[coupon_table] where mb_id = '{$member['mb_id']}'";
 $row = sql_fetch($sql);
-if($row['co_code']){ 
-    $sdate = $row['co_created'];
+if($row['co_no']){ 
+    $sdate = $row['co_created_date'];
     $fdate = date_create_from_format('Y-m-d H:i:s', $sdate);
-   $fdate= date_format($fdate, 'Y-m-31 H:i:s');   
-}  
+   $fdate= date_format($fdate, 'Y-m-04 H:i:s');   
+} 
 
 $now = date('Y-m-d H:i:s', time());
 
@@ -56,7 +53,7 @@ $coupon_create_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_create_skin_url  = get_skin_url('coupon', 'NB-Basic');
 $skin_file = $coupon_create_skin_path.'/coupon_create.skin.php';
 
-$coupon_action_url = G5_BBS_URL.'/coupon_create_form.php'; 
+$coupon_action_url = G5_BBS_URL.'/coupon_create_form.php';
 
 if(is_file($skin_file)) {
     include($skin_file);
