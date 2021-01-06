@@ -1206,17 +1206,35 @@ function na_bo_list($gr_list, $gr_except, $bo_list, $bo_except) {
 }
 
 function na_post_rows($wset){
+	global $g5, $member;
+
 	$list = array();
-	$result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
-        while ($row = sql_fetch_array($result)) {
-            $bo_table = $row['bo_table'];
-            $res = sql_query("select * from " . $g5['write_prefix'] . $bo_table);	
-			for ($i=0; $row=sql_fetch_array($res); $i++) { 
-				$row['bo_table'] = $bo_table;
-				$list[$i] = na_wr_row($row, $bo_table);
-			}	
-}
-	return $list;		
+
+
+		// 공통쿼리
+		
+		$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
+		while ($res = sql_fetch_array($result)) {
+			
+			$bo_table = $res['bo_table'];
+			$result1 = sql_query("select * from " . $g5['write_prefix'] . $bo_table  );
+			
+			for ($i=0; $row=sql_fetch_array($result1); $i++) {
+				echo $row['mb_id'];
+	
+				$wr['wr_id'] = $row['wr_id'];
+			   $wr['mb_id'] = $row['mb_id'];
+			  
+
+			$list[$i] = na_wr_row($wr, $wset);
+			
+			
+			
+		}
+		
+	} 
+
+	return $list;
 }
 
 

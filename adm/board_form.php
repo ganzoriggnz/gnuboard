@@ -841,17 +841,18 @@ $pg_anchor = '<ul class="anchor">
         <!-- hulan nemsen 신고 기능 -->
         <tr>
             <th scope="row"><label for="bo_use_captcha">신고 사용</label></th>
-            <td colspan="2">
+            <td >
                 <?php echo help("체크하면 게시글 신고 버튼이 나타납니다.") ?>
-                <input type="checkbox" name="bo_1" value="1" <?php echo $board['bo_1']?'checked':''; ?> id="bo_use_singo">
+                <input type="checkbox" name="bo_2" value="1" <?php echo $board['bo_2']?'checked':''; ?> id="bo_use_singo">
                 사용
             </td>
         </tr>
+        
         <tr>
             <th scope="row"><label for="bo_use_captcha">비회원 사용</label></th>
             <td colspan="2">
                 <?php echo help("체크하면 비회원도 신고가 가능합니다.") ?>
-                <input type="checkbox" name="bo_2" value="1" <?php echo $board['bo_2']?'checked':''; ?> id="bo_singo_member">
+                <input type="checkbox" name="bo_1" value="1" <?php echo $board['bo_1']?'checked':''; ?> id="bo_singo_member">
                 비회원 가능
             </td>
         </tr>

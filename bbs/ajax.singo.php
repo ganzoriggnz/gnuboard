@@ -22,14 +22,14 @@ $row  = sql_fetch(" select * from {$g5['board_table']} where bo_table = '{$bo_ta
 $row3 = array();
 $row3 = sql_fetch(" select * from $write_table where wr_id = '{$wr_id}' ");
 
-if (!$row['bo_1']) {
+if (!$row['bo_2']) {
     $data = array(
               'msg'=>'신고기능을 사용하지 않는 게시판입니다.'
     );
     
     echo json_encode($data);
     exit();
-} else if (!$row['bo_2'] && !$is_member) {
+} else if (!$row['bo_1'] && !$is_member) {
     $data = array(
               'msg'=>'비회원은 신고할 수 없습니다.'
     );

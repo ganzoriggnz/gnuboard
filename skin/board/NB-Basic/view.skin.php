@@ -272,7 +272,8 @@ $view_subject = get_text($view['wr_subject']);
 							<i class="fa fa-bookmark" aria-hidden="true"></i>
 							<span class="sr-only">스크랩</span>
 						</button>
-					<?php } ?>
+                    <?php } ?>
+                    
 
 					<?php if($board['bo_use_sns']) { // SNS 공유 ?>
 						<button type="button" class="btn btn-basic" data-toggle="modal" data-target="#bo_snsModal" title="SNS 공유">
@@ -280,13 +281,21 @@ $view_subject = get_text($view['wr_subject']);
 							<span class="sr-only">SNS 공유</span>
 						</button>
 					<?php } ?>
-					<!--  hulan zassan level 24,25is board .grou admin, and admin or group admin board admin can blind  -->
+					<!--  hulan zassan level 24,25is board .group admin, and admin or group admin board admin can blind  -->
 					<?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin ||$member['mb_id'] == $board['bo_admin'] || $member['mb_id'] == $group['gr_admin'])) { // 신고 ?>
 					<button type="button" class="btn btn-basic" onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="블라인드">
 							<i class="fa fa-ban" aria-hidden="true"></i>
 							<span class="sr-only">블라인드</span>
 						</button>
-						<?php } ?>
+                        <?php } ?>
+                        
+                        <?php
+        if ($board['bo_2']) {
+            if (!$is_member && $board['bo_1'] || $is_member) {
+                echo '<button id="board_singo" class="btn btn_b03"><i class="fa fa-flag" aria-hidden="true"></i> 신고</button>';
+            }
+        }
+        ?>
 				</div>
 			</div>
 		<?php } ?>
@@ -523,7 +532,40 @@ $(function() {
 });
 </script>
 <!-- } 게시글 읽기 끝 -->
-
+<script>
+<?php
+if ($board['bo_2']) {
+    if (!$is_member && $board['bo_1'] || $is_member) {
+?>
+$(function() {
+    $("#board_singo").click(function() {
+        if (!confirm('이 게시물을 신고 하시겠습니까?\n\n신고는 취소가 불가합니다.\n\n주의) 허위 신고시 신고자의 서비스 이용이 제한됩니다.')) {
+            return false;
+        }
+        
+        $.ajax({
+            'url': g5_bbs_url+'/ajax.singo.php',
+    	      'dataType': 'json',
+    	      'type': 'POST',
+            'async': false,
+    	      'data': {
+    	          'bo_table': '<?php echo $bo_table ?>',
+    	          'wr_id': '<?php echo $wr_id ?>'
+            },
+            'success': function(data) {
+                if (data.msg) {
+                    alert(data.msg);
+                    return false;
+                }
+            }
+        });
+    });
+});
+<?php
+  }
+}
+?>
+</script>
 <?php if($board['bo_use_sns']) { ?>
 <!-- SNS 공유창 시작 { -->
 <div class="modal fade" id="bo_snsModal" tabindex="-1" role="dialog" aria-hidden="true">
