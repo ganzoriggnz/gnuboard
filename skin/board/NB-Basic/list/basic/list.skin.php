@@ -80,7 +80,7 @@ $list_cnt = count($list);
 			$list[$i]['href'] = $list[$i]['link_href'][1];
 		}
 
-		// 전체 보기에서 분류 출력하기
+		// 전체 보기에서 분류 출력하기 //hulan nemsen 후기, 출근부에 분류 안 보이게
 		if($board['gr_id'] !== "review" && $board['gr_id'] !== "attendance"){
 		if(!$sca && $is_category && $list[$i]['ca_name']) {
 			$list[$i]['subject'] = $list[$i]['ca_name'].' <span class="na-bar"></span> '.$list[$i]['subject'];
@@ -129,9 +129,9 @@ $list_cnt = count($list);
 							?>
 							<!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
 							<?php if($board['gr_id'] == "review" ){?>
-							<?php echo "[",$list[$i]['wr_7'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
+							<?php echo "[",$list[$i]['mb_name'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
 							elseif($board['gr_id'] == "attendance"){
-								echo "[",$list[$i]['wr_4'],"]", $list[$i]['subject'] ;} 
+								echo "[",$list[$i]['mb_name'],"]", $list[$i]['subject'] ;} 
 								else{echo  $list[$i]['subject'] ;}
 							?>
 							

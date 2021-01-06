@@ -36,7 +36,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     }
     
     $wset['sideview'] = 0;
-    $list = na_board_rows($wset);
+    $list = na_post_rows($wset);
     $list_cnt = count($list); 
     //-------------------------------------------------------------------------
 
@@ -132,7 +132,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 					<input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>" class="selec_chk">
 	                <label for="chk_wr_id_<?php echo $i ?>">
 	                	<span></span>
-	                	<b class="sound_only"><?php echo $list[$i]['subject'] ?></b>
+	                	<b class="sound_only"><?php echo $list[$i]['subject'] ?>+bolds</b>
 	                </label>
 
 	                <?php } ?>
