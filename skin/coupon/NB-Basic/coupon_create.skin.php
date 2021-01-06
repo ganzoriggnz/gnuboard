@@ -103,15 +103,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 
             <div class="p-20">
                 <div class="coupon_label">원가권 :</div>
-                <input type="number" name="co_sale" value="<?php echo $row['co_sale']; ?>" placeholder="Please, insert quantity of sale coupon" class="coupon_input" <?php echo ($now >= $fdate && $row['co_no']) ? ' disabled="disabled"' : '' ?>>
+                <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="Please, insert quantity of sale coupon" class="coupon_input">
             </div>
             <div class="p-20">
                 <div class="coupon_label">무료권 :</div>
-                <input type="number" name="co_free" value="<?php echo $row['co_free']; ?>" placeholder="Please, insert quantity of free coupon" class="coupon_input" <?php echo ($now >= $fdate && $row['co_no']) ? ' disabled="disabled"' : '' ?>>
+                <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="Please, insert quantity of free coupon" class="coupon_input">
             </div>
             <div class="p-20">
                 <div class="coupon_label"></div>
-                <button type="submit" id="btn_submit" accesskey="s" <?php echo ($now >= $fdate && $row['co_no']) ? ' disabled="disabled" class="btn coupon_btn" style="background:grey;"' : ' class="btn btn-primary coupon_btn"' ?>>저장</button>
+                <button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary coupon_btn">저장</button>
             </div>
             <div class="popup_box1">
                 <h1>쿠폰</h1>
@@ -125,15 +125,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
         <script>
 
         function fcouponcreate_submit(f) {
-                if (!f.co_sale) {
+                /* if (!f.co_sale) {
                     alert("Please insert quantity of sale coupon!");
                     f.co_sale.focus();
                     return false;
-                }
+                } */
 
-                if (!f.co_free) {
+                if (!f.co_free_num) {
                     alert("Please insert quantity of free coupon!");
-                    f.co_free.focus();
+                    f.co_free_num.focus();
                     return false;
                 }
 
@@ -144,6 +144,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                     return false;            
                             
         }
+
  
        /*  $(function () {
     'use strict';
