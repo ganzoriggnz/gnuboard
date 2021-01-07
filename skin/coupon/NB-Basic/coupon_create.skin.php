@@ -12,7 +12,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 				<div id="user_cate_list" class="sly-wrap flex-grow-1">
 					<ul id="user_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
 						<li>
-                            <a class="py2 px-3" href= <?php echo G5_BBS_URL.'/userinfo.php' ?> >
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/userinfo.php'">
                                 <span>
                                 <i class="fa fa-user">
                                 회원정보
@@ -21,7 +21,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/mypost.php">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/mypost.php'">
                                 <span>
                                 <i class="fa fa-pencil-alt">
                                 내 글
@@ -39,7 +39,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/point.php'">
                                 <span>
                                 <i class="fa fa-gem">
                                 파운드 : <b><?php echo number_format($member['mb_point']);?></b>
@@ -48,7 +48,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/scrap.php">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/scrap.php'">
                                 <span>
                                 <i class="fa fa-paperclip">
                                 스크랩
@@ -57,7 +57,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                             </a>
                         </li>
                         <li class="active">
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL.'/coupon_create.php' ?>">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/coupon_create.php'">
                                 <span>
                                 <i class="fa fa-cubes">
                                 쿠폰지원
@@ -66,7 +66,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "#">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/coupon_accept.php'">
                                 <span>
                                 <i class="fa fa-handshake">
                                 쿠폰관리
@@ -75,7 +75,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/myreview.php">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/myreview.php'">
                                 <span>
                                 <i class="fa fa-pencil-alt">
                                 후기보기
@@ -96,7 +96,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             <li>매월 1일 모든 쿠폰은 0으로 리셋됩니다.</li>
         </ul>
     </div>
-    <div class="coupon_info">
+    
+    <div class="coupon_info" style="float-left">
+    <h6>다음달 쿠폰 지원 개수</h6>
         <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
             <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
             <input type="hidden" name="co_entity" value="<?php echo $member['mb_name'] ?>">
@@ -125,11 +127,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
         <script>
 
         function fcouponcreate_submit(f) {
-                /* if (!f.co_sale) {
+                if (!f.co_sale_num) {
                     alert("Please insert quantity of sale coupon!");
-                    f.co_sale.focus();
+                    f.co_sale_num.focus();
                     return false;
-                } */
+                } 
 
                 if (!f.co_free_num) {
                     alert("Please insert quantity of free coupon!");
@@ -141,51 +143,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 if(agree)
                     return true;
                 else 
-                    return false;            
-                            
+                    return false;                                       
         }
 
- 
-       /*  $(function () {
-    'use strict';
-
-    function confirmDialog(title, message, success) {
-        var confirmdialog = $('<div></div>').appendTo('body')
-            .html('<div><h6>' + message + '</h6></div>')
-            .dialog({
-                modal: true,
-                title: title,
-                zIndex: 10000,
-                autoOpen: false,
-                width: 'auto',
-                resizable: false,
-                buttons: {
-                    확인: function () {
-                        success();
-                        $(this).dialog("close");
-                    },
-                    No: function () {
-                        $(this).dialog("close");
-                    }
-                },
-                close: function() {
-                    $(this).remove();
-                }
-            });
-
-        return confirmdialog.dialog("open");
-    }
-
-    $('form').on('submit', function (e) {
-        e.preventDefault();
-        var form = this;
-
-        confirmDialog('Confirm', 'Are you sure?', function () {
-            form.submit();
-        });
-    });
-}); */
         </script>
+    </div>
+    <div class="coupon_current">
+        <h6>이번달 잔여 쿠폰 개수</h6>
+
+        <div class="p-20">
+            <span><?php echo $row1['co_sale_num']; ?></span>
+        </div>
+        <div class="p-20">
+            <span><?php echo $row1['co_free_num']; ?></span>
+        </div>
     </div>
  
   
