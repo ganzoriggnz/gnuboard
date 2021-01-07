@@ -13,6 +13,11 @@ if (!$is_member)
 
 // 내용
 
+/* if (G5_IS_MOBILE) {
+    include_once(G5_MOBILE_PATH.'/coupon_accept.php');
+    return;
+} */
+
 include_once('./_head.php');
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
