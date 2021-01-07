@@ -12,7 +12,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
 				<div id="user_cate_list" class="sly-wrap flex-grow-1">
 					<ul id="user_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
 						<li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/userinfo.php'">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/userinfo.php">
                                 <span>
                                 <i class="fa fa-user">
                                 회원정보
@@ -21,7 +21,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/mypost.php'">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/mypost.php">
                                 <span>
                                 <i class="fa fa-pencil-alt">
                                 내 글
@@ -39,7 +39,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/point.php'">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
                                 <span>
                                 <i class="fa fa-gem">
                                 파운드 : <b><?php echo number_format($member['mb_point']);?></b>
@@ -48,7 +48,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/scrap.php'">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/scrap.php">
                                 <span>
                                 <i class="fa fa-paperclip">
                                 스크랩
@@ -57,7 +57,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/coupon_create.php'">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_create.php">
                                 <span>
                                 <i class="fa fa-cubes">
                                 쿠폰지원
@@ -66,7 +66,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                             </a>
                         </li>
                         <li class="active">
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/coupon_accept.php'">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_accept.php">
                                 <span>
                                 <i class="fa fa-handshake">
                                 쿠폰관리
@@ -75,7 +75,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>'/myreview.php'">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/myreview.php">
                                 <span>
                                 <i class="fa fa-pencil-alt">
                                 후기보기
