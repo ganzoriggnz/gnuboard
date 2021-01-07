@@ -2,11 +2,22 @@
 
 include_once('./_common.php');
 
+
+//dbconfig파일에 $g5['content_table'] 배열변수가 있는지 체크
+if( !isset($g5['member_table']) ){
+    die('<meta charset="utf-8">관리자 모드에서 게시판관리->내용 관리를 먼저 확인해 주세요.');
+}
+
 if (!$is_member)
     alert_close('회원만 조회하실 수 있습니다.');
 
+// 내용
+
+include_once('./_head.php');
+
+if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+
 $g5['title'] = '쿠폰지원 목록';
-include_once(G5_PATH.'/head.sub.php');
 
 // 상수 선언
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사
@@ -43,20 +54,11 @@ $s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '12')
 $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
 
-$result = "SELECT * FROM $g5[coupon_table] WHERE co_begin_date='$s_begin_date' AND co_end_date='$s_end_date'";
-$now = date('Ymd', time());
-$year = substr($now, 0, 4);
-$month = substr($now, 4, 2);
-
-$sql1 = "select COUNT(*) as cnt from $g5[coupon_table] where mb_id = '{$member['mb_id']}' AND co_begin_date='$s_begin_date' AND co_end_date='$s_end_date'";
-$row1 = sql_fetch($sql1);
-$total_count = $row1['cnt']; 
-
 $coupon_accept_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_accept_skin_url  = get_skin_url('coupon', 'NB-Basic');
 $skin_file = $coupon_accept_skin_path.'/coupon_accept.skin.php';
 
-$couponsent_action_url = G5_BBS_URL.'/couponaccept_form.php';
+/* $couponaccept_action_url = G5_BBS_URL.'/couponaccept_form.php'; */
 
 if(is_file($skin_file)) {
     include($skin_file);
@@ -64,5 +66,5 @@ if(is_file($skin_file)) {
     echo '<p>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</p>';
 }
 
-    include_once('/tail.sub.php');
+    include_once('./_tail.php');
 ?>

@@ -6,6 +6,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
 
 ?>
 
+<style>
+    table th, td {border: 0.5px solid black; padding: 10px 85px;}
+    
+</style>
+
     <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
 		<div class="px-3 px-sm-0">
 			<div class="d-flex">
@@ -89,6 +94,28 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
 			</div>
 		</div>
     </nav>
+<div style="margin-top: 60px; font-size: 12px;">
+<table> 
+    <thead>
+        <tr style="background-color: #e3e2e3;">
+            <th>발행업소</th>
+            <th>쿠폰명</th>
+            <th>쿠폰번호</th>
+            <th>당첨시간</th>
+            <th>학인시간</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<div style="margin-top: 100px;">
+    <ul>
+        <li>쿠폰을 받은 사람은 7일이내 사용하기를 누르지 않으면<span style="color: blue">자동으로 회수됩니다.</span></li>
+        <li>사용하기 클릭 후 7일 이내에 해당 게시판에서 후기를 작성하지 않으면 경고를 받게 됩니다.</li>
+    </ul>
+</div>
+
+</div>
 
     
  

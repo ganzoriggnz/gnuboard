@@ -158,7 +158,7 @@ if (!$is_member)
 // 내용
 
 /* if (G5_IS_MOBILE) {
-    include_once(G5_MOBILE_PATH.'/userinfo.php');
+    include_once(G5_MOBILE_PATH.'/coupon_create.php');
     return;
 } */
 
