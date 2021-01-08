@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // Page ID 생성
@@ -1205,43 +1206,32 @@ function na_bo_list($gr_list, $gr_except, $bo_list, $bo_except) {
 	return array(implode(',', $plus), implode(',', $minus));
 }
 
-function na_post_rows($wset){
-	global $g5, $member;
-
-	$list = array();
-	$wher = '';
-        
-		// 공통쿼리
-		
+function na_post_rows($wset,$subcat=''){
+	global $g5;
+	$list = array();        
+		// 공통쿼리		
 		$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
 		$cnt =0;
 		for ($i=0; $res = sql_fetch_array($result); $i++) {
 			
 			$bo_table = $res['bo_table'];			
 			$hwrite_table = $g5['write_prefix'] . $bo_table;	
-			if($wset==''){
-				$wher='';
+			if($wset==''){				
 				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );
-			} else {
-				$wher=$wset;
-				
+			} else if ($subcat=='')
+				{								
 				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false  );
 			}
-
-
-			//$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );
-			
-			
-			while ( $row=sql_fetch_array($result1)) {
-					
-			  		   
+			else {
+				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false  );
+			}
+			while ( $row=sql_fetch_array($result1)) {					
+				$list[$cnt] = $row;
 				
-				$list[$cnt] = na_wr_row($row, $wset);
 				$cnt ++;	
 			}
 			
 		} 
-		
 
 	return $list;
 }

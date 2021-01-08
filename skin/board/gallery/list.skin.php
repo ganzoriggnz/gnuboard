@@ -17,6 +17,12 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                 <?php echo $category_option ?>
             </ul>
         </nav>
+        <nav id="bo_cate">
+            <h2><?php echo $board['bo_subject'] ?> subcategory</h2>
+            <ul id="bo_cate_ul">
+                <?php echo $subcategory_option ?>
+            </ul>
+        </nav>
     <?php }
 
     $search_table = array();
@@ -35,10 +41,9 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
         $img_height = ($wset['thumb_d']) ? $wset['thumb_d'] : '56.25';
     }
 
-    
-    $wset=$sca;
-    $list = na_post_rows($wset); //
-
+    $wsetss=$sca;
+    $subcat=$subsca;
+    $list = na_post_rows($wsetss,$subcat); //
     $list_cnt = count($list);
     //-------------------------------------------------------------------------
 

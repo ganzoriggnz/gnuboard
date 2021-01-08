@@ -224,11 +224,16 @@ if ($board['bo_use_rss_view']) {
     $rss_href = G5_BBS_URL.'/rss.php?bo_table='.$bo_table;
 }
 
+$wsetrr=$sca;
+$listee = na_post_rows($wsetrr); //
+$list_cnt = count($listee);
+
 $stx = get_text(stripslashes($stx));
 
 // 분류 사용 여부
 $is_category = false;
 $category_option = '';
+
 if ($board['bo_use_category']) {
     $is_category = true;
     $category_href = get_pretty_url($bo_table);
@@ -236,7 +241,7 @@ if ($board['bo_use_category']) {
     $category_option .= '<li><a href="'.$category_href.'"'; 
     if ($sca==''){
         $category_option .= ' id="bo_cate_on"';
-        $category_option .= '>전체<br>('.number_format($total_count).')</a></li>';
+        $category_option .= '>전체<br>('.$list_cnt.')</a></li>';
     } else 
     $category_option .= '>전체</a></li>'; 
     
@@ -252,10 +257,37 @@ if ($board['bo_use_category']) {
             
             $category_option .= ' id="bo_cate_on"';
             $category_msg = '<span class="sound_only">열린 분류 </span>';
-            $category_option .= '>'.$category_msg.$category.'<br>('.number_format($total_count).')</a></li>';
+            $category_option .= '>'.$category_msg.$category.'<br>('.$list_cnt.')</a></li>';
         }
         else
         $category_option .= '>'.$category_msg.$category.'</a></li>';
+    }    
+}
+
+$is_subcategory = false;
+$subcategory_option = '';
+
+if ($board['bo_use_category'] && $sca !='') {
+    $is_subcategory = true;
+    $subcategory_href = get_pretty_url($bo_table);
+    
+    
+     $subcategories = $listee[0]['ca_name']; // 구분자가 , 로 되어 있음
+   
+    for ($i=0; $i<$list_cnt; $i++) {
+        
+         $subcategory =  $listee[$i]['ca_name'];
+        if ($subcategory=='') continue;       
+         $subcategory_option .= '<li><a href="'.(get_pretty_url($bo_table,'','&sca='.$sca.'&subsca='.urlencode($subcategory))).'"';         
+        $subcategory_msg = '';
+        if ($subcategory==$sca) { // 현재 선택된 카테고리라면
+            
+            $subcategory_option .= ' id="bo_cate_on"';
+            $subcategory_msg = '<span class="sound_only">열린 분류 </span>';
+            $subcategory_option .= '>'.$subcategory_msg.$subcategory.'<br>('.$list_cnt.')</a></li>';
+        }
+        else
+        $subcategory_option .= '>'.$subcategory_msg.$subcategory.'</a></li>';
     }    
 }
 
