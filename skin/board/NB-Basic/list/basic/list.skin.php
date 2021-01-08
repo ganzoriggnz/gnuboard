@@ -131,7 +131,7 @@ $list_cnt = count($list);
 							<?php 
 								
 							 if($board['gr_id'] == "review" ){?>
-							<?php echo "[",$res['mb_name'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
+							<?php echo "[",$list[$i]['mb_name'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
 							elseif($board['gr_id'] == "attendance"){
 								echo "[",$res['mb_name'],"]", $list[$i]['subject'] ;} 
 								else{echo  $list[$i]['subject'] ;}

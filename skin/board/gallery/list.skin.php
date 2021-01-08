@@ -59,7 +59,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
     if (!$sfl) $sfl = 'wr_subject';
     if (!$sop) $sop = 'or';
 
-    include_once($search_skin_path . '/search.skin.php');
+    //include_once($search_skin_path . '/search.skin.php');
     ?>
 
     <form name="fboardlist" id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
@@ -82,9 +82,9 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
             <ul class="btn_bo_user">
                 <?php if ($admin_href) { ?><li><a href="<?php echo $admin_href ?>" class="btn_admin btn" title="관리자"><i class="fa fa-cog fa-spin fa-fw"></i><span class="sound_only">관리자</span></a></li><?php } ?>
                 <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btn_b01 btn" title="RSS"><i class="fa fa-rss" aria-hidden="true"></i><span class="sound_only">RSS</span></a></li><?php } ?>
-                <li>
+                <!-- <li>
                     <button type="button" class="btn_bo_sch btn_b01 btn" title="게시판 검색"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">게시판 검색</span></button>
-                </li>
+                </li> -->
                 <?php if ($write_href) { ?><li><a href="<?php echo $write_href ?>" class="btn_b01 btn" title="글쓰기"><i class="fa fa-pencil" aria-hidden="true"></i><span class="sound_only">글쓰기</span></a></li><?php } ?>
                 <?php if ($is_admin == 'super' || $is_auth) {  ?>
                     <li>
