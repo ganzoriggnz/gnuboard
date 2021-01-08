@@ -241,7 +241,7 @@ if ($board['bo_use_category']) {
     $category_option .= '<li><a href="'.$category_href.'"'; 
     if ($sca==''){
         $category_option .= ' id="bo_cate_on"';
-        $category_option .= '>전체<br>('.$list_cnt.')</a></li>';
+        $category_option .= '>전체('.$list_cnt.')</a></li>';
     } else 
     $category_option .= '>전체</a></li>'; 
     
