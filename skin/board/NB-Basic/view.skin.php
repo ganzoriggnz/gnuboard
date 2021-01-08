@@ -81,8 +81,22 @@ $view_subject = get_text($view['wr_subject']);
 		<?php } ?>
 		<!-- <h1 id="bo_v_title"> hulan tailbar bolgood doodohoor uurchilsen -->  
 		<h1 id="bo_v_title"<?php if ($view['wr_1']) { echo " style='color:".$view['wr_1']."' "; } ?>>
-            <?php echo $view_subject; // 글제목 출력 ?>
+            <?php echo $view_subject; // 글제목 출력 ?> &nbsp;&nbsp;&nbsp;
+
+			<!-- hulan nemsen 삭제요청 ///////////////////////////////////-->
+			<?php
+        if ($board['bo_2']) {
+            if ( $member['mb_level'] == 26 || $member['mb_level'] == 27) {
+                echo '<button id="board_singo" class="btn btn_b03"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>삭제요청</button>';
+			}
+			else{
+				echo '<button id="board_singo" class="btn btn_b03"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>신고</button>';
+			}
+        }
+        ?>
+		<!-- /////////////////////////////////////////////////////////// -->
         </h1>
+
     </header>
 
 	<section id="bo_v_info" class="f-sm font-weight-normal mb-4">
@@ -123,6 +137,7 @@ $view_subject = get_text($view['wr_subject']);
 						 <b class="orangered"><?php echo number_format($view['wr_comment']) ?></b>
 					</li>
 				<?php } ?>
+				
 				<li id="bo_v_btn" class="flex-grow-1 text-right">
 					<!-- 게시물 상단 버튼 시작 { -->
 					<?php ob_start(); ?>
@@ -201,7 +216,7 @@ $view_subject = get_text($view['wr_subject']);
         <!-- 본문 내용 시작 { -->
         <div id="bo_v_con" class="mb-4 px-3">
 	<!-- hulan nemsen 블라인드 처리 된 글 관리자에서 보이고 회원 페이지에서 삭제 처럼 안보이게 처리  -->
-			<?php if(IS_NA_BBS && $is_admin && $view['as_type'] == "-1") { // 신고처리 ?>
+			<?php if(IS_NA_BBS && $is_admin && $view['as_type'] == "-1") { // 블라인드처리 ?>
 				<div class="alert alert-danger text-center" role="alert">
 					블라인드 처리된 게시물입니다.
 				</div>
@@ -282,20 +297,14 @@ $view_subject = get_text($view['wr_subject']);
 						</button>
 					<?php } ?>
 					<!--  hulan zassan level 24,25is board .group admin, and admin or group admin board admin can blind  -->
-					<?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin ||$member['mb_id'] == $board['bo_admin'] || $member['mb_id'] == $group['gr_admin'])) { // 신고 ?>
+					<?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin ||$member['mb_id'] == $board['bo_admin'] || $member['mb_id'] == $group['gr_admin'])) { // 블라인드 ?>
 					<button type="button" class="btn btn-basic" onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="블라인드">
 							<i class="fa fa-ban" aria-hidden="true"></i>
 							<span class="sr-only">블라인드</span>
 						</button>
                         <?php } ?>
                         
-                        <?php
-        if ($board['bo_2']) {
-            if (!$is_member && $board['bo_1'] || $is_member) {
-                echo '<button id="board_singo" class="btn btn_b03"><i class="fa fa-flag" aria-hidden="true"></i> 신고</button>';
-            }
-        }
-        ?>
+                        
 				</div>
 			</div>
 		<?php } ?>

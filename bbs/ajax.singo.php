@@ -93,12 +93,21 @@ $sql = " insert into {$g5['singo_table']}
              ";
 sql_query($sql);
 
+if ( $member['mb_level'] == 26 || $member['mb_level'] == 27) {
 $data = array(
-          'msg'=>'신고가 정상적으로 접수되었습니다.',
+          'msg'=>'삭제요청이 정상적으로 접수되었습니다.',
           'data'=>'success',
           'reason'=>'ok',
           'result'=>'socket'
 );
-
+}
+else {
+    $data = array(
+        'msg'=>'신고가 정상적으로 접수되었습니다.',
+        'data'=>'success',
+        'reason'=>'ok',
+        'result'=>'socket'
+);
+}
 echo json_encode($data);
 ?>
