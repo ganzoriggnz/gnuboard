@@ -116,7 +116,7 @@ while($row2 = sql_fetch_array($res2)){
                         WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
             sql_query($sql5);          
     } 
-    if($row2['wr_id'] && !$res4['alt_cnt'] == '0' && ($row2['wr_datetime'] > $res3['cos_post_datetime'])){
+   /*  if($row2['wr_id'] && !$res4['alt_cnt'] == '0' && ($row2['wr_datetime'] > $res3['cos_post_datetime'])){
             $sql5 = "INSERT INTO $g5[coupon_alert_table] 
                         SET cos_nick = '{$row2['cos_nick']}',
                             cos_entity = '{$row2['cos_entity']}',
@@ -132,7 +132,7 @@ while($row2 = sql_fetch_array($res2)){
                         WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
 
             sql_query($sql6);                   
-    } 
+    }  */
 } 
 
 $sql_acc = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='N'";
