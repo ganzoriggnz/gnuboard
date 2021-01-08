@@ -38,7 +38,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	<div id="topHeight"></div>
 
 	<div id="memo_info" class="f-de font-weight-normal mb-2 px-3">
-		전체 <?php echo $kind_title ?>쪽지 <b><?php echo $total_count ?></b>통 / <?php echo $page ?>페이지
+		전체 <?php echo number_format($total_count) ?>건 / <?php echo $page ?>페이지
 	</div>
 
 	<div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
@@ -53,10 +53,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	<ul class="na-table d-table w-100 f-de">
 	<?php
-	/* $result = " SELECT * FROM $g5[coupon_table] a LEFT JOIN $g5[couponsent_table] b ON a.co_code = b.co_code GROUP BY co_no"; */
 	 $result = "SELECT a.* FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_date='{$s_begin_date}' AND a.co_end_date='{$s_end_date}'"; 
-	/* $result = "SELECT a.*, b.* FROM $g5[coupon_table] a LEFT OUTER JOIN $g5[couponsent_table] b ON a.co_no = b.co_no WHERE a.co_begin_date='$s_begin_date' AND a.co_end_date='$s_end_date'" */
-	//$row = sql_fetch($result);
 	$result1=sql_query($result);
 	for ($i=0; $row = sql_fetch_array($result1); $i++) {
 	?>

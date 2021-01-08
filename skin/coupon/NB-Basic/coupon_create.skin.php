@@ -151,11 +151,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
     <div class="coupon_current">
         <h6>이번달 잔여 쿠폰 개수</h6>
 
-        <div class="p-20">
-            <span><?php echo $row1['co_sale_num']; ?></span>
+        <div class="coupon_div">
+            <p class="count"><span><?php echo $diff_s;?></span><span>/</span><span><?php echo $row1['co_sale_num']; ?></span></p>
         </div>
-        <div class="p-20">
-            <span><?php echo $row1['co_free_num']; ?></span>
+        <div class="coupon_div">
+            <p class="count"><span><?php echo $diff_f;?></span><span>/</span><span><?php echo $row1['co_free_num']; ?></span></p>
         </div>
     </div>
  

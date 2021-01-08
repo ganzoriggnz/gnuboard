@@ -47,14 +47,32 @@ $s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '12')
 $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
 
-$result = "SELECT * FROM $g5[coupon_table] WHERE co_begin_date='$s_begin_date' AND co_end_date='$s_end_date'";
-$now = date('Ymd', time());
-$year = substr($now, 0, 4);
-$month = substr($now, 4, 2);
+$result1 = "SELECT co_begin_date FROM $g5[coupon_table] WHERE co_begin_date='$s_begin_date' AND co_end_date='$s_end_date'";
+$sql = sql_fetch($result1);
+$date = $sql['co_begin_date'];
+$year = substr($date, 0, 4);
+$month = substr($date, 5, 2);
 
-$sql1 = "select COUNT(*) as cnt from $g5[coupon_table] where mb_id = '{$member['mb_id']}' AND co_begin_date='$s_begin_date' AND co_end_date='$s_end_date'";
-$row1 = sql_fetch($sql1);
-$total_count = $row1['cnt']; 
+$result = "SELECT COUNT(a.co_no) as cnt FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_date='{$s_begin_date}' AND a.co_end_date='{$s_end_date}'"; 
+$row=sql_fetch($result);
+$total_count = $row['cnt'];
+
+$rows = $config['cf_page_rows'];
+$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
+if ($page < 1) $page = 1; // 페이지가 없으면 첫 페이지 (1 페이지)
+$from_record = ($page - 1) * $rows; // 시작 열을 구함
+
+$list = array();
+
+$sql = "SELECT * FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_date='{$s_begin_date}' AND a.co_end_date='{$s_end_date}' limit $from_record, $rows ";
+$result = sql_query($sql);
+for ($i=0; $row=sql_fetch_array($result); $i++) {
+
+    $list[$i] = $row;
+
+    // 순차적인 번호 (순번)
+    $num = $total_count - ($page - 1) * $rows - $i;
+}
 
 $coupon_list_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_list_skin_url  = get_skin_url('coupon', 'NB-Basic');
