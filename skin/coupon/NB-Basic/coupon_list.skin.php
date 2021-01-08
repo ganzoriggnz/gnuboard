@@ -54,8 +54,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	<ul class="na-table d-table w-100 f-de">
 	<?php
 	/* $result = " SELECT * FROM $g5[coupon_table] a LEFT JOIN $g5[couponsent_table] b ON a.co_code = b.co_code GROUP BY co_no"; */
-	
-	 $result = "SELECT * FROM $g5[coupon_table] WHERE co_begin_date='{$s_begin_date}' AND co_end_date='{$s_end_date}'"; 
+	 $result = "SELECT a.* FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_date='{$s_begin_date}' AND a.co_end_date='{$s_end_date}'"; 
 	/* $result = "SELECT a.*, b.* FROM $g5[coupon_table] a LEFT OUTER JOIN $g5[couponsent_table] b ON a.co_no = b.co_no WHERE a.co_begin_date='$s_begin_date' AND a.co_end_date='$s_end_date'" */
 	//$row = sql_fetch($result);
 	$result1=sql_query($result);
@@ -107,7 +106,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "./memo.php?kind=$kind".$qstr."&amp;page=") ?>
 		</ul>
 	</div>
-	<div class="modal fade" id="couponModal" tabindex="-1" role="dialog" style="position: absolute; top: 50%;">
+	<div class="modal fade" id="couponModal" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content" style="width: 350px; height: 250px; font-weight: bold;">
 				<form id="fcouponapply" name="fcouponapply" action="<?php echo $couponsent_action_url; ?>" onsubmit="return fcouponapply_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">

@@ -8,10 +8,14 @@ if (!$is_member)
 $g5['title'] = '쿠폰지원 목록';
 include_once(G5_PATH.'/head.sub.php');
 
+$bo_table = $_REQUEST['bo_table'];
+
 // 상수 선언
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
 $g5['couponsent_table'] = $g5['table_prefix'] . "couponsent";    // 쿠폰 테이블
+$g5['write_prefix']        = "g5_write_";
+$g5['bo_table'] = $g5['write_prefix'] . $bo_table;
 
 $co_created = date('Y-m-d H:i:s');
 $currentmonth = substr($co_created, 5, 2);
