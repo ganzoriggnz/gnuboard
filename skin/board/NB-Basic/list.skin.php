@@ -137,7 +137,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 						</button>
 						<?php if($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id']) { ?> 
 							
-							<a href="<?php echo G5_BBS_URL ?>/coupon_list.php" target="_blank" class="btn win_memo" style="background: #EFEFEF; color:#000; padding: 1px 6px;" role="button">
+							<a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table'];?>" target="_blank" class="btn win_memo" style="background: #EFEFEF; color:#000; padding: 1px 6px;" role="button">
 							쿠폰지원내역
 							</a>
 						<?php } ?>
