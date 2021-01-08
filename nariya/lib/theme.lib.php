@@ -1237,6 +1237,38 @@ function na_post_rows($wset,$subcat=''){
 }
 
 
+function na_post_subcat($wset,$subcat=''){
+	global $g5;
+	$list = array();        
+		// 공통쿼리		
+		$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
+		$cnt =0;
+		for ($i=0; $res = sql_fetch_array($result); $i++) {
+			
+			$bo_table = $res['bo_table'];			
+			$hwrite_table = $g5['write_prefix'] . $bo_table;	
+			if($wset==''){				
+				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id  GROUP BY a.ca_name", false  );
+			} else if ($subcat=='')
+				{								
+				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'  GROUP BY a.ca_name", false  );
+			}
+			else {
+				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}' GROUP BY a.ca_name", false  );
+			}
+			while ( $row=sql_fetch_array($result1)) {					
+				$list[$cnt] = $row;				
+				$cnt ++;	
+			}
+			
+		} 
+
+	return $list;
+}
+
+
+
+
 
 // 게시물 추출
 function na_board_rows($wset) {

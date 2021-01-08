@@ -225,7 +225,7 @@ if ($board['bo_use_rss_view']) {
 }
 
 $wsetrr=$sca;
-$listee = na_post_rows($wsetrr); //
+$listee = na_post_subcat($wsetrr); //
 $list_cnt = count($listee);
 
 $stx = get_text(stripslashes($stx));
@@ -269,8 +269,7 @@ $subcategory_option = '';
 
 if ($board['bo_use_category'] && $sca !='') {
     $is_subcategory = true;
-    $subcategory_href = get_pretty_url($bo_table);
-    
+    $subcategory_href = get_pretty_url($bo_table);  
     
      $subcategories = $listee[0]['ca_name']; // 구분자가 , 로 되어 있음
    
