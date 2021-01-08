@@ -89,7 +89,7 @@ img {vertical-align: middle;}
 }
 </style>
 
-
+<!-- 
 <div class="slideshow-container">
 
 <div class="mySlides fade">
@@ -110,7 +110,7 @@ img {vertical-align: middle;}
   <div class="text">3</div>
 </div>
 
-</div>
+</div> -->
 <br>
 
 <div style="text-align:center">

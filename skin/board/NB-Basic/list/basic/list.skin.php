@@ -29,7 +29,7 @@ $list_cnt = count($list);
 
 ?>
 
-
+	
 
 <section id="bo_list" class="mb-4">
 
@@ -128,10 +128,12 @@ $list_cnt = count($list);
 								
 							?>
 							<!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
-							<?php if($board['gr_id'] == "review" ){?>
-							<?php echo "[",$list[$i]['mb_name'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
+							<?php 
+								
+							 if($board['gr_id'] == "review" ){?>
+							<?php echo "[",$res['mb_name'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
 							elseif($board['gr_id'] == "attendance"){
-								echo "[",$list[$i]['mb_name'],"]", $list[$i]['subject'] ;} 
+								echo "[",$res['mb_name'],"]", $list[$i]['subject'] ;} 
 								else{echo  $list[$i]['subject'] ;}
 							?>
 							

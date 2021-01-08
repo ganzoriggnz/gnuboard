@@ -295,14 +295,14 @@ if ($is_member)
 				<?php } ?>
 			<?php } ?>
 
-				<!-- hulan nemsen review board write post  -->
-				<?php if ($board['gr_id'] == "review") { ?>
-					<?php  $scount = strlen($bo_table)-2;      // temdegt tooloh
-					$bo_table =  substr($bo_table, 0, $scount);    // suuliin 2iig hasaad hevleh
-					$sql = "select * from " . $g5['write_prefix'] . $bo_table . "at" ;
-					$result_scate = sql_query($sql);?>
-					<?php echo $res['wr_4'];?>
-									
+				<!-- hulan nemsen review board write post 출근부 게시판에 글 있는 업소명 후기 선택에 보이기 -->
+				<?php if ($board['gr_id'] == "review") { 
+				     $scount = strlen($bo_table)-2;      // temdegt tooloh
+					$bo_table =  substr($bo_table, 0, $scount); 
+				    $hwrite_table = $g5['write_prefix'] . $bo_table."at";
+					$sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );
+					
+					?>
 					<?php if ($is_category) { ?>
 
 						<li class="list-group-item">
@@ -311,9 +311,9 @@ if ($is_member)
 								<div class="col-md-4">
 									<select name="wr_7" id="wr_7" required class="custom-select">
 									<option value="">선택하세요</option>
-									<?php while ($res = sql_fetch_array($result_scate)){?>
-										<!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['wr_4'];?></option> -->
-										<option value=<?php echo $res['wr_4'];?> <?php if($write['wr_7']==$res['wr_4']) echo " selected ";?>><?php echo $res['wr_4'];?></option>
+									<?php while ($res = sql_fetch_array($sql)){?>
+										<!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name'];?></option> -->
+										<option value=<?php echo $res['mb_name'];?> <?php if($write['wr_4']==$res['mb_name']) echo " selected ";?>><?php echo $res['mb_name'];?></option>
 									<?php } ?>
 										</select>
 								</div>

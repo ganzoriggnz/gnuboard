@@ -1209,30 +1209,39 @@ function na_post_rows($wset){
 	global $g5, $member;
 
 	$list = array();
-
-
+	$wher = '';
+        
 		// 공통쿼리
 		
 		$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
-		while ($res = sql_fetch_array($result)) {
+		$cnt =0;
+		for ($i=0; $res = sql_fetch_array($result); $i++) {
 			
-			$bo_table = $res['bo_table'];
-			$result1 = sql_query("select * from " . $g5['write_prefix'] . $bo_table  );
-			
-			for ($i=0; $row=sql_fetch_array($result1); $i++) {
-				echo $row['mb_id'];
-	
-				$wr['wr_id'] = $row['wr_id'];
-			   $wr['mb_id'] = $row['mb_id'];
-			  
+			$bo_table = $res['bo_table'];			
+			$hwrite_table = $g5['write_prefix'] . $bo_table;	
+			if($wset==''){
+				$wher='';
+				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );
+			} else {
+				$wher=$wset;
+				
+				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false  );
+			}
 
-			$list[$i] = na_wr_row($wr, $wset);
+
+			//$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );
 			
 			
+			while ( $row=sql_fetch_array($result1)) {
+					
+			  		   
+				
+				$list[$cnt] = na_wr_row($row, $wset);
+				$cnt ++;	
+			}
 			
-		}
+		} 
 		
-	} 
 
 	return $list;
 }
