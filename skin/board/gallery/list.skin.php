@@ -17,9 +17,9 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                 <?php echo $category_option ?>
             </ul>
         </nav>
-        <nav id="bo_cate">
+        <nav id="bo_subcate">
             <h2><?php echo $board['bo_subject'] ?> subcategory</h2>
-            <ul id="bo_cate_ul">
+            <ul id="bo_subcate_ul">
                 <?php echo $subcategory_option ?>
             </ul>
         </nav>
