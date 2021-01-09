@@ -55,12 +55,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 					
 			</div> 
 			<div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
-			   <a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>">
+			   <a style="color:blue; font-weight: bold;" data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == 0) { echo ''; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal"';}  ?>>
 			   		<?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
 				</a>
             </div> 
             <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
-				<a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>">
+				<a style="color:blue; font-weight: bold;" data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == 0){ echo ''; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal"';} ?>>
 			   		<?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
 				</a>
             </div>
