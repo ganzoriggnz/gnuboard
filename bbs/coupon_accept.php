@@ -68,6 +68,18 @@ while($row_acc = sql_fetch_array($res_acc)){
     if($now >= $finish_date){
         $sql_ac = "DELETE FROM $g5[coupon_sent_table] WHERE cos_nick = '{$row_acc['cos_nick']}' AND cos_no = '{$row_acc['cos_no']}'";
         sql_query($sql_ac);
+
+        if($row_acc['cos_type'] == 'S'){
+            $sql1 = " UPDATE $g5[coupon_table]
+                    SET co_sent_snum = co_sent_snum - 1
+                    WHERE co_no = '{$row_acc['co_no']}' "; 
+            sql_query($sql1);
+        } else if($row_acc['cos_type'] == 'F') {
+            $sql1 = " UPDATE $g5[coupon_table]
+                    SET co_sent_fnum = co_sent_fnum - 1
+                    WHERE co_no = '{$row_acc['co_no']}' "; 
+            sql_query($sql1);
+        }
     }
 }
 
