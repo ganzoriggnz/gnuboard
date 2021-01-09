@@ -166,7 +166,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 						$row = sql_fetch($sql);  
 						$sql1 = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row['maxdate']}' ";
 						$row1 = sql_fetch($sql1);
-						echo $row1['cos_entity'];
 					?> 
 					<div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
 					<div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$row1['cos_alt_quantity'];?>
