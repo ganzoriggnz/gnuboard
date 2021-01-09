@@ -38,6 +38,8 @@ if ($sca || $stx || $stx === '0') {     //검색이면
     $total_count = $board['bo_count_write'];
 }
 
+
+
 if(G5_IS_MOBILE) {
     $page_rows = $board['bo_mobile_page_rows'];
     $list_page_rows = $board['bo_mobile_page_rows'];

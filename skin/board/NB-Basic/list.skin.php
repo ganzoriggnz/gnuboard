@@ -146,14 +146,13 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 								<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 								<span class="sr-only">글쓰기</span>
 							</a>  -->
-							<!-- hulan nemsen 엽소 레벨 후기 글 작성불가능 -->
-							<?php if(($board['gr_id'] == "review" && ($member['mb_level'] !== 27 || $member['mb_level'] !== 26)) || ($board['gr_id'] !== "review" && ($member['mb_level'] == 27 || $member['mb_level'] == 26)) || $is_admin){?>
+							
 								<div id="btn_write">
 								<button type="button" class="btn_bbs" onclick="location.href='<?php echo $write_href ?>'">
 									<i class="fas fa-pencil-alt"></i> 글쓰기
 								</button>
 							</div>
-							<?php }?>
+						
 						
 													
 						<?php } ?>

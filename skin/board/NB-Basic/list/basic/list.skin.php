@@ -63,6 +63,7 @@ $list_cnt = count($list);
 	<?php
 	for ($i=0; $i < $list_cnt; $i++) { 
 
+		$mb=get_member($list[$i]['mb_id']);
 		//아이콘 체크
 		$wr_icon = '';
 		$is_lock = false;
@@ -116,7 +117,7 @@ $list_cnt = count($list);
 						<a href="<?php echo $list[$i]['href'] ?>"<?php 
 						// secret bolson bgaad admin bol doorh style 
 						
-						if (strstr($list[$i]['wr_option'], "secret") && $is_admin) { echo "style='color:#bababa;text-decoration: line-through' "; } 
+						if (strstr($list[$i]['wr_option'], "secret") && $is_admin) { echo "style='color:#bababa;text-decoration: line-through' "; }
 						//elseif(strstr($list[$i]['wr_option'], "secret") && $is_member) { echo "style='display: none;' "; } 
 						if ($list[$i]['wr_1']) { echo " style='color:".$list[$i]['wr_1']."' "; } ?> 
 						class="na-subject"<?php echo $target ?>>
@@ -131,9 +132,9 @@ $list_cnt = count($list);
 							<?php 
 								
 							 if($board['gr_id'] == "review" ){?>
-							<?php echo "[",$list[$i]['mb_name'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
+							<?php echo "[",$mb['mb_name'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
 							elseif($board['gr_id'] == "attendance"){
-								echo "[",$list[$i]['mb_name'],"]", $list[$i]['subject'] ;} 
+								echo "[",$mb['mb_name'],"]", $list[$i]['subject'] ;} 
 								else{echo  $list[$i]['subject'] ;}
 							?>
 							

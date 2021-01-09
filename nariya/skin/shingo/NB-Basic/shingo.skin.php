@@ -87,7 +87,7 @@ if($wset['head_skin']) {
 				<div class="d-md-table-cell nw-10 pl-2 pr-md-1">작성자</div>
 				<div class="d-md-table-cell nw-6 pr-md-1">접수일</a></div>
 				<?php if($is_admin) { ?>
-					<div class="d-md-table-cell nw-5 pr-md-1">신고인</a></div>
+					<div class="d-md-table-cell nw-5 pr-md-1">블라인드인</a></div>
 				<?php } ?>
 			</div>
 		</div>
@@ -140,7 +140,7 @@ if($wset['head_skin']) {
 						</div>
 					</div>
 					<?php 
-					// 신고인
+					// 블라인드인
 					if ($is_admin && $list[$i]['mb_ids']) { 
 						$mb_ids = '';
 						$arr = explode(",", $list[$i]['mb_ids']);
@@ -169,7 +169,7 @@ if($wset['head_skin']) {
 					<div class="float-left float-md-none d-md-table-cell nw-5 nw-md-auto f-sm font-weight-normal py-md-2 pr-3 pr-md-1">
 						<a data-toggle="collapse" href="#reporter_<?php echo $i ?>" aria-expanded="false" aria-controls="reporter_<?php echo $i ?>">
 							<i class="fa fa-eye fa-md text-black-50"></i>
-							<span class="sr-only">신고인 보기</span>
+							<span class="sr-only">블라인드인 보기</span>
 						</a>
 					</div>
 				<?php } ?>
@@ -181,16 +181,16 @@ if($wset['head_skin']) {
 			<div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">게시물이 없습니다.</div>
 		<?php } ?>
 	</div>
-	<!-- } 신고 목록 끝 -->
+	<!-- } 블라인드 목록 끝 -->
 </form>
 
-<!-- 신고 페이지네이션 시작 { -->
+<!-- 블라인드 페이지네이션 시작 { -->
 <div class="font-weight-normal px-3 px-sm-0 mb-4">
 	<ul class="pagination justify-content-center en mb-0">
 		<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "?page="); ?>
 	</ul>
 </div>
-<!-- } 신고 페이지네이션 끝 -->
+<!-- } 블라인드 페이지네이션 끝 -->
 
 <?php if ($is_admin || IS_DEMO) { ?>
 <div class="sr-only">
