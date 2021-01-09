@@ -59,6 +59,18 @@ $s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '12')
 $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
 
+$sql_acc = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='N'";
+
+$res_acc = sql_query($sql_acc);
+while($row_acc = sql_fetch_array($res_acc)){
+    $date = date($row_acc['cos_created_datetime']);
+    $finish_date = date('Y-m-d H:i:s', strtotime('+7 days', strtotime($date)));
+    if($now >= $finish_date){
+        $sql_ac = "DELETE FROM $g5[coupon_sent_table] WHERE cos_nick = '{$row_acc['cos_nick']}' AND cos_no = '{$row_acc['cos_no']}'";
+        sql_query($sql_ac);
+    }
+}
+
 $coupon_accept_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_accept_skin_url  = get_skin_url('coupon', 'NB-Basic');
 $skin_file = $coupon_accept_skin_path.'/coupon_accept.skin.php';
