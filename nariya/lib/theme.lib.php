@@ -1225,7 +1225,7 @@ function na_post_rows($wset,$subcat=''){
 			else {
 				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false  );
 			}
-			while ( $row=sql_fetch_array($result1)) {					
+			while ( $row=sql_fetch_array($result1)) {
 				$list[$cnt] = $row;
 				
 				$cnt ++;	

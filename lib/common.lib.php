@@ -361,20 +361,11 @@ function get_list($write_row, $board, $skin_url, $subject_len=40, $BBS_PATH = G5
 //function get_list($write_row, $board, $skin_url, $subject_len=40)
 {
     global $g5, $config, $g5_object;
-    global $qstr, $page, $bo_table, $gr_id;
+    global $qstr, $page;
 
     //$t = get_microtime();
 
-    if($gr_id == 'attendance'){
     $g5_object->set('bbs', $write_row['wr_id'], $write_row, $board['bo_table']);
-    $hwrite_table = $g5['write_prefix'].$bo_table ;
-	$sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );
-	while($res = sql_fetch_array($sql)){
-     
-        $list =  $res;
-        }
-    }
-
 
     // 배열전체를 복사
     $list = $write_row;
@@ -1577,7 +1568,7 @@ function sql_data_seek($result, $offset=0)
     if(function_exists('mysqli_set_charset') && G5_MYSQLI_USE)
         mysqli_data_seek($result, $offset);
     else
-        mysql_data_seek($result, $offset);
+        mysqli_data_seek($result, $offset);
 }
 
 // mysqli_query 와 mysqli_error 를 한꺼번에 처리
