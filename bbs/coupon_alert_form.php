@@ -14,7 +14,8 @@ $cos_alt_quantity = $_POST['cos_alt_quantity'];
 $alt_created_datetime = G5_TIME_YMDHIS;
 
 $sql = "INSERT INTO $g5[coupon_alert_table] 
-            SET cos_nick = '{$cos_nick}',
+            SET cos_no = '0',
+                cos_nick = '{$cos_nick}',
                 cos_entity = '-',
                 cos_alt_quantity = '{$cos_alt_quantity}',
                 alt_reason = '경고횟수 변경',

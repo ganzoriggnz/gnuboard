@@ -155,7 +155,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 		<div class="modal-dialog" role="document">
 			<div class="modal-content" style="width: 650px; height: 400px; font-weight: bold;">
 				<div class="modal-header">
-					<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
+					<h5 class="modal-title" style="margin-left: 250px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 					</button>

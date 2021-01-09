@@ -54,6 +54,7 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_sent_table]",false)) { //
 if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table2 = "CREATE TABLE $g5[coupon_alert_table] (
         alt_no int(11) NOT NULL AUTO_INCREMENT, 
+        cos_no int(11) NOT NULL DEFAULT '0',
         cos_nick varchar(20) NOT NULL DEFAULT '',
         cos_entity varchar(20) NOT NULL DEFAULT '',             
         cos_alt_quantity int(11) NOT NULL DEFAULT '0',
