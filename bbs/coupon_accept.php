@@ -60,7 +60,7 @@ else if($currentmonth == '12')
 $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
 
 $sql_acc = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='N'";
-
+$now = G5_TIME_YMDHIS;
 $res_acc = sql_query($sql_acc);
 while($row_acc = sql_fetch_array($res_acc)){
     $date = date($row_acc['cos_created_datetime']);
