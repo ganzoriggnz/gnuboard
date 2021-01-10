@@ -6,6 +6,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 
 ?>
 
+<div id="bo_v">
     <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
 		<div class="px-3 px-sm-0">
 			<div class="d-flex">
@@ -56,6 +57,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                                 </span>
                             </a>
                         </li>
+                        <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
                         <li class="active">
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_create.php">
                                 <span>
@@ -65,6 +67,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                                 </span>
                             </a>
                         </li>
+                        <?php } ?>
+                        <?php if ($member['mb_level'] < 26) { ?>
                         <li>
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_accept.php">
                                 <span>
@@ -74,18 +78,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                                 </span>
                             </a>
                         </li>
-                        <!-- if nuhtsul hulan nemsen 후기는 업소레벨에만 있으면 된다 -->
+                        <?php } ?>
                         <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
                         <li>
-                            <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/myreview.php">
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/myreview.php">
                                 <span>
-                                    <i class="fa fa-pencil-alt">
-                                        후기보기
-                                    </i>
+                                <i class="fa fa-pencil-alt">
+                                후기보기
+                                </i>
                                 </span>
                             </a>
                         </li>
-                        <?php }?>
+                        <?php } ?>
                     </ul>
                     <hr/>
 				</div>
@@ -98,10 +102,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             <li>매월 4일부터 수정이 불가합니다.</li>
             <li>매월 1일 모든 쿠폰은 0으로 리셋됩니다.</li>
         </ul>
-    </div>
-    
+    </div>    
     <div class="coupon_info" style="float-left">
-    <h6>다음달 쿠폰 지원 개수</h6>
+        <h6>다음달 쿠폰 지원 개수</h6>
+    
         <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
             <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
             <input type="hidden" name="co_entity" value="<?php echo $member['mb_name'] ?>">
@@ -142,7 +146,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                     return false;
                 }
 
-                var agree=confirm("수정은 매월 1일부터 3일까지만 가능합니다.");
+                var agree=confirm("Are you sure to save?");
                 if(agree)
                     return true;
                 else 
@@ -161,6 +165,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             <p class="count"><span><?php echo $diff_f;?></span><span>/</span><span><?php echo $row1['co_free_num']; ?></span></p>
         </div>
     </div>
- 
+</div> 
   
 

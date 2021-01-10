@@ -37,15 +37,15 @@ $mb_id = trim($member['mb_id']);
 $co_entity = $member['mb_name'];
 $co_sale_num = $_POST['co_sale_num']; 
 $co_free_num = $_POST['co_free_num'];
-$co_created = G5_TIME_YMDHIS;
-$currentmonth = substr($co_created, 5, 2);
+$co_created_datetime = G5_TIME_YMDHIS;
+$currentmonth = substr($co_created_datetime, 5, 2);
 $nmonth = 1;
-$final = endCycle($co_created, $nmonth);
-$co_start = date_create($co_created);
+$final = endCycle($co_created_datetime, $nmonth);
+$co_start = date_create($co_created_datetime);
 $s_begin_date = date_format($co_start, 'Y-m-01 00:00:00');
 $nextmonth = substr($final, 5, 2);
 $final = date_create($final);
-$co_begin_date = date_format($final, 'Y-m-01 00:00:00');
+$co_begin_datetime = date_format($final, 'Y-m-01 00:00:00');
 
 if($currentmonth == '01')
 $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
@@ -73,31 +73,31 @@ else if($currentmonth == '12')
 $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
 
 if($nextmonth == '01')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '02')
-$co_end_date = date_format($final, 'Y-m-28 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-28 23:59:59');
 else if($nextmonth == '03')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '04')
-$co_end_date = date_format($final, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '05')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '06')
-$co_end_date = date_format($final, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '07')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '08')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '09')
-$co_end_date = date_format($final, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '10')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '11')
-$co_end_date = date_format($final, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '12')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 
-$sql = "SELECT COUNT(co_no) as cnt FROM $g5[coupon_table] WHERE mb_id = '{$mb_id}' AND co_begin_date='{$co_begin_date}' AND co_end_date='{$co_end_date}'";
+$sql = "SELECT COUNT(co_no) as cnt FROM $g5[coupon_table] WHERE mb_id = '{$mb_id}' AND co_begin_datetime='{$co_begin_datetime}' AND co_end_datetime='{$co_end_datetime}'";
 $row = sql_fetch($sql);
 $cnt = $row['cnt'];
 if($cnt > 0)
@@ -111,17 +111,17 @@ if($w == ''){
                     co_entity = '{$co_entity}',
                     co_sale_num = '{$_POST['co_sale_num']}',
                     co_free_num = '{$_POST['co_free_num']}',
-                    co_created = '{$co_created}', 
-                    co_begin_date = '{$co_begin_date}',
-                    co_end_date = '{$co_end_date}' ";
+                    co_created_datetime = '{$co_created_datetime}', 
+                    co_begin_datetime = '{$co_begin_datetime}',
+                    co_end_datetime = '{$co_end_datetime}' ";
     sql_query($sql);
 
 } else if($w == 'u'){
     $sql = " UPDATE $g5[coupon_table]
                 SET co_sale_num = '{$_POST['co_sale_num']}',
                     co_free_num = '{$_POST['co_free_num']}',
-                    co_updated =  '{$co_created}'
-              WHERE mb_id = '{$mb_id}' AND co_begin_date='{$co_begin_date}' AND co_end_date='{$co_end_date}' "; 
+                    co_updated_datetime =  '{$co_created_datetime}'
+              WHERE mb_id = '{$mb_id}' AND co_begin_datetime='{$co_begin_datetime}' AND co_end_datetime='{$co_end_datetime}' "; 
     sql_query($sql);   
 }  
 

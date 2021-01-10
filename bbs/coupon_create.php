@@ -4,7 +4,8 @@ include_once('./_common.php');
 // 상수 선언
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
-$g5['couponsent_table'] = $g5['table_prefix'] . "couponsent";    // 쿠폰 테이블
+$g5['coupon_sent_table'] = $g5['table_prefix'] . "coupon_sent";    // 쿠폰 sent 테이블
+$g5['coupon_alert_table'] = $g5['table_prefix'] . "coupon_alert";    // 쿠폰 alert 테이블
 
 if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_table]",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table = "CREATE TABLE $g5[coupon_table] (   
@@ -13,35 +14,57 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_table]",false)) { // 쿠�
         co_entity varchar(20) NOT NULL DEFAULT '',
         co_sale_num int(11) NOT NULL DEFAULT '0',
         co_free_num int(11) NOT NULL DEFAULT '0',
-        co_created datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-        co_updated datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-        co_begin_date datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-        co_end_date datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-        PRIMARY KEY (co_no)
+        co_sent_snum int(11) NOT NULL DEFAULT '0',
+        co_sent_fnum int(11) NOT NULL DEFAULT '0',
+        co_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        co_updated_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        co_begin_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        co_end_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        PRIMARY KEY (co_no), 
+        INDEX (mb_id, co_entity)
     )";
 
    sql_query($sql_table, false);
 } 
 
-if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[couponsent_table]",false)) { // 쿠폰 테이블이 없다면 생성
-    $sql_table = "CREATE TABLE $g5[couponsent_table] (
+if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_sent_table]",false)) { // 쿠폰 테이블이 없다면 생성
+    $sql_table1 = "CREATE TABLE $g5[coupon_sent_table] (
         cos_no int(11) NOT NULL AUTO_INCREMENT,
         co_no int(11) NOT NULL,   
         cos_code varchar(4) NOT NULL, 
         cos_entity varchar(20) NOT NULL DEFAULT '',        
         cos_nick varchar(20) NOT NULL DEFAULT '',
         cos_type varchar(1) NOT NULL DEFAULT '',
-        cos_accept varchar(1) NOT NULL DEFAULT '',
-        cos_post varchar(1) NOT NULL DEFAULT '',
-        cos_created datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        cos_accept varchar(1) NOT NULL DEFAULT 'N',
+        cos_alt_quantity int(11) NOT NULL DEFAULT '0',
+        cos_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        cos_accepted_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        cos_post_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         UNIQUE (cos_code),
         PRIMARY KEY (cos_no),
+        INDEX (cos_code, cos_entity, cos_nick),
         FOREIGN KEY (co_no) 
             REFERENCES $g5[coupon_table](co_no) 
             ON DELETE CASCADE
     )";
 
-   sql_query($sql_table, false);
+   sql_query($sql_table1, false);
+}  
+
+if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { // 쿠폰 테이블이 없다면 생성
+    $sql_table2 = "CREATE TABLE $g5[coupon_alert_table] (
+        alt_no int(11) NOT NULL AUTO_INCREMENT, 
+        cos_nick varchar(20) NOT NULL DEFAULT '',
+        cos_entity varchar(20) NOT NULL DEFAULT '',             
+        cos_alt_quantity int(11) NOT NULL DEFAULT '0',
+        alt_reason varchar(20) NOT NULL DEFAULT '',
+        alt_created_by varchar(20) NOT NULL DEFAULT '',
+        alt_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        PRIMARY KEY (alt_no),
+        INDEX (cos_nick, cos_entity)
+    )";
+
+   sql_query($sql_table2, false);
 }   
 
 
@@ -76,15 +99,15 @@ function endCycle($d1, $months)
 
 $mb_id = trim($member['mb_id']);
 $co_entity = $member['mb_name'];
-$co_created = G5_TIME_YMDHIS;
-$currentmonth = substr($co_created, 5, 2);
+$co_created_datetime = G5_TIME_YMDHIS;
+$currentmonth = substr($co_created_datetime, 5, 2);
 $nmonth = 1;
-$final = endCycle($co_created, $nmonth);
-$co_start = date_create($co_created);
+$final = endCycle($co_created_datetime, $nmonth);
+$co_start = date_create($co_created_datetime);
 $s_begin_date = date_format($co_start, 'Y-m-01 00:00:00');
 $nextmonth = substr($final, 5, 2);
 $final = date_create($final);
-$co_begin_date = date_format($final, 'Y-m-01 00:00:00');
+$co_begin_datetime = date_format($final, 'Y-m-01 00:00:00');
 
 if($currentmonth == '01')
 $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
@@ -112,53 +135,49 @@ else if($currentmonth == '12')
 $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
 
 if($nextmonth == '01')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '02')
-$co_end_date = date_format($final, 'Y-m-28 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-28 23:59:59');
 else if($nextmonth == '03')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '04')
-$co_end_date = date_format($final, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '05')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '06')
-$co_end_date = date_format($final, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '07')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '08')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '09')
-$co_end_date = date_format($final, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '10')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 else if($nextmonth == '11')
-$co_end_date = date_format($final, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '12')
-$co_end_date = date_format($final, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 
-$sql = "SELECT * FROM $g5[coupon_table] WHERE mb_id = '{$member['mb_id']}' AND co_begin_date='$co_begin_date' AND co_end_date='$co_end_date'";
-$row = sql_fetch($sql);
-if($row['co_code']){ 
-    $sdate = $row['co_created'];
-    $fdate = date_create_from_format('Y-m-d H:i:s', $sdate);
-   $fdate= date_format($fdate, 'Y-m-31 H:i:s');   
-}  
+$sql = " SELECT * FROM $g5[coupon_table] WHERE mb_id = '{$mb_id}' AND co_begin_datetime ='{$co_begin_datetime}' AND co_end_datetime ='{$co_end_datetime}'";
+$row = sql_fetch($sql); 
 
-$sql1 = "SELECT * FROM $g5[coupon_table] WHERE mb_id = '{$member['mb_id']}' AND co_begin_date='$s_begin_date' AND co_end_date='$s_end_date'";
+$sql1 = "SELECT * FROM $g5[coupon_table] WHERE mb_id = '{$member['mb_id']}' AND co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
 $row1 = sql_fetch($sql1);
 $co_sale_num = number_format($row1['co_sale_num']);
 $co_free_num = number_format($row1['co_free_num']);
 $co_no = $row1['co_no'];
 
-$sql2 = "SELECT COUNT(cos_no) as cnt FROM $g5[couponsent_table] WHERE co_no = '{$co_no}' AND cos_type = 'S' ";
+$sql2 = "SELECT COUNT(cos_no) as cnt FROM $g5[coupon_sent_table] WHERE co_no = '{$co_no}' AND cos_type = 'S' ";
 $row2 = sql_fetch($sql2);
 $s2= number_format($row2['cnt']);
-$sql3 = "SELECT COUNT(cos_no) as cnt FROM $g5[couponsent_table] WHERE co_no = '{$co_no}' AND cos_type = 'F' ";
+
+$sql3 = "SELECT COUNT(cos_no) as cnt FROM $g5[coupon_sent_table] WHERE co_no = '{$co_no}' AND cos_type = 'F' ";
 $row3 = sql_fetch($sql3);
 $f2 = number_format($row3['cnt']);
 
 $diff_s = $co_sale_num - $s2;
-$diff_f = $co_free_num - $f2;
+$diff_f = $co_free_num - $f2; 
 
 //dbconfig파일에 $g5['content_table'] 배열변수가 있는지 체크
 if( !isset($g5['member_table']) ){
