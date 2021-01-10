@@ -248,7 +248,7 @@ $view_subject = get_text($view['wr_subject']);
 				<?php echo get_view_thumbnail(na_view($view)); // 글내용 출력 ?>
 			</div>
 
-			<?php
+			<?php 
 				// 하단 이미지 출력
 				if(isset($view['as_img']) && $view['as_img'] == "1") {
 					$v_img_count = count($view['file']);
@@ -263,8 +263,9 @@ $view_subject = get_text($view['wr_subject']);
 			?>
 		</div>
         <!-- } 본문 내용 끝 -->
-
-		<?php if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
+	
+		<?php 
+		if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
 			<div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
 				<div class="btn-group btn-group-lg" role="group">
 					<?php if ($member['mb_level'] >= $board['bo_use_good']) { // 추천 ?>

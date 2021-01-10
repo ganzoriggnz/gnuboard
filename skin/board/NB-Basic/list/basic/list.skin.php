@@ -63,6 +63,7 @@ $list_cnt = count($list);
 	<?php
 	for ($i=0; $i < $list_cnt; $i++) { 
 
+		// hulan nemsen member table.회원 정보 가져오기
 		$mb=get_member($list[$i]['mb_id']);
 		//아이콘 체크
 		$wr_icon = '';
@@ -132,7 +133,7 @@ $list_cnt = count($list);
 							<?php 
 								
 							 if($board['gr_id'] == "review" ){?>
-							<?php echo "[",$mb['mb_name'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
+							<?php echo "[",$list[$i]['wr_7'],"-",$list[$i]['wr_5'], "]", $list[$i]['subject'] ;}
 							elseif($board['gr_id'] == "attendance"){
 								echo "[",$mb['mb_name'],"]", $list[$i]['subject'] ;} 
 								else{echo  $list[$i]['subject'] ;}
