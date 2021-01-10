@@ -55,6 +55,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                             </span>
                         </a>
                     </li>
+                    <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
                     <li>
                         <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/coupon_create.php">
                             <span>
@@ -64,6 +65,8 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                             </span>
                         </a>
                     </li>
+                    <?php } ?>
+                    <?php if ($member['mb_level'] < 26) { ?>
                     <li>
                         <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/coupon_accept.php">
                             <span>
@@ -73,18 +76,19 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                             </span>
                         </a>
                     </li>
+                    <?php } ?>
                     <!-- if nuhtsul hulan nemsen 후기는 업소레벨에만 있으면 된다 -->
                     <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
-                        <li>
-                            <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/myreview.php">
-                                <span>
-                                    <i class="fa fa-pencil-alt">
-                                        후기보기
-                                    </i>
-                                </span>
-                            </a>
-                        </li>
-                        <?php }?>
+                    <li>
+                        <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/myreview.php">
+                            <span>
+                                <i class="fa fa-pencil-alt">
+                                    후기보기
+                                </i>
+                            </span>
+                        </a>
+                    </li>
+                    <?php } ?>
                 </ul>
                 <hr />
             </div>
