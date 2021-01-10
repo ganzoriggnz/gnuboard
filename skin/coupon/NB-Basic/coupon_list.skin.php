@@ -2,7 +2,7 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
-add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
+add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css">', 0);
 ?>
 
 <style>
@@ -43,47 +43,37 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	<div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
 
-	<?php if($config['cf_memo_del']){ ?>	
-		<div class="na-table border-bottom">
-			<div class="f-de px-3 py-2 py-md-2 bg-light">
-				<!-- 쪽지 보관일수는 최장 <strong><?php echo $config['cf_memo_del'] ?></strong>일 입니다. -->
-			</div>
-		</div>
-	<?php } ?>
-
-	<ul class="na-table d-table w-100 f-de">
+	<ul class="na-table d-table w-100 f-de" style="margin-top: 10px;">
 	<?php
-	 $result = "SELECT a.* FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_date='{$s_begin_date}' AND a.co_end_date='{$s_end_date}'"; 
+	 $result = "SELECT a.* FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}'"; 
 	$result1=sql_query($result);
 	for ($i=0; $row = sql_fetch_array($result1); $i++) {
 	?>
 		<li class="d-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">	
-			<div class="d-none d-table-cell nw-3 f-sm font-weight-normal py-md-2 px-md-1">
+			<div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
 					<?php echo "[".$row['co_entity']."]";?> 
 					
 			</div> 
-			<div class="d-none d-table-cell nw-3 f-sm font-weight-normal py-md-2 px-md-1">
-			   <a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-id="<?php echo "S,".$row['co_entity'].",".$row['co_no']; ?>">
+			<div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
+			   <a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-link="<?php echo $bo_table;?>">
 			   		<?php echo "원가권 ".$row['co_sale_num']."개";?>
 				</a>
             </div> 
-            <div class="d-none d-table-cell nw-3 f-sm font-weight-normal py-md-2 px-md-1">
-				<a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-id="<?php echo "F,".$row['co_entity'].",".$row['co_no']; ?>">
+            <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
+				<a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-link="<?php echo $bo_table;?>">
 			   		<?php echo "무료권 ".$row['co_free_num']."개";?>
 				</a>
             </div>
-			<div class="float-left float-md-none d-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-				<!-- <a href="<?php echo $list[$i]['del_href'] ?>" onclick="del(this.href); return false;" class="win-del" title="삭제">
-					<i class="fa fa-trash-o text-muted fa-lg" aria-hidden="true"></i>
-					<span class="sound_only">삭제</span>
-				</a> --> 
+			<div class="float-left float-md-none d-table-cell nw-30 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<?php echo "쿠폰 받은사람 :"; ?> 
 				<ul id="userlist">
-				<?php $sql = "SELECT a.*, b.* FROM $g5[coupon_table] a RIGHT OUTER JOIN $g5[couponsent_table] b ON a.co_no = b.co_no WHERE a.co_begin_date='{$s_begin_date}' AND a.co_end_date ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
+				<?php $sql = "SELECT a.*, b.* FROM $g5[coupon_table] a RIGHT OUTER JOIN $g5[coupon_sent_table] b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
 				$sql1 = sql_query($sql);
 				for($k=0; $row1 = sql_fetch_array($sql1); $k++){
 				?>
-					<li><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></li>
+					<?php if($row1['cos_accept'] == 'N' && $row1['cos_post'] == 'N') { echo '<li>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></li> <?php } ?>
+					<?php if($row1['cos_accept'] == 'Y') { echo '<li><a data-toggle="modal" href="#couponDelete" class="coupon-delete" style="color:blue;" data-type ='?><?php echo $row1['cos_type']." data-code = " ?><?php echo $row1['cos_code']." data-no = ";?><?php echo $row1['cos_no']." data-co-no = "; ?><?php echo $row1['co-no']." data-link = ";?><?php echo $bo_table.'>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></a></li><?php } ?>
+					<?php if($row1['cos_alt_quantity'] > 0) { echo '<li><a data-toggle="modal" href="#couponAlert" class="coupon-alert" style="color:red;" data-entity ='?><?php echo $row1['cos_entity']." data-nick = " ?><?php echo $row1['cos_nick']." data-link = ";?><?php echo $bo_table.'>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')';?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')'; ?></a></li> <?php } ?>					 
 				<?php
 				}
 				?> 
@@ -98,15 +88,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		</div>
 	<?php } ?>
 	
-	<div class="font-weight-normal px-3 mt-4">
-		<ul class="pagination justify-content-center en mb-0">
-			<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "./memo.php?kind=$kind".$qstr."&amp;page=") ?>
-		</ul>
-	</div>
 	<div class="modal fade" id="couponModal" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content" style="width: 350px; height: 250px; font-weight: bold;">
-				<form id="fcouponapply" name="fcouponapply" action="<?php echo $couponsent_action_url; ?>" onsubmit="return fcouponapply_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+				<form id="fcouponapply" name="fcouponapply" action="<?php echo $coupon_sent_action_url; ?>" onsubmit="return fcouponapply_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 					<div class="modal-header">
 						<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰주기</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -116,6 +101,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 					<div class="modal-body">
 						<input type="hidden" name="co_no" id="co_no" value="">
 						<input type="hidden" name="cos_type" id="cos_type" value="">
+						<input type="hidden" name="cos_link" id="cos_link" value="">
 						<div style="margin-left: 30px;"><?php echo $year."년 ".$month."월";?></div>
 						<div style="margin-left: 30px;"><?php echo "업소명 :";?>
 							<input type="text" name="cos_entity" id="cos_entity" value="" style="border:none; outline: none; width: 100px; font-size: 12px; font-weight: bold;">							
@@ -129,63 +115,170 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 						</div>			
 					</div>
 					<div class="modal-footer">
-						<div style="margin-left: 140px; margin: 0 auto; text-align: center; width: 150px;">
-							<button type="submit" accesskey="s" class="btn" style="background: #00FF00;">보내기</button>
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<div style="margin-left: 140px; margin: 0 auto; text-align: center;">
+							<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px;">보내기</button>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="couponDelete" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" style="width: 350px; height: 200px; font-weight: bold;">
+				<form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+					<div class="modal-header">
+						<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div> 	
+					<div class="modal-body" style="padding: 40px 0px; font-size: 14px;">
+						<input type="hidden" name="co_no" id="co_no" value="">
+						<input type="hidden" name="cos_no" id="cos_no" value="">
+						<input type="hidden" name="cos_type" id="cos_type" value="">
+						<input type="hidden" name="cos_link" id="cos_link" value="">
+						<input type="hidden" name="cos_code" id="cos_code" value="">
+						<div style="margin-left:100px;">쿠폰을 회수하시겠습니까? </div>					
+					</div>
+					<div class="modal-footer">
+						<div style="margin-left: 140px; margin: 0 auto; text-align: center;">
+							<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="couponAlert" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" style="width: 605px; height: 400px; font-weight: bold;">
+				<form id="fcouponalert" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+					<div class="modal-header">
+						<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰회수</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div> 	
+					<div class="modal-body" style="padding: 5px 0px; font-size: 14px;">
+						<input type="hidden" name="cos_nick" id="cos_nick" value="">
+						<input type="hidden" name="cos_entity" id="cos_entity" value="">
+						<input type="hidden" name="cos_link" id="cos_link" value="">
+						<div style="margin-left: 30px;"><?php echo "사용자 : ".$month;?></div>
+						<div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$month;?>
+						<div style="margin-left:30px; margin-top: 30px;">
+							<p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
+							<input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px;"/>		
+							<input type="button" name="change" id="change" value="확인" style="background: #FFF2CC; width: 80px;"/>
+						</div>
+						<div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
+						<div style="margin: 10px 10px 10px 0px;">
+							<table>
+								<thead>
+									<tr>
+										<th>시간</th>
+										<th>업소명</th>
+										<th>경고내용</th>
+										<th>최종적용 아이디</th>
+										<th>누적횟수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>kkkkkk</td>
+										<td>kkkkkkkkkkk</td>
+										<td>kkkkkkkkkkk</td>
+										<td>kkkkkkkkkkk</td>
+										<td>kkkkkkkkkkk</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>					
+					</div>
+					<div class="modal-footer">
+						<div style="margin-left: 140px; margin: 0 auto; text-align: center;">
+							<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
 	<script>
-$(window).on('load', function () {
+	$(window).on('load', function () {
 	na_nav('topNav', 'topHeight', 'fixed-top');
-});
+	});
 
-function fcouponapply_submit(f) {
-
-		if($('#hasNick').length > 0 && $('#hasNick').val() == '' && !f.cos_nick){ 
+	function fcouponapply_submit(f) {
+		if(!f.cos_nick && $('#hasNick').length > 0 && $('#hasNick').val() == ''){ 
 			alert("Please insert correct nick name!");
 			f.cos_nick.focus();
 			return false;
 		}         
-		/* f.action = '<?php echo $couponsent_action_url; ?>'; */
 		return true;                                    
-}  
+	}  
 
-$(document).ready(function(){
-	$('#check_id').click(function(e){
-		e.preventDefault();
-		var mb_nick = $('#mb_nick').val();
-		$.ajax({
-			type: 'POST',
-			url: 'check_id.php',
-			data: {
-				'check_id': 1,
-				'mb_nick': mb_nick,
-			},
-			dataType: 'text',
-			success: function(response) {
-				$('#result').html(response);
-			}
+	function fcoupondelete_submit(f) {
+	var agree=confirm("Are you sure to delete?");
+		if(agree)
+			return true;
+		else 
+			return false;                                                                   
+	}  
+
+	$(document).ready(function(){
+		$('#check_id').click(function(e){
+			e.preventDefault();
+			var mb_nick = $('#mb_nick').val();
+			$.ajax({
+				type: 'POST',
+				url: 'check_id.php',
+				data: {
+					'check_id': 1,
+					'mb_nick': mb_nick,
+				},
+				dataType: 'text',
+				success: function(response) {
+					$('#result').html(response);
+				}
+			});
 		});
+
+		$('body').on('click', '.coupon-modal', function() {
+			var cos_type = $(this).data('type');
+			var cos_entity = $(this).data('entity');
+			var co_no = $(this).data('no');
+			var cos_link = $(this).data('link');
+			$('.modal-body #cos_type').val(cos_type);
+			$('.modal-body #cos_entity').val(cos_entity);
+			$('.modal-body #co_no').val(co_no);
+			$('.modal-body #cos_link').val(cos_link);
+		}); 
+
+		$('body').on('click', '.coupon-delete', function() {
+			var co_no = $(this).data('co-no');	
+			var cos_no = $(this).data('no');
+			var cos_type = $(this).data('type');
+			var cos_code = $(this).data('code');
+			var cos_link = $(this).data('link');
+			$('.modal-body #co_no').val(co_no);
+			$('.modal-body #cos_no').val(cos_no);
+			$('.modal-body #cos_type').val(cos_type);		
+			$('.modal-body #cos_code').val(cos_code);
+			$('.modal-body #cos_link').val(cos_link);
+		}); 
+
+		$('body').on('click', '.coupon-alert', function() {
+			var cos_entity = $(this).data('entity');
+			var cos_nick = $(this).data('nick');
+			var cos_link = $(this).data('link');
+			$('.modal-body #cos_entity').val(cos_entity);
+			$('.modal-body #cos_nick').val(cos_nick);
+			$('.modal-body #cos_link').val(cos_link);
+		}); 	
 	});
-
-	$('body').on('click', '.coupon-modal', function() {
-		var names = [];
-		names = $(this).data('id');
-		var nameArr = names.split(',');
-		var cos_type = nameArr[0];
-		var cos_entity = nameArr[1];
-		var co_no = nameArr[2];
-		$('.modal-body #cos_type').val(cos_type);
-		$('.modal-body #cos_entity').val(cos_entity);
-		$('.modal-body #co_no').val(co_no);
-	}); 
-
-});
-</script>
+	</script>
 
 </div>
 
