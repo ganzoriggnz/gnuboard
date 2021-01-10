@@ -20,12 +20,8 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_table]",false)) { // 쿠�
         co_updated_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         co_begin_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         co_end_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-<<<<<<< Updated upstream
         PRIMARY KEY (co_no), 
         INDEX (mb_id, co_entity)
-=======
-        PRIMARY KEY (co_no)
->>>>>>> Stashed changes
     )";
 
    sql_query($sql_table, false);
@@ -58,7 +54,6 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_sent_table]",false)) { //
 if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table2 = "CREATE TABLE $g5[coupon_alert_table] (
         alt_no int(11) NOT NULL AUTO_INCREMENT, 
-<<<<<<< Updated upstream
         cos_nick varchar(20) NOT NULL DEFAULT '',
         cos_entity varchar(20) NOT NULL DEFAULT '',             
         cos_alt_quantity int(11) NOT NULL DEFAULT '0',
@@ -67,18 +62,6 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { /
         alt_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         PRIMARY KEY (alt_no),
         INDEX (cos_nick, cos_entity)
-=======
-        cos_entity varchar(20) NOT NULL DEFAULT '',        
-        cos_nick varchar(20) NOT NULL DEFAULT '',
-        cos_alt_quantity int(11) NOT NULL DEFAULT '0',
-        alt_reason varchar(20) NOT NULL DEFAULT '',
-        alt_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-        alt_created_by varchar(20) NOT NULL DEFAULT '',
-        PRIMARY KEY (alt_no),
-        FOREIGN KEY (cos_nick) 
-            REFERENCES $g5[coupon_sent_table](cos_nick) 
-            ON DELETE CASCADE
->>>>>>> Stashed changes
     )";
 
    sql_query($sql_table2, false);
