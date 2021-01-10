@@ -27,11 +27,11 @@ $g5['title'] = '쿠폰지원 목록';
 // 상수 선언
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
-$g5['couponsent_table'] = $g5['table_prefix'] . "couponsent";    // 쿠폰 테이블
+$g5['coupon_sent_table'] = $g5['table_prefix'] . "coupon_sent";    // 쿠폰 테이블
 
-$co_created = date('Y-m-d H:i:s');
-$currentmonth = substr($co_created, 5, 2);
-$co_start = date_create($co_created);
+$co_created_datetime = G5_TIME_YMDHIS;
+$currentmonth = substr($co_created_datetime, 5, 2);
+$co_start = date_create($co_created_datetime);
 $s_begin_date = date_format($co_start, 'Y-m-01 00:00:00');
 
 if($currentmonth == '01')
@@ -63,13 +63,15 @@ $coupon_accept_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_accept_skin_url  = get_skin_url('coupon', 'NB-Basic');
 $skin_file = $coupon_accept_skin_path.'/coupon_accept.skin.php';
 
-/* $couponaccept_action_url = G5_BBS_URL.'/couponaccept_form.php'; */
+$coupon_accept_action_url = G5_BBS_URL.'/coupon_accept_form.php';
 
 if(is_file($skin_file)) {
     include($skin_file);
 } else {
     echo '<p>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</p>';
 }
+
+$sql_customer = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_nick='{$member['mb_nick']}'";
 
     include_once('./_tail.php');
 ?>
