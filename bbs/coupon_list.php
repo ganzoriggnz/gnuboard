@@ -80,7 +80,7 @@ $linkcount = strlen($bo_table) - 2;
 $str_table =substr($bo_table, 0, $linkcount);
 $re_table = "g5_write_".$str_table."re";
 
-$sql1 = "SELECT DISTINCT a.cos_nick FROM $g5[coupon_sent_table] a INNER JOIN $re_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
+$sql1 = "SELECT a.cos_nick FROM $g5[coupon_sent_table] a INNER JOIN $re_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
 $res1 = sql_query($sql1);
 $nicks = array();
 while($row = sql_fetch_array($res1)){
@@ -95,7 +95,7 @@ $res2 = sql_query($sql2);
 while($row2 = sql_fetch_array($res2)){
     $sql3 = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
     $res3 = sql_fetch($sql3);
-    if(!$row2['wr_id']){
+    /* if(!$row2['wr_id']){
         $sql4 = "INSERT INTO $g5[coupon_alert_table] 
                         SET cos_nick = '{$row2['wr_name']}',
                             cos_entity = '{$row2['wr_7']}',
@@ -111,12 +111,12 @@ while($row2 = sql_fetch_array($res2)){
                         WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
             echo $sql5;
             sql_query($sql5);          
-    }
-    else if($row2['wr_id']){
+    } */
+    if($row2['wr_id']){
         if($row2['wr_datetime'] > $res3['cos_post_datetime']){
             $sql4 = "INSERT INTO $g5[coupon_alert_table] 
-                        SET cos_nick = '{$res3['cos_nick']}',
-                            cos_entity = '{$res3['cos_entity']}',
+                        SET cos_nick = '{$row2['wr_name']}',
+                            cos_entity = '{$row2['wr_7']}',
                             cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1,
                             alt_reason = '후기미작성7일',
                             alt_created_by = '-',
@@ -131,7 +131,7 @@ while($row2 = sql_fetch_array($res2)){
             sql_query($sql5);  
         }                 
     }
-}
+} 
 
 $coupon_list_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_list_skin_url  = get_skin_url('coupon', 'NB-Basic');

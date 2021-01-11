@@ -112,12 +112,12 @@ $tmp_row1 = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} 
 
 
  /* function alert1(){ */   
-    /* $at_table = $g5['write_table'].$cos_link;
+   /*  $at_table = $g5['write_table'].$cos_link;
     $linkcount = strlen($cos_link) - 2;
     $str_table =substr($cos_link, 0, $linkcount);
     $re_table = "g5_write_".$str_table."re";
 
-    $sql1 = "SELECT DISTINCT a.cos_nick FROM $g5[coupon_sent_table] a INNER JOIN $re_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
+    $sql1 = "SELECT a.cos_nick FROM $g5[coupon_sent_table] a INNER JOIN $re_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
     $res1 = sql_query($sql1);
     $nicks = array();
     while($row = sql_fetch_array($res1)){
@@ -127,7 +127,7 @@ $tmp_row1 = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} 
 
     $rs = "SELECT wr_name FROM $re_table WHERE wr_comment = 0";
 
-    $sql2 = "SELECT wr_id, wr_name, wr_7, wr_datetime FROM $re_table WHERE wr_name IN ($sep_nicks) AND wr_comment = 0";
+    $sql2 = "SELECT wr_id, wr_name, wr_7, wr_datetime FROM $re_table WHERE wr_name IN ($sep_nicks) AND wr_comment = 0"; 
     $res2 = sql_query($sql2);
     while($row2 = sql_fetch_array($res2)){
         $sql3 = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
@@ -140,13 +140,11 @@ $tmp_row1 = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} 
                                 alt_reason = '후기미작성7일',
                                 alt_created_by = '-',
                                 alt_created_datetime = '{$res3['cos_post_datetime']}' ";
-
                 sql_query($sql4);
 
                 $sql5 = "UPDATE $g5[coupon_sent_table] 
                             SET cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1
                             WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
-                echo $sql5;
                 sql_query($sql5);          
         }
         else if($row2['wr_id']){
