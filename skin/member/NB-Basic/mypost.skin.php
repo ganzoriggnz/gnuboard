@@ -150,7 +150,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                     
                         $bo_subject = $result1['bo_subject'];
                         if($is_admin){
-                            $bo_subject[$i] = $result1[$i]['bo_subject'];
+                            $bo_subject = $result1[$i]['bo_subject'];
                         }
                     }
                 
