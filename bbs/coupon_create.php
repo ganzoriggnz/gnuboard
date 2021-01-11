@@ -67,47 +67,18 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { /
    sql_query($sql_table2, false);
 }   
 
-
-
-function add_months($months, DateTime $dateObject) 
-    {
-        $next = new DateTime($dateObject->format('Y-m-d'));
-        $next->modify('last day of +'.$months.' month');
-
-        if($dateObject->format('d') > $next->format('d')) {
-            return $dateObject->diff($next);
-        } else {
-            return new DateInterval('P'.$months.'M');
-        }
-    }
-
-function endCycle($d1, $months)
-    {
-        $date = new DateTime($d1);
-
-        // call second function to add the months
-        $newDate = $date->add(add_months($months, $date));
-
-        // goes back 1 day from date, remove if you want same day of month
-        $newDate->sub(new DateInterval('P1D')); 
-
-        //formats final date to Y-m-d form
-        $dateReturned = $newDate->format('Y-m-d'); 
-
-        return $dateReturned;
-    }
-
 $mb_id = trim($member['mb_id']);
 $co_entity = $member['mb_name'];
 $co_created_datetime = G5_TIME_YMDHIS;
 $currentmonth = substr($co_created_datetime, 5, 2);
-$nmonth = 1;
-$final = endCycle($co_created_datetime, $nmonth);
 $co_start = date_create($co_created_datetime);
 $s_begin_date = date_format($co_start, 'Y-m-01 00:00:00');
-$nextmonth = substr($final, 5, 2);
-$final = date_create($final);
-$co_begin_datetime = date_format($final, 'Y-m-01 00:00:00');
+
+$date = date('Y-m-01');
+$newdate = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($date)));
+$final = date_create($newdate);
+$nextmonth = substr($newdate, 5, 2);
+$co_begin_datetime = $newdate;
 
 if($currentmonth == '01')
 $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');

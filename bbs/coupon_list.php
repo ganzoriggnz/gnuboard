@@ -13,7 +13,8 @@ $bo_table = $_REQUEST['bo_table'];
 // 상수 선언
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
-$g5['coupon_sent_table'] = $g5['table_prefix'] . "coupon_sent";    // 쿠폰 테이블
+$g5['coupon_sent_table'] = $g5['table_prefix'] . "coupon_sent";    // 쿠폰 sent 테이블
+$g5['coupon_alert_table'] = $g5['table_prefix'] . "coupon_alert";    // 쿠폰 alert 테이블
 $g5['write_prefix']        = "g5_write_";
 $g5['bo_table'] = $g5['write_prefix'] . $bo_table;
 
@@ -74,12 +75,71 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $num = $total_count - ($page - 1) * $rows - $i;
 }
 
+$at_table = $g5['write_table'].$bo_table;
+$linkcount = strlen($bo_table) - 2;
+$str_table =substr($bo_table, 0, $linkcount);
+$re_table = "g5_write_".$str_table."re";
+
+$sql1 = "SELECT DISTINCT a.cos_nick FROM $g5[coupon_sent_table] a INNER JOIN $re_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
+$res1 = sql_query($sql1);
+$nicks = array();
+while($row = sql_fetch_array($res1)){
+    $nicks[] = $row['cos_nick'];
+}
+$sep_nicks = '"' . implode('", "', $nicks) . '"';
+
+$rs = "SELECT wr_name FROM $re_table WHERE wr_comment = 0";
+
+$sql2 = "SELECT wr_id, wr_name, wr_7, wr_datetime FROM $re_table WHERE wr_name IN ($sep_nicks) AND wr_comment = 0";
+$res2 = sql_query($sql2);
+while($row2 = sql_fetch_array($res2)){
+    $sql3 = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
+    $res3 = sql_fetch($sql3);
+    if(!$row2['wr_id']){
+        $sql4 = "INSERT INTO $g5[coupon_alert_table] 
+                        SET cos_nick = '{$row2['wr_name']}',
+                            cos_entity = '{$row2['wr_7']}',
+                            cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1,
+                            alt_reason = '후기미작성7일',
+                            alt_created_by = '-',
+                            alt_created_datetime = '{$res3['cos_post_datetime']}' ";
+
+            sql_query($sql4);
+
+            $sql5 = "UPDATE $g5[coupon_sent_table] 
+                        SET cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1
+                        WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
+            echo $sql5;
+            sql_query($sql5);          
+    }
+    else if($row2['wr_id']){
+        if($row2['wr_datetime'] > $res3['cos_post_datetime']){
+            $sql4 = "INSERT INTO $g5[coupon_alert_table] 
+                        SET cos_nick = '{$res3['cos_nick']}',
+                            cos_entity = '{$res3['cos_entity']}',
+                            cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1,
+                            alt_reason = '후기미작성7일',
+                            alt_created_by = '-',
+                            alt_created_datetime = '{$res3['cos_post_datetime']}' ";
+
+            sql_query($sql4);
+
+            $sql5 = "UPDATE $g5[coupon_sent_table] 
+                        SET cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1
+                        WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
+
+            sql_query($sql5);  
+        }                 
+    }
+}
+
 $coupon_list_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_list_skin_url  = get_skin_url('coupon', 'NB-Basic');
 $skin_file = $coupon_list_skin_path.'/coupon_list.skin.php';
 
 $coupon_sent_action_url = G5_BBS_URL.'/coupon_sent_form.php';
 $coupon_delete_action_url = G5_BBS_URL.'/coupon_delete_form.php';
+$coupon_alert_action_url = G5_BBS_URL.'/coupon_alert_form.php';
 
 if(is_file($skin_file)) {
     include($skin_file);

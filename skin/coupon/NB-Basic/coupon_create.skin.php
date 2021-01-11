@@ -105,7 +105,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
     </div>    
     <div class="coupon_info" style="float-left">
         <h6>다음달 쿠폰 지원 개수</h6>
-    
         <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
             <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
             <input type="hidden" name="co_entity" value="<?php echo $member['mb_name'] ?>">

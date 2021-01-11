@@ -55,12 +55,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 					
 			</div> 
 			<div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
-			   <a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-link="<?php echo $bo_table;?>">
+			   <a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>">
 			   		<?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
 				</a>
             </div> 
             <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
-				<a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-link="<?php echo $bo_table;?>">
+				<a data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;" data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>">
 			   		<?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
 				</a>
             </div>
@@ -91,7 +91,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 	<div class="modal fade" id="couponModal" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content" style="width: 350px; height: 250px; font-weight: bold;">
-				<form id="fcouponapply" name="fcouponapply" action="<?php echo $coupon_sent_action_url; ?>" onsubmit="return fcouponapply_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+				<form id="fcouponsend" name="fcouponsend" action="<?php echo $coupon_sent_action_url; ?>" onsubmit="return fcouponsend_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 					<div class="modal-header">
 						<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰주기</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -100,6 +100,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 					</div> 	
 					<div class="modal-body">
 						<input type="hidden" name="co_no" id="co_no" value="">
+						<input type="hidden" name="mb_id" id="mb_id" value="">
 						<input type="hidden" name="cos_type" id="cos_type" value="">
 						<input type="hidden" name="cos_link" id="cos_link" value="">
 						<div style="margin-left: 30px;"><?php echo $year."년 ".$month."월";?></div>
@@ -128,7 +129,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 			<div class="modal-content" style="width: 350px; height: 200px; font-weight: bold;">
 				<form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 					<div class="modal-header">
-						<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
+						<h5 class="modal-title" style="margin-left: 90px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 						</button>
@@ -153,7 +154,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 	<div class="modal fade" id="couponAlert" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content" style="width: 605px; height: 400px; font-weight: bold;">
-				<form id="fcouponalert" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 					<div class="modal-header">
 						<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰회수</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -161,16 +161,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 						</button>
 					</div> 	
 					<div class="modal-body" style="padding: 5px 0px; font-size: 14px;">
-						<input type="hidden" name="cos_nick" id="cos_nick" value="">
-						<input type="hidden" name="cos_entity" id="cos_entity" value="">
-						<input type="hidden" name="cos_link" id="cos_link" value="">
-						<div style="margin-left: 30px;"><?php echo "사용자 : ".$month;?></div>
-						<div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$month;?>
-						<div style="margin-left:30px; margin-top: 30px;">
-							<p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
-							<input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px;"/>		
-							<input type="button" name="change" id="change" value="확인" style="background: #FFF2CC; width: 80px;"/>
-						</div>
+						<?php 
+							$sql = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert`"; 
+							$row = sql_fetch($sql);  
+							$sql1 = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row['maxdate']}' ";
+							$row1 = sql_fetch($sql1);
+							echo $row1['cos_entity'];
+						?> 
+						<div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
+						<div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$row1['cos_alt_quantity'];?>
+						<form id="fcouponalert" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+							<input type="hidden" name="cos_nick" id="cos_nick" value="">
+							<input type="hidden" name="cos_entity" id="cos_entity" value="">
+							<input type="hidden" name="cos_link" id="cos_link" value="">
+							<div style="margin-left:30px; margin-top: 30px;">
+								<p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
+								<input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px;" value = "<?php echo $row1['cos_alt_quantity']; ?>"/>		
+								<input type="submit" name="change" id="change" value="확인" style="background: #FFF2CC; width: 80px;"/>
+							</div>
+						</form>
 						<div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
 						<div style="margin: 10px 10px 10px 0px;">
 							<table>
@@ -184,13 +193,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 									</tr>
 								</thead>
 								<tbody>
+								<?php $sql = "SELECT * FROM `g5_coupon_alert` ORDER BY alt_created_datetime";
+								$res = sql_query($sql);
+								for($i=0; $row = sql_fetch_array($res); $i++) { ?>
 									<tr>
-										<td>kkkkkk</td>
-										<td>kkkkkkkkkkk</td>
-										<td>kkkkkkkkkkk</td>
-										<td>kkkkkkkkkkk</td>
-										<td>kkkkkkkkkkk</td>
+										<td><?php echo $row['alt_created_datetime']; ?></td>
+										<td><?php echo $row['cos_entity']; ?></td>
+										<td><?php echo $row['alt_reason']; ?></td>
+										<td><?php echo $row['alt_created_by']; ?></td>
+										<td><?php echo $row['cos_alt_quantity']; ?></td>
 									</tr>
+								<?php
+								} ?>
 								</tbody>
 							</table>
 						</div>					
@@ -200,7 +214,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 							<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
 						</div>
 					</div>
-				</form>
 			</div>
 		</div>
 	</div>
@@ -210,7 +223,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 	na_nav('topNav', 'topHeight', 'fixed-top');
 	});
 
-	function fcouponapply_submit(f) {
+	function fcouponsend_submit(f) {
 		if(!f.cos_nick && $('#hasNick').length > 0 && $('#hasNick').val() == ''){ 
 			alert("Please insert correct nick name!");
 			f.cos_nick.focus();
@@ -249,10 +262,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 			var cos_type = $(this).data('type');
 			var cos_entity = $(this).data('entity');
 			var co_no = $(this).data('no');
+			var mb_id = $(this).data('mb-id');
 			var cos_link = $(this).data('link');
 			$('.modal-body #cos_type').val(cos_type);
 			$('.modal-body #cos_entity').val(cos_entity);
 			$('.modal-body #co_no').val(co_no);
+			$('.modal-body #mb_id').val(mb_id);
 			$('.modal-body #cos_link').val(cos_link);
 		}); 
 

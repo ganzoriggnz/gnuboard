@@ -296,7 +296,7 @@ if ($is_member)
 			<?php } ?>
 
 				<!-- hulan nemsen review board write post 출근부 게시판에 글 있는 업소명 후기 선택에 보이기 -->
-				<?php if ($board['gr_id'] == "review"  && $w == 'u') { 
+				<?php if ($board['gr_id'] == "review"  ) { 
 				     $scount = strlen($bo_table)-2;      // temdegt tooloh
 					$bo_table =  substr($bo_table, 0, $scount); 
 				    $hwrite_table = $g5['write_prefix'] . $bo_table."at";
