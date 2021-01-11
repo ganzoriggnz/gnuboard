@@ -98,9 +98,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
     </nav>
     <div class="coupon_noti">
         <ul>
-            <li>매월 1~3일까지 수정 가능합니다.</li>
-            <li>매월 4일부터 수정이 불가합니다.</li>
-            <li>매월 1일 모든 쿠폰은 0으로 리셋됩니다.</li>
+            <li>이번달 잔여 쿠폰개수는 매월 1일 초기화 됩니다.</li>
+            <li>이번달 잔여 쿠폰개수는 수정할 수 없습니다.</li>
+            <li>다음달 쿠폰지원개수는 말일까지 수정 가능합니다.</li>
         </ul>
     </div>    
     <div class="coupon_info" style="float-left">
