@@ -145,7 +145,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                     return false;
                 }
 
-                var agree=confirm("Are you sure to save?");
+                var agree=confirm("쿠폰 개수를 저장하시겠습니까?");
                 if(agree)
                     return true;
                 else 
