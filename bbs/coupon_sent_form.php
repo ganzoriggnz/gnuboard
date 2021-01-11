@@ -60,8 +60,9 @@ $sql_cus = "SELECT * FROM {$g5['member_table']} WHERE mb_nick = '{$_POST['cos_ni
 $res_cus = sql_fetch($sql_cus);
 $cus_id = $res_cus['mb_id'];
 $cus_nick = $res_cus['mb_nick'];
+if($cos_type == 'F'){ $coupon_type = '무료'; } else { $coupon_type = '원가'; }
 
-$me_memo = "쿠폰에 당첨되셨습니다." . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . "축하합니다. 쿠폰 번호는 쿠폰관리에서 보시면 됩니다.";
+$me_memo = $coupon_type."쿠폰에 당첨되셨습니다." . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . "축하합니다. 쿠폰 번호는 쿠폰관리에서 보시면 됩니다.";
 
 $tmp_row = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} ");
     $me_id = $tmp_row['max_me_id'] + 1;
@@ -88,7 +89,8 @@ $sql_ent = "SELECT * FROM {$g5['member_table']} WHERE mb_id = '$mb_id'";
 $res_ent = sql_fetch($sql_ent);
 $ent_id = $res_ent['mb_id'];
 $ent_nick = $res_ent['mb_nick'];
-$me_memo1 = "[쿠폰] 쿠폰 당첨자 보내드립니다." . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . "쿠폰번호 : " . $coupon . "\r\n" . "업소방문시 쿠폰번호/닉네임 획인해주시고 할인적용 해주시면 됩니다. ";
+
+$me_memo1 = "[쿠폰] ".$coupon_type."쿠폰 당첨자 보내드립니다." . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . "쿠폰번호 : " . $coupon . "\r\n" . "업소방문시 쿠폰번호/닉네임 획인해주시고 할인적용 해주시면 됩니다. ";
 
 $tmp_row1 = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} ");
     $me_id1 = $tmp_row1['max_me_id'] + 1;
