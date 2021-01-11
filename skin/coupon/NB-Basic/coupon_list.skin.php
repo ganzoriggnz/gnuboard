@@ -193,7 +193,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 									</tr>
 								</thead>
 								<tbody>
-								<?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = $row1['cos_nick'] ORDER BY alt_created_datetime";
+								<?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$row1['cos_nick']}' ORDER BY alt_created_datetime";
 								$res = sql_query($sql);
 								for($i=0; $row = sql_fetch_array($res); $i++) { ?>
 									<tr>
