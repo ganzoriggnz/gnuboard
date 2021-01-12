@@ -91,12 +91,22 @@ box-shadow:inset 0 2px 5px rgb(33, 135, 202)}
 
 
 /* DL Horizontal */
-.xm .dl-horizontal{*zoom:1; margin-top: 20px;}
+.xm .dl-horizontal{
+	*zoom:1; 
+	margin-top: 20px;}
 .xm .dl-horizontal:before,
 .xm .dl-horizontal:after{display:table;line-height:0;content:""}
 .xm .dl-horizontal:after{clear:both}
-.xm .dl-horizontal dt{float:left;width:160px;overflow:hidden;clear:left;text-align:right;text-overflow:ellipsis;white-space:nowrap; margin-bottom: 10px !important;}
+.xm .dl-horizontal dt{
+	float:left;
+	width:160px;
+	overflow:hidden;
+	clear:left;text-align:
+	right;text-overflow:ellipsis;white-space:nowrap; 
+	margin-bottom: 10px !important;}
 .xm .dl-horizontal dt em {color: red;}
-.xm .dl-horizontal dd{margin-left:180px; margin-bottom: 10px !important;}
+.xm .dl-horizontal dd{
+	margin-left:165px; 
+	margin-bottom: 10px !important;}
 
  
