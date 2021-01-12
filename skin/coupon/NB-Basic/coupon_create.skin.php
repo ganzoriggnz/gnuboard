@@ -96,74 +96,74 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 			</div>
 		</div>
     </nav>
-    <div class="coupon_noti">
-        <ul>
-            <li>이번달 잔여 쿠폰개수는 매월 1일 초기화 됩니다.</li>
-            <li>이번달 잔여 쿠폰개수는 수정할 수 없습니다.</li>
-            <li>다음달 쿠폰지원개수는 말일까지 수정 가능합니다.</li>
-        </ul>
-    </div>    
-    <div class="coupon_info" style="float-left">
-        <h6>다음달 쿠폰 지원 개수</h6>
-        <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-            <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
-            <input type="hidden" name="co_entity" value="<?php echo $member['mb_name'] ?>">
+    <section class="xm">
+    <div class="couponbg" >
+        <div class="coupon_noti">이번달 잔여 쿠폰개수는 매월 1일 초기화 됩니다.<br>이번달 잔여 쿠폰개수는 수정할 수 없습니다.<br>다음달 쿠폰지원개수는 말일까지 수정 가능합니다.
+    </div>
+      
+        <div class="coupon_info" style="float-left">
+            <h6>다음달 쿠폰 지원 개수</h6>
+            <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+                <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
+                <input type="hidden" name="co_entity" value="<?php echo $member['mb_name'] ?>">
 
-            <div class="p-20">
-                <div class="coupon_label">원가권 :</div>
-                <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="" class="coupon_input">
-            </div>
-            <div class="p-20">
-                <div class="coupon_label">무료권 :</div>
-                <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="" class="coupon_input">
-            </div>
-            <div class="p-20">
-                <div class="coupon_label"></div>
-                <button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary coupon_btn">저장</button>
-            </div>
-            <div class="popup_box1">
-                <h1>쿠폰</h1>
-                <label>수정은 매월 1일부터 3일까지만 가능합니다.</label>
-                <div class="btns1">
-                    <a href="#" class="btn1">확인</a>
+                <div class="p-20">
+                    <div class="coupon_label col-form-label">원가권 :</div>
+                    <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="" class="form-control coupon_input">
                 </div>
+                <div class="p-20">
+                    <div class="coupon_label col-form-label">무료권 :</div>
+                    <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="" class="form-control coupon_input">
+                </div>
+                <div class="p-20">
+                    <div class="coupon_label"></div>
+                    <button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary coupon_btn">저장</button>
+                </div>
+                <div class="popup_box1">
+                    <h1>쿠폰</h1>
+                    <label>수정은 매월 1일부터 3일까지만 가능합니다.</label>
+                    <div class="btns1">
+                        <a href="#" class="btn1">확인</a>
+                    </div>
+                </div>
+            </form>
+            
+            <script>
+
+            function fcouponcreate_submit(f) {
+                    if (!f.co_sale_num) {
+                        alert("Please insert quantity of sale coupon!");
+                        f.co_sale_num.focus();
+                        return false;
+                    } 
+
+                    if (!f.co_free_num) {
+                        alert("Please insert quantity of free coupon!");
+                        f.co_free_num.focus();
+                        return false;
+                    }
+
+                    var agree=confirm("쿠폰 개수를 저장하시겠습니까?");
+                    if(agree)
+                        return true;
+                    else 
+                        return false;                                       
+            }
+
+            </script>
+        </div>
+        <div class="coupon_current">
+            <h6>이번달 잔여 쿠폰 개수</h6>
+
+            <div class="coupon_div">
+                <p class="count"><span><?php echo $diff_s; ?></span><span>/</span><span><?php echo $row1['co_sale_num']; ?></span></p>
             </div>
-        </form>
-        
-        <script>
-
-        function fcouponcreate_submit(f) {
-                if (!f.co_sale_num) {
-                    alert("Please insert quantity of sale coupon!");
-                    f.co_sale_num.focus();
-                    return false;
-                } 
-
-                if (!f.co_free_num) {
-                    alert("Please insert quantity of free coupon!");
-                    f.co_free_num.focus();
-                    return false;
-                }
-
-                var agree=confirm("쿠폰 개수를 저장하시겠습니까?");
-                if(agree)
-                    return true;
-                else 
-                    return false;                                       
-        }
-
-        </script>
-    </div>
-    <div class="coupon_current">
-        <h6>이번달 잔여 쿠폰 개수</h6>
-
-        <div class="coupon_div">
-            <p class="count"><span><?php echo $diff_s; ?></span><span>/</span><span><?php echo $row1['co_sale_num']; ?></span></p>
+            <div class="coupon_div">
+                <p class="count"><span><?php echo $diff_f; ?></span><span>/</span><span><?php echo $row1['co_free_num']; ?></span></p>
+            </div>
         </div>
-        <div class="coupon_div">
-            <p class="count"><span><?php echo $diff_f; ?></span><span>/</span><span><?php echo $row1['co_free_num']; ?></span></p>
-        </div>
-    </div>
+    </div>  
+        </section>
 </div> 
   
 

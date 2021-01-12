@@ -36,7 +36,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<h5>사이트 이용정보 입력</h5>
 			</li>
 
-			<li class="list-group-item pt-3 pt-sm-4">
+			<li class="list-group-item pt-3 pl-4 pt-sm-4">
 				<!-- hulan nemsen 성별 정보 받기 -->
 			<div class="form-group row">
 					<label class="col-sm-2 control-label" for="reg_mb_1"><b>성별</b><strong class="sound_only">필수</strong></label>
@@ -119,9 +119,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 			<!-- <li class="list-group-item pt-5">
 				<h5>개인정보 입력</h5>
 			</li> -->
-		
-		
-
 
 			<li class="list-group-item pt-3 pt-sm-4" style="display: none;">
 				

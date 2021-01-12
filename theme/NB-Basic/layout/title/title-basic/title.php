@@ -8,8 +8,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_title_url.'/title.css">', 0);
 <!-- Page Title -->
 <div id="nt_title" class="font-weight-normal">
 	<div class="nt-container px-3 px-sm-4 px-xl-0">
-		<div class="d-flex pb-1">
-			<div class="align-self-end page-title en text-nowrap">
+
+	
+	
+	<div class="d-flex pb-1">
+
+<!-- hulan nemsen button -->
+		<div class="side_cate">
+    <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
+        <img src="<?php echo G5_URL?>/img/side_top_img.png"></a></div>
+<!-- ---------------------------------------------- -->
+			<div class="align-self-center page-title en text-nowrap">
 				<?php if($tset['page_icon']) { ?>
 					<i class="fa <?php echo $tset['page_icon'] ?>" aria-hidden="true"></i>
 				<?php } ?>

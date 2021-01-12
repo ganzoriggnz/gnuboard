@@ -409,6 +409,7 @@ hr.hr::after {
 /* Form */
 .col-form-label {
 	font-weight:bold;
+	padding-left: 15px;
 }
 
 /* Pagenation */

@@ -84,11 +84,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 <?php } ?>
 
 <!-- hulan nemsen  -->
-<div class="side_cate">
+<!-- <div class="side_cate">
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
         <img src="<?php echo G5_URL?>/img/side_top_img.png"></a>
-</div>
-    <br>
+</div> -->
+
 
     <!-- //////////////////////////////////////////////////// -->
     <ul class="sub-ul mb-3">

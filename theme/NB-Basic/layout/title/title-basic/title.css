@@ -8,12 +8,16 @@
 	border-bottom:1px solid #dfdfdf; 
 }
 #nt_title .d-flex { 
-	padding-top:2.0rem;
+	padding-top:0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1.0rem;
+	height: 50%;
 }
 #nt_title .page-title { 
 	font-size:1.75rem;
 	line-height:1.6;
 	letter-spacing:-1px; 
+	padding-left: 00.5rem;
 }
 #nt_title .breadcrumb a {
 	color:#888;
