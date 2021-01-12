@@ -33,7 +33,8 @@ if($tset['size'] > 0) {
         /*max-width:*/<?php //echo $tset['size'];?>/*px; */
     }
     .nt-container .col-md-9{
-        max-width: calc(100% - 300px);
+		max-width: calc(100% - 300px);
+		margin-top: 51px;
     }
     .nt-container .col-md-3{
         max-width: 300px;
