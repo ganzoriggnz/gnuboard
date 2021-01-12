@@ -95,6 +95,8 @@ $res2 = sql_query($sql2);
 while($row2 = sql_fetch_array($res2)){
     $sql3 = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
     $res3 = sql_fetch($sql3);
+    $sql4 = "SELECT * FROM $g5[coupon_alert_table] WHERE cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
+    $res4 = sql_fetch($sql4); 
     /* if(!$row2['wr_id']){
         $sql4 = "INSERT INTO $g5[coupon_alert_table] 
                         SET cos_nick = '{$row2['wr_name']}',
@@ -112,9 +114,9 @@ while($row2 = sql_fetch_array($res2)){
             echo $sql5;
             sql_query($sql5);          
     } */
-    if($row2['wr_id']){
+    if($row2['wr_id'] && !$res4['alt_no']){
         if($row2['wr_datetime'] > $res3['cos_post_datetime']){
-            $sql4 = "INSERT INTO $g5[coupon_alert_table] 
+            $sql5 = "INSERT INTO $g5[coupon_alert_table] 
                         SET cos_nick = '{$row2['wr_name']}',
                             cos_entity = '{$row2['wr_7']}',
                             cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1,
@@ -122,13 +124,13 @@ while($row2 = sql_fetch_array($res2)){
                             alt_created_by = '-',
                             alt_created_datetime = '{$res3['cos_post_datetime']}' ";
 
-            sql_query($sql4);
+            sql_query($sql5);
 
-            $sql5 = "UPDATE $g5[coupon_sent_table] 
+            $sql6 = "UPDATE $g5[coupon_sent_table] 
                         SET cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1
                         WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
 
-            sql_query($sql5);  
+            sql_query($sql6);  
         }                 
     }
 } 
