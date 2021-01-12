@@ -95,7 +95,7 @@ $res2 = sql_query($sql2);
 while($row2 = sql_fetch_array($res2)){
     $sql3 = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
     $res3 = sql_fetch($sql3);
-    $sql4 = "SELECT COUNT(alt_no) as alt_cnt FROM $g5[coupon_alert_table] WHERE cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_nick']}'";
+    $sql4 = "SELECT COUNT(alt_no) as alt_cnt FROM $g5[coupon_alert_table] WHERE cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
     $res4 = sql_fetch($sql4); 
     $sql7 = "SELECT * FROM $re_table WHERE wr_name = '{$row2['cos_nick']}' AND wr_7 = '{$row2['cos_entity']}'";
     $res7 = sql_fetch($sql7);
