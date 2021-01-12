@@ -67,7 +67,7 @@ img.light-circle { border-width: 1px; border-style: solid; background-color: #ff
 .na-table .d-lg-table-cell,
 .na-table .d-xl-table-cell,
 .na-table td { vertical-align:middle; }
-.na-table-head { border-top:3px solid #333; border-bottom:1px solid #333; }
+.na-table-head { border-top:1px solid #333; border-bottom:1px solid #333; }
 .na-table-head > div { text-align:center; font-weight:bold;	padding-top:0.75rem; padding-bottom:0.75rem; }
 
 /* 너비 사이즈 */
