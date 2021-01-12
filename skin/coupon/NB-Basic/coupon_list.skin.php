@@ -153,67 +153,67 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 	</div>
 	<div class="modal fade" id="couponAlert" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content" style="width: 605px; height: 400px; font-weight: bold;">
-					<div class="modal-header">
-						<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰회수</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-						</button>
-					</div> 	
-					<div class="modal-body" style="padding: 5px 0px; font-size: 14px;">
-						<?php 
-							$sql = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert`"; 
-							$row = sql_fetch($sql);  
-							$sql1 = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row['maxdate']}' ";
-							$row1 = sql_fetch($sql1);
-							echo $row1['cos_entity'];
-						?> 
-						<div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
-						<div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$row1['cos_alt_quantity'];?>
-						<form id="fcouponalert" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-							<input type="hidden" name="cos_nick" id="cos_nick" value="">
-							<input type="hidden" name="cos_entity" id="cos_entity" value="">
-							<input type="hidden" name="cos_link" id="cos_link" value="">
-							<div style="margin-left:30px; margin-top: 30px;">
-								<p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
-								<input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px;" value = "<?php echo $row1['cos_alt_quantity']; ?>"/>		
-								<input type="submit" name="change" id="change" value="확인" style="background: #FFF2CC; width: 80px;"/>
-							</div>
-						</form>
-						<div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
-						<div style="margin: 10px 10px 10px 0px;">
-							<table>
-								<thead>
-									<tr>
-										<th>시간</th>
-										<th>업소명</th>
-										<th>경고내용</th>
-										<th>최종적용 아이디</th>
-										<th>누적횟수</th>
-									</tr>
-								</thead>
-								<tbody>
-								<?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$row1['cos_nick']}' ORDER BY alt_created_datetime";
-								$res = sql_query($sql);
-								for($i=0; $row = sql_fetch_array($res); $i++) { ?>
-									<tr>
-										<td><?php echo $row['alt_created_datetime']; ?></td>
-										<td><?php echo $row['cos_entity']; ?></td>
-										<td><?php echo $row['alt_reason']; ?></td>
-										<td><?php echo $row['alt_created_by']; ?></td>
-										<td><?php echo $row['cos_alt_quantity']; ?></td>
-									</tr>
-								<?php
-								} ?>
-								</tbody>
-							</table>
-						</div>					
-					</div>
-					<div class="modal-footer">
-						<div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-							<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
+			<div class="modal-content" style="width: 650px; height: 400px; font-weight: bold;">
+				<div class="modal-header">
+					<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div> 	
+				<div class="modal-body" style="padding: 5px 0px; font-size: 14px;">
+					<?php 
+						$sql = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert`"; 
+						$row = sql_fetch($sql);  
+						$sql1 = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row['maxdate']}' ";
+						$row1 = sql_fetch($sql1);
+						echo $row1['cos_entity'];
+					?> 
+					<div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
+					<div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$row1['cos_alt_quantity'];?>
+					<form id="fcouponalert" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+						<input type="hidden" name="cos_nick" id="cos_nick" value="">
+						<input type="hidden" name="cos_entity" id="cos_entity" value="">
+						<input type="hidden" name="cos_link" id="cos_link" value="">
+						<div style="margin-left:30px; margin-top: 30px;">
+							<p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
+							<input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px;" value = "<?php echo $row1['cos_alt_quantity']; ?>"/>		
+							<input type="submit" name="change" id="change" value="확인" style="background: #FFF2CC; width: 80px;"/>
 						</div>
+					</form>
+					<div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
+					<div style="margin: 10px 10px 10px 0px;">
+						<table>
+							<thead>
+								<tr>
+									<th>시간</th>
+									<th>업소명</th>
+									<th>경고내용</th>
+									<th>최종적용 아이디</th>
+									<th>누적횟수</th>
+								</tr>
+							</thead>
+							<tbody style="background: #fff;">
+							<?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$row1['cos_nick']}' ORDER BY alt_created_datetime";
+							$res = sql_query($sql);
+							for($i=0; $row = sql_fetch_array($res); $i++) { ?>
+								<tr>
+									<td><?php echo $row['alt_created_datetime']; ?></td>
+									<td><?php echo $row['cos_entity']; ?></td>
+									<td><?php echo $row['alt_reason']; ?></td>
+									<td><?php echo $row['alt_created_by']; ?></td>
+									<td><?php echo $row['cos_alt_quantity']; ?></td>
+								</tr>
+							<?php
+							} ?>
+							</tbody>
+						</table>
+					</div>					
+				</div>
+				<div class="modal-footer">
+					<div style="margin-left: 140px; margin: 0 auto; text-align: center;">
+						<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
 					</div>
+				</div>
 			</div>
 		</div>
 	</div>
