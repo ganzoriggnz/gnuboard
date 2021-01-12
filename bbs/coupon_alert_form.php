@@ -26,9 +26,9 @@ sql_query($sql);
 $sql1 = "UPDATE $g5[coupon_sent_table] 
             SET cos_alt_quantity = '{$cos_alt_quantity}'
             WHERE cos_accept='Y' AND cos_nick = '{$cos_nick}' AND cos_entity = '{$cos_entity}'";
-echo $sql1;
+
 sql_query($sql1);
 
-//goto_url(G5_HTTP_BBS_URL.'/coupon_list.php?bo_table='.$cos_link); 
+goto_url(G5_HTTP_BBS_URL.'/coupon_list.php?bo_table='.$cos_link); 
 
 ?>
