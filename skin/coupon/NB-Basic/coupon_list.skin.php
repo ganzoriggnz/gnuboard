@@ -50,7 +50,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 	for ($i=0; $row = sql_fetch_array($result1); $i++) {
 	?>
 		<li class="d-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">	
-			<div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
+			<div class="d-none d-table-cell nw-9 f-sm font-weight-normal py-md-2 px-md-1">
 					<?php echo "[".$row['co_entity']."]";?> 
 					
 			</div> 
