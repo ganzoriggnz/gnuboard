@@ -150,7 +150,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
                 </dd> --> 
-                <dt>연락처</dt><dd><?php echo $row['mb_hp'];?><br>(프로필과 배너에 출력되니 항상 최신번호로 유지해주세요) &nbsp;&nbsp;&nbsp;<!-- <a onclick="window.open('//localhost/gnuboard/bbs/member_hp_change.php?mb_id=juho3141','전화번호 변경요청','width=300,height=300,scrollbars=no,padding=0, margin=0, top=300,left=800');" style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
+                <dt>연락처</dt><dd><?php if($row['mb_hp']) {echo $row['mb_hp'].'<br>'; }?>(프로필과 배너에 출력되니 항상 최신번호로 유지해주세요) &nbsp;&nbsp;&nbsp;<!-- <a onclick="window.open('//localhost/gnuboard/bbs/member_hp_change.php?mb_id=juho3141','전화번호 변경요청','width=300,height=300,scrollbars=no,padding=0, margin=0, top=300,left=800');" style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
                                     <i class="fa fa-address-book-o"></i><span>&nbsp;전화번호 변경요청</span></a>&nbsp;&nbsp;&nbsp;<font color="red"><b>※ 전화번호는 운영자가 확인 후 변경처리됩니다.</b></font> --></dd> 
                 <dt>가입일</dt><dd><?php echo $row['mb_datetime'];?></dd>
                 <dt>최근 로그인</dt><dd><?php echo $row['mb_today_login'];?></dd>                

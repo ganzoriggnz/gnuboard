@@ -63,16 +63,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 					<div class="float-left">
 						<?php echo $list[$i]['send_datetime']; ?>
 					</div>
-					<div class="float-right">
+					<!-- <div class="float-right">
 						<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
-					</div>
+					</div> -->
 				</div>
 			</div>
-			<div class="d-table-cell text-center nw-4 py-2 py-md-2">
+			<div class="d-table-cell text-right nw-15 py-2 py-md-2">
+			<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
+			&nbsp;
 				<a href="<?php echo $list[$i]['del_href'] ?>" onclick="del(this.href); return false;" class="win-del" title="삭제">
 					<i class="fa fa-trash-o text-muted fa-lg" aria-hidden="true"></i>
 					<span class="sound_only">삭제</span>
 				</a>
+				&nbsp;
 			</div>
 		</li>
     <?php } ?>
