@@ -100,7 +100,7 @@ while($row2 = sql_fetch_array($res2)){
     $sql7 = "SELECT * FROM $re_table WHERE wr_name = '{$row2['cos_nick']}' AND wr_7 = '{$row2['cos_entity']}'";
     $res7 = sql_fetch($sql7);
     $now = G5_TIME_YMDHIS;
-    if($row2['cos_entity'] !== $res7['wr_7'] && $res4['alt_cnt'] == 0 && ($now > $row2['cos_post_datetime'])){
+    if($row2['cos_entity'] !== $res7['wr_7'] && $res4['alt_cnt'] == '0' && ($now > $row2['cos_post_datetime'])){
         $sql4 = "INSERT INTO $g5[coupon_alert_table] 
                         SET cos_nick = '{$row2['cos_nick']}',
                             cos_entity = '{$row2['cos_entity']}',
@@ -116,7 +116,7 @@ while($row2 = sql_fetch_array($res2)){
                         WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
             sql_query($sql5);          
     } 
-    /* if($row2['wr_id'] && !$res4['alt_no'] && ($row2['wr_datetime'] > $res3['cos_post_datetime'])){
+    if($row2['wr_id'] && !$res4['alt_cnt'] == '0' && ($row2['wr_datetime'] > $res3['cos_post_datetime'])){
             $sql5 = "INSERT INTO $g5[coupon_alert_table] 
                         SET cos_nick = '{$row2['cos_nick']}',
                             cos_entity = '{$row2['cos_entity']}',
@@ -132,8 +132,17 @@ while($row2 = sql_fetch_array($res2)){
                         WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
 
             sql_query($sql6);                   
-    } */
+    } 
 } 
+
+$sql_acc = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' and cos_accepted_datetime > '0000-00-00 00:00:00'";
+$res_acc = sql_query($sql_acc);
+while($row_acc = sql_fetch_array($res_acc)){
+    if($now > $row_acc['cos_accepted_datetime']){
+        $sql_ac = "DELETE FROM $g5[coupon_sent_table] WHERE cos_nick = '{$row_acc['cos_nick']}' AND cos_no = '{$row_acc['cos_no']}'";
+        sql_query($sql_ac);
+    }
+}
 
 $coupon_list_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_list_skin_url  = get_skin_url('coupon', 'NB-Basic');
