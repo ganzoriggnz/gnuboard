@@ -129,7 +129,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 			<div class="modal-content" style="width: 350px; height: 200px; font-weight: bold;">
 				<form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 					<div class="modal-header">
-						<h5 class="modal-title" style="margin-left: 90px; font-weight: bold;">쿠폰회수</h5>
+						<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰회수</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 						</button>
@@ -140,7 +140,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 						<input type="hidden" name="cos_type" id="cos_type" value="">
 						<input type="hidden" name="cos_link" id="cos_link" value="">
 						<input type="hidden" name="cos_code" id="cos_code" value="">
-						<div style="margin-left:100px;">쿠폰을 회수하시겠습니까? </div>					
+						<div style="margin-left:100px;">쿠폰을 회수하시겠습니까?</div>					
 					</div>
 					<div class="modal-footer">
 						<div style="margin-left: 140px; margin: 0 auto; text-align: center;">

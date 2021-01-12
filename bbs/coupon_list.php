@@ -90,21 +90,24 @@ $sep_nicks = '"' . implode('", "', $nicks) . '"';
 
 $rs = "SELECT wr_name FROM $re_table WHERE wr_comment = 0";
 
-$sql2 = "SELECT wr_id, wr_name, wr_7, wr_datetime FROM $re_table WHERE wr_name IN ($sep_nicks) AND wr_comment = 0";
+$sql2 = "Select a.*, b.wr_id, b.wr_7, b.wr_is_comment, b.wr_datetime from $g5[coupon_sent_table] a LEFT JOIN $re_table b ON a.cos_nick = b.wr_name WHERE a.cos_accept = 'Y'";
 $res2 = sql_query($sql2);
 while($row2 = sql_fetch_array($res2)){
-    $sql3 = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
+    $sql3 = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
     $res3 = sql_fetch($sql3);
     $sql4 = "SELECT * FROM $g5[coupon_alert_table] WHERE cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
     $res4 = sql_fetch($sql4); 
-    /* if(!$row2['wr_id']){
+    $sql7 = "SELECT * FROM $re_table WHERE wr_name = '{$row2['cos_nick']}' AND wr_7 = '{$row2['cos_entity']}'";
+    $res7 = sql_fetch($sql7);
+    $now = G5_TIME_YMDHIS;
+    if($row2['cos_entity'] !== $res7['wr_7'] && !$res4['alt_no'] && ($now > $row2['cos_post_datetime'])){
         $sql4 = "INSERT INTO $g5[coupon_alert_table] 
-                        SET cos_nick = '{$row2['wr_name']}',
-                            cos_entity = '{$row2['wr_7']}',
+                        SET cos_nick = '{$row2['cos_nick']}',
+                            cos_entity = '{$row2['cos_entity']}',
                             cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1,
                             alt_reason = '후기미작성7일',
                             alt_created_by = '-',
-                            alt_created_datetime = '{$res3['cos_post_datetime']}' ";
+                            alt_created_datetime = '{$row2['cos_post_datetime']}' ";
 
             sql_query($sql4);
 
@@ -113,25 +116,23 @@ while($row2 = sql_fetch_array($res2)){
                         WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
             echo $sql5;
             sql_query($sql5);          
-    } */
-    if($row2['wr_id'] && !$res4['alt_no']){
-        if($row2['wr_datetime'] > $res3['cos_post_datetime']){
+    } 
+    if($row2['wr_id'] && !$res4['alt_no'] && ($row2['wr_datetime'] > $res3['cos_post_datetime'])){
             $sql5 = "INSERT INTO $g5[coupon_alert_table] 
-                        SET cos_nick = '{$row2['wr_name']}',
-                            cos_entity = '{$row2['wr_7']}',
+                        SET cos_nick = '{$row2['cos_nick']}',
+                            cos_entity = '{$row2['cos_entity']}',
                             cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1,
                             alt_reason = '후기미작성7일',
                             alt_created_by = '-',
-                            alt_created_datetime = '{$res3['cos_post_datetime']}' ";
+                            alt_created_datetime = '{$row2['cos_post_datetime']}' ";
 
             sql_query($sql5);
 
             $sql6 = "UPDATE $g5[coupon_sent_table] 
                         SET cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1
-                        WHERE cos_accept='Y' AND cos_nick = '{$row2['wr_name']}' AND cos_entity = '{$row2['wr_7']}'";
+                        WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
 
-            sql_query($sql6);  
-        }                 
+            sql_query($sql6);                   
     }
 } 
 
