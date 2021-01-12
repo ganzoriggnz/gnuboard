@@ -129,7 +129,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 			<div class="modal-content" style="width: 350px; height: 200px; font-weight: bold;">
 				<form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 					<div class="modal-header">
-						<h5 class="modal-title" style="margin-left: 90px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
+						<h5 class="modal-title" style="margin-left: 90px; font-weight: bold;">쿠폰회수</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 						</button>
@@ -233,11 +233,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 	}  
 
 	function fcoupondelete_submit(f) {
-	var agree=confirm("Are you sure to delete?");
-		if(agree)
-			return true;
-		else 
-			return false;                                                                   
+		return true;                                                                 
 	}  
 
 	$(document).ready(function(){
