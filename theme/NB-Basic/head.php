@@ -34,7 +34,7 @@ if($tset['size'] > 0) {
     }
     .nt-container .col-md-9{
 		max-width: calc(100% - 300px);
-		margin-top: 51px;
+		
     }
     .nt-container .col-md-3{
         max-width: 300px;
