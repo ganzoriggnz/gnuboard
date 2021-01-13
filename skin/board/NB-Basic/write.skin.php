@@ -61,6 +61,7 @@ if ($w != 'u' && $gr_id == "review") { //글수정이 아니고, review 그룹�
 		}
 	}
 }
+
 ///////////////////////////////////////////////////////////////////
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
@@ -296,15 +297,13 @@ if ($is_member)
 			<?php } ?>
 
 				<!-- hulan nemsen review board write post 출근부 게시판에 글 있는 업소명 후기 선택에 보이기 -->
-				<?php if ($board['gr_id'] == "review"  ) { 
+				<?php if ($board['gr_id'] == "review" && ($w == '' || $w == 'u')  ) { 
 				     $scount = strlen($bo_table)-2;      // temdegt tooloh
 					$bo_table =  substr($bo_table, 0, $scount); 
 				    $hwrite_table = $g5['write_prefix'] . $bo_table."at";
-					$sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );
-					
+					$sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );					
 					?>
 					<?php if ($is_category) { ?>
-
 						<li class="list-group-item">
 							<div class="form-group row mb-0">
 								<label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
@@ -635,7 +634,6 @@ if ($is_member)
 					</div>
 				</li>
 			<?php } ?>
-
 		</ul>
 
 		<div class="px-3 px-sm-0">
@@ -648,7 +646,6 @@ if ($is_member)
 				</div>
 			</div>
 		</div>
-
 	</form>
 
 </section>

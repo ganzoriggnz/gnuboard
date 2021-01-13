@@ -1259,10 +1259,8 @@ function na_post_subcat($wset,$subcat=''){
 			while ( $row=sql_fetch_array($result1)) {					
 				$list[$cnt] = $row;				
 				$cnt ++;	
-			}
-			
+			}			
 		} 
-
 	return $list;
 }
 

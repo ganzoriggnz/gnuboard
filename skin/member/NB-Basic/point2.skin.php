@@ -27,7 +27,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                                 </span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point2.php">
                                 <span>
                                 <i class="fa fa-book">
@@ -36,7 +36,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                                 </span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
                                 <span>
                                 <i class="fa fa-gem">
