@@ -47,33 +47,33 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm" style="width:00px;">
 
 <div class="local_desc01 local_desc">
     <p>
-        Санамсаргүйгээр fragment онооны хязгаар тоо
-		<br><strong><?php echo $startlimit; ?> - <?php echo $endlimit; ?></strong> хооронд санамсаргүй оноо өгнө.
+    게시글/댓글 작성시
+		<strong><?php echo $startlimit; ?> - <?php echo $endlimit; ?> </strong>까지 랜덤으로 </br>신비한 파편조각 획득합니다  .
     </p>
 </div>
 
 <form name="fmb_lev_conf" id="fmb_lev_conf" method="post" onsubmit=""  enctype="MULTIPART/FORM-DATA">
 <input type="hidden" name="w" value="u">
 <div class="tbl_head01 tbl_wrap">
-    <table style="width:300px;">
+    <table style="width:250px;">
     <caption>table title caption name </caption>
     <thead> 
 		<tr>
-			<th scope="col">Тайлбар</th>
-			<th scope="col">Оноо</th>
+			<th scope="col">설명</th>
+			<th scope="col">설정 값</th>
 		</tr>
     </thead>
     <tbody>		
 		<tr>
-			<td class="td_category">Start</td>
+			<td class="td_category">최소값</td>
 			<td>
-            <input type='text' name='fr_start' value='<?php echo $startlimit; ?>' class='frm_input'  onkeypress='return event.charCode >= 48 && event.charCode <= 57'>			
+            <input type='text' name='fr_start'  value='<?php echo $startlimit; ?>' class='frm_input'  onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="text-align:center;">			
 			</td>
 		</tr>
         <tr>
-			<td class="td_category">End</td>
+			<td class="td_category">최대값</td>
 			<td>
-            <input type='text' name='fr_end' value='<?php echo $endlimit; ?>' class='frm_input'  onkeypress='return event.charCode >= 48 && event.charCode <= 57'>			
+            <input type='text' name='fr_end' value='<?php echo $endlimit; ?>' class='frm_input'  onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="text-align:center;">			
 			</td>
 		</tr>		
     </tbody>
