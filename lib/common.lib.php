@@ -1049,23 +1049,26 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
     
     $startlimit;
     $endlimit;
+    $mb_point;
+
+    $sql=" select mb_point2 from  {$g5['member_table']} where mb_id = '$mb_id'";
+    $result = sql_query($sql);
+    for($i=0; $row=sql_fetch_array($result); $i++) {
+        $mb_point=$row['mb_point2'];
+    }
 
     $sqlAdmin='select fr_start, fr_end FROM `g5_fragment_admin_limit` ORDER BY fr_id DESC limit 1';
-   // echo $sqlAdmin;
     $result=sql_query($sqlAdmin);
     for($i=0; $row=sql_fetch_array($result); $i++) {
-       // echo $row['fr_start'];
         $startlimit=$row['fr_start'];
         $endlimit=$row['fr_end'];
-       // echo $startlimit;
     }
-    
-    $too = mt_rand($startlimit, $endlimit);   
-
-    $po_mb_point=0;
-
+        
+    $too = mt_rand($startlimit, $endlimit);       
+    $po_mb_point = $mb_point + $too;    
     $po_expire_date = date('Y-m-d', strtotime('+'.($expire - 1).' days', G5_SERVER_TIME));   
 
+    // insert point to  point2 table 
     $sql = " insert into {$g5['point2_table']}
                 set mb_id = '$mb_id',
                     po_datetime = '".G5_TIME_YMDHIS."',
@@ -1078,12 +1081,21 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
                     po_rel_table = '$rel_table',
                     po_rel_id = '$rel_id',
                     po_rel_action = '$rel_action' ";
-   // echo $sql;
+    sql_query($sql);     
+        
+    //update fragment point
+    $sql = " update {$g5['member_table']} set mb_point2 = '$po_mb_point' where mb_id = '$mb_id'";
     sql_query($sql);
-    
+
     $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
     alert($massege);
     return 1;
+}
+
+function insert_use_fragment($mb_id, $point, $po_id=''){
+    global $g5, $config;
+
+    
 }
 
 // 사용포인트 입력
@@ -1212,6 +1224,17 @@ function delete_expire_point($mb_id, $point)
         }
     }
 }
+
+
+function get_fragment_sum($mb_id){
+
+    // 포인트합  fragment point2 table select fragment sum function
+    $sql = " select sum(po_point) as sum_po_point
+    from {$g5['point2_table']}
+    where mb_id = '$mb_id' ";
+    $row = sql_fetch($sql);
+    return $row['sum_po_point'];
+    }
 
 // 포인트 내역 합계
 function get_point_sum($mb_id)

@@ -3,9 +3,13 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
+
+$niitdun=0;
 ?>
+
 <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
 		<div class="px-3 px-sm-0">
+		
 			<div class="d-flex">
 				<div id="user_cate_list" class="sly-wrap flex-grow-1">
 					<ul id="user_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
@@ -31,7 +35,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point2.php">
                                 <span>
                                 <i class="fa fa-book">
-                                파편조각 :
+                                파편조각: <b><?php echo number_format($member['mb_point2']);?></b>
                                 </i>
                                 </span>
                             </a>
@@ -96,7 +100,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     </nav>
 
 <section id="bo_list" class="mb-4"> 
-	<div id="point_info" class="font-weight-normal px-3 pb-2 pt-4">
+<div id="" class="font-weight-normal px-3">
+<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="reg_mb_nick">파편조각 페니로 전환</label>
+						<div class="col-sm-4">
+							<input type="hidden" name="mb_nick_default" value="">
+							<input type="text" name="niittoo" value="" placeholder="전환할 파운드를 입력하세요" id="niittoo" required="" class="form-control nospace required" maxlength="20">
+						</div>
+						<div class="col-sm-4">
+						<input type="submit" value="전환" class="btn_submit" accesskey="s" onSubmit="" style="height: 30px; width: 50px;" > 
+						</div>
+</div>
+	</div>
+	<div id="point_info" class="font-weight-normal px-3 pb-2">
 		전체 <?php echo number_format($total_count) ?>건 / <?php echo $page ?>페이지
 	</div>
 
@@ -109,8 +125,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	<div class="na-table d-none d-md-table w-100 mb-0 text-md-center bg-light">
 		<div class="na-table-head border-primary d-md-table-row bg-light">	
 			<div class="d-md-table-cell nw-6 px-md-1 text-md-center">일시</div>
-			<div class="d-md-table-cell nw-20 pl-2 px-md-1 pr-md-1 text-md-center">내용</div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">만료일</div>
+			<div class="d-md-table-cell nw-20 pl-2 px-md-1 pr-md-1 text-md-center">내용</div>			
 			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">지급파운드</div>
 			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">사용파운드</div>
 		</div>
@@ -146,13 +161,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 				<?php echo $row['po_datetime']; ?>
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-			<?php if ($row['po_expired'] == 1) { ?>
-					<span<?php echo $expr ?>>만료 <?php echo substr(str_replace('-', '', $row['po_expire_date']), 2) ?></span>
-					<span class="na-bar"></span>
-				<?php } else if($row['po_expire_date'] != '9999-12-31') { ?>
-					<span<?php echo $expr ?>><?php echo $row['po_expire_date'] ?></span>
-					<span class="na-bar"></span>
-				<?php } ?>
+			
+
 				<?php echo $po_content ?>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
@@ -168,6 +178,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		<?php
 		}
 		$sum_point3 = $sum_point1 + $sum_point2;
+		$niittoo=$sum_point3;
 		if ($i == 0)
 			echo '<li class="list-group-item border-left-0 border-right-0 f-de font-weight-normal py-5 text-muted text-center">자료가 없습니다.</li>';
 		else {

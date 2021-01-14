@@ -90,6 +90,13 @@ box-shadow:inset 0 2px 5px rgb(33, 135, 202)}
 .sly-tab hr { display:block; border-top:1px solid #e5e5e5; height:1px; margin:0; margin-top:-1px; padding:0; }
 
 
+
+.btn_submit{background:#cfb56ed0;color:#fff}
+.btn_submit:hover{background:#a58c48d0;}
+.btn_confirm .btn_submit {padding:0 15px;border:0;height:30px;color:#fff;}
+
+
+
 /* DL Horizontal */
 .xm .dl-horizontal{
 	margin-left: 20px;
