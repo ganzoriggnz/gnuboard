@@ -1058,36 +1058,12 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
         $startlimit=$row['fr_start'];
         $endlimit=$row['fr_end'];
        // echo $startlimit;
-
     }
-    
     
     $too = mt_rand($startlimit, $endlimit);   
 
     $po_mb_point=0;
 
-    // 회원아이디가 없다면 업데이트 할 필요 없음
-    // if ($mb_id == '') { return 0; }
-    // $mb = sql_fetch(" select mb_id from {$g5['member_table']} where mb_id = '$mb_id' ");
-    // if (!$mb['mb_id']) { return 0; }
-
-    // 회원포인트
-    // $mb_point = get_point_sum($mb_id);
-
-    // 이미 등록된 내역이라면 건너뜀
-    // if ($rel_table || $rel_id || $rel_action)
-    // {
-    //     $sql = " select count(*) as cnt from {$g5['point2_table']}
-    //               where mb_id = '$mb_id'
-    //                 and po_rel_table = '$rel_table'
-    //                 and po_rel_id = '$rel_id'
-    //                 and po_rel_action = '$rel_action' ";
-    //     $row = sql_fetch($sql);
-    //     if ($row['cnt'])
-    //         return -1;
-    // }
-
-    // 포인트 건별 생성    
     $po_expire_date = date('Y-m-d', strtotime('+'.($expire - 1).' days', G5_SERVER_TIME));   
 
     $sql = " insert into {$g5['point2_table']}
@@ -1104,10 +1080,8 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
                     po_rel_action = '$rel_action' ";
    // echo $sql;
     sql_query($sql);
-       
-
-    $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";
     
+    $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
     alert($massege);
     return 1;
 }
