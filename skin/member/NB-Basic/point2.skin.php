@@ -4,7 +4,37 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
 
-$niitdun=0;
+@include_once(G5_THEME_PATH.'/common.php');
+
+
+
+
+$mb_id='';
+$point='';
+
+$penychangelimit = get_penylimit();
+
+if ($w == '') {}
+else if ($w == 'u')
+{	
+	if($_POST['niittoo']<$penychangelimit || $_POST['niittoo']>$member['mb_point2']){
+		alert("Tanii solih bolomjtoi hamgiin dood ym ".$penychangelimit." Deed dun!!! ".$member['mb_point2'].
+		" tanii ene dun hetersen esbel baga bn : ".$_POST['niittoo']);
+	}
+	else {
+		$mb_id=$member['mb_id'];
+		$point=$_POST['niittoo'];
+		insert_use_fragment($mb_id, $point,$member['mb_peny']);
+		goto_url($PHP_SELF, false);
+	}	
+}
+
+
+$frm_submit = '<div class="col-sm-4">
+<input type="submit" value="전환" class="btn_submit" accesskey="s" action="" onSubmit=""  style="height: 30px; width: 50px;" > 
+<label class="col-form-label" for="reg_mb_nick">Your peny:'.number_format($member['mb_peny']).'</label>
+</div>';
+
 ?>
 
 <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
@@ -100,18 +130,32 @@ $niitdun=0;
     </nav>
 
 <section id="bo_list" class="mb-4"> 
-<div id="" class="font-weight-normal px-3">
+<form name="fwrite" id="fwrite" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+		<input type="hidden" name="uid" value="<?php echo get_uniqid(); ?>">
+		<input type="hidden" name="w" value="u">
+<?php 
+if ($member['mb_level']>=12 && $member['mb_level']<=28 && $member['mb_point2']>=$penychangelimit )
+{
+echo '<div id="" class="font-weight-normal px-3">
 <div class="form-group row">
 						<label class="col-sm-2 col-form-label" for="reg_mb_nick">파편조각 페니로 전환</label>
 						<div class="col-sm-4">
 							<input type="hidden" name="mb_nick_default" value="">
-							<input type="text" name="niittoo" value="" placeholder="전환할 파운드를 입력하세요" id="niittoo" required="" class="form-control nospace required" maxlength="20">
+							<input type="number" min="'.$penychangelimit.'" max="'.$member['mb_point2'].'" name="niittoo" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="전환할 파운드를 입력하세요" id="niittoo" required="" class="form-control nospace required" maxlength="20">
 						</div>
-						<div class="col-sm-4">
-						<input type="submit" value="전환" class="btn_submit" accesskey="s" onSubmit="" style="height: 30px; width: 50px;" > 
-						</div>
-</div>
-	</div>
+						'.$frm_submit.'					
+						
+		</div>
+	</div>';}
+	else {
+		echo '<div id="" class="font-weight-normal px-3">
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label" for="reg_mb_nick">Your peny:'.number_format($member['mb_peny']).'</label>
+					<div class="col-sm-4"></div>
+				</div>
+			 </div>';
+	}
+	?>
 	<div id="point_info" class="font-weight-normal px-3 pb-2">
 		전체 <?php echo number_format($total_count) ?>건 / <?php echo $page ?>페이지
 	</div>
@@ -161,8 +205,6 @@ $niitdun=0;
 				<?php echo $row['po_datetime']; ?>
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-			
-
 				<?php echo $po_content ?>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
@@ -234,4 +276,6 @@ $niitdun=0;
 			<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, $_SERVER['SCRIPT_NAME'].'?'.$qstr.'&amp;page='); ?>
 		</ul>
 	</div>
-</section>  
+	</form>
+</section>
+

@@ -1066,7 +1066,6 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
         
     $too = mt_rand($startlimit, $endlimit);       
     $po_mb_point = $mb_point + $too;    
-    $po_expire_date = date('Y-m-d', strtotime('+'.($expire - 1).' days', G5_SERVER_TIME));   
 
     // insert point to  point2 table 
     $sql = " insert into {$g5['point2_table']}
@@ -1075,9 +1074,7 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
                     po_content = '".addslashes($content)."',
                     po_point = '$too',
                     po_use_point = '0',
-                    po_mb_point = '$po_mb_point',
-                    po_expired = '$po_expired',
-                    po_expire_date = '$po_expire_date',
+                    po_mb_point = '$po_mb_point',       
                     po_rel_table = '$rel_table',
                     po_rel_id = '$rel_id',
                     po_rel_action = '$rel_action' ";
@@ -1092,10 +1089,58 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
     return 1;
 }
 
-function insert_use_fragment($mb_id, $point, $po_id=''){
+function get_penylimit (){
+    $limit=0;
+    $sql="select fr_peny_limit FROM g5_fragment_admin_limit ORDER BY fr_id DESC limit 1";
+    $result = sql_query($sql);
+    for($i=0; $row=sql_fetch_array($result); $i++) {
+        $limit=$row['fr_peny_limit'];
+    }
+    return  $limit;
+}
+
+function get_peny($mb_id){
     global $g5, $config;
 
+    $mb_peny=0;
+    $sql="select mb_peny FROM {$g5['member_table']} where mb_id = '$mb_id'";
     
+    $result = sql_query($sql);
+    for($i=0; $row=sql_fetch_array($result); $i++) {
+        $mb_peny=$row['mb_peny'];          
+    }
+    return  $mb_peny;
+}
+//  fragment use funtion   fragment to peny  
+function insert_use_fragment($mb_id, $point,$peny){
+    global $g5, $config;
+    
+    $mb_point;$penysum;
+
+    $sql=" select mb_point2 from  {$g5['member_table']} where mb_id = '$mb_id'";
+    $result = sql_query($sql);
+    for($i=0; $row=sql_fetch_array($result); $i++) {
+        $mb_point=$row['mb_point2'];
+    }   
+
+    $too = $point * (-1);
+    
+    $penysum = $peny + $point;
+    $po_mb_point = $mb_point + $too;  
+    $sql = " insert into {$g5['point2_table']}
+                set mb_id = '$mb_id',
+                    po_datetime = '".G5_TIME_YMDHIS."',
+                    po_content = 'Peny exchange',
+                    po_point = '$too',
+                    po_use_point = '0',
+                    po_mb_point = '$po_mb_point',
+                    po_rel_action = 'convert' ";
+    sql_query($sql);
+
+    $sql = " update {$g5['member_table']} set mb_point2 = '$po_mb_point', mb_peny='$penysum' where mb_id = '$mb_id'";
+    echo $sql;
+    sql_query($sql);
+
 }
 
 // 사용포인트 입력
