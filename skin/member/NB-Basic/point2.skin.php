@@ -7,11 +7,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 @include_once(G5_THEME_PATH.'/common.php');
 
 
-
-
 $mb_id='';
 $point='';
-
+$wer=2;
 $penychangelimit = get_penylimit();
 
 if ($w == '') {}
@@ -24,7 +22,7 @@ else if ($w == 'u')
 	else {
 		$mb_id=$member['mb_id'];
 		$point=$_POST['niittoo'];
-		insert_use_fragment($mb_id, $point,$member['mb_peny']);
+		insert_use_fragment($mb_id, $point,$member['mb_peny'],$wer);
 		goto_url($PHP_SELF, false);
 	}	
 }
@@ -138,13 +136,12 @@ if ($member['mb_level']>=12 && $member['mb_level']<=22)
 {
 echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 <div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_nick">전환할 파운드를 입력하세요</label>
+						<label class="col-form-label" for="reg_mb_nick">전환할 파운드를 입력하세요</label>
 						<div class="col-sm-4">
 							<input type="hidden" name="mb_nick_default" value="">
 							<input type="number" min="'.$penychangelimit.'" max="'.$member['mb_point2'].'" name="niittoo" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="10만 파운드 이상 전환 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
 						</div>
-						'.$frm_submit.'					
-						
+						'.$frm_submit.'
 		</div>
 	</div>';}
 	else {

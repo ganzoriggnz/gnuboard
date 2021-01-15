@@ -1112,22 +1112,24 @@ function get_peny($mb_id){
     return  $mb_peny;
 }
 //  fragment use funtion   fragment to peny  
-function insert_use_fragment($mb_id, $point,$peny){
+function insert_use_fragment($mb_id, $point,$peny,$wer=''){
     global $g5, $config;
     
     $mb_point;$penysum;
+    
+    
 
-    $sql=" select mb_point2 from  {$g5['member_table']} where mb_id = '$mb_id'";
+    $sql=" select mb_point$wer from  {$g5['member_table']} where mb_id = '$mb_id'";
     $result = sql_query($sql);
     for($i=0; $row=sql_fetch_array($result); $i++) {
-        $mb_point=$row['mb_point2'];
+        $mb_point=$row['mb_point'.$wer];
     }   
 
     $too = $point * (-1);
     
     $penysum = $peny + $point;
     $po_mb_point = $mb_point + $too;  
-    $sql = " insert into {$g5['point2_table']}
+    $sql = " insert into {$g5['point'.$wer.'_table']}
                 set mb_id = '$mb_id',
                     po_datetime = '".G5_TIME_YMDHIS."',
                     po_content = 'Peny exchange',
@@ -1137,8 +1139,8 @@ function insert_use_fragment($mb_id, $point,$peny){
                     po_rel_action = 'convert' ";
     sql_query($sql);
 
-    $sql = " update {$g5['member_table']} set mb_point2 = '$po_mb_point', mb_peny='$penysum' where mb_id = '$mb_id'";
-    echo $sql;
+    $sql = " update {$g5['member_table']} set mb_point$wer = '$po_mb_point', mb_peny='$penysum' where mb_id = '$mb_id'";
+    // echo $sql;
     sql_query($sql);
 
 }
