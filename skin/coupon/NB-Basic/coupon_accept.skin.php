@@ -96,7 +96,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
 		</div>
     </nav>
     <div style="margin-top: 30px; margin-left: 20px; font-size: 12px;">
-        <table> 
+        <table class="coupon-accept-table"> 
             <thead>
                 <tr style="background-color: #e3e2e3;">
                     <th>발행업소</th>

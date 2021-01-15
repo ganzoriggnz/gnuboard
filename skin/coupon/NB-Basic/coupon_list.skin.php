@@ -45,21 +45,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 
 	<ul class="na-table d-table w-100 f-de" style="margin-top: 10px;">
 	<?php
-	 $result = "SELECT a.* FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}'"; 
+	$result = "SELECT a.*, c.mb_level FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id INNER JOIN $g5[member_table] c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' AND c.mb_level = '27'"; 
 	$result1=sql_query($result);
 	for ($i=0; $row = sql_fetch_array($result1); $i++) {
 	?>
-		<li class="d-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">	
-			<div class="d-none d-table-cell nw-9 f-sm font-weight-normal py-md-2 px-md-1">
+		<li class="d-table-row px-3 py-2 p-md-0 text-md-center text-muted">	
+			<div class="d-none d-table-cell nw-9 f-sm font-weight-normal py-md-2 px-md-1 border-right">
 					<?php echo "[".$row['co_entity']."]";?> 
 					
 			</div> 
-			<div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
+			<div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1" style = "border-right: 0.5px solid blue;">
 			   <a style="color:blue; font-weight: bold;" data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == 0) { echo ''; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal"';}  ?>>
 			   		<?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
 				</a>
             </div> 
-            <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1">
+            <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1" style = "border-right: 0.5px solid blue;">
 				<a style="color:blue; font-weight: bold;" data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == 0){ echo ''; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal"';} ?>>
 			   		<?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
 				</a>
@@ -181,26 +181,27 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 					</form>
 					<div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
 					<div style="margin: 10px 10px 10px 0px;">
-						<table>
+						<table style="width: 550px;">
 							<thead>
 								<tr>
-									<th>시간</th>
-									<th>업소명</th>
-									<th>경고내용</th>
-									<th>최종적용 아이디</th>
-									<th>누적횟수</th>
+								<tr style=" background:  #f8f8f8; border: 1px solid #000; font-size: 10px;">
+									<th style= "width: 25%; border: 1px solid #000; text-align: center;">시간</th>
+									<th style= "width: 20%; border: 1px solid #000; text-align: center;">업소명</th>
+									<th style= "width: 20%; border: 1px solid #000; text-align: center;">경고내용</th>
+									<th style= "width: 20%; border: 1px solid #000; text-align: center;">최종적용 아이디</th>
+									<th style= "width: 20%; border: 1px solid #000; text-align: center;">누적횟수</th>
 								</tr>
 							</thead>
 							<tbody style="background: #fff;">
 							<?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$row1['cos_nick']}' ORDER BY alt_created_datetime";
 							$res = sql_query($sql);
 							for($i=0; $row = sql_fetch_array($res); $i++) { ?>
-								<tr style="font-size: 8px;">
-									<td><?php echo $row['alt_created_datetime']; ?></td>
-									<td><?php echo $row['cos_entity']; ?></td>
-									<td><?php echo $row['alt_reason']; ?></td>
-									<td><?php echo $row['alt_created_by']; ?></td>
-									<td><?php echo $row['cos_alt_quantity']; ?></td>
+								<tr style="border: 1px solid #000;font-size: 8px;">
+									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_datetime']; ?></td>
+									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_entity']; ?></td>
+									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_reason']; ?></td>
+									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_by']; ?></td>
+									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_alt_quantity']; ?></td>
 								</tr>
 							<?php
 							} ?>
