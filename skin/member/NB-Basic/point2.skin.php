@@ -136,7 +136,7 @@ $frm_submit = '<div class="col-sm-4">
 <?php 
 if ($member['mb_level']>=12 && $member['mb_level']<=22)
 {
-echo '<div id="" class="font-weight-normal px-3">
+echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 <div class="form-group row">
 						<label class="col-sm-2 col-form-label" for="reg_mb_nick">전환할 파운드를 입력하세요</label>
 						<div class="col-sm-4">
