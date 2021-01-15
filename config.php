@@ -2,7 +2,7 @@
 
 /********************
     상수 선언
-********************/
+ ********************/
 
 define('G5_VERSION', '그누보드5');
 define('G5_GNUBOARD_VER', '5.4.2.8');
@@ -17,7 +17,7 @@ if (PHP_VERSION >= '5.1.0') {
 
 /********************
     경로 상수
-********************/
+ ********************/
 
 /*
 보안서버 도메인
@@ -47,6 +47,9 @@ define('G5_COOKIE_DOMAIN',  '');
 
 define('G5_DBCONFIG_FILE',  'dbconfig.php');
 
+//kumurbek
+define('G5_ADMIN_BBS_DIR',      'adm/bbs');
+//kumurbek
 define('G5_ADMIN_DIR',      'adm');
 define('G5_BBS_DIR',        'bbs');
 define('G5_CSS_DIR',        'css');
@@ -88,42 +91,48 @@ if (isset($g5_path['path'])) {
 } else {
     define('G5_PATH', '');
 }
-
-define('G5_ADMIN_URL',      G5_URL.'/'.G5_ADMIN_DIR);
-define('G5_BBS_URL',        G5_URL.'/'.G5_BBS_DIR);
-define('G5_CSS_URL',        G5_URL.'/'.G5_CSS_DIR);
-define('G5_DATA_URL',       G5_URL.'/'.G5_DATA_DIR);
-define('G5_IMG_URL',        G5_URL.'/'.G5_IMG_DIR);
-define('G5_JS_URL',         G5_URL.'/'.G5_JS_DIR);
-define('G5_SKIN_URL',       G5_URL.'/'.G5_SKIN_DIR);
-define('G5_PLUGIN_URL',     G5_URL.'/'.G5_PLUGIN_DIR);
-define('G5_EDITOR_URL',     G5_PLUGIN_URL.'/'.G5_EDITOR_DIR);
-define('G5_OKNAME_URL',     G5_PLUGIN_URL.'/'.G5_OKNAME_DIR);
-define('G5_KCPCERT_URL',    G5_PLUGIN_URL.'/'.G5_KCPCERT_DIR);
-define('G5_LGXPAY_URL',     G5_PLUGIN_URL.'/'.G5_LGXPAY_DIR);
-define('G5_SNS_URL',        G5_PLUGIN_URL.'/'.G5_SNS_DIR);
-define('G5_SYNDI_URL',      G5_PLUGIN_URL.'/'.G5_SYNDI_DIR);
-define('G5_MOBILE_URL',     G5_URL.'/'.G5_MOBILE_DIR);
+//kumurbek
+define('G5_ADMIN_BBS_URL', G5_URL . '/' . G5_ADMIN_BBS_DIR);
+//kumurbek
+define('G5_ADMIN_URL',      G5_URL . '/' . G5_ADMIN_DIR);
+define('G5_BBS_URL',        G5_URL . '/' . G5_BBS_DIR);
+define('G5_CSS_URL',        G5_URL . '/' . G5_CSS_DIR);
+define('G5_DATA_URL',       G5_URL . '/' . G5_DATA_DIR);
+define('G5_IMG_URL',        G5_URL . '/' . G5_IMG_DIR);
+define('G5_JS_URL',         G5_URL . '/' . G5_JS_DIR);
+define('G5_SKIN_URL',       G5_URL . '/' . G5_SKIN_DIR);
+define('G5_PLUGIN_URL',     G5_URL . '/' . G5_PLUGIN_DIR);
+define('G5_EDITOR_URL',     G5_PLUGIN_URL . '/' . G5_EDITOR_DIR);
+define('G5_OKNAME_URL',     G5_PLUGIN_URL . '/' . G5_OKNAME_DIR);
+define('G5_KCPCERT_URL',    G5_PLUGIN_URL . '/' . G5_KCPCERT_DIR);
+define('G5_LGXPAY_URL',     G5_PLUGIN_URL . '/' . G5_LGXPAY_DIR);
+define('G5_SNS_URL',        G5_PLUGIN_URL . '/' . G5_SNS_DIR);
+define('G5_SYNDI_URL',      G5_PLUGIN_URL . '/' . G5_SYNDI_DIR);
+define('G5_MOBILE_URL',     G5_URL . '/' . G5_MOBILE_DIR);
 
 // PATH 는 서버상에서의 절대경로
-define('G5_ADMIN_PATH',     G5_PATH.'/'.G5_ADMIN_DIR);
-define('G5_BBS_PATH',       G5_PATH.'/'.G5_BBS_DIR);
-define('G5_DATA_PATH',      G5_PATH.'/'.G5_DATA_DIR);
-define('G5_EXTEND_PATH',    G5_PATH.'/'.G5_EXTEND_DIR);
-define('G5_LIB_PATH',       G5_PATH.'/'.G5_LIB_DIR);
-define('G5_PLUGIN_PATH',    G5_PATH.'/'.G5_PLUGIN_DIR);
-define('G5_SKIN_PATH',      G5_PATH.'/'.G5_SKIN_DIR);
-define('G5_MOBILE_PATH',    G5_PATH.'/'.G5_MOBILE_DIR);
-define('G5_SESSION_PATH',   G5_DATA_PATH.'/'.G5_SESSION_DIR);
-define('G5_EDITOR_PATH',    G5_PLUGIN_PATH.'/'.G5_EDITOR_DIR);
-define('G5_OKNAME_PATH',    G5_PLUGIN_PATH.'/'.G5_OKNAME_DIR);
+//kumurbek
+define('G5_ADMIN_BBS_PATH', G5_PATH . '/' . G5_ADMIN_BBS_DIR);
+//kumurbek
 
-define('G5_KCPCERT_PATH',   G5_PLUGIN_PATH.'/'.G5_KCPCERT_DIR);
-define('G5_LGXPAY_PATH',    G5_PLUGIN_PATH.'/'.G5_LGXPAY_DIR);
+define('G5_ADMIN_PATH',     G5_PATH . '/' . G5_ADMIN_DIR);
+define('G5_BBS_PATH',       G5_PATH . '/' . G5_BBS_DIR);
+define('G5_DATA_PATH',      G5_PATH . '/' . G5_DATA_DIR);
+define('G5_EXTEND_PATH',    G5_PATH . '/' . G5_EXTEND_DIR);
+define('G5_LIB_PATH',       G5_PATH . '/' . G5_LIB_DIR);
+define('G5_PLUGIN_PATH',    G5_PATH . '/' . G5_PLUGIN_DIR);
+define('G5_SKIN_PATH',      G5_PATH . '/' . G5_SKIN_DIR);
+define('G5_MOBILE_PATH',    G5_PATH . '/' . G5_MOBILE_DIR);
+define('G5_SESSION_PATH',   G5_DATA_PATH . '/' . G5_SESSION_DIR);
+define('G5_EDITOR_PATH',    G5_PLUGIN_PATH . '/' . G5_EDITOR_DIR);
+define('G5_OKNAME_PATH',    G5_PLUGIN_PATH . '/' . G5_OKNAME_DIR);
 
-define('G5_SNS_PATH',       G5_PLUGIN_PATH.'/'.G5_SNS_DIR);
-define('G5_SYNDI_PATH',     G5_PLUGIN_PATH.'/'.G5_SYNDI_DIR);
-define('G5_PHPMAILER_PATH', G5_PLUGIN_PATH.'/'.G5_PHPMAILER_DIR);
+define('G5_KCPCERT_PATH',   G5_PLUGIN_PATH . '/' . G5_KCPCERT_DIR);
+define('G5_LGXPAY_PATH',    G5_PLUGIN_PATH . '/' . G5_LGXPAY_DIR);
+
+define('G5_SNS_PATH',       G5_PLUGIN_PATH . '/' . G5_SNS_DIR);
+define('G5_SYNDI_PATH',     G5_PLUGIN_PATH . '/' . G5_SYNDI_DIR);
+define('G5_PHPMAILER_PATH', G5_PLUGIN_PATH . '/' . G5_PHPMAILER_DIR);
 //==============================================================================
 
 
@@ -141,7 +150,7 @@ define('G5_USE_CACHE',  true); // 최신글등에 cache 기능 사용 여부
 
 /********************
     시간 상수
-********************/
+ ********************/
 // 서버의 시간과 실제 사용하는 시간이 틀린 경우 수정하세요.
 // 하루는 86400 초입니다. 1시간은 3600초
 // 6시간이 빠른 경우 time() + (3600 * 6);
@@ -178,7 +187,7 @@ define('G5_SMTP_PORT', '25');
 
 /********************
     기타 상수
-********************/
+ ********************/
 
 // 암호화 함수 지정
 // 사이트 운영 중 설정을 변경하면 로그인이 안되는 등의 문제가 발생합니다.
@@ -229,9 +238,8 @@ define('G5_VISIT_BROWSCAP_USE', false);
 */
 define('G5_IP_DISPLAY', '\\1.♡.\\3.\\4');
 
-if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on') {   //https 통신일때 daum 주소 js
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {   //https 통신일때 daum 주소 js
     define('G5_POSTCODE_JS', '<script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>');
 } else {  //http 통신일때 daum 주소 js
     define('G5_POSTCODE_JS', '<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>');
 }
-?>
