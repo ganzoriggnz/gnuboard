@@ -1126,7 +1126,11 @@ function insert_use_fragment($mb_id, $point,$peny,$wer=''){
     }   
 
     $too = $point * (-1);
-    
+
+    if($wer==''){
+    $point = $point *100;
+    }
+
     $penysum = $peny + $point;
     $po_mb_point = $mb_point + $too;  
     $sql = " insert into {$g5['point'.$wer.'_table']}

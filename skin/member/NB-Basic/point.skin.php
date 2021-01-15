@@ -134,7 +134,7 @@ if ($member['mb_level']>=12 && $member['mb_level']<=22)
 {
 echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 <div class="form-group row">
-						<label class="col-form-label" for="reg_mb_nick">전환할 파운드를 입력하세요</label>
+						<label class="col-form-label" for="reg_mb_nick">1 파운드 100 페니 (1:100)</label>
 						<div class="col-sm-4">
 							<input type="hidden" name="mb_nick_default" value="">
 							<input type="number" min="'.$penychangelimit.'" max="'.$member['mb_point'].'" name="niittoo" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="10만 파운드 이상 전환 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
