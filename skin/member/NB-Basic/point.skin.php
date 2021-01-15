@@ -28,7 +28,7 @@ else if ($w == 'u')
 
 $frm_submit = '<div class="col-sm-4">
 <input type="submit" value="전환" class="btn_submit" accesskey="s" action="" onSubmit=""  style="height: 30px; width: 50px;" > 
-<label class="col-form-label" for="reg_mb_nick">Your peny:'.number_format($member['mb_peny']).'</label>
+<label class="col-form-label" for="reg_mb_nick">페니 : '.number_format($member['mb_peny']).'</label>
 </div>';
 
 

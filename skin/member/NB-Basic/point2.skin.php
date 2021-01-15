@@ -30,7 +30,7 @@ else if ($w == 'u')
 
 $frm_submit = '<div class="col-sm-4">
 <input type="submit" value="전환" class="btn_submit" accesskey="s" action="" onSubmit=""  style="height: 30px; width: 50px;" > 
-<label class="col-form-label" for="reg_mb_nick">Your peny:'.number_format($member['mb_peny']).'</label>
+<label class="col-form-label" for="reg_mb_nick">페니 : '.number_format($member['mb_peny']).'</label>
 </div>';
 
 ?>
@@ -63,7 +63,7 @@ $frm_submit = '<div class="col-sm-4">
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point2.php">
                                 <span>
                                 <i class="fa fa-book">
-                                파편조각: <b><?php echo number_format($member['mb_point2']);?></b>
+                                파편조각 : <b><?php echo number_format($member['mb_point2']);?></b>
                                 </i>
                                 </span>
                             </a>
@@ -147,7 +147,7 @@ echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 	else {
 		echo '<div id="" class="font-weight-normal px-3">
 				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" for="reg_mb_nick">Your peny:'.number_format($member['mb_peny']).'</label>
+					<label class="col-sm-2 col-form-label" for="reg_mb_nick">Your peny: '.number_format($member['mb_peny']).'</label>
 					<div class="col-sm-4"></div>
 				</div>
 			 </div>';
