@@ -1,4 +1,4 @@
-#user_cate {margin-left: 20px;} 
+#user_cate {margin-left: 0px;} 
 #user_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #user_cate ul {zoom:1}
 #user_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
@@ -27,28 +27,29 @@ box-shadow:inset 0 2px 5px rgb(33, 135, 202)}
 .coupon_noti ul {margin:10px;}
 .coupon_noti ul li {list-style-type:disc; margin-left:12px; margin-bottom:5px;}
 
-.coupon_info {float:left;margin-top:20px;}
+.coupon_info {float:left;margin-top:30px;}
 .coupon_info h6 {margin-left: 180px;}
 .coupon_info .p-20 {padding:20px 0px;}
 .coupon_info .p-20 .coupon_label {font-size:12px; line-height: 1.5; padding: 5px 15px; float:left;margin:0px 20px;}
 .coupon_info .p-20 .coupon_input {font-size:12px; line-height: 1.5; padding: 5px 0px; float:left; width: 200px; text-align:center;}
 .coupon_info .p-20 .coupon_btn { margin-left: 45px; margin-top: 20px; padding-top: 5px; padding-bottom: 5px; width: 200px; color: #fff;}
 .couponbg {
-  border-bottom: 1px solid rgba(0,0,0,.125);
   margin-top: 20px;
 }
-.coupon_current {float:left; margin-top:20px; margin-left: 150px;}
+.coupon_current {float:left; margin-top:10px; margin-left: 150px;}
 .coupon_current .coupon_div {padding-top: 30px; margin-left: 40px;}
 .coupon_current .coupon_div .count {text-decoration: underline; letter-spacing: 5px; line-height: 1.5; font-size: 12px;}
 
+.coupon-table {width: 320px;}
+.coupon-table .coupon-create-tr {border-bottom: 1px solid #ced4da;}
+.coupon-table .coupon-create-tr .coupon-create-th {margin-left: 40px; width: 150px; height: 45px; max-height: 45px; font-weight: lighter; text-align: center;}
+.coupon-table .coupon-create-tr .coupon-create-td  {margin-left: 40px; width: 150px; height: 40px; max-height: 40px; text-align: center;}
+
 /****************************************************************************************************************************/
 
-/* Coupon accetp */
-/* #coupon_accept {margin-top: 30px; margin-left: 20px; line-height: 2;}
-#coupon_accept .coupon_noti {margin-top: 100px; line-height: 2;}
-#coupon_accept span {margin-left:3px; color: blue;}  */
+/* Coupon accept */
 
-table {
+.coupon_accept_table {
   border: 1px solid #ccc;
   border-collapse: collapse;
   margin: 0;
@@ -57,26 +58,26 @@ table {
   table-layout: fixed;
 }
 
-table caption {
+.coupon_accept_table caption {
   font-size: 1.5em;
   margin: .5em 0 .75em;
 }
 
-table tr {
+.coupon_accept_table tr {
   background-color: #f8f8f8; 
 }
 
-table th {
+.coupon_accept_table th {
     border: 1px solid #ddd;
     padding: .625em;
     text-align: center;
 }
-table td {
+.coupon_accept_table td {
   border: 1px solid #ddd;
   text-align: center;
 }
 
-table th {
+.coupon_accept_table th {
   font-size: .85em;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -86,16 +87,16 @@ table th {
 .disabled {background: #6495ED; width: 100%; height: 100%; padding: .625em; margin:none; border: none;}
 
 @media screen and (max-width: 600px) {
-  table {
+  .coupon_accept_table {
     border: 0;
     margin-left: 20px;
   }
 
-  table caption {
+  .coupon_accept_table caption {
     font-size: 1.3em;
   }
   
-  table thead {
+  .coupon_accept_table thead {
     border: none;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -106,20 +107,20 @@ table th {
     width: 1px;
   }
   
-  table tr {
+  .coupon_accept_table tr {
     border-bottom: 3px solid #ddd;
     display: block;
     margin-bottom: .625em;
   }
   
-  table td {
+  .coupon_accept_table td {
     border-bottom: 1px solid #ddd;
     display: block;
     font-size: .8em;
     text-align: right;
   }
   
-  table td::before {
+  .coupon_accept_table td::before {
     /*
     * aria-label has no advantage, it won't be read inside a table
     content: attr(aria-label);
@@ -130,7 +131,7 @@ table th {
     text-transform: uppercase;
   }
   
-  table td:last-child {
+  .coupon_accept_table td:last-child {
     border-bottom: 0;
   }
   

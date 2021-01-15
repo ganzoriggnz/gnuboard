@@ -6,6 +6,7 @@ $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
 $g5['coupon_sent_table'] = $g5['table_prefix'] . "coupon_sent";    // 쿠폰 sent 테이블
 $g5['coupon_alert_table'] = $g5['table_prefix'] . "coupon_alert";    // 쿠폰 alert 테이블
+$g5['coupon_msg_table'] = $g5['table_prefix'] . "coupon_msg";    // 쿠폰 message 테이블
 
 if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_table]",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table = "CREATE TABLE $g5[coupon_table] (   
@@ -66,6 +67,19 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { /
     )";
 
    sql_query($sql_table2, false);
+} 
+
+if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_msg_table]",false)) { // 쿠폰 테이블이 없다면 생성
+    $sql_table3 = "CREATE TABLE $g5[coupon_msg_table] (
+        msg_no int(11) NOT NULL AUTO_INCREMENT, 
+        msg_customer_text text(255) NOT NULL DEFAULT '',  
+        msg_entity_text text(255) NOT NULL DEFAULT '',           
+        msg_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        PRIMARY KEY (msg_no),
+        INDEX (msg_created_datetime)
+    )";
+
+   sql_query($sql_table3, false);
 }   
 
 $mb_id = trim($member['mb_id']);

@@ -32,7 +32,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/point2.php">
                                 <span>
                                 <i class="fa fa-book">
-                                파편조각 :
+                                파편조각 : <b><?php echo number_format($member['mb_point2']);?></b>
                                 </i>
                                 </span>
                             </a>

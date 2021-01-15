@@ -6,7 +6,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 
 ?>
 
-<div id="bo_v">
+<div id="bo_v" style="height: 320px;">
     <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
 		<div class="px-3 px-sm-0">
 			<div class="d-flex">
@@ -153,14 +153,33 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             </script>
         </div>
         <div class="coupon_current">
-            <h6>이번달 잔여 쿠폰 개수</h6>
+            <!-- <h6>이번달 잔여 쿠폰 개수</h6>
 
             <div class="coupon_div">
                 <p class="count"><span><?php echo $diff_s; ?></span><span>/</span><span><?php echo $row1['co_sale_num']; ?></span></p>
             </div>
             <div class="coupon_div">
                 <p class="count"><span><?php echo $diff_f; ?></span><span>/</span><span><?php echo $row1['co_free_num']; ?></span></p>
-            </div>
+            </div> -->
+
+            <table class="coupon-table">
+                <thead>
+                    <tr class="coupon-create-tr">
+                        <th class="coupon-create-th">이번달 쿠폰 지원 개수</th>
+                        <th class="coupon-create-th">이번달 잔여 쿠폰 개수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="coupon-create-tr">
+                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center;"><?php echo $row1['co_sent_snum']; ?></td>
+                        <td class="coupon-create-td"><?php echo $diff_s; ?></td>
+                    </tr>
+                    <tr class="coupon-create-tr-bottom" style="border-bottom: none;">
+                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center; padding-top: 10px;"><?php echo $row1['co_sent_fnum']; ?></td>
+                        <td class="coupon-create-td" style="text-align: center; padding-top: 10px;"><?php echo $diff_f; ?></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>  
         </section>

@@ -17,6 +17,7 @@ $g5['coupon_sent_table'] = $g5['table_prefix'] . "coupon_sent";    // 쿠폰 sen
 $g5['coupon_alert_table'] = $g5['table_prefix'] . "coupon_alert";    // 쿠폰 alert 테이블
 $g5['write_prefix']        = "g5_write_";
 $g5['bo_table'] = $g5['write_prefix'] . $bo_table;
+$g5['member_table'] = $g5['table_prefix'] . "member";
 
 $co_created_datetime = G5_TIME_YMDHIS;
 $currentmonth = substr($co_created_datetime, 5, 2);

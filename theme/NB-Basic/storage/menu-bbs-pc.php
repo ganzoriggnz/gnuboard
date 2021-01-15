@@ -70,7 +70,7 @@ $data=array (
       4 =>
       array (
         'text' => '오피-강원/충청/대전',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiDaejeon_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opidaejeon_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -83,7 +83,7 @@ $data=array (
       5 =>
       array (
         'text' => '오피-경상영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiGyeongsang_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opigyeongsang_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -845,7 +845,7 @@ $data=array (
       8 =>
       array (
         'text' => '왕궁 게시판',
-        'href' => G5_BBS_URL.'/board.php?bo_table=Palace',
+        'href' => G5_BBS_URL.'/board.php?bo_table=palace',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_self',
@@ -871,7 +871,7 @@ $data=array (
       10 =>
       array (
         'text' => '건의사항',
-        'href' => G5_BBS_URL.'/board.php?bo_table=Suggestions',
+        'href' => G5_BBS_URL.'/board.php?bo_table=suggestions',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_self',
@@ -926,7 +926,7 @@ $data=array (
       1 =>
       array (
         'text' => '파운드페니로전환',
-        'href' => '#',
+        'href' => G5_BBS_URL.'/point.php',
         /* 'icon' => 'fa-cogs', */
         'icon'  => 'baseline-headset_mic-24px',
         'target' => '_self',
@@ -938,8 +938,8 @@ $data=array (
       ),
       2 =>
       array (
-        'text' => '페니구매',
-        'href' => '#',
+        'text' => '파편조각페니로전환',
+        'href' =>  G5_BBS_URL.'/point2.php',
         /* 'icon' => 'fa-cogs', */
         'icon'  => 'baseline-headset_mic-24px',
         'target' => '_self',

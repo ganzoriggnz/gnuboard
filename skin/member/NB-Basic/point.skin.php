@@ -3,6 +3,35 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
+
+
+$mb_id='';
+$point='';
+
+$penychangelimit = get_penylimit();
+
+if ($w == '') {}
+else if ($w == 'u')
+{	
+	if($_POST['niittoo']<$penychangelimit || $_POST['niittoo']>$member['mb_point']){
+		alert("Tanii solih bolomjtoi hamgiin dood ym ".$penychangelimit." Deed dun!!! ".$member['mb_point'].
+		" tanii ene dun hetersen esbel baga bn : ".$_POST['niittoo']);
+	}
+	else {
+		$mb_id=$member['mb_id'];
+		$point=$_POST['niittoo'];
+		insert_use_fragment($mb_id, $point,$member['mb_peny']);
+		goto_url($PHP_SELF, false);
+	}	
+}
+
+
+$frm_submit = '<div class="col-sm-4">
+<input type="submit" value="전환" class="btn_submit" accesskey="s" action="" onSubmit=""  style="height: 30px; width: 50px;" > 
+<label class="col-form-label" for="reg_mb_nick">페니 : '.number_format($member['mb_peny']).'</label>
+</div>';
+
+
 ?>
 <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
 		<div class="px-3 px-sm-0">
@@ -31,7 +60,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point2.php">
                                 <span>
                                 <i class="fa fa-book">
-                                파편조각 :
+                                파편조각 : <b><?php echo number_format($member['mb_point2']);?></b>
                                 </i>
                                 </span>
                             </a>
@@ -96,6 +125,33 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     </nav>
 
 <section id="bo_list" class="mb-4"> 
+
+<form name="fwrite" id="fwrite" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+		<input type="hidden" name="uid" value="<?php echo get_uniqid(); ?>">
+		<input type="hidden" name="w" value="u">
+<?php 
+if ($member['mb_level']>=12 && $member['mb_level']<=22)
+{
+echo '<div id="" class="font-weight-normal px-3 pt-3 ">
+<div class="form-group row">
+						<label class="col-form-label" for="reg_mb_nick">전환할 파운드를 입력하세요</label>
+						<div class="col-sm-4">
+							<input type="hidden" name="mb_nick_default" value="">
+							<input type="number" min="'.$penychangelimit.'" max="'.$member['mb_point'].'" name="niittoo" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="10만 파운드 이상 전환 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
+						</div>
+						'.$frm_submit.'
+		</div>
+	</div>';}
+	else {
+		echo '<div id="" class="font-weight-normal px-3">
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label" for="reg_mb_nick">Your peny:'.number_format($member['mb_peny']).'</label>
+					<div class="col-sm-4"></div>
+				</div>
+			 </div>';
+	}
+	?>
+
 	<div id="point_info" class="font-weight-normal px-3 pb-2 pt-4">
 		전체 <?php echo number_format($total_count) ?>건 / <?php echo $page ?>페이지
 	</div>
@@ -149,7 +205,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			<?php if ($row['po_expired'] == 1) { ?>
 					<span<?php echo $expr ?>>만료 <?php echo substr(str_replace('-', '', $row['po_expire_date']), 2) ?></span>
 					<span class="na-bar"></span>
-				<?php } else if($row['po_expire_date'] != '9999-12-31') { ?>
+				<?php } else if($row['po_expire_date'] != '9999-12-31' && $row['po_rel_action'] != 'convert') { ?>
 					<span<?php echo $expr ?>><?php echo $row['po_expire_date'] ?></span>
 					<span class="na-bar"></span>
 				<?php } ?>
@@ -223,4 +279,5 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, $_SERVER['SCRIPT_NAME'].'?'.$qstr.'&amp;page='); ?>
 		</ul>
 	</div>
+	</form>
 </section>  
