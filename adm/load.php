@@ -13,7 +13,7 @@ $result = sql_query($query);
 while($row = sql_fetch_array($result))
 {
  $data[] = array(
-  'id'   => 100,
+  'id'   => '100',
   'title'   => '(원가권) '.$row['cos_nick'],
   'start'   => $row['cos_created_datetime'],
   'end'   => $row['cos_created_datetime'],
@@ -29,7 +29,7 @@ $result1 = sql_query($query1);
 while($row1 = sql_fetch_array($result1))
 {
  $data[] = array(
-  'id'   => 200,
+  'id'   => '200',
   'title'   => '(원가권) '.$row1['cos_nick'],
   'start'   => $row1['cos_accepted_datetime'],
   'end'   => $row1['cos_accepted_datetime'],
@@ -45,7 +45,7 @@ $result2 = sql_query($query2);
 while($row2 = sql_fetch_array($result2))
 {
  $data[] = array(
-  'id'   => 300,
+  'id'   => '300',
   'title'   => '(원가권) '.$row2['cos_nick'].'('.$row2['cos_alt_quantity'].')',
   'start'   => $row2['cos_post_datetime'],
   'end'   => $row2['cos_post_datetime'],

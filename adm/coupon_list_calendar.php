@@ -26,6 +26,7 @@ include_once('./admin.head.php');
 
 <script type="text/javascript">
 
+debugger;
 document.addEventListener('DOMContentLoaded', function() {
     var initialLocaleCode = 'ko';
     var calendarEl = document.getElementById('calendar');
@@ -47,8 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 $('#script-warning').show();
             }
 		},
-		eventClick: function(event, jsEvent, view){
-			var id = event.id;
+		eventClick: function(info){
+			var eventObj = info.event;
+			var id = eventObj.id;
 			if(id == '100'){
 				$('#couponDelete .modal-body p').html(event.title);
 				$('#couponDelete').modal();
