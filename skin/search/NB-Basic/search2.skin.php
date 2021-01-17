@@ -11,7 +11,7 @@ $head_color = ($wset['head_color']) ? $wset['head_color'] : 'primary';
 
 ?>
 
-<div id="sch_res_detail" class="mb-4">
+<div id="sch_res_detail pt-2" class="mb-4">
 	<div class="alert bg-light border p-2 p-sm-3 mb-3 mx-3 mx-sm-0">
 		<form name="fsearch" onsubmit="return fsearch_submit(this);" action="<?php echo G5_BBS_URL."/board.php"?>" method="get" class="m-auto" style="max-width:600px;">
 		<input type="hidden" name="bo_table" value="gallery">
@@ -20,9 +20,10 @@ $head_color = ($wset['head_color']) ? $wset['head_color'] : 'primary';
 
 		<legend class="sound_only">상세검색</legend>
 		<div class="form-row mx-n1">
-			<div class="col-12 col-sm-6 pt-2 pt-sm-0 px-1">				
+			<div class="col-12 pt-2 pt-sm-0 px-1">				
 				<div class="input-group">
-					<input type="text" id="searchd" name="searchd" value="" required class="form-control" placeholder="검색어를 입력해 주세요.">
+					<input type="text" id="searchd" name="searchd" value="" required class="form-control"
+					 placeholder="지역 이나 업종 또는 업소명을 입력하세요.">
 					<div class="input-group-append">
 						<button type="submit" class="btn btn-primary" title="검색하기">
 							<i class="fa fa-search" aria-hidden="true"></i>
