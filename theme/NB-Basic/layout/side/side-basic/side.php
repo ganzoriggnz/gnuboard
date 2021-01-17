@@ -41,7 +41,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 				<?php for ($i=0; $i < count($mes['s']); $i++) {
 					$me = $mes['s'][$i];
 				?>
-				<li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
+				<li class="me-li">
 					<?php if(isset($me['s'])) { //Is Sub Menu ?>
 						<i class="fa fa-caret-down tree-toggle me-i"></i>
 					<?php } ?>
@@ -102,22 +102,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
                 <?php if(isset($me['s'])) { //Is Sub Menu ?>
                 <?php } ?>
                 <div>
-                    <?php echo $me['text'];?>
+                    <?php echo $me['text'];?>                                      
 
-                    <!-- <a class="cat_1_bg <?php echo ($menu[1]['s'][$i]['active']) ? ' active' : ''?>"
-                       href="<?php echo $menu[1]['s'][$i]['href']; ?>"
-                       target="_<?php echo $me['me_target']; ?>">
-                        후기
-                    </a>
-                    <a class="cat_2_bg <?php echo ($me['active']) ? ' active' : ''?>"
-                       href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>">정보
-                    </a> -->
-                    <a class="cat_1_bg"
+                    <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
                        href="<?php echo $menu[1]['s'][$i]['href']; ?>"
                        target="_self">
                         후기
                     </a>
-                    <a class="cat_2_bg"
+                    <a class="cat_2_bg  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?>"
                        href="<?php echo $me['href']; ?>" target="_self">정보
                     </a>
                 </div>

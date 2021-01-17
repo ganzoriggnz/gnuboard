@@ -41,9 +41,18 @@
 #nt_side_menu .me-li.active .me-a,
 #nt_side_menu .me-li1.active .me-a1,
 #nt_side_menu .me-li2.active .me-a2 {
-	color:#000;
+	text-decoration:none; 
+	color:red !important; 
+	border-color: red !important;
 	font-weight:bold;
 }
+
+.activesubs {
+	text-decoration:none; 
+	color:red !important; 
+	border-color: red !important;
+}
+
 #nt_side_menu .me-li.line {
 	border-bottom: 2px solid #aaa; 
 	font-size: 16px; 

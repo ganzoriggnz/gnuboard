@@ -14,8 +14,7 @@ if ($w == '') {}
 else if ($w == 'u')
 {	
 	if($_POST['niittoo']<$penychangelimit || $_POST['niittoo']>$member['mb_point']){
-		alert("Tanii solih bolomjtoi hamgiin dood ym ".$penychangelimit." Deed dun!!! ".$member['mb_point'].
-		" tanii ene dun hetersen esbel baga bn : ".$_POST['niittoo']);
+		alert("보유 파운드 10만 파운드 이상 있어야 전환이 가능합니다. 현재 보유 파운드 ".$member['mb_point']." 입니다. ");
 	}
 	else {
 		$mb_id=$member['mb_id'];
