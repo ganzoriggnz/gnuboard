@@ -1,5 +1,8 @@
 <?php 
 include_once('./_common.php');
+auth_check($auth[$sub_menu], 'r');
+
+include_once('./admin.head.php');
 
 // 상수 선언
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사
@@ -29,5 +32,23 @@ if($cos_type == 'S'){
     sql_query($sql1);
 }
 
-goto_url(G5_ADMIN_URL.'/coupon_list.php?bo_table='.$cos_link); 
+goto_url(G5_ADMIN_URL.'/coupon_list.php'); 
 ?>
+<script src="<?php echo NA_URL ?>/app/bs4/js/bootstrap.bundle.min.js"></script>
+<script>
+$(document).ready(function(){
+    function load_coupon_page(id){
+        $.ajax({
+        url:"coupon_list_page.php",
+        method: "POST",
+        data: {id:id},
+        success: function(data){
+            $('#coupon_list').html(data);
+            }
+        });  
+    }
+  
+    load_coupon_page($cos_link);
+    
+});
+</script>

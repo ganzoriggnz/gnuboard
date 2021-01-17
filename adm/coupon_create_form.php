@@ -5,8 +5,8 @@ include_once('./_common.php');
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
 
-$mb_id = trim($member['mb_id']);
-$co_entity = $member['mb_name'];
+$mb_id = $_POST['mb_id'];
+$co_entity = $_POST['co_entity'];
 $co_sale_num = $_POST['co_sale_num']; 
 $co_free_num = $_POST['co_free_num'];
 $co_created_datetime = G5_TIME_YMDHIS;

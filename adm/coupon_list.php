@@ -9,14 +9,14 @@ include_once('./admin.head.php');
 
 ?>
 
-<div style="height: 800px;">
+<div style="height: 740px;">
     <div style="float: left; width: 25%;">
         <ul class="coupon">
             <?php 
                 $q = "SELECT bo_table, bo_subject FROM ".$g5['board_table']." WHERE gr_id = 'attendance' ORDER BY bo_subject ASC ";
                 $q_result = sql_query($q);
                 while($row = sql_fetch_array($q_result)) { ?>
-                    <li id = "<?php echo $row['bo_table']; ?>" style="padding: 5px 0px;"><a><img src="<?php echo G5_URL ?>/img/baseline-event-24px.png" style="margin-right: 3.5px;"><?php echo $row['bo_subject']; ?></a></li>
+                    <li style="padding: 5px 0px;"><a id = "<?php echo $row['bo_table']; ?>"><img src="<?php echo G5_URL ?>/img/baseline-event-24px.png" style="margin-right: 3.5px;"><?php echo $row['bo_subject']; ?></a></li>
             <?php
                 } 
             ?>
@@ -39,8 +39,11 @@ include_once('./admin.head.php');
       
       load_coupon_page('gunmaTechon_at');
 
-      $('.coupon li').click(function(){
-          $(this).parent().addClass('on').siblings().removeClass('on');
+      $('.coupon li a').click(function(e){
+          $('.coupon li.active').removeClass('active');
+          var $parent = $(this).parent();
+          $parent.addClass('active');
+          e.preventDefault();
           var bo_table = $(this).attr('id');
           load_coupon_page(bo_table);
       });
