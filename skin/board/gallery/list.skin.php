@@ -23,6 +23,13 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                 <?php echo $subcategory_option ?>
             </ul>
         </nav>
+        <nav id="bo_subcate">
+            <h2><?php echo $board['bo_subject'] ?> subcategory</h2>
+            <ul id="bo_subcate_ul">
+                <?php include_once($search_skin_path . '/search2.skin.php'); 
+               ?>
+            </ul>
+        </nav>
     <?php }
 
     $search_table = array();
@@ -43,11 +50,10 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
 
     $wsetss=$sca;
     $subcat=$subsca;
-    $list = na_post_rows($wsetss,$subcat); //
+    $searchd=$searchd;
+    $list = na_post_rows($wsetss,$subcat,$searchd); //
     $list_cnt = count($list);
     //-------------------------------------------------------------------------
-
-
 
     $group_select = '<label for="gr_id" class="sound_only">게시판 그룹선택</label><select name="gr_id" id="gr_id" class="select"><option value="">전체 분류';
     $sql = " select gr_id, gr_subject from {$g5['group_table']} order by gr_id ";
@@ -114,24 +120,17 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
 
         <ul id="gall_ul" class="gall_row">
             <?php
-
             for ($i = 0; $i < $list_cnt; $i++) {
-
                 $classes = array();
-
                 $classes[] = 'gall_li';
                 $classes[] = 'col-gn-' . $bo_gallery_cols;
-
                 if ($i && ($i % $bo_gallery_cols == 0)) {
                     $classes[] = 'box_clear';
                 }
-
                 if ($wr_id && $wr_id == $list[$i]['wr_id']) {
                     $classes[] = 'gall_now';
                 }
             ?>
-
-
                 <li class="<?php echo implode(' ', $classes); ?>">
                     <div class="gall_box" style="background-image:url('<?php echo G5_IMG_URL ?>/main_bgpicture.png')" style="width: 100%; height: 148px;">
                         <div class="gall_chk chk_box">

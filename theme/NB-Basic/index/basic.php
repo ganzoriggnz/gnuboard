@@ -112,9 +112,9 @@ if ($nt_wing_path)
             if (!$sfl) $sfl = 'wr_subject';
             if (!$sop) $sop = 'or';
 
-            include_once($search_skin_path . '/search.skin.php');
-            ?>
-
+            include_once($search_skin_path . '/search2.skin.php');
+            
+            ?>    
             <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
                 쿠폰 지원업소
                 <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">

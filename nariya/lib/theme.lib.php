@@ -1206,32 +1206,50 @@ function na_bo_list($gr_list, $gr_except, $bo_list, $bo_except) {
 	return array(implode(',', $plus), implode(',', $minus));
 }
 
-function na_post_rows($wset,$subcat=''){
+function na_post_rows($wset,$subcat='',$search=''){
 	global $g5;
 	$list = array();        
 		// 공통쿼리		
 		$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
 		$cnt =0;
-		for ($i=0; $res = sql_fetch_array($result); $i++) {
+
+		if ($search==''){		
+			for ($i=0; $res = sql_fetch_array($result); $i++) {
 			
-			$bo_table = $res['bo_table'];			
-			$hwrite_table = $g5['write_prefix'] . $bo_table;	
-			if($wset==''){				
-				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );
-			} else if ($subcat=='')
-				{								
-				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false  );
-			}
-			else {
-				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false  );
-			}
-			while ( $row=sql_fetch_array($result1)) {
-				$list[$cnt] = $row;
+				$bo_table = $res['bo_table'];			
+				$hwrite_table = $g5['write_prefix'] . $bo_table;	
+				if($wset==''){				
+					$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );
+				} else if ($subcat=='')
+					{								
+					$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false  );
+				}
+				else {
+					$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false  );
+				}
+				while ( $row=sql_fetch_array($result1)) {
 				
-				$cnt ++;	
-			}
+					$list[$cnt] = $row;
+					$list[$cnt]['bo_table']= $bo_table;
+					$cnt ++;	
+				}				
+			} 
+		}
+		else {
+			for ($i=0; $res = sql_fetch_array($result); $i++) {
 			
-		} 
+				$bo_table = $res['bo_table'];			
+				$hwrite_table = $g5['write_prefix'] . $bo_table;
+				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%')", false  );
+
+				while ( $row=sql_fetch_array($result1)) {
+				
+					$list[$cnt] = $row;
+					$list[$cnt]['bo_table']= $bo_table;
+					$cnt ++;	
+				}				
+			} 
+		}
 
 	return $list;
 }
