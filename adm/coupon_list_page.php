@@ -20,11 +20,94 @@ if( isset($_POST['id'])){
     $g5['write_prefix']        = "g5_write_";
     $g5['bo_table'] = $g5['write_prefix'] . $bo_table;
 
+
+    if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_table]",false)) { // 쿠폰 테이블이 없다면 생성
+        $sql_table = "CREATE TABLE $g5[coupon_table] (   
+            co_no int(11) NOT NULL AUTO_INCREMENT,         
+            mb_id varchar(20) NOT NULL DEFAULT '',
+            co_entity varchar(20) NOT NULL DEFAULT '',
+            co_sale_num int(11) NOT NULL DEFAULT '0',
+            co_free_num int(11) NOT NULL DEFAULT '0',
+            co_sent_snum int(11) NOT NULL DEFAULT '0',
+            co_sent_fnum int(11) NOT NULL DEFAULT '0',
+            co_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+            co_updated_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+            co_begin_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+            co_end_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+            PRIMARY KEY (co_no), 
+            INDEX (mb_id, co_entity)
+        )";
+    
+       sql_query($sql_table, false);
+    } 
+    
+    if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_sent_table]",false)) { // 쿠폰 테이블이 없다면 생성
+        $sql_table1 = "CREATE TABLE $g5[coupon_sent_table] (
+            cos_no int(11) NOT NULL AUTO_INCREMENT,
+            co_no int(11) NOT NULL,   
+            cos_code varchar(4) NOT NULL, 
+            cos_entity varchar(20) NOT NULL DEFAULT '',        
+            cos_nick varchar(20) NOT NULL DEFAULT '',
+            cos_type varchar(1) NOT NULL DEFAULT '',
+            cos_accept varchar(1) NOT NULL DEFAULT 'N',
+            cos_alt_quantity int(11) NOT NULL DEFAULT '0',
+            cos_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+            cos_accepted_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+            cos_post_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+            UNIQUE (cos_code),
+            PRIMARY KEY (cos_no),
+            INDEX (cos_code, cos_entity, cos_nick),
+            FOREIGN KEY (co_no) 
+                REFERENCES $g5[coupon_table](co_no) 
+                ON DELETE CASCADE
+        )";
+    
+       sql_query($sql_table1, false);
+    }  
+    
+    if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { // 쿠폰 테이블이 없다면 생성
+        $sql_table2 = "CREATE TABLE $g5[coupon_alert_table] (
+            alt_no int(11) NOT NULL AUTO_INCREMENT, 
+            cos_no int(11) NOT NULL DEFAULT '0',
+            cos_nick varchar(20) NOT NULL DEFAULT '',
+            cos_entity varchar(20) NOT NULL DEFAULT '',             
+            cos_alt_quantity int(11) NOT NULL DEFAULT '0',
+            alt_reason varchar(20) NOT NULL DEFAULT '',
+            alt_created_by varchar(20) NOT NULL DEFAULT '',
+            alt_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+            PRIMARY KEY (alt_no),
+            INDEX (cos_nick, cos_entity)
+        )";
+    
+       sql_query($sql_table2, false);
+    } 
+    
+    if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_msg_table]",false)) { // 쿠폰 테이블이 없다면 생성
+        $sql_table3 = "CREATE TABLE $g5[coupon_msg_table] (
+            msg_no int(11) NOT NULL AUTO_INCREMENT, 
+            msg_customer_text text(255) NOT NULL DEFAULT '',  
+            msg_entity_text text(255) NOT NULL DEFAULT '',           
+            msg_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+            PRIMARY KEY (msg_no),
+            INDEX (msg_created_datetime)
+        )";
+    
+       sql_query($sql_table3, false);
+    }   
+    
+    $mb_id = trim($member['mb_id']);
+    $co_entity = $_POST['co_entity'];
     $co_created_datetime = G5_TIME_YMDHIS;
     $currentmonth = substr($co_created_datetime, 5, 2);
     $co_start = date_create($co_created_datetime);
     $s_begin_date = date_format($co_start, 'Y-m-01 00:00:00');
-
+    
+    $date = date('Y-m-01');
+    $newdate = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($date)));
+    $final = date_create($newdate);
+    $nextmonth = substr($newdate, 5, 2);
+    $co_begin_datetime = $newdate;
+    
     if($currentmonth == '01')
     $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
     else if($currentmonth == '02')
@@ -49,6 +132,31 @@ if( isset($_POST['id'])){
     $s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
     else if($currentmonth == '12')
     $s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+    
+    if($nextmonth == '01')
+    $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
+    else if($nextmonth == '02')
+    $co_end_datetime = date_format($final, 'Y-m-28 23:59:59');
+    else if($nextmonth == '03')
+    $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
+    else if($nextmonth == '04')
+    $co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
+    else if($nextmonth == '05')
+    $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
+    else if($nextmonth == '06')
+    $co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
+    else if($nextmonth == '07')
+    $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
+    else if($nextmonth == '08')
+    $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
+    else if($nextmonth == '09')
+    $co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
+    else if($nextmonth == '10')
+    $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
+    else if($nextmonth == '11')
+    $co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
+    else if($nextmonth == '12')
+    $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 
     $result1 = "SELECT co_begin_datetime FROM $g5[coupon_table] WHERE co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
     $sql = sql_fetch($result1);
@@ -167,6 +275,7 @@ if( isset($_POST['id'])){
     $coupon_sent_action_url = G5_ADMIN_URL.'/coupon_sent_form.php';
     $coupon_alert_action_url = G5_ADMIN_URL.'/coupon_alert_form.php';
     $coupon_delete_action_url = G5_ADMIN_URL.'/coupon_delete_form.php';
+
     ?>
     <?php $q = "SELECT bo_subject FROM $g5[board_table] WHERE bo_table = '{$bo_table}'";
     $q1 = sql_fetch($q); ?>
@@ -208,6 +317,68 @@ if( isset($_POST['id'])){
                     ?> 
                     </ul>
                 </div>
+                <div class="modal fade" id="couponCreate" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" style="width: 400px; height: 350px; font-weight: bold;">
+                            <?php   
+                                $sql2 = "SELECT b.mb_id FROM $g5[coupon_table] a INNER JOIN $g5[member_table] b ON a.mb_id = b.mb_id WHERE a.co_entity = '{$row['co_entity']}'";
+                                $row2 = sql_fetch($sql2);
+
+                                $sql1 = "SELECT * FROM $g5[coupon_table] WHERE co_entity = '{$row['co_entity']}' AND co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
+                                $row1 = sql_fetch($sql1);
+
+                                $sql = " SELECT * FROM $g5[coupon_table] WHERE mb_id = '{$row2['mb_id']}' AND co_begin_datetime ='{$co_begin_datetime}' AND co_end_datetime ='{$co_end_datetime}'";
+                                $row = sql_fetch($sql); 
+                                
+                                $diff_s = number_format($row1['co_sale_num'] - $row1['co_sent_snum']);
+                                $diff_f = number_format($row1['co_free_num'] - $row1['co_sent_fnum']); 
+                            ?>
+                            <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰주기</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div> 	
+                                <div class="modal-body">
+                                    <input type="hidden" name="co_no" id="co_no" value="">
+                                    <input type="hidden" name="mb_id" id="mb_id" value="<?php echo $row2['mb_id']; ?>">
+                                    <input type="hidden" name="cos_type" id="cos_type" value="">
+                                    <input type="hidden" name="cos_link" id="cos_link" value="">
+                                    <div style="margin-left: 30px;"><?php echo $year."년 ".$month."월";?></div>
+                                    <div style="margin-left: 30px;"><?php echo "업소명 :";?>
+                                        <input type="text" name="cos_entity" id="cos_entity" value="<?php echo $row['co_entity']; ?>" style="border:none; outline: none; width: 100px; font-size: 12px; font-weight: bold;">							
+                                    </div>
+                                    <div class="coupon_info">
+                                        <h6>지원 설정</h6>
+                                        <div class="p-20">
+                                            <div class="coupon_label">원가권 :</div>
+                                            <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="" class="coupon_input" >
+                                        </div>
+                                        <div class="p-20">
+                                            <div class="coupon_label">무료권 :</div>
+                                            <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="" class="coupon_input">
+                                        </div>
+                                    </div>
+                                    <div class="coupon_current">
+                                        <h6>현재 잔여갯수</h6>
+                                        <div class="coupon_div">
+                                            <p class="count"><?php echo $diff_s; ?></p>
+                                        </div>
+                                        <div class="coupon_div">
+                                            <p class="count"><span><?php echo $diff_f; ?></p>	
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div style="margin-left: 30px; margin: 120px auto; text-align: center;">
+                                        <button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 50px;">보내기</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </li>
         <?php } ?>
         </ul>
@@ -219,8 +390,18 @@ if( isset($_POST['id'])){
 
         <div class="modal fade" id="couponCreate" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
             <div class="modal-dialog" role="document">
-                <div class="modal-content" style="width: 350px; height: 250px; font-weight: bold;">
-                    <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_sent_action_url; ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+                <div class="modal-content" style="width: 400px; height: 350px; font-weight: bold;">
+                    <?php 
+                        $sql = " SELECT * FROM $g5[coupon_table] WHERE co_entity = '{$co_entity}' AND co_begin_datetime ='{$co_begin_datetime}' AND co_end_datetime ='{$co_end_datetime}'";
+                        $row = sql_fetch($sql); 
+                        
+                        $sql1 = "SELECT * FROM $g5[coupon_table] WHERE co_entity = '{$co_entity}' AND co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
+                        $row1 = sql_fetch($sql1);
+                        
+                        $diff_s = number_format($row1['co_sale_num'] - $row1['co_sent_snum']);
+                        $diff_f = number_format($row1['co_free_num'] - $row1['co_sent_fnum']); 
+                    ?>
+                    <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
                         <div class="modal-header">
                             <h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰주기</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -236,17 +417,30 @@ if( isset($_POST['id'])){
                             <div style="margin-left: 30px;"><?php echo "업소명 :";?>
                                 <input type="text" name="cos_entity" id="cos_entity" value="" style="border:none; outline: none; width: 100px; font-size: 12px; font-weight: bold;">							
                             </div>
-                            <!-- <div style="margin-left:120px;">받는사람 닉네임</div>		
-                            <div style="margin-left:30px; margin-top:10px;">
-                                <input type="text" name="cos_nick" id="mb_nick" style="background: #00FFFF; display:inline; width: 160px;"/>		
-                                <input type="button" name="check_id" id="check_id" value="닉네임 확인" style="background: #6495ED; display:inline; width: 100px;"/>
+                            <div class="coupon_info">
+                                <h6>지원 설정</h6>
+                                <div class="p-20">
+                                    <div class="coupon_label">원가권 :</div>
+                                    <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="" class="coupon_input" >
+                                </div>
+                                <div class="p-20">
+                                    <div class="coupon_label">무료권 :</div>
+                                    <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="" class="coupon_input">
+                                </div>
                             </div>
-                            <div id="result" style="margin-left:30px; margin-top: 10px;" >
-                            </div> -->			
+                            <div class="coupon_current">
+                                <h6>현재 잔여갯수</h6>
+                                <div class="coupon_div">
+                                    <p class="count"><?php echo $diff_s; ?></p>
+                                </div>
+                                <div class="coupon_div">
+                                    <p class="count"><span><?php echo $diff_f; ?></p>	
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-                                <button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px;">보내기</button>
+                            <div style="margin-left: 30px; margin: 120px auto; text-align: center;">
+                                <button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 50px;">보내기</button>
                             </div>
                         </div>
                     </form>
