@@ -46,6 +46,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 	<ul class="na-table d-table w-100 f-de" style="margin-top: 10px;">
 	<?php
 	$result = "SELECT a.*, c.mb_level FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id INNER JOIN $g5[member_table] c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' AND c.mb_level = '27'"; 
+	echo $result;
 	$result1=sql_query($result);
 	for ($i=0; $row = sql_fetch_array($result1); $i++) {
 	?>

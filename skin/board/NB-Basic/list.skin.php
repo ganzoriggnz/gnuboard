@@ -151,7 +151,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 								<button type="button" class="btn_bbs" onclick="location.href='<?php echo $write_href ?>'">
 									<i class="fas fa-pencil-alt"></i> 글쓰기
 								</button>
-							</div>
+								</div>
 						
 						
 													

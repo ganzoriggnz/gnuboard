@@ -1211,7 +1211,7 @@ function na_post_rows($wset,$subcat='',$search=''){
 	$list = array();        
 		// 공통쿼리		
 		$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
-		$cnt =0;
+		$cnt=0;
 
 		if ($search==''){		
 			for ($i=0; $res = sql_fetch_array($result); $i++) {
@@ -1227,8 +1227,7 @@ function na_post_rows($wset,$subcat='',$search=''){
 				else {
 					$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false  );
 				}
-				while ( $row=sql_fetch_array($result1)) {
-				
+				while ( $row=sql_fetch_array($result1)) {				
 					$list[$cnt] = $row;
 					$list[$cnt]['bo_table']= $bo_table;
 					$cnt ++;	
