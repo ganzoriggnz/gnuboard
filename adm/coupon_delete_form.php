@@ -51,4 +51,5 @@ $(document).ready(function(){
     load_coupon_page($cos_link);
     
 });
+
 </script>

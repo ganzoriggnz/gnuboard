@@ -71,7 +71,58 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
-<!-- <div id="bo_list" style="width:<?php echo $width; ?>"> -->
+
+<?php 
+
+if($w == 'd'){
+	$cos_no = $_POST['cos_no'];
+	$co_no = $_POST['co_no'];
+	$cos_code = $_POST['cos_code'];
+	$cos_type = $_POST['cos_type'];
+
+	$sql = "DELETE FROM $g5[coupon_sent_table] 
+			WHERE cos_code = '{$cos_code}' AND cos_no = '{$cos_no}'";
+
+	sql_query($sql);
+
+	if($cos_type == 'S'){
+		$sql1 = " UPDATE $g5[coupon_table]
+				SET co_sent_snum = co_sent_snum - 1
+				WHERE co_no = '{$_POST['co_no']}' "; 
+		sql_query($sql1);
+	} else if($cos_type == 'F') {
+		$sql1 = " UPDATE $g5[coupon_table]
+				SET co_sent_fnum = co_sent_fnum - 1
+				WHERE co_no = '{$_POST['co_no']}' "; 
+		sql_query($sql1);
+	}
+	goto_url($PHP_SELF, false);
+}
+else if($w == 'u'){
+	$cos_nick = $_POST['cos_nick'];
+	$cos_entity = $_POST['cos_entity'];
+	$cos_alt_quantity = $_POST['cos_alt_quantity'];
+	$alt_created_datetime = G5_TIME_YMDHIS;
+
+	$sql = "INSERT INTO $g5[coupon_alert_table] 
+				SET cos_no = '0',
+					cos_nick = '{$cos_nick}',
+					cos_entity = '-',
+					cos_alt_quantity = '{$cos_alt_quantity}',
+					alt_reason = '경고횟수 변경',
+					alt_created_by = '{$member['mb_nick']}',
+					alt_created_datetime = '{$alt_created_datetime}' ";
+
+	sql_query($sql);
+
+	$sql1 = "UPDATE $g5[coupon_sent_table] 
+				SET cos_alt_quantity = '{$cos_alt_quantity}'
+				WHERE cos_accept='Y' AND cos_nick = '{$cos_nick}' AND cos_entity = '{$cos_entity}'";
+
+	sql_query($sql1);
+	goto_url($PHP_SELF, false);
+}
+?>
 	<div id="calendar"></div>
 	<div class="modal fade" id="couponDelete" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
 		<div class="modal-dialog" role="document">
@@ -84,10 +135,10 @@ document.addEventListener('DOMContentLoaded', function() {
 						</button>
 					</div> 	
 					<div class="modal-body" style="padding: 40px 0px; font-size: 14px;">
+						<input type="hidden" name="w" id="w" value="d">
 						<input type="hidden" name="co_no" id="co_no" value="">
 						<input type="hidden" name="cos_no" id="cos_no" value="">
 						<input type="hidden" name="cos_type" id="cos_type" value="">
-						<input type="hidden" name="cos_link" id="cos_link" value="">
 						<input type="hidden" name="cos_code" id="cos_code" value="">
 						<p></p>
 						<div style="margin-left:100px;">쿠폰을 회수하시겠습니까?</div>					
@@ -120,9 +171,9 @@ document.addEventListener('DOMContentLoaded', function() {
 					<div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
 					<div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$row1['cos_alt_quantity'];?>
 					<form id="fcouponalert" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+						<input type="hidden" name="w" id="w" value="u">
 						<input type="hidden" name="cos_nick" id="cos_nick" value="">
 						<input type="hidden" name="cos_entity" id="cos_entity" value="">
-						<input type="hidden" name="cos_link" id="cos_link" value="">
 						<p></p>
 						<div style="margin-left:30px; margin-top: 30px;">
 							<p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
@@ -191,7 +242,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			$('.modal-body #cos_link').val(cos_link);
 		}); 	
 	</script>
-<!-- </div> -->
 <?php
 include_once('./admin.tail.php');
 ?>

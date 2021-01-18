@@ -69,8 +69,7 @@ $co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '12')
 $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 
-$sql = "SELECT COUNT(co_no) as cnt FROM $g5[coupon_table] WHERE mb_id = '{$mb_id}' AND co_begin_datetime='{$co_begin_datetime}' AND co_end_datetime='{$co_end_datetime}'";
-echo $sql;
+$sql = "SELECT COUNT(co_no) as cnt FROM $g5[coupon_table] WHERE mb_id = '{$mb_id}' AND co_begin_datetime='{$s_begin_date}' AND co_end_datetime='{$s_end_date}'";
 $row = sql_fetch($sql);
 $cnt = $row['cnt'];
 if($cnt > 0)
@@ -94,7 +93,7 @@ if($w == ''){
                 SET co_sale_num = '{$_POST['co_sale_num']}',
                     co_free_num = '{$_POST['co_free_num']}',
                     co_updated_datetime =  '{$co_created_datetime}'
-              WHERE mb_id = '{$mb_id}' AND co_begin_datetime='{$co_begin_datetime}' AND co_end_datetime='{$co_end_datetime}' "; 
+              WHERE mb_id = '{$mb_id}' AND co_begin_datetime='{$s_begin_date}' AND co_end_datetime='{$s_end_date}' "; 
     sql_query($sql);   
 }  
 
