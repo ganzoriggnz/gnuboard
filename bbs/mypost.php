@@ -19,7 +19,6 @@ include_once(G5_PATH.'/head.sub.php');
 
 $list = Array();
 $cnt=0;
-
             $result = sql_query("select a.bo_table, a.bo_subject, b.gr_subject  from {$g5['board_table']} a INNER JOIN {$g5['group_table']} b  on a.gr_id = b.gr_id ");        
             
             while ($row = sql_fetch_array($result)) {
@@ -28,7 +27,7 @@ $cnt=0;
                 $bo_subject = $row['bo_subject'];
                 $gr_subject = $row['gr_subject'];
 
-                $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}'");
+                $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' order by wr_datetime");
                 
                 while($res = sql_fetch_array($sql)){
                     // echo $gr_subject." : ".$bo_subject." : ".$bo_table."<br>";
@@ -39,6 +38,11 @@ $cnt=0;
                     $cnt++;                    
                 }
             }
+
+// datetime sort function 
+usort($list, function($a, $b) {return new DateTime($b['wr_datetime']) <=> new DateTime($a['wr_datetime']);});
+
+
 
 
 $mypost_skin_path = get_skin_path('member', $config['cf_member_skin']);
