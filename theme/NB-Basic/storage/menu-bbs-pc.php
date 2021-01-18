@@ -18,7 +18,7 @@ $data=array (
       0 =>
       array (
         'text' => '오피-강남영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiGangnam_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opigangnam_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -31,7 +31,7 @@ $data=array (
       1 =>
       array (
         'text' => '오피-비강남',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiBigangnam_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opibigangnam_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -44,7 +44,7 @@ $data=array (
       2 =>
       array (
         'text' => '오피-경기영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiGyeonggi_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opigyeonggi_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -57,7 +57,7 @@ $data=array (
       3 =>
       array (
         'text' => '오피-인천/부천',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiInchon_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opiinchon_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -70,7 +70,7 @@ $data=array (
       4 =>
       array (
         'text' => '오피-강원/충청/대전',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiDaejeon_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opidaejeon_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -83,7 +83,7 @@ $data=array (
       5 =>
       array (
         'text' => '오피-경상영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiGyeongsang_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opigyeongsang_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -96,7 +96,7 @@ $data=array (
       6 =>
       array (
         'text' => '오피-대구영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiDaegu_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opidaegu_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -109,7 +109,7 @@ $data=array (
       7 =>
       array (
         'text' => '오피-전라/제주',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiJeju_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opijeju_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -122,7 +122,7 @@ $data=array (
       8 =>
       array (
         'text' => '안마-서울영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=anmaSeoul_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=anmaseoul_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -135,7 +135,7 @@ $data=array (
       9 =>
       array (
         'text' => '안마-지방영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=anmaChiban_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=anmachiban_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -161,7 +161,7 @@ $data=array (
       11 =>
       array (
         'text' => '건마-경기영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gonmaKyonggi_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gonmakyonggi_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -174,7 +174,7 @@ $data=array (
       12 =>
       array (
         'text' => '건마-인천/부천',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gonmaInchonBuchon_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gonmainchonBuchon_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -187,7 +187,7 @@ $data=array (
       13 =>
       array (
         'text' => '건마-강원/충천/대전',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gunmaTechon_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gunmatechon_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -200,7 +200,7 @@ $data=array (
       14 =>
       array (
         'text' => '건마-경상/전라/제주',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gonmaJeju_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gonmajeju_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -213,7 +213,7 @@ $data=array (
       15 =>
       array (
         'text' => '술집-서울영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=suljibSeoul_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=suljibseoul_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -226,7 +226,7 @@ $data=array (
       16 =>
       array (
         'text' => '술집-지방영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=suljibChiban_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=suljibchiban_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -239,7 +239,7 @@ $data=array (
       17 =>
       array (
         'text' => '휴게텔-서울영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelSeoul_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelseoul_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -252,7 +252,7 @@ $data=array (
       18 =>
       array (
         'text' => '휴게텔-경기영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelKyonggi_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelkyonggi_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -265,7 +265,7 @@ $data=array (
       19 =>
       array (
         'text' => '휴게텔-인천/부천',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelInchon_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelinchon_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -278,7 +278,7 @@ $data=array (
       20 =>
       array (
         'text' => '휴게텔 강원/충청/대전',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelDaejeon_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugeteldaejeon_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -291,7 +291,7 @@ $data=array (
       21 =>
       array (
         'text' => '휴게텔 경상/전라/제주',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelJeju_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugeteljeju_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -304,7 +304,7 @@ $data=array (
       22 =>
       array (
         'text' => '키스방-전국영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=kissAll_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=kissall_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -317,7 +317,7 @@ $data=array (
       23 =>
       array (
         'text' => '립카페-전국영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=lipcafeAll_at',
+        'href' => G5_BBS_URL.'/board.php?bo_table=lipcafeall_at',
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -372,7 +372,7 @@ $data=array (
       0 =>
       array (
         'text' => '오피-강남영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiGangnam_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opigangnam_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -385,7 +385,7 @@ $data=array (
       1 =>
       array (
         'text' => '오피-비강남',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiBigangnam_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opibigangnam_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -398,7 +398,7 @@ $data=array (
       2 =>
       array (
         'text' => '오피-경기영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiGyeonggi_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opigyeonggi_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -411,7 +411,7 @@ $data=array (
       3 =>
       array (
         'text' => '오피-인천/부천',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiInchon_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opiinchon_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -424,7 +424,7 @@ $data=array (
       4 =>
       array (
         'text' => '오피-강원/충청/대전',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiDaejeon_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opidaejeon_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -437,7 +437,7 @@ $data=array (
       5 =>
       array (
         'text' => '오피-경상영토 ',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiGyeongsang_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opigyeongsang_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -450,7 +450,7 @@ $data=array (
       6 =>
       array (
         'text' => '오피-대구영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiDaegu_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opidaegu_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -463,7 +463,7 @@ $data=array (
       7 =>
       array (
         'text' => '오피-전라/제주',
-        'href' => G5_BBS_URL.'/board.php?bo_table=opiJeju_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=opijeju_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -476,7 +476,7 @@ $data=array (
       8 =>
       array (
         'text' => '안마-서울영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=anmaSeoul_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=anmaseoul_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -489,7 +489,7 @@ $data=array (
       9 =>
       array (
         'text' => '안마-지방영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=anmaChiban_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=anmachiban_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -502,7 +502,7 @@ $data=array (
       10 =>
       array (
         'text' => '건마-서울영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gonmaSeoul_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gonmaseoul_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -515,7 +515,7 @@ $data=array (
       11 =>
       array (
         'text' => '건마-경기영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gonmaKyonggi_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gonmakyonggi_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -528,7 +528,7 @@ $data=array (
       12 =>
       array (
         'text' => '건마-인천/부천',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gonmaInchonBuchon_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gonmainchonbuchon_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -541,7 +541,7 @@ $data=array (
       13 =>
       array (
         'text' => '건마 (강원/충청/대전)',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gunmaTechon_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gunmatechon_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -554,7 +554,7 @@ $data=array (
       14 =>
       array (
         'text' => '건마 경상/전라/제주',
-        'href' => G5_BBS_URL.'/board.php?bo_table=gonmaJeju_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=gonmajeju_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -567,7 +567,7 @@ $data=array (
       15 =>
       array (
         'text' => '술집-서울영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=suljibSeoul_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=suljibseoul_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -580,7 +580,7 @@ $data=array (
       16 =>
       array (
         'text' => '술집-지방영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=suljibChiban_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=suljibchiban_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -593,7 +593,7 @@ $data=array (
       17 =>
       array (
         'text' => '휴게텔-서울영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelSeoul_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelseoul_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -606,7 +606,7 @@ $data=array (
       18 =>
       array (
         'text' => '휴게텔-경기영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelKyonggi_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelkyonggi_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -619,7 +619,7 @@ $data=array (
       19 =>
       array (
         'text' => '휴게텔-인천/부천',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelInchon_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelinchon_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -632,7 +632,7 @@ $data=array (
       20 =>
       array (
         'text' => '휴게텔 강원/충청/대전',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelDaejeon_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugeteldaejeon_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -645,7 +645,7 @@ $data=array (
       21 =>
       array (
         'text' => '휴게텔 경상/전라/제주',
-        'href' => G5_BBS_URL.'/board.php?bo_table=hyugetelJeju_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=hyugeteljeju_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -658,7 +658,7 @@ $data=array (
       22 =>
       array (
         'text' => '키스방-전국영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=kissAll_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=kissall_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -671,7 +671,7 @@ $data=array (
       23 =>
       array (
         'text' => '립카페-전국영토',
-        'href' => G5_BBS_URL.'/board.php?bo_table=lipcafeAll_re',
+        'href' => G5_BBS_URL.'/board.php?bo_table=lipcafeall_re',
         /* 'icon' => 'fa-comments', */
         'icon'  => 'baseline-chat_bubble-24px',
         'target' => '_self',
@@ -752,7 +752,7 @@ $data=array (
       2 =>
       array (
         'text' => '가입 인사',
-        'href' => G5_BBS_URL.'/board.php?bo_table=Greeting',
+        'href' => G5_BBS_URL.'/board.php?bo_table=greeting',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_top',
@@ -845,7 +845,7 @@ $data=array (
       8 =>
       array (
         'text' => '왕궁 게시판',
-        'href' => G5_BBS_URL.'/board.php?bo_table=Palace',
+        'href' => G5_BBS_URL.'/board.php?bo_table=palace',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_self',
@@ -871,7 +871,7 @@ $data=array (
       10 =>
       array (
         'text' => '건의사항',
-        'href' => G5_BBS_URL.'/board.php?bo_table=Suggestions',
+        'href' => G5_BBS_URL.'/board.php?bo_table=suggestions',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_self',
