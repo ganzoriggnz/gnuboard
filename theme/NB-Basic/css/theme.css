@@ -23,8 +23,59 @@ body::after{
 	z-index: -1;
 }
 
+.popup_box{
+	position: absolute;
+	top: 18%;
+	left: 75%;
+	transform: translate(-50%, -50%);
+	border-radius: 5px;
+	width: 320px;
+	background: #f2f2f2;
+	text-align: center;
+	align-items: center;
+	padding: 30px;
+	border: 1px solid #b3b3b3;
+	box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+	z-index: 9999;
+	display: none;
+  }
+  .popup_box i{
+	font-size: 12px;
+	color: #eb9447;
+	border: 5px solid #eb9447;
+	padding: 20px 10px;
+	border-radius: 50%;
+	margin: -10px 0 20px 0;
+  }
+  .popup_box h1{
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+	margin-bottom: 30px;
+  }
+  .popup_box label{
+	font-size: 14px;
+	color: #000;
+	line-height: 2;
+  }
+  .popup_box .btns{
+	  margin: 40px 0 0 0;
+	}
+  .btns .btn {
+	  background: #f2f2f2;
+	  color: #000;
+	  font-size: 12px;
+	  border-radius: 5px;
+	  border: 1px solid #808080;
+	  padding: 6px 30px;
+	}
+  .btns .btn:hover{
+	transition: .2s;
+	background:#fff;
+  }
 
 
+  
 
 h1, h2, h3, h4, h5, h6, .en { 
 	font-family:"Roboto", sans-serif;

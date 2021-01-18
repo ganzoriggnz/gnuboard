@@ -26,6 +26,7 @@ $cnt=0;
                 $bo_table = $row['bo_table'];                                
                 $bo_subject = $row['bo_subject'];
                 $gr_subject = $row['gr_subject'];
+                
 
                 $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' order by wr_datetime");
                 
@@ -41,6 +42,7 @@ $cnt=0;
 
 // datetime sort function 
 usort($list, function($a, $b) {return new DateTime($b['wr_datetime']) <=> new DateTime($a['wr_datetime']);});
+
 
 
 

@@ -2,16 +2,69 @@
 include_once('../../../../common.php');
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
+
 /* 로그인 위젯 */
 
 //필요한 전역변수 선언
 global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 
-// add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
-// add_stylesheet('<link rel="stylesheet" href="'.$widget_url.'/widget.css">', 0);
+function insert_nickname($wer)
+{
+	aler("dddd : ".$wer);
+}
 
 ?>
-
+<style>
+.popup_box2{
+	position: absolute;
+	
+	transform: translate(-50%, -50%);
+	border-radius: 5px;
+	width: 320px;
+	background: #f2f2f2;
+	text-align: center;
+	align-items: center;
+	padding: 30px;
+	border: 1px solid #b3b3b3;
+	box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+	z-index: 9999;
+	display: none;
+  }
+  .popup_box2 i{
+	font-size: 12px;
+	color: #eb9447;
+	border: 5px solid #eb9447;
+	padding: 20px 10px;
+	border-radius: 50%;
+	margin: -10px 0 20px 0;
+  }
+  .popup_box2 h1{
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+	margin-bottom: 30px;
+  }
+  .popup_box2 label{
+	font-size: 14px;
+	color: #000;
+	line-height: 2;
+  }
+  .popup_box2 .btns{
+	  margin: 40px 0 0 0;
+	}
+  .btns .btn {
+	  background: #f2f2f2;
+	  color: #000;
+	  font-size: 12px;
+	  border-radius: 5px;
+	  border: 1px solid #808080;
+	  padding: 6px 30px;
+	}
+  .btns .btn:hover{
+	transition: .2s;
+	background:#fff;
+  }
+</style>
 <div class="f-de font-weight-normal">
 
 	<?php if($is_member) { //Login ?>
@@ -30,6 +83,7 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 
 				<?php if( $member['mb_level'] == 27)
 				{ 
+
 					$g5['connect_db'];
 					$result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
 					while ( $row=sql_fetch_array($result))
@@ -55,10 +109,56 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 				<!-- ////////////////////////////////////////// -->
 
 				<?php if( $member['mb_level'] > 17 && $member['mb_level'] < 23  )
-				{
-					echo "칭호 설정";
+				{?> 
+					<button type="button" id="nickbtn" style="color: #BFAF88; background-color: Transparent;
+							background-repeat:no-repeat;
+							border: none; " >칭호 설정</button>
+						<div class="popup_box2">
+						<form id="nickname" action="" >
+						<h1>쿠폰사용</h1>
+						<label>Insert nick name</label><br>
+						<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?>">
+						<input type="text" name="mb_nick2" id="mb_nick2" value="<?php echo $member['mb_nick2'];?>">
+						<div class="btns">
+							<a href="#" class="btn">okey</a>
+						</div>
+						</form>
+						</div>
+						<script>
+						$(document).ready(function(){
+							
+								$('#nickbtn').click(function(){
+									// var formId = "#fcouponaccept" + this.id;
+									
+									$('.popup_box2').css("display", "block");
+									
+									$('.btn').click(function(){
+										
+										$('.popup_box2').css("display", "none");
+										
+										var mb_id = $('#mb_id').val();
+										var mb_nick2 = $('#mb_nick2').val();
+										$.ajax({
+											type: 'POST',
+											url: 'insert_nick.php',
+											data: {
+												'mb_id': mb_id,
+												'mb_nick2': mb_nick2,
+											},
+											dataType: 'text',
+											// success: function(response) {}
+										});
+										
 
-				} ?> 
+									});
+								});                                  
+							})
+														
+						</script>
+
+
+
+					<?php } ?> 
 				
 				<?php if ($is_admin == 'super' || $member['is_auth']) { ?>
 					<span class="na-bar"></span>
