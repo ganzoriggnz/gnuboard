@@ -402,11 +402,6 @@ if( isset($_POST['id'])){
                                                     </table>
                                                 </div>					
                                             </div>
-                                            <div class="modal-footer">
-                                                <div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-                                                    <button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>        
@@ -431,7 +426,7 @@ if( isset($_POST['id'])){
                                 $diff_s = number_format($row3['co_sale_num'] - $row3['co_sent_snum']);
                                 $diff_f = number_format($row3['co_free_num'] - $row3['co_sent_fnum']); 
                             ?>
-                            <form id="fcouponcreate<?php echo $cnt;?>" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+                            <form id="fcouponcreate<?php echo $cnt;?>" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
                                 <div class="modal-header">
                                     <h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰주기</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -552,32 +547,12 @@ if( isset($_POST['id'])){
         
         <script src="<?php echo NA_URL ?>/app/bs4/js/bootstrap.bundle.min.js"></script>
         <script> 
-
-        function fcouponcreate_submit(f) {
-                if (!f.co_sale_num) {
-                    alert("Please insert quantity of sale coupon!");
-                    f.co_sale_num.focus();
-                    return false;
-                } 
-
-                if (!f.co_free_num) {
-                    alert("Please insert quantity of free coupon!");
-                    f.co_free_num.focus();
-                    return false;
-                }
-
-                var agree=confirm("쿠폰 개수를 저장하시겠습니까?");
-                if(agree)
-                    return true;
-                else 
-                    return false;                                       
-        }
-
-        $('button').click(function(){
+ 
+       $('button').click(function(){
             var formId = "#fcouponcreate" + this.id;
             $(formId).submit();
                    
-        });   
+        });    
 
         function fcouponsend_submit(f) {
             if(!f.cos_nick && $('#hasNick').length > 0 && $('#hasNick').val() == ''){ 
@@ -635,15 +610,6 @@ if( isset($_POST['id'])){
                 $('.modal-body #cos_code').val(cos_code);
                 $('.modal-body #cos_link').val(cos_link);
             }); 
-
-            /* $('body').on('click', '.coupon-alert', function() {
-                var cos_entity = $(this).data('entity');
-                var cos_nick = $(this).data('nick');
-                var cos_link = $(this).data('link');
-                $('.modal-body #cos_entity').val(cos_entity);
-                $('.modal-body #cos_nick').val(cos_nick);
-                $('.modal-body #cos_link').val(cos_link);
-            });  */	
         });
         </script>
 <?php

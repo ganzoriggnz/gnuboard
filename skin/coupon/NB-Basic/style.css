@@ -456,4 +456,19 @@ box-shadow:inset 0 2px 5px rgb(33, 135, 202)}
   }
 }
 
+#userlist {
+	display: inline;
+	list-style: none;
+	}
 
+	#userlist li {
+	display: inline;
+	}
+
+	#userlist li:after {
+	content: ", ";
+	}
+
+	#userlist li:last-child:after {
+	content: "";
+	}

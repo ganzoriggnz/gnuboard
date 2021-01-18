@@ -5,24 +5,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css">', 0);
 ?>
 
-<style>
-	#userlist {
-	display: inline;
-	list-style: none;
-	}
-
-	#userlist li {
-	display: inline;
-	}
-
-	#userlist li:after {
-	content: ", ";
-	}
-
-	#userlist li:last-child:after {
-	content: "";
-	}
-</style>
 <!-- 쪽지 목록 시작 { -->
 <div id="memo_list" class="mb-4">
 
@@ -46,7 +28,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 	<ul class="na-table d-table w-100 f-de" style="margin-top: 10px;">
 	<?php
 	$result = "SELECT a.*, c.mb_level FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id INNER JOIN $g5[member_table] c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' AND c.mb_level = '27'"; 
-	echo $result;
 	$result1=sql_query($result);
 	for ($i=0; $row = sql_fetch_array($result1); $i++) {
 	?>
@@ -66,19 +47,110 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 				</a>
             </div>
 			<div class="float-left float-md-none d-table-cell nw-30 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-				<?php echo "쿠폰 받은사람 :"; ?> 
-				<ul id="userlist">
+				<?php echo "쿠폰 받은사람 :"; ?>
+				<?php $alt_nick; $altcnt=0; ?> 
+				<ul id="userlist">	
 				<?php $sql = "SELECT a.*, b.* FROM $g5[coupon_table] a RIGHT OUTER JOIN $g5[coupon_sent_table] b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
 				$sql1 = sql_query($sql);
-				for($k=0; $row1 = sql_fetch_array($sql1); $k++){
-				?>
-					<?php if($row1['cos_accept'] == 'N' && $row1['cos_alt_quantity'] == '0') { echo '<li><a data-toggle="modal" href="#couponDelete" class="coupon-delete" data-type ='?><?php echo $row1['cos_type']." data-code = " ?><?php echo $row1['cos_code']." data-no = ";?><?php echo $row1['cos_no']." data-co-no = "; ?><?php echo $row1['co_no']." data-link = ";?><?php echo $bo_table.'>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></a></li><?php } ?>
-					<?php if($row1['cos_accept'] == 'Y' && $row1['cos_alt_quantity'] == '0') { echo '<li><a href="#" style="color:blue;" data-type ='?><?php echo $row1['cos_type']." data-code = " ?><?php echo $row1['cos_code']." data-no = ";?><?php echo $row1['cos_no']." data-co-no = "; ?><?php echo $row1['co_no']." data-link = ";?><?php echo $bo_table.'>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></a></li><?php } ?>
-					<?php if($row1['cos_alt_quantity'] > 0) { echo '<li><a data-toggle="modal" href="#couponAlert" class="coupon-alert" style="color:red;" data-entity ='?><?php echo $row1['cos_entity']." data-nick = " ?><?php echo $row1['cos_nick']." data-link = ";?><?php echo $bo_table.'>'?><?php if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')';?><?php if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')'; ?></a></li> <?php } ?>					 
-				<?php
-				}
-				?> 
-				</ul>
+				while ($row1 = sql_fetch_array($sql1)){
+                    ?>
+                        <?php $alert_nick[$altcnt]['alt_nick'] = $row1['cos_nick']; ?>
+
+                        <?php if($row1['cos_accept'] == 'N' && $row1['cos_alt_quantity'] == '0') 
+                        { echo '<li><a data-toggle="modal"
+                            data-target="#couponDelete"  
+                            href="#couponDelete" 
+                            class="coupon-delete" 
+                            data-type ='.$row1['cos_type']." 
+                            data-code = ".$row1['cos_code']." 
+                            data-no = ".$row1['cos_no']." 
+                            data-co-no = ".$row1['co_no']." 
+                            data-link = ".$bo_table.'>';
+                            if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];
+                            if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; 
+                            echo '</a></li>';
+                         } else if($row1['cos_accept'] == 'Y' && $row1['cos_alt_quantity'] == '0') { 
+                            echo '<li><a href="#" style="color:blue;" data-type ='.$row1['cos_type']." 
+                            data-code = ". $row1['cos_code']." data-no = ".$row1['cos_no']." 
+                            data-co-no = "; ?><?php echo $row1['co_no']." data-link = ". $bo_table.'>';
+                            if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];
+                            if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; ?></a></li><?php 
+                        }
+                              
+                            else if($row1['cos_alt_quantity'] > 0) { 
+                                echo '<li><a data-toggle="modal" data-target="#couponAlert'.$altcnt.'" href="#couponAlert'.$altcnt.'" 
+                                class="coupon-alert" style="color:red;">';
+                                if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')';
+                                if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')'; ?></a>
+                                <div class="modal fade" id="couponAlert<?php echo $altcnt; ?>" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content" style="width: 650px; height: 400px; font-weight: bold;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" style="margin-left: 250px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div> 	
+                                            <div class="modal-body" style="padding: 5px 0px; font-size: 14px;">
+                                                <?php 
+                                                    $sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert` WHERE cos_nick = '{$row1['cos_nick']}'"; 
+                                                    $row4 = sql_fetch($sql4);  
+                                                    $res = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row4['maxdate']}' ";
+                                                    $res1 = sql_fetch($res);
+                                                ?> 
+                                                <div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
+                                                <div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$res1['cos_alt_quantity'];?>
+                                                <form id="fcouponalert<?php echo $altcnt; ?>" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+                                                    <input type="hidden" name="cos_nick" id="cos_nick" value="<?php echo $row1['cos_nick'];?>">
+                                                    <input type="hidden" name="cos_entity" id="cos_entity" value="<?php echo $row1['cos_entity'];?>">
+													<input type="hidden" name="cos_link" id="cos_link" value="<?php echo $bo_table;?>">
+                                                    <div style="margin-left:30px; margin-top: 30px;">
+                                                        <p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
+                                                        <input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px;" value = "<?php echo $res1['cos_alt_quantity']; ?>"/>		
+                                                        <input type="submit" name="change" id="change" value="확인" style="background: #FFF2CC; width: 80px;"/>
+                                                    </div>
+                                                </form>
+                                                <div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
+                                                <div style="margin: 10px 10px 10px 0px;">
+                                                    <table style="width: 550px;">
+                                                        <thead>
+                                                            <tr>
+                                                            <tr style=" background:  #f8f8f8; border: 1px solid #000; font-size: 10px;">
+                                                                <th style= "width: 25%; border: 1px solid #000; text-align: center;">시간</th>
+                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">업소명</th>
+                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">경고내용</th>
+                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">최종적용 아이디</th>
+                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">누적횟수</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="background: #fff;">
+                                                        <?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$res1['cos_nick']}' ORDER BY alt_created_datetime";
+                                                        $res = sql_query($sql);
+                                                        for($i=0; $row = sql_fetch_array($res); $i++) { ?>
+                                                            <tr style="border: 1px solid #000;font-size: 8px;">
+                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_datetime']; ?></td>
+                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_entity']; ?></td>
+                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_reason']; ?></td>
+                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_by']; ?></td>
+                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_alt_quantity']; ?></td>
+                                                            </tr>
+                                                        <?php
+                                                        } ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>					
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>        
+                            </li> 
+							<?php 
+							} ?>					                               
+                    <?php
+                    $altcnt++;
+                    }
+                    ?> 
+                </ul>
 			</div>
 		</li>
     <?php } ?>
@@ -152,72 +224,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="couponAlert" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content" style="width: 650px; height: 400px; font-weight: bold;">
-				<div class="modal-header">
-					<h5 class="modal-title" style="margin-left: 250px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-					</button>
-				</div> 	
-				<div class="modal-body" style="padding: 5px 0px; font-size: 14px;">
-					<?php 
-						$sql = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert`"; 
-						$row = sql_fetch($sql);  
-						$sql1 = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row['maxdate']}' ";
-						$row1 = sql_fetch($sql1);
-					?> 
-					<div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
-					<div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$row1['cos_alt_quantity'];?>
-					<form id="fcouponalert" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-						<input type="hidden" name="cos_nick" id="cos_nick" value="">
-						<input type="hidden" name="cos_entity" id="cos_entity" value="">
-						<input type="hidden" name="cos_link" id="cos_link" value="">
-						<div style="margin-left:30px; margin-top: 30px;">
-							<p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
-							<input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px;" value = "<?php echo $row1['cos_alt_quantity']; ?>"/>		
-							<input type="submit" name="change" id="change" value="확인" style="background: #FFF2CC; width: 80px;"/>
-						</div>
-					</form>
-					<div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
-					<div style="margin: 10px 10px 10px 0px;">
-						<table style="width: 550px;">
-							<thead>
-								<tr>
-								<tr style=" background:  #f8f8f8; border: 1px solid #000; font-size: 10px;">
-									<th style= "width: 25%; border: 1px solid #000; text-align: center;">시간</th>
-									<th style= "width: 20%; border: 1px solid #000; text-align: center;">업소명</th>
-									<th style= "width: 20%; border: 1px solid #000; text-align: center;">경고내용</th>
-									<th style= "width: 20%; border: 1px solid #000; text-align: center;">최종적용 아이디</th>
-									<th style= "width: 20%; border: 1px solid #000; text-align: center;">누적횟수</th>
-								</tr>
-							</thead>
-							<tbody style="background: #fff;">
-							<?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$row1['cos_nick']}' ORDER BY alt_created_datetime";
-							$res = sql_query($sql);
-							for($i=0; $row = sql_fetch_array($res); $i++) { ?>
-								<tr style="border: 1px solid #000;font-size: 8px;">
-									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_datetime']; ?></td>
-									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_entity']; ?></td>
-									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_reason']; ?></td>
-									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_by']; ?></td>
-									<td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_alt_quantity']; ?></td>
-								</tr>
-							<?php
-							} ?>
-							</tbody>
-						</table>
-					</div>					
-				</div>
-				<div class="modal-footer">
-					<div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-						<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	
 	<script>
 	$(window).on('load', function () {
@@ -236,6 +242,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 	function fcoupondelete_submit(f) {
 		return true;                                                                 
 	}  
+
+	function fcouponalert_submit(f){
+		return true;
+	}
 
 	$(document).ready(function(){
 		$('#check_id').click(function(e){
@@ -281,14 +291,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 			$('.modal-body #cos_link').val(cos_link);
 		}); 
 
-		$('body').on('click', '.coupon-alert', function() {
-			var cos_entity = $(this).data('entity');
-			var cos_nick = $(this).data('nick');
-			var cos_link = $(this).data('link');
-			$('.modal-body #cos_entity').val(cos_entity);
-			$('.modal-body #cos_nick').val(cos_nick);
-			$('.modal-body #cos_link').val(cos_link);
-		}); 	
 	});
 	</script>
 
