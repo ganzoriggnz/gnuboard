@@ -156,7 +156,7 @@ if ($w == 'c') // 댓글 입력
                      wr_is_comment = 1,
                      wr_comment = '$tmp_comment',
                      wr_comment_reply = '$tmp_comment_reply',
-                     wr_subject = '',
+                     wr_subject = '$wr_subject',
                      wr_content = '$wr_content',
                      mb_id = '$mb_id',
                      wr_password = '$wr_password',

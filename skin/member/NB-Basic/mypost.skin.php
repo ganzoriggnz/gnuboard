@@ -3,6 +3,8 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css">', 0);
+
+
 ?>
 <div id="bo_v">
     <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
@@ -121,57 +123,24 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 
         <!-- hulan nemsen -->
-        <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
-            <?php $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
-        }
-        else {
-            $result = sql_query("select bo_table from {$g5['board_table']} ");
-        }
-            while ($row = sql_fetch_array($result)) {
-                $bo_table = $row['bo_table'];
-            
-                if ($member['mb_level'] == 26 || $member['mb_level'] == 27){
-                $res = sql_fetch("select * from " . $g5['write_prefix'] . $bo_table . " where mb_id='{$member['mb_id']}'");
-                if ($res) {
-                    $wr_id = $res['wr_id'];
-                    $nowbo_table = $bo_table;
-                        $result1 = sql_fetch("select bo_subject from {$g5['board_table']} where bo_table='{$bo_table}'");
-                    }
-                }
-                else{
-                    $sql = sql_query("select * from " . $g5['write_prefix'] . $bo_table . " where mb_id='{$member['mb_id']}'");
-                for($i =0; $res = sql_fetch_array($sql); $i++){
-                    $wr_id = $res[$i]['wr_id'];
-                    $result1[$i] = sql_fetch("select bo_subject from {$g5['board_table']} where bo_table='{$bo_table}'");
-                    
-                }
-                }
-                if ($result1) {
-                    
-                        $bo_subject = $result1['bo_subject'];
-                        if($is_admin){
-                            $bo_subject = $result1[$i]['bo_subject'];
-                        }
-                    }
-                
-            } ?>
-            <ul class="na-table d-md-table w-100">
+        <ul class="na-table d-md-table w-100">
                 <?php
-                for ($i = 0; $i < count($list); $i++) { ?>
 
+                for ($i = 0; $i < count($list);   $i++) { ?>
+ 
                     <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
                         <div class="d-none d-md-table-cell nw-4 f-sm font-weight-normal py-md-2 px-md-1">
-                            <?php echo "출근부"; ?>
+                            <?php echo $list[$i]['gr_subject']; ?>
                         </div>
                         <div class="d-none d-md-table-cell nw-6 text-left f-sm font-weight-normal py-md-2 px-md-1">
-                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $nowbo_table ?>" style="color: #6c757d;">
-                                <?php if($is_admin){ echo 
-                            $list[$i]['bo_subject'] ;
-                        } else echo  $bo_subject; ?></a>
+                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id']?>" style="color: #6c757d;">
+                                <?php echo $list[$i]['bo_subject'];?>
+                        </a>
                         </div>
                         <div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $nowbo_table ?><?php echo "&wr_id=", $wr_id ?>" style="color: #6c757d;">
-                                <?php echo $list[$i]['as_subject']; ?>
+                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id'] ?>" style="color: #6c757d;">                                                             
+                                <?php                                
+                                echo $list[$i]['wr_subject']; ?>
                             </a>
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
@@ -179,7 +148,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
                             <span class="sr-only">등록일</span>
-                            <?php echo $list[$i]['as_datetime']; ?>
+                            <?php echo $list[$i]['wr_datetime']; ?>
                         </div>
                         <div class="clearfix d-block d-md-none"></div>
                     </li>
