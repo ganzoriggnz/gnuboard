@@ -83,7 +83,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 
 ?>
 
-<li class="col px-2 pb-4" style="width: 229px; height: 280px;">
+<li class="col px-2 pb-4" style="width: 222px; height: 280px;">
     <div style="background-image:url('<?php echo G5_IMG_URL?>/main_bgpicture.png')" style="height: 148px;">
         <div>
             <div class="img-wrap bg-light mb-2">
