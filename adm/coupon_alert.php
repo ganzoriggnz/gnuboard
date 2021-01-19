@@ -11,7 +11,7 @@ $row1 = sql_fetch($sql1);
 $sql2 = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row1['maxdate']}' ";
 $row2 = sql_fetch($sql2);
                         
-    $response .= '<div style="margin-left: 30px;">사용자 : ' .$row2['cos_nick'].'</div>
+    $response .=   '<div style="margin-left: 30px;">사용자 : ' .$row2['cos_nick'].'</div>
 					<div style="margin-left: 30px;">현재 경고횟수 : '.$row2['cos_alt_quantity'].
 					'<form id="fcouponalert" name="fcouponalert" action="'.G5_ADMIN_URL.'/coupon_list_calendar.php" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 						<input type="hidden" name="w" id="w" value="u">
@@ -49,7 +49,7 @@ $row2 = sql_fetch($sql2);
                                             </tr>';
                                                         
                             }  
-	$response .= '</tbody>
+	$response .=            '</tbody>
 						</table>
                     </div>';		
                     			

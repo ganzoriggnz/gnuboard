@@ -30,6 +30,6 @@ $sql1 = "UPDATE $g5[coupon_sent_table]
 
 sql_query($sql1);
 
-goto_url(G5_ADMIN_URL.'/coupon_list.php?bo_table='.$cos_link); 
+goto_url(G5_ADMIN_URL.'/coupon_list.php'); 
 
 ?>

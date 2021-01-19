@@ -9,12 +9,13 @@ auth_check($auth[$sub_menu], 'r');
 
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_msg_table'] = $g5['table_prefix'] . "coupon_msg";    // coupon msg 테이블
-$msg_created_datetime = G5_TIME_YMDHIS;
-$msg_customer_text = $_POST['msg_customer_text'];
-$msg_entity_text = $_POST['msg_entity_text'];
 
 $res = "SELECT * FROM $g5[coupon_msg_table] ORDER BY msg_no DESC LIMIT 1";
 $row = sql_fetch($res); 
+
+$msg_created_datetime = G5_TIME_YMDHIS;
+$msg_customer_text = $_POST['msg_customer_text'];
+$msg_entity_text = $_POST['msg_entity_text'];
 
 if($w == 'u'){
 
