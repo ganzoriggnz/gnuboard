@@ -36,6 +36,7 @@ goto_url(G5_ADMIN_URL.'/coupon_list.php');
 ?>
 <script src="<?php echo NA_URL ?>/app/bs4/js/bootstrap.bundle.min.js"></script>
 <script>
+
 $(document).ready(function(){
     function load_coupon_page(id){
         $.ajax({

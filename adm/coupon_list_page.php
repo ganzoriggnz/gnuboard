@@ -18,6 +18,7 @@ auth_check($auth[$sub_menu], 'r'); ?>
 <?php
 if( isset($_POST['id'])){ 
     $bo_table = $_POST['id'];
+}
 
     $g5['table_prefix']        = "g5_"; // 테이블명 접두사
     $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
@@ -101,8 +102,6 @@ if( isset($_POST['id'])){
        sql_query($sql_table3, false);
     }   
     
-    $mb_id = trim($member['mb_id']);
-    $co_entity = $_POST['co_entity'];
     $co_created_datetime = G5_TIME_YMDHIS;
     $currentmonth = substr($co_created_datetime, 5, 2);
     $co_start = date_create($co_created_datetime);
@@ -232,23 +231,6 @@ if( isset($_POST['id'])){
                             WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}' AND cos_no = '{$row2['cos_no']}'";
                 sql_query($sql5);          
         } 
-    /*  if($row2['wr_id'] && !$res4['alt_cnt'] == '0' && ($row2['wr_datetime'] > $res3['cos_post_datetime'])){
-                $sql5 = "INSERT INTO $g5[coupon_alert_table] 
-                            SET cos_nick = '{$row2['cos_nick']}',
-                                cos_entity = '{$row2['cos_entity']}',
-                                cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1,
-                                alt_reason = '후기미작성7일',
-                                alt_created_by = '-',
-                                alt_created_datetime = '{$row2['cos_post_datetime']}' ";
-
-                sql_query($sql5);
-
-                $sql6 = "UPDATE $g5[coupon_sent_table] 
-                            SET cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1
-                            WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
-
-                sql_query($sql6);                   
-        }  */
     } 
 
     $sql_acc = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='N'";
@@ -519,7 +501,7 @@ if( isset($_POST['id'])){
         
         <div class="modal fade" id="couponDelete" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
             <div class="modal-dialog" role="document">
-                <div class="modal-content" style="width: 350px; height: 200px; font-weight: bold;">
+                <div class="modal-content" style="width: 350px; height: 220px; font-weight: bold;">
                     <form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
                         <div class="modal-header">
                             <h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰회수</h5>
@@ -528,6 +510,7 @@ if( isset($_POST['id'])){
                             </button>
                         </div> 	
                         <div class="modal-body" style="padding: 40px 0px; font-size: 14px;">
+                            <input type="hidden" name = "w" value ="d">
                             <input type="hidden" name="co_no" id="co_no" value="">
                             <input type="hidden" name="cos_no" id="cos_no" value="">
                             <input type="hidden" name="cos_type" id="cos_type" value="">
@@ -612,6 +595,3 @@ if( isset($_POST['id'])){
             }); 
         });
         </script>
-<?php
-}
-?>

@@ -32,7 +32,7 @@ include_once('./admin.head.php');
             method: "POST",
             data: {id:id},
             success: function(data){
-                $('#coupon_list').html(data);
+                $('#coupon_list').html(data);               
                 }
             });  
         }
@@ -40,6 +40,7 @@ include_once('./admin.head.php');
       load_coupon_page('gunmaTechon_at');
 
       $('.coupon li a').click(function(e){
+          debugger;
           $('.coupon li.active').removeClass('active');
           var $parent = $(this).parent();
           $parent.addClass('active');
