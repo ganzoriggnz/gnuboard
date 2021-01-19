@@ -16,13 +16,15 @@ if ($w == '') {}
 else if ($w == 'u')
 {	
 	if($_POST['niittoo']<$penychangelimit || $_POST['niittoo']>$member['mb_point2']){
-		alert("Tanii solih bolomjtoi hamgiin dood ym ".$penychangelimit." Deed dun!!! ".$member['mb_point2'].
-		" tanii ene dun hetersen esbel baga bn : ".$_POST['niittoo']);
+		alert("보유 파운드 10만 파운드 이상 있어야 전환이 가능합니다. 현재 보유 파운드 ".number_format($member['mb_point2'])." 입니다. ");
 	}
 	else {
 		$mb_id=$member['mb_id'];
 		$point=$_POST['niittoo'];
 		insert_use_fragment($mb_id, $point,$member['mb_peny'],$wer);
+
+		alert(number_format($point)." 파편조각 ".number_format($point)." 페니로 전환되었습니다.");
+
 		goto_url($PHP_SELF, false);
 	}	
 }

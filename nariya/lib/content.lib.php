@@ -422,27 +422,32 @@ function get_level($mb_id)
 function na_name_photo($mb_id, $name){
 	global $config,$g5;
 	$levelimg;
+	$nick2;
 
-	$result = sql_fetch(" SELECT `mb_level`,`mb_nick2` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
+
+
+	$result = sql_fetch(" SELECT `mb_level`,`mb_nick2`,`mb_nick` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
 	if ($result['mb_level'] > 17)
 		$levelimg= '<img class="levelimg" src=' . G5_URL . '/img/' . $result['mb_level'] . '.gif style="border-radius: none;">';
+		$nick2=$result['mb_nick2'];
+		$nick=$result['mb_nick'];
 
+		$name = $name.$nick2;
+	
 
 	if(!$config['cf_use_member_icon'] || !$mb_id)
-		return $name.$name.$result['mb_nick2'];
-
-
+		return $name.$result['mb_nick2'];
 
 	preg_match_all("/<img([^>]*)>/iS", $name, $matches);
 
     if(empty($matches))
-        return $name.$name.$result['mb_nick2'];
+        return $nick.$name.$result['mb_nick2'];
 
     for($i=0; $i<count($matches[1]); $i++) {
 		preg_match("/alt=[\"\']?([^\"\']*)[\"\']?/", $matches[1][$i], $m);
 		
 		if($m[1]) {
-			return str_replace($matches[0][$i], '<img src="'.na_member_photo($mb_id).'" width="'.$config['cf_member_icon_width'].'" height="'.$config['cf_member_icon_height'].'" style="border-radius:50%" alt=""/> '.$levelimg, $name.$result['mb_nick2']);
+			return str_replace($matches[0][$i], '<img src="'.na_member_photo($mb_id).'" width="'.$config['cf_member_icon_width'].'" height="'.$config['cf_member_icon_height'].'" style="border-radius:50%" alt=""/> '.$levelimg,$name);
 		}
     }
 

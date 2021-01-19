@@ -14,12 +14,16 @@ if ($w == '') {}
 else if ($w == 'u')
 {	
 	if($_POST['niittoo']<$penychangelimit || $_POST['niittoo']>$member['mb_point']){
-		alert("보유 파운드 10만 파운드 이상 있어야 전환이 가능합니다. 현재 보유 파운드 ".$member['mb_point']." 입니다. ");
+		alert("보유 파운드 10만 파운드 이상 있어야 전환이 가능합니다. 현재 보유 파운드 ".number_format($member['mb_point'])." 입니다. ");
 	}
 	else {
 		$mb_id=$member['mb_id'];
 		$point=$_POST['niittoo'];
+		$penySum=$point * 100000;
 		insert_use_fragment($mb_id, $point,$member['mb_peny']);
+
+		alert(number_format($point)." 파편조각 ".number_format($penySum)." 페니로 전환되었습니다.");
+
 		goto_url($PHP_SELF, false);
 	}	
 }

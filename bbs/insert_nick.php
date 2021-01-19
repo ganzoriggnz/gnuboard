@@ -10,6 +10,4 @@ if(isset($_POST['mb_id']))
     echo $sql;
     sql_query($sql);    
 }
-
-//alert("success");
 ?>
