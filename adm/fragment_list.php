@@ -48,7 +48,7 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm" style="width:00px;">
 <div class="local_desc01 local_desc">
     <p>
     게시글/댓글 작성시
-		<strong><?php echo $startlimit; ?> - <?php echo $endlimit; ?> </strong>까지 랜덤으로 </br>신비한 파편조각 획득합니다  .
+		<strong><?php echo number_format($startlimit); ?> - <?php echo number_format($endlimit); ?> </strong>까지 랜덤으로 </br>신비한 파편조각 획득합니다  .
     </p>
 </div>
 

@@ -49,10 +49,10 @@ function insert_nickname($wer)
 	color: #000;
 	line-height: 2;
   }
-  .popup_box2 .btns{
+  .popup_box2 .btsnick{
 	  margin: 40px 0 0 0;
 	}
-  .btns .btn {
+  .btsnick .btn {
 	  background: #f2f2f2;
 	  color: #000;
 	  font-size: 12px;
@@ -60,7 +60,7 @@ function insert_nickname($wer)
 	  border: 1px solid #808080;
 	  padding: 6px 30px;
 	}
-  .btns .btn:hover{
+  .btsnick .btn:hover{
 	transition: .2s;
 	background:#fff;
   }
@@ -113,16 +113,14 @@ function insert_nickname($wer)
 					<button type="button" id="nickbtn" style="color: #BFAF88; background-color: Transparent;
 							background-repeat:no-repeat;
 							border: none; " >칭호 설정</button>
-						<div class="popup_box2">
-						<form id="nickname" action="" >
+						<div class="popup_box2">						
 						<h1>쿠폰사용</h1>
 						<label>Insert nick name</label><br>
-						<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?>">
-						<input type="text" name="mb_nick2" id="mb_nick2" value="<?php echo $member['mb_nick2'];?>">
-						<div class="btns">
+						<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?> ">
+						<input type="text" name="mb_nick2" id="mb_nick2" maxlength="4" value="<?php echo $member['mb_nick2'];?>">
+						<div class="btsnick">
 							<a href="#" class="btn">okey</a>
-						</div>
-						</form>
+						</div>						
 						</div>
 						<script>
 						$(document).ready(function(){

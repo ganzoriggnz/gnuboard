@@ -14,12 +14,16 @@ if ($w == '') {}
 else if ($w == 'u')
 {	
 	if($_POST['niittoo']<$penychangelimit || $_POST['niittoo']>$member['mb_point']){
-		alert("보유 파운드 10만 파운드 이상 있어야 전환이 가능합니다. 현재 보유 파운드 ".$member['mb_point']." 입니다. ");
+		alert("보유 파운드 10만 파운드 이상 있어야 전환이 가능합니다. 현재 보유 파운드 ".number_format($member['mb_point'])." 입니다. ");
 	}
 	else {
 		$mb_id=$member['mb_id'];
 		$point=$_POST['niittoo'];
+		$penySum=$point * 100000;
 		insert_use_fragment($mb_id, $point,$member['mb_peny']);
+
+		alert(number_format($point)." 파편조각 ".number_format($penySum)." 페니로 전환되었습니다.");
+
 		goto_url($PHP_SELF, false);
 	}	
 }
@@ -136,7 +140,7 @@ echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 						<label class="col-form-label" for="reg_mb_nick">1 파운드 100 페니 (1:100)</label>
 						<div class="col-sm-4">
 							<input type="hidden" name="mb_nick_default" value="">
-							<input type="number" min="'.$penychangelimit.'" max="'.$member['mb_point'].'" name="niittoo" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="10만 파운드 이상 전환 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
+							<input type="number" min="'.$penychangelimit.'" name="niittoo" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="10만 파운드 이상 전환 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
 						</div>
 						'.$frm_submit.'
 		</div>
