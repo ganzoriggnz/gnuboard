@@ -14,11 +14,15 @@ while($row = sql_fetch_array($result))
 {
  $data[] = array(
   'id'   => '100',
-  'title'   => '(원가권) '.$row['cos_nick'],
+  'title'   => $row['cos_nick'],
   'start'   => $row['cos_created_datetime'],
   'end'   => $row['cos_created_datetime'],
   'allday' => true,
-  'textColor' => '#000'
+  'textColor' => '#000',
+  'description' => $row['cos_alt_quantity'],
+  'cos_no' => $row['cos_no'],
+  'cos_nick1' =>$row['cos_nick']
+   
  );
 
 }
@@ -30,11 +34,14 @@ while($row1 = sql_fetch_array($result1))
 {
  $data[] = array(
   'id'   => '200',
-  'title'   => '(원가권) '.$row1['cos_nick'],
+  'title'   => $row1['cos_nick'],
   'start'   => $row1['cos_accepted_datetime'],
   'end'   => $row1['cos_accepted_datetime'],
   'allday' => true,
-  'textColor' => '#0000FF'
+  'textColor' => '#0000FF',
+  'description' => $row['cos_alt_quantity'],
+  'cos_no' => $row1['cos_no'],
+  'cos_nick1' =>$row1['cos_nick']
  );
 
 }
@@ -46,11 +53,14 @@ while($row2 = sql_fetch_array($result2))
 {
  $data[] = array(
   'id'   => '300',
-  'title'   => '(원가권) '.$row2['cos_nick'].'('.$row2['cos_alt_quantity'].')',
+  'title'   => $row2['cos_nick'].'('.$row2['cos_alt_quantity'].')',
   'start'   => $row2['cos_post_datetime'],
   'end'   => $row2['cos_post_datetime'],
   'allday' => true,
-  'textColor' => '#FF0000'
+  'textColor' => '#FF0000',
+  'description' => $row['cos_alt_quantity'],
+  'cos_no' => $row2['cos_no'],
+  'cos_nick1' =>$row2['cos_nick']
  );
 
 }

@@ -41,9 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
         locale: initialLocaleCode,
         navLinks: true, // can click day/week names to navigate views
         editable: true,
-        eventLimit: true, // allow "more" link when too many events
+		eventLimit: true, // allow "more" link when too many events
+		/* eventRender: function(event, element) {
+				element.qtip({
+					cos_no: event.cos_no,
+					description: event.description,
+					cos_nick: event.cos_nick
+				});
+			}, */
         events: {
-            url: 'load.php',
+            url: 'coupon_load.php',
             error: function() {
                 $('#script-warning').show();
             }
@@ -51,16 +58,38 @@ document.addEventListener('DOMContentLoaded', function() {
 		eventClick: function(info){
 			var eventObj = info.event;
 			var id = eventObj.id;
+			var cos_nick  = eventObj.title;
+			var cos_nick1  = eventObj.extendedProps.cos_nick1;
+			var cos_no  = eventObj.extendedProps.cos_no;
 			if(id == '100'){
-				$('#couponDelete .modal-body p').html(event.title);
-				$('#couponDelete').modal();
+				$.ajax({
+					url: 'coupon_delete.php',
+					type: 'POST',
+					data: {cos_no: cos_no},
+					success: function(response){ 
+						console.log(response);
+					// Add response in Modal body
+					$('#couponDelete .modal-body').html(response);
+
+					// Display Modal
+					$('#couponDelete').modal(); 
+					}
+				});
 			} else if (id == '300') {
-				$('#couponAlert .modal-body p').html(event.title);
-				$('#couponAlert').modal();
+				$.ajax({
+					url: 'coupon_alert.php',
+					type: 'POST',
+					data: {cos_nick1: cos_nick1},
+					success: function(response){ 
+						console.log(response);
+					// Add response in Modal body
+					$('#couponAlert .modal-body').html(response);
+
+					// Display Modal
+					$('#couponAlert').modal(); 
+					}
+				});
 			}
-			
-			/* $('#couponDelete .modal-body p').html(event.title);
-			$('#couponDelete').modal(); */
 		},
         loading: function(bool) {
             $('#loading').toggle(bool);
@@ -81,7 +110,7 @@ if($w == 'd'){
 	$cos_type = $_POST['cos_type'];
 
 	$sql = "DELETE FROM $g5[coupon_sent_table] 
-			WHERE cos_code = '{$cos_code}' AND cos_no = '{$cos_no}'";
+			WHERE cos_no = '{$cos_no}'";
 
 	sql_query($sql);
 
@@ -194,7 +223,7 @@ else if($w == 'u'){
 									<th style= "width: 20%; border: 1px solid #000; text-align: center;">누적횟수</th>
 								</tr>
 							</thead>
-							<tbody style="background: #fff;">
+							<tbody id ="tb_body" style="background: #fff;">
 							<?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$row1['cos_nick']}' ORDER BY alt_created_datetime";
 							$res = sql_query($sql);
 							for($i=0; $row = sql_fetch_array($res); $i++) { ?>
@@ -219,7 +248,7 @@ else if($w == 'u'){
 			</div>
 		</div>
 	</div>
-	<script>
+	<!-- <script>
 		$('body').on('click', '.coupon-delete', function() {
 			var co_no = $(this).data('co-no');	
 			var cos_no = $(this).data('no');
@@ -241,7 +270,7 @@ else if($w == 'u'){
 			$('.modal-body #cos_nick').val(cos_nick);
 			$('.modal-body #cos_link').val(cos_link);
 		}); 	
-	</script>
+	</script> -->
 <?php
 include_once('./admin.tail.php');
 ?>
