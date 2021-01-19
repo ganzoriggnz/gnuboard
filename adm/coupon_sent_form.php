@@ -116,5 +116,5 @@ $tmp_row1 = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} 
     $sql1 = " update {$g5['member_table']} set mb_memo_call = '{$member['mb_id']}', mb_memo_cnt = '".get_memo_not_read($ent_id)."' where mb_id = '$ent_id' ";
     sql_query($sql1);
 
-goto_url(G5_ADMIN_URL.'/coupon_list.php'); 
+goto_url(G5_ADMIN_URL.'/coupon_list.php?bo_table='.$cos_link); 
 ?>

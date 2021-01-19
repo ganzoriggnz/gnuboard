@@ -9,6 +9,7 @@ $mb_id = $_POST['mb_id'];
 $co_entity = $_POST['co_entity'];
 $co_sale_num = $_POST['co_sale_num']; 
 $co_free_num = $_POST['co_free_num'];
+$cos_link = $_POST['cos_link'];
 $co_created_datetime = G5_TIME_YMDHIS;
 $currentmonth = substr($co_created_datetime, 5, 2);
 $co_start = date_create($co_created_datetime);
@@ -97,6 +98,6 @@ if($w == ''){
     sql_query($sql);   
 }  
 
-goto_url(G5_ADMIN_URL.'/coupon_list.php');
+goto_url(G5_ADMIN_URL.'/coupon_list.php?bo_table='.$cos_link);
     
 ?>

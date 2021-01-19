@@ -274,7 +274,7 @@ if( isset($_POST['id'])){
         ?>
             <li class="d-table-row px-3 py-2 p-md-0 text-md-center text-muted">	
                 <div class="d-none d-table-cell nw-9 f-sm font-weight-normal py-md-2 px-md-1 border-right">
-                    <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;">
+                    <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>">
                         <?php echo "[".$row['co_entity']."]";
                         $user_entity[$cnt]['co_entity']= $row['co_entity'];
                         ?> 
@@ -324,9 +324,10 @@ if( isset($_POST['id'])){
                               
                             else if($row1['cos_alt_quantity'] > 0) { 
                                 echo '<li><a data-toggle="modal" data-target="#couponAlert'.$altcnt.'" href="#couponAlert'.$altcnt.'" 
-                                class="coupon-alert" style="color:red;" >';
+                                data-class="coupon-alert" style="color:red;" data-link = '.$bo_table.'>';
                                 if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')';
                                 if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')'; ?></a>
+
                                 <div class="modal fade" id="couponAlert<?php echo $altcnt; ?>" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content" style="width: 650px; height: 400px; font-weight: bold;">
@@ -348,6 +349,7 @@ if( isset($_POST['id'])){
                                                 <form id="fcouponalert<?php echo $altcnt; ?>" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
                                                     <input type="hidden" name="cos_nick" id="cos_nick" value="<?php echo $row1['cos_nick'];?>">
                                                     <input type="hidden" name="cos_entity" id="cos_entity" value="<?php echo $row1['cos_entity'];?>">
+                                                    <input type="hidden" name="cos_link" id="cos_link" value="">
                                                     <div style="margin-left:30px; margin-top: 30px;">
                                                         <p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
                                                         <input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px;" value = "<?php echo $res1['cos_alt_quantity']; ?>"/>		
@@ -356,27 +358,26 @@ if( isset($_POST['id'])){
                                                 </form>
                                                 <div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
                                                 <div style="margin: 10px 10px 10px 0px;">
-                                                    <table style="width: 550px;">
-                                                        <thead>
-                                                            <tr>
-                                                            <tr style=" background:  #f8f8f8; border: 1px solid #000; font-size: 10px;">
-                                                                <th style= "width: 25%; border: 1px solid #000; text-align: center;">시간</th>
-                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">업소명</th>
-                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">경고내용</th>
-                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">최종적용 아이디</th>
-                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">누적횟수</th>
+                                                    <table class="alert-table">
+                                                        <thead class="alert-thead">
+                                                            <tr class="alert-tr">
+                                                                <th class="col-xs-3 alert-th">시간</th>
+                                                                <th class="col-xs-2 alert-th">업소명</th>
+                                                                <th class="col-xs-3 alert-th">경고내용</th>
+                                                                <th class="col-xs-2 alert-th">최종적용 아이디</th>
+                                                                <th class="col-xs-2 alert-th">누적횟수</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody style="background: #fff;">
+                                                        <tbody class="alert-tbody">
                                                         <?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$res1['cos_nick']}' ORDER BY alt_created_datetime";
                                                         $res = sql_query($sql);
                                                         for($i=0; $row = sql_fetch_array($res); $i++) { ?>
-                                                            <tr style="border: 1px solid #000;font-size: 8px;">
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_datetime']; ?></td>
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_entity']; ?></td>
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_reason']; ?></td>
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_by']; ?></td>
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_alt_quantity']; ?></td>
+                                                            <tr class="alert-tr">
+                                                                <td class="col-xs-3 alert-td"><?php echo $row['alt_created_datetime']; ?></td>
+                                                                <td class="col-xs-2 alert-td"><?php echo $row['cos_entity']; ?></td>
+                                                                <td class="col-xs-3 alert-td"><?php echo $row['alt_reason']; ?></td>
+                                                                <td class="col-xs-2 alert-td"><?php echo $row['alt_created_by']; ?></td>
+                                                                <td class="col-xs-2 alert-td"><?php echo $row['cos_alt_quantity']; ?></td>
                                                             </tr>
                                                         <?php
                                                         } ?>
@@ -418,6 +419,7 @@ if( isset($_POST['id'])){
                                 <div class="modal-body">
                                     <input type="hidden" name="co_no" id="co_no" value="<?php echo $row3['co_no']; ?>">
                                     <input type="hidden" name="mb_id" id="mb_id" value="<?php echo $row2['mb_id']; ?>">
+                                    <input type="hidden" name="cos_link" id="cos_link" value="">
                                     <div style="margin-left: 30px;"><?php echo $year."년 ".$month."월";?></div>
                                     <div style="margin-left: 30px;"><?php echo "업소명 :";?>
                                         <input type="text" name="cos_entity" id="cos_entity" value="<?php echo $row3['co_entity']; ?>" style="border:none; outline: none; width: 100px; font-size: 12px; font-weight: bold;">							
@@ -591,6 +593,16 @@ if( isset($_POST['id'])){
                 $('.modal-body #cos_no').val(cos_no);
                 $('.modal-body #cos_type').val(cos_type);		
                 $('.modal-body #cos_code').val(cos_code);
+                $('.modal-body #cos_link').val(cos_link);
+            }); 
+
+            $('body').on('click', '.coupon-create', function() {
+                var cos_link = $(this).data('link');
+                $('.modal-body #cos_link').val(cos_link);
+            });
+
+            $('body').on('click', '.coupon-alert', function() {
+                var cos_link = $(this).data('link');
                 $('.modal-body #cos_link').val(cos_link);
             }); 
         });

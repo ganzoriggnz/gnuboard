@@ -30,17 +30,21 @@ include_once('./admin.head.php');
             $.ajax({
             url:"coupon_list_page.php",
             method: "POST",
-            data: {id:id},
+            data: {id:id },
             success: function(data){
-                $('#coupon_list').html(data);               
+                $('#coupon_list').html(data);
                 }
             });  
         }
-      
-      load_coupon_page('gunmaTechon_at');
+
+      var needItem = $('#<?php echo $_GET['bo_table'] ?>');
+      console.log(needItem);
+      var requested = needItem.parent();
+      requested.addClass('active');
+      var bo_table_used = '<?php echo $_GET['bo_table'] ?>';
+      load_coupon_page(bo_table_used);
 
       $('.coupon li a').click(function(e){
-          debugger;
           $('.coupon li.active').removeClass('active');
           var $parent = $(this).parent();
           $parent.addClass('active');
