@@ -114,12 +114,12 @@ function insert_nickname($wer)
 							background-repeat:no-repeat;
 							border: none; " >칭호 설정</button>
 						<div class="popup_box2">						
-						<h1>쿠폰사용</h1>
-						<label>Insert nick name</label><br>
+						<h1>칭호 설정</h1>
+						<label>칭호 입력(4글자까지 가능)</label><br>
 						<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?> ">
 						<input type="text" name="mb_nick2" id="mb_nick2" maxlength="4" value="<?php echo $member['mb_nick2'];?>">
 						<div class="btsnick">
-							<a href="#" class="btn">okey</a>
+							<a href="#" class="btn">확인</a>
 						</div>						
 						</div>
 						<script>
