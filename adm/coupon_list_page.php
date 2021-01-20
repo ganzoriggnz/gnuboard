@@ -281,18 +281,18 @@ if( isset($_POST['id'])){
                     </a>
                 </div>
                 
-                <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1" style = "border-right: 0.5px solid blue;">
+                <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1 text-center" style = "border-right: 0.5px solid blue;">
                     <a style="color:blue; font-weight: bold;" data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == 0) { echo ''; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal"';}  ?>>
                         <?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
                     </a>
                 </div> 
-                <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1" style = "border-right: 0.5px solid blue;">
+                <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1 text-center" style = "border-right: 0.5px solid blue;">
                     <a style="color:blue; font-weight: bold;" data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == 0){ echo ''; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal"';} ?>>
                         <?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
                     </a>
                 </div>
                 
-               <div class="float-left float-md-none d-table-cell nw-30 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+               <div class="float-left float-md-none d-table-cell nw-30 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1 text-left">
                     <?php echo "쿠폰 받은사람 :"; ?> 
                     <ul id="userlist">
                     <?php $sql = "SELECT a.*, b.* FROM $g5[coupon_table] a RIGHT OUTER JOIN $g5[coupon_sent_table] b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";

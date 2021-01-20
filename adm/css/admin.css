@@ -1046,6 +1046,10 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
   padding-right: 0.25rem !important;
 }
 
+.text-md-center {
+  text-align: center !important;
+}
+
 .modal-open {
    overflow: hidden;
  }
@@ -1483,7 +1487,7 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
       margin-left: -15px;
     }
     
-    .col-sm-1,
+  .col-sm-1,
   .col-sm-2,
   .col-sm-3,
   .col-sm-4,
