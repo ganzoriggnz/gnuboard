@@ -8,27 +8,31 @@ include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 
 // hulan nemsen 글 보기 페이지에서 글쓰기 버튼을 숨기고 싶으면
 // 지정된 회원만 글쓰기 권한부여. 게시판 설정 여분필드 1번 값 사용
-if ($board['bo_1']) {
-	$arr_mbids = explode(',', trim($board['bo_1'])); 
-	 // admin bish bgaad ene odoo nevtersen bgaa hun ni bo_1d bgaa hunii idtai adil bish bol bichih tovch haragduulahgui bh
-    if(!$is_admin && !in_array($member['mb_id'], $arr_mbids)) { 
-        $write_href = '';
-        $reply_href = '';
-	}
-	// admin bish ene sambart bichih erhtei hun bol end bichver bichsen esehiig shalgah list skind bas bgaa 
-	else if (!$is_admin && in_array($member['mb_id'], $arr_mbids)) 
-		$wr_cnt = sql_fetch(" select count(wr_id) as cnt from {$write_table} where wr_is_comment=0 and mb_id = '{$member['mb_id']}' ");
-		if ($wr_cnt['cnt']) {
+if($gr_id == 'attendance'){
+	if ($board['bo_1']) {
+		$arr_mbids = explode(',', trim($board['bo_1']));
+		if(!$is_admin && !in_array($member['mb_id'], $arr_mbids)) {
 			$write_href = '';
 			$reply_href = '';
-	   }
-	} 
-
-
-
+			}
+		else if (!$is_admin && in_array($member['mb_id'], $arr_mbids)) // admin bish ene sambart bichih erhtei hun bol end bichver bichsen esehiig shalgah
+			$wr_cnt = sql_fetch(" select count(wr_id) as cnt from {$write_table} where wr_is_comment=0 and mb_id = '{$member['mb_id']}' ");
+			if ($wr_cnt['cnt']) {
+				$write_href = '';
+				$reply_href = '';
+		   }
+	} else if(!$board['bo_1']){
+		$write_href = '';
+		$reply_href = '';
+	}
+	}
+	else if ($gr_id == 'review' && ($member['mb_level'] == 26 || $member['mb_level'] == 27))
+	{
+		$write_href = '';
+		$reply_href = '';
+	}
+	/////////////////////////////////////////////////////////////////////////////////
 	
-// }
-// /////////////////////////////////////////////////////////////////ene hurtel 
 // SyntaxHighLighter
 if(isset($boset['na_code']) && $boset['na_code'])
 	na_script('code');
@@ -544,9 +548,10 @@ $(function() {
 </script>
 <!-- } 게시글 읽기 끝 -->
 <script>
+// hulan nemsen bo_2t utga bh ym bol shingo function ashiglana gesen ug
 <?php
 if ($board['bo_2']) {
-    if (!$is_member && $board['bo_1'] || $is_member) {
+    if ( $is_member) {
 ?>
 $(function() {
     $("#board_singo").click(function() {

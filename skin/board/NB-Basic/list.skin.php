@@ -1,7 +1,8 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
-// 목록 페이지에서 글쓰기 버튼을  숨기고 싶으면
+// hulan nemsen 목록 페이지에서 글쓰기 버튼을  숨기고 싶으면
 // 지정된 회원만 글쓰기 권한부여. 게시판 설정 여분필드 1번 값 사용
+if($gr_id == 'attendance'){
 if ($board['bo_1']) {
     $arr_mbids = explode(',', trim($board['bo_1']));
     if(!$is_admin && !in_array($member['mb_id'], $arr_mbids)) {
@@ -15,7 +16,12 @@ if ($board['bo_1']) {
 } else if(!$board['bo_1']){
 	$write_href = '';
 }
-
+}
+else if ($gr_id == 'review' && ($member['mb_level'] == 26 || $member['mb_level'] == 27))
+{
+	$write_href = '';
+}
+/////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -149,9 +155,8 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 								<span class="sr-only">글쓰기</span>
 							</a>  -->
 							
-							<?php if($bo_table == "work_board")?>{
-								<?php if ($member['mb_id']) { ?><li><a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $bo_table ?>&sfl=mb_id%2C1&stx=<?php echo $member['mb_id'] ?>" class="btn_b02">내글보기</a></li><?php } ?>
-							}
+							<?php if($bo_table == "work_board"){?>
+								<?php if ($member['mb_id']) { ?><li><a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $bo_table ?>&sfl=mb_id%2C1&stx=<?php echo $member['mb_id'] ?>" class="btn_b02">내글보기</a></li><?php } }?>
 							
 
 								<div id="btn_write">
@@ -159,10 +164,8 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 									<i class="fas fa-pencil-alt"></i> 글쓰기
 								</button>
 								</div>
-						
-						
-													
 						<?php } ?>
+
 						<div class="btn-group" role="group">
 							<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
 								<?php
