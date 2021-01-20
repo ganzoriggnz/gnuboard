@@ -332,7 +332,7 @@ if( isset($_POST['id'])){
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content" style="width: 650px; height: 400px; font-weight: bold;">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" style="margin-left: 250px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
+                                                <h5 class="modal-title" style="margin-left: 250px; font-weight: bold; font-size: 14px;">경고 횟수 변경 및 기록</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -352,7 +352,7 @@ if( isset($_POST['id'])){
                                                     <input type="hidden" name="cos_link" id="cos_link" value="">
                                                     <div style="margin-left:30px; margin-top: 30px;">
                                                         <p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
-                                                        <input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px;" value = "<?php echo $res1['cos_alt_quantity']; ?>"/>		
+                                                        <input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px; text-align: center;" value = "<?php echo $res1['cos_alt_quantity']; ?>"/>		
                                                         <input type="submit" name="change" id="change" value="확인" style="background: #FFF2CC; width: 80px;"/>
                                                     </div>
                                                 </form>

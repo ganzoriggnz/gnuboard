@@ -112,27 +112,26 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
                                                 </form>
                                                 <div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
                                                 <div style="margin: 10px 10px 10px 0px;">
-                                                    <table style="width: 550px;">
-                                                        <thead>
-                                                            <tr>
-                                                            <tr style=" background:  #f8f8f8; border: 1px solid #000; font-size: 10px;">
-                                                                <th style= "width: 25%; border: 1px solid #000; text-align: center;">시간</th>
-                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">업소명</th>
-                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">경고내용</th>
-                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">최종적용 아이디</th>
-                                                                <th style= "width: 20%; border: 1px solid #000; text-align: center;">누적횟수</th>
+                                                    <table class="alert-table">
+                                                        <thead class="alert-thead">
+                                                            <tr class="alert-tr">
+                                                                <th class="col-xs-3 alert-th">시간</th>
+                                                                <th class="col-xs-2 alert-th">업소명</th>
+                                                                <th class="col-xs-3 alert-th">경고내용</th>
+                                                                <th class="col-xs-2 alert-th">최종적용 아이디</th>
+                                                                <th class="col-xs-2 alert-th">누적횟수</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody style="background: #fff;">
+                                                        <tbody class="alert-tbody">
                                                         <?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$res1['cos_nick']}' ORDER BY alt_created_datetime";
                                                         $res = sql_query($sql);
                                                         for($i=0; $row = sql_fetch_array($res); $i++) { ?>
-                                                            <tr style="border: 1px solid #000;font-size: 8px;">
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_datetime']; ?></td>
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_entity']; ?></td>
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_reason']; ?></td>
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['alt_created_by']; ?></td>
-                                                                <td style="border: 1px solid #000; text-align: center;"><?php echo $row['cos_alt_quantity']; ?></td>
+                                                            <tr class="alert-tr">
+                                                                <td class="col-xs-3 alert-td"><?php echo $row['alt_created_datetime']; ?></td>
+                                                                <td class="col-xs-2 alert-td"><?php echo $row['cos_entity']; ?></td>
+                                                                <td class="col-xs-3 alert-td"><?php echo $row['alt_reason']; ?></td>
+                                                                <td class="col-xs-2 alert-td"><?php echo $row['alt_created_by']; ?></td>
+                                                                <td class="col-xs-2 alert-td"><?php echo $row['cos_alt_quantity']; ?></td>
                                                             </tr>
                                                         <?php
                                                         } ?>

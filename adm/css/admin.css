@@ -1682,8 +1682,8 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
 }
 
 .alert-table tbody {
-  height:100px;
-  overflow-y:auto;
+  height: 100px;
+  overflow-y: auto;
   width: 100%;
   background-color: #fff;
 }
@@ -1692,18 +1692,18 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
 }
 
 .alert-table .alert-tbody .alert-td {
-  float:left;
+  float: left;
   font-size: 10px;
   border-color: #f3f3f3;
 }
 
-.alert-table .alert-thead .alert-th{
-  font-size: 12px;
+.alert-table .alert-thead .alert-th {
+  font-size: 11px;
 }
 
 .alert-table  .alert-thead .alert-tr .alert-th {
-  float:left;
-  background-color: #f1f1f1;;
+  float: left;
+  background-color: #f1f1f1;
   border-color: #f3f3f3;
 } 
  
@@ -1758,6 +1758,4 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
   width: 8.33333333%;
 }
  
-
-
 /*********************************/
