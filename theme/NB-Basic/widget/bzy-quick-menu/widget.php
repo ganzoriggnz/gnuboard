@@ -68,7 +68,12 @@ global $config, $member, $is_member, $urlencode, $is_admin;
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
                 <img src="<?php echo G5_URL?>/img/baseline-swap_horizontal_circle-24px.png" style="margin-right: 5px; border-color: #707070;" >
-                <a href="#" style="color: #BFAF88;">페니로전환</a>
+                <a href="<?php echo G5_BBS_URL?>/point.php" style="color: #BFAF88;">파운드페니로전환</a>
+            </div>
+            <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
+                <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
+                <img src="<?php echo G5_URL?>/img/baseline-swap_horizontal_circle-24px.png" style="margin-right: 5px; border-color: #707070;" >
+                <a href="<?php echo G5_BBS_URL?>/point2.php" style="color: #BFAF88;">파편조각페니로전환</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->

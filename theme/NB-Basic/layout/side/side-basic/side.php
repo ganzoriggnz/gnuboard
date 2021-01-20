@@ -326,21 +326,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
     <!--	--><?php //echo na_widget('basic-wr-comment-list', 'new-co', 'bo_list=video ca_list=게임'); ?>
     <!--</div>-->
 <!-- 위젯 끝-->
-    <!-- hulan nemsen  -->
-
-        <?php if ($member['mb_level'] == 27) { ?>
-        <tbody><tr>
-			<td style="width:50%; padding:10px;">
-
-				<li class="gnb_2da active">
-				<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=work_board">
-				<i class="fa fa-heartbeat"></i>
-				실장 업무 게시판</a>
-            </li>
-        	</td>
-		    </tr>
-		</tbody>
-        <?php } ?>
+   
         <script>      
                 $('a.cat_2_bg').click(function() {                  
                 $(this).removeClass('cat_2_bg').addClass('cat_2_bg_a');
