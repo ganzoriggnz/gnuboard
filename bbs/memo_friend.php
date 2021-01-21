@@ -38,10 +38,22 @@ else
     $kind_title = '현재접속자';
 }
 
-$list = array();
 
+    if(isset($_POST['chk_fr_no']) and $kind=='friends')
+    {        
+        $invite = $_POST['chk_fr_no'];
+        print_r($invite);
+    } else  
+    if(isset($_POST['chk_fr_no']) and $kind=='online')
+    {
+        $invite = $_POST['chk_fr_no'];
+        print_r($invite);
+    }
 
-
+    if(isset($_POST['find_id'])){
+        $invite = $_POST['find_id'];
+        print_r($invite);
+    }
 
 $list = array();
 

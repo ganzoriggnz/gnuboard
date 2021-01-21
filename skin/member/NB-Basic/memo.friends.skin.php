@@ -57,7 +57,7 @@ $g5['title'] = '현재접속자';
                     <div class="d-table-cell text-right nw-4 pr-3"><b>접속</b></div>
 				</div>
 			</div>
-
+<form name="form1" method="post">
 		<ul class="na-table d-table w-100">
 				<?php
 				for ($i=0; $i < count($list); $i++) {
@@ -73,7 +73,7 @@ $g5['title'] = '현재접속자';
 					<li class="d-table-row border-bottom">
                         <div class="d-table-cell text-center nw-3 py-2 py-md-2 f-sm">
                             <span class="sr-only">check</span>
-                            <input type="checkbox" id="chk_fr_no[<?php echo $list[$i]['mb_id'] ?>]" name="chk_fr_no[<?php echo $list[$i]['mb_id'] ?>]" value="<?php echo $list[$i]['mb_id'] ?>">							
+                            <input type="checkbox" id="<?php echo $list[$i]['mb_id'] ?>" name="chk_fr_no[<?php echo $list[$i]['mb_id'] ?>]" value="<?php echo $list[$i]['mb_id'] ?>">							
 						</div>
 						<div class="d-table-cell py-2 py-md-2 pr-3">
 							<div class="float-sm-left nw-5 nw-auto f-sm">
@@ -99,30 +99,31 @@ $g5['title'] = '현재접속자';
                                 } else {
                                  echo '<img src="'.G5_URL.'/img/friend_off.gif" style="border-radius: none;" title="">';
                                 }
-                            ?>	
+                            ?>
                         </div>
 					</li>
-				<?php } ?>		
+				<?php } ?>
         </ul>
-
         <div class="na-table d-table w-100 mb-0">
 				<div class="d-table-row">
                     <div class="d-table-cell nw-4 pl-4 text-left">
                         <?php
                             if ($kind == 'friends')
                             {
-                                echo '<p class="col-form-label px-2"><a href="#">친구삭제</a>';
+                                echo '<button type="submit" action="" id="btn_submit" class="btn"><b>친구삭제</b></button>';                                
                             }
                             else
                             {
-                                echo '<p class="col-form-label px-2"><a href="#">delete</a>';
+                                echo '<button type="submit" action="" id="btn_submit" class="btn">insert</button>';
                             }
-                        ?>                    
+                        ?>
                     </div>
 				</div>
-			</div>
+            </div>
+            </form>
                 </br>
 
+                <form name="form1" method="post">
         <table class="tbl_type" width="100%" cellspacing="0">
             <thead>
                 <tr>
@@ -132,10 +133,9 @@ $g5['title'] = '현재접속자';
     <tbody>
         <tr class="text-center">
         <td>
-        <input type="hidden"  name="mb_id" value="">
         <input type="hidden"  name="fr_type" value="">
         <p class="col-form-label px-2" style="width: 100px; display: inline;">아이디 :</p>
-        <input name="fr_id" type="text" class="form-control" style="width: 100px; display: inline;" size="10" required="required" itemname="친구아이디"> 
+        <input name="find_id" type="text" class="form-control" style="width: 100px; display: inline;" size="10" required="required" itemname="친구아이디"> 
         <input type="submit" class="btn btn-primary" value="Find">
         메모 :
         <input name="fr_memo" type="text" class="form-control"  style="width: 150px; display: inline;" itemname="메모" size="24"> 
@@ -144,7 +144,9 @@ $g5['title'] = '현재접속자';
     </tr>
 </tbody>
 </table>
+    </form>
     </section>
+
     <div class="font-weight-normal px-3 mt-4">
 		<ul class="pagination justify-content-center en mb-0">
 			<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "./memo.php?kind=$kind".$qstr."&amp;page=") ?>
