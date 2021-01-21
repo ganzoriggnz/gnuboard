@@ -51,7 +51,9 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list_wrap" class="mb-4">
 <!-- 인기글 { -->
-	<?php include_once('hit_latest.php'); ?>
+	
+	<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")   {
+		include_once('hit_latest.php'); }?>
 	<br>
 	<!-- 검색창 시작 { -->
 	<div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">
@@ -109,7 +111,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		<input type="hidden" name="sod" value="<?php echo $sod ?>">
 		<input type="hidden" name="page" value="<?php echo $page ?>">
 		<input type="hidden" name="sw" value="">
-		<?php if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")       // hulan nemsen 1 mur  door haalt ni bgaa bichih zereg haragdahgui bhaar 
+		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")       // hulan nemsen 1 mur  door haalt ni bgaa bichih zereg haragdahgui bhaar 
 		{ ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
@@ -263,7 +265,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		<!-- 게시물 목록 시작 { -->
 		<?php
 
-		if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")  //  hulan nemsen 1 mur 
+		if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")  //  hulan nemsen 1 mur 
 			// 목록스킨
 			if (is_file($list_skin_path . '/list.skin.php')) {
 
@@ -275,7 +277,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		<!-- } 게시물 목록 끝 -->
 
 
-		<?php if ($bo_table != "pointrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
+		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 			<!--  hulan nemsen 1 mur -->
 			<!-- 페이지 시작 { -->
 			<div class="font-weight-normal px-3 px-sm-0">
@@ -375,6 +377,12 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 	include_once($board_skin_path . '/pointrank.php');
 } ?>
 <!-- /////////////////////////////// -->
+
+<!--hulan nemsen  -->
+<?php if ($bo_table == "penyrank") {
+	include_once($board_skin_path . '/penyrank.php');
+} ?>
+<!-- /////////////////////////////// --> 
 
 <!--hulan nemsen  -->
 <?php if ($bo_table == "levelrank") {

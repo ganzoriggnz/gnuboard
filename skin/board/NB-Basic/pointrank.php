@@ -1,6 +1,6 @@
 <?php
 include_once("./_common.php");
-$g5['title'] = '회원 포인트 랭킹';
+$g5['title'] = '회원 파운드 랭킹';
 include_once(G5_THEME_PATH.'/head.php');
 ?>
 <style type="text/css">
@@ -27,7 +27,7 @@ include_once(G5_THEME_PATH.'/head.php');
 </style>
 
 <div id="po_rank">
-<h2>회원 포인트 랭킹 TOP-100</h2>
+<h2>회원 파운드 랭킹 TOP-100</h2>
 <div class="my_rank">
 <?php
 $sql_common = "and mb_level < 23 and mb_id != '{$config['cf_admin']}' ";
@@ -40,14 +40,14 @@ if ($member['mb_level'] < 23 && $member['mb_id']) {
 </div>
 <div class="tbl_rank">
 <table>
-<caption>포인트 랭킹</caption>
+<caption>파운드 랭킹</caption>
 <thead>
 <tr>
     <th>순위</th>
     <th>닉네임</th>
     <th>가입일</th>
     <th>레벨</th>
-    <th class="th_point">포인트</th>
+    <th class="th_point">파운드</th>
 </tr>
 </thead>
 <tbody>

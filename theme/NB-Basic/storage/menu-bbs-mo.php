@@ -1047,7 +1047,20 @@ $data=array (
       ),
       2 =>
       array (
-        'text' => '외성 랭킹',
+        'text' => '페니 랭킹',
+        'href' => G5_BBS_URL.'/board.php?bo_table=penyrank',
+        /* 'icon' => 'fa-trophy', */
+        'icon'  => 'emoji_events-24px',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'link',
+      ),
+      3 =>
+      array (
+        'text' => '가문 랭킹',
         'href' => '#',
         /* 'icon' => 'fa-trophy', */
         'icon'  => 'emoji_events-24px',

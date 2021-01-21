@@ -1060,7 +1060,7 @@ $data=array (
       2 =>
       array (
         'text' => '페니 랭킹',
-        'href' => G5_BBS_URL.'/board.php?bo_table=pointrank',
+        'href' => G5_BBS_URL.'/board.php?bo_table=penyrank',
         /* 'icon' => 'fa-trophy', */
         'icon'  => 'emoji_events-24px',
         'target' => '_self',

@@ -44,7 +44,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
                 <img src="<?php echo G5_URL?>/img/baseline-chat-24px.png" style="margin-right: 5px; border-color: #707070;" >
-                <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=Partnership" style="color: #BFAF88;">제휴문의</a>
+                <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=partnership" style="color: #BFAF88;">제휴문의</a>
             </div>
         </div>
         <div style="padding: 0px 14px;">
