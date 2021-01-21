@@ -15,6 +15,7 @@ $sql = " select a.mb_id, b.mb_nick, b.mb_name, b.mb_email, b.mb_homepage, b.mb_o
             where a.mb_id <> '{$config['cf_admin']}'
             order by a.lo_datetime desc ";
 $result = sql_query($sql);
+
 for ($i=0; $row=sql_fetch_array($result); $i++) {
 			$row['lo_url'] = get_text($row['lo_url']);
 			$list[$i] = $row;
@@ -70,18 +71,16 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 	</nav>
 
 	<div id="memo_info" class="f-de font-weight-normal mb-2 px-3">
-		전체 <?php echo $kind_title ?>쪽지 <b><?php echo $total_count ?></b>통 / <?php echo $page ?>페이지
+		전체 <?php echo $kind_title ?>쪽지 <b> <?php echo $total_count ?></b>통 / <?php echo $page ?>페이지
 	</div>
 
 	<div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
 
 
 <!-- sa fasdf a   list online current  -->
-
+    
 	<section id="connect_list" class="mb-4">
-
 		<h2 class="sr-only">현재 접속자 목록</h2>
-
 			<div class="na-table d-table w-100 mb-0">
 				<div class="<?php echo $head_class ?> d-table-row">
 					<div class="d-table-cell nw-6">번호</div>
@@ -112,16 +111,15 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 						$display_location = $location;
 				?>
 					<li class="d-table-row border-bottom">
-						<div class="d-table-cell text-center nw-6 py-2 py-md-2 f-sm">
-							<span class="sr-only">번호</span>
-							<?php echo $list[$i]['num'] ?>
-						</div>
+                        <div class="d-table-cell text-center nw-3 py-2 py-md-2 f-sm">
+                            <span class="sr-only">check</span>
+                            <input type="checkbox" id="chk_fr_no[<?php echo $list[$i]['mb_id'] ?>]" name="chk_fr_no[<?php echo $list[$i]['mb_id'] ?>]" value="347">							
+						</div>						
 						<div class="d-table-cell py-2 py-md-2 pr-3">
 							<div class="float-sm-left nw-10 nw-auto f-sm">
 								<span class="sr-only">접속자</span>
 								<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
 							</div>
-
 							<div class="na-title">
 								<div class="na-item">
 									<div class="na-subject">
@@ -129,11 +127,41 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 									</div>
 								</div>
 							</div>
+                        </div>
+                        <div class="d-table-cell text-center nw-3 py-2 py-md-2 f-sm">
+                            <span class="sr-only">online</span>
+                            <img >					
+						</div>	
 
-						</div>
 					</li>
 				<?php } ?>		
-		</ul>
+        </ul>
+                </br>
+
+        <table class="tbl_type" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class="d-table-cell text-left text-sm-center" >새로운 친구 등록하기</th>
+                </tr>
+             </thead>
+    <tbody>
+        <tr class="text-center">
+        <td>        
+        <input type="hidden"  name="mb_id" value="">
+        <input type="hidden"  name="fr_type" value="">
+        <p class="col-form-label px-2" style="width: 100px; display: inline;">아이디 :</p>
+        <input name="fr_id" type="text" class="form-control" style="width: 100px; display: inline;" size="10" required="required" itemname="친구아이디"> 
+        <input type="submit" class="btn btn-primary" value="Find">
+        메모 :
+        <input name="fr_memo" type="text" class="form-control"  style="width: 150px; display: inline;" itemname="메모" size="24"> 
+        <input type="submit" class="btn btn-primary" value="친구등록">
+        </td>
+    </tr>
+</tbody>
+</table>
+
+
+
 	</section>
 
 	<div class="font-weight-normal px-3 mt-4">

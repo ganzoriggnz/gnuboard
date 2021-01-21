@@ -31,13 +31,13 @@ $from_record = ((int) $page - 1) * $config['cf_page_rows']; // 시작 열을 구
 
 if ($kind == 'friends')
 {
-    $kind_title = '받은';
+    $kind_title = '친구관리(나의 친구들)';
     $recv_img = 'on';
     $send_img = 'off';
 }
 else
 {
-    $kind_title = '보낸';
+    $kind_title = 'online members';
     $recv_img = 'off';
     $send_img = 'on';
 }
@@ -51,6 +51,8 @@ $sql = " select a.*, b.mb_id, b.mb_nick, b.mb_email, b.mb_homepage
             order by a.me_id desc limit $from_record, {$config['cf_page_rows']} ";
 
 $result = sql_query($sql);
+
+
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {
     $list[$i] = $row;
@@ -79,6 +81,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 
     $list[$i]['del_href'] = './memo_delete.php?me_id='.$row['me_id'].'&amp;token='.$token.'&amp;kind='.$kind;
 } 
+
+$total_count=count($list);
 
 $write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "./memo.friends.php?kind=$kind".$qstr."&amp;page=");
 
