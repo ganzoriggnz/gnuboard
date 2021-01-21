@@ -155,10 +155,6 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 								<span class="sr-only">글쓰기</span>
 							</a>  -->
 							
-							<?php if($bo_table == "work_board"){?>
-								<?php if ($member['mb_id']) { ?><li><a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $bo_table ?>&sfl=mb_id%2C1&stx=<?php echo $member['mb_id'] ?>" class="btn_b02">내글보기</a></li><?php } }?>
-							
-
 								<div id="btn_write">
 								<button type="button" class="btn_bbs" onclick="location.href='<?php echo $write_href ?>'">
 									<i class="fas fa-pencil-alt"></i> 글쓰기
