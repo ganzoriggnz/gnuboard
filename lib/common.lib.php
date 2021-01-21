@@ -1079,8 +1079,8 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
     $sql = " update {$g5['member_table']} set mb_point2 = '$po_mb_point' where mb_id = '$mb_id'";
     sql_query($sql);
 
-    $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
-    alert($massege);
+    // $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
+    // alert($massege);
     return 1;
 }
 
