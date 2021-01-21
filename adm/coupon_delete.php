@@ -1,6 +1,7 @@
 <?php
 $sub_menu = "700200";
 include_once('./_common.php');
+auth_check($auth[$sub_menu], 'r');
 
 if(isset($_POST['cos_no'])){
    $cos_no = $_POST['cos_no'];

@@ -4,10 +4,12 @@ a.fc-event:link, a.fc-event:visited {color:#fff;}
 a.fc-event:hover {color: #fff;text-decoration: underline;}
 .fc-view, .fc-view > table {background-color: #fff;}
 .fc-view .fc-day-header {padding:10px 0}
-.fc-day-header.fc-widget-header {background: url('./wz.img/bg_tbl.gif') 0 0 repeat-x;}
+/* .fc-day-header.fc-widget-header {background: url('./wz.img/bg_tbl.gif') 0 0 repeat-x;} */
+.fc-widget-content .fc-sat { background: #FFF7F7;}
+.fc-widget-content .fc-sun { background: #F0F0FF;}
 .fc-sun span, .fc-sun a.fc-day-number {color:red}
 .fc-sat span, .fc-sat a.fc-day-number {color:blue}
-.fc-head-container.fc-widget-header {border-top: 2px solid #000;}
+.fc-head-container.fc-widget-header {background: #efefef; border-top: 2px solid #000;}
 .fc-event {font-size:12px;}
 
 .wz_tbl_1,.wz_tbl_1 th,.wz_tbl_1 td{border:0;}
