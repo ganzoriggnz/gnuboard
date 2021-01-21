@@ -263,19 +263,19 @@ temporary rendered events).
   border: 1px solid #fff;
 }
 
-.fc-event,
+/* .fc-event,
 .fc-event-dot {
-  background-color: #fff;
+  background-color: #fff; */
   /* default BACKGROUND color */
-}
+/* } */
 
-.fc-event,
+/* .fc-event,
 .fc-event:hover {
-  color: #fff;
+  color: #fff; */
   /* default TEXT color */
-  text-decoration: none;
+  /* text-decoration: none; */
   /* if <a> has an href */
-}
+/* } */
 
 .fc-event[href],
 .fc-event.fc-draggable {

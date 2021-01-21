@@ -1,4 +1,5 @@
 <?php 
+$sub_menu = "700100";
 include_once('./_common.php');
 auth_check($auth[$sub_menu], 'r');
 
@@ -32,5 +33,5 @@ if($cos_type == 'S'){
     sql_query($sql1);
 }
 
-goto_url(G5_ADMIN_URL.'/coupon_list.php?bo_table='.$cos_link); 
+goto_url(G5_ADMIN_URL.'/coupon_list.php?bo_table='.$cos_link,); 
 ?>

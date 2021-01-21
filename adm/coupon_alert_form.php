@@ -1,5 +1,7 @@
 <?php 
+$sub_menu = "700100";
 include_once('./_common.php');
+auth_check($auth[$sub_menu], 'r');
 
 // 상수 선언
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사

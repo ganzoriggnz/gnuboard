@@ -3990,4 +3990,93 @@ function get_member_level_select2($name, $start_id=0, $end_id=30, $selected="", 
     $str .= "</select>\n";
     return $str;
 }
+
+function get_entityview($mb_id, $name='', $email='', $homepage='')
+{
+    global $config;
+    global $g5;
+    global $bo_table, $sca, $is_admin, $member;
+
+    $email = get_string_encrypt($email);
+    $homepage = set_http(clean_xss_tags($homepage));
+
+    $name     = get_text($name, 0, true);
+    $email    = get_text($email);
+    $homepage = get_text($homepage);
+
+    $tmp_name = "";
+    $en_mb_id = $mb_id;
+
+   /*  if ($mb_id) {
+        //$tmp_name = "<a href=\"".G5_BBS_URL."/profile.php?mb_id=".$mb_id."\" class=\"sv_member\" title=\"$name 자기소개\" rel="nofollow" target=\"_blank\" onclick=\"return false;\">$name</a>";
+        $tmp_name = '<a href="'.G5_BBS_URL.'/profile.php?mb_id='.$mb_id.'" class="sv_member" title="'.$name.' 자기소개" target="_blank" rel="nofollow" onclick="return false;">';
+
+        if ($config['cf_use_member_icon']) {
+            $mb_dir = substr($mb_id,0,2);
+            $icon_file = G5_DATA_PATH.'/member/'.$mb_dir.'/'.get_mb_icon_name($mb_id).'.gif';
+
+            if (file_exists($icon_file)) {
+                $width = $config['cf_member_icon_width'];
+                $height = $config['cf_member_icon_height'];
+                $icon_file_url = G5_DATA_URL.'/member/'.$mb_dir.'/'.get_mb_icon_name($mb_id).'.gif';
+                $tmp_name .= '<span class="profile_img"><img src="'.$icon_file_url.'" width="'.$width.'" height="'.$height.'" alt=""></span>';
+
+                if ($config['cf_use_member_icon'] == 2) // 회원아이콘+이름
+                    $tmp_name = $tmp_name.' '.$name;
+            } else {
+                if( defined('G5_THEME_NO_PROFILE_IMG') ){
+                    $tmp_name .= G5_THEME_NO_PROFILE_IMG;
+                } else if( defined('G5_NO_PROFILE_IMG') ){
+                    $tmp_name .= G5_NO_PROFILE_IMG;
+                }
+                if ($config['cf_use_member_icon'] == 2) // 회원아이콘+이름
+                    $tmp_name = $tmp_name.' '.$name;
+            }
+        } else {
+            $tmp_name = $tmp_name.' '.$name;
+        }
+        $tmp_name .= '</a>';
+
+        $title_mb_id = '['.$mb_id.']';
+    } else {
+        if(!$bo_table)
+            return $name;
+
+        $tmp_name = '<a href="'.get_pretty_url($bo_table, '', 'sca='.$sca.'&amp;sfl=wr_name,1&amp;stx='.$name).'" title="'.$name.' 이름으로 검색" class="sv_guest" rel="nofollow" onclick="return false;">'.$name.'</a>';
+        $title_mb_id = '[비회원]';
+    } */
+
+    $str = "<span class=\"sv_wrap\">\n";
+    $str .= $tmp_name."\n";
+
+    $str2 = "<span class=\"sv\">\n";
+   /*  if($mb_id)
+        $str2 .= "<a href=\"".G5_BBS_URL."/memo_form.php?me_recv_mb_id=".$mb_id."\" onclick=\"win_memo(this.href); return false;\">쪽지보내기</a>\n";
+    if($email)
+        $str2 .= "<a href=\"".G5_BBS_URL."/formmail.php?mb_id=".$mb_id."&amp;name=".urlencode($name)."&amp;email=".$email."\" onclick=\"win_email(this.href); return false;\">메일보내기</a>\n";
+    if($homepage)
+        $str2 .= "<a href=\"".$homepage."\" target=\"_blank\">홈페이지</a>\n";
+    if($mb_id)
+        $str2 .= "<a href=\"".G5_BBS_URL."/profile.php?mb_id=".$mb_id."\" onclick=\"win_profile(this.href); return false;\">자기소개</a>\n";
+    if($bo_table) {
+        if($mb_id) {
+            $str2 .= "<a href=\"".get_pretty_url($bo_table, '', "sca=".$sca."&amp;sfl=mb_id,1&amp;stx=".$en_mb_id)."\">아이디로 검색</a>\n";
+        } else {
+            $str2 .= "<a href=\"".get_pretty_url($bo_table, '', "sca=".$sca."&amp;sfl=wr_name,1&amp;stx=".$name)."\">이름으로 검색</a>\n";
+        }
+    } */
+    if($is_admin == "super" && $mb_id) {
+        $str2 .= "<a href=\"".G5_ADMIN_URL."/member_form.php?w=u&amp;mb_id=".$mb_id."\" target=\"_blank\">회원정보변경</a>\n";
+        $str2 .= "<a href=\"".G5_ADMIN_URL."/entity_extend_right.php"\">제휴연장</a>\n";
+        $str2 .= "<a href=\"".G5_ADMIN_URL."/coupon_list.php"\" target=\"_blank\">쿠폰관리</a>\n";
+        $str2 .= "<a href=\"".G5_BBS_URL."/memo_form.php?me_recv_mb_id=".$mb_id."\" onclick=\"win_memo(this.href); return false;\">쪽지보내기</a>\n";
+    }
+    $str2 .= "</span>\n";
+    $str .= $str2;
+    $str .= "\n<noscript class=\"sv_nojs\">".$str2."</noscript>";
+
+    $str .= "</span>";
+
+    return $str;
+}
 ?>
