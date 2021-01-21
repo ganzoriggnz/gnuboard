@@ -965,12 +965,7 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
     global $g5;
     global $is_admin;
 
-    // insert fragment fucntion =-------------------------------------
-    if($rel_action=='댓글'){ // Comment 
-    insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);}
-    else if($rel_action=='쓰기'){ // write ---------------
-        insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);
-    }
+
 
     // 포인트 사용을 하지 않는다면 return
     if (!$config['cf_use_point']) { return 0; }
