@@ -46,8 +46,8 @@ if ($w != 'u' && !$is_admin && $member['mb_level'] != 26 && $member['mb_level'] 
 // hulan nemsen////////////////////////////////////////////////////////////
 if ($w != 'u' && $gr_id == "review") { //글수정이 아니고, review 그룹이면 작동
 
-	// 게시판 하루 글등록수 제한하기
-	$post_limit = 2; // 하루 글제한수
+	// 게시판 하루 글등록수 제한하기   anh write hih ued shalgadag 
+	$post_limit = 2; // 하루 글제한수   buh sambart bichber oruulah limit
 	if (!$is_admin && $member['mb_level'] != 26 && $member['mb_level'] != 27 && $w != 'u') { //관리자가 아니고 26레벨 아니고 글수정이 아니면 작동
 		// 오늘 체크
 		$sql_today = na_sql_term('today', 'wr_datetime'); // 기간(일수,today,yesterday,month,prev)
@@ -359,8 +359,8 @@ if ($is_member)
 					<tr>
 						<th scope="row"><label for="wr_1">제목컬러<strong class="sound_only">필수</strong></label></th>
 						<td>
-							<select id="colorselector_2">
-								<option value="#000000" data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
+							<select id="colorselector_2" name="wr_1">
+								<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
 								<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
 								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
 								<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
@@ -378,7 +378,7 @@ if ($is_member)
 								<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
 								<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
 							</select>
-							<input type="hidden" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required class="frm_input required" size="30" maxlength="255">
+							<!-- <input type="hidden" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required class="frm_input required" size="30" maxlength="255"> -->
 						</td>
 					</tr>
 				<?php } ?>
@@ -647,7 +647,6 @@ if ($is_member)
 			</div>
 		</div>
 	</form>
-
 </section>
 
 <script>

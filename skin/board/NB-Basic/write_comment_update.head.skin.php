@@ -16,7 +16,7 @@ if($w == "cu") {
 	
 }
 
-// 댓글 작성 하루 개수 제한
+// 댓글 작성 하루 개수 제한  
  // 댓글 작성 개수  $comment_limit = 2;hulan nemsen///////////////////
  if($w != 'cu' && !$is_admin && $member['mb_level'] != 26 && $member['mb_level'] != 27) { //글수정이 아니면 작동
 	// 오늘 체크
@@ -26,7 +26,7 @@ if($w == "cu") {
 	} else { // 비회원이면 ip로 체크
 	 $row = sql_fetch("select count(*) as cnt from $write_table where wr_ip = '{$_SERVER['REMOTE_ADDR']}' and wr_is_comment = '1' $sql_today "); 
 	}
-	if($row['cnt'] >= $board['bo_10']) {
+	if($row['cnt'] >= $board['bo_10']) {   //  bo_10 tuhain sambart bichih commentiin limit
 	 alert('본 게시판은 하루에 댓글을 '.$board['bo_10'].'개까지만 등록할 수 있습니다.'); 
 	}
    }
@@ -34,8 +34,8 @@ if($w == "cu") {
 
 /////////////////hulan///////////////////////////////
 // 그룹 지정 댓글쓰기 횟수 제한
-$set_id = "review"; // 그룹 ID 지정
-$gr_limit = "10"; // 그룹 제한 글 수
+$set_id = "review"; // 그룹 ID 지정  
+$gr_limit = "10"; // 그룹 제한 글 수  review groupiin buh sambart comment oruulah limit
 $ress = sql_query( " select bo_table from $g5[board_table] where gr_id = '{$set_id}' " );
 for ( $i = 1; $bo = sql_fetch_array( $ress ); ) {
  $tmp_wr_table = $g5[ 'write_prefix' ] . $bo[ 'bo_table' ]; // 지정 그룹 게시판 테이블
