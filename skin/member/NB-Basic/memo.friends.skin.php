@@ -8,38 +8,6 @@ include_once('./_common.php');
 
 $g5['title'] = '현재접속자';
 
-$list = array();
-
-$sql = " select a.mb_id, b.mb_nick, b.mb_name, b.mb_email, b.mb_homepage, b.mb_open, b.mb_point, a.lo_ip, a.lo_location, a.lo_url
-            from {$g5['login_table']} a left join {$g5['member_table']} b on (a.mb_id = b.mb_id)
-            where a.mb_id <> '{$config['cf_admin']}'
-            order by a.lo_datetime desc ";
-$result = sql_query($sql);
-
-for ($i=0; $row=sql_fetch_array($result); $i++) {
-			$row['lo_url'] = get_text($row['lo_url']);
-			$list[$i] = $row;
-			if ($row['mb_id']) {
-				$list[$i]['name'] = get_sideview($row['mb_id'], cut_str($row['mb_nick'], $config['cf_cut_name']), $row['mb_email'], $row['mb_homepage']);
-			} else {
-				if ($is_admin)
-					$list[$i]['name'] = $row['lo_ip'];
-				else
-					$list[$i]['name'] = preg_replace("/([0-9]+).([0-9]+).([0-9]+).([0-9]+)/", G5_IP_DISPLAY, $row['lo_ip']);
-			}
-
-		$list[$i]['num'] = sprintf('%03d',$i+1);
-
-		$wset = na_skin_config('connect');
-
-		$head_color = ($wset['head_color']) ? $wset['head_color'] : 'primary';
-		if($wset['head_skin']) {
-			add_stylesheet('<link rel="stylesheet" href="'.NA_URL.'/skin/head/'.$wset['head_skin'].'.css">', 0);
-			$head_class = 'list-head';
-		} else {
-			$head_class = 'na-table-head border-'.$head_color;
-		}
-	}
 
 ?>
 
@@ -79,22 +47,14 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 
 <!-- sa fasdf a   list online current  -->
     
-	<section id="connect_list" class="mb-4">
-		<h2 class="sr-only">현재 접속자 목록</h2>
+	<section id="connect_list" class="mb-4">		
 			<div class="na-table d-table w-100 mb-0">
 				<div class="<?php echo $head_class ?> d-table-row">
-					<div class="d-table-cell nw-6">번호</div>
-					<div class="d-table-cell text-left text-sm-center">
-						<?php if($is_admin == 'super' ||IS_DEMO) { ?>
-							<?php if(is_file($connect_skin_path.'/setup.skin.php')) { ?>
-								<a class="btn_b01 btn-setup float-right mr-3" href="<?php echo na_setup_href('connect') ?>" title="스킨 설정">
-									<i class="fa fa-cogs fa-md" aria-hidden="true"></i>
-									<span class="sr-only">스킨 설정</span>
-								</a>
-							<?php } ?>
-						<?php } ?>
-						접속자 위치
-					</div>
+                    <div class="d-table-cell nw-3"></div>
+                    <div class="d-table-cell text-left nw-4"><b>아이디</b></div>                  
+					<div class="d-table-cell text-left text-sm-center"><b>이 름</b></div>
+					<div class="d-table-cell text-left text-sm-center"><b>메 모</b></div>
+                    <div class="d-table-cell text-right nw-4 pr-3"><b>접속</b></div>
 				</div>
 			</div>
 
@@ -107,35 +67,60 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 					// 이 조건문은 가능한 변경하지 마십시오.
 					if ($list[$i]['lo_url'] && $is_admin == 'super') 
 						$display_location = "<a href=\"".$list[$i]['lo_url']."\">".$location."</a>";
-					else 
+					else
 						$display_location = $location;
 				?>
 					<li class="d-table-row border-bottom">
                         <div class="d-table-cell text-center nw-3 py-2 py-md-2 f-sm">
                             <span class="sr-only">check</span>
-                            <input type="checkbox" id="chk_fr_no[<?php echo $list[$i]['mb_id'] ?>]" name="chk_fr_no[<?php echo $list[$i]['mb_id'] ?>]" value="347">							
-						</div>						
+                            <input type="checkbox" id="chk_fr_no[<?php echo $list[$i]['mb_id'] ?>]" name="chk_fr_no[<?php echo $list[$i]['mb_id'] ?>]" value="<?php echo $list[$i]['mb_id'] ?>">							
+						</div>
 						<div class="d-table-cell py-2 py-md-2 pr-3">
-							<div class="float-sm-left nw-10 nw-auto f-sm">
-								<span class="sr-only">접속자</span>
-								<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
+							<div class="float-sm-left nw-5 nw-auto f-sm">
+                                <?php echo $list[$i]['me_mbid'] ?>		
 							</div>
 							<div class="na-title">
 								<div class="na-item">
 									<div class="na-subject">
-										<?php echo $display_location ?>
+                                    <?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
 									</div>
 								</div>
 							</div>
                         </div>
-                        <div class="d-table-cell text-center nw-3 py-2 py-md-2 f-sm">
-                            <span class="sr-only">online</span>
-                            <img >					
-						</div>	
-
+                        <div class="d-table-cell text-left text-sm-center">
+                            <?php  
+                                 echo   $list[$i]['me_memo'];
+                            ?>	
+						</div>
+                        <div class="d-table-cell text-center nw-4 py-md-2 f-sm pr-3">
+                            <span class="sr-only">접속</span>
+                            <?php if ($list[$i]['countd']==1){  
+                                 echo '<img src="'.G5_URL.'/img/friend_on.gif" style="border-radius: none;" title="">';                        
+                                } else {
+                                 echo '<img src="'.G5_URL.'/img/friend_off.gif" style="border-radius: none;" title="">';
+                                }
+                            ?>	
+                        </div>
 					</li>
 				<?php } ?>		
         </ul>
+
+        <div class="na-table d-table w-100 mb-0">
+				<div class="d-table-row">
+                    <div class="d-table-cell nw-4 pl-4 text-left">
+                        <?php
+                            if ($kind == 'friends')
+                            {
+                                echo '<p class="col-form-label px-2"><a href="#">친구삭제</a>';
+                            }
+                            else
+                            {
+                                echo '<p class="col-form-label px-2"><a href="#">delete</a>';
+                            }
+                        ?>                    
+                    </div>
+				</div>
+			</div>
                 </br>
 
         <table class="tbl_type" width="100%" cellspacing="0">
@@ -146,7 +131,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
              </thead>
     <tbody>
         <tr class="text-center">
-        <td>        
+        <td>
         <input type="hidden"  name="mb_id" value="">
         <input type="hidden"  name="fr_type" value="">
         <p class="col-form-label px-2" style="width: 100px; display: inline;">아이디 :</p>
@@ -159,12 +144,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     </tr>
 </tbody>
 </table>
-
-
-
-	</section>
-
-	<div class="font-weight-normal px-3 mt-4">
+    </section>
+    <div class="font-weight-normal px-3 mt-4">
 		<ul class="pagination justify-content-center en mb-0">
 			<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "./memo.php?kind=$kind".$qstr."&amp;page=") ?>
 		</ul>
