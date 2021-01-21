@@ -966,11 +966,7 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
     global $is_admin;
 
     // insert fragment fucntion =-------------------------------------
-    if($rel_action=='댓글'){ // Comment 
-    insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);}
-    else if($rel_action=='쓰기'){ // write ---------------
-        insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);
-    }
+    
 
     // 포인트 사용을 하지 않는다면 return
     if (!$config['cf_use_point']) { return 0; }
@@ -1038,6 +1034,18 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
     $sql = " update {$g5['member_table']} set mb_point = '$po_mb_point' where mb_id = '$mb_id'";
     sql_query($sql);
 
+
+
+    // if($rel_action=='댓글'){ // Comment 
+    //     insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);
+    // }
+    // else if($rel_action=='쓰기'){ // write ---------------
+    //     insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);
+    // }
+
+
+
+
     return 1;
 }
 
@@ -1084,8 +1092,8 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
     $sql = " update {$g5['member_table']} set mb_point2 = '$po_mb_point' where mb_id = '$mb_id'";
     sql_query($sql);
 
-    $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
-    alert($massege);
+    // $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
+    // alert($massege);
     return 1;
 }
 
