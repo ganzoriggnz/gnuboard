@@ -416,7 +416,7 @@ function get_level($mb_id)
 		global $g5;
 		$result = sql_fetch(" SELECT `mb_level` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
 		if ($result['mb_level'] > 17)
-			return '<img src=' . G5_URL . '/img/' . $result['mb_level'] . '.gif>';
+			return '<img src=' . G5_URL . '/img/' . $result['mb_level'] . '.png>';
 	}
 
 function na_name_photo($mb_id, $name){
@@ -428,7 +428,7 @@ function na_name_photo($mb_id, $name){
 
 	$result = sql_fetch(" SELECT `mb_level`,`mb_nick2`,`mb_nick` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
 	if ($result['mb_level'] > 17)
-		$levelimg= '<img class="levelimg" src=' . G5_URL . '/img/' . $result['mb_level'] . '.gif style="border-radius: none;">';
+		$levelimg= '<img class="levelimg" src=' . G5_URL . '/img/' . $result['mb_level'] . '.png style="border-radius: none;">';
 		$nick2=$result['mb_nick2'];
 		$nick=$result['mb_nick'];
 
