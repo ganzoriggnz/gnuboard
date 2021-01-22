@@ -22,7 +22,14 @@ include_once('./admin.head.php');
 <script src="<?php echo G5_ADMIN_URL;?>/wz.js/bootstrapmodal.min.js"></script>
 <link href="<?php echo G5_ADMIN_URL;?>/css/wzappend.css" rel="stylesheet" />
 
+<style>
+.closeon {
+  float: right;
+  padding: 0px 2px 4px 4px;
+}
+</style>
 <script type="text/javascript">
+
 debugger;
 document.addEventListener('DOMContentLoaded', function() {
     var initialLocaleCode = 'ko';
@@ -38,7 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
         locale: initialLocaleCode,
         navLinks: true, // can click day/week names to navigate views
         editable: true,
-		eventLimit: true, // allow "more" link when too many events
+        eventLimit: true, // allow "more" link when too many events
+       eventRender: function(event, eventElement) {
+                /* eventElement.find("td.fc-event-container").append("<span class='sv_wrap'>");  */
+            /* info.el.querySelector('.fc-time').innerHTML = ""; */
+            //info.el.querySelector('.fc-title').innerHTML = "<i>" + info.event.title + `</li><div id="links" class="${info.event.extendedProps.mb_id}popUp"></div>`;
+            // info.el.append(`<div id=${info.el.extendedProps.mb_id}></div>`)
+            // var e = info.el.append("<span class='closeon'>&#10005;</span>");
+        }, 
         events: {
             url: 'entity_load.php',
             error: function() {
@@ -52,19 +66,20 @@ document.addEventListener('DOMContentLoaded', function() {
             var end = eventObj.end;
             var mb_id  = eventObj.extendedProps.mb_id;
 			var mb_name  = eventObj.extendedProps.mb_name;
-			var mb_note  = eventObj.extendedProps.mb_note;
-            console.log(mb_id);
+            var mb_note  = eventObj.extendedProps.mb_note;
+            
             $.ajax({
                 url: 'entity_links.php',
                 type: 'POST',
                 data: {mb_id: mb_id},
                 success: function(response){ 
-                $('#entityExtend .modal-body').html(response);
-                $('#entityExtend').modal(); 
+               /*  $(`.${mb_id}popUp`).html(response); */
+                $('#links').html(response);
+                console.log(response);
                 }
-            }); 
-		
-		},
+                
+            }); 		
+        },
         loading: function(bool) {
             $('#loading').toggle(bool);
 		}
@@ -98,6 +113,8 @@ if($w == 'u'){
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 ?>
 	<div id="calendar">
+       <div id="links"></div>
+    
     <script>
         $(function(){
         $("#to_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+0d" });
@@ -125,7 +142,8 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 				</div>
 			</div>
 		</div>	
-	</div>
+    </div>
+    
 	
 <?php
 include_once('./admin.tail.php');
