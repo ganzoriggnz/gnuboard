@@ -52,11 +52,11 @@ else
     {
         $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}'";
             $toodddd = sql_fetch($sqlsss);
-            if( $toodddd['cnt'] < 10){          // nz boloh deed limit 10 
+            if( $toodddd['cnt'] < 9){          // nz boloh deed limit 10 
                 $invite = $_POST['chk_fr_no'];
                 $me_memo = $_POST['fr_memo'];
                 for ($i=0; $i < count($invite); $i++){
-                    if( $toodddd['cnt'] < 10)   // nz boloh deed limit 10 
+                    if( $toodddd['cnt'] < 9)   // nz boloh deed limit 10 
                     {   $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}' and me_mbid = '{$invite[$i]}'";
                         $too = sql_fetch($sqlsss);
                         if( $too['cnt'] == 0 and $member['mb_id']!=$invite[$i]) {
@@ -73,12 +73,12 @@ else
     {
         $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}'";
             $toodddd = sql_fetch($sqlsss);
-            if( $toodddd['cnt'] < 10) // nz boloh deed limit 10 
+            if( $toodddd['cnt'] < 9) // nz boloh deed limit 10 
             {
                 $invite = $_POST['finds_friend'];
                 $me_memo = $_POST['fr_memo'];
                 for ($i=0; $i < count($invite); $i++){
-                    if( $toodddd['cnt'] < 10)    // nz boloh deed limit 10 
+                    if( $toodddd['cnt'] < 9)    // nz boloh deed limit 10 
                     {
                         $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}' and me_mbid = '{$invite[$i]}'";
                         $too = sql_fetch($sqlsss);
