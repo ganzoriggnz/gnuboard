@@ -3,10 +3,6 @@ $sub_menu = "700100";
 include_once('./_common.php');
 auth_check($auth[$sub_menu], 'r');
 
-// 상수 선언
-$g5['table_prefix']        = "g5_"; // 테이블명 접두사
-$g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
-
 $mb_id = $_POST['mb_id'];
 $co_entity = $_POST['co_entity'];
 $co_sale_num = $_POST['co_sale_num']; 
@@ -72,7 +68,7 @@ $co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '12')
 $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 
-$sql = "SELECT COUNT(co_no) as cnt FROM $g5[coupon_table] WHERE mb_id = '{$mb_id}' AND co_begin_datetime='{$s_begin_date}' AND co_end_datetime='{$s_end_date}'";
+$sql = "SELECT COUNT(co_no) as cnt FROM {$g5['coupon_table']} WHERE mb_id = '{$mb_id}' AND co_begin_datetime='{$s_begin_date}' AND co_end_datetime='{$s_end_date}'";
 $row = sql_fetch($sql);
 $cnt = $row['cnt'];
 if($cnt > 0)
@@ -81,7 +77,7 @@ else
     $w = ''; 
 
 if($w == ''){    
-    $sql = " INSERT INTO $g5[coupon_table]
+    $sql = " INSERT INTO {$g5['coupon_table']}
                 SET mb_id = '{$mb_id}',
                     co_entity = '{$co_entity}',
                     co_sale_num = '{$_POST['co_sale_num']}',
@@ -92,7 +88,7 @@ if($w == ''){
     sql_query($sql);
 
 } else if($w == 'u'){
-    $sql = " UPDATE $g5[coupon_table]
+    $sql = " UPDATE {$g5['coupon_table']}
                 SET co_sale_num = '{$_POST['co_sale_num']}',
                     co_free_num = '{$_POST['co_free_num']}',
                     co_updated_datetime =  '{$co_created_datetime}'

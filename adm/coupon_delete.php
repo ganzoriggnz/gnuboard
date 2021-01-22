@@ -7,7 +7,7 @@ if(isset($_POST['cos_no'])){
    $cos_no = $_POST['cos_no'];
 }
 
-$sql = "SELECT * FROM `g5_coupon_sent` WHERE cos_no = '$cos_no'";
+$sql = "SELECT * FROM {$g5['coupon_sent']} WHERE cos_no = '$cos_no'";
 $res = sql_fetch($sql);
 
 $response = '<input type="hidden" name="w" id="w" value="d">

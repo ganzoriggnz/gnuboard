@@ -7,10 +7,7 @@ include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'r'); 
 
-$g5['table_prefix']        = "g5_"; // 테이블명 접두사
-$g5['coupon_msg_table'] = $g5['table_prefix'] . "coupon_msg";    // coupon msg 테이블
-
-$res = "SELECT * FROM $g5[coupon_msg_table] ORDER BY msg_no DESC LIMIT 1";
+$res = "SELECT * FROM {$g5['coupon_msg_table']} ORDER BY msg_no DESC LIMIT 1";
 $row = sql_fetch($res); 
 
 $msg_created_datetime = G5_TIME_YMDHIS;
@@ -19,7 +16,7 @@ $msg_entity_text = $_POST['msg_entity_text'];
 
 if($w == 'u'){
 
-  $sql = "INSERT INTO $g5[coupon_msg_table]
+  $sql = "INSERT INTO {$g5['coupon_msg_table']}
             SET msg_customer_text = '{$msg_customer_text}',
                 msg_entity_text = '{$msg_entity_text}',
                 msg_created_datetime = '{$msg_created_datetime}'";
@@ -31,7 +28,7 @@ if($w == 'u'){
 $g5['title'] = '쿠폰쪽지 전송내용 입력';
 include_once('./admin.head.php');
 
-$frm_submit = '<div class="btn_confirm01 btn_confirm" style="width:100px; margin-left: 220px;">
+$frm_submit = '<div class="btn_confirm01 btn_confirm" style="width:150px; margin-left: 232px;">
     <input type="submit" value="확인" class="btn_submit" accesskey="s">    
 </div>';
 ?>

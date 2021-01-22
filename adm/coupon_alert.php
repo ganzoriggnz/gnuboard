@@ -7,9 +7,9 @@ if(isset($_POST['cos_nick1'])){
    $cos_nick = $_POST['cos_nick1'];
 }
 
-$sql1 = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert` WHERE cos_nick = '{$cos_nick}'"; 
+$sql1 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$cos_nick}'"; 
 $row1 = sql_fetch($sql1);  
-$sql2 = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row1['maxdate']}' ";
+$sql2 = "SELECT * FROM {$g5['coupon_alert_table']} WHERE alt_created_datetime = '{$row1['maxdate']}' ";
 $row2 = sql_fetch($sql2);
                         
     $response .=   '<div style="margin-left: 30px;">사용자 : ' .$row2['cos_nick'].'</div>
@@ -37,7 +37,7 @@ $row2 = sql_fetch($sql2);
 								</tr>
 							</thead>
 							<tbody class="alert-tbody">';
-							$sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$cos_nick}' ORDER BY alt_created_datetime";
+							$sql = "SELECT * FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$cos_nick}' ORDER BY alt_created_datetime";
                             $result = sql_query($sql);
                             for($i=0; $row = sql_fetch_array($result); $i++) { 
                                 $response .= '<tr class="alert-tr">

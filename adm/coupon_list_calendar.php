@@ -93,18 +93,18 @@ if($w == 'd'){
 	$cos_code = $_POST['cos_code'];
 	$cos_type = $_POST['cos_type'];
 
-	$sql = "DELETE FROM $g5[coupon_sent_table] 
+	$sql = "DELETE FROM {$g5['coupon_sent_table']} 
 			WHERE cos_no = '{$cos_no}'";
 
 	sql_query($sql);
 
 	if($cos_type == 'S'){
-		$sql1 = " UPDATE $g5[coupon_table]
+		$sql1 = " UPDATE {$g5['coupon_table']}
 				SET co_sent_snum = co_sent_snum - 1
 				WHERE co_no = '{$_POST['co_no']}' "; 
 		sql_query($sql1);
 	} else if($cos_type == 'F') {
-		$sql1 = " UPDATE $g5[coupon_table]
+		$sql1 = " UPDATE {$g5['coupon_table']}
 				SET co_sent_fnum = co_sent_fnum - 1
 				WHERE co_no = '{$_POST['co_no']}' "; 
 		sql_query($sql1);
@@ -117,7 +117,7 @@ else if($w == 'u'){
 	$cos_alt_quantity = $_POST['cos_alt_quantity'];
 	$alt_created_datetime = G5_TIME_YMDHIS;
 
-	$sql = "INSERT INTO $g5[coupon_alert_table] 
+	$sql = "INSERT INTO {$g5['coupon_alert_table']} 
 				SET cos_no = '0',
 					cos_nick = '{$cos_nick}',
 					cos_entity = '-',
@@ -128,7 +128,7 @@ else if($w == 'u'){
 
 	sql_query($sql);
 
-	$sql1 = "UPDATE $g5[coupon_sent_table] 
+	$sql1 = "UPDATE {$g5['coupon_sent_table']} 
 				SET cos_alt_quantity = '{$cos_alt_quantity}'
 				WHERE cos_accept='Y' AND cos_nick = '{$cos_nick}' AND cos_entity = '{$cos_entity}'";
 
@@ -140,22 +140,21 @@ else if($w == 'u'){
 		<div class="modal fade" id="couponDelete" tabindex="-1" role="dialog" style="top: 40%; left: 0%;">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content" style="width: 350px; height: 250px;">
+				   <form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 						<div class="modal-header" style="border-bottom: none; margin-top: 20px;">
 							<h3 class="modal-title" style="margin-left: 140px; font-size: 14px; font-weight: bold;">쿠폰회수</h3>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 							</button>
 						</div> 	
-						<div class="modal-body" style="padding: 40px 0px; font-size: 14px;">
-							<form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">	
-							</form>		
+						<div class="modal-body" style="padding: 40px 0px; font-size: 14px;">	
 						</div>
 						<div class="modal-footer" style="border-top: none;">
 							<div style="margin-left: 140px; margin: 0px auto 20px auto; text-align: center; border-top: none;">
 								<button type="submit" accesskey="s" class="btn btn_01" style="width: 150px; font-size: 14px;">확인</button>
 							</div>
 						</div>
-					</form>
+					</form>	
 				</div>
 			</div>
 		</div>
@@ -173,8 +172,7 @@ else if($w == 'u'){
 				</div>
 			</div>
 		</div>
-	</div>
-	
+	</div>	
 <?php
 include_once('./admin.tail.php');
 ?>

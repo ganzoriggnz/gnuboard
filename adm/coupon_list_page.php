@@ -17,15 +17,12 @@ if( isset($_POST['id'])){
 }
 
     $g5['table_prefix']        = "g5_"; // 테이블명 접두사
-    $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
-    $g5['coupon_sent_table'] = $g5['table_prefix'] . "coupon_sent";    // 쿠폰 sent 테이블
-    $g5['coupon_alert_table'] = $g5['table_prefix'] . "coupon_alert";    // 쿠폰 alert 테이블
     $g5['write_prefix']        = "g5_write_";
     $g5['bo_table'] = $g5['write_prefix'] . $bo_table;
 
 
-    if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_table]",false)) { // 쿠폰 테이블이 없다면 생성
-        $sql_table = "CREATE TABLE $g5[coupon_table] (   
+    if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+        $sql_table = "CREATE TABLE {$g5['coupon_table']} (   
             co_no int(11) NOT NULL AUTO_INCREMENT,         
             mb_id varchar(20) NOT NULL DEFAULT '',
             co_entity varchar(20) NOT NULL DEFAULT '',
@@ -44,8 +41,8 @@ if( isset($_POST['id'])){
        sql_query($sql_table, false);
     } 
     
-    if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_sent_table]",false)) { // 쿠폰 테이블이 없다면 생성
-        $sql_table1 = "CREATE TABLE $g5[coupon_sent_table] (
+    if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_sent_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+        $sql_table1 = "CREATE TABLE {$g5['coupon_sent_table']} (
             cos_no int(11) NOT NULL AUTO_INCREMENT,
             co_no int(11) NOT NULL,   
             cos_code varchar(4) NOT NULL, 
@@ -68,8 +65,8 @@ if( isset($_POST['id'])){
        sql_query($sql_table1, false);
     }  
     
-    if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { // 쿠폰 테이블이 없다면 생성
-        $sql_table2 = "CREATE TABLE $g5[coupon_alert_table] (
+    if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_alert_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+        $sql_table2 = "CREATE TABLE {$g5['coupon_alert_table']} (
             alt_no int(11) NOT NULL AUTO_INCREMENT, 
             cos_no int(11) NOT NULL DEFAULT '0',
             cos_nick varchar(20) NOT NULL DEFAULT '',
@@ -85,8 +82,8 @@ if( isset($_POST['id'])){
        sql_query($sql_table2, false);
     } 
     
-    if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_msg_table]",false)) { // 쿠폰 테이블이 없다면 생성
-        $sql_table3 = "CREATE TABLE $g5[coupon_msg_table] (
+    if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_msg_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+        $sql_table3 = "CREATE TABLE {$g5['coupon_msg_table']} (
             msg_no int(11) NOT NULL AUTO_INCREMENT, 
             msg_customer_text text(255) NOT NULL DEFAULT '',  
             msg_entity_text text(255) NOT NULL DEFAULT '',           
@@ -159,13 +156,13 @@ if( isset($_POST['id'])){
     else if($nextmonth == '12')
     $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 
-    $result1 = "SELECT co_begin_datetime FROM $g5[coupon_table] WHERE co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
+    $result1 = "SELECT co_begin_datetime FROM {$g5['coupon_table']} WHERE co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
     $sql = sql_fetch($result1);
     $date = $sql['co_begin_datetime'];
     $year = substr($date, 0, 4);
     $month = substr($date, 5, 2);
 
-    $result = "SELECT COUNT(a.co_no) as cnt FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}'"; 
+    $result = "SELECT COUNT(a.co_no) as cnt FROM {$g5['coupon_table']} a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}'"; 
     $row=sql_fetch($result);
     $total_count = $row['cnt'];
 
@@ -176,7 +173,7 @@ if( isset($_POST['id'])){
 
     $list = array();
 
-    $sql = "SELECT * FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' limit $from_record, $rows ";
+    $sql = "SELECT * FROM {$g5['coupon_table']} a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' limit $from_record, $rows ";
     $result = sql_query($sql);
     for ($i=0; $row=sql_fetch_array($result); $i++) {
         $list[$i] = $row;
@@ -190,7 +187,7 @@ if( isset($_POST['id'])){
     $str_table =substr($bo_table, 0, $linkcount);
     $re_table = "g5_write_".$str_table."re";
 
-    $sql1 = "SELECT a.cos_nick FROM $g5[coupon_sent_table] a INNER JOIN $re_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
+    $sql1 = "SELECT a.cos_nick FROM {$g5['coupon_sent_table']} a INNER JOIN $re_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
     $res1 = sql_query($sql1);
     $nicks = array();
     while($row = sql_fetch_array($res1)){
@@ -200,18 +197,18 @@ if( isset($_POST['id'])){
 
     $rs = "SELECT wr_name FROM $re_table WHERE wr_comment = 0";
 
-    $sql2 = "Select a.*, b.wr_id, b.wr_7, b.wr_is_comment, b.wr_datetime from $g5[coupon_sent_table] a LEFT JOIN $re_table b ON a.cos_nick = b.wr_name WHERE a.cos_accept = 'Y'";
+    $sql2 = "Select a.*, b.wr_id, b.wr_7, b.wr_is_comment, b.wr_datetime from {$g5['coupon_sent_table']} a LEFT JOIN $re_table b ON a.cos_nick = b.wr_name WHERE a.cos_accept = 'Y'";
     $res2 = sql_query($sql2);
     while($row2 = sql_fetch_array($res2)){
-        $sql3 = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
+        $sql3 = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
         $res3 = sql_fetch($sql3);
-        $sql4 = "SELECT COUNT(alt_no) as alt_cnt FROM $g5[coupon_alert_table] WHERE cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}' AND cos_no = '{$row2['cos_no']}'";
+        $sql4 = "SELECT COUNT(alt_no) as alt_cnt FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}' AND cos_no = '{$row2['cos_no']}'";
         $res4 = sql_fetch($sql4); 
         $sql7 = "SELECT * FROM $re_table WHERE wr_name = '{$row2['cos_nick']}' AND wr_7 = '{$row2['cos_entity']}'";
         $res7 = sql_fetch($sql7);
         $now = G5_TIME_YMDHIS;
         if($row2['cos_entity'] !== $res7['wr_7'] && $res4['alt_cnt'] == '0' && ($now > $row2['cos_post_datetime'])){
-            $sql4 = "INSERT INTO $g5[coupon_alert_table] 
+            $sql4 = "INSERT INTO {$g5['coupon_alert_table']} 
                             SET cos_no = '{$row2['cos_no']}',
                                 cos_nick = '{$row2['cos_nick']}',
                                 cos_entity = '{$row2['cos_entity']}',
@@ -222,30 +219,30 @@ if( isset($_POST['id'])){
 
                 sql_query($sql4);
 
-                $sql5 = "UPDATE $g5[coupon_sent_table] 
+                $sql5 = "UPDATE {$g5['coupon_sent_table']} 
                             SET cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1
                             WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}' AND cos_no = '{$row2['cos_no']}'";
                 sql_query($sql5);          
         } 
     } 
 
-    $sql_acc = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_accept='N'";
+    $sql_acc = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_accept='N'";
 
     $res_acc = sql_query($sql_acc);
     while($row_acc = sql_fetch_array($res_acc)){
         $date = date($row_acc['cos_created_datetime']);
         $finish_date = date('Y-m-d H:i:s', strtotime('+7 days', strtotime($date)));
         if($now >= $finish_date){
-            $sql_ac = "DELETE FROM $g5[coupon_sent_table] WHERE cos_nick = '{$row_acc['cos_nick']}' AND cos_no = '{$row_acc['cos_no']}'";
+            $sql_ac = "DELETE FROM {$g5['coupon_sent_table']} WHERE cos_nick = '{$row_acc['cos_nick']}' AND cos_no = '{$row_acc['cos_no']}'";
             sql_query($sql_ac);
 
             if($row_acc['cos_type'] == 'S'){
-                $sql1 = " UPDATE $g5[coupon_table]
+                $sql1 = " UPDATE {$g5['coupon_table']}
                         SET co_sent_snum = co_sent_snum - 1
                         WHERE co_no = '{$row_acc['co_no']}' "; 
                 sql_query($sql1);
             } else if($row_acc['cos_type'] == 'F') {
-                $sql1 = " UPDATE $g5[coupon_table]
+                $sql1 = " UPDATE {$g5['coupon_table']}
                         SET co_sent_fnum = co_sent_fnum - 1
                         WHERE co_no = '{$row_acc['co_no']}' "; 
                 sql_query($sql1);
@@ -264,7 +261,7 @@ if( isset($_POST['id'])){
         <div><h3 style="text-align: center;"><?php echo "쿠폰지원목록 (".$q1['bo_subject'].")"; ?> </h3></div>
         <ul class="na-table d-table w-100 f-de" style="margin-top: 30px;">
         <?php     
-        $result = "SELECT a.*, c.mb_level FROM $g5[coupon_table] a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id INNER JOIN $g5[member_table] c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' AND c.mb_level = '27'"; 
+        $result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' AND c.mb_level = '27'"; 
         $result1=sql_query($result);
         while ($row = sql_fetch_array($result1)) {     
         ?>
@@ -291,7 +288,7 @@ if( isset($_POST['id'])){
                <div class="float-left float-md-none d-table-cell nw-30 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1 text-left">
                     <?php echo "쿠폰 받은사람 :"; ?> 
                     <ul id="userlist">
-                    <?php $sql = "SELECT a.*, b.* FROM $g5[coupon_table] a RIGHT OUTER JOIN $g5[coupon_sent_table] b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
+                    <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a RIGHT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
                     $sql1 = sql_query($sql);
                     while ($row1 = sql_fetch_array($sql1)){
                     ?>
@@ -321,8 +318,12 @@ if( isset($_POST['id'])){
                             else if($row1['cos_alt_quantity'] > 0) { 
                                 echo '<li><a data-toggle="modal" data-target="#couponAlert'.$altcnt.'" href="#couponAlert'.$altcnt.'" 
                                 data-class="coupon-alert" style="color:red;" data-link = '.$bo_table.'>';
-                                if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')';
-                                if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick'].'('.$row1['cos_alt_quantity'].')'; ?></a>
+                                $sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row1['cos_nick']}'"; 
+                                $row4 = sql_fetch($sql4);  
+                                $res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE alt_created_datetime = '{$row4['maxdate']}' ";
+                                $res1 = sql_fetch($res);
+                                if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'].'('.$res1['cos_alt_quantity'].')';
+                                if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick'].'('.$res1['cos_alt_quantity'].')'; ?></a>
 
                                 <div class="modal fade" id="couponAlert<?php echo $altcnt; ?>" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
                                     <div class="modal-dialog" role="document">
@@ -335,9 +336,9 @@ if( isset($_POST['id'])){
                                             </div> 	
                                             <div class="modal-body" style="padding: 5px 0px;">
                                                 <?php 
-                                                    $sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert` WHERE cos_nick = '{$row1['cos_nick']}'"; 
+                                                    $sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row1['cos_nick']}'"; 
                                                     $row4 = sql_fetch($sql4);  
-                                                    $res = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row4['maxdate']}' ";
+                                                    $res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE alt_created_datetime = '{$row4['maxdate']}' ";
                                                     $res1 = sql_fetch($res);
                                                 ?> 
                                                 <div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
@@ -365,7 +366,7 @@ if( isset($_POST['id'])){
                                                             </tr>
                                                         </thead>
                                                         <tbody class="alert-tbody">
-                                                        <?php $sql = "SELECT * FROM `g5_coupon_alert` WHERE cos_nick = '{$res1['cos_nick']}' ORDER BY alt_created_datetime";
+                                                        <?php $sql = "SELECT * FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$res1['cos_nick']}' ORDER BY alt_created_datetime";
                                                         $res = sql_query($sql);
                                                         for($i=0; $row = sql_fetch_array($res); $i++) { ?>
                                                             <tr class="alert-tr">
@@ -395,9 +396,9 @@ if( isset($_POST['id'])){
                     <div class="modal-dialog" role="document">
                         <div class="modal-content" style="width: 350px; height: 320px; font-weight: bold;">
                             <?php   
-                                $sql2 = "SELECT a.co_entity, b.mb_id, b.mb_name FROM $g5[coupon_table] a INNER JOIN $g5[member_table] b ON a.mb_id = b.mb_id WHERE a.co_entity = '{$user_entity[$cnt]['co_entity']}'";
+                                $sql2 = "SELECT a.co_entity, b.mb_id, b.mb_name FROM {$g5['coupon_table']} a INNER JOIN {$g5['member_table']} b ON a.mb_id = b.mb_id WHERE a.co_entity = '{$user_entity[$cnt]['co_entity']}'";
                                 $row2 = sql_fetch($sql2);                      
-                                $sql3 = "SELECT * FROM $g5[coupon_table] WHERE co_entity = '{$user_entity[$cnt]['co_entity']}' AND co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
+                                $sql3 = "SELECT * FROM {$g5['coupon_table']} WHERE co_entity = '{$user_entity[$cnt]['co_entity']}' AND co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
                                 $row3 = sql_fetch($sql3); 
                                 
                                 $diff_s = number_format($row3['co_sale_num'] - $row3['co_sent_snum']);
@@ -468,7 +469,7 @@ if( isset($_POST['id'])){
                             </button>
                         </div> 	
                         <div class="modal-body">
-                            <form id="fcouponsend" name="fcouponsend" action="<?php echo $coupon_sent_action_url; ?>" onsubmit="return fcouponsend_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+                            <form id="fcouponsend" name="fcouponsend" action="<?php echo $coupon_sent_action_url; ?>" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
                                 <input type="hidden" name="co_no" id="co_no" value="">
                                 <input type="hidden" name="mb_id" id="mb_id" value="">
                                 <input type="hidden" name="cos_type" id="cos_type" value="">
@@ -537,12 +538,15 @@ if( isset($_POST['id'])){
             if($('#mb_nick').length > 0 && $('#mb_nick').val() == ''){ 
                 alert("Please insert nick name and click check id button!");
                 $('#mb_nick').focus();
+                return false;
             }  
-            if($('#hasNick').length > 0 && $('#hasNick').val() == ''){ 
+            if($('#hasNick').length = 0 && $('#hasNick').val() == ''){ 
                 alert("Please insert correct nick name!");
                 $('#mb_nick').focus();
-            }        
-            $('#fcouponsend').submit(); 
+            } 
+            if ($('#hasNick').length > 0 && $('#hasNick').val() != ''){
+                $('#fcouponsend').submit(); 
+            }                  
         });   
 
         function fcoupondelete_submit(f) {
