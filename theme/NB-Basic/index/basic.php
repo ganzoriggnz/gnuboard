@@ -20,8 +20,8 @@ if ($nt_wing_path)
         </div>
 
         <!-- 메인 영역 -->
-        <div class="col-md-9<?php echo ($is_left_side) ? ' order-md-2' : ''; ?> na-col" style="flex: 0 0 80%;">
-            <!---->
+        <div class="col-md-9<?php echo ($is_left_side) ? ' order-md-2' : ''; ?> na-col flex80d"  style=""  >
+            <!--                                                                                               -->
             <!--			<div class="mb-4">-->
             <!--				--><?php //echo na_widget('basic-title', 'title-1', 'xl=27%', 'auto=0'); //타이틀
                                     ?>

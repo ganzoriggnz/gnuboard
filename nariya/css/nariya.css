@@ -72,7 +72,16 @@ img.light-circle { border-width: 1px; border-style: solid; background-color: #ff
 
 /* 너비 사이즈 */
 .na-row { margin-left:-0.75rem !important; margin-right:-0.75rem !important; }
-.na-col { padding-left:0.75rem !important; padding-right:0.75rem !important; }
+.na-col { 
+    padding-left:0.75rem !important; 
+    padding-right:0.75rem !important; 
+}
+.flex80d {
+    flex: 100%;
+}
+
+
+
 .nw-c1 { width:10.0rem; }
 .nw-c2 { width:11.0rem; }
 .nw-1 {	width:1.0rem; }
