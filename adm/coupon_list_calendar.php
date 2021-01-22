@@ -147,7 +147,7 @@ else if($w == 'u'){
 							<span aria-hidden="true">&times;</span>
 							</button>
 						</div> 	
-						<div class="modal-body" style="padding: 40px 0px; font-size: 14px;">	
+						<div class="modal-body" style="padding: 40px 0px;">	
 						</div>
 						<div class="modal-footer" style="border-top: none;">
 							<div style="margin-left: 140px; margin: 0px auto 20px auto; text-align: center; border-top: none;">
@@ -167,7 +167,7 @@ else if($w == 'u'){
 						<span aria-hidden="true">&times;</span>
 						</button>
 					</div> 	
-					<div class="modal-body" style="padding: 5px 0px; font-size: 14px;">				
+					<div class="modal-body" style="padding: 5px 0px;">				
 					</div>
 				</div>
 			</div>

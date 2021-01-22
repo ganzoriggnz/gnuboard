@@ -1,13 +1,6 @@
 <?php 
 include_once('./_common.php');
 
-// 상수 선언
-$g5['table_prefix']        = "g5_"; // 테이블명 접두사
-$g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
-$g5['coupon_sent_table'] = $g5['table_prefix'] . "coupon_sent";    // 쿠폰 sent 테이블
-$g5['coupon_alert_table'] = $g5['table_prefix'] . "coupon_alert";    // 쿠폰 sent 테이블
-$g5['coupon_msg_table'] = $g5['table_prefix'] . "coupon_msg";    // 쿠폰 sent 테이블
-
 function generateCode() {
     $len = 4;
     $chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
@@ -36,7 +29,7 @@ $mb_id = $_POST['mb_id'];
 
 $coupon = generateCode(); 
 
-$sql = " INSERT INTO $g5[coupon_sent_table]
+$sql = " INSERT INTO {$g5['coupon_sent_table']}
             SET co_no = '{$_POST['co_no']}',
                 cos_code = '{$coupon}',
                 cos_entity = '{$_POST['cos_entity']}',
@@ -46,12 +39,12 @@ $sql = " INSERT INTO $g5[coupon_sent_table]
 sql_query($sql);
 
 if($cos_type == 'S'){
-    $sql1 = " UPDATE $g5[coupon_table]
+    $sql1 = " UPDATE {$g5['coupon_table']}
             SET co_sent_snum = co_sent_snum + 1
             WHERE co_no = '{$_POST['co_no']}' "; 
     sql_query($sql1);
 } else if($cos_type == 'F') {
-    $sql1 = " UPDATE $g5[coupon_table]
+    $sql1 = " UPDATE {$g5['coupon_table']}
             SET co_sent_fnum = co_sent_fnum + 1
             WHERE co_no = '{$_POST['co_no']}' "; 
     sql_query($sql1);
@@ -63,7 +56,7 @@ $cus_id = $res_cus['mb_id'];
 $cus_nick = $res_cus['mb_nick'];
 if($cos_type == 'F'){ $coupon_type = '무료'; } else { $coupon_type = '원가'; }
 
-$res = "SELECT * FROM $g5[coupon_msg_table] ORDER BY msg_no DESC LIMIT 1";
+$res = "SELECT * FROM {$g5['coupon_msg_table']} ORDER BY msg_no DESC LIMIT 1";
 $row = sql_fetch($res); 
 
 $me_memo = $coupon_type."쿠폰에 당첨되셨습니다." . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . $row['msg_customer_text'];

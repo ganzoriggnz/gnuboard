@@ -20,7 +20,7 @@ $row2 = sql_fetch($sql2);
 						<input type="hidden" name="cos_entity" id="cos_entity" value="'.$row2['cos_entity'].'">
 						<div style="margin-left:30px; margin-top: 30px;">
 							<p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
-							<input type="number" name="cos_alt_quantity" id="cos_alt_quantity" class="form-control" style="background: #EFEFEF; width: 60px; height: 30px; display: inline-block; text-align: center; margin-left: 30px; padding-left:20px;" value = "'.$row2['cos_alt_quantity'].'"/>		
+							<input type="number" name="cos_alt_quantity" id="cos_alt_quantity" class="form-control" style="background: #EFEFEF; width: 60px; height: 30px; display: inline-block; text-align: center; margin-left: 30px; padding-left:25px; font-size: 12px;" value = "'.$row2['cos_alt_quantity'].'"/>		
 							<input type="submit" name="change" id="change" value="확인" class="btn btn_03" style="width: 80px;"/>
 						</div>
 					</form>

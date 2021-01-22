@@ -33,18 +33,16 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm" style="width:150px; margin
 </div>';
 ?>
 
-<div><h3 style="text-align: center;font-size: 14px;">Change Coupon Message Text</h3></div>
-
 <form name="fmsg_coupon" method="post" onsubmit="" enctype="multipart/form-data" autocomplete="off">
   <input type="hidden" name="w" value="u">
   <div class="form-group row" style="margin-top: 30px;">
-    <label for="customerTextMsg" class="col-sm-2 col-form-label" style="font-size: 14px;">Customer text</label>
+    <label for="customerTextMsg" class="col-sm-2 col-form-label" style="font-size: 14px;">이용자쪽 쿠폰도착 쪽지 내용입력</label>
     <div class="col-sm-10">
       <input type="text" name="msg_customer_text" class="form-control" value="<?php echo $row['msg_customer_text']; ?>" placeholder="">
     </div>
   </div>
   <div class="form-group row">
-    <label for="customerTextMsg" class="col-sm-2 col-form-label" style="font-size: 14px;">Entity text</label>
+    <label for="customerTextMsg" class="col-sm-2 col-form-label" style="font-size: 14px;">업소실장쪽 자동 쪽지 내용입력</label>
     <div class="col-sm-10">
       <input type="text" name="msg_entity_text" class="form-control" value="<?php echo $row['msg_entity_text']; ?>" placeholder="">
     </div>
