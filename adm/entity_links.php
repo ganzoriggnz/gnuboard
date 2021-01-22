@@ -34,12 +34,12 @@ $en_mb_id = $mb_id;
 $str = "<span class=\"sv_wrap\">\n";
 $str .= $tmp_name."\n";
 
-$str2 = "<span class=\"sv\">\n";
+$str2 = "<span class=\"sv sv_on\">\n";
 
 if($is_admin == "super" && $mb_id) {
     $str2 .= "<a href=\"".G5_ADMIN_URL."/member_form.php?w=u&amp;mb_id=".$mb_id."\" target=\"_blank\">회원정보변경</a>\n";
-    $str2 .= "<a href=\"".G5_ADMIN_URL."/entity_extend_right.php"\">제휴연장</a>\n";
-    $str2 .= "<a href=\"".G5_ADMIN_URL."/coupon_list.php"\" target=\"_blank\">쿠폰관리</a>\n";
+    $str2 .= "<a href=\"".G5_ADMIN_URL."/entity_extend_right.php\">제휴연장</a>\n"; 
+    $str2 .= "<a href=\"".G5_ADMIN_URL."/coupon_list.php\" target=\"_blank\">쿠폰관리</a>\n"; 
     $str2 .= "<a href=\"".G5_BBS_URL."/memo_form.php?me_recv_mb_id=".$mb_id."\" onclick=\"win_memo(this.href); return false;\">쪽지보내기</a>\n";
 }
 $str2 .= "</span>\n";

@@ -10,10 +10,6 @@ $altcnt=0;
 
 auth_check($auth[$sub_menu], 'r'); ?>
 
-<style>
-    .active {color:red;}
-
-    table, th, td {border: 1px solid black; text-align: center;}
 </style>
 <?php
 if( isset($_POST['id'])){ 
@@ -272,7 +268,7 @@ if( isset($_POST['id'])){
         $result1=sql_query($result);
         while ($row = sql_fetch_array($result1)) {     
         ?>
-            <li class="d-table-row px-3 py-2 p-md-0 text-md-center text-muted">	
+            <li class="d-table-row px-3 py-2 p-md-0 text-center text-muted">	
                 <div class="d-none d-table-cell nw-9 f-sm font-weight-normal py-md-2 px-md-1 border-right">
                     <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>">
                         <?php echo "[".$row['co_entity']."]";
@@ -330,14 +326,14 @@ if( isset($_POST['id'])){
 
                                 <div class="modal fade" id="couponAlert<?php echo $altcnt; ?>" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
                                     <div class="modal-dialog" role="document">
-                                        <div class="modal-content" style="width: 650px; height: 400px; font-weight: bold;">
-                                            <div class="modal-header">
+                                        <div class="modal-content" style="width: 650px; height: 400px;">
+                                            <div class="modal-header" style="border-bottom: none;">
                                                 <h5 class="modal-title" style="margin-left: 250px; font-weight: bold; font-size: 14px;">경고 횟수 변경 및 기록</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div> 	
-                                            <div class="modal-body" style="padding: 5px 0px; font-size: 14px;">
+                                            <div class="modal-body" style="padding: 5px 0px;">
                                                 <?php 
                                                     $sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert` WHERE cos_nick = '{$row1['cos_nick']}'"; 
                                                     $row4 = sql_fetch($sql4);  
@@ -345,15 +341,15 @@ if( isset($_POST['id'])){
                                                     $res1 = sql_fetch($res);
                                                 ?> 
                                                 <div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
-                                                <div style="margin-left: 30px;"><?php echo "현재 경고횟수 : ".$res1['cos_alt_quantity'];?>
+                                                <div style="margin-left: 30px; margin-top: 5px;"><?php echo "현재 경고횟수 : ".$res1['cos_alt_quantity'];?>
                                                 <form id="fcouponalert<?php echo $altcnt; ?>" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
                                                     <input type="hidden" name="cos_nick" id="cos_nick" value="<?php echo $row1['cos_nick'];?>">
                                                     <input type="hidden" name="cos_entity" id="cos_entity" value="<?php echo $row1['cos_entity'];?>">
-                                                    <input type="hidden" name="cos_link" id="cos_link" value="">
+                                                    <input type="hidden" name="cos_link" id="cos_link" value="<?php echo $bo_table; ?>">
                                                     <div style="margin-left:30px; margin-top: 30px;">
                                                         <p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
-                                                        <input type="number" name="cos_alt_quantity" id="cos_alt_quantity" style="background: #EFEFEF; width: 40px; text-align: center;" value = "<?php echo $res1['cos_alt_quantity']; ?>"/>		
-                                                        <input type="submit" name="change" id="change" value="확인" style="background: #FFF2CC; width: 80px;"/>
+                                                        <input type="number" name="cos_alt_quantity" id="cos_alt_quantity" class="form-control" style="background: #EFEFEF; width: 60px; height: 30px; display: inline-block; text-align: center; margin-left: 30px; padding-left:20px;" value = "<?php echo $res1['cos_alt_quantity']; ?>"/>		
+                                                        <input type="submit" name="change" id="change" value="확인" class="btn btn_03" style="width: 80px; height: 30px;"/>
                                                     </div>
                                                 </form>
                                                 <div style="margin-left:30px; margin-top:20px;">경고 히스토리</div>
@@ -388,18 +384,16 @@ if( isset($_POST['id'])){
                                         </div>
                                     </div>
                                 </div>        
-                            </li> <?php } ?>					 
-                    
-                                
-                    <?php
-                    $altcnt++;
+                            </li> 
+                            <?php } 					                               
+                        $altcnt++;
                     }
                     ?> 
                     </ul>
                 </div>
                 <div class="modal fade" id="couponCreate<?php echo $cnt;?>" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
                     <div class="modal-dialog" role="document">
-                        <div class="modal-content" style="width: 400px; height: 350px; font-weight: bold;">
+                        <div class="modal-content" style="width: 350px; height: 320px; font-weight: bold;">
                             <?php   
                                 $sql2 = "SELECT a.co_entity, b.mb_id, b.mb_name FROM $g5[coupon_table] a INNER JOIN $g5[member_table] b ON a.mb_id = b.mb_id WHERE a.co_entity = '{$user_entity[$cnt]['co_entity']}'";
                                 $row2 = sql_fetch($sql2);                      
@@ -409,52 +403,52 @@ if( isset($_POST['id'])){
                                 $diff_s = number_format($row3['co_sale_num'] - $row3['co_sent_snum']);
                                 $diff_f = number_format($row3['co_free_num'] - $row3['co_sent_fnum']); 
                             ?>
-                            <form id="fcouponcreate<?php echo $cnt;?>" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰주기</h5>
+                                <div class="modal-header" style="height: 45px; border-bottom: none;">
+                                    <h3 class="modal-title" style="margin-left: 160px; font-weight: bold; font-size: 14px;">쿠폰주기</h3>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div> 	
-                                <div class="modal-body">
-                                    <input type="hidden" name="co_no" id="co_no" value="<?php echo $row3['co_no']; ?>">
-                                    <input type="hidden" name="mb_id" id="mb_id" value="<?php echo $row2['mb_id']; ?>">
-                                    <input type="hidden" name="cos_link" id="cos_link" value="">
-                                    <div style="margin-left: 30px;"><?php echo $year."년 ".$month."월";?></div>
-                                    <div style="margin-left: 30px;"><?php echo "업소명 :";?>
-                                        <input type="text" name="cos_entity" id="cos_entity" value="<?php echo $row3['co_entity']; ?>" style="border:none; outline: none; width: 100px; font-size: 12px; font-weight: bold;">							
-                                    </div>
-                                    <div class="coupon_info">
-                                        <h6>지원 설정</h6>
-                                        <div class="p-20">
-                                            <div class="coupon_label">원가권 :</div>
-                                            <input type="number" name="co_sale_num" value="<?php echo $row3['co_sale_num']; ?>" placeholder="" class="coupon_input" >
+                                <div class="modal-body" style="text-align: left; font-weight: normal;">
+                                    <form id="fcouponcreate<?php echo $cnt;?>" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
+                                        <input type="hidden" name="co_no" id="co_no" value="<?php echo $row3['co_no']; ?>">
+                                        <input type="hidden" name="mb_id" id="mb_id" value="<?php echo $row2['mb_id']; ?>">
+                                        <input type="hidden" name="cos_link" id="cos_link" value="<?php echo $bo_table; ?>">
+                                        <div style="margin-left: 10px;"><?php echo $year."년 ".$month."월";?></div>
+                                        <div style="margin-left: 10px;margin-top: 5px;"><?php echo "업소명 :";?>
+                                            <input type="text" name="cos_entity" id="cos_entity" value="<?php echo $row3['co_entity']; ?>" style="border:none; outline: none; width: 100px; font-size: 12px;">							
                                         </div>
-                                        <div class="p-20">
-                                            <div class="coupon_label">무료권 :</div>
-                                            <input type="number" name="co_free_num" value="<?php echo $row3['co_free_num']; ?>" placeholder="" class="coupon_input">
+                                        <div class="coupon_info">
+                                            <p style="text-align: center;">지원 설정</p>
+                                            <div class="p-20">
+                                                <div class="coupon_label">원가권 :</div>
+                                                <input type="number" name="co_sale_num" value="<?php echo $row3['co_sale_num']; ?>" placeholder="" class="coupon_input" style="padding-left: 14px;">
+                                            </div>
+                                            <div class="p-20">
+                                                <div class="coupon_label">무료권 :</div>
+                                                <input type="number" name="co_free_num" value="<?php echo $row3['co_free_num']; ?>" placeholder="" class="coupon_input" style="padding-left: 14px;">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="coupon_current">
-                                        <h6>현재 잔여갯수</h6>
-                                        <div class="coupon_div">
-                                            <p class="count"><?php echo $diff_s; ?></p>
+                                        <div class="coupon_current">
+                                            <p>현재 잔여갯수</p>
+                                            <div class="coupon_div">
+                                                <p class="count"><?php echo $diff_s; ?></p>
+                                            </div>
+                                            <div class="coupon_div">
+                                                <p class="count"><span><?php echo $diff_f; ?></p>	
+                                            </div>
                                         </div>
-                                        <div class="coupon_div">
-                                            <p class="count"><span><?php echo $diff_f; ?></p>	
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
-                                <div class="modal-footer">
-                                    <div style="margin-left: 30px; margin: 120px auto; text-align: center;">
-                                        <button type="button" id="<?php echo $cnt; ?>" accesskey="s" class="btn" style="background: #00FF00; width: 50px;">저장</button>
-                                    </div>
+                                <div class="modal-footer" style="border-top: none; margin: 0px auto 10px auto;">
+           
+                                        <button type="button" id="<?php echo $cnt; ?>" accesskey="s" class="btn btn_01" style="width: 150px;">저장</button>
+                              
                                 </div>
-                            </form>
+                            
                         </div>
                     </div>
-                </div>
-            
+                </div>       
             </li>                        
         <?php $cnt++; } ?>
         </ul>
@@ -466,47 +460,47 @@ if( isset($_POST['id'])){
     
         <div class="modal fade" id="couponModal" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
             <div class="modal-dialog" role="document">
-                <div class="modal-content" style="width: 350px; height: 250px; font-weight: bold;">
-                    <form id="fcouponsend" name="fcouponsend" action="<?php echo $coupon_sent_action_url; ?>" onsubmit="return fcouponsend_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-                        <div class="modal-header">
-                            <h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰주기</h5>
+                <div class="modal-content" style="width: 350px; height: 300px;">                  
+                        <div class="modal-header" style="height: 45px; border-bottom: none;">
+                            <h3 class="modal-title" style="margin-left: 140px; font-weight: bold; font-size: 14px;">쿠폰주기</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div> 	
                         <div class="modal-body">
-                            <input type="hidden" name="co_no" id="co_no" value="">
-                            <input type="hidden" name="mb_id" id="mb_id" value="">
-                            <input type="hidden" name="cos_type" id="cos_type" value="">
-                            <input type="hidden" name="cos_link" id="cos_link" value="">
-                            <div style="margin-left: 30px;"><?php echo $year."년 ".$month."월";?></div>
-                            <div style="margin-left: 30px;"><?php echo "업소명 :";?>
-                                <input type="text" name="cos_entity" id="cos_entity" value="" style="border:none; outline: none; width: 100px; font-size: 12px; font-weight: bold;">							
-                            </div>
-                            <div style="margin-left:120px;">받는사람 닉네임</div>		
-                            <div style="margin-left:30px; margin-top:10px;">
-                                <input type="text" name="cos_nick" id="mb_nick" style="background: #00FFFF; display:inline; width: 160px;"/>		
-                                <input type="button" name="check_id" id="check_id" value="닉네임 확인" style="background: #6495ED; display:inline; width: 100px;"/>
-                            </div>
-                            <div id="result" style="margin-left:30px; margin-top: 10px;" >
-                            </div>			
+                            <form id="fcouponsend" name="fcouponsend" action="<?php echo $coupon_sent_action_url; ?>" onsubmit="return fcouponsend_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+                                <input type="hidden" name="co_no" id="co_no" value="">
+                                <input type="hidden" name="mb_id" id="mb_id" value="">
+                                <input type="hidden" name="cos_type" id="cos_type" value="">
+                                <input type="hidden" name="cos_link" id="cos_link" value="">
+                                <div style="margin-left: 30px;"><?php echo $year."년 ".$month."월";?></div>
+                                <div style="margin-left: 30px;"><?php echo "업소명 :";?>
+                                    <input type="text" name="cos_entity" id="cos_entity" value="" style="border:none; outline: none; width: 100px; font-size: 12px;">							
+                                </div>
+                                <div style="margin-top: 20px; margin-left:120px;">받는사람 닉네임</div>		
+                                <div style="margin-left:30px; margin-top:10px;">
+                                    <input type="text" name="cos_nick" id="mb_nick" class="form-control" style="background: #dcdcdc; display:inline; width: 160px; height: 30px;"/>		
+                                    <input type="button" name="check_id" id="check_id" value="닉네임 확인" class="btn btn_02" style="display:inline; width: 100px;"/>
+                                </div>
+                                <div id="result" style="margin-left:30px; margin-top: 10px;">
+                                </div>
+                            </form>			
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer" style="border-top: none;">
                             <div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-                                <button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px;">보내기</button>
+                                <button type="submit" id="btn_send" accesskey="s" class="btn btn_01" style="width: 150px;">보내기</button>
                             </div>
-                        </div>
-                    </form>
+                        </div>        
                 </div>
             </div>
         </div>
         
         <div class="modal fade" id="couponDelete" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
             <div class="modal-dialog" role="document">
-                <div class="modal-content" style="width: 350px; height: 220px; font-weight: bold;">
+                <div class="modal-content" style="width: 350px; height: 220px;">
                     <form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-                        <div class="modal-header">
-                            <h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰회수</h5>
+                        <div class="modal-header" style="border-bottom: none;">
+                            <h3 class="modal-title" style="margin-left: 140px; font-weight: bold; font-size: 14px;">쿠폰회수</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -520,9 +514,9 @@ if( isset($_POST['id'])){
                             <input type="hidden" name="cos_code" id="cos_code" value="">
                             <div style="margin-left:100px;">쿠폰을 회수하시겠습니까?</div>					
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer" style="border-top: none;">
                             <div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-                                <button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
+                                <button type="submit" accesskey="s" class="btn btn_01" style="width: 150px;">확인</button>
                             </div>
                         </div>
                     </form>
@@ -539,14 +533,17 @@ if( isset($_POST['id'])){
                    
         });    
 
-        function fcouponsend_submit(f) {
-            if(!f.cos_nick && $('#hasNick').length > 0 && $('#hasNick').val() == ''){ 
+        $('#btn_send').click(function(){
+            if($('#mb_nick').length > 0 && $('#mb_nick').val() == ''){ 
+                alert("Please insert nick name and click check id button!");
+                $('#mb_nick').focus();
+            }  
+            if($('#hasNick').length > 0 && $('#hasNick').val() == ''){ 
                 alert("Please insert correct nick name!");
-                f.cos_nick.focus();
-                return false;
-            }         
-            return true;                                    
-        }  
+                $('#mb_nick').focus();
+            }        
+            $('#fcouponsend').submit(); 
+        });   
 
         function fcoupondelete_submit(f) {
             return true;                                                                 
@@ -596,14 +593,5 @@ if( isset($_POST['id'])){
                 $('.modal-body #cos_link').val(cos_link);
             }); 
 
-            $('body').on('click', '.coupon-create', function() {
-                var cos_link = $(this).data('link');
-                $('.modal-body #cos_link').val(cos_link);
-            });
-
-            $('body').on('click', '.coupon-alert', function() {
-                var cos_link = $(this).data('link');
-                $('.modal-body #cos_link').val(cos_link);
-            }); 
         });
         </script>

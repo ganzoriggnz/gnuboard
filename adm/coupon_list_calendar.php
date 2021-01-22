@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					type: 'POST',
 					data: {cos_no: cos_no},
 					success: function(response){ 
-					$('#couponDelete .modal-body').html(response);
+					$('#couponDelete .modal-body #fcoupondelete').html(response);
 					$('#couponDelete').modal(); 
 					}
 				});
@@ -137,21 +137,22 @@ else if($w == 'u'){
 }
 ?>
 	<div id="calendar">
-		<div class="modal fade" id="couponDelete" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
+		<div class="modal fade" id="couponDelete" tabindex="-1" role="dialog" style="top: 40%; left: 0%;">
 			<div class="modal-dialog" role="document">
-				<div class="modal-content" style="width: 350px; height: 220px; font-weight: bold;">
-					<form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-						<div class="modal-header">
-							<h5 class="modal-title" style="margin-left: 140px; font-weight: bold;">쿠폰회수</h5>
+				<div class="modal-content" style="width: 350px; height: 250px;">
+						<div class="modal-header" style="border-bottom: none; margin-top: 20px;">
+							<h3 class="modal-title" style="margin-left: 140px; font-size: 14px; font-weight: bold;">쿠폰회수</h3>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 							</button>
 						</div> 	
-						<div class="modal-body" style="padding: 40px 0px; font-size: 14px;">			
+						<div class="modal-body" style="padding: 40px 0px; font-size: 14px;">
+							<form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">	
+							</form>		
 						</div>
-						<div class="modal-footer">
-							<div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-								<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
+						<div class="modal-footer" style="border-top: none;">
+							<div style="margin-left: 140px; margin: 0px auto 20px auto; text-align: center; border-top: none;">
+								<button type="submit" accesskey="s" class="btn btn_01" style="width: 150px; font-size: 14px;">확인</button>
 							</div>
 						</div>
 					</form>
@@ -160,19 +161,14 @@ else if($w == 'u'){
 		</div>
 		<div class="modal fade" id="couponAlert" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
 			<div class="modal-dialog" role="document">
-				<div class="modal-content" style="width: 650px; height: 400px; font-weight: bold;">
-					<div class="modal-header">
-						<h5 class="modal-title" style="margin-left: 250px; font-weight: bold;">경고 횟수 변경 및 기록</h5>
+				<div class="modal-content" style="width: 650px; height: 400px;">
+					<div class="modal-header" style="border-bottom: none; margin-top: 20px;">
+						<h3 class="modal-title" style="margin-left: 250px; font-weight: bold; font-size:14px;">경고 횟수 변경 및 기록</h3>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 						</button>
 					</div> 	
 					<div class="modal-body" style="padding: 5px 0px; font-size: 14px;">				
-					</div>
-					<div class="modal-footer">
-						<div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-							<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
-						</div>
 					</div>
 				</div>
 			</div>
