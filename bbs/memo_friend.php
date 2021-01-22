@@ -38,34 +38,86 @@ else
     $kind_title = '현재접속자';
 }
 
-
-    if(isset($_POST['chk_fr_no']) and $kind=='friends')
+//----------------------------------------------------------------------
+// select checked of members  array 
+    if(isset($_POST['chk_fr_no']) and $kind=='friends' and $member['mb_level'] > 16)
     {        
         $invite = $_POST['chk_fr_no'];
-        print_r($invite);
+        for ($i=0; $i < count($invite); $i++){
+            $sql= "delete from g5_member_friends where mb_id = '{$member['mb_id']}' and me_mbid ='$invite[$i]'";            
+            sql_query($sql);
+        }
     } else  
-    if(isset($_POST['chk_fr_no']) and $kind=='online')
+    if(isset($_POST['chk_fr_no']) and $kind=='online' and $member['mb_level'] > 16)
     {
-        $invite = $_POST['chk_fr_no'];
-        print_r($invite);
+        $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}'";
+            $toodddd = sql_fetch($sqlsss);
+            if( $toodddd['cnt'] < 10){          // nz boloh deed limit 10 
+                $invite = $_POST['chk_fr_no'];
+                $me_memo = $_POST['fr_memo'];
+                for ($i=0; $i < count($invite); $i++){
+                    if( $toodddd['cnt'] < 10)   // nz boloh deed limit 10 
+                    {   $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}' and me_mbid = '{$invite[$i]}'";
+                        $too = sql_fetch($sqlsss);
+                        if( $too['cnt'] == 0 and $member['mb_id']!=$invite[$i]) {
+                            $sql= "insert into g5_member_friends (mb_id, me_mbid, me_memo) values ('{$member['mb_id']}','{$invite[$i]}','{$me_memo}')";
+                            sql_query($sql);
+                            $kind = "friends";                
+                        }
+                    }
+                }
+            } else { alert("10개 이상 친구 등록할 수 없습니다.");}
     }
 
+    if(isset($_POST['finds_friend']) and $member['mb_level'] > 16)
+    {
+        $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}'";
+            $toodddd = sql_fetch($sqlsss);
+            if( $toodddd['cnt'] < 10) // nz boloh deed limit 10 
+            {
+                $invite = $_POST['finds_friend'];
+                $me_memo = $_POST['fr_memo'];
+                for ($i=0; $i < count($invite); $i++){
+                    if( $toodddd['cnt'] < 10)    // nz boloh deed limit 10 
+                    {
+                        $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}' and me_mbid = '{$invite[$i]}'";
+                        $too = sql_fetch($sqlsss);
+                        if( $too['cnt'] == 0 and $member['mb_id']!=$invite[$i]) {
+                            $sql= "insert into g5_member_friends (mb_id, me_mbid, me_memo) values ('{$member['mb_id']}','{$invite[$i]}','{$me_memo}')";
+                            sql_query($sql);
+                            $kind = "friends";
+                        }
+                    }
+                }
+            } else { alert("10개 이상 친구 등록할 수 없습니다.");}
+  }
+$listfind = array();
+// ------------ find member id -----------------------------------
     if(isset($_POST['find_id'])){
         $invite = $_POST['find_id'];
-        print_r($invite);
-    }
+        // print_r($invite);
+        $sql = "select * from g5_member where g5_member.mb_id like '%$invite%' or g5_member.mb_nick like '%$invite%'";
+        // echo $sql;
+        $result = sql_query($sql);
+        for ($i=0; $rows=sql_fetch_array($result); $i++)
+        {
+            $listfind[$i] = $rows;
+            $name = get_sideview($rows['mb_id'], $rows['mb_nick']);
+            $list[$i]['name'] = $name;
+        }
 
+    }
+//----------------------------------------------------------------------
 $list = array();
 
 if($kind=='friends'){
-    $sql = "SELECT 
+    $sql = "SELECT a.me_id,
     (SELECT g5_member.mb_id FROM g5_member WHERE g5_member.mb_id = a.me_mbid) AS mb_id,
     (SELECT g5_member.mb_nick FROM g5_member WHERE g5_member.mb_id = a.me_mbid) AS mb_nick, 
     (SELECT g5_member.mb_name FROM g5_member WHERE g5_member.mb_id = a.me_mbid) AS mb_name, 
     a.me_mbid, 
     a.me_memo, 
     (SELECT count(g5_login.mb_id) as countd FROM g5_login WHERE g5_login.mb_id = a.me_mbid) AS countd
-
     FROM g5_member_friends a where a.mb_id = '{$member['mb_id']}'";
 }
 
@@ -82,7 +134,6 @@ $result = sql_query($sql);
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {
     $list[$i] = $row;
-
     $mb_id = $row["mb_id"];
 
     if($kind=='online')
@@ -100,15 +151,13 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
     else
         $read_datetime = substr($row['me_read_datetime'],2,14);
 
-    $send_datetime = substr($row['me_send_datetime'],2,14);
- 
+    $send_datetime = substr($row['me_send_datetime'],2,14); 
     $list[$i]['me_mbid'] = $row['mb_id'];
     $list[$i]['mb_id'] = $mb_id;
     $list[$i]['name'] = $name;
     $list[$i]['send_datetime'] = $send_datetime;
     $list[$i]['read_datetime'] = $read_datetime;
     $list[$i]['view_href'] = './memo_friend.php?me_id='.$row['me_id'].'&amp;kind='.$kind.'&amp;page='.$page;
-
     $list[$i]['del_href'] = './memo_delete.php?me_id='.$row['me_id'].'&amp;token='.$token.'&amp;kind='.$kind;
 } 
 
