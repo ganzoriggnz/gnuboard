@@ -88,12 +88,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
         <img src="<?php echo G5_URL?>/img/side_top_img.png"></a>
 </div>
-
+<?php 
+$sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
+$res_date = sql_fetch($sql_date);
+$now = G5_TIME_YMD;
+$end_time = strtotime($res_date['mb_4']);
+$now_time = strtotime($now);
+$diff = $end_time - $now_time;
+$diff_days = floor($diff / 86400);
+?>
+<!-- <div class="side_cate" style="margin-top: 10px; ">제휴마감<span style="color: #0000FF; margin-left: 20px;"><?php echo "D - ".$diff_days; ?></span><button class="btn btn-primary" style="margin-left: 30px;">일연장신청</button></div>  -->
 
     <!-- //////////////////////////////////////////////////// -->
     <ul class="sub-ul mb-3">
         <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[0]['text']?>
+        <!-- <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[0]['text']?> -->
+        <div class="side_cate" style="margin-top: 10px;">제휴마감<div style="color: #0000FF; margin-left: 30px; width:100px; display: inline;"><?php echo "D - ".$diff_days."일"; ?></div><a href="<?php echo G5_URL?>/bbs/board.php?bo_table=partnership" class="btn btn-primary" style="display: inline; margin-left: 30px;">연장신청</a></div>
         </li>
         <?php for ($i=0; $i < count($menu[0]['s']); $i++) {
             $me = $menu[0]['s'][$i];
