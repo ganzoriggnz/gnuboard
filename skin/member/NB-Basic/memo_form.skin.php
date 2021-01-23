@@ -84,6 +84,8 @@ if($daylimit > $total_count){
 				<div class="col-sm-10 px-2">
 					<textarea name="me_memo" id="me_memo" rows="5" <?php  if ($check==0){echo "disabled";} ?> required class="form-control"><?php echo $content ?></textarea>
 				</div>
+
+				
 			</div>
 
 			<div class="form-group row mb-0 mx-n2">

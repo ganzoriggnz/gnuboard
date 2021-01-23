@@ -8,7 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
 
 
 <!-- 게시판 목록 시작 { -->
-<div id="bo_gall" style="width:1200px;">
+<div id="bo_gall" >
 
     <?php if ($is_category) { ?>
         <nav id="bo_cate">
@@ -118,11 +118,11 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
             </div>
         <?php } ?>
 
-        <ul id="gall_ul" class="gall_row">
+        <ul id="gall_ul" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 mx-n2">
             <?php
             for ($i = 0; $i < $list_cnt; $i++) {
                 $classes = array();
-                $classes[] = 'gall_li';
+                $classes[] = 'col px-2 pb-4';
                 $classes[] = 'col-gn-' . $bo_gallery_cols;
                 if ($i && ($i % $bo_gallery_cols == 0)) {
                     $classes[] = 'box_clear';
@@ -131,7 +131,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                     $classes[] = 'gall_now';
                 }
             ?>
-                <li class="<?php echo implode(' ', $classes); ?>">
+                <li class="col px-2 pb-4">
                     <div class="gall_box" style="background-image:url('<?php echo G5_IMG_URL ?>/main_bgpicture.png')" style="width: 100%; height: 148px;">
                         <div class="gall_chk chk_box">
                             <?php if ($is_checkbox) { ?>

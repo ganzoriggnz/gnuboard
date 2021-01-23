@@ -14,13 +14,6 @@ include_once(G5_PATH.'/head.sub.php');
 
 $kind = $kind ? clean_xss_tags(strip_tags($kind)) : 'friends';
 
-// if ($kind == 'friends')
-//     $unkind = 'online';
-// else if ($kind == 'online')
-//     $unkind = 'friends';
-// else
-//     alert(''.$kind .'값을 넘겨주세요.');
-
 if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
 
 run_event('memo_list', $kind, $unkind, $page);

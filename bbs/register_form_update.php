@@ -341,6 +341,8 @@ if ($w == '') {
                     mb_open = '{$mb_open}',
                     mb_email = '{$mb_email}',
                     mb_homepage = '{$mb_homepage}',
+                    
+                    mb_hp = '{$mb_hp}',
                     mb_tel = '{$mb_tel}',
                     mb_zip1 = '{$mb_zip1}',
                     mb_zip2 = '{$mb_zip2}',
