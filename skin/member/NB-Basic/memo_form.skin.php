@@ -4,14 +4,14 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
 
+// day limit 
 $daylimit=10;
+
+// check 0
 $check=0;
 
 //  zuwshuurugdsun levels
 $nolimit_levels = array('1'=>'24','2'=>'25','3'=>'27','4'=>'30');
-
-// print_r($nolimit_levels);
-
 //  2-22 and 26 level tai bh ym bol  day  = 10
 // 24,25,27, admin,  no limit
 for($i=0; $i<count($nolimit_levels);$i++){
@@ -20,7 +20,7 @@ for($i=0; $i<count($nolimit_levels);$i++){
 			$daylimit=99999999;
 		}
 }
-
+// member day count limit select
 $sql = "select count(*) as cnt from {$g5['memo_table']} where me_send_mb_id = '{$member['mb_id']}' and me_type = 'send' and DATE(me_send_datetime) = '".G5_TIME_YMD."'";
 $row = sql_fetch($sql);
 $total_count = $row['cnt'];
@@ -28,7 +28,6 @@ if($daylimit > $total_count){
 		$check = 1;
 	}
 ?>
-
 <div id="memo_write" class="mb-4">  
 
 	<div id="topNav" class="bg-primary text-white">

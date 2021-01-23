@@ -110,7 +110,7 @@ $g5['title'] = '현재접속자';
 				<div class="d-table-row">
                     <div class="d-table-cell nw-4 pl-4 text-left">
                         <?php
-                        if ($member['mb_level'] > 16){ // level 17 oos deesh hun haih bolomjtoi
+                        if ($member['mb_level'] >= $level_limit){ // level 17 oos deesh hun haih bolomjtoi
                             if ($kind == 'friends')
                             {
                                 echo '<button type="submit" action="" id="btn_submit" class="btn"><b>친구삭제</b></button>';                                
@@ -150,7 +150,7 @@ $g5['title'] = '현재접속자';
 </table>
     </section>   
                 <?php
-                    if ($member['mb_level'] > 16){ // level 17 oos deesh hun haih bolomjtoi
+                    if ($member['mb_level'] >= $level_limit){ // level 17 oos deesh hun haih bolomjtoi
 
                     if (isset($_POST['find_id']) and count($listfind)>0 ) {
                         
