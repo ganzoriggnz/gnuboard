@@ -1,6 +1,9 @@
 <?php
 include_once('./_common.php');
 
+$level_limit=8; // level limit oruulah heseg
+$friends_limit=9999; // friends limit
+
 if ($is_guest)
     alert_close('회원만 이용하실 수 있습니다.');
 
@@ -40,7 +43,7 @@ else
 
 //----------------------------------------------------------------------
 // select checked of members  array 
-    if(isset($_POST['chk_fr_no']) and $kind=='friends' and $member['mb_level'] > 16)
+    if(isset($_POST['chk_fr_no']) and $kind=='friends' and $member['mb_level'] >= $level_limit)
     {        
         $invite = $_POST['chk_fr_no'];
         for ($i=0; $i < count($invite); $i++){
@@ -48,15 +51,15 @@ else
             sql_query($sql);
         }
     } else  
-    if(isset($_POST['chk_fr_no']) and $kind=='online' and $member['mb_level'] > 16)
+    if(isset($_POST['chk_fr_no']) and $kind=='online' and $member['mb_level'] >= $level_limit)
     {
         $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}'";
             $toodddd = sql_fetch($sqlsss);
-            if( $toodddd['cnt'] < 10){          // nz boloh deed limit 10 
+            if( $toodddd['cnt'] <= $friends_limit){          // nz boloh deed limit 10 
                 $invite = $_POST['chk_fr_no'];
                 $me_memo = $_POST['fr_memo'];
                 for ($i=0; $i < count($invite); $i++){
-                    if( $toodddd['cnt'] < 9)   // nz boloh deed limit 10 
+                    if( $toodddd['cnt'] <= $friends_limit)   // nz boloh deed limit 10 
                     {   $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}' and me_mbid = '{$invite[$i]}'";
                         $too = sql_fetch($sqlsss);
                         if( $too['cnt'] == 0 and $member['mb_id']!=$invite[$i]) {
@@ -69,16 +72,16 @@ else
             } else { alert("10개 이상 친구 등록할 수 없습니다.");}
     }
 
-    if(isset($_POST['finds_friend']) and $member['mb_level'] > 16)
+    if(isset($_POST['finds_friend']) and $member['mb_level'] >= $level_limit)
     {
         $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}'";
             $toodddd = sql_fetch($sqlsss);
-            if( $toodddd['cnt'] < 10) // nz boloh deed limit 10 
+            if( $toodddd['cnt'] <= $friends_limit) // nz boloh deed limit 10 
             {
                 $invite = $_POST['finds_friend'];
                 $me_memo = $_POST['fr_memo'];
                 for ($i=0; $i < count($invite); $i++){
-                    if( $toodddd['cnt'] < 9)    // nz boloh deed limit 10 
+                    if( $toodddd['cnt'] <= $friends_limit)    // nz boloh deed limit 10 
                     {
                         $sqlsss= "select count(*) as cnt from g5_member_friends where mb_id = '{$member['mb_id']}' and me_mbid = '{$invite[$i]}'";
                         $too = sql_fetch($sqlsss);
