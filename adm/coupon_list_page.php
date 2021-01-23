@@ -10,7 +10,6 @@ $altcnt=0;
 
 auth_check($auth[$sub_menu], 'r'); ?>
 
-</style>
 <?php
 if( isset($_POST['id'])){ 
     $bo_table = $_POST['id'];
@@ -291,10 +290,8 @@ if( isset($_POST['id'])){
                     <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a RIGHT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
                     $sql1 = sql_query($sql);
                     while ($row1 = sql_fetch_array($sql1)){
-                    ?>
-                        <?php $alert_nick[$altcnt]['alt_nick'] = $row1['cos_nick']; ?>
-
-                        <?php if($row1['cos_accept'] == 'N' && $row1['cos_alt_quantity'] == '0') 
+                        $alert_nick[$altcnt]['alt_nick'] = $row1['cos_nick'];
+                        if($row1['cos_accept'] == 'N' && $row1['cos_alt_quantity'] == '0') 
                         { echo '<li><a data-toggle="modal"
                             data-target="#couponDelete"  
                             href="#couponDelete" 
@@ -349,7 +346,7 @@ if( isset($_POST['id'])){
                                                     <input type="hidden" name="cos_link" id="cos_link" value="<?php echo $bo_table; ?>">
                                                     <div style="margin-left:30px; margin-top: 30px;">
                                                         <p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
-                                                        <input type="number" name="cos_alt_quantity" id="cos_alt_quantity" class="form-control" style="background: #EFEFEF; width: 60px; height: 30px; display: inline-block; text-align: center; margin-left: 30px; padding-left:20px;" value = "<?php echo $res1['cos_alt_quantity']; ?>"/>		
+                                                        <input type="number" name="cos_alt_quantity" id="cos_alt_quantity" class="form-control" style="background: #EFEFEF; width: 60px; height: 30px; display: inline-block; text-align: center; margin-left: 30px; padding-left:25px; font-size: 12px;" value = "<?php echo $res1['cos_alt_quantity']; ?>"/>		
                                                         <input type="submit" name="change" id="change" value="확인" class="btn btn_03" style="width: 80px; height: 30px;"/>
                                                     </div>
                                                 </form>
@@ -536,7 +533,7 @@ if( isset($_POST['id'])){
 
         $('#btn_send').click(function(){
             if($('#mb_nick').length > 0 && $('#mb_nick').val() == ''){ 
-                alert("Please insert nick name and click check id button!");
+                alert("닉네임을 입력하시고 확인후 쿠폰 지원할 수 있습니다!");
                 $('#mb_nick').focus();
                 return false;
             }  
