@@ -291,6 +291,13 @@ if ($w == '' || $w == 'r') {
                      wr_10 = '$wr_10' ";
     sql_query($sql);
 
+    $date = G5_TIME_YMDHIS;
+    $newdate = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($date)));
+    $sql1 = " UPDATE {$g5['member_table']}
+                SET 
+                mb_3 = '{$date}',
+                mb_4 = '{$newdate}'
+               WHERE  mb_id = '{$member['mb_id']}'";
     $wr_id = sql_insert_id();
 
     // 부모 아이디에 UPDATE
