@@ -11,5 +11,6 @@ $menu['menu300'] = array (
     array('300700', 'FAQ관리', G5_ADMIN_URL.'/faqmasterlist.php', 'scf_faq', 1),
     array('300820', '글,댓글 현황', G5_ADMIN_URL.'/write_count.php', 'scf_write_count'),
     array('300850', '날짜조회수관리', ''.G5_ADMIN_URL.'/board_manage_etc_list.php', 'board'),
+    array('300900', '상단공지내용관리', ''.G5_ADMIN_URL.'/slide_limit.php', 'board'),
 );
 ?>

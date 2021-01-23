@@ -68,6 +68,9 @@ $nt_side_url = $nt_side_path = $nt_title_url = $nt_title_path = '';
 if($is_index) { //인덱스는 와이드 고정
 	$is_content_col = 13;
 	$is_page_col = '';
+
+	list($nt_title_url, $nt_title_path) = na_layout_content('title', $tset['title'], 'title-basic');
+
 } else {
 	// 페이지 타이틀
 	$page_title = na_page_title($tset);
@@ -134,15 +137,15 @@ if($nt_top_path)
 		// HEADER
 		if($nt_header_path)
 			@include_once ($nt_header_path.'/header.php');
-
-
 		?>
 		</div>
 		<?php
 		// PAGE TITLE
 		if($nt_title_path)
-			@include_once ($nt_title_path.'/title.php');
+			@include_once ($nt_title_path.'/title2.php');
+		// @include_once($nt_title_path.'/title2.php');
 
+		// include_once($nt_title_path.'/title2.php');
 		// WING
 		if($is_wing && $nt_wing_path)
 			@include_once ($nt_wing_path.'/wing.php');
