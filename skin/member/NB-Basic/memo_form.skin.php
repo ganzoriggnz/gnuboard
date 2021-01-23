@@ -4,16 +4,43 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
 
+$daylimit=10;
+$check=0;
+
+//  zuwshuurugdsun levels
+$nolimit_levels = array('1'=>'24','2'=>'25','3'=>'27','4'=>'30');
+
+// print_r($nolimit_levels);
+
+//  2-22 and 26 level tai bh ym bol  day  = 10
+// 24,25,27, admin,  no limit
+for($i=0; $i<count($nolimit_levels);$i++){
+	if ($nolimit_levels[$i] == $member['mb_level'])
+		{
+			$daylimit=99999999;
+		}
+}
+
+$sql = "select count(*) as cnt from {$g5['memo_table']} where me_send_mb_id = '{$member['mb_id']}' and me_type = 'send' and DATE(me_send_datetime) = '".G5_TIME_YMD."'";
+$row = sql_fetch($sql);
+$total_count = $row['cnt'];
+if($daylimit > $total_count){
+		$check = 1;
+	}
 ?>
 
-<div id="memo_write" class="mb-4">
+<div id="memo_write" class="mb-4">  
 
 	<div id="topNav" class="bg-primary text-white">
 		<div class="p-3">
 			<button type="button" class="close" aria-label="Close" onclick="window.close();">
 				<span aria-hidden="true" class="text-white">&times;</span>
 			</button>
-			<h5><?php echo $g5['title'] ?></h5>
+			<h5>
+				<?php echo $g5['title'];  
+					if ($check==0){echo '<p style="color: red;">  '.$member['mb_level'].' 레벨 회원이 하루에 쪽지 보내기 '.$daylimit.'개 이상 불가능합니다.</p>';} 
+					?> 
+			</h5>
 		</div>
 	</div>
 
@@ -30,7 +57,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			</ul>
 		</div>
 	</nav>
-	
 	<div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
 
 	<?php if ($config['cf_memo_send_point']) { ?>
@@ -47,7 +73,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			<div class="form-group row mx-n2">
 				<label class="col-sm-2 col-form-label px-2" for="me_recv_mb_id">받는 회원<strong class="sr-only"> 필수</strong></label>
 				<div class="col-sm-10 px-2">
-					<input type="text" name="me_recv_mb_id" value="<?php echo $me_recv_mb_id ?>" id="me_recv_mb_id" required class="form-control">
+					<input type="text" name="me_recv_mb_id" value="<?php echo $me_recv_mb_id ?>" <?php  if ($check==0){echo "disabled";} ?> id="me_recv_mb_id" required class="form-control">
 					<p class="form-text f-de text-muted mb-0 pb-0">
 						여러 회원에게 보낼때는 회원아이디를 컴마(,)로 구분해 주세요.
 					</p>
@@ -57,7 +83,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			<div class="form-group row mx-n2">
 				<label class="col-sm-2 col-form-label px-2" for="me_memo">쪽지 내용<strong class="sr-only"> 필수</strong></label>
 				<div class="col-sm-10 px-2">
-					<textarea name="me_memo" id="me_memo" rows="5" required class="form-control"><?php echo $content ?></textarea>
+					<textarea name="me_memo" id="me_memo" rows="5" <?php  if ($check==0){echo "disabled";} ?> required class="form-control"><?php echo $content ?></textarea>
 				</div>
 			</div>
 
@@ -71,9 +97,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	</ul>
 
 	<p class="text-center">
-		<button type="submit" id="btn_submit" class="btn btn-primary">쪽지 보내기</button>
+		<button type="submit" id="btn_submit" <?php  if ($check==0){echo "disabled";} ?> class="btn btn-primary">쪽지 보내기</button>
 	</p>
-
 	</form>
 </div>
 
