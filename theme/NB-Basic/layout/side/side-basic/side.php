@@ -97,15 +97,14 @@ $now_time = strtotime($now);
 $diff = $end_time - $now_time;
 $diff_days = floor($diff / 86400);
 ?>
-<!-- <div class="side_cate" style="margin-top: 10px; ">제휴마감<span style="color: #0000FF; margin-left: 20px;"><?php echo "D - ".$diff_days; ?></span><button class="btn btn-primary" style="margin-left: 30px;">일연장신청</button></div>  -->
 
     <!-- //////////////////////////////////////////////////// -->
     <ul class="sub-ul mb-3">
     <?php if($member['mb_level'] == '26' || $member['mb_level'] == '27') { echo  
             '<li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">
-            <div class="side_cate" style="margin-top: 10px;">제휴마감<div style="color: #0000FF; margin-left: 30px; width:100px; display: inline;">D - '.$diff_days.'일</div><a href="<?php echo G5_URL?>/bbs/board.php?bo_table=partnership" class="btn btn-primary" style="display: inline; margin-left: 30px;">연장신청</a></div></li>'; 
-        } else { echo '<li  class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">업소리스트</li>';
-        }
+            <div class="side_cate">제휴마감<div style="color: #0000FF; margin-left: 30px; width:100px; display: inline;">D - '.$diff_days.'일</div><a href="'.G5_URL.'/bbs/board.php?bo_table=partnership" class="btn btn-primary" style="display: inline; margin-left: 30px;">연장신청</a></div></li>'; 
+          } else { echo '<li  class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">업소리스트</li>';
+          }
         for ($i=0; $i < count($menu[0]['s']); $i++) {
             $me = $menu[0]['s'][$i];
             ?>
