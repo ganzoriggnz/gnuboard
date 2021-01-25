@@ -281,7 +281,7 @@ if ($is_member)
 				</li>
 			<?php } ?>
 
-			<?php if ($is_admin || ($gr_id == 'attendance'  &&  $w != 'u')) { ?>
+			<?php if ($is_admin || $is_member || ($gr_id == 'attendance'  &&  $w != 'u')) { ?>
 				
 				<?php if ($is_category) { ?>
 					<li class="list-group-item">
