@@ -204,7 +204,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         제휴기간      
         </label>
         <div class="col-sm-3 col-form-info">
-        2020-11-12 ~ 2021-02-12
+        <?php echo $start_date." ~ ".$end_date.' - [';?><span style="color: blue;"><?php echo $diff_days.'일 남음';?></span>]
         </div>
         </div>
 

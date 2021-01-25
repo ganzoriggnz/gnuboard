@@ -107,10 +107,21 @@ else if($end_time < $now_time){
 
     <!-- //////////////////////////////////////////////////// -->
     <ul class="sub-ul mb-3">
-    <?php if($member['mb_level'] == '26' || $member['mb_level'] == '27') { echo  
-            '<li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">
-            <div class="side_cate">제휴마감<div style="color: #0000FF; margin-left: 30px; width:100px; display: inline;">D - '.$diff_days.'일</div><a href="'.G5_URL.'/bbs/board.php?bo_table=partnership" class="btn btn-primary" style="display: inline; margin-left: 30px;">연장신청</a></div></li>'; 
-          } else { echo '<li  class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">업소리스트</li>';
+    <?php 
+
+    if($member['mb_level'] == '26' || $member['mb_level'] == '27') { 
+        ?> 
+            <li class="me-li pt-3 pb-3 pr-2" style="font-weight: bold;">
+                <div class="text-left" style="display: inline;">제휴마감
+                </div>
+                <div class="text-center" style="color: #0000FF; display: inline;">D - <?php echo $diff_days ?>일
+                </div>
+                <div class="text-right" style="display: inline;"><a href="<?php echo G5_URL; ?>/bbs/board.php?bo_table=partnership" 
+                class="cat_1_bg <?php echo ($_GET['bo_table'] == "partnership") ? "activesubs" : "" ?>" style="display: inline; width: 70px;">연장신청 </a>
+                </div>
+            </li>            
+        <?php
+          } else { echo '<li  class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px; text-center;">업소리스트</li>';
           }
         for ($i=0; $i < count($menu[0]['s']); $i++) {
             $me = $menu[0]['s'][$i];

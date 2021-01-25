@@ -29,7 +29,6 @@ include_once('./admin.head.php');
 }
 
 .nav > .active {
-    color : aqua!important;  **// THIS DOES NOT WORK**
     background-color: chartreuse; **//THIS WORKS**
 }
 .nav > .active a{
@@ -46,6 +45,14 @@ include_once('./admin.head.php');
 .modal.fade .modal-dialog {
    -webkit-transform: none;
    transform: none;
+ }
+
+ /* a:link, a:visited {
+     color: #fff;
+ } */ 
+
+ .active {
+     color: red;
  }
 </style>
 
@@ -107,6 +114,37 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.render();
 });
 
+$('body').on('click', '.entity-modal', function() {
+    $('#entityextendModal').modal('show');
+}); 
+
+$(document).ready(function(){
+         debugger;
+    /* $("ul.nav > li").click(function (e) { 
+    $("ul.nav > li").removeClass("active"); 
+    $(this).addClass("active"); 
+    $(this).css('color', 'red');
+    });  */
+
+    /* $('.nav li a').click(function(e) {
+        $('.nav li.active').removeClass('active');
+        var $parent = $(this).parent();
+        $parent.addClass('active');
+        e.preventDefault();
+        }); */
+
+        var url = window.location;
+    // Will only work if string in href matches with location
+        $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+
+    // Will also work for relative and absolute hrefs
+        $('ul.nav a').filter(function () {
+            return this.href == url;
+        }).parent().addClass('active').parent().parent().addClass('active');
+});
+
+    
+
 </script>
 
 <?php 
@@ -129,35 +167,11 @@ if($w == 'u'){
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 ?>
 	<div id="calendar">
-    
-    <script>
 
-        $('body').on('click', '.entity-modal', function() {
-            $('#entityextendModal').modal('show');
-        }); 
-
-        $('.nav li a').click(function(e){
-            debugger;
-            $('.nav li a.active').removeClass('active');
-            var $parent = $(this).parent(); 
-            $parent.addClass('active');
-        });
-
-        $(document).ready(function(){
-            $("#datepicker").datepicker({
-            dateFormat: 'yy-mm-dd',
-            onSelect: function(date, obj){
-                $('#to_date').val(date);  
-            }
-            });        
-        });
-
-    </script>
         <div class="modal fade" id="entitylinkModal" tabindex="-1" role="dialog" style="position: fixed; top: 10%; left: 0%;" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="width: 200px; height: 200px;">
-                        <input type="hidden" name="w" value="u">
-                        <div class="modal-header" style="border-bottom: none; height: 10px;">
+                    <div class="modal-content" style="width: 135px; height: 230px;">
+                        <div class="modal-header" style="border-bottom: none; height: 20px;">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button> 

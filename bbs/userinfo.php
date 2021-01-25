@@ -31,6 +31,22 @@ if($member['mb_id']){
     global $g5;
     $sql = " select * from {$g5['member_table']} where mb_id = '{$member['mb_id']}'";
     $row = sql_fetch($sql); 
+
+    $now = G5_TIME_YMD;
+    if($row['mb_4'] > '0000:00:00 00:00:00')
+    $end_time = strtotime($row['mb_4']);
+    $now_time = strtotime($now);
+    if($end_time >= $now_time){
+        $diff = $end_time - $now_time;
+        $diff_days = floor($diff / 86400);
+    }
+    else if($end_time < $now_time){
+        $diff_days = '0';
+    }
+
+    $start_date = substr($row['mb_3'], 0, 10);
+    $end_date = substr($row['mb_4'], 0, 10);
+
     $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
     
     /* for($i=0; $row=sql_fetch_array($result); $i++)

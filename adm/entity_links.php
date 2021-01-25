@@ -59,7 +59,11 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
   padding: 0.5rem 1rem;
 }
 
-    .ui-datepicker {display: block;}
+.active {
+     color: red;
+ }
+
+.ui-datepicker {display: block;}
 </style>
 
 <script>
@@ -69,11 +73,12 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
           onSelect: function(date, obj){
               $('#to_date').val(date);  
           }
-        });        
+        });  
     });
+
 </script>
 
-<div class="modal fade" id="entityextendModal" tabindex="-1" role="dialog" style="position: fixed; top: 10%; left: 13%;" aria-hidden="true">
+<div class="modal fade" id="entityextendModal" tabindex="-1" role="dialog" style="position: fixed; top: 10%; left: 10%;" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="width: 350px; height: 540px;">
       <form id="fentityextend" name="fentityextend" action="" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
@@ -116,10 +121,10 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 $str = "<ul class=\"nav flex-sm-column\">\n";
 
 if($is_admin == "super" && $mb_id) {
-    $str .= "<li class=\"nav-item\"><a href=\"".G5_ADMIN_URL."/member_form.php?w=u&amp;mb_id=".$mb_id."\" target=\"_blank\" class=\"nav-link\">회원정보변경</a></li>\n";
-    $str .= "<li class=\"nav-item\"><a data-toggle=\"modal\" data-target=\"entityextendModal\" href=\"entityextendModal\" class=\"nav-link entity-modal\">제휴연장</a></li>\n"; 
-    $str .= "<li class=\"nav-item\"><a href=\"".G5_ADMIN_URL."/coupon_list.php\" target=\"_blank\" class=\"nav-link\">쿠폰관리</a></li>\n"; 
-    $str .= "<li class=\"nav-item\"><a href=\"".G5_BBS_URL."/memo_form.php?me_recv_mb_id=".$mb_id."\" target=\"_blank\" class=\"nav-link\">쪽지보내기</a></li>\n";
+    $str .= "<li class=\"nav-item\"><a href=\"".G5_ADMIN_URL."/member_form.php?w=u&amp;mb_id=".$mb_id."\" onclick=\"win_profile(this.href); return false;\" class=\"nav-link btn btn_02\" style=\"width: 100px; margin-top: 5px;\">회원정보변경</a></li>\n";
+    $str .= "<li class=\"nav-item\"><a data-toggle=\"modal\" data-target=\"entityextendModal\" href=\"entityextendModal\" class=\"nav-link entity-modal btn btn-block btn_02\" style=\"width: 100px; margin-top: 5px;\">제휴연장</a></li>\n"; 
+    $str .= "<li class=\"nav-item\"><a href=\"".G5_ADMIN_URL."/coupon_list.php\" onclick=\"win_profile(this.href); return false;\" class=\"nav-link btn btn_02\" style=\"width: 100px; margin-top: 5px;\">쿠폰관리</a></li>\n"; 
+    $str .= "<li class=\"nav-item\"><a href=\"".G5_BBS_URL."/memo_form.php?me_recv_mb_id=".$mb_id."\" onclick=\"win_profile(this.href); return false;\" class=\"nav-link btn btn_02\" style=\"width: 100px; margin-top: 5px;\">쪽지보내기</a></li>\n";
 }
 $str .= "</ul>\n";
 
