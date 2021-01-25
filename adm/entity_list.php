@@ -115,32 +115,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 $('body').on('click', '.entity-modal', function() {
-    $('#entityextendModal').modal('show');
+    $('#entityextendModal').modal('show');  
+        $("#datepicker").datepicker({
+          dateFormat: 'yy-mm-dd',
+          onSelect: function(date, obj){
+              $('#to_date').val(date);  
+          }
+        });  
+  
 }); 
 
 $(document).ready(function(){
-         debugger;
     /* $("ul.nav > li").click(function (e) { 
     $("ul.nav > li").removeClass("active"); 
     $(this).addClass("active"); 
     $(this).css('color', 'red');
     });  */
 
-    /* $('.nav li a').click(function(e) {
+    $('.nav li a').click(function(e) {
         $('.nav li.active').removeClass('active');
         var $parent = $(this).parent();
         $parent.addClass('active');
         e.preventDefault();
-        }); */
-
-        var url = window.location;
-    // Will only work if string in href matches with location
-        $('ul.nav a[href="' + url + '"]').parent().addClass('active');
-
-    // Will also work for relative and absolute hrefs
-        $('ul.nav a').filter(function () {
-            return this.href == url;
-        }).parent().addClass('active').parent().parent().addClass('active');
+        }); 
 });
 
     

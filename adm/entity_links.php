@@ -66,18 +66,6 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 .ui-datepicker {display: block;}
 </style>
 
-<script>
-    $(document).ready(function(){
-        $("#datepicker").datepicker({
-          dateFormat: 'yy-mm-dd',
-          onSelect: function(date, obj){
-              $('#to_date').val(date);  
-          }
-        });  
-    });
-
-</script>
-
 <div class="modal fade" id="entityextendModal" tabindex="-1" role="dialog" style="position: fixed; top: 10%; left: 10%;" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="width: 350px; height: 540px;">
