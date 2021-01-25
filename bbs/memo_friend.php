@@ -98,7 +98,7 @@ $listfind = array();
         for ($i=0; $rows=sql_fetch_array($result); $i++)
         {
             $listfind[$i] = $rows;
-            $name = get_sideview($rows['mb_id'], $rows['mb_nick']);
+            $name = get_sideview($rows['mb_id'], $rows['mb_nick'], $rows['mb_homepage']);
             $list[$i]['name'] = $name;
         }
 

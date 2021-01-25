@@ -846,7 +846,7 @@ $data=array (
       9 =>
       array (
         'text' => '아이템샵',
-        'href' => '#',
+        'href' => G5_BBS_URL.'/board.php?bo_table=shop',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_self',

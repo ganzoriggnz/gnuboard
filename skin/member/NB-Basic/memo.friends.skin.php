@@ -22,9 +22,7 @@ $g5['title'] = '현재접속자';
 			<h5><?php echo $g5['title'] ?></h5>
 		</div>
 	</div>
-
 	<div id="topHeight"></div>
-
 	<nav id="memo_cate" class="sly-tab font-weight-normal mt-3 mb-2">
 		<div id="noti_cate_list" class="sly-wrap px-3">
 			<ul id="noti_cate_ul" class="clearfix sly-list text-nowrap border-left">
@@ -62,7 +60,11 @@ $g5['title'] = '현재접속자';
 		<ul class="na-table d-table w-100">
 				<?php
 				for ($i=0; $i < count($list); $i++) {
-					//$location = conv_content($list[$i]['lo_location'], 0);
+                    //$location = conv_content($list[$i]['lo_location'], 0);
+                    
+                    $name = get_sideview($list[$i]['mb_id'], $list[$i]['mb_nick'], $list[$i]['mb_homepage']);
+                    $list['name'] = $name;
+
 					$location = $list[$i]['lo_location'];
 					// 최고관리자에게만 허용
 					// 이 조건문은 가능한 변경하지 마십시오.

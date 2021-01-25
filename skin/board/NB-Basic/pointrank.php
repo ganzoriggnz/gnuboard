@@ -79,55 +79,7 @@ $bg = '#b3b8c0';
     <td class="td_pname"><?php echo $name; ?></td>
     <td class="td_joindate"><?php echo $joindate; ?></td>
     <td class="td_plevel"><?php   
-            if($level == 2){
-            echo "노예";
-            } else if($level == 3){
-            echo "농노";
-            } else if($level == 4){
-            echo "시민";
-            } else if($level == 5){
-            echo "기사";
-            } else if($level == 6){
-            echo "남반";
-            } else if($level == 7){
-            echo "장교";
-            } else if($level == 8){
-            echo "향리";
-            } else if($level == 9){
-            echo "서리";
-            } else if($level == 10){
-            echo "성주";
-            } else if($level == 11){
-            echo "작사";
-            } else if($level == 12){
-            echo "남작";
-            } else if($level == 13){
-            echo "자작";
-            } else if($level == 14){
-            echo "백작";
-            } else if($level == 15){
-            echo "후작";
-            } else if($level == 16){
-            echo "공작";
-            } else if($level == 17){
-            echo "대공";
-            } else if($level == 18){
-            echo "왕자";
-            } else if($level == 19){
-            echo "왕";
-            } else if($level == 20){
-            echo "국왕";
-            } else if($level == 21){
-            echo "태자";
-            } else if($level == 22){
-            echo "황제";
-            } else if($level == 24){
-            echo "추기경";
-            } else if($level == 25){
-            echo "교황";
-            }else if($level == 26){
-            echo "법사";
-            }
+            echo get_level_name($level);
     ?></td>
     <td class="td_point"><?php echo $point; ?></td>
 </tr>
