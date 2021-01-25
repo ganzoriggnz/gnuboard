@@ -193,7 +193,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         지역-업종       
         </label>
         <div class="col-sm-3 col-form-info">
-        <?php echo $res['ca_name']." - ".$res['wr_5']; ?>
+        <?php echo $row['ca_name']." - ".$row['mb_2']; ?>
         </div>
         </div>
 
