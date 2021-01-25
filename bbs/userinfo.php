@@ -47,6 +47,12 @@ if($member['mb_id']){
     $start_date = substr($row['mb_3'], 0, 10);
     $end_date = substr($row['mb_4'], 0, 10);
 
+    $type = $row['mb_2'];
+    $string = $row['mb_name'];
+    $str_arr = explode ("-", $string);
+    $today_login = $row['mb_today_login'];
+    $entity_date =$row['mb_datetime'];
+
     $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
     
     /* for($i=0; $row=sql_fetch_array($result); $i++)
