@@ -4196,6 +4196,7 @@ function option_array_checked($option, $arr=array()){
 
     return $checked;
 }
+
 function get_member_level_select2($name, $start_id=0, $end_id=30, $selected="", $event="")
 {
     global $g5,$config;
@@ -4208,6 +4209,49 @@ function get_member_level_select2($name, $start_id=0, $end_id=30, $selected="", 
         if ($i == $selected)
             $str .= ' selected="selected"';
         $str .= ">{$i} ".$config['lev_cf_'.$i]."</option>\n";
+    }
+    $str .= "</select>\n";
+    return $str;
+}
+
+function get_board_atname($bo_table='')
+{
+    global $g5;
+    $list = array();
+    $str;
+    $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance' ");
+    for($i=1; $res = sql_fetch_array($row); $i++){
+        $list[$i]['bo_table']=$res['bo_table'];
+        $list[$i]['bo_subject']=$res['bo_subject'];
+    }
+    $str = '<select id="mb_6" name="mb_6">';
+    for ($i=0; $i<count($list); $i++) {
+        $str .= '<option value="'.$list[$i]['bo_table'].'"';
+        if ($bo_table == $list[$i]['bo_table'])
+            $str .= ' selected="selected"';
+        $str .= ">".$list[$i]['bo_subject']."</option>\n";
+    }
+    $str .= "</select>\n";
+    return $str;
+}
+
+
+function get_board_atname2($bo_table='',$too)
+{
+    global $g5;
+    $list = array();
+    $str;
+    $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance' ");
+    for($i=1; $res = sql_fetch_array($row); $i++){
+        $list[$i]['bo_table']=$res['bo_table'];
+        $list[$i]['bo_subject']=$res['bo_subject'];
+    }
+    $str = '<select id="mb_6['.$too.']" name="mb_6['.$too.']">';
+    for ($i=0; $i<count($list); $i++) {
+        $str .= '<option value="'.$list[$i]['bo_table'].'"';
+        if ($bo_table == $list[$i]['bo_table'])
+            $str .= ' selected="selected"';
+        $str .= ">".$list[$i]['bo_subject']."</option>\n";
     }
     $str .= "</select>\n";
     return $str;

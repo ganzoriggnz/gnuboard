@@ -194,11 +194,15 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
     </tr>
     <tr>
         <th scope="row">본인확인방법</th>
-        <td colspan="3">
+        <td>
             <input type="radio" name="mb_certify_case" value="ipin" id="mb_certify_ipin" <?php if($mb['mb_certify'] == 'ipin') echo 'checked="checked"'; ?>>
             <label for="mb_certify_ipin">아이핀</label>
             <input type="radio" name="mb_certify_case" value="hp" id="mb_certify_hp" <?php if($mb['mb_certify'] == 'hp') echo 'checked="checked"'; ?>>
             <label for="mb_certify_hp">휴대폰</label>
+        </td>
+        <th scope="row">bo_table</th>
+        <td >
+             <?php echo get_board_atname($mb['mb_6']); ?>
         </td>
     </tr>
     <tr>
@@ -356,10 +360,9 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
     </tr>
 
     <?php
-    //소셜계정이 있다면
+    //소셜계정이 있다면  ---------------- update form ---------------------------------------
     if(function_exists('social_login_link_account') && $mb['mb_id'] ){
         if( $my_social_accounts = social_login_link_account($mb['mb_id'], false, 'get_data') ){ ?>
-
     <tr>
     <th>소셜계정목록</th>
     <td colspan="3">
@@ -429,7 +432,6 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
                         }
                     }
                 });
-
                 return;
             });
         });
@@ -444,13 +446,43 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
 
     run_event('admin_member_form_add', $mb, $w, 'table');
     ?>
-
-    <?php for ($i=1; $i<=10; $i++) { ?>
     <tr>
-        <th scope="row"><label for="mb_<?php echo $i ?>">여분 필드 <?php echo $i ?></label></th>
-        <td colspan="3"><input type="text" name="mb_<?php echo $i ?>" value="<?php echo $mb['mb_'.$i] ?>" id="mb_<?php echo $i ?>" class="frm_input" size="30" maxlength="255"></td>
+        <th scope="row"><label for="mb_1">여분 필드 1</label></th>
+        <td colspan="3"><input type="text" name="mb_1" value="<?php echo $mb['mb_1']; ?>" id="mb_1" class="frm_input" size="30" maxlength="255"></td>
     </tr>
-    <?php } ?>
+    <tr>
+        <th scope="row"><label for="mb_2">여분 필드 2</label></th>
+        <td colspan="3"><input type="text" name="mb_2" value="<?php echo $mb['mb_2']; ?>" id="mb_2" class="frm_input" size="30" maxlength="255"></td>
+    </tr>
+    <tr>
+        <th scope="row"><label for="mb_3">여분 필드 3</label></th>
+        <td colspan="3"><input type="text" name="mb_3" value="<?php echo $mb['mb_3']; ?>" id="mb_3" class="frm_input" size="30" maxlength="255"></td>
+    </tr>
+    <tr>
+        <th scope="row"><label for="mb_4">여분 필드 4</label></th>
+        <td colspan="3"><input type="text" name="mb_4" value="<?php echo $mb['mb_4']; ?>" id="mb_4" class="frm_input" size="30" maxlength="255"></td>
+    </tr>
+    <tr>
+        <th scope="row"><label for="mb_5">여분 필드 5</label></th>
+        <td colspan="3"><input type="text" name="mb_5" value="<?php echo $mb['mb_5']; ?>" id="mb_5" class="frm_input" size="30" maxlength="255"></td>
+    </tr>
+    <tr>
+        <th scope="row"><label for="mb_7">여분 필드 7</label></th>
+        <td colspan="3"><input type="text" name="mb_7" value="<?php echo $mb['mb_7']; ?>" id="mb_7" class="frm_input" size="30" maxlength="255"></td>
+    </tr>
+    <tr>
+        <th scope="row"><label for="mb_8">여분 필드 8</label></th>
+        <td colspan="3"><input type="text" name="mb_8" value="<?php echo $mb['mb_8']; ?>" id="mb_8" class="frm_input" size="30" maxlength="255"></td>
+    </tr>
+    <tr>
+        <th scope="row"><label for="mb_9">여분 필드 9</label></th>
+        <td colspan="3"><input type="text" name="mb_9" value="<?php echo $mb['mb_9']; ?>" id="mb_9" class="frm_input" size="30" maxlength="255"></td>
+    </tr>
+    <tr>
+        <th scope="row"><label for="mb_10">여분 필드 10</label></th>
+        <td colspan="3"><input type="text" name="mb_10" value="<?php echo $mb['mb_10']; ?>" id="mb_10" class="frm_input" size="30" maxlength="255"></td>
+    </tr>
+
 
     </tbody>
     </table>

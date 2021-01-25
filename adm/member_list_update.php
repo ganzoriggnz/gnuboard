@@ -37,6 +37,7 @@ if ($_POST['act_button'] == "선택수정") {
 
             $sql = " update {$g5['member_table']}
                         set mb_level = '".sql_real_escape_string($_POST['mb_level'][$k])."',
+                            mb_6 = '".sql_real_escape_string($_POST['mb_6'][$k])."',
                             mb_intercept_date = '".sql_real_escape_string($_POST['mb_intercept_date'][$k])."',
                             mb_mailling = '".sql_real_escape_string($_POST['mb_mailling'][$k])."',
                             mb_sms = '".sql_real_escape_string($_POST['mb_sms'][$k])."',
