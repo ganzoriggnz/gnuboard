@@ -7,7 +7,7 @@ na_script('sly');
 $cn = $ca_select = 0;
 $ca_count = (isset($categories) && is_array($categories)) ? count($categories) : 0;
 $ca_start = ($sca) ? '' : ' class="active"';
-$category_option = '<li'.$ca_start.'><a class="py-2 px-3" href="'.get_pretty_url($bo_table).'">전체</a></li>';
+$category_option = '<li'.$ca_start.'><a class="py-2 px-3" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'">전체</a></li>';
 for ($i=0; $i<$ca_count; $i++) {
 	$category = trim($categories[$i]);
 	if ($category=='')
@@ -20,7 +20,7 @@ for ($i=0; $i<$ca_count; $i++) {
 		$ca_msg = '<span class="sr-only">현재 분류</span>';
 		$ca_select = $cn; // 현재 위치 표시
 	}
-	$category_option .= '<li'.$ca_active.'><a class="py-2 px-3" href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'">'.$ca_msg.$category.'</a></li>';
+	$category_option .= '<li'.$ca_active.'><a class="py-2 px-3" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'&sca='.$category.'">'.$ca_msg.$category.'</a></li>';
 }
 
 ?>
