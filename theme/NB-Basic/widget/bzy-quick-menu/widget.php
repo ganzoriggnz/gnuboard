@@ -34,7 +34,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
                 <img src="<?php echo G5_URL?>/img/baseline-card_giftcard-24px.png" style="margin-right: 5px; border-color: #707070;" >
-                <a href="#" style="color: #BFAF88;">아이템 샵</a>
+                <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=shop" style="color: #BFAF88;">아이템 샵</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
