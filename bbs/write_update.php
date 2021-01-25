@@ -298,6 +298,7 @@ if ($w == '' || $w == 'r') {
                 mb_3 = '{$date}',
                 mb_4 = '{$newdate}'
                WHERE  mb_id = '{$member['mb_id']}'";
+    sql_query($sql1);
     $wr_id = sql_insert_id();
 
     // 부모 아이디에 UPDATE

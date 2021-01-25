@@ -17,6 +17,15 @@ if($is_admin=='super') {
    
     $sql = " update ".$_POST['bo_table']." set wr_name = '". $row_name ."', wr_email = '". $row['mb_email'] ."', wr_homepage = '". $row['mb_homepage'] ."', mb_id = '". $_POST['mb_id'] ."' where wr_id = '". $_POST['wr_id'] ."' ";
     sql_query($sql);
+
+    $date = G5_TIME_YMDHIS;
+    $newdate = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($date)));
+    $sql1 = " UPDATE {$g5['member_table']}
+                SET 
+                mb_3 = '{$date}',
+                mb_4 = '{$newdate}'
+               WHERE  mb_id = '". $_POST['mb_id'] ."'";
+    sql_query($sql1);
 }
 ?>
 <script>

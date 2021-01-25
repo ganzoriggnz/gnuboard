@@ -88,14 +88,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
         <img src="<?php echo G5_URL?>/img/side_top_img.png"></a>
 </div>
-
+<?php 
+$sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
+$res_date = sql_fetch($sql_date);
+$now = G5_TIME_YMD;
+if($res_date['mb_4'])
+$end_time = strtotime($res_date['mb_4']);
+$now_time = strtotime($now);
+$diff = $end_time - $now_time;
+$diff_days = floor($diff / 86400);
+?>
 
     <!-- //////////////////////////////////////////////////// -->
     <ul class="sub-ul mb-3">
-        <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[0]['text']?>
-        </li>
-        <?php for ($i=0; $i < count($menu[0]['s']); $i++) {
+    <?php if($member['mb_level'] == '26' || $member['mb_level'] == '27') { echo  
+            '<li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">
+            <div class="side_cate">제휴마감<div style="color: #0000FF; margin-left: 30px; width:100px; display: inline;">D - '.$diff_days.'일</div><a href="'.G5_URL.'/bbs/board.php?bo_table=partnership" class="btn btn-primary" style="display: inline; margin-left: 30px;">연장신청</a></div></li>'; 
+          } else { echo '<li  class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px;">업소리스트</li>';
+          }
+        for ($i=0; $i < count($menu[0]['s']); $i++) {
             $me = $menu[0]['s'][$i];
             ?>
             <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">

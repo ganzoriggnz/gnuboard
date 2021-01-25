@@ -27,10 +27,14 @@ include_once('./admin.head.php');
   float: right;
   padding: 0px 2px 4px 4px;
 }
+
+.active {
+    color: blue;
+}
 </style>
+
 <script type="text/javascript">
 
-debugger;
 document.addEventListener('DOMContentLoaded', function() {
     var initialLocaleCode = 'ko';
     var calendarEl = document.getElementById('calendar');
@@ -73,31 +77,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 type: 'POST',
                 data: {mb_id: mb_id},
                 success: function(response){ 
-               /*  $(`.${mb_id}popUp`).html(response); */
-                $('#links').html(response);
-                console.log(response);
-                }
-                
+                /* $(`.${mb_id}popUp`).html(response);
+                $('#links').html(response); */
+                $('#entitylinkModal .modal-body').html(response);
+					$('#entitylinkModal').modal(); 
+                }               
             }); 		
         },
         loading: function(bool) {
             $('#loading').toggle(bool);
-		}
-		
+		}		
     });
     calendar.render();
 });
 
 </script>
 
+<style>
+</style>
+
 <?php 
 
 if($w == 'u'){
 	$mb_id = $_POST['mb_id'];
 	$mb_name = $_POST['mb_name'];
-    $start_date = $_POST['start_date'];
-    $mb_date = $_POST['end_date'];
-    $mb_note = $_POST['mb_note'];
+    $mb_start_date = $_POST['fr_date'];
+    $mb_end_date = $_POST['mb_4'];
+    $mb_note = $_POST['mb_5'];
 
 	$sql = "UPDATE {$g5['member_table']} 
 				SET mb_4 = '{$mb_end_date}',
@@ -108,40 +114,51 @@ if($w == 'u'){
 	goto_url($PHP_SELF, false);
 }
 
-
-
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 ?>
 	<div id="calendar">
-       <div id="links"></div>
     
     <script>
-        $(function(){
-        $("#to_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+0d" });
-    });
-    </script>
-		<div class="modal fade" id="entityExtend" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content" style="width: 400px; height: 600px; font-weight: bold;">
-                    <form id="fentityextend" name="fentityextend" action="" onsubmit="return fentityextend_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-                        <input type="hidden" name="w" value="u">
-					<!-- 	<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button> 
-						</div>  -->	
-                        <div class="modal-body" style="padding: 40px 0px; font-size: 14px;">
 
-						</div>
-						<div class="modal-footer">
-							<div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-								<button type="submit" accesskey="s" class="btn" style="background: #00FF00; width: 150px; font-size: 14px;">확인</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>	
+        $('body').on('click', '.entity-modal', function() {
+     /*        var co_no = $(this).data('co-no');	
+            $('.modal-body #co_no').val(co_no);  */
+            $('#entityextendModal').modal('show');
+        }); 
+
+        $('.nav li a').click(function(e){
+            debugger;
+            $('.nav li a.active').removeClass('active');
+            /* var $parent = $(this).parent(); */
+            $(this).addClass('active');
+        });
+
+        $(document).ready(function(){
+            $("#datepicker").datepicker({
+            dateFormat: 'yy-mm-dd',
+            onSelect: function(date, obj){
+                $('#to_date').val(date);  
+            }
+            });        
+        });
+
+    </script>
+        <div class="modal fade" id="entitylinkModal" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="width: 200px; height: 200px;">
+                        <input type="hidden" name="w" value="u">
+                        <div class="modal-header" style="border-bottom: none;">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button> 
+                        </div>  	
+                        <div class="modal-body">
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </div>
+		
     </div>
     
 	
