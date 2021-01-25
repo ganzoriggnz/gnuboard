@@ -121,7 +121,7 @@ else if($end_time < $now_time){
                 </div>
             </li>            
         <?php
-          } else { echo '<li  class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 10px; padding-bottom: 2px; text-center;">업소리스트</li>';
+          } else { echo '<li  class="me-li pt-3 pb-3 text-center" style="font-weight: bold;">업소리스트</li>';
           }
         for ($i=0; $i < count($menu[0]['s']); $i++) {
             $me = $menu[0]['s'][$i];

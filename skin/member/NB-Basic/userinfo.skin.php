@@ -163,6 +163,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 
          <!-- user  지역-업종   mb_nick  -->
+<?php if( $member['mb_level'] == 27)
+        { ?>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="reg_mb_nick">
     지역-업종       
@@ -182,6 +184,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <?php echo $start_date." ~ ".$end_date.' - [';?><span style="color: blue;"><?php echo $diff_days.'일 남음';?></span>]
         </div>
 </div>
+<?php } ?>
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="reg_mb_nick">

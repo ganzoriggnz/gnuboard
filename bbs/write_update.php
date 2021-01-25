@@ -290,6 +290,7 @@ if ($w == '' || $w == 'r') {
                      wr_9 = '$wr_9',
                      wr_10 = '$wr_10' ";
     sql_query($sql);
+    $wr_id = sql_insert_id();
 
     $date = G5_TIME_YMDHIS;
     $newdate = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($date)));
@@ -299,7 +300,6 @@ if ($w == '' || $w == 'r') {
                 mb_4 = '{$newdate}'
                WHERE  mb_id = '{$member['mb_id']}'";
     sql_query($sql1);
-    $wr_id = sql_insert_id();
 
     // 부모 아이디에 UPDATE
     sql_query(" update $write_table set wr_parent = '$wr_id' where wr_id = '$wr_id' ");
