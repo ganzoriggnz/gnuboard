@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* PIREE 피리 */
+
+
+.attend_board_out  {position:relative;padding:0;border-top:1px solid #f5f5f5;overflow:hidden;}
+.attend_board_out .attend_board_left   {float:left;width:355px;padding:8px 0 8px 0;}
+.attend_board_out .attend_board_center {float:left;width:18px;}
+.attend_board_out .attend_board_right  {float:left;width:355px;padding:8px 0 8px 0;}
+.attend_board_out .attend_board_hr     {float:left;width:728px;height:1px;border-bottom:1px solid #f5f5f5;}
+
+
+.attend_check_do_out  {position:relative;padding:0;overflow:hidden;}
+.attend_check_do_out .attend_check_do_body {float:left;width:720px;padding:8px 0 8px 0;}
+.attend_check_do_out .attend_check_do_hr   {float:left;width:728px;height:1px;border-bottom:1px solid #f5f5f5;}

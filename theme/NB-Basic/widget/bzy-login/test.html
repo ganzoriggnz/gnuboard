@@ -1,0 +1,53 @@
+<div class="f-de font-weight-normal">
+    <form id="basic_outlogin" name="basic_outlogin" method="post" action="G5_BBS_URL/login_check.php" autocomplete="off" style="display: flex; flex-direction: column;">
+    <input type="hidden" name="url" value="%2F">
+        <div style="display: flex; align-items: stretch; height: 100%;">
+            <div style="flex: 2;">
+                <div class="form-group">
+                    <label for="outlogin_mb_id" class="sr-only">아이디<strong class="sr-only"> 필수</strong></label>						
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user text-muted"></i></span>
+                        </div>
+                        <input type="text" name="mb_id" id="outlogin_mb_id" class="form-control required" placeholder="아이디">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="outlogin_mb_password" class="sr-only">비밀번호<strong class="sr-only"> 필수</strong></label>									
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-lock text-muted"></i></span>
+                        </div>
+                        <input type="password" name="mb_password" id="outlogin_mb_password" class="form-control required" placeholder="비밀번호">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="flex: 1; margin-left: 10px;">
+                <button type="submit" class="btn btn-primary btn-block p-3 en" style="height: 100%;">
+                    <h5>로그인</h5>
+                </button>    
+            </div>
+        </div>
+        	
+
+        <div class="clearfix">
+            <div class="float-left">
+                <div class="form-group mb-0">
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" name="auto_login" class="custom-control-input remember-me" id="outlogin_remember_me">
+                      <label class="custom-control-label float-left" for="outlogin_remember_me">자동로그인</label>
+                    </div>
+                </div>
+            </div>
+            <div class="float-right">
+                <a href="G5_BBS_URL/register.php">
+                    회원가입
+                </a>
+                <span class="na-bar"></span>
+                <a href="G5_BBS_URL/password_lost.php" class="win_password_lost">
+                    정보찾기
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
