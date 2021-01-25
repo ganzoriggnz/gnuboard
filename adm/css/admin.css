@@ -1078,19 +1078,19 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
    pointer-events: none;
  }
  
- .modal.fade .modal-dialog {
+  .modal.fade .modal-dialog {
    transition: -webkit-transform 0.3s ease-out;
    transition: transform 0.3s ease-out;
    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
    -webkit-transform: translate(0, -50px);
    transform: translate(0, -50px);
- }
+ } 
  
  @media (prefers-reduced-motion: reduce) {
    .modal.fade .modal-dialog {
      transition: none;
    }
- }
+ }  
  
  .modal.show .modal-dialog {
    -webkit-transform: none;
