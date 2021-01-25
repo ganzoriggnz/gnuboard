@@ -64,7 +64,7 @@ if($is_member && !$is_admin && $member['mb_level'] < 22){ //회원이고 , 23레
     if ($member['mb_level'] == 2){
         $et_date = date('Y-m-d', strtotime($st_date. ' + 3 days'));   // 가입한 후 3 일 뒤
         $wrpost = 1;
-        $wrcomment = 1;
+        $wrcomment = 2;
         $reviewpost = 0;}
     else if ($member['mb_level'] == 3){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  7 days')); 

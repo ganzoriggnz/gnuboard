@@ -28,9 +28,25 @@ include_once('./admin.head.php');
   padding: 0px 2px 4px 4px;
 }
 
-.active {
-    color: blue;
+.nav > .active {
+    color : aqua!important;  **// THIS DOES NOT WORK**
+    background-color: chartreuse; **//THIS WORKS**
 }
+.nav > .active a{
+  color : aqua
+}
+.nav-item > a:hover {
+    color : aqua!important;
+}
+
+.nav li{
+  list-style:none;
+}
+
+.modal.fade .modal-dialog {
+   -webkit-transform: none;
+   transform: none;
+ }
 </style>
 
 <script type="text/javascript">
@@ -93,11 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-<style>
-</style>
-
 <?php 
-
 if($w == 'u'){
 	$mb_id = $_POST['mb_id'];
 	$mb_name = $_POST['mb_name'];
@@ -121,16 +133,14 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
     <script>
 
         $('body').on('click', '.entity-modal', function() {
-     /*        var co_no = $(this).data('co-no');	
-            $('.modal-body #co_no').val(co_no);  */
             $('#entityextendModal').modal('show');
         }); 
 
         $('.nav li a').click(function(e){
             debugger;
             $('.nav li a.active').removeClass('active');
-            /* var $parent = $(this).parent(); */
-            $(this).addClass('active');
+            var $parent = $(this).parent(); 
+            $parent.addClass('active');
         });
 
         $(document).ready(function(){
@@ -143,11 +153,11 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
         });
 
     </script>
-        <div class="modal fade" id="entitylinkModal" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 0%;">
+        <div class="modal fade" id="entitylinkModal" tabindex="-1" role="dialog" style="position: fixed; top: 10%; left: 0%;" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content" style="width: 200px; height: 200px;">
                         <input type="hidden" name="w" value="u">
-                        <div class="modal-header" style="border-bottom: none;">
+                        <div class="modal-header" style="border-bottom: none; height: 10px;">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button> 

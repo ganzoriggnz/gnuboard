@@ -23,6 +23,13 @@ include_once('./admin.head.php');
 <script src="<?php echo G5_ADMIN_URL;?>/wz.js/bootstrapmodal.min.js"></script>
 <link href="<?php echo G5_ADMIN_URL;?>/css/wzappend.css" rel="stylesheet" />
 
+<style>
+.modal.fade .modal-dialog {
+   -webkit-transform: none;
+   transform: none;
+}
+</style>
+
 <script type="text/javascript">
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -58,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					type: 'POST',
 					data: {cos_no: cos_no},
 					success: function(response){ 
-					$('#couponDelete .modal-body #fcoupondelete').html(response);
+					$('#couponDelete .modal-body').html(response);
 					$('#couponDelete').modal(); 
 					}
 				});

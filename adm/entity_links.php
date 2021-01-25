@@ -73,9 +73,9 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
     });
 </script>
 
-<div class="modal fade" id="entityextendModal" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 50%;">
+<div class="modal fade" id="entityextendModal" tabindex="-1" role="dialog" style="position: fixed; top: 10%; left: 13%;" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content" style="width: 350px; height: 600px;">
+    <div class="modal-content" style="width: 350px; height: 540px;">
       <form id="fentityextend" name="fentityextend" action="" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
           <input type="hidden" name="w" value="u">
           <input type="hidden" name="mb_id" value="<?php echo $row['mb_id']; ?>">
@@ -84,7 +84,7 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
             <span aria-hidden="true">&times;</span>
             </button> 
         </div> 
-        <div class="modal-body" style="padding: 40px 0px;">
+        <div class="modal-body" style="padding: 10px 0px;">
           <div>
             <span style="width:100px; margin-left: 30px;">업소명</span>
             <span style="margin-left: 30px;"><?php echo '['.$row['mb_name'].'] '.$row['mb_2']; ?></span>
@@ -100,10 +100,10 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
           </div>
           <p style="text-align: center; margin-top: 20px;">* 제휴종료일 변경</p> 
           <div id="datepicker" style="margin-top: 10px; margin-left: 60px;"></div>              
-          <textarea type="text" rows="4" cols="50" name="mb_5" style="background: #FFFF00; margin-top: 10px;"><?php echo $mb_note; ?></textarea>             
+          <textarea type="text" rows="4" name="mb_5" style="background: #fcf8e3;; margin-top: 10px; margin-left:30px; width: 290px;"><?php echo $mb_note; ?></textarea>             
         </div>
-        <div class="modal-footer" style="border-top: none;">
-          <div style="margin: 0 auto 20px auto;">
+        <div class="modal-footer" style="border-top: none; padding-top: none;">
+          <div style="margin: 0px auto 0px auto;">
             <button type="submit" accesskey="s" class="btn btn_01" style="width: 150px;">확인</button>
           </div>
         </div>
