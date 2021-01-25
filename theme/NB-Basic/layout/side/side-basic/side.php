@@ -92,11 +92,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 $sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
 $res_date = sql_fetch($sql_date);
 $now = G5_TIME_YMD;
-if($res_date['mb_4'])
+if($res_date['mb_4'] > '0000:00:00 00:00:00')
 $end_time = strtotime($res_date['mb_4']);
 $now_time = strtotime($now);
-$diff = $end_time - $now_time;
-$diff_days = floor($diff / 86400);
+if($end_time >= $now_time){
+    $diff = $end_time - $now_time;
+    $diff_days = floor($diff / 86400);
+}
+else if($end_time < $now_time){
+    $diff_days = '0';
+}
+
 ?>
 
     <!-- //////////////////////////////////////////////////// -->
