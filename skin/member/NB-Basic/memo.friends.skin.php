@@ -60,12 +60,12 @@ $g5['title'] = '현재접속자';
 		<ul class="na-table d-table w-100">
 				<?php
 				for ($i=0; $i < count($list)-1; $i++) {
-                    //$location = conv_content($list[$i]['lo_location'], 0);
+                    $location = conv_content($list[$i]['lo_location'], 0);
                     
                     $name = get_sideview($list[$i]['mb_id'], $list[$i]['mb_nick'], $list[$i]['mb_homepage']);
                     $list['name'] = $name;
 
-					$location = $list[$i]['lo_location'];
+					// $location = $list[$i]['lo_location'];
 					// 최고관리자에게만 허용
 					// 이 조건문은 가능한 변경하지 마십시오.
 					if ($list[$i]['lo_url'] && $is_admin == 'super') 
