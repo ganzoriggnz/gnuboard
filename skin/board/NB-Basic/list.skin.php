@@ -2,26 +2,43 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // hulan nemsen 목록 페이지에서 글쓰기 버튼을  숨기고 싶으면
 // 지정된 회원만 글쓰기 권한부여. 게시판 설정 여분필드 1번 값 사용
-if($gr_id == 'attendance'){
-if ($board['bo_1']) {
-    $arr_mbids = explode(',', trim($board['bo_1']));
-    if(!$is_admin && !in_array($member['mb_id'], $arr_mbids)) {
+
+
+
+if( $member['mb_6'] != $bo_table){
+	$write_href = '';
+} else{
+	$wr_cnt = sql_fetch(" select count(wr_id) as cnt from {$write_table} where wr_is_comment=0 and mb_id = '{$member['mb_id']}' ");
+	if ($wr_cnt['cnt']) {
 		$write_href = '';
-		}
-	else if (!$is_admin && in_array($member['mb_id'], $arr_mbids)) // admin bish ene sambart bichih erhtei hun bol end bichver bichsen esehiig shalgah
-		$wr_cnt = sql_fetch(" select count(wr_id) as cnt from {$write_table} where wr_is_comment=0 and mb_id = '{$member['mb_id']}' ");
-		if ($wr_cnt['cnt']) {
-			$write_href = '';
 	   }
-} else if(!$board['bo_1']){
-	$write_href = '';
 }
-}
-else if ($gr_id == 'review' && ($member['mb_level'] == 26 || $member['mb_level'] == 27))
-{
-	$write_href = '';
-}
+
+
+
+// if($gr_id == 'attendance'){	
+// if ($board['bo_1']) {
+//     $arr_mbids = explode(',', trim($board['bo_1']));
+//     if(!$is_admin && !in_array($member['mb_id'], $arr_mbids)) {
+// 		$write_href = '';
+// 		}
+// 	else if (!$is_admin && in_array($member['mb_id'], $arr_mbids)) // admin bish ene sambart bichih erhtei hun bol end bichver bichsen esehiig shalgah
+// 		$wr_cnt = sql_fetch(" select count(wr_id) as cnt from {$write_table} where wr_is_comment=0 and mb_id = '{$member['mb_id']}' ");
+// 		if ($wr_cnt['cnt']) {
+
+
+
+// 	   }
+// } else if(!$board['bo_1']){
+// 	$write_href = '';
+// }
+// }
+// else if ($gr_id == 'review' && ($member['mb_level'] == 26 || $member['mb_level'] == 27))
+// {
+// 	$write_href = '';
+// }
 /////////////////////////////////////////////////////////////////////////////////
+
 
 
 
