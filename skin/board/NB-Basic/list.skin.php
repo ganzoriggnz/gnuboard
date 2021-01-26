@@ -4,7 +4,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // 지정된 회원만 글쓰기 권한부여. 게시판 설정 여분필드 1번 값 사용
 
 
-
+if($gr_id == 'attendance'){
 if( $member['mb_6'] != $bo_table){
 	$write_href = '';
 } else{
@@ -13,7 +13,7 @@ if( $member['mb_6'] != $bo_table){
 		$write_href = '';
 	   }
 }
-
+}
 
 
 // if($gr_id == 'attendance'){	
