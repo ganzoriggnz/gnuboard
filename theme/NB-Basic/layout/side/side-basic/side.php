@@ -129,8 +129,8 @@ else if($end_time < $now_time){
             <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
                 <?php if(isset($me['s'])) { //Is Sub Menu ?>
                 <?php } ?>
-                <div>
-                    <?php echo $me['text'];?>                                      
+                <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
+                    <?php echo $me['text'];?>
 
                     <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
                        href="<?php echo $menu[1]['s'][$i]['href']; ?>"
