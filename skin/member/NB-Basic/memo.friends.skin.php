@@ -59,7 +59,7 @@ $g5['title'] = '현재접속자';
 <form name="form1" method="post">
 		<ul class="na-table d-table w-100">
 				<?php
-				for ($i=0; $i < count($list)-1; $i++) {
+				for ($i=0; $i < count($list); $i++) {
                     //$location = conv_content($list[$i]['lo_location'], 0);
                     
                     $name = get_sideview($list[$i]['mb_id'], $list[$i]['mb_nick'], $list[$i]['mb_homepage']);
