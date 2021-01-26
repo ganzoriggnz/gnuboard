@@ -3,6 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">', 0);
+<<<<<<< HEAD
 
 $bo_table = "free";
 $tmp_table = $g5['write_prefix'].$bo_table;
@@ -12,6 +13,9 @@ $row = sql_fetch($qu);
 $cnt = $row['cnt'];
 ?>
 
+=======
+?>
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 <div id="bo_v">   
     <table cellspacing="0" cellpadding="0" width="100%" align="center" style="border:1px solid #d3d3d3; padding:10px; margin-top: 20px;" id="level-up">
 		<thead>
@@ -36,7 +40,11 @@ $cnt = $row['cnt'];
 				</td>
 				<td class="cl_td">
 					<div class="miss_but_1">
+<<<<<<< HEAD
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
+=======
+                        <a href="#" target="_blank">				
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>																
 				</td>
@@ -45,12 +53,18 @@ $cnt = $row['cnt'];
 			<tr>
 				<td class="cl_td">2</td>
 				<td class="cl_td">자유게시판</td>	
+<<<<<<< HEAD
 				<td class="cl_td_l">자유게시판에 글 1회 작성하기(<?php if($cnt > 0) { echo "1"; } elseif($cnt == 0) { echo $cnt; }; ?>/1)</td>
+=======
+				<td class="cl_td_l">자유게시판에 글 1회 작성하기(0/1)				
+				</td>
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 				<td class="cl_td_r">
 				10 
 				점				
 				</td>
 				<td class="cl_td">
+<<<<<<< HEAD
 					<div class="<?php if($cnt > 0) echo "miss_but_3"; else echo "miss_but_1"; ?>">
 					<?php
 						if($cnt > 0) {
@@ -61,6 +75,11 @@ $cnt = $row['cnt'];
 							<i class="fa fa-gift"></i><br>수행<br>진행</a>';
 						}
 					?>
+=======
+					<div class="miss_but_1">
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
+                        <i class="fa fa-gift"></i><br>수행<br>진행</a>
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
                     </div>																
 				</td>
 			</tr>
@@ -68,7 +87,11 @@ $cnt = $row['cnt'];
 			<tr>
 				<td class="cl_td">3</td>
 				<td class="cl_td">펫 기르기 게시판</td>	
+<<<<<<< HEAD
 				<td class="cl_td_l">펫 먹이주기, 청소하기,쓰담쓰담해주기(0/5)				
+=======
+				<td class="cl_td_l">펫 먹이주기, 청소하기,쓰담쓰담해주기(0/3)				
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 				</td>
 				<td class="cl_td_r">
 				50 
@@ -76,7 +99,11 @@ $cnt = $row['cnt'];
                 </td>
 				<td class="cl_td">
 					<div class="miss_but_1">
+<<<<<<< HEAD
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
+=======
+                        <a href="#" target="_blank">				
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>															
 				</td>

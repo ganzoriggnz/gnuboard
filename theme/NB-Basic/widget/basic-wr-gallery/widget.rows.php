@@ -88,7 +88,11 @@ for ($i=0; $i < $list_cnt; $i++) {
         <div>
             <div class="img-wrap bg-light mb-2">
 				<?php if($list[$i]['mb_2'] == "안마" ){?>
+<<<<<<< HEAD
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/anma5.png')" style="height: 148px;">
+=======
+                <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/anma.png')" style="height: 148px;">
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
@@ -110,7 +114,11 @@ for ($i=0; $i < $list_cnt; $i++) {
 				</div>
 				<?php }?>
 				<?php if($list[$i]['mb_2'] == "휴게텔" ){?>
+<<<<<<< HEAD
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/yupcatel.png')" style="height: 148px;">
+=======
+                <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/hyugetel.png')" style="height: 148px;">
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
@@ -121,7 +129,11 @@ for ($i=0; $i < $list_cnt; $i++) {
 				</div>
 				<?php }?>
 				<?php if($list[$i]['mb_2'] == "건마" ){?>
+<<<<<<< HEAD
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/gonma5.png')" style="height: 148px;">
+=======
+                <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/gonma.png')" style="height: 148px;">
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
@@ -132,7 +144,11 @@ for ($i=0; $i < $list_cnt; $i++) {
 				</div>
 				<?php }?>
 				<?php if($list[$i]['mb_2'] == "립카페" ){?>
+<<<<<<< HEAD
                 <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/cafe5.png')" style="height: 148px;">
+=======
+                <div class="img-item" style="background-image:url('<?php echo G5_IMG_URL?>/gibcafe.png')" style="height: 148px;">
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>

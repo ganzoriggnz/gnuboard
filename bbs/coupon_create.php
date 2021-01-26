@@ -1,6 +1,7 @@
 <?php
 include_once('./_common.php');
 
+<<<<<<< HEAD
 // 상수 선언
 $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['coupon_table'] = $g5['table_prefix'] . "coupon";    // 쿠폰 테이블
@@ -10,6 +11,10 @@ $g5['coupon_msg_table'] = $g5['table_prefix'] . "coupon_msg";    // 쿠폰 messa
 
 if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_table]",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table = "CREATE TABLE $g5[coupon_table] (   
+=======
+if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+    $sql_table = "CREATE TABLE {$g5['coupon_table']} (   
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         co_no int(11) NOT NULL AUTO_INCREMENT,         
         mb_id varchar(20) NOT NULL DEFAULT '',
         co_entity varchar(20) NOT NULL DEFAULT '',
@@ -28,8 +33,13 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_table]",false)) { // 쿠�
    sql_query($sql_table, false);
 } 
 
+<<<<<<< HEAD
 if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_sent_table]",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table1 = "CREATE TABLE $g5[coupon_sent_table] (
+=======
+if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_sent_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+    $sql_table1 = "CREATE TABLE {$g5['coupon_sent_table']} (
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         cos_no int(11) NOT NULL AUTO_INCREMENT,
         co_no int(11) NOT NULL,   
         cos_code varchar(4) NOT NULL, 
@@ -52,8 +62,13 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_sent_table]",false)) { //
    sql_query($sql_table1, false);
 }  
 
+<<<<<<< HEAD
 if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table2 = "CREATE TABLE $g5[coupon_alert_table] (
+=======
+if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_alert_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+    $sql_table2 = "CREATE TABLE {$g5['coupon_alert_table']} (
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         alt_no int(11) NOT NULL AUTO_INCREMENT, 
         cos_no int(11) NOT NULL DEFAULT '0',
         cos_nick varchar(20) NOT NULL DEFAULT '',
@@ -69,8 +84,13 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_alert_table]",false)) { /
    sql_query($sql_table2, false);
 } 
 
+<<<<<<< HEAD
 if (!sql_query("SELECT COUNT(*) as cnt FROM $g5[coupon_msg_table]",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table3 = "CREATE TABLE $g5[coupon_msg_table] (
+=======
+if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_msg_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+    $sql_table3 = "CREATE TABLE {$g5['coupon_msg_table']} (
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         msg_no int(11) NOT NULL AUTO_INCREMENT, 
         msg_customer_text text(255) NOT NULL DEFAULT '',  
         msg_entity_text text(255) NOT NULL DEFAULT '',           
@@ -145,10 +165,17 @@ $co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
 else if($nextmonth == '12')
 $co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 
+<<<<<<< HEAD
 $sql = " SELECT * FROM $g5[coupon_table] WHERE mb_id = '{$mb_id}' AND co_begin_datetime ='{$co_begin_datetime}' AND co_end_datetime ='{$co_end_datetime}'";
 $row = sql_fetch($sql); 
 
 $sql1 = "SELECT * FROM $g5[coupon_table] WHERE mb_id = '{$member['mb_id']}' AND co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
+=======
+$sql = " SELECT * FROM {$g5['coupon_table']} WHERE mb_id = '{$mb_id}' AND co_begin_datetime ='{$co_begin_datetime}' AND co_end_datetime ='{$co_end_datetime}'";
+$row = sql_fetch($sql); 
+
+$sql1 = "SELECT * FROM {$g5['coupon_table']} WHERE mb_id = '{$member['mb_id']}' AND co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 $row1 = sql_fetch($sql1);
 
 $diff_s = number_format($row1['co_sale_num'] - $row1['co_sent_snum']);

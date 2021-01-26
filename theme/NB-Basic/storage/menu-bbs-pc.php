@@ -174,7 +174,11 @@ $data=array (
       12 =>
       array (
         'text' => '건마-인천/부천',
+<<<<<<< HEAD
         'href' => G5_BBS_URL.'/board.php?bo_table=gonmainchonBuchon_at',
+=======
+        'href' => G5_BBS_URL.'/board.php?bo_table=gonmainchonbuchon_at',
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         /* 'icon' => 'fa-wpforms', */
         'icon'  => 'baseline-event-24px',
         'target' => '_self',
@@ -858,7 +862,11 @@ $data=array (
       9 =>
       array (
         'text' => '아이템샵',
+<<<<<<< HEAD
         'href' => '#',
+=======
+        'href' => G5_BBS_URL.'/board.php?bo_table=shop',
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_self',
@@ -926,7 +934,11 @@ $data=array (
       1 =>
       array (
         'text' => '파운드페니로전환',
+<<<<<<< HEAD
         'href' => '#',
+=======
+        'href' => G5_BBS_URL.'/point.php',
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         /* 'icon' => 'fa-cogs', */
         'icon'  => 'baseline-headset_mic-24px',
         'target' => '_self',
@@ -938,6 +950,22 @@ $data=array (
       ),
       2 =>
       array (
+<<<<<<< HEAD
+=======
+        'text' => '파편조각페니로전환',
+        'href' => G5_BBS_URL.'/point2.php',
+        /* 'icon' => 'fa-cogs', */
+        'icon'  => 'baseline-headset_mic-24px',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'link',
+      ),
+      3 =>
+      array (
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         'text' => '페니구매',
         'href' => '#',
         /* 'icon' => 'fa-cogs', */
@@ -949,7 +977,12 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
+<<<<<<< HEAD
       3 =>
+=======
+      
+      4 =>
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
       array (
         'text' => '환전',
         'href' => '#',
@@ -962,7 +995,11 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
+<<<<<<< HEAD
       4 =>
+=======
+      5 =>
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
       array (
         'text' => '장터게시판',
         'href' => G5_BBS_URL.'/board.php?bo_table=market',
@@ -975,7 +1012,11 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
+<<<<<<< HEAD
       5 =>
+=======
+      6 =>
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
       array (
         'text' => '구인구직 게시판',
         'href' =>  G5_BBS_URL.'/board.php?bo_table=job',
@@ -988,7 +1029,11 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
+<<<<<<< HEAD
       6 =>
+=======
+      7 =>
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
       array (
         'text' => '실장업무게시판',
         'href' => G5_BBS_URL.'/board.php?bo_table=work_board',
@@ -997,8 +1042,13 @@ $data=array (
         'target' => '_self',
         'line' => '',
         'sp' => '',
+<<<<<<< HEAD
         'limit' => '',
         'grade' => 0,
+=======
+        'limit' => 1,
+        'grade' => 27,
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         'id' => 'link',
       ),
     ),
@@ -1046,7 +1096,11 @@ $data=array (
       2 =>
       array (
         'text' => '페니 랭킹',
+<<<<<<< HEAD
         'href' => G5_BBS_URL.'/board.php?bo_table=pointrank',
+=======
+        'href' => G5_BBS_URL.'/board.php?bo_table=penyrank',
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         /* 'icon' => 'fa-trophy', */
         'icon'  => 'emoji_events-24px',
         'target' => '_self',

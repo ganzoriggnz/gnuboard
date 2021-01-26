@@ -82,6 +82,10 @@ $colspan = 16;
     <option value="mb_nick"<?php echo get_selected($_GET['sfl'], "mb_nick"); ?>>닉네임</option>
     <option value="mb_name"<?php echo get_selected($_GET['sfl'], "mb_name"); ?>>이름</option>
     <option value="mb_level"<?php echo get_selected($_GET['sfl'], "mb_level"); ?>>권한</option>
+<<<<<<< HEAD
+=======
+    <option value="mb_6"<?php echo get_selected($_GET['sfl'], "mb_6"); ?>>table</option>
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
     <option value="mb_email"<?php echo get_selected($_GET['sfl'], "mb_email"); ?>>E-MAIL</option>
     <option value="mb_tel"<?php echo get_selected($_GET['sfl'], "mb_tel"); ?>>전화번호</option>
     <option value="mb_hp"<?php echo get_selected($_GET['sfl'], "mb_hp"); ?>>휴대폰번호</option>
@@ -281,7 +285,11 @@ $colspan = 16;
             <?php } ?>
         </td>
         <td headers="mb_list_auth" class="td_mbstat">
+<<<<<<< HEAD
             <?php echo get_member_level_select("mb_level[$i]", 1, $member['mb_level'], $row['mb_level']) ?>
+=======
+            <?php echo get_board_atname2($row['mb_6'],$i); ?>
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         </td>
         <td headers="mb_list_tel" class="td_tel"><?php echo get_text($row['mb_tel']); ?></td>
         <td headers="mb_list_join" class="td_date"><?php echo substr($row['mb_datetime'],2,8); ?></td>

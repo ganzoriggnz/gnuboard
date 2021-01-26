@@ -155,7 +155,16 @@ if ($config['cf_use_addr'])
 if($w == "") {    // 신규가입이라면...
     include_once($member_skin_path.'/register_form.skin.php');
 } else {  // 회원이 정보수정을 하는 상태라면
+<<<<<<< HEAD
     include_once($member_skin_path.'/register_form.skin2.php');
+=======
+    if($member['mb_level'] > 25)
+    {
+        include_once($member_skin_path.'/register_form.skin3.php');
+    }else {
+        include_once($member_skin_path.'/register_form.skin2.php');
+    }
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 }
 
 run_event('register_form_after', $w, $agree, $agree2);
