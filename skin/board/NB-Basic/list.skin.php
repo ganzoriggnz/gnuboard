@@ -134,12 +134,14 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 							<i class="fa fa-search fa-md" aria-hidden="true"></i>
 							<span class="sr-only">게시판 검색</span>
 						</button>
-						<?php if($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id']) { ?> 
-							
-							<a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table'];?>" target="_blank" class="btn win_memo" style="background: #EFEFEF; color:#000; padding: 1px 6px;margin-top: 2px; border: 2px solid #151515;" role="button">
-							쿠폰지원내역
-							</a>
-						<?php } ?>
+						
+						<?php if($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $member['mb_id'] == 'admin') { ?> 
+
+                            <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table'];?>" target="_blank" class="btn win_memo" style="background: #EFEFEF; color:#000; padding: 0px 6px; margin-right: 3px; margin-bottom: 2px; border: 2px solid #858585;" role="button">
+                            쿠폰지원내역 
+                            </a>
+                        <?php } ?>
+		
 						<?php if ($write_href) { ?>
 							<!-- <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
 								<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
