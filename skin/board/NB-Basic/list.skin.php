@@ -135,7 +135,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 							<span class="sr-only">게시판 검색</span>
 						</button>
 						
-						<?php if($board['gr_id'] == "review" || $board['gr_id'] == "attendance" || $board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super') { ?> 
+						<?php if($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?> 
 
                             <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table'];?>" target="_blank" class="btn win_memo" style="background: #EFEFEF; color:#000; padding: 0px 6px; margin-right: 3px; margin-bottom: 2px; border: 2px solid #858585;" role="button">
                             쿠폰지원내역 
