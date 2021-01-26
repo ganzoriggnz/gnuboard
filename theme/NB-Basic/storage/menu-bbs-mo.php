@@ -723,8 +723,20 @@ $data=array (
     'id' => 'link',
     's' =>
     array (
-     
       0 =>
+      array (
+        'text' => '출석체크',
+        'href' => G5_PLUGIN_URL.'/attendance/attendance.php',
+        /* 'icon' => 'fa-users', */
+        'icon'  => 'chat-icon',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'link',
+      ),   
+      1 =>
       array (
         'text' => '공지사항',
         'href' => G5_BBS_URL.'/board.php?bo_table=notice',
@@ -737,7 +749,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      1 =>
+      2 =>
       array (
         'text' => '가입 인사',
         'href' => G5_BBS_URL.'/board.php?bo_table=greeting',
@@ -752,7 +764,7 @@ $data=array (
         'wr_id' => NULL,
         'sca' => NULL,
       ),
-      2 =>
+      3 =>
       array (
         'text' => '자유 게시판',
         'href' => G5_BBS_URL.'/board.php?bo_table=free',
@@ -765,7 +777,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      3 =>
+      4 =>
       array (
         'text' => ' 미수다(女)',
         'href' => G5_BBS_URL.'/board.php?bo_table=woman',
@@ -778,7 +790,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      4 =>
+      5 =>
       array (
         'text' => ' 이벤트',
         'href' => G5_BBS_URL.'/board.php?bo_table=event',
@@ -791,7 +803,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      5 =>
+      6 =>
       array (
         'text' => '쿠폰구매',
         'href' => '#',
@@ -804,22 +816,22 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      6 =>
-      array (
-        'text' => '정모 게시판',
-        'href' => '#',
-        /* 'icon' => 'fa-users', */
-        'icon'  => 'chat-icon',
-        'target' => '_self',
-        'line' => '',
-        'sp' => '',
-        'limit' => '',
-        'grade' => 0,
-        'id' => 'link',
-      ),
+      // 7 =>   삭제
+      // array (
+      //   'text' => '정모 게시판',
+      //   'href' => '#',
+      //   /* 'icon' => 'fa-users', */
+      //   'icon'  => 'chat-icon',
+      //   'target' => '_self',
+      //   'line' => '',
+      //   'sp' => '',
+      //   'limit' => '',
+      //   'grade' => 0,
+      //   'id' => 'link',
+      // ),
       7 =>
       array (
-        'text' => '외성 게시판',
+        'text' => '가문 게시판',
         'href' => '#',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
@@ -872,7 +884,7 @@ $data=array (
       11 =>
       array (
         'text' => '트위터 인증',
-        'href' => '#',
+        'href' => G5_BBS_URL.'/board.php?bo_table=twitter',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_self',
