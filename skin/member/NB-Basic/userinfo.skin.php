@@ -146,7 +146,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             } ?>	
                             </div>
                         </div>
-<<<<<<< HEAD
                 <?php } ?>
 
 
@@ -197,35 +196,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <?php echo $res['ca_name']." - ".$res['wr_5']; ?>
         </div>
         </div>
-=======
-                        <!-- user  가입일   mb_datetime  -->
-        
-                <?php } ?>
-            
-
- <!-- user  쿠폰   coupon_create  -->
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label" for="reg_mb_nick">
-    쿠폰       
-    </label>
-    <div class="col-sm-3 col-form-info">
-    <a href="<?php echo G5_BBS_URL ?>/coupon_create.php"><i class="fa fa-paperclip"></i> <span class="hidden-xs">쿠폰</span></a>
-    </div>
-</div>
-
-
-         <!-- user  지역-업종   mb_nick  -->
-<?php if( $member['mb_level'] == 27)
-        { ?>
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label" for="reg_mb_nick">
-    지역-업종       
-    </label>
-    <div class="col-sm-3 col-form-info">
-    <?php echo $str_arr[0]." - ".$type; ?>
-    </div>
-</div>
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
 
  <!-- user  제휴기간   date  -->
@@ -234,7 +204,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         제휴기간      
         </label>
         <div class="col-sm-3 col-form-info">
-<<<<<<< HEAD
         2020-11-12 ~ 2021-02-12
         </div>
         </div>
@@ -294,44 +263,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <!-- <dt>가입일</dt><dd><?php echo $row['mb_datetime'];?></dd>
                 <dt>최근 로그인</dt><dd><?php echo $row['mb_today_login'];?></dd>                
                 <dt>서명</dt><dd style="color:#ccc">…</dd> -->
-=======
-        <?php echo $start_date." ~ ".$end_date.' - [';?><span style="color: blue;"><?php echo $diff_days.'일 남음';?></span>]
-        </div>
-</div>
-<?php } ?>
-
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label" for="reg_mb_nick">
-    연락처      
-    </label>
-    <div class="col-sm-3 col-form-info">
-    <?php if($row['mb_hp']) {echo $row['mb_hp'].'<br>'; }?>(프로필과 배너에 출력되니 항상 최신번호로 유지해주세요)
-    </div>
-</div>
-
-        <!-- user  가입일   mb_datetime  -->
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label" for="reg_mb_nick">가입일</label>
-    <div class="col-sm-3 col-form-info">
-    <?php echo $entity_date;?>
-    </div>
-</div>
-
-        <!-- user  최근 로그인   mb_today_login  -->
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label" for="reg_mb_nick">최근 로그인</label>
-    <div class="col-sm-3 col-form-info">
-    <?php echo $today_login;?>
-    </div>
-</div>
-
-        <!-- user 서명     -->
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label" for="reg_mb_nick">서명</label>
-    <div class="col-sm-3 col-form-info">
-    …</div>
-</div>
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         </dl>
     </section>
 </div>

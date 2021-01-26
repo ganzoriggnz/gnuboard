@@ -153,7 +153,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             </script>
         </div>
         <div class="coupon_current">
-<<<<<<< HEAD
             <!-- <h6>이번달 잔여 쿠폰 개수</h6>
 
             <div class="coupon_div">
@@ -163,8 +162,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <p class="count"><span><?php echo $diff_f; ?></span><span>/</span><span><?php echo $row1['co_free_num']; ?></span></p>
             </div> -->
 
-=======
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
             <table class="coupon-table">
                 <thead>
                     <tr class="coupon-create-tr">

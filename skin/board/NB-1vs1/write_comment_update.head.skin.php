@@ -13,23 +13,5 @@ if($w == "cu") {
 		}
 	}
 }
-<<<<<<< HEAD
 
-=======
-// 댓글 작성 하루 개수 제한  
- // 댓글 작성 개수  $comment_limit = 2;hulan nemsen///////////////////
- if($w != 'cu' && !$is_admin && $member['mb_level'] != 26 && $member['mb_level'] != 27) { //글수정이 아니면 작동
-	// 오늘 체크
-	$sql_today = na_sql_term('today', 'wr_datetime'); // 기간(일수,today,yesterday,month,prev)
-	if($is_member) { // 회원이면 mb_id로 체크
-	 $row = sql_fetch("select count(*) as cnt from $write_table where mb_id = '{$member['mb_id']}' and wr_is_comment = '1' $sql_today "); 
-	} else { // 비회원이면 ip로 체크
-	 $row = sql_fetch("select count(*) as cnt from $write_table where wr_ip = '{$_SERVER['REMOTE_ADDR']}' and wr_is_comment = '1' $sql_today "); 
-	}
-	if($row['cnt'] >= $board['bo_10']) {   //  bo_10 tuhain sambart bichih commentiin limit
-	 alert('본 게시판은 하루에 댓글을 '.$board['bo_10'].'개까지만 등록할 수 있습니다.'); 
-	}
-   }
-////////////////////////////////ene hurtel //////////////////////
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 ?>

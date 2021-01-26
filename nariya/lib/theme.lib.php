@@ -1343,10 +1343,6 @@ function na_board_rows($wset) {
 			
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];
-<<<<<<< HEAD
-=======
-			$wr['wr_id'] = $row['wr_id'];
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
 			$list[$i] = na_wr_row($wr, $wset);
 		}

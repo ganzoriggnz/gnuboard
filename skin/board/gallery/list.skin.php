@@ -8,11 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
 
 
 <!-- 게시판 목록 시작 { -->
-<<<<<<< HEAD
 <div id="bo_gall" style="width:1200px;">
-=======
-<div id="bo_gall" >
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
     <?php if ($is_category) { ?>
         <nav id="bo_cate">
@@ -122,19 +118,11 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
             </div>
         <?php } ?>
 
-<<<<<<< HEAD
         <ul id="gall_ul" class="gall_row">
             <?php
             for ($i = 0; $i < $list_cnt; $i++) {
                 $classes = array();
                 $classes[] = 'gall_li';
-=======
-        <ul id="gall_ul" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 mx-n2">
-            <?php
-            for ($i = 0; $i < $list_cnt; $i++) {
-                $classes = array();
-                $classes[] = 'col px-2 pb-4';
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
                 $classes[] = 'col-gn-' . $bo_gallery_cols;
                 if ($i && ($i % $bo_gallery_cols == 0)) {
                     $classes[] = 'box_clear';
@@ -143,11 +131,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                     $classes[] = 'gall_now';
                 }
             ?>
-<<<<<<< HEAD
                 <li class="<?php echo implode(' ', $classes); ?>">
-=======
-                <li class="col px-2 pb-4">
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
                     <div class="gall_box" style="background-image:url('<?php echo G5_IMG_URL ?>/main_bgpicture.png')" style="width: 100%; height: 148px;">
                         <div class="gall_chk chk_box">
                             <?php if ($is_checkbox) { ?>
@@ -177,7 +161,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                                     <?php } else {
                                         $picname = '';
                                         if ($list[$i]['mb_2'] == "안마") {
-<<<<<<< HEAD
                                             $picname = "anma5";
                                         } else if ($list[$i]['mb_2'] == "오피") {
                                             $picname = "office";
@@ -187,17 +170,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                                             $picname = "cafe5";
                                         } else if ($list[$i]['mb_2'] == "휴게텔") {
                                             $picname = "yupcatel";
-=======
-                                            $picname = "anma";
-                                        } else if ($list[$i]['mb_2'] == "오피") {
-                                            $picname = "office";
-                                        } else if ($list[$i]['mb_2'] == "건마") {
-                                            $picname = "gonma";
-                                        } else if ($list[$i]['mb_2'] == "립카페") {
-                                            $picname = "gibcafe";
-                                        } else if ($list[$i]['mb_2'] == "휴게텔") {
-                                            $picname = "hyugetel";
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
                                         }
                                         $imagee = '<img src="' . G5_IMG_URL . '/' . $picname . '.png">';
                                         echo $imagee;

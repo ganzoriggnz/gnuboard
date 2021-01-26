@@ -88,7 +88,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
         <img src="<?php echo G5_URL?>/img/side_top_img.png"></a>
 </div>
-<<<<<<< HEAD
 
 
     <!-- //////////////////////////////////////////////////// -->
@@ -97,56 +96,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
         <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[0]['text']?>
         </li>
         <?php for ($i=0; $i < count($menu[0]['s']); $i++) {
-=======
-<?php 
-$sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
-$res_date = sql_fetch($sql_date);
-$now = G5_TIME_YMD;
-if($res_date['mb_4'] > '0000:00:00 00:00:00')
-$end_time = strtotime($res_date['mb_4']);
-$now_time = strtotime($now);
-if($end_time >= $now_time){
-    $diff = $end_time - $now_time;
-    $diff_days = floor($diff / 86400);
-}
-else if($end_time < $now_time){
-    $diff_days = '0';
-}
-
-?>
-
-    <!-- //////////////////////////////////////////////////// -->
-    <ul class="sub-ul mb-3">
-    <?php 
-
-    if($member['mb_level'] == '26' || $member['mb_level'] == '27') { 
-        ?> 
-            <li class="me-li pt-3 pb-3 pr-2" style="font-weight: bold;">
-                <div class="text-left" style="display: inline;">제휴마감
-                </div>
-                <div class="text-center" style="color: #0000FF; display: inline;">D - <?php echo $diff_days ?>일
-                </div>
-                <div class="text-right" style="display: inline;"><a href="<?php echo G5_URL; ?>/bbs/board.php?bo_table=partnership" 
-                class="cat_1_bg <?php echo ($_GET['bo_table'] == "partnership") ? "activesubs" : "" ?>" style="display: inline; width: 70px;">연장신청 </a>
-                </div>
-            </li>            
-        <?php
-          } else { echo '<li  class="me-li pt-3 pb-3 text-center" style="font-weight: bold;">업소리스트</li>';
-          }
-        for ($i=0; $i < count($menu[0]['s']); $i++) {
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
             $me = $menu[0]['s'][$i];
             ?>
             <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
                 <?php if(isset($me['s'])) { //Is Sub Menu ?>
                 <?php } ?>
-<<<<<<< HEAD
                 <div>
                     <?php echo $me['text'];?>                                      
-=======
-                <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
-                    <?php echo $me['text'];?>
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
                     <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
                        href="<?php echo $menu[1]['s'][$i]['href']; ?>"
@@ -370,7 +326,6 @@ else if($end_time < $now_time){
     <!--	--><?php //echo na_widget('basic-wr-comment-list', 'new-co', 'bo_list=video ca_list=게임'); ?>
     <!--</div>-->
 <!-- 위젯 끝-->
-<<<<<<< HEAD
     <!-- hulan nemsen  -->
 
         <?php if ($member['mb_level'] == 27) { ?>
@@ -386,9 +341,6 @@ else if($end_time < $now_time){
 		    </tr>
 		</tbody>
         <?php } ?>
-=======
-   
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
         <script>      
                 $('a.cat_2_bg').click(function() {                  
                 $(this).removeClass('cat_2_bg').addClass('cat_2_bg_a');

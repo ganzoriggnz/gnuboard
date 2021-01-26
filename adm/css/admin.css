@@ -1078,31 +1078,19 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
    pointer-events: none;
  }
  
-<<<<<<< HEAD
  .modal.fade .modal-dialog {
-=======
-  .modal.fade .modal-dialog {
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
    transition: -webkit-transform 0.3s ease-out;
    transition: transform 0.3s ease-out;
    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
    -webkit-transform: translate(0, -50px);
    transform: translate(0, -50px);
-<<<<<<< HEAD
  }
-=======
- } 
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
  
  @media (prefers-reduced-motion: reduce) {
    .modal.fade .modal-dialog {
      transition: none;
    }
-<<<<<<< HEAD
  }
-=======
- }  
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
  
  .modal.show .modal-dialog {
    -webkit-transform: none;
@@ -1329,11 +1317,7 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
     }
     
     .text-center {
-<<<<<<< HEAD
       text-align: center !important;
-=======
-      text-align: center;
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
     }
 
     .form-control {
@@ -1713,7 +1697,6 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
 
 .alert-table .alert-tbody .alert-td {
   float: left;
-<<<<<<< HEAD
   font-size: 10px;
   border-color: #f3f3f3;
 }
@@ -1721,26 +1704,11 @@ na-table {	table-layout:fixed;	border-collapse:collapse; }
 .alert-table .alert-thead .alert-th {
   font-size: 11px;
 }
-=======
-  font-size: 11px;
-  border-color: #f3f3f3;
-  text-align: center;
-}
-
-/* .alert-table .alert-thead .alert-th {
-  font-size: 11px;
-} */
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
 .alert-table  .alert-thead .alert-tr .alert-th {
   float: left;
   background-color: #f1f1f1;
   border-color: #f3f3f3;
-<<<<<<< HEAD
-=======
-  text-align: center;
-  font-size: 11px;
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 } 
  
 .col-xs-1,

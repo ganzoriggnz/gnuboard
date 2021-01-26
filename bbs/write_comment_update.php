@@ -192,11 +192,6 @@ if ($w == 'c') // 댓글 입력
     // 포인트 부여
     insert_point($member['mb_id'], $board['bo_comment_point'], "{$board['bo_subject']} {$wr_id}-{$comment_id} 댓글쓰기", $bo_table, $comment_id, '댓글');
 
-<<<<<<< HEAD
-=======
-    insert_fragment($member['mb_id'], "{$board['bo_subject']} {$wr_id}-{$comment_id} 댓글쓰기", $bo_table,  $wr_id, '댓글');
-
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
     // 메일발송 사용
     if ($config['cf_email_use'] && $board['bo_use_email'])
     {

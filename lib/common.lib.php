@@ -965,16 +965,12 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
     global $g5;
     global $is_admin;
 
-<<<<<<< HEAD
     // insert fragment fucntion =-------------------------------------
     if($rel_action=='댓글'){ // Comment 
     insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);}
     else if($rel_action=='쓰기'){ // write ---------------
         insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);
     }
-=======
-
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
     // 포인트 사용을 하지 않는다면 return
     if (!$config['cf_use_point']) { return 0; }
@@ -1045,67 +1041,6 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
     return 1;
 }
 
-<<<<<<< HEAD
-=======
-
-function get_level_name($level){
-    $levelname="";
-    if($level == 2){
-        $levelname =  "노예";
-        } else if($level == 3){
-        $levelname =  "농노";
-        } else if($level == 4){
-        $levelname =  "시민";
-        } else if($level == 5){
-        $levelname =  "기사";
-        } else if($level == 6){
-        $levelname =  "남반";
-        } else if($level == 7){
-        $levelname =  "장교";
-        } else if($level == 8){
-        $levelname =  "향리";
-        } else if($level == 9){
-        $levelname =  "서리";
-        } else if($level == 10){
-        $levelname =  "성주";
-        } else if($level == 11){
-        $levelname =  "작사";
-        } else if($level == 12){
-        $levelname =  "남작";
-        } else if($level == 13){
-        $levelname =  "자작";
-        } else if($level == 14){
-        $levelname =  "백작";
-        } else if($level == 15){
-        $levelname =  "후작";
-        } else if($level == 16){
-        $levelname =  "공작";
-        } else if($level == 17){
-        $levelname =  "대공";
-        } else if($level == 18){
-        $levelname =  "왕자";
-        } else if($level == 19){
-        $levelname =  "왕";
-        } else if($level == 20){
-        $levelname =  "국왕";
-        } else if($level == 21){
-        $levelname =  "태자";
-        } else if($level == 22){
-        $levelname =  "황제";
-        } else if($level == 24){
-        $levelname =  "추기경";
-        } else if($level == 25){
-        $levelname =  "교황";
-        }else if($level == 26){
-        $levelname = "법사";
-        }else if($level == 27){
-        $levelname = "법사";
-        }else if($level == 30){
-        $levelname = "밤의제국";
-        }
-    return $levelname;
-}
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 // --------------------------------------------------------------------------------------------------
 function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_action=''){
     global $config;
@@ -1149,13 +1084,8 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
     $sql = " update {$g5['member_table']} set mb_point2 = '$po_mb_point' where mb_id = '$mb_id'";
     sql_query($sql);
 
-<<<<<<< HEAD
     $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
     alert($massege);
-=======
-    // $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
-    // alert($massege);
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
     return 1;
 }
 
@@ -1575,180 +1505,7 @@ function get_sideview($mb_id, $name='', $email='', $homepage='')
     return $str;
 }
 
-<<<<<<< HEAD
 
-=======
-function get_sideview_user($mb_id, $name='', $email='', $homepage='')
-{
-    global $config;
-    global $g5;
-    global $bo_table, $sca, $is_admin, $member;
-
-    $email = get_string_encrypt($email);
-    $homepage = set_http(clean_xss_tags($homepage));
-
-    // $name     = get_text($name, 0, true);   // nick name snereee ugch bga gazar
-    $name     = get_text($mb_id, 0, true);   // nereee ugch bga gazar
-    $email    = get_text($email);
-    $homepage = get_text($homepage);
-
-    $tmp_name = "";
-    $en_mb_id = $mb_id;
-
-    if ($mb_id) {
-        $tmp_name = '<a href="'.G5_BBS_URL.'/profile.php?mb_id='.$mb_id.'" class="sv_member" title="'.$name.' 자기소개" target="_blank" rel="nofollow" onclick="return false;">';
-
-        if ($config['cf_use_member_icon']) {
-            $mb_dir = substr($mb_id,0,2);
-            $icon_file = G5_DATA_PATH.'/member/'.$mb_dir.'/'.get_mb_icon_name($mb_id).'.gif';
-            if (file_exists($icon_file)) {
-                $width = $config['cf_member_icon_width'];
-                $height = $config['cf_member_icon_height'];
-                $icon_file_url = G5_DATA_URL.'/member/'.$mb_dir.'/'.get_mb_icon_name($mb_id).'.gif';
-                $tmp_name .= '<span class="profile_img"><img src="'.$icon_file_url.'" width="'.$width.'" height="'.$height.'" alt=""></span>';
-                if ($config['cf_use_member_icon'] == 2) // 회원아이콘+이름
-                    $tmp_name = $tmp_name.' '.$name;
-            } else {
-                if( defined('G5_THEME_NO_PROFILE_IMG') ){
-                    $tmp_name .= G5_THEME_NO_PROFILE_IMG;
-                } else if( defined('G5_NO_PROFILE_IMG') ){
-                    $tmp_name .= G5_NO_PROFILE_IMG;
-                }
-                if ($config['cf_use_member_icon'] == 2) // 회원아이콘+이름
-                    $tmp_name = $tmp_name.' '.$name;
-            }
-        } else {
-            $tmp_name = $tmp_name.' '.$name;
-        }
-        $tmp_name .= ' </a>';
-
-        $title_mb_id = '['.$mb_id.']';
-    } else {
-        if(!$bo_table)
-            return $name;
-
-        $tmp_name = '<a href="'.get_pretty_url($bo_table, '', 'sca='.$sca.'&amp;sfl=wr_name,1&amp;stx='.$name).'" title="'.$name.' 이름으로 검색" class="sv_guest" rel="nofollow" onclick="return false;">'.$name.'</a>';
-        $title_mb_id = '[비회원]';
-    }
-
-    $str = "<span class=\"sv_wrap\">\n";
-    $str .= $tmp_name."\n";
-
-    $str2 = "<span class=\"sv\">\n";
-    if($mb_id)
-        $str2 .= "<a href=\"".G5_BBS_URL."/memo_form.php?me_recv_mb_id=".$mb_id."\" onclick=\"win_memo(this.href); return false;\">쪽지보내기</a>\n";
-    if($email)
-        $str2 .= "<a href=\"".G5_BBS_URL."/formmail.php?mb_id=".$mb_id."&amp;name=".urlencode($name)."&amp;email=".$email."\" onclick=\"win_email(this.href); return false;\">메일보내기</a>\n";
-    if($homepage)
-        $str2 .= "<a href=\"".$homepage."\" target=\"_blank\">홈페이지</a>\n";
-    if($mb_id)
-        $str2 .= "<a href=\"".G5_BBS_URL."/profile.php?mb_id=".$mb_id."\" onclick=\"win_profile(this.href); return false;\">자기소개</a>\n";
-    if($bo_table) {
-        if($mb_id) {
-            $str2 .= "<a href=\"".get_pretty_url($bo_table, '', "sca=".$sca."&amp;sfl=mb_id,1&amp;stx=".$en_mb_id)."\">아이디로 검색</a>\n";
-        } else {
-            $str2 .= "<a href=\"".get_pretty_url($bo_table, '', "sca=".$sca."&amp;sfl=wr_name,1&amp;stx=".$name)."\">이름으로 검색</a>\n";
-        }
-    }
-    if($mb_id)
-        $str2 .= "<a href=\"".G5_BBS_URL."/new.php?mb_id=".$mb_id."\" class=\"link_new_page\" onclick=\"check_goto_new(this.href, event);\">전체게시물</a>\n";
-    if($is_admin == "super" && $mb_id) {
-        $str2 .= "<a href=\"".G5_ADMIN_URL."/member_form.php?w=u&amp;mb_id=".$mb_id."\" target=\"_blank\">회원정보변경</a>\n";
-        $str2 .= "<a href=\"".G5_ADMIN_URL."/point_list.php?sfl=mb_id&amp;stx=".$mb_id."\" target=\"_blank\">포인트내역</a>\n";
-    }
-    $str2 .= "</span>\n";
-    $str .= $str2;
-    $str .= "\n<noscript class=\"sv_nojs\">".$str2."</noscript>";
-    $str .= "</span>";
-    return $str;
-}
-
-
-function get_sideview_nick($mb_id, $name='', $email='', $homepage='')
-{
-    global $config;
-    global $g5;
-    global $bo_table, $sca, $is_admin, $member;
-
-    $email = get_string_encrypt($email);
-    $homepage = set_http(clean_xss_tags($homepage));
-
-    $name     = get_text($name, 0, true);   // nick name snereee ugch bga gazar
-    // $name     = get_text($mb_id, 0, true);   // nereee ugch bga gazar
-    $email    = get_text($email);
-    $homepage = get_text($homepage);
-
-    $tmp_name = "";
-    $en_mb_id = $mb_id;
-
-    if ($mb_id) {
-        $tmp_name = '<a href="'.G5_BBS_URL.'/profile.php?mb_id='.$mb_id.'" class="sv_member" title="'.$name.' 자기소개" target="_blank" rel="nofollow" onclick="return false;">';
-
-        if ($config['cf_use_member_icon']) {
-            $mb_dir = substr($mb_id,0,2);
-            $icon_file = G5_DATA_PATH.'/member/'.$mb_dir.'/'.get_mb_icon_name($mb_id).'.gif';
-            if (file_exists($icon_file)) {
-                $width = $config['cf_member_icon_width'];
-                $height = $config['cf_member_icon_height'];
-                $icon_file_url = G5_DATA_URL.'/member/'.$mb_dir.'/'.get_mb_icon_name($mb_id).'.gif';
-                $tmp_name .= '<span class="profile_img"><img src="'.$icon_file_url.'" width="'.$width.'" height="'.$height.'" alt=""></span>';
-                if ($config['cf_use_member_icon'] == 2) // 회원아이콘+이름
-                    $tmp_name = $tmp_name.' '.$name;
-            } else {
-                if( defined('G5_THEME_NO_PROFILE_IMG') ){
-                    $tmp_name .= G5_THEME_NO_PROFILE_IMG;
-                } else if( defined('G5_NO_PROFILE_IMG') ){
-                    $tmp_name .= G5_NO_PROFILE_IMG;
-                }
-                if ($config['cf_use_member_icon'] == 2) // 회원아이콘+이름
-                    $tmp_name = $tmp_name.' '.$name;
-            }
-        } else {
-            $tmp_name = $tmp_name.' '.$name;
-        }
-        $tmp_name .= ' </a>';
-
-        $title_mb_id = '['.$mb_id.']';
-    } else {
-        if(!$bo_table)
-            return $name;
-
-        $tmp_name = '<a href="'.get_pretty_url($bo_table, '', 'sca='.$sca.'&amp;sfl=wr_name,1&amp;stx='.$name).'" title="'.$name.' 이름으로 검색" class="sv_guest" rel="nofollow" onclick="return false;">'.$name.'</a>';
-        $title_mb_id = '[비회원]';
-    }
-
-    $str = "<span class=\"sv_wrap\">\n";
-    $str .= $tmp_name."\n";
-
-    $str2 = "<span class=\"sv\">\n";
-    if($mb_id)
-        $str2 .= "<a href=\"".G5_BBS_URL."/memo_form.php?me_recv_mb_id=".$mb_id."\" onclick=\"win_memo(this.href); return false;\">쪽지보내기</a>\n";
-    if($email)
-        $str2 .= "<a href=\"".G5_BBS_URL."/formmail.php?mb_id=".$mb_id."&amp;name=".urlencode($name)."&amp;email=".$email."\" onclick=\"win_email(this.href); return false;\">메일보내기</a>\n";
-    if($homepage)
-        $str2 .= "<a href=\"".$homepage."\" target=\"_blank\">홈페이지</a>\n";
-    if($mb_id)
-        $str2 .= "<a href=\"".G5_BBS_URL."/profile.php?mb_id=".$mb_id."\" onclick=\"win_profile(this.href); return false;\">자기소개</a>\n";
-    if($bo_table) {
-        if($mb_id) {
-            $str2 .= "<a href=\"".get_pretty_url($bo_table, '', "sca=".$sca."&amp;sfl=mb_id,1&amp;stx=".$en_mb_id)."\">아이디로 검색</a>\n";
-        } else {
-            $str2 .= "<a href=\"".get_pretty_url($bo_table, '', "sca=".$sca."&amp;sfl=wr_name,1&amp;stx=".$name)."\">이름으로 검색</a>\n";
-        }
-    }
-    if($mb_id)
-        $str2 .= "<a href=\"".G5_BBS_URL."/new.php?mb_id=".$mb_id."\" class=\"link_new_page\" onclick=\"check_goto_new(this.href, event);\">전체게시물</a>\n";
-    if($is_admin == "super" && $mb_id) {
-        $str2 .= "<a href=\"".G5_ADMIN_URL."/member_form.php?w=u&amp;mb_id=".$mb_id."\" target=\"_blank\">회원정보변경</a>\n";
-        $str2 .= "<a href=\"".G5_ADMIN_URL."/point_list.php?sfl=mb_id&amp;stx=".$mb_id."\" target=\"_blank\">포인트내역</a>\n";
-    }
-    $str2 .= "</span>\n";
-    $str .= $str2;
-    $str .= "\n<noscript class=\"sv_nojs\">".$str2."</noscript>";
-    $str .= "</span>";
-    return $str;
-}
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 // 파일을 보이게 하는 링크 (이미지, 플래쉬, 동영상)
 function view_file_link($file, $width, $height, $content='')
 {
@@ -4217,10 +3974,6 @@ function option_array_checked($option, $arr=array()){
 
     return $checked;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 function get_member_level_select2($name, $start_id=0, $end_id=30, $selected="", $event="")
 {
     global $g5,$config;
@@ -4237,50 +3990,4 @@ function get_member_level_select2($name, $start_id=0, $end_id=30, $selected="", 
     $str .= "</select>\n";
     return $str;
 }
-<<<<<<< HEAD
-=======
-
-function get_board_atname($bo_table='')
-{
-    global $g5;
-    $list = array();
-    $str;
-    $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance' ");
-    for($i=1; $res = sql_fetch_array($row); $i++){
-        $list[$i]['bo_table']=$res['bo_table'];
-        $list[$i]['bo_subject']=$res['bo_subject'];
-    }
-    $str = '<select id="mb_6" name="mb_6">';
-    for ($i=0; $i<count($list); $i++) {
-        $str .= '<option value="'.$list[$i]['bo_table'].'"';
-        if ($bo_table == $list[$i]['bo_table'])
-            $str .= ' selected="selected"';
-        $str .= ">".$list[$i]['bo_subject']."</option>\n";
-    }
-    $str .= "</select>\n";
-    return $str;
-}
-
-
-function get_board_atname2($bo_table='',$too)
-{
-    global $g5;
-    $list = array();
-    $str;
-    $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance' ");
-    for($i=1; $res = sql_fetch_array($row); $i++){
-        $list[$i]['bo_table']=$res['bo_table'];
-        $list[$i]['bo_subject']=$res['bo_subject'];
-    }
-    $str = '<select id="mb_6['.$too.']" name="mb_6['.$too.']">';
-    for ($i=0; $i<count($list); $i++) {
-        $str .= '<option value="'.$list[$i]['bo_table'].'"';
-        if ($bo_table == $list[$i]['bo_table'])
-            $str .= ' selected="selected"';
-        $str .= ">".$list[$i]['bo_subject']."</option>\n";
-    }
-    $str .= "</select>\n";
-    return $str;
-}
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 ?>

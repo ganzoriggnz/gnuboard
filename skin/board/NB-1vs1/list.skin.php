@@ -100,28 +100,10 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 						<span class="sr-only">게시판 검색</span>
 					</button>
 					<?php if ($write_href) { ?>
-<<<<<<< HEAD
 						<a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
 							<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 							<span class="sr-only">글쓰기</span>
 						</a>
-=======
-						<!-- <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
-							<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
-							<span class="sr-only">글쓰기</span>
-						</a> -->
-						<!-- hulan nemsen uuriin bichver harah heseg -->
-						<?php if($bo_table == "partnership"){?>
-								<?php if ($member['mb_id']) { ?><li><a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $bo_table ?>&sfl=mb_id%2C1&stx=<?php echo $member['mb_id'] ?>" class="btn_b02">내글보기</a></li><?php } }?>
-							
-							
-
-								<div id="btn_write">
-								<button type="button" class="btn_bbs" onclick="location.href='<?php echo $write_href ?>'">
-									<i class="fas fa-pencil-alt"></i> 글쓰기
-								</button>
-								</div>
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 					<?php } ?>
 					<div class="btn-group" role="group">
 						<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">

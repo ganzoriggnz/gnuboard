@@ -290,23 +290,9 @@ if ($w == '' || $w == 'r') {
                      wr_9 = '$wr_9',
                      wr_10 = '$wr_10' ";
     sql_query($sql);
-<<<<<<< HEAD
 
     $wr_id = sql_insert_id();
 
-=======
-    $wr_id = sql_insert_id();
-
-    $date = G5_TIME_YMDHIS;
-    $newdate = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($date)));
-    $sql1 = " UPDATE {$g5['member_table']}
-                SET 
-                mb_3 = '{$date}',
-                mb_4 = '{$newdate}'
-               WHERE  mb_id = '{$member['mb_id']}'";
-    sql_query($sql1);
-
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
     // 부모 아이디에 UPDATE
     sql_query(" update $write_table set wr_parent = '$wr_id' where wr_id = '$wr_id' ");
 
@@ -324,20 +310,10 @@ if ($w == '' || $w == 'r') {
         }
 
         insert_point($member['mb_id'], $board['bo_write_point'], "{$board['bo_subject']} {$wr_id} 글쓰기", $bo_table, $wr_id, '쓰기');
-<<<<<<< HEAD
-=======
-
-        insert_fragment($member['mb_id'], "{$board['bo_subject']} {$wr_id} 글쓰기", $bo_table,  $wr_id, '쓰기');
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
     } else {
         // 답변은 코멘트 포인트를 부여함
         // 답변 포인트가 많은 경우 코멘트 대신 답변을 하는 경우가 많음
         insert_point($member['mb_id'], $board['bo_comment_point'], "{$board['bo_subject']} {$wr_id} 글답변", $bo_table, $wr_id, '쓰기');
-<<<<<<< HEAD
-=======
-
-        insert_fragment($member['mb_id'], "{$board['bo_comment_point']} {$wr_id} 글답변", $bo_table,  $wr_id, '쓰기');
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
     }
 }  else if ($w == 'u') {
     if (get_session('ss_bo_table') != $_POST['bo_table'] || get_session('ss_wr_id') != $_POST['wr_id']) {
@@ -763,11 +739,7 @@ if (!($w == 'u' || $w == 'cu') && $config['cf_email_use'] && $board['bo_use_emai
 @include_once($board_skin_path.'/write_update.skin.php');
 @include_once($board_skin_path.'/write_update.tail.skin.php');
 
-<<<<<<< HEAD
 delete_cache_latest($bo_table);
-=======
-delete_cache_latest($bo_table); 
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
 $redirect_url = run_replace('write_update_move_url', short_url_clean(G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id.$qstr), $board, $wr_id, $w, $qstr, $file_upload_msg);
 
