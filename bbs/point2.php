@@ -28,6 +28,10 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
 $point_skin_path = get_skin_path('member', $config['cf_member_skin']);
 $point_skin_url  = get_skin_url('member', $config['cf_member_skin']);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 $skin_file = $point_skin_path.'/point2.skin.php';
 
 if(is_file($skin_file)) {

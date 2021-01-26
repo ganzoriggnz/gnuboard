@@ -1,12 +1,20 @@
 <?php
 $sub_menu = "700200";
 include_once('./_common.php');
+<<<<<<< HEAD
+=======
+auth_check($auth[$sub_menu], 'r');
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
 if(isset($_POST['cos_no'])){
    $cos_no = $_POST['cos_no'];
 }
 
+<<<<<<< HEAD
 $sql = "SELECT * FROM `g5_coupon_sent` WHERE cos_no = '$cos_no'";
+=======
+$sql = "SELECT * FROM {$g5['coupon_sent']} WHERE cos_no = '$cos_no'";
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 $res = sql_fetch($sql);
 
 $response = '<input type="hidden" name="w" id="w" value="d">

@@ -20,6 +20,7 @@ if ($nt_wing_path)
         </div>
 
         <!-- 메인 영역 -->
+<<<<<<< HEAD
         <div class="col-md-9<?php echo ($is_left_side) ? ' order-md-2' : ''; ?> na-col" style="flex: 0 0 80%;">
             <!---->
             <!--			<div class="mb-4">-->
@@ -88,6 +89,9 @@ if ($nt_wing_path)
             <!--			</div>-->
             <!---->
             <!-- 위젯 시작 { -->
+=======
+        <div class="col-md-9<?php echo ($is_left_side) ? ' order-md-2' : ''; ?> na-col flex80d"  style=""  >
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
             <?php include_once('./_common.php');
 
@@ -146,6 +150,7 @@ if ($nt_wing_path)
             <!-- hulan nemsen -->
 
                 <div style="position: fixed; bottom:0px; right:10px; z-index:9999">
+<<<<<<< HEAD
 		<a onclick="window.open('/bbs/chat.php','채팅방참여','width=420,height=550,scrollbars=yes,top=10,left=100'); ">
 		<img src="<?php echo G5_URL?>/img/chat.png" title=""></a>
 
@@ -239,6 +244,15 @@ if ($nt_wing_path)
     <!--			</div>-->
     <!-- } 위젯 끝-->
 
+=======
+		<a onclick="window.open('/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
+		<img src="<?php echo G5_URL?>/img/chat.png" title=""></a>
+
+            </div>
+        </div>
+    </div>
+
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 </div>
 <!-- 사이드 영역 -->
 </div>

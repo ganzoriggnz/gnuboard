@@ -263,6 +263,7 @@ temporary rendered events).
   border: 1px solid #fff;
 }
 
+<<<<<<< HEAD
 .fc-event,
 .fc-event-dot {
   background-color: #fff;
@@ -276,6 +277,21 @@ temporary rendered events).
   text-decoration: none;
   /* if <a> has an href */
 }
+=======
+/* .fc-event,
+.fc-event-dot {
+  background-color: #fff; */
+  /* default BACKGROUND color */
+/* } */
+
+/* .fc-event,
+.fc-event:hover {
+  color: #fff; */
+  /* default TEXT color */
+  /* text-decoration: none; */
+  /* if <a> has an href */
+/* } */
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
 .fc-event[href],
 .fc-event.fc-draggable {

@@ -341,6 +341,11 @@ if ($w == '') {
                     mb_open = '{$mb_open}',
                     mb_email = '{$mb_email}',
                     mb_homepage = '{$mb_homepage}',
+<<<<<<< HEAD
+=======
+                    
+                    mb_hp = '{$mb_hp}',
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
                     mb_tel = '{$mb_tel}',
                     mb_zip1 = '{$mb_zip1}',
                     mb_zip2 = '{$mb_zip2}',

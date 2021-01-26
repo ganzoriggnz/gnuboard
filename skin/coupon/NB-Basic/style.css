@@ -425,6 +425,7 @@ box-shadow:inset 0 2px 5px rgb(33, 135, 202)}
 
   /* Coupon alert table */
 
+<<<<<<< HEAD
 .alert-table {
   width: 100%;
   background-color: #f3f3f3;
@@ -456,6 +457,41 @@ box-shadow:inset 0 2px 5px rgb(33, 135, 202)}
   background-color: #f1f1f1;
   border-color: #f3f3f3;
 } 
+=======
+  .alert-table {
+    width: 100%;
+    background-color: #f3f3f3;
+  }
+  
+  .alert-table tbody {
+    height: 100px;
+    overflow-y: auto;
+    width: 100%;
+    background-color: #fff;
+  }
+  .alert-table .alert-thead,.alert-tbody,.alert-tr,.alert-td,.alert-th {
+    display:block;
+  }
+  
+  .alert-table .alert-tbody .alert-td {
+    float: left;
+    font-size: 11px;
+    border-color: #f3f3f3;
+    text-align: center;
+  }
+  
+  /* .alert-table .alert-thead .alert-th {
+    font-size: 11px;
+  } */
+  
+  .alert-table  .alert-thead .alert-tr .alert-th {
+    float: left;
+    background-color: #f1f1f1;
+    border-color: #f3f3f3;
+    text-align: center;
+    font-size: 11px;
+  } 
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
 .col-xs-1,
 .col-xs-2,

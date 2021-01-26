@@ -26,6 +26,10 @@ $sql = " select count(*) as cnt from {$g5['memo_table']} where me_{$kind}_mb_id 
 $row = sql_fetch($sql);
 $total_count = $row['cnt'];
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 $total_page  = ceil($total_count / $config['cf_page_rows']);  // 전체 페이지 계산
 $from_record = ((int) $page - 1) * $config['cf_page_rows']; // 시작 열을 구함
 
