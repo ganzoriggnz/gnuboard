@@ -161,15 +161,15 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                                     <?php } else {
                                         $picname = '';
                                         if ($list[$i]['mb_2'] == "안마") {
-                                            $picname = "anma5";
+                                            $picname = "anma";
                                         } else if ($list[$i]['mb_2'] == "오피") {
                                             $picname = "office";
                                         } else if ($list[$i]['mb_2'] == "건마") {
-                                            $picname = "gonma5";
+                                            $picname = "gonma";
                                         } else if ($list[$i]['mb_2'] == "립카페") {
-                                            $picname = "cafe5";
+                                            $picname = "gibcafe";
                                         } else if ($list[$i]['mb_2'] == "휴게텔") {
-                                            $picname = "yupcatel";
+                                            $picname = "hyugetel";
                                         }
                                         $imagee = '<img src="' . G5_IMG_URL . '/' . $picname . '.png">';
                                         echo $imagee;
