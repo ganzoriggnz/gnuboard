@@ -147,8 +147,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             </div>
                         </div>
                         <!-- user  가입일   mb_datetime  -->
-        
-                <?php } ?>
             
 
  <!-- user  쿠폰   coupon_create  -->
@@ -160,11 +158,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     <a href="<?php echo G5_BBS_URL ?>/coupon_create.php"><i class="fa fa-paperclip"></i> <span class="hidden-xs">쿠폰</span></a>
     </div>
 </div>
+<?php } ?>
 
-
+<?php if( $member['mb_level'] == 27 || $member['mb_level'] == 27)
+                    { ?>
          <!-- user  지역-업종   mb_nick  -->
-<?php if( $member['mb_level'] == 27)
-        { ?>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="reg_mb_nick">
     지역-업종       
