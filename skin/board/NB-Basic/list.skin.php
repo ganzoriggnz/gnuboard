@@ -15,32 +15,7 @@ if( $member['mb_6'] != $bo_table){
 }
 }
 
-
-// if($gr_id == 'attendance'){	
-// if ($board['bo_1']) {
-//     $arr_mbids = explode(',', trim($board['bo_1']));
-//     if(!$is_admin && !in_array($member['mb_id'], $arr_mbids)) {
-// 		$write_href = '';
-// 		}
-// 	else if (!$is_admin && in_array($member['mb_id'], $arr_mbids)) // admin bish ene sambart bichih erhtei hun bol end bichver bichsen esehiig shalgah
-// 		$wr_cnt = sql_fetch(" select count(wr_id) as cnt from {$write_table} where wr_is_comment=0 and mb_id = '{$member['mb_id']}' ");
-// 		if ($wr_cnt['cnt']) {
-
-
-
-// 	   }
-// } else if(!$board['bo_1']){
-// 	$write_href = '';
-// }
-// }
-// else if ($gr_id == 'review' && ($member['mb_level'] == 26 || $member['mb_level'] == 27))
-// {
-// 	$write_href = '';
-// }
 /////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 // 데모
 na_list_demo($demo);
@@ -110,13 +85,10 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 	<!-- } 검색창 끝 -->
 
 	<?php
-
 	// 게시판 카테고리
 	if ($is_category)
 		include_once($board_skin_path . '/category.skin.php');
 	?>
-	
-	
 
 	<form name="fboardlist" id="fboardlist" action="./board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
 		<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
