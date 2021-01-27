@@ -75,14 +75,7 @@ if ($nt_wing_path)
             <div class="px-3 px-sm-0 my-3">
                 <?php echo na_widget('basic-wr-gallery', 'gallery-1', 'bo_list=video ca_list=게임 rows=8'); ?>
             </div>
-
-            <!-- hulan nemsen -->
-
-                <div style="position: fixed; bottom:0px; right:10px; z-index:9999">
-		<a onclick="window.open('/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
-		<img src="<?php echo G5_URL?>/img/chat.png" title=""></a>
-
-            </div>
+               
         </div>
     </div>
 

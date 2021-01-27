@@ -208,9 +208,9 @@ $is_col_all = 6;
 					<?php } ?>
                         <div style="display: flex; flex-direction: row; justify-content: space-between; width: <?php echo $is_member ? '27.3691%;' : '9.12103' ?>">
                             <li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="https://web.telegram.org" target="_blank" title="텔레그램채널">
-									<!--<i class="fa fa-paper-plane-o" aria-hidden="true"></i>-->
-									<img src="<?php echo G5_URL?>/img/telegram.png" >
+							    <a class="me-a f-md en" href="https://web.telegram.org" target="_blank" title="채팅방"  onclick="window.open('/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
+									
+									<img src="<?php echo G5_URL?>/img/chat.png" >
 								</a>
 							</li>
                             <li class="col p-0 me-li me-icon right_border">
@@ -260,7 +260,7 @@ $is_col_all = 6;
 								</a>
 						    </li>
 							<li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="<?php echo G5_BBS_URL?>/memo.php" target="_self" title="쪽지">
+							    <a class="me-a f-md en win_memo" href="<?php echo G5_BBS_URL?>/memo.php" target="_blank" role="button" title="쪽지">
 									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-email-24px.png" >
 								</a>
