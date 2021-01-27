@@ -86,6 +86,8 @@ $list = array();
 $i = 0;
 $notice_count = 0;
 $notice_array = array();
+$event_array = array();
+$best_array = array();
 
 // 공지 처리
 if (!$is_search_bbs) {

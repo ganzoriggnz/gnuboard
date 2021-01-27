@@ -16,7 +16,9 @@ $wset['sideview'] = 1; // 이름 레이어 출력
 
 
 $list = na_board_rows($wset);
-$list_cnt = count($list);
+
+shuffle($list);
+$list_cnt = count($list)<=15 ? count($list) : 15;
 
 // 랭킹
 $rank = na_rank_start($wset['rows'], $wset['page']);

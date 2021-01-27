@@ -89,7 +89,18 @@ $list_cnt = count($list);
 			$li_css = ' bg-light';
 			$list[$i]['num'] = '<span class="na-notice bg-'.$head_color.'"></span><span class="sr-only">공지사항</span>';
 			$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
-		} else if ($wr_id == $list[$i]['wr_id']) {
+		} 
+		if ($list[$i]['is_eventcheck']) { // event
+			$li_css = ' bg-dark';
+			$list[$i]['num'] = '<span class="na-event bg-'.$head_color.'"></span><span class="sr-only">event</span>';
+			$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
+		}
+		if ($list[$i]['is_best']) { // best
+			$li_css = ' bg-light';
+			$list[$i]['num'] = '<span class="na-best bg-'.$head_color.'"></span><span class="sr-only">best</span>';
+			$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
+		}
+		else if ($wr_id == $list[$i]['wr_id']) {
 			$li_css = ' bg-light';
 			$list[$i]['num'] = '<span class="na-text text-primary">열람</span>';
 			$list[$i]['subject'] = '<b class="text-primary">'.$list[$i]['subject'].'</b>';

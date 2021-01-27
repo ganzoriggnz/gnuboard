@@ -10,20 +10,29 @@ add_stylesheet('<link rel="stylesheet" href="' . G5_PLUGIN_URL . '/Lightweight-j
 if ($bo_table == "free" || $gr_id == "review" || $bo_table == "event") {
 	if ($member['mb_level'] > 23 && $member['mb_level'] != 26 && $member['mb_level'] != 27 && $w != 'r') {
 		$is_notice = true;
-
+		$is_eventcheck = true;
+		$is_best = true;
 		if ($w == 'u') {
 			// 답변 수정시 공지 체크 없음
 			if ($write['wr_reply']) {
 				$is_notice = false;
+				$is_eventcheck = false;
+				$is_best = false;
 			} else {
 				if (in_array((int)$wr_id, $notice_array)) {
 					$notice_checked = 'checked';
 				}
+				if (in_array((int)$wr_id, $event_array)) {
+					$event_checked = 'checked';
+				}
+				if (in_array((int)$wr_id, $best_array)) {
+					$best_checked = 'checked';
+				}
 			}
 		}
-		$is_event = true;
 	}
 }
+
 // ////////////////////////////////////////////////////////
 
 /////////////////////////////hulan///////////////////////
@@ -145,10 +154,23 @@ if ($is_member)
 				$option .= $option_end;
 			}
 
+			if ($is_eventcheck) {
+				$option .= $option_start;
+				$option .= '<input type="checkbox" name="event" value="1" id="event" class="custom-control-input" ' . $event_checked . '>';
+				$option .= '<label class="custom-control-label" for="event"><span>event</span></label>';
+				$option .= $option_end;
+			}
+			if ($is_best) {
+				$option .= $option_start;
+				$option .= '<input type="checkbox" name="best" value="1" id="best" class="custom-control-input" ' . $best_checked . '>';
+				$option .= '<label class="custom-control-label" for="best"><span>best</span></label>';
+				$option .= $option_end;
+			}
+
 			if ($is_secret) {
 				if ($is_admin || $is_secret == 1) {
 					$option .= $option_start;
-					$option .= '<input type="checkbox" name="secret" value="secret" id="event" class="custom-control-input" ' . $secret_checked . '>';
+					$option .= '<input type="checkbox" name="secret" value="secret" id="secret" class="custom-control-input" ' . $secret_checked . '>';
 					$option .= '<label class="custom-control-label" for="secret"><span>비밀</span></label>';
 					$option .= $option_end;
 				} else {
@@ -748,5 +770,38 @@ if ($is_member)
 			}
 		});
 	});
+
+// $("input:checkbox").on('click', function() {
+// 	var $noticed = "input:checkbox[name='notice']";
+// 	var $eventd = "input:checkbox[name='event']";
+// 	var $bestd = "input:checkbox[name='best']";
+
+// 	if ($noticed.is(":checked")) {
+
+// 		$eventd.prop("checked", false);
+// 		$bestd.prop("checked", false);
+// 		$noticed.prop("checked", true);
+
+//   } else {
+//     $noticed.prop("checked", false);
+//   }
+// }
+// );
+
+
+
+$("input:checkbox").on('click', function() {
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    var group = "input:checkbox";
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+  } else {
+    $box.prop("checked", false);
+  }
+});
+
+
+
 </script>
 <!-- ///////////////////////////////////// -->

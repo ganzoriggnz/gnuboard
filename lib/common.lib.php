@@ -3055,6 +3055,7 @@ function board_notice($bo_notice, $wr_id, $insert=false)
 }
 
 
+
 // goo.gl 짧은주소 만들기
 function googl_short_url($longUrl)
 {

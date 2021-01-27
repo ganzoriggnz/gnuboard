@@ -81,6 +81,8 @@ if (empty($_POST)) {
 }
 
 $notice_array = explode(",", $board['bo_notice']);
+$event_array = explode(',', trim($board['bo_3']));
+$best_array = explode(',', trim($board['bo_4']));
 
 if ($w == 'u' || $w == 'r') {
     $wr = get_write($write_table, $wr_id);
@@ -121,6 +123,14 @@ $notice = '';
 if (isset($_POST['notice']) && $_POST['notice']) {
     $notice = $_POST['notice'];
 }
+$event = '';
+if (isset($_POST['event']) && $_POST['event']) {
+    $event = $_POST['event'];
+}
+$best = '';
+if (isset($_POST['best']) && $_POST['best']) {
+    $best = $_POST['best'];
+}
 
 for ($i=1; $i<=10; $i++) {
     $var = "wr_$i";
@@ -148,6 +158,13 @@ if ($w == '' || $w == 'u') {
     if($w =='u' && !$is_admin && $board['bo_notice'] && in_array($wr['wr_id'], $notice_array)){
         $notice = 1;
     }
+    if($w =='u' && !$is_admin && $board['bo_3'] && in_array($wr['wr_id'], $event_array)){
+        $event = 1;
+    }
+    if($w =='u' && !$is_admin && $board['bo_4'] && in_array($wr['wr_id'], $best_array)){
+        $best = 1;
+    }
+
 
     // 김선용 1.00 : 글쓰기 권한과 수정은 별도로 처리되어야 함
     if($w =='u' && $member['mb_id'] && $wr['mb_id'] === $member['mb_id']) {
@@ -316,6 +333,14 @@ if ($w == '' || $w == 'r') {
             $bo_notice = $wr_id.($board['bo_notice'] ? ",".$board['bo_notice'] : '');
             sql_query(" update {$g5['board_table']} set bo_notice = '{$bo_notice}' where bo_table = '{$bo_table}' ");
         }
+        if ($event) {
+            $bo_3 = $wr_id.($board['bo_3'] ? ",".$board['bo_3'] : '');
+            sql_query(" update {$g5['board_table']} set bo_3 = '{$bo_3}' where bo_table = '{$bo_table}' ");
+        }
+        if ($best) {
+            $bo_4 = $wr_id.($board['bo_4'] ? ",".$board['bo_4'] : '');
+            sql_query(" update {$g5['board_table']} set bo_4 = '{$bo_4}' where bo_table = '{$bo_table}' ");
+        }
 
         insert_point($member['mb_id'], $board['bo_write_point'], "{$board['bo_subject']} {$wr_id} 글쓰기", $bo_table, $wr_id, '쓰기');
 
@@ -444,6 +469,14 @@ if ($w == '' || $w == 'r') {
 
     $bo_notice = board_notice($board['bo_notice'], $wr_id, $notice);
     sql_query(" update {$g5['board_table']} set bo_notice = '{$bo_notice}' where bo_table = '{$bo_table}' ");
+
+    $bo_3 = board_notice($board['bo_3'], $wr_id, $event);
+    sql_query(" update {$g5['board_table']} set bo_3 = '{$bo_3}' where bo_table = '{$bo_table}' ");
+
+    $bo_4 = board_notice($board['bo_4'], $wr_id, $best);
+    sql_query(" update {$g5['board_table']} set bo_4 = '{$bo_4}' where bo_table = '{$bo_table}' ");
+
+
 
     // 글을 수정한 경우에는 제목이 달라질수도 있으니 static variable 를 새로고침합니다.
     $write = get_write( $write_table, $wr['wr_id'], false);

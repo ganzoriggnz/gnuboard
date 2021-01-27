@@ -56,15 +56,32 @@ $today2 = G5_TIME_YMD;
 $list = array();
 $i = 0;
 $notice_count = 0;
+$event_count = 0;
+$best_count = 0;
 $notice_array = array();
+$event_array = array();
+$best_array = array();
+
 
 // 공지 처리
 if (!$is_search_bbs) {
     $arr_notice = explode(',', trim($board['bo_notice']));
+    $arr_event = explode(',', trim($board['bo_3']));
+    $arr_best = explode(',', trim($board['bo_4']));
     $from_notice_idx = ($page - 1) * $page_rows;
+    $from_event_idx = ($page - 1) * $page_rows;
+    $from_best_idx = ($page - 1) * $page_rows;
     if($from_notice_idx < 0)
         $from_notice_idx = 0;
     $board_notice_count = count($arr_notice);
+
+    if($from_event_idx < 0)
+        $from_event_idx = 0;
+    $board_event_count = count($arr_event);
+
+    if($from_best_idx < 0)
+        $from_best_idx = 0;
+    $board_best_count = count($arr_best);
 
     for ($k=0; $k<$board_notice_count; $k++) {
         if (trim($arr_notice[$k]) == '') continue;
@@ -86,6 +103,38 @@ if (!$is_search_bbs) {
         if($notice_count >= $list_page_rows)
             break;
     }
+    for ($k=0; $k<$board_event_count; $k++) {
+        if (trim($arr_event[$k]) == '') continue;
+
+        $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_event[$k]}' ");
+
+        if (!$row['wr_id']) continue;
+
+        $event_array[] = $row['wr_id'];
+
+        if($k < $from_event_idx) continue;
+
+        $list[$i] = get_list($row, $board, $board_skin_url, G5_IS_MOBILE ? $board['bo_mobile_subject_len'] : $board['bo_subject_len']);
+        $list[$i]['is_eventcheck'] = true;
+        $i++;
+        $event_count++;
+        if($event_count >= $list_page_rows)
+            break;
+    }
+    for ($k=0; $k<$board_best_count; $k++) {
+        if (trim($arr_event[$k]) == '') continue;
+        $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_best[$k]}' ");
+        if (!$row['wr_id']) continue;
+        $best_array[] = $row['wr_id'];
+        if($k < $from_best_idx) continue;
+        $list[$i] = get_list($row, $board, $board_skin_url, G5_IS_MOBILE ? $board['bo_mobile_subject_len'] : $board['bo_subject_len']);
+        $list[$i]['is_best'] = true;
+        $i++;
+        $best_count++;
+        if($best_count >= $list_page_rows)
+            break;
+    }
+
 }
 
 $total_page  = ceil($total_count / $page_rows);  // 전체 페이지 계산
@@ -100,6 +149,30 @@ if(!empty($notice_array)) {
 
     if($notice_count > 0)
         $page_rows -= $notice_count;
+
+    if($page_rows < 0)
+        $page_rows = $list_page_rows;
+}
+if(!empty($event_array)) {
+    $from_record -= count($event_array);
+
+    if($from_record < 0)
+        $from_record = 0;
+
+    if($event_count > 0)
+        $page_rows -= $event_count;
+
+    if($page_rows < 0)
+        $page_rows = $list_page_rows;
+}
+if(!empty($best_array)) {
+    $from_record -= count($best_array);
+
+    if($from_record < 0)
+        $from_record = 0;
+
+    if($best_count > 0)
+        $page_rows -= $best_count;
 
     if($page_rows < 0)
         $page_rows = $list_page_rows;
@@ -150,8 +223,16 @@ if ($is_search_bbs) {
     $sql = " select distinct wr_parent from {$write_table} where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
     $sql = " select * from {$write_table} where wr_is_comment = 0 ";
+    $mddd_id = "";
     if(!empty($notice_array))
-        $sql .= " and wr_id not in (".implode(', ', $notice_array).") ";
+        $mddd_id.= implode(', ', $notice_array);
+    if(!empty($event_array))
+        $mddd_id.= ", ".implode(', ', $event_array);
+    if(!empty($best_array)) 
+        $mddd_id.= ", ".implode(', ', $best_array);
+
+    $sql .= " and wr_id not in (".$mddd_id.")";
+
     $sql .= " {$sql_order} limit {$from_record}, $page_rows ";
 }
 
@@ -172,7 +253,11 @@ if($page_rows > 0) {
             $list[$i]['subject'] = search_font($stx, $list[$i]['subject']);
         }
         $list[$i]['is_notice'] = false;
-        $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count;
+        $list[$i]['is_eventcheck'] = false;
+        $list[$i]['is_best'] = false;
+
+        $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count - $event_count - $best_count;
+
         $list[$i]['num'] = $list_num - $k;
 
         $i++;
