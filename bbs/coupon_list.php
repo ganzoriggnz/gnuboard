@@ -116,8 +116,8 @@ while($row2 = sql_fetch_array($res2)){
     } 
 } 
 
+$now = G5_TIME_YMDHIS;
 $sql_acc = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_accept='N'";
-
 $res_acc = sql_query($sql_acc);
 while($row_acc = sql_fetch_array($res_acc)){
     $date = date($row_acc['cos_created_datetime']);
