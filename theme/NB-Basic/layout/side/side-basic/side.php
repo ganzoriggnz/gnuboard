@@ -9,8 +9,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 
 	<!-- 로그인 끝 -->
 <?php } else { // 페이지에서는 메뉴 출력 ?>
-
-
 	<?php
 	$mes = array();
 	for ($i=0; $i < $menu_cnt; $i++) {
@@ -21,14 +19,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 		}
     }
 
-
-
 	// 선택메뉴가 있다면...
 	if(!empty($mes)) {
     ?>
-
-
-
 		<div id="nt_side_menu" class="font-weight-normal mb-4">
 			<div class="bg-primary text-white text-center p-4 py-sm-5 en">
 				<h4>
@@ -310,62 +303,12 @@ else if($end_time < $now_time){
         <?php } ?>
     </ul>
 
-<!-- 위젯 시작 -->
-    <!--<h3 class="h3 f-lg en sdf">-->
-    <!--	<a href="--><?php //echo get_pretty_url('video'); ?><!--">-->
-    <!--		<span class="float-right more-plus"></span>-->
-    <!--		공지글-->
-    <!--	</a>-->
-    <!--</h3>-->
-    <!--<hr class="hr"/>-->
-    <!--<div class="mt-3 mb-4">-->
-    <!--	--><?php //echo na_widget('basic-wr-list', 'notice', 'bo_list=video ca_list=게임'); ?>
-    <!--</div>-->
-<!-- 위젯 끝-->
-
-<!-- 위젯 시작 -->
-    <!--<h3 class="h3 f-lg en">-->
-    <!--	동영상-->
-    <!--</h3>-->
-    <!--<hr class="hr"/>-->
-    <!--<div class="px-3 px-sm-0 mt-3 mb-4">-->
-    <!--	--><?php //echo na_widget('basic-youtube', 'youtube-1'); ?>
-    <!--</div>-->
-
-<!-- 위젯 끝-->
-
-<!-- 위젯 시작 -->
-    <!--<h3 class="h3 f-lg en mb-1">-->
-    <!--	<a href="--><?php //echo G5_BBS_URL ?><!--/new.php?view=w">-->
-    <!--		<span class="float-right more-plus"></span>-->
-    <!--		최근글-->
-    <!--	</a>-->
-    <!--</h3>-->
-    <!--<hr class="hr"/>-->
-    <!--<div class="mt-3 mb-4">-->
-    <!--	--><?php //echo na_widget('basic-wr-list', 'new-wr', 'bo_list=video ca_list=게임'); ?>
-    <!--</div>-->
-<!-- 위젯 끝-->
-
-<!-- 위젯 시작 -->
-    <!--<h3 class="h3 f-lg en mb-1">-->
-    <!--	<a href="--><?php //echo G5_BBS_URL ?><!--/new.php?view=c">-->
-    <!--		<span class="float-right more-plus"></span>-->
-    <!--		새댓글-->
-    <!--	</a>-->
-    <!--</h3>-->
-    <!--<hr class="hr"/>-->
-    <!--<div class="mt-3 mb-4">-->
-    <!--	--><?php //echo na_widget('basic-wr-comment-list', 'new-co', 'bo_list=video ca_list=게임'); ?>
-    <!--</div>-->
-<!-- 위젯 끝-->
-   
-        <script>      
-                $('a.cat_2_bg').click(function() {                  
-                $(this).removeClass('cat_2_bg').addClass('cat_2_bg_a');
-                });
-            
-                $('a.cat_1_bg').click(function() {                  
-                $(this).removeClass('cat_1_bg').addClass('cat_1_bg_a');
-                });
-        </script>
+<script>      
+        $('a.cat_2_bg').click(function() {                  
+        $(this).removeClass('cat_2_bg').addClass('cat_2_bg_a');
+        });
+    
+        $('a.cat_1_bg').click(function() {                  
+        $(this).removeClass('cat_1_bg').addClass('cat_1_bg_a');
+        });
+</script>

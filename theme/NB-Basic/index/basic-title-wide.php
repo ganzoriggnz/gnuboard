@@ -151,7 +151,7 @@ if($nt_wing_path)
 
 		</div>
 		<!-- 사이드 영역 -->
-		<div class="col-md-3<?php echo ($is_left_side) ? ' order-md-1' : '';?> na-col">
+		<div class="col-md-3<?php echo ($is_left_side) ? ' order-md-1' : '';?> na-col d-md-block d-none">
 			<?php 
 				// layout/side에서 가져옴
 				list($nt_side_url, $nt_side_path) = na_layout_content('side', 'side-basic'); // side-basic 폴더
