@@ -925,6 +925,19 @@ $data=array (
       ),
       1 =>
       array (
+        'text' => '제휴문의',
+        'href' => G5_BBS_URL.'/board.php?bo_table=partnership',
+        /* 'icon' => 'fa-cogs', */
+        'icon'  => 'baseline-headset_mic-24px',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'link',
+      ),
+      2 =>
+      array (
         'text' => '파운드페니로전환',
         'href' => G5_BBS_URL.'/point.php',
         /* 'icon' => 'fa-cogs', */
@@ -936,7 +949,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      2 =>
+      3 =>
       array (
         'text' => '파편조각페니로전환',
         'href' => G5_BBS_URL.'/point2.php',
@@ -949,7 +962,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      3 =>
+      4 =>
       array (
         'text' => '페니구매',
         'href' => '#',
@@ -963,7 +976,7 @@ $data=array (
         'id' => 'link',
       ),
       
-      4 =>
+      5 =>
       array (
         'text' => '환전',
         'href' => '#',
@@ -976,7 +989,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      5 =>
+      6 =>
       array (
         'text' => '장터게시판',
         'href' => G5_BBS_URL.'/board.php?bo_table=market',
@@ -989,7 +1002,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      6 =>
+      7 =>
       array (
         'text' => '구인구직 게시판',
         'href' =>  G5_BBS_URL.'/board.php?bo_table=job',
@@ -1002,7 +1015,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      7 =>
+      8 =>
       array (
         'text' => '실장업무게시판',
         'href' => G5_BBS_URL.'/board.php?bo_table=work_board',
