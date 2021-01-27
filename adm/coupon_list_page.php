@@ -198,14 +198,14 @@ if( isset($_POST['id'])){
 
     $sql2 = "Select a.*, b.wr_id, b.wr_7, b.wr_is_comment, b.wr_datetime from {$g5['coupon_sent_table']} a LEFT JOIN $re_table b ON a.cos_nick = b.wr_name WHERE a.cos_accept = 'Y'";
     $res2 = sql_query($sql2);
+    $now = G5_TIME_YMDHIS;
     while($row2 = sql_fetch_array($res2)){
         $sql3 = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
         $res3 = sql_fetch($sql3);
         $sql4 = "SELECT COUNT(alt_no) as alt_cnt FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}' AND cos_no = '{$row2['cos_no']}'";
         $res4 = sql_fetch($sql4); 
         $sql7 = "SELECT * FROM $re_table WHERE wr_name = '{$row2['cos_nick']}' AND wr_7 = '{$row2['cos_entity']}'";
-        $res7 = sql_fetch($sql7);
-        $now = G5_TIME_YMDHIS;
+        $res7 = sql_fetch($sql7);    
         if($row2['cos_entity'] !== $res7['wr_7'] && $res4['alt_cnt'] == '0' && ($now > $row2['cos_post_datetime'])){
             $sql4 = "INSERT INTO {$g5['coupon_alert_table']} 
                             SET cos_no = '{$row2['cos_no']}',
@@ -532,16 +532,12 @@ if( isset($_POST['id'])){
         });    
 
         $('#btn_send').click(function(){
-            if($('#mb_nick').length > 0 && $('#mb_nick').val() == ''){ 
+		debugger;
+            if($('#hasNick').val() != '정상적인 닉네임입니다.'){ 
                 alert("닉네임을 입력하시고 확인후 쿠폰 지원할 수 있습니다!");
                 $('#mb_nick').focus();
-                return false;
             }  
-            if($('#hasNick').length = 0 && $('#hasNick').val() == ''){ 
-                alert("Please insert correct nick name!");
-                $('#mb_nick').focus();
-            } 
-            if ($('#hasNick').length > 0 && $('#hasNick').val() != ''){
+            if ($('#hasNick').val() == '정상적인 닉네임입니다.'){
                 $('#fcouponsend').submit(); 
             }                  
         });   

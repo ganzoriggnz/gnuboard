@@ -9,10 +9,10 @@ if(isset($_POST['check_id']))
     $sql = " select mb_nick from {$g5['member_table']} where mb_nick = '{$mb_nick}'";
     $row = sql_fetch($sql);
     if($row['mb_nick']){ ?>
-        <input type="button" id="hasNick" class="form-control" value="정상적인 닉네임입니다." style="width:160px; height: 30px; font-size: 12px;"/>
+        <input type="text" id="hasNick" value="정상적인 닉네임입니다." class="form-control" style="width:160px; font-size: 12px;" readonly/>
     <?php  
     } else { ?>
-        <input type="button" id="hasNick" class="form-control" value="" style="width:160px; height: 30px;"/>
+        <input type="text" id="hasNick" value="정상적인 닉네임이 아닙니다." class="form-control" style="width:180px; color: red; font-size: 12px;" readonly/>
     <?php
     }
 }
