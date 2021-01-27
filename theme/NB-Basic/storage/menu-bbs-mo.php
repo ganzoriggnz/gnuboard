@@ -726,7 +726,7 @@ $data=array (
       0 =>
       array (
         'text' => '출석체크',
-        'href' => G5_PLUGIN_URL.'/attendance/attendance.php',
+        'href' => G5_PLUGIN_URL.'/attendance/m_attendance.php',
         /* 'icon' => 'fa-users', */
         'icon'  => 'chat-icon',
         'target' => '_self',

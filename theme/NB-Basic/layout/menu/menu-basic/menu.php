@@ -260,7 +260,7 @@ $is_col_all = 6;
 								</a>
 						    </li>
 							<li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="<?php echo G5_BBS_URL?>/memo.php" target="_self" title="쪽지">
+							    <a class="me-a f-md en win_memo" href="<?php echo G5_BBS_URL?>/memo.php" target="_blank" role="button" title="쪽지">
 									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-email-24px.png" >
 								</a>
