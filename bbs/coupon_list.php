@@ -51,7 +51,12 @@ $date = $sql['co_begin_datetime'];
 $year = substr($date, 0, 4);
 $month = substr($date, 5, 2);
 
-$result = "SELECT COUNT(a.co_no) as cnt FROM {$g5['coupon_table']} a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}'"; 
+$re_table = $g5['write_table'].$bo_table;
+$linkcount = strlen($re_table) - 2;
+$str_table =substr($re_table, 0, $linkcount);
+$at_table = "g5_write_".$str_table."at";
+
+$result = "SELECT COUNT(a.co_no) as cnt FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}'"; 
 $row=sql_fetch($result);
 $total_count = $row['cnt'];
 
@@ -62,7 +67,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
 $list = array();
 
-$sql = "SELECT * FROM {$g5['coupon_table']} a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' limit $from_record, $rows ";
+$sql = "SELECT * FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' limit $from_record, $rows ";
 $result = sql_query($sql);
 for ($i=0; $row=sql_fetch_array($result); $i++) {
 
@@ -72,12 +77,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $num = $total_count - ($page - 1) * $rows - $i;
 }
 
-$at_table = $g5['write_table'].$bo_table;
-$linkcount = strlen($bo_table) - 2;
-$str_table =substr($bo_table, 0, $linkcount);
-$re_table = "g5_write_".$str_table."re";
-
-$sql1 = "SELECT a.cos_nick FROM {$g5['coupon_sent_table']} a INNER JOIN $re_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
+$sql1 = "SELECT a.cos_nick FROM {$g5['coupon_sent_table']} a INNER JOIN $at_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
 $res1 = sql_query($sql1);
 $nicks = array();
 while($row = sql_fetch_array($res1)){
