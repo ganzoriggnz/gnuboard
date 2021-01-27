@@ -249,13 +249,8 @@ $menu_cnt = count($menu);
 				?>
 					<li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
 						<?php if (isset($me['s'])) { //Is Sub Menu
-						?>
-							<i class="fa fa-caret-down tree-toggle me-i"></i>
+						?><a class="fa fa-caret-down tree-toggle me-i" > &nbsp;&nbsp;<?php echo $me['text']; ?></a>
 						<?php } ?>
-						<a class="me-a" href="<?php echo $me['href']; ?>" target="<?php echo $me['target']; ?>">
-							<i class="fa <?php echo $me['icon'] ?> fa-fw" aria-hidden="true"></i>
-							<?php echo $me['text']; ?>
-						</a>
 
 						<?php if (isset($me['s'])) { //Is Sub Menu
 						?>
