@@ -105,12 +105,19 @@ $is_col_all = 6;
 											<li class="dropdown-item sub-1line" ><a class="me-sh sub-1da"><?php echo $me1['line'];?></a></li>
 										<?php } ?>
 
+										
+										<?php if($me1['text']=="실장업무게시판")
+												{if($member['mb_level']==26 || $member['mb_level']==27)
+													{ ?>
+
 										<li class="dropdown-submenu sub-1dli<?php echo ($me1['on']) ? ' on' : ''; ?>" style="flex:1;">
 											<a href="<?php echo $me1['href'];?>" data-toggle="dropdown" class="dropdown-item <?php echo count($me1['s'])>1 ? ' dropdown-toggle' : ''?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : '';?>" target="<?php echo $me1['target'];?>">
-												<!-- <i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i> -->
+				
 												<img src="<?php echo G5_URL?>/img/<?php echo $me1['icon'] ?>.png" >
 												<?php echo $me1['text'];?>
 											</a>
+
+											
 											<?php if(isset($me1['s'])) { // Is Sub Menu ?>
 												<!-- <div class="sub-slide sub-2div"> -->
 													<ul class="sub-2dul me-sw pull-left">
@@ -142,6 +149,51 @@ $is_col_all = 6;
 												<!-- </div> -->
 											<?php } ?>
 										</li>
+
+											<?php } }else { ?>
+
+												<li class="dropdown-submenu sub-1dli<?php echo ($me1['on']) ? ' on' : ''; ?>" style="flex:1;">
+												<a href="<?php echo $me1['href'];?>" data-toggle="dropdown" class="dropdown-item <?php echo count($me1['s'])>1 ? ' dropdown-toggle' : ''?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : '';?>" target="<?php echo $me1['target'];?>">
+												<img src="<?php echo G5_URL?>/img/<?php echo $me1['icon'] ?>.png" >
+												<?php echo $me1['text'];?>
+											</a>
+
+											
+											<?php if(isset($me1['s'])) { // Is Sub Menu ?>
+												<!-- <div class="sub-slide sub-2div"> -->
+													<ul class="sub-2dul me-sw pull-left">
+													<?php
+														$me_sw2 = 0; //나눔 체크
+														for($k=0; $k < count($me1['s']); $k++) {
+															$me2 = $me1['s'][$k];
+													?>
+														<?php if($me2['sp']) { //나눔 ?>
+															</ul>
+															<ul class="dropdown-menu sub-2dul me-sw pull-left">
+														<?php $me_sw2++; } // 나눔 카운트 ?>
+
+														<?php if($me2['line']) { //구분라인 ?>
+															<li class="sub-2line "><a class="dropdown-item me-sh sub-2da"><?php echo $me2['line'];?></a></li>
+														<?php } ?>
+
+														<li class="sub-2dli<?php echo ($me2['on']) ? ' on' : ''; ?>">
+															<a href="<?php echo $me2['href'] ?>" class="dropdown-item me-sh sub-2da" target="<?php echo $me2['target'] ?>">
+																<!-- <i class="fa <?php echo $me2['icon'] ?> fa-fw" aria-hidden="true"></i> -->
+																<img src="<?php echo G5_URL?>/img/<?php echo $me2['img'] ?>.png" >
+																<?php echo $me2['text'];?>
+															</a>
+														</li>
+													<?php } ?>
+													</ul>
+													<?php $me_sw2 = ($me_sw2) ? ($is_sub_w * ($me_sw2 + 1)) : 0; //서브메뉴 너비 ?>
+													<div class="clearfix"<?php echo ($me_sw2) ? ' style="width:'.$me_sw2.'px;"' : '';?>></div>
+												<!-- </div> -->
+											<?php } ?>
+										</li>
+
+
+											<?php }?>
+
 									<?php } //for ?>
 									</ul>
 								<!-- </div> -->

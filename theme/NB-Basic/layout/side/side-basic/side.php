@@ -194,12 +194,19 @@ else if($end_time < $now_time){
             <?php if(isset($me['s'])) { //Is Sub Menu ?>
             <?php } ?>
             <div class="col-6 m-0 px-0">
-                        <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                              href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
-                        </a> -->
-                        <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                              href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
-                        </a>
+            <?php if($me['text']=="실장업무게시판")
+                              {if($member['mb_level']==26 || $member['mb_level']==27)
+                                 { ?>
+                                <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                                    href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > 
+                                  <?php echo $me['text'];?>
+                                  </a>
+                        <?php } }else { ?>
+                            <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                              href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > 
+                                  <?php echo $me['text'];?>
+                                  </a>
+                            <?php }?>
             </div>
             <?php if ($i%2==1) { ?>
                 </li>
@@ -211,7 +218,6 @@ else if($end_time < $now_time){
             </li>
         <?php } ?>
     </ul>
-
     <ul class="sub-ul mb-3">
         <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 18px; padding-bottom: 2px;">
         <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[4]['text']?>
@@ -273,7 +279,6 @@ else if($end_time < $now_time){
             </li>
         <?php } ?>
     </ul>
-
     <ul class="sub-ul mb-3">
         <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 18px; padding-bottom: 2px;">
         <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[6]['text']?>
