@@ -1034,7 +1034,7 @@ $data=array (
       0 =>
       array (
         'text' => '계급 랭킹',
-        'href' => G5_BBS_URL.'/board.php?bo_table=bestmember',
+        'href' => G5_BBS_URL.'/board.php?bo_table=levelrank',
         /* 'icon' => 'fa-trophy', */
         'icon'  => 'emoji_events-24px',
         'target' => '_self',
@@ -1047,7 +1047,7 @@ $data=array (
       1 =>
       array (
         'text' => '파운드 랭킹',
-        'href' => '#',
+        'href' => G5_BBS_URL.'/board.php?bo_table=pointrank',
         /* 'icon' => 'fa-trophy', */
         'icon'  => 'emoji_events-24px',
         'target' => '_self',
