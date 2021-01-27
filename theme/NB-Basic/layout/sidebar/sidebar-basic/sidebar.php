@@ -66,21 +66,22 @@ $menu_cnt = count($menu);
 			<!-- Login -->
 			<?php if ($is_member) { ?>
 			<div>
-				<div class="btn-group w-100" role="group" aria-label="Member Menu">
-					<a class="btn btn-primary text-white rounded-0" data-toggle="collapse" href="#mymenu_sidebar" role="button" aria-expanded="false" aria-controls="mymenu_sidebar">
+				<div class="btn-group " role="group" aria-label="Member Menu" style="width: 100%;">
+					<a class="btn btn-primary text-white " data-toggle="collapse" href="#mymenu_sidebar" role="button" aria-controls="mymenu_sidebar">
 						마이메뉴
-					</a>
-					<?php if (IS_NA_NOTI) { // 알림
-					?>
-						<a href="<?php echo G5_BBS_URL ?>/noti.php" class="btn btn-primary text-white" role="button">
-							<i class="fa fa-bell" aria-hidden="true"></i>
-							<?php if ($member['as_noti']) { ?><b><?php echo number_format($member['as_noti']) ?></b><?php } ?>
-						</a>
-					<?php } ?>
-					<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
+					</a>				
+
+					<a href="<?php echo G5_ATTENDANCE_URL ?>/m_attendance.php/" class="btn btn-primary text-white" role="button">
+					<i class="fas fa-calendar-check"></i></font></a>
+
+					
+				<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"><i class="fas fa-clipboard-list"></i></font></a>
+					
+
+					<!-- <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
 						<?php if ($member['mb_memo_cnt']) { ?><b><?php echo number_format($member['mb_memo_cnt']); ?></b><?php } ?>
-					</a>
+					</a> -->
 					<a href="<?php echo G5_BBS_URL ?>/logout.php" class="btn btn-primary text-white rounded-0" role="button">
 						로그아웃
 					</a>

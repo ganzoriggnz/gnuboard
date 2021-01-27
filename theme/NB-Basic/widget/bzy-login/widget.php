@@ -179,8 +179,7 @@ function insert_nickname($wer)
 			<?php } ?> -->
 
 				
-
-				<a href="<?php echo G5_ATTENDANCE_URL. G5_IS_MOBILE ? "/m_" : "/" ?>attendance.php/" class="btn btn-primary text-white" role="button">
+				<a href="<?php echo G5_ATTENDANCE_URL ?>/attendance.php/" class="btn btn-primary text-white" role="button">
 					<i class="fas fa-calendar-check"></i></font></a>
 
 					
