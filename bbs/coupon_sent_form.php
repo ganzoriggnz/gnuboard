@@ -59,7 +59,7 @@ if($cos_type == 'F'){ $coupon_type = '무료'; } else { $coupon_type = '원가';
 $res = "SELECT * FROM {$g5['coupon_msg_table']} ORDER BY msg_no DESC LIMIT 1";
 $row = sql_fetch($res); 
 
-$me_memo = $coupon_type."쿠폰에 당첨되셨습니다." . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . $row['msg_customer_text'];
+$me_memo = $coupon_type.$row['msg_customer_title'] . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . $row['msg_customer_text'];
 
 $tmp_row = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} ");
     $me_id = $tmp_row['max_me_id'] + 1;
@@ -87,7 +87,7 @@ $res_ent = sql_fetch($sql_ent);
 $ent_id = $res_ent['mb_id'];
 $ent_nick = $res_ent['mb_nick'];
 
-$me_memo1 = "[쿠폰] ".$coupon_type."쿠폰 당첨자 보내드립니다." . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . "쿠폰번호 : " . $coupon . "\r\n" . $row['msg_entity_text'];
+$me_memo1 = "[쿠폰] ".$coupon_type.$row['msg_entity_title'] . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . "쿠폰번호 : " . $coupon . "\r\n" . $row['msg_entity_text'];
 
 $tmp_row1 = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} ");
     $me_id1 = $tmp_row1['max_me_id'] + 1;

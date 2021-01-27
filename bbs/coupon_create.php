@@ -66,7 +66,9 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_msg_table']}",false)) {
     $sql_table3 = "CREATE TABLE {$g5['coupon_msg_table']} (
         msg_no int(11) NOT NULL AUTO_INCREMENT, 
         msg_customer_text text(255) NOT NULL DEFAULT '',  
-        msg_entity_text text(255) NOT NULL DEFAULT '',           
+        msg_entity_text text(255) NOT NULL DEFAULT '', 
+        msg_customer_title text(255) NOT NULL DEFAULT '',  
+        msg_entity_title text(255) NOT NULL DEFAULT '',           
         msg_created_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         PRIMARY KEY (msg_no),
         INDEX (msg_created_datetime)
