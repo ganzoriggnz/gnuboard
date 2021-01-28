@@ -210,10 +210,11 @@
 ********************************************************/
 .flower_img { 
 	float:right;
-	position: absolute;
-	width:295px;
+	position: fixed;
+	width:180px;
 	height:331px; 
 	right: 0px;
-	bottom: 170px;  
+	bottom: 0px; 
+	z-index: -1; 
 }
 

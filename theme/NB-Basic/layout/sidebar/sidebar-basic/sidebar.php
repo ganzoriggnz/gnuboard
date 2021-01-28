@@ -240,8 +240,6 @@ $menu_cnt = count($menu);
 			</ul>
 		</div>
 
-
-
 		<div id="nt_sidebar_menu">
 			<ul class="me-ul border-top">
 				<?php for ($i = 0; $i < $menu_cnt; $i++) {
@@ -359,8 +357,7 @@ $menu_cnt = count($menu);
 </aside>
 
 <div id="nt_sidebar_mask" class="sidebar-close"></div>
-<div class="flower_img d-md-block d-none" style="background-image:url(<?php echo G5_URL?>/img/decor_3_by_diza.png)">	
-</div>
+<div class="flower_img d-md-block d-none" style="background-image:url(<?php echo G5_URL?>/img/decor_3_by_diza.png)"></div>
 
 <!-- 상단이동 버튼 -->
 <div id="nt_bottom">
