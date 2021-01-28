@@ -73,7 +73,7 @@ $menu_json = ($menu_json) ? stripslashes($menu_json) : '""';
 									</div>
 									<input type="text" id="me_text" name="text" class="form-control item-menu" placeholder="메뉴명 입력">
 								</div>
-								<input type="text" id="me_icon" name="icon" class="item-menu">
+								<input type="hidden" id="me_icon" name="icon" class="item-menu">
 							</div>
 						</div>
 					</li>
@@ -216,10 +216,6 @@ $menu_json = ($menu_json) ? stripslashes($menu_json) : '""';
 		editor.setData(strjson);
 	});
 </script>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>        
-        <script type="text/javascript" src="bootstrap-iconpicker-1.10.0/dist/js/bootstrap-iconpicker.bundle.min.js"></script>
 
 <?php
 include_once('../tail.php');
