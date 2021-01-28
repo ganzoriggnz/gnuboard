@@ -5,39 +5,32 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
 
 ?>
-<div id="bo_v">
+<div id="bo_v" style="width: 1200px;">
     <div class="pet_text">
         <div>
             <h1>펫기르기</h1>
         </div>
         <div>
-            <p class="pet_p1">강아지 또는 고양이에게 사료 1회, 청소 1회, 스담스담 1회 30분 간격으로 완료시 파운드 100 지급 </p>
+            <p class="pet_p1">고양이에게 사료 1회, 청소 1회, 스담스담 1회 30분 간격으로 완료시 파운드 100 지급</p>
         </div>
     </div>
     <div class="pet_img_div">
         <div>
             <img src="<?php echo G5_URL ?>/img/cat.png">
         </div>
-        <div class="pet_img2">
-            <img src="<?php echo G5_URL ?>/img/dog.png">
-        </div>
     </div>
-    <form name="fregister" id="fregister" action="<?php echo $register_action_url ?>" onsubmit="return fregister_submit(this);" method="POST" autocomplete="off">
         <div class="row_btn mt_54">
-            <button type="button" id="btn_cat1" name="cat1" class="btn_pet_first">청소하기</button>
-            <button type="button" id="btn_dog1" name="cat2" class="btn_pet_second">청소하기</button>
+            <button type="button" id="cat1" name="cat1" class="btn_pet_first">청소하기</button>
+        </div>      
+        <div class="row_btn mt_24">        
+            <button type="button" id="cat2" class="btn_pet_first">쓰담쓰담 하기</button>
         </div>
         <div class="row_btn mt_24">
-            <button type="button" id="btn_cat2" class="btn_pet_first">쓰담쓰담 하기</button>
-            <button type="button" id="btn_dog2" class="btn_pet_second">쓰담쓰담 하기</button>
+            <button type="button" id="cat3" class="btn_pet_first">사료주기</button>
         </div>
-        <div class="row_btn mt_24">
-            <button type="button" id="btn_cat3" class="btn_pet_first">사료주기</button>
-            <button type="button" id="btn_dog3" class="btn_pet_second">사료주기</button>
-        </div>
-    </form>
+        <div id ="result"></div>
     <div class="pet_bottom">
-        <p>* 모든 버튼은 <span class="red">매일 12시(한국시간) 초기화 된다</span></p>
+        <p>* 모든 버튼은 <span class="red">매일 12시 초기화 됩니다</span></p>
     </div>
     <div class="popup_box">
       <h1>펫기르기</h1>
@@ -72,10 +65,23 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     lastClickedTime = new Date($.now());
                     count+=1;
                     $('#demo').html("My current count is: " + count);
+                    var id = this.id;
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: 'pet_update.php',
+                        data: {
+                            'id': id
+                        },
+                        dataType: 'text',
+                        success: function(response) {
+                            //$('#result').html(response);
+                        }
+                    });
                 }
                 else
                 {
-                    if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 30)
+                    if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 2)
                     {
                         $("#" + this.id).css("background","#4D4D4D");
                         lastClickedTime = new Date($.now());
@@ -83,6 +89,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         $('#demo').html("My current count is: " + count);
                         var id = this.id; 
                         getSuccess(count, id);
+                            $.ajax({
+                            type: 'POST',
+                            url: 'pet_update.php',
+                            data: {
+                                'id': id
+                            },
+                            dataType: 'text',
+                            success: function(response) {
+                                //$('#result').html(response);
+                            }
+                        });
                     }
                     else
                     {
@@ -96,7 +113,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 }
             }); 
 
-            function getSuccess(count, id){
+            /* function getSuccess(count, id){
                 if(count==3 && id.includes('cat')){
                             $('#pet').html('고양이 ');
                             $('.popup_box1').css("display", "block");
@@ -122,6 +139,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                             $('.popup_box1').css("display", "none");
                             });
                         }
+            } */
+
+            function getSuccess(count, id){      
+                if(count==3){
+                    $('#pet').html('강아지 ');
+                    $('.popup_box1').css("display", "block");
+                    $('.btn1').click(function(){
+                    $('.popup_box1').css("display", "none");
+                    });
+                } 
             }
 
             function getElapsedTime(last, current) 
@@ -147,6 +174,27 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
 
                 return seconds / 60 + minutes + hours * 60 + days * 1440; 
             }
+
+       
+            function insertTime(){
+                $('button').click(function(e){
+                    e.preventDefault();
+                    var id = this.id;
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: 'pet_update.php',
+                        data: {
+                            'id': id
+                        },
+                        dataType: 'text',
+                        success: function(response) {
+                            //$('#result').html(response);
+                        }
+                    });
+                });
+            }
+  
         });
     </script>
     
