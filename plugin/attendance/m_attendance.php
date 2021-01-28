@@ -325,7 +325,7 @@ function dateGo(day)
 <form name="fattendance" method="post" onsubmit="return fattendance_submit(this);" style="margin:0px;">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td>
     <input type="text" id="subject" name="subject" class="input" size="34" value="출석인사를 입력해 주세요." onmouseover="if(!this.value || this.value == '출석인사를 입력해 주세요.')this.value='';" >        
-    <input type="image" src="./img/attendance_ok.gif" border="0"  align="absmiddle">
+    <input type="image" src="<?php echo G5_IMG_URL ?>/attendance_ok.gif" border="0"  align="absmiddle">
 </td></tr></table>
 </form>
 <script type="text/javascript"> 
