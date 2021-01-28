@@ -43,6 +43,9 @@
 .fa-commenting-o:before {
     content: "\f27a";
 }
+.fa-address-book-o:before {
+  content: "\f2ba";
+}
 .fa-lg {
   font-size: 1.33333em;
   line-height: 0.75em;

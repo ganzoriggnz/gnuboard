@@ -60,6 +60,7 @@ $list_cnt = count($list);
 	<ul class="na-table d-md-table w-100">
 	<?php
 	for ($i=0; $i < $list_cnt; $i++) { 
+if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin){
 
 		//아이콘 체크
 		$wr_icon = '';
@@ -174,7 +175,7 @@ $list_cnt = count($list);
 			<?php } ?>
 			<div class="clearfix d-block d-md-none"></div>
 		</li>
-	<?php } ?>
+	<?php }} ?>
 	</ul>
 	<?php if (!$list_cnt) { ?>
 		<div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">게시물이 없습니다.</div>
