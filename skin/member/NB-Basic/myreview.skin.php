@@ -5,6 +5,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css">', 0);
 ?>
 
+<div id="bo_v" style="width: 1200px;">
 <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
     <div class="px-3 px-sm-0">
         <div class="d-flex">
@@ -180,3 +181,4 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
         </ul>
     </div>
 </section>
+    </div>

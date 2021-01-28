@@ -4,7 +4,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">', 0);
 ?>
-<div id="bo_v">   
+<div id="bo_v" style="width: 1200px;">   
     <table cellspacing="0" cellpadding="0" width="100%" align="center" style="border:1px solid #d3d3d3; padding:10px; margin-top: 20px;" id="level-up">
 		<thead>
 			<tr>
@@ -37,14 +37,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			<tr>
 				<td class="cl_td">2</td>
 				<td class="cl_td">자유게시판</td>	
-				<td class="cl_td_l">자유게시판에 글 1회 작성하기(0/1)				
+				<td class="cl_td_l">자유게시판에 글 1회 작성하기(<?php if($cnt == 0) { echo '0'; } else if($cnt > 0) { echo '1';} ?> /1)				
 				</td>
 				<td class="cl_td_r">
 				10 
 				점				
 				</td>
 				<td class="cl_td">
-					<div class="miss_but_1">
+					<div class="<?php if($cnt > 0){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>																
@@ -61,7 +61,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 점				
                 </td>
 				<td class="cl_td">
-					<div class="miss_but_1">
+					<div class="<?php if($cnt > 0){ echo "miss_but_3";} else {echo "miss_but_1"; } ?>">
                         <a href="#" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>															
