@@ -213,8 +213,10 @@
 	position: fixed;
 	width:235px;
 	height:331px; 
-	right: 0px;
+	right: -20px;
 	bottom: 0px; 
 	z-index: -1; 
+	background-image:url(../../../../../img/decor_3_by_diza.png);
+	background-size: 100% 100%;
 }
 

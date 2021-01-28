@@ -363,12 +363,9 @@ $menu_cnt = count($menu);
 </aside>
 
 <div id="nt_sidebar_mask" class="sidebar-close"></div>
-<<<<<<< Updated upstream
-<div class="flower_img d-md-block d-none" style="background-image:url(<?php echo G5_URL?>/img/decor_3_by_diza.png)"></div>
-=======
-<div class="flower_img d-md-block d-none" style="background-image:url(<?php echo G5_URL ?>/img/decor_3_by_diza.png)">
-</div>
->>>>>>> Stashed changes
+<div class="flower_img d-md-block d-none"></div>
+
+
 
 <!-- 상단이동 버튼 -->
 <div id="nt_bottom">
