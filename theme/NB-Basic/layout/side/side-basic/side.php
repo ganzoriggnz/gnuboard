@@ -4,13 +4,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 ?>
 
-<?php if($is_index) { // 인덱스에서만 출력 ?>
-	<!-- 로그인 시작 -->
 
-	<!-- 로그인 끝 -->
-<?php } else { // 페이지에서는 메뉴 출력 ?>
-	
-<?php } ?>
 
 <!-- hulan nemsen  -->
 <div class="side_cate">
