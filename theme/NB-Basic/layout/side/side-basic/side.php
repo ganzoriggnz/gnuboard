@@ -20,7 +20,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
     }
 
 	// 선택메뉴가 있다면...
-	if(!empty($mes)) {
+/* 	if(!empty($mes)) {
     ?>
 		<div id="nt_side_menu" class="font-weight-normal mb-4">
 			<div class="bg-primary text-white text-center p-4 py-sm-5 en">
@@ -74,7 +74,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 		});
 		</script> 
 	<?php } ?>
-<?php } ?>
+<?php } ?> */
 
 <!-- hulan nemsen  -->
 <div class="side_cate">
