@@ -5,6 +5,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$content_skin_url.'/style.css">', 0);
 ?>
 
+<div id="bo_list_wrap" style="width: 1200px;">
 <article id="ctt" class="ctt_<?php echo $co_id; ?>">
     <header>
         <h1 class="sound_only"><?php echo $g5['title']; ?></h1>
@@ -22,3 +23,4 @@ add_stylesheet('<link rel="stylesheet" href="'.$content_skin_url.'/style.css">',
 		?>
     </div>
 </article>
+		</div>

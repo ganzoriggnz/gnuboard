@@ -157,13 +157,13 @@ if ($is_member)
 			if ($is_eventcheck) {
 				$option .= $option_start;
 				$option .= '<input type="checkbox" name="event" value="1" id="event" class="custom-control-input" ' . $event_checked . '>';
-				$option .= '<label class="custom-control-label" for="event"><span>event</span></label>';
+				$option .= '<label class="custom-control-label" for="event"><span>이벤트</span></label>';
 				$option .= $option_end;
 			}
 			if ($is_best) {
 				$option .= $option_start;
 				$option .= '<input type="checkbox" name="best" value="1" id="best" class="custom-control-input" ' . $best_checked . '>';
-				$option .= '<label class="custom-control-label" for="best"><span>best</span></label>';
+				$option .= '<label class="custom-control-label" for="best"><span>베스트</span></label>';
 				$option .= $option_end;
 			}
 

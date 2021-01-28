@@ -37,7 +37,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_header_url.'/header.css">', 0
 					</div>
 				</div>
 			</div> -->
-			<div class="ml-auto align-self-start" style="display: flex;flex-direction: row;">
+			<div class="align-self-start" style="display: flex;flex-direction: row; margin-left: auto!important;">
 				<!-- 배너 등 우측 영역 컨텐츠 -->
 				<?php echo na_widget('bzy-quick-menu');?>
 				<?php echo na_widget('bzy-login'); ?>

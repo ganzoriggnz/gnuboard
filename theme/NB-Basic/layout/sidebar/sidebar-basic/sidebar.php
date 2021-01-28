@@ -54,34 +54,40 @@ $menu_cnt = count($menu);
 		</div>
 	</div>
 
-    <!-- Head Line -->
+	<!-- Head Line -->
 	<div class="sidebar-head bg-<?php echo $line_top; ?>"></div>
 
 
 	<!-- sidebar Content -->
 	<div id="sidebar-content" class="sidebar-content">
 
-	<!-- sidebard login heseg nemeh hulan -->
+		<!-- sidebard login heseg nemeh hulan -->
 
-			<!-- Login -->
-			<?php if ($is_member) { ?>
+		<!-- Login -->
+		<?php if ($is_member) { ?>
 			<div>
 				<div class="btn-group " role="group" aria-label="Member Menu" style="width: 100%;">
 					<a class="btn btn-primary text-white " data-toggle="collapse" href="#mymenu_sidebar" role="button" aria-controls="mymenu_sidebar">
 						마이메뉴
-					</a>				
-
+					</a>
+					<?php if (IS_NA_NOTI) { // 알림 
+					?>
+						<a href="<?php echo G5_BBS_URL ?>/noti.php" class="btn btn-primary text-white" role="button">
+							<i class="fa fa-bell" aria-hidden="true"></i>
+							<?php if ($member['as_noti']) { ?><b><?php echo number_format($member['as_noti']) ?></b><?php } ?>
+						</a>
+					<?php } ?>
 					<a href="<?php echo G5_ATTENDANCE_URL ?>/m_attendance.php/" class="btn btn-primary text-white" role="button">
-					<i class="fas fa-calendar-check"></i></font></a>
+						<i class="fas fa-calendar-check"></i></font></a>
 
-					
-				<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"><i class="fas fa-clipboard-list"></i></font></a>
-					
 
-					<!-- <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
+					<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"><i class="fas fa-clipboard-list"></i></font></a>
+
+
+					<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
 						<?php if ($member['mb_memo_cnt']) { ?><b><?php echo number_format($member['mb_memo_cnt']); ?></b><?php } ?>
-					</a> -->
+					</a>
 					<a href="<?php echo G5_BBS_URL ?>/logout.php" class="btn btn-primary text-white rounded-0" role="button">
 						로그아웃
 					</a>
@@ -168,7 +174,7 @@ $menu_cnt = count($menu);
 			</div>
 		<?php } else { ?>
 			<div class="clearfix py-2 f-de border-top">
-			<div class="btn-group w-100" role="group">
+				<div class="btn-group w-100" role="group">
 					<a class="btn btn-primary text-white rounded-0" href="<?php echo G5_BBS_URL ?>/login.php?url=<?php echo $urlencode ?>">
 						<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 						<b>로그인</b>
@@ -180,7 +186,7 @@ $menu_cnt = count($menu);
 					<!-- <a class="btn btn-primary" href="<?php echo G5_BBS_URL ?>/password_lost.php" class="win_password_lost">
 						정보찾기
 					</a> -->
-			</div>
+				</div>
 			</div>
 		<?php } ?>
 
@@ -214,33 +220,31 @@ $menu_cnt = count($menu);
 		<div class="px-3">
 			<ul class="d-flex justify-content-between text-center f-de mt-3 mb-2">
 				<li>
-					<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=notice">
+					<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=notice">
 						<i class="fa fa-bullhorn circle light-circle normal" aria-hidden="true"></i>
 						<span class="d-block mt-2">공지사항</span>
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo G5_BBS_URL?>/content.php?co_id=company">
+					<a href="<?php echo G5_BBS_URL ?>/content.php?co_id=company">
 						<i class="fas fa-atlas circle light-circle normal" aria-hidden="true"></i>
 						<span class="d-block mt-2">사이트안내</span>
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=event">
+					<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=event">
 						<i class="fas fa-glass-cheers circle light-circle normal" aria-hidden="true"></i>
 						<span class="d-block mt-2">이벤트/모임</span>
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo G5_BBS_URL?>/qalist.php">
+					<a href="<?php echo G5_BBS_URL ?>/qalist.php">
 						<i class="fas fa-handshake circle light-circle normal" aria-hidden="true"></i>
 						<span class="d-block mt-2">1:1 문의</span>
 					</a>
 				</li>
 			</ul>
 		</div>
-
-
 
 		<div id="nt_sidebar_menu">
 			<ul class="me-ul border-top">
@@ -312,7 +316,7 @@ $menu_cnt = count($menu);
 				<?php } ?>
 			</ul>
 		</div>
-					<!-- hulan tailbar bolgov -->
+		<!-- hulan tailbar bolgov -->
 		<!-- <div class="p-3 mb-5 border-top" style="margin-top:-1px">
 			<ul class="f-de font-weight-normal">
 				<?php if ($stats['now_total']) { ?>
@@ -359,8 +363,9 @@ $menu_cnt = count($menu);
 </aside>
 
 <div id="nt_sidebar_mask" class="sidebar-close"></div>
-<div class="flower_img d-md-block d-none" style="background-image:url(<?php echo G5_URL?>/img/decor_3_by_diza.png)">	
-</div>
+<div class="flower_img d-md-block d-none"></div>
+
+
 
 <!-- 상단이동 버튼 -->
 <div id="nt_bottom">

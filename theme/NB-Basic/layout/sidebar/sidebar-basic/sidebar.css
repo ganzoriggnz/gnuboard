@@ -210,10 +210,13 @@
 ********************************************************/
 .flower_img { 
 	float:right;
-	position: absolute;
-	width:295px;
+	position: fixed;
+	width:235px;
 	height:331px; 
-	right: 0px;
-	bottom: 170px;  
+	right: -20px;
+	bottom: 0px; 
+	z-index: -1; 
+	background-image:url(../../../../../img/decor_3_by_diza.png);
+	background-size: 100% 100%;
 }
 
