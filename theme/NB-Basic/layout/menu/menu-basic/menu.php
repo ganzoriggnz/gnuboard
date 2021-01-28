@@ -101,9 +101,9 @@ $is_col_all = 6;
 									<?php for($j=0; $j < count($me['s']); $j++) {
 											$me1 = $me['s'][$j];
 									?>
-										<?php if($me1['line']) { //구분라인 ?>
+										<!-- <?php if($me1['line']) { //구분라인 ?>
 											<li class="dropdown-item sub-1line" ><a class="me-sh sub-1da"><?php echo $me1['line'];?></a></li>
-										<?php } ?>										
+										<?php } ?>										 -->
 										<?php if($me1['text']=="실장업무게시판")
 												{if($member['mb_level']==26 || $member['mb_level']==27)
 													{ ?>
