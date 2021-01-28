@@ -1,4 +1,5 @@
 <?php
+include_once("../../common.php");
 include_once("./_setup.php");
 $G5_TIME_YMD = G5_TIME_YMD;
 $g5['title'] = "출석체크";
@@ -13,7 +14,10 @@ $g5['title'] = "출석체크";
 		    sumday int(11) NOT NULL default '0',
 		    reset int(11) NOT NULL default '0',
 		    reset2 int(11) NOT NULL default '0',
-		    reset3 int(11) NOT NULL default '0',
+            reset3 int(11) NOT NULL default '0',
+            reset4 int(11) NOT NULL default '0',
+		    reset5 int(11) NOT NULL default '0',
+		    reset6 int(11) NOT NULL default '0',
 		    point int(11) NOT NULL default '0',
 		    datetime datetime NOT NULL default '0000-00-00 00:00:00',
 		    PRIMARY KEY  (id),
@@ -121,10 +125,17 @@ if ($d) {
 			</div>		    
 		</td>
         <td width="" height="60" style='padding-left:10px;'>
-		    . 출석시간 : <br />&nbsp;&nbsp;<?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br /><br />
-            . 출석포인트 : <?php echo number_format($attendance['today_point'])?> 점<br /><br />
-			. 등수 포인트 : <br />&nbsp;&nbsp;1등 <?php echo number_format($attendance['first_point'])?> 점, 2등 <?php echo number_format($attendance['second_point'])?> 점, 3등 <?php echo number_format($attendance['third_point'])?> 점<br /><br />
-			. 개근 포인트 : <br />&nbsp;&nbsp;<?php echo $attendance['day']?>일 포인트 : <?php echo number_format($attendance['day_point'])?> 점, <br />&nbsp;&nbsp;<?php echo $attendance['monthly']?>일 포인트 : <?php echo number_format($attendance['monthly_point'])?> 점, <br />&nbsp;&nbsp;<?php echo $attendance['year']?>일 포인트 : <?php echo number_format($attendance['year_point'])?> 점
+		    출석시간 : <br />&nbsp;&nbsp;<?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br/><br/>
+            출석파운드 : <?php echo number_format($attendance['today_point'])?> 파운드<br /><br />
+            등수 파운드 : <br />&nbsp;&nbsp;1등 <?php echo number_format($attendance['first_point'])?> 파운드, 2등 <?php echo number_format($attendance['second_point'])?> 파운드, 3등 <?php echo number_format($attendance['third_point'])?> 파운드<br />
+            <br />
+            개근 파운드 : <br />
+            <?php echo $attendance['day']?>일 파운드 : <?php echo number_format($attendance['day_point'])?> 파운드,<br />
+            <?php echo $attendance['monthly']?>일 파운드 : <?php echo number_format($attendance['monthly_point'])?> 파운드, <br />
+            <?php echo $attendance['year1']?>일 파운드 : <?php echo number_format($attendance['year1_point'])?> 파운드, <br />
+            <?php echo $attendance['year2']?>일 파운드 : <?php echo number_format($attendance['year2_point'])?> 파운드, <br />
+            <?php echo $attendance['year3']?>일 파운드 : <?php echo number_format($attendance['year3_point'])?> 파운드, <br />
+            <?php echo $attendance['year']?>일 파운드 : <?php echo number_format($attendance['year_point'])?>파운드
 		</td>
     </tr>
 </table>
@@ -324,8 +335,8 @@ function dateGo(day)
     <td style="height:32px; border:0px solid">
 <form name="fattendance" method="post" onsubmit="return fattendance_submit(this);" style="margin:0px;">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td>
-    <input type="text" id="subject" name="subject" class="input" size="34" value="출석인사를 입력해 주세요." onmouseover="if(!this.value || this.value == '출석인사를 입력해 주세요.')this.value='';" >        
-    <input type="image" src="<?php echo G5_IMG_URL ?>/attendance_ok.gif" border="0"  align="absmiddle">
+    <input type="text" id="subject" name="subject" class="input" style="height: 30px;" value="출석인사를 입력해 주세요." onmouseover="if(!this.value || this.value == '출석인사를 입력해 주세요.')this.value='';" >        
+    <input type="image" style="height: 30px;"  src="<?php echo G5_IMG_URL ?>/attendance_ok.gif" border="0"  align="absmiddle">
 </td></tr></table>
 </form>
 <script type="text/javascript"> 
@@ -340,8 +351,8 @@ function fattendance_submit(f)
         return false; 
 
     } 
-
-    f.action = "./m_attendance_write_update.php"; 
+   f.action = "<?php echo G5_PLUGIN_URL ?>/attendance/m_attendance_write_update.php"; 
+    // f.action = "./m_attendance_write_update.php"; 
 } 
 </script>
     </td>
@@ -355,7 +366,7 @@ function fattendance_submit(f)
     <td width="100" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>출석시간</td>
     <td width="110" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>닉네임</td>
     <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>접속중</td>
-    <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>포인트</td>
+    <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>파운드</td>
     <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>개근</td>
 </tr>
 <?php
@@ -396,7 +407,7 @@ for ($i=0; $data=sql_fetch_array($result); $i++) {
     <td align="center"><?php echo substr($data['datetime'],10,16);?></td>
     <td align="center"><?php echo $name?></td>
     <td align="center"><?php echo $on?></td>
-    <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']);?> 점</td>
+    <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']);?> 파운드</td>
     <td align="center"><?php echo $data['day']?> 일째</td>
 </tr>
 <tr><td bgcolor="#EEEEEE" colspan="<?php echo $colspan?>" height="1"></td></tr>

@@ -437,14 +437,17 @@ $data=array (
       1 => 
       array (
         'text' => '오피-비강남',
-        'href' => '/bbs/board.php?bo_table=opiBigangnam',
+        'href' => 'http://localhost:8080/gnuboard/bbs/board.php?bo_table=opiBigangnam_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'link',
+        'id' => 'bbs-board-opiBigangnam_re',
+        'bo_table' => 'opiBigangnam_re',
+        'wr_id' => NULL,
+        'sca' => NULL,
       ),
       2 => 
       array (
@@ -821,17 +824,18 @@ $data=array (
       0 => 
       array (
         'text' => '출석체크',
+<<<<<<< Updated upstream
         'href' => 'http://localhost/gnuboard/bbs/board.php?bo_table=attendance',
+=======
+        'href' => 'http://localhost:8080/gnuboard/plugin/attendance/attendance.php',
+>>>>>>> Stashed changes
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '공지사항',
         'sp' => '1',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-attendance',
-        'bo_table' => 'attendance',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'plugin-attendance-page-attendance',
       ),
       1 => 
       array (

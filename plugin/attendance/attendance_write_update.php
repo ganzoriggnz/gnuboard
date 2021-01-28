@@ -50,6 +50,7 @@ $sql_year1_point = $attendance['year1_point'];
 $sql_year2_point = $attendance['year2_point'];
 $sql_year3_point = $attendance['year3_point'];
 $sql_year_point = $attendance['year_point'];
+
 $sql_day_cnt = $attendance['day'];
 $sql_monthly_cnt = $attendance['monthly'];
 $sql_year1_cnt = $attendance['year1'];
@@ -74,34 +75,34 @@ if ($row['mb_id']) {
     $sql_reset6 = $row['reset6'] + 1;
    
     
-    if ($sql_reset == $sql_day_cnt) { // 7일 개근
+    if ($row['reset'] == $sql_day_cnt) { // 7일 개근
         $sql_reset  = "0"; 
         $sql_point  = $sql_point + $sql_day_point;
     }
 	
-	if ($sql_reset2 == $sql_monthly_cnt) { // 30일 개근
+	if ($row['reset2'] == $sql_monthly_cnt) { // 30일 개근
         $sql_reset2 = "0"; 
         $sql_point  = $sql_point + $sql_monthly_point;
     }
-	
 
-    if ($sql_reset4 == $sql_year1_cnt) {  // 365일 개근
-        $sql_reset4 = "0"; 
+    if ($row['reset3'] == $sql_year1_cnt) {  // 365일 개근
+        $sql_reset3 = "0"; 
         $sql_point  = $sql_point + $sql_year1_point;
     }
 
-    if ($sql_reset5 == $sql_year2_cnt) {  // 500일 개근
-        $sql_reset5 = "0"; 
+    if ($row['reset4'] == $sql_year2_cnt) {  // 500일 개근
+        $sql_reset4 = "0"; 
         $sql_point  = $sql_point + $sql_year2_point;
     }
 
-    if ($sql_reset6 == $sql_year3_cnt) {  // 700일 개근
-        $sql_reset6 = "0"; 
+    if ($row['reset5'] == $sql_year3_cnt) {  // 700일 개근
+        $sql_reset5 = "0"; 
         $sql_point  = $sql_point + $sql_year3_point;
     }
 
-    if ($sql_reset3 == $sql_year_cnt) {  // 1000일 개근
-        $sql_reset3 = "0"; 
+    if ($row['reset6'] == $sql_year_cnt) {  // 1000일 개근
+        $sql_reset6 = "0"; 
+        $sql_day = "1";
         $sql_point  = $sql_point + $sql_year_point;
     }
 } else { // 출석하지 않았다면
@@ -143,9 +144,13 @@ $sql = " insert into $g5[attendance_table]
             set mb_id = '$member[mb_id]',
                 subject = '".$_POST['subject']."',
                 day = '$sql_day',
+                sumday = '$sumday',
                 reset = '$sql_reset',
                 reset2 = '$sql_reset2',
                 reset3 = '$sql_reset3',
+                reset4 = '$sql_reset4',
+                reset5 = '$sql_reset5',
+                reset6 = '$sql_reset6',
                 point = '$sql_point',
 				rank = '$rank',			
                 datetime = '".G5_TIME_YMDHIS."' ";

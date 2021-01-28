@@ -1,5 +1,5 @@
 <?php
-//include_once("../../common.php");
+include_once("../../common.php");
 include_once("./_setup.php");
 $G5_TIME_YMD = G5_TIME_YMD;
 $g5['title'] = "출석체크";
@@ -15,6 +15,9 @@ $g5['title'] = "출석체크";
 		    reset int(11) NOT NULL default '0',
 		    reset2 int(11) NOT NULL default '0',
 		    reset3 int(11) NOT NULL default '0',
+		    reset4 int(11) NOT NULL default '0',
+		    reset5 int(11) NOT NULL default '0',
+		    reset6 int(11) NOT NULL default '0',
 		    point int(11) NOT NULL default '0',
 		    datetime datetime NOT NULL default '0000-00-00 00:00:00',
 		    PRIMARY KEY  (id),
@@ -125,8 +128,8 @@ if ($d) {
         <td width="" height="60" style='padding-left:10px;'>
 		    . 출석시간 : <?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br>
             . 출석파운드 : <?php echo number_format($attendance['today_point'])?> 파운드<br>
-            . 개근상 : <?php echo $attendance['day']?>일 : <?php echo number_format($attendance['day_point'])?> 파운드,&nbsp;&nbsp;	<?php echo $attendance['monthly']?>일 : <?php echo number_format($attendance['monthly_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year']?>일 : <?php echo number_format($attendance['year_point'])?> 파운드,
-            &nbsp;&nbsp;<?php echo $attendance['year1']?>일 : <?php echo number_format($attendance['year1_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year2']?>일 : <?php echo number_format($attendance['year2_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year3']?>일 : <?php echo number_format($attendance['year3_point'])?> 파운드
+            . 개근상 : <?php echo $attendance['day']?>일 : <?php echo number_format($attendance['day_point'])?> 파운드,&nbsp;&nbsp;	<?php echo $attendance['monthly']?>일 : <?php echo number_format($attendance['monthly_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year1']?>일 : <?php echo number_format($attendance['year1_point'])?> 파운드,
+            &nbsp;&nbsp;<?php echo $attendance['year2']?>일 : <?php echo number_format($attendance['year2_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year3']?>일 : <?php echo number_format($attendance['year3_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year']?>일 : <?php echo number_format($attendance['year_point'])?> 파운드
             <br>
 			. 1등 파운드 : <?php echo number_format($attendance['first_point'])?> 파운드&nbsp;&nbsp;
 			. 2등 파운드 : <?php echo number_format($attendance['second_point'])?> 파운드&nbsp;&nbsp;
