@@ -92,7 +92,7 @@ $is_col_all = 6;
 					?>
 						<li class="nav-item dropdown col p-0 me-li<?php echo ($me['on']) ? ' on' : ''; ?> right_border">
 							<a data-toggle="dropdown" class="me-a f-md en nav-link <?php echo count($me['s'])>1 ? ' dropdown-toggle' : ''; ?>" href="<?php echo $me['href'];?>" target="<?php echo $me['target'];?>">
-								<img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" style="margin-left: 3.3px;">
+								<img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg" style="height :14px; margin-left: 3.3px;">
 								<?php echo $me['text'];?>
 							</a>
 							<?php if(isset($me['s'])) { //Is Sub Menu ?>
@@ -103,17 +103,14 @@ $is_col_all = 6;
 									?>
 										<?php if($me1['line']) { //구분라인 ?>
 											<li class="dropdown-item sub-1line" ><a class="me-sh sub-1da"><?php echo $me1['line'];?></a></li>
-										<?php } ?>
-
-										
+										<?php } ?>										
 										<?php if($me1['text']=="실장업무게시판")
 												{if($member['mb_level']==26 || $member['mb_level']==27)
 													{ ?>
-
 										<li class="dropdown-submenu sub-1dli<?php echo ($me1['on']) ? ' on' : ''; ?>" style="flex:1;">
 											<a href="<?php echo $me1['href'];?>" data-toggle="dropdown" class="dropdown-item <?php echo count($me1['s'])>1 ? ' dropdown-toggle' : ''?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : '';?>" target="<?php echo $me1['target'];?>">
 				
-												<img src="<?php echo G5_URL?>/img/<?php echo $me1['icon'] ?>.png" >
+												<img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>.svg"  style="height :14px;" >
 												<?php echo $me1['text'];?>
 											</a>
 
@@ -138,7 +135,7 @@ $is_col_all = 6;
 														<li class="sub-2dli<?php echo ($me2['on']) ? ' on' : ''; ?>">
 															<a href="<?php echo $me2['href'] ?>" class="dropdown-item me-sh sub-2da" target="<?php echo $me2['target'] ?>">
 																<!-- <i class="fa <?php echo $me2['icon'] ?> fa-fw" aria-hidden="true"></i> -->
-																<img src="<?php echo G5_URL?>/img/<?php echo $me2['img'] ?>.png" >
+																<img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me2['icon'], 3, strlen($me2['icon'])) ?>.svg"  style="height :14px;" >
 																<?php echo $me2['text'];?>
 															</a>
 														</li>
@@ -149,12 +146,10 @@ $is_col_all = 6;
 												<!-- </div> -->
 											<?php } ?>
 										</li>
-
 											<?php } }else { ?>
-
 												<li class="dropdown-submenu sub-1dli<?php echo ($me1['on']) ? ' on' : ''; ?>" style="flex:1;">
 												<a href="<?php echo $me1['href'];?>" data-toggle="dropdown" class="dropdown-item <?php echo count($me1['s'])>1 ? ' dropdown-toggle' : ''?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : '';?>" target="<?php echo $me1['target'];?>">
-												<img src="<?php echo G5_URL?>/img/<?php echo $me1['icon'] ?>.png" >
+												<img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>.svg"  style="height :14px;" >
 												<?php echo $me1['text'];?>
 											</a>
 
@@ -179,7 +174,7 @@ $is_col_all = 6;
 														<li class="sub-2dli<?php echo ($me2['on']) ? ' on' : ''; ?>">
 															<a href="<?php echo $me2['href'] ?>" class="dropdown-item me-sh sub-2da" target="<?php echo $me2['target'] ?>">
 																<!-- <i class="fa <?php echo $me2['icon'] ?> fa-fw" aria-hidden="true"></i> -->
-																<img src="<?php echo G5_URL?>/img/<?php echo $me2['img'] ?>.png" >
+																<img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me2['icon'], 3, strlen($me2['icon'])) ?>.svg"  style="height :14px;" >
 																<?php echo $me2['text'];?>
 															</a>
 														</li>
@@ -273,7 +268,6 @@ $is_col_all = 6;
 								</a>
 						    </li>
                         </div>
-
 					<?php } ?>
 					</ul>
 				</div>
@@ -329,7 +323,8 @@ $is_col_all = 6;
 
 								<li class="pb-1 sub-li">
 									<a href="<?php echo $me1['href'];?>" class="sub-a<?php echo ($me1['on']) ? ' on text-primary' : '';?>" target="<?php echo $me1['target'];?>">
-										<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
+									<img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>.svg"  style="height :14px;"  aria-hidden="true">
+										<!-- <i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i> -->
 										<?php echo $me1['text'];?>
 									</a>
 								</li>
