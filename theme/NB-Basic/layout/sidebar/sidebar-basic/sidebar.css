@@ -243,12 +243,12 @@ cursor:pointer;
 .flower_img { 
 	float:right;
 	position: fixed;
-	width:235px;
-	height:331px; 
-	right: -20px;
+	width:222px;
+	height:222px; 
+	right: -17px;
 	bottom: 0px; 
 	z-index: -1; 
-	background-image:url(../../../../../img/decor_3_by_diza.png);
+	background-image:url('../../../../../img/overlay.png');
 	background-size: 100% 100%;
 }
 

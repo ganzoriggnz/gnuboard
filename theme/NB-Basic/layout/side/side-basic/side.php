@@ -79,7 +79,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 <!-- hulan nemsen  -->
 <div class="side_cate">
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
-        <img src="<?php echo G5_URL?>/img/side_top_img.png"></a>
+        <img src="<?php echo G5_URL?>/img/side_top_img.png" style="display: block; margin: auto;"></a>
 </div>
 <?php 
 $sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
@@ -110,7 +110,7 @@ else if($end_time < $now_time){
                 <div class="text-center" style="color: #0000FF; display: inline;">D - <?php echo $diff_days ?>일
                 </div>
                 <div class="text-right" style="display: inline;"><a href="<?php echo G5_URL; ?>/bbs/board.php?bo_table=partnership" 
-                class="cat_1_bg <?php echo ($_GET['bo_table'] == "partnership") ? "activesubs" : "" ?>" style="display: inline; width: 70px;">연장신청 </a>
+                class="cat_1_bg <?php echo ($_GET['bo_table'] == "partnership") ? "activesubs" : "" ?>" style="display: inline; width: 83px;">연장신청 </a>
                 </div>
             </li>            
         <?php
