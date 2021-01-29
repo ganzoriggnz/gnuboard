@@ -40,7 +40,7 @@
             //$joinData['other'] = '';
             ?>
             <script async src="//client.uchat.io/uchat.js"></script>
-            <u-chat room='<?php echo $joinData['room']; ?>' user_data='<?php echo uchat_array2data($joinData); ?>' style="display:inline-block; width:500px; height:500px;"></u-chat>
+            <u-chat room='<?php echo $joinData['room']; ?>' user_data='<?php echo uchat_array2data($joinData); ?>' style="display:inline-block; width:100%; height:100%;"></u-chat>
        <?php     }
             else echo "채팅방 입장 권한 없습니다 " ; ?>
           <!--   //////////////////////////////////////////////////////////////// -->
