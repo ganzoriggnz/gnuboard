@@ -8,7 +8,6 @@ function getlevelPoint($lv){
     $q = "SELECT lev_point FROM `g5_lev_point` 
             WHERE lev_no = {$lv}";
             $row = sql_fetch($q);
-            echo $row['lev_point'];
             return $row['lev_point'];
 }
    
