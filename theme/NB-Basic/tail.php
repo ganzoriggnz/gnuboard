@@ -13,7 +13,7 @@ if($tset['page_sub']) {
 	<?php if($is_page_col) { ?>
 		<?php if($is_page_col == "two") { ?>
 				</div>
-				<div class="col-md-<?php echo (12 - $is_content_col); ?><?php echo ($tset['left_side']) ? ' order-md-1' : '';?> na-col d-md-block d-none">
+				<div class="col-md-<?php echo (12 - $is_content_col); ?><?php echo ($tset['left_side']) ? ' order-md-1' : ' order-md-1';?> na-col d-md-block d-none">
 					<?php 
 						if($nt_side_path)
 							@include_once($nt_side_path.'/side.php'); // Side 
