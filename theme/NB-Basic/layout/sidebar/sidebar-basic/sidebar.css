@@ -22,6 +22,22 @@
 	-webkit-overflow-scrolling:touch; 
 	margin-top: 1.5rem;
 }
+#nt_sidebar .sidebar-wing-btn {
+	position: relative;
+	display: block;
+	font-size: 18px;
+	height: 40px;
+	line-height: 40px !important;
+}
+#nt_sidebar .sidebar-wing-icon {
+background:rgb(233, 232, 232);
+font-size: 18px;
+font-weight: 300 !important;
+width:36px;
+line-height:50px !important; 
+border:1px solid #ddd; 
+cursor:pointer; 
+}
 
 
 
@@ -190,7 +206,7 @@
 		height: 40px;
 		line-height: 40px !important;
 }
-#nt_sidebar .sidebar-wing-icon {
+#nt_sidebar .sidebar-wing-icon1 {
 	background:rgb(233, 232, 232);
 	font-size: 18px;
 	font-weight: 300 !important;

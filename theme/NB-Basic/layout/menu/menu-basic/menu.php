@@ -229,14 +229,6 @@ $is_col_all = 6;
 									<img src="<?php echo G5_URL?>/img/baseline-person-24px.png" >
 								</a>
 							</li>
-
-							<!-- 로그인 후 메뉴 -->
-                            <!--<li class="col p-0 me-li">
-    							<a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/mypage.php" target="_self" title="마이페이지">
-									<i class="fa fa-user-o" aria-hidden="true"></i>
-									<img src="http://localhost/gnuboard/img/twitter.png" >
-		    					</a>
-							</li>-->
                             <li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
 									<!--<i class="fa fa-search" aria-hidden="true"></i>-->

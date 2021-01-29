@@ -56,6 +56,14 @@
 
 #nt_sidebar .sidebar-wing { position:absolute; width:36px; z-index:1; text-align:center; }
 #nt_sidebar .sidebar-wing-close { background:#fff; font-size: 18px; font-weight: 300 !important; width:36px; height:50px; line-height:50px !important; border:1px solid #ddd; cursor:pointer; }
+#nt_sidebar .sidebar-wing-icon1 { 
+	background:#fff; 
+	font-size: 18px; 
+	font-weight: 300 !important; 
+	width:36px;
+	line-height:50px !important; 
+	border:1px solid #ddd; 
+	cursor:pointer; }
 
 @media (min-width: 481px) {
 	#nt_sidebar { right: -320px; border-left:1px solid #ddd; margin-left:40px; }
