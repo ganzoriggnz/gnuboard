@@ -99,6 +99,7 @@ $is_col_all = 6;
 								<!-- <div class="sub-slide sub-1div"> -->
 									<ul class="dropdown-menu sub-1dul" style="justify-content: flex-start; position: absolute; white-space: nowrap; background-color: #fff; padding: 0px 10px; -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175)">
 									<?php for($j=0; $j < count($me['s']); $j++) {
+										
 											$me1 = $me['s'][$j];
 									?>
 										<!-- <?php if($me1['line']) { //구분라인 ?>
@@ -203,8 +204,7 @@ $is_col_all = 6;
 					<?php } ?>
                         <div style="display: flex; flex-direction: row; justify-content: space-between; width: <?php echo $is_member ? '27.3691%;' : '9.12103' ?>">
                             <li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="https://web.telegram.org" target="_blank" title="채팅방"  onclick="window.open('/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
-									
+							    <a class="me-a f-md en" title="채팅방"  onclick="window.open('/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">									
 									<img src="<?php echo G5_URL?>/img/chat.png" >
 								</a>
 							</li>
@@ -243,7 +243,7 @@ $is_col_all = 6;
 		    					</a>
 							</li>-->
                             <li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="#" target="_self" title="검색">
+							    <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
 									<!--<i class="fa fa-search" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/icon_search.png" >
 								</a>

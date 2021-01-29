@@ -15,6 +15,10 @@ function insert_nickname($wer)
 
 ?>
 <style>
+.svg-img path .clipboard-list{
+	fill:#fff;
+}
+
 .popup_box2{
 	position: absolute;
 	
@@ -65,6 +69,7 @@ function insert_nickname($wer)
 	background:#fff;
   }
 </style>
+
 <div class="f-de font-weight-normal">
 
 	<?php if($is_member) { //Login ?>
@@ -180,10 +185,12 @@ function insert_nickname($wer)
 
 				
 				<a href="<?php echo G5_ATTENDANCE_URL ?>/attendance.php/" class="btn btn-primary text-white" role="button">
-					<i class="fas fa-calendar-check"></i></font></a>
-
-					
-				<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"><i class="fas fa-clipboard-list"></i></font></a>
+					<!-- <i class="fas fa-calendar-check"></i></font></a> -->					
+					<img src="<?php echo G5_URL?>/img/solid/calendar-check.svg"  style="height:14px; " ></a>
+				
+				<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"> 
+				<!-- <i class="fas fa-clipboard-list"></i></font></a> -->
+				<img src="<?php echo G5_URL?>/img/solid/clipboard-list.svg" class="svg-img" style="height :14px;  " ></a> 
 					
 
 			<!-- <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">

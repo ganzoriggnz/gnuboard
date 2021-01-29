@@ -41,6 +41,7 @@ $menu_cnt = count($menu);
 		<span class="go-bottom cursor"><i class="fa fa-chevron-down"></i></span>
 	</div>
 </div>
+
 <!-- nt_sidebar -->
 <aside id="nt_sidebar" class="h-100 bg-light font-weight-normal">
 
@@ -52,6 +53,22 @@ $menu_cnt = count($menu);
 		<div class="sidebar-wing-close sidebar-close en" title="닫기">
 			<i class="fa fa-times"></i>
 		</div>
+		<div class="sidebar-wing-icon">
+			<a class="sidebar-wing-btn" title="채팅방"  onclick="window.open('/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
+				<img src="<?php echo G5_URL?>/img/chat.png" >
+			</a>
+			<a class="sidebar-wing-btn" href="#" target="_self" title="주소변경공지">
+				<img src="<?php echo G5_URL?>/img/baseline-input-24px.png" ></a>
+			<a class="sidebar-wing-btn" href="https://twitter.com" target="_blank" title="트위터">
+				<img src="<?php echo G5_URL?>/img/twitter.png" ></a>
+			<?php if(!$is_member) { ?>
+			<a class="sidebar-wing-btn" href="<?php echo G5_BBS_URL?>/register_form.php" target="_self" title="">
+				<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" ></a>
+			<?php }if($is_member) { ?>
+			<a class="sidebar-wing-btn" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
+				<img src="<?php echo G5_URL?>/img/icon_search.png" ></a>
+			<?php } ?>
+		</div>
 	</div>
 
 	<!-- Head Line -->
@@ -62,7 +79,7 @@ $menu_cnt = count($menu);
 	<div id="sidebar-content" class="sidebar-content">
 
 		<!-- sidebard login heseg nemeh hulan -->
-
+			
 		<!-- Login -->
 		<?php if ($is_member) { ?>
 			<div>
@@ -70,25 +87,26 @@ $menu_cnt = count($menu);
 					<a class="btn btn-primary text-white " data-toggle="collapse" href="#mymenu_sidebar" role="button" aria-controls="mymenu_sidebar">
 						마이메뉴
 					</a>
-					<?php if (IS_NA_NOTI) { // 알림 
+					<!-- <?php if (IS_NA_NOTI) { // 알림 
 					?>
 						<a href="<?php echo G5_BBS_URL ?>/noti.php" class="btn btn-primary text-white" role="button">
 							<i class="fa fa-bell" aria-hidden="true"></i>
 							<?php if ($member['as_noti']) { ?><b><?php echo number_format($member['as_noti']) ?></b><?php } ?>
 						</a>
-					<?php } ?>
-					<a href="<?php echo G5_ATTENDANCE_URL ?>/m_attendance.php/" class="btn btn-primary text-white" role="button">
-						<i class="fas fa-calendar-check"></i></font></a>
+					<?php } ?> -->
+					<a href="<?php echo G5_ATTENDANCE_URL ?>/attendance.php/" class="btn btn-primary text-white" role="button">
+					<!-- <i class="fas fa-calendar-check"></i></font></a> -->					
+					<img src="<?php echo G5_URL?>/img/solid/calendar-check.svg"  style="height:14px; " ></a>
 
+					<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"> 
+				<!-- <i class="fas fa-clipboard-list"></i></font></a> -->
+				<img src="<?php echo G5_URL?>/img/solid/clipboard-list.svg" class="svg-img" style="height :14px;  " ></a> 
 
-					<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"><i class="fas fa-clipboard-list"></i></font></a>
-
-
-					<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
+					<!-- <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
 						<?php if ($member['mb_memo_cnt']) { ?><b><?php echo number_format($member['mb_memo_cnt']); ?></b><?php } ?>
-					</a>
-					<a href="<?php echo G5_BBS_URL ?>/logout.php" class="btn btn-primary text-white rounded-0" role="button">
+					</a> -->
+					<a href="<?php echo G5_BBS_URL?>/logout.php" class="btn btn-primary text-white rounded-0" role="button">
 						로그아웃
 					</a>
 				</div>
