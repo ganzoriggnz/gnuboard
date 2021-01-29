@@ -29,7 +29,7 @@ $list_cnt = count($list);
 
 ?>
 
-<section id="bo_list" class="mb-4" style="width: 1200px;">
+<section id="bo_list" class="mb-4" >
 
 	<!-- 목록 헤드 -->
 	<div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:4px;"></div>

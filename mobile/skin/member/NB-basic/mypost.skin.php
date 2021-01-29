@@ -39,6 +39,8 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                                 </span>
                             </a>
                         </li>
+                        </ul>
+                        <ul id="user_cate_ul" class="sly-list d-flex">
                         <li>
                             <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/point.php">
                                 <span>
@@ -109,53 +111,36 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 
         <!-- 목록 헤드 -->
-        <div class="d-block d-md-none w-100 mb-10 bg-<?php echo $head_color ?>" style="height:4px;"></div>
+        <div class="d-block  w-100 mb-10 bg-<?php echo $head_color ?>" style="height:4px;"></div>
+        <table cellspacing="0" class="w-100 px-3 mr-3" cellpadding="0" width="100%"  style="border:1px solid #d3d3d3;font-size: 12px; padding:5px;" id="level-up">
+		<thead class="bg-light">  
+			<tr style="border:1px solid #d3d3d3;font-size: 12px; text-align: center; " >
+				<th class="cl_tr">게시판</th>
+				<th class="cl_tl">제목</th>
+				<th class="cl_tr">일시</th>
+			</tr>
+		</thead>
+		<tbody>
 
-        <div class="na-table d-none d-md-table w-100 mb-0">
-            <div class="na-table-head border-primary d-md-table-row bg-light">
-                <div class="d-md-table-cell nw-4 px-md-1">그룹</div>
-                <div class="d-md-table-cell nw-6 px-md-1 pr-md-1">게시판</div>
-                <div class="d-md-table-cell nw-20 pl-2 px-md-1 pr-md-1">제목</div>
-                <div class="d-md-table-cell nw-6 pr-md-1">작성자</div>
-                <div class="d-md-table-cell nw-4 pr-md-1">일시</div>
-            </div>
-        </div>
+        <?php
 
-
-        <!-- hulan nemsen -->
-        <ul class="na-table d-md-table w-100">
-                <?php
-
-                for ($i = 0; $i < count($list);   $i++) { ?>
- 
-                    <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
-                        <div class="d-none d-md-table-cell nw-4 f-sm font-weight-normal py-md-2 px-md-1">
-                            <?php echo $list[$i]['gr_subject']; ?>
-                        </div>
-                        <div class="d-none d-md-table-cell nw-6 text-left f-sm font-weight-normal py-md-2 px-md-1">
-                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id']?>" style="color: #6c757d;">
+        
+        for ($i = 0; $i < count($list);   $i++) { ?>
+        <tr style="border:1px solid #d3d3d3;font-size: 10px; text-align: center; " >
+				<th class="cl_tr"><a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id']?>" style="color: #6c757d;">
                                 <?php echo $list[$i]['bo_subject'];?>
-                        </a>
-                        </div>
-                        <div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id'] ?>" style="color: #6c757d;">                                                             
+                        </a></th>
+				<th class="cl_tl" style="text-align: left;"> 
+                    <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id'] ?>" style="color: #6c757d;">                                                             
                                 <?php                                
-                                echo $list[$i]['wr_subject']; ?>
-                            </a>
-                        </div>
-                        <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
-                            <?php echo get_level($member['mb_id']), $member['mb_nick']; ?>
-                        </div>
-                        <div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
-                            <span class="sr-only">등록일</span>
-                            <?php echo $list[$i]['wr_datetime']; ?>
-                        </div>
-                        <div class="clearfix d-block d-md-none"></div>
-                    </li>
+                                echo substr($list[$i]['wr_subject'],0,35) ; ?>
+                            </a></th>
+				<th class="cl_tr" style="color: #6c757d;"> <?php echo $list[$i]['wr_datetime']; ?></th>
+            </tr>
             <?php  }
             ?>
-
-            </ul>
+        </body>
+        </table>
             <?php if ($i == 0) { ?>
                 <div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">자료가 없습니다.</div>
             <?php } ?>

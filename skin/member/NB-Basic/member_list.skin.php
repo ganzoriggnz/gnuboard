@@ -24,7 +24,7 @@ else if ($w == 'u')
     }
 }
 ?>
-<div id="bo_v" style="width: 1200px;">
+<div id="bo_v">
 <nav id="user_cate" class="sly-tab font-weight-normal mb-2 " style="text-align: center">
 
 <div id="bo_search" class="collapse show" style="">

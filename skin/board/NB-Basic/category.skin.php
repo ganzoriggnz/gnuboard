@@ -27,7 +27,6 @@ for ($i=0; $i<$ca_count; $i++) {
 <style>
 
 #bo_cate_list ul {
-    width: 1200px;
     position: relative;
 }
 #bo_cate_list ul:before, ul:after {
@@ -43,17 +42,13 @@ for ($i=0; $i<$ca_count; $i++) {
     width: 10%;
 	float: left;
 	margin-bottom: -2px;
-    /* border: 1px solid black; */
     
 }
-/* #bo_cate_list li:nth-child(even) {
-    margin-left: -0.1px;
-} */
 </style>
 <nav id="bo_cate" class="sly-tab font-weight-normal mb-2">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
 	<div class="px-3 px-sm-0">
-		<div class="d-flex" style="width:1200px;">
+		<div class="d-flex">
 			<div id="bo_cate_list" class="flex-grow-1">
 				<ul id="bo_cate_ul" class="border-left-0 text-nowrap">
 					<?php echo $category_option ?>
@@ -63,54 +58,3 @@ for ($i=0; $i<$ca_count; $i++) {
 	</div>
 	<hr style="margin-top:1px;"/> 
 </nav>
-<!-- <nav id="bo_cate" class="sly-tab font-weight-normal mb-2">
-	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
-	<div class="px-3 px-sm-0">
-		<div class="d-flex" style="width:1200px;">
-			<div id="bo_cate_list" class="sly-wrap flex-grow-1">
-				<ul id="bo_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
-					<?php echo $category_option ?>
-				</ul>
-			</div>
-			<div>
-				<a href="javascript:;" class="sly-btn sly-prev ca-prev py-2 px-3">
-					<i class="fa fa-angle-left" aria-hidden="true"></i>
-					<span class="sr-only">이전 분류</span>
-				</a>
-			</div>
-			<div>
-				<a href="javascript:;" class="sly-btn sly-next ca-next py-2 px-3">
-					<i class="fa fa-angle-right" aria-hidden="true"></i>
-					<span class="sr-only">다음 분류</span>
-				</a>
-			</div> 
-		</div>
-	</div>
-	<hr/>
-	<script>
-		$(document).ready(function() {
-			$('#bo_cate .sly-wrap').sly({
-				horizontal: 1,
-				itemNav: 'basic',
-				smart: 1,
-				mouseDragging: 1,
-				touchDragging: 1,
-				releaseSwing: 1,
-				startAt: <?php echo $ca_select ?>,
-				speed: 300,
-				prevPage: '#bo_cate .ca-prev',
-				nextPage: '#bo_cate .ca-next'
-			});
-
-			// Sly Tab
-			var cate_id = 'bo_cate';
-			var cate_size = na_sly_size(cate_id);
-
-			na_sly(cate_id, cate_size);
-
-			$(window).resize(function(e) {
-				na_sly(cate_id, cate_size);
-			});
-		});
-	</script>
-</nav> -->
