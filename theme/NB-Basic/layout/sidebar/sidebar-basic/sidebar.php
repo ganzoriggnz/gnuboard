@@ -51,7 +51,7 @@ $menu_cnt = count($menu);
 			<i class="fa fa-times"></i>
 		</div>
 		<div class="sidebar-wing-icon1">
-			<a class="sidebar-wing-btn" title="채팅방"  onclick="window.open('/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
+			<a class="sidebar-wing-btn" href="<?php echo G5_URL?>/bbs/chat.php" target="_blank" title="채팅방" >
 				<img src="<?php echo G5_URL?>/img/chat.png" >
 			</a>
 			<a class="sidebar-wing-btn" href="#" target="_self" title="주소변경공지">
