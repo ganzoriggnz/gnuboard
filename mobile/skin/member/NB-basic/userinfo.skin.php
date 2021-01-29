@@ -38,6 +38,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                                 </span>
                             </a>
                         </li>
+                        </ul>
+						<ul id="user_cate_ul" class="sly-list d-flex">
                         <li>
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
                                 <span>
@@ -97,11 +99,28 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		</div>
     </nav>
     <section class="xm">
-        <dl class="dl-horizontal text-left">
+        <table cellspacing="0" class="w-100 px-3 mr-3" cellpadding="0" width="100%"  style="font-size: 12px; padding:5px;" id="level-up">
+		<thead>  
+			<tr style="font-size: 12px; " >
+				<th class="cl_tr">
+                    <label class="col-form-label" for="reg_mb_nick">
+        기본정보       
+        </label></th>
+				<th class="cl_tr"> <?php echo $row['mb_nick']." ".$row['mb_id']?></th>
+			</tr>
+		</thead>
+		<tbody>
+        <tr style=" font-size: 10px">
+				<td class="cl_td"></td>
+				<td class="cl_td" style="text-align: left;">보유파운드</td>	
+        </tr>
+        </tbody>
+</table>
+
         <!-- user  기본정보   mb_nick  -->
         <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="reg_mb_nick">
-        <em>*</em> 기본정보       
+        <label class="col-form-label" for="reg_mb_nick">
+        기본정보       
         </label>
         <div class="col-sm-3 col-form-info">
         <?php echo $row['mb_nick']." ".$row['mb_id']?>

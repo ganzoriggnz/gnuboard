@@ -26,11 +26,59 @@ if($result['fr_10'] !=''){
 $too = rand(0,$tood-1);
 // print($too);
 ?>
+<style>
+
+		.notice{width:100%; height:18px; overflow:hidden;}
+		.rolling{position:relative; width:100%; height:auto;}
+		.rolling li{width:100%; height:20px; line-height:50px;}
+		.rolling_stop{display:block; height:20px; color:#000; }
+		.rolling_start{display:block;  height:20px; color:#000;}
+	</style>
 <!-- Page Title -->
 <div id="nt_title" class="font-weight-normal">
 	<div class="nt-container px-3 px-sm-4 px-xl-0">	
-	<div class="d-flex pb-2">
-			<marquee behavior="slide" direction="left" scrolldelay="0"  scrollamount="10"><?php echo $list[$too]?></marquee>
+		<div class="d-flex pb-2">
+			<div class="notice">
+				<ul class="rolling">
+				<?php for ($i=0; $i<$tood;$i++ ) {		
+				?>
+				<li>
+				<?php echo $list[$i]?>
+				</li>
+				<?php }?>
+				</ul>
+			</div>
+			<a href="#" class="rolling_stop">Pause</a>
+<a href="#" class="rolling_start">Play</a>
 		</div>
+
 	</div>
 </div>
+
+<script>
+$(document).ready(function(){
+	var height =  $(".notice").height();
+	var num = $(".rolling li").length;
+	var max = height * num;
+	var move = 0;
+	function noticeRolling(){
+		move += height;
+		$(".rolling").animate({"top":-move},1000,function(){
+			if( move >= max ){
+				$(this).css("top",0);
+				move = 0;
+			};
+		});
+	};
+	noticeRollingOff = setInterval(noticeRolling,2000);
+	$(".rolling").append($(".rolling li").first().clone());
+
+
+	$(".rolling_stop").click(function(){
+		clearInterval(noticeRollingOff);
+	});
+	$(".rolling_start").click(function(){
+		noticeRollingOff = setInterval(noticeRolling,600);
+	});
+});		
+</script>

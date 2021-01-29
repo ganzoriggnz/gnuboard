@@ -34,11 +34,13 @@ else if ($w == 'u')
 				<div class="form-row mx-n1">
                 <div class="px-1">
                     <input type="radio" id="id" name="types" value="id" checked="checked" ?>
-                    <label for="id" class="pt-2">아이디</label>
+					<label for="id" class="pt-2">아이디</label>
+					&nbsp;&nbsp;
                     </div>
 					<div class="px-1">
                     <input type="radio" id="nick" name="types" value="nick"  <?php if($_POST['types']=='nick') echo 'checked="checked"' ?>>
-                    <label for="nick" class="pt-2">닉네임</label>
+					<label for="nick" class="pt-2">닉네임</label>
+					&nbsp;&nbsp;
 					</div>
 					<div class="col-12 col-sm-6 pt-2 pt-sm-0 px-1">
 						<div class="input-group">

@@ -19,12 +19,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	<tr><td style="background-color:#f0f0f0;padding:5px">업소명</td><td><?php echo $member['mb_name']?></td></tr>
 	<tr><td style="background-color:#f0f0f0;padding:5px">이전 전화번호</td><td><?php echo $member['mb_hp']?></td></tr>
 	<tr><td style="background-color:#f0f0f0;padding:5px">변경 전화번호</td>
-		<td><input type="text" name="new_hp" id="new_hp" value="<?php echo $new_hp;?>"  style="width:120px;height:25px; text-align:left; margin-right:25px; border:1px solid #b5b5b5"  size="14" maxlength="14"></td></tr>
+		<td><input type="text" name="new_hp" id="new_hp" value="<?php if($_POST['new_hp']!="" ) echo $new_hp; else echo $member['mb_10']; ?>"  style="width:120px;height:25px; text-align:left; margin-right:25px; border:1px solid #b5b5b5"  size="14" maxlength="14"></td></tr>
 	</table>
 <br/>
 <div style="text-align:center">
 	<input type="submit" value="전화번호 변경요청" class="btn btn-primary btn-lg btn-block en">
 	<button type="button" class="btn btn-primary btn-lg btn-block en" onclick="window.close();">창닫기</button>
-</div>			
+</div>	
+
+<?php if($_POST['new_hp']!='')
+ echo '<br/><div style="text-align:center">전화번호 변경요청 완료되었습니다</div>'; 
+?>		
 </div>
 </form>
