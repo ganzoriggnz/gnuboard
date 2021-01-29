@@ -101,7 +101,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <!-- user  기본정보   mb_nick  -->
         <div class="form-group row">
         <label class="col-sm-2 col-form-label" for="reg_mb_nick">
-        <em>*</em> 기본정보       
+        기본정보       
         </label>
         <div class="col-sm-3 col-form-info">
         <?php echo $row['mb_nick']." ".$row['mb_id']?>
@@ -155,7 +155,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     쿠폰       
     </label>
     <div class="col-sm-3 col-form-info">
-    <a href="<?php echo G5_BBS_URL ?>/coupon_create.php"><i class="fa fa-paperclip"></i> <span class="hidden-xs">쿠폰</span></a>
+    <a href="<?php echo G5_BBS_URL ?>/coupon_create.php"><font color="blue"><b><i class="fa fa-paperclip"></i> <span class="hidden-xs">쿠폰</span></b></font></a>
     </div>
 </div>
 <?php } ?>
@@ -188,7 +188,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     <label class="col-sm-2 col-form-label" for="reg_mb_nick">
     연락처      
     </label>
-    <div class="col-sm-3 col-form-info">
+    <div class="col-sm- col-form-info">
     <?php if($row['mb_hp']) {echo $row['mb_hp'].'<br>'; }?>(프로필과 배너에 출력되니 항상 최신번호로 유지해주세요)
     </div>
 </div>
