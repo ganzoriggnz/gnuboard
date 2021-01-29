@@ -95,6 +95,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 							<span class="sr-only">RSS</span>
 						</a>
 					<?php } ?>
+					
 					<button type="button" class="btn btn_b01 nofocus py-1" title="게시판 검색" data-toggle="collapse" data-target="#bo_search" aria-expanded="false" aria-controls="bo_search">
 						<i class="fa fa-search fa-md" aria-hidden="true"></i>
 						<span class="sr-only">게시판 검색</span>
@@ -106,13 +107,17 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 						</a> -->
 						<!-- hulan nemsen uuriin bichver harah heseg -->
 						<?php if($bo_table == "partnership"){?>
-								<?php if ($member['mb_id']) { ?><li><a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $bo_table ?>&sfl=mb_id%2C1&stx=<?php echo $member['mb_id'] ?>" class="btn_b02">내글보기</a></li><?php } }?>
-							
-							
-
-								<div id="btn_write">
-								<button type="button" class="btn_bbs" onclick="location.href='<?php echo $write_href ?>'">
-									<i class="fas fa-pencil-alt"></i> 글쓰기
+								<?php if ($member['mb_id']) { ?>
+								
+									<div>
+								<button type="button" class="btn btn-primary" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $bo_table ?>&sfl=mb_id%2C1&stx=<?php echo $member['mb_id'] ?>'">
+								 내글보기
+								</button>
+								</div>&nbsp;&nbsp;
+								<?php } }?>				
+								<div>
+								<button type="button" class="btn btn-primary" onclick="location.href='<?php echo $write_href ?>'">
+								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;"> 글쓰기
 								</button>
 								</div>
 					<?php } ?>
