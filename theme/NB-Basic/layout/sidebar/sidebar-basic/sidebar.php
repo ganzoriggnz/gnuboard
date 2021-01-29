@@ -61,10 +61,12 @@ $menu_cnt = count($menu);
 				<img src="<?php echo G5_URL?>/img/baseline-input-24px.png" ></a>
 			<a class="sidebar-wing-btn" href="https://twitter.com" target="_blank" title="트위터">
 				<img src="<?php echo G5_URL?>/img/twitter.png" ></a>
-			<?php if(!$is_member) { ?>
-			<a class="sidebar-wing-btn" href="<?php echo G5_BBS_URL?>/register_form.php" target="_self" title="">
+
+			
+
+			<?php if($is_member) { ?>
+				<a class="sidebar-wing-btn win_memo" href="<?php echo G5_BBS_URL?>/memo_friend.php?kind=friends" target="_blank" title="">
 				<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" ></a>
-			<?php }if($is_member) { ?>
 			<a class="sidebar-wing-btn" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
 				<img src="<?php echo G5_URL?>/img/icon_search.png" ></a>
 			<?php } ?>

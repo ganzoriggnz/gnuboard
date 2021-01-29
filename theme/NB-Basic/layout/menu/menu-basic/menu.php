@@ -220,14 +220,9 @@ $is_col_all = 6;
 									<img src="<?php echo G5_URL?>/img/twitter.png" >
 								</a>
 							</li>
-							<?php if(!$is_member) { ?>
-							<li class="col p-0 me-li me-icon right_border">
-							    <a class="me-a f-md en" href="<?php echo G5_BBS_URL?>/register_form.php" target="_self" title="">
-									<!--<i class="fa fa-app-store" aria-hidden="true"></i>-->
-									<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" >
-								</a>
-						    </li>
-							<?php }if($is_member) { ?>
+							
+						
+							<?php if($is_member) { ?>
                             <li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en" href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" target="_self" title="마이페이지">
 									<!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
@@ -260,7 +255,12 @@ $is_col_all = 6;
 									<img src="<?php echo G5_URL?>/img/baseline-email-24px.png" >
 								</a>
 						    </li>
-							
+							<li class="col p-0 me-li me-icon right_border">
+							    <a class="me-a f-md en win_memo" href="<?php echo G5_BBS_URL?>/memo_friend.php?kind=friends" target="_blank" title="">
+									<!--<i class="fa fa-app-store" aria-hidden="true"></i>-->
+									<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" >
+								</a>
+						    </li>
 							<li class="col p-0 me-li me-icon right_border_red">
 							    <a class="me-a f-md en" href="#" target="_self" title="친구등록">
 									<!--<i class="fas fa-atlas" aria-hidden="true"></i>-->
