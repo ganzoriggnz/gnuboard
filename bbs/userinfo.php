@@ -8,10 +8,10 @@ if( !isset($g5['member_table']) ){
 
 // 내용
 
-/* if (G5_IS_MOBILE) {
-    include_once(G5_MOBILE_PATH.'/userinfo.php');
-    return;
-} */
+// if (G5_IS_MOBILE) {
+//     include_once(G5_MOBILE_PATH.'/userinfo.php');
+//     return;
+// } 
 
 include_once('./_head.php');
 ?>
@@ -55,17 +55,6 @@ if($member['mb_id']){
 
     $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
     
-    /* for($i=0; $row=sql_fetch_array($result); $i++)
-    {
-      $bo_table = $row['bo_table'];
-
-      $result1 = sql_query("select * from ".$g5['write_prefix'].$bo_table. " where mb_id = '{$member['mb_id']}'");
-      if($result1){
-        $row1 = sql_fetch($result1);
-        echo $row1['wr_datetime'];
-      }
-      
-    } */
 }
 
 $userinfo_skin_path = get_skin_path('member', $config['cf_member_skin']);

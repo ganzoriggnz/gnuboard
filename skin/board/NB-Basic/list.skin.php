@@ -134,27 +134,21 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 							<i class="fa fa-search fa-md" aria-hidden="true"></i>
 							<span class="sr-only">게시판 검색</span>
 						</button>
-						
+						<div class="btn-group ">
 						<?php if($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?> 
-
-                            <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table'];?>" target="_blank" class="btn win_memo" style="background: #EFEFEF; color:#000; padding: 0px 6px; margin-right: 3px; margin-bottom: 2px; border: 2px solid #858585;" role="button">
+							<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table'];?>" target="_blank" class="btn btn-primary win_memo">
                             쿠폰지원내역 
-                            </a>
-                        <?php } ?>
-		
-						<?php if ($write_href) { ?>
-							<!-- <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
-								<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
-								<span class="sr-only">글쓰기</span>
-							</a>  -->
-							
-								<div id="btn_write">
-								<button type="button" class="btn_bbs" onclick="location.href='<?php echo $write_href ?>'">
-									<i class="fas fa-pencil-alt"></i> 글쓰기
+							</a>	</div>
+							&nbsp;&nbsp;
+                        <?php } ?>		
+						<?php if ($write_href) { ?>						
+								<div>
+								<button type="button" class="btn btn-primary" onclick="location.href='<?php echo $write_href ?>'">
+								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;"> 글쓰기
 								</button>
 								</div>
 						<?php } ?>
-
+						</div>
 						<div class="btn-group" role="group">
 							<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
 								<?php
