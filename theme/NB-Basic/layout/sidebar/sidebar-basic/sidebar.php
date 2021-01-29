@@ -241,19 +241,24 @@ $menu_cnt = count($menu);
 				</li>
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/content.php?co_id=company">
-						<i class="fas fa-atlas circle light-circle normal" aria-hidden="true"></i>
+						<i class="fa circle light-circle normal" aria-hidden="true">
+						<img src="<?php echo G5_URL?>/img/solid/atlas.svg" style="height: 25px;">
+						</i>
+						
 						<span class="d-block mt-2">사이트안내</span>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=event">
-						<i class="fas fa-glass-cheers circle light-circle normal" aria-hidden="true"></i>
+						<i class="fa circle light-circle normal" aria-hidden="true">
+						<img src="<?php echo G5_URL?>/img/solid/glass-cheers.svg" style="height: 25px;"></i>
 						<span class="d-block mt-2">이벤트/모임</span>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/qalist.php">
-						<i class="fas fa-handshake circle light-circle normal" aria-hidden="true"></i>
+						<i class="fa circle light-circle normal" aria-hidden="true">
+						<img src="<?php echo G5_URL?>/img/solid/handshake.svg" style="height: 25px;"></i>
 						<span class="d-block mt-2">1:1 문의</span>
 					</a>
 				</li>
