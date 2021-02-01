@@ -16,7 +16,7 @@ include_once('./admin.head.php');
     a:active  {     background-color: yellow;  }
 </style>
 <div style="height: 740px;">
-    <div style="float: left; width: 25%;">
+    <div style="float: left; width: 20%;">
         <ul class="coupon">
             <?php 
                 $q = "SELECT bo_table, bo_subject FROM ".$g5['board_table']." WHERE gr_id = 'review' ORDER BY bo_subject ASC ";
@@ -28,7 +28,7 @@ include_once('./admin.head.php');
             ?>
         </ul>
     </div>
-    <div id="coupon_list" style="float: left; width: 75%;"></div>
+    <div id="coupon_list" style="float: left; width: 80%;"></div>
 </div>
 <script>
     $(document).ready(function(){
