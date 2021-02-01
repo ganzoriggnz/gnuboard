@@ -37,6 +37,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                             </span>
                         </a>
                     </li>
+                    
                     <li>
                         <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/point.php">
                             <span>

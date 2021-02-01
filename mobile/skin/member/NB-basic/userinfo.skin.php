@@ -10,7 +10,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		<div class="px-3 px-sm-0">
 			<div class="d-flex">
 				<div id="user_cate_list" class="sly-wrap flex-grow-1">
-					<ul id="user_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
+					<ul id="user_cate_ul" class="sly-list d-flex border-left-0">
 						<li class="active">
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/userinfo.php" >
                                 <span>
@@ -99,7 +99,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		</div>
     </nav>
     <section class="xm">
-       <table cellspacing="0" class="w-100 px-3 mr-3" cellpadding="0" width="100%"  style="font-size: 12px; padding:5px;" id="level-up">
+       <table cellspacing="0" class=" px-3 mr-3" cellpadding="0" width="100%"  style="font-size: 12px; padding:5px;" id="level-up">
 		<thead>  
 			<tr style="font-size: 12px; " >
 				<th class="cl_tr"><label class="col-form-label" for="reg_mb_nick">기본정보</label></th>

@@ -120,8 +120,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                 <div class="d-md-table-cell nw-4 pr-md-1">일시</div>
             </div>
         </div>
-
-
         <!-- hulan nemsen -->
         <ul class="na-table d-md-table w-100">
                 <?php
