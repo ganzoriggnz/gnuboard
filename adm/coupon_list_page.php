@@ -275,7 +275,7 @@ if( isset($_POST['id'])){
         while ($row = sql_fetch_array($result1)) {     
         ?>
             <tr>
-                <td class="td_left" style="text-align: left; white-space: nowrap;">
+                <td class="td_left" style="text-align: left; width: 7rem;">
                     <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>">
                         <?php echo "[".$row['co_entity']."]";
                         $user_entity[$cnt]['co_entity']= $row['co_entity'];
