@@ -325,7 +325,7 @@ if ($is_member)
 				     $scount = strlen($bo_table)-2;      // temdegt tooloh
 					$bo_table =  substr($bo_table, 0, $scount); 
 				    $hwrite_table = $g5['write_prefix'] . $bo_table."at";
-					$sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id", false  );					
+					$sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment = 0", false  );					
 					?>
 					<?php if ($is_category) { ?>
 						<li class="list-group-item">
@@ -336,7 +336,10 @@ if ($is_member)
 									<option value="">선택하세요</option>
 									<?php while ($res = sql_fetch_array($sql)){?>
 										<!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name'];?></option> -->
-										<option value=<?php echo $res['mb_name'];?> <?php if($write['wr_4']==$res['mb_name']) echo " selected ";?>><?php echo $res['mb_name'];?></option>
+										
+										<option value=<?php echo $res['mb_name'];?> 
+										<?php if($write['wr_4']==$res['mb_name']) echo " selected ";?>>
+										<?php echo $res['mb_name'];?></option>
 									<?php } ?>
 										</select>
 								</div>

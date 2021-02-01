@@ -1,5 +1,6 @@
 <?php
-include_once("../../common.php");
+
+
 include_once("./_setup.php");
 $G5_TIME_YMD = G5_TIME_YMD;
 $g5['title'] = "출석체크";

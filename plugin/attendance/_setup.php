@@ -1,7 +1,8 @@
 <?php
-$G5_PATH = "../../";
-include_once("$G5_PATH/common.php");
+// $G5_PATH = "../../";
+// include_once("$G5_PATH/common.php");
 //include_once("../../common.php");
+include_once("./_common.php");
 
 // 변수 선언
 $G5_SERVER_TIME = G5_SERVER_TIME;
