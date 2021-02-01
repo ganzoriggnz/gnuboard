@@ -9,7 +9,7 @@ if ($sop != 'and' && $sop != 'or')
 $stx = trim($stx);
 //검색인지 아닌지 구분하는 변수 초기화
 $is_search_bbs = false;
-
+$sql;
 if ($sca || $stx || $stx === '0') {     //검색이면
     $is_search_bbs = true;      //검색구분변수 true 지정
     $sql_search = get_sql_search($sca, $sfl, $stx, $sop);
@@ -37,8 +37,6 @@ if ($sca || $stx || $stx === '0') {     //검색이면
     $sql_search = "";
     $total_count = $board['bo_count_write'];
 }
-
-
 
 if(G5_IS_MOBILE) {
     $page_rows = $board['bo_mobile_page_rows'];
@@ -231,13 +229,18 @@ if ($is_search_bbs) {
     if(!empty($best_array)) 
         $mddd_id.= ", ".implode(', ', $best_array);
 
-    $sql .= " and wr_id not in (".$mddd_id.")";
+    if(!$mddd_id)
+        $sql .= " and wr_id ";
+
+    if($mddd_id)
+        $sql .= " and wr_id not in (".$mddd_id.")";
 
     $sql .= " {$sql_order} limit {$from_record}, $page_rows ";
 }
 
 // 페이지의 공지개수가 목록수 보다 작을 때만 실행
 if($page_rows > 0) {
+    
     $result = sql_query($sql);
 
     $k = 0;
