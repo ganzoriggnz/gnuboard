@@ -11,6 +11,28 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">', 0);
 
+$bo_table = "free";
+$tmp_table = $g5['write_prefix'].$bo_table;
+$now = G5_TIME_YMDHIS;
+$date= date_create($now);
+$start_date = date_format($date, 'Y-m-d 00:00:00');
+$end_date = date_format($date, 'Y-m-d 23:59:59');
+
+$q = "SELECT COUNT(*) as cnt FROM {$tmp_table} WHERE mb_id='{$member['mb_id']}' AND wr_is_comment = '0' AND wr_datetime BETWEEN '{$start_date}' AND '{$end_date}'";
+$row = sql_fetch($q);
+$cnt = $row['cnt'];
+
+$q1 = "SELECT COUNT(*) as cnt FROM {$tmp_table} WHERE mb_id='{$member['mb_id']}' AND wr_is_comment = '1' AND wr_datetime BETWEEN '{$start_date}' AND '{$end_date}'";
+$row1 = sql_fetch($q);
+$cnt1 = $row1['cnt'];
+
+$q_at = "SELECT COUNT(*) as cnt FROM {$g5['attendance']} WHERE mb_id='{$member['mb_id']}' AND `datetime` BETWEEN '{$start_date}' and '{$end_date}'";
+$row_at = sql_fetch($q_at);
+$cnt_at = $row_at['cnt'];
+
+$res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  p_but1_datetime > '{$start_date}' AND '{$end_date}' >=  p_but1_datetime AND '{$end_date}' >=  p_but2_datetime AND '{$end_date}' >=  p_but3_datetime";
+$row2 = sql_fetch($res);
+
 $mission_skin_path = get_skin_path('mission', 'NB-Basic');
 $mission_skin_url  = get_skin_url('mission', 'NB-Basic');
 $skin_file = $mission_skin_path.'/mission.skin.php';
