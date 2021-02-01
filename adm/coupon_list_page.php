@@ -13,6 +13,11 @@ auth_check($auth[$sub_menu], 'r'); ?>
 <?php
 if( isset($_POST['id'])){ 
     $bo_table = $_POST['id'];
+
+    $re_table = $g5['write_table'].$bo_table;
+    $linkcount = strlen($re_table) - 2;
+    $str_table =substr($re_table, 0, $linkcount);
+    $at_table = "g5_write_".$str_table."at";
 }
 
     $g5['table_prefix']        = "g5_"; // 테이블명 접두사
@@ -161,7 +166,7 @@ if( isset($_POST['id'])){
     $year = substr($date, 0, 4);
     $month = substr($date, 5, 2);
 
-    $result = "SELECT COUNT(a.co_no) as cnt FROM {$g5['coupon_table']} a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}'"; 
+    $result = "SELECT COUNT(a.co_no) as cnt FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}'"; 
     $row=sql_fetch($result);
     $total_count = $row['cnt'];
 
@@ -172,7 +177,7 @@ if( isset($_POST['id'])){
 
     $list = array();
 
-    $sql = "SELECT * FROM {$g5['coupon_table']} a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' limit $from_record, $rows ";
+    $sql = "SELECT * FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' limit $from_record, $rows ";
     $result = sql_query($sql);
     for ($i=0; $row=sql_fetch_array($result); $i++) {
         $list[$i] = $row;
@@ -180,11 +185,6 @@ if( isset($_POST['id'])){
         // 순차적인 번호 (순번)
         $num = $total_count - ($page - 1) * $rows - $i;
     }
-
-    $at_table = $g5['write_table'].$bo_table;
-    $linkcount = strlen($bo_table) - 2;
-    $str_table =substr($bo_table, 0, $linkcount);
-    $re_table = "g5_write_".$str_table."re";
 
     $sql1 = "SELECT a.cos_nick FROM {$g5['coupon_sent_table']} a INNER JOIN $re_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
     $res1 = sql_query($sql1);
@@ -258,33 +258,43 @@ if( isset($_POST['id'])){
     <?php $q = "SELECT bo_subject FROM $g5[board_table] WHERE bo_table = '{$bo_table}'";
     $q1 = sql_fetch($q); ?>
         <div><h3 style="text-align: center;"><?php echo "쿠폰지원목록 (".$q1['bo_subject'].")"; ?> </h3></div>
-        <ul class="na-table d-table w-100 f-de" style="margin-top: 30px;">
+        <div class="tbl_head01 tbl_wrap" style="margin-top: 30px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Entity Name</th>
+                        <th scope="col">Half coupon quantity</th>
+                        <th scope="col">Free coupon quantity</th>
+                        <th scope="col">Sent coupons</th>
+                    </tr>
+                </thead>
+            <tbody>
         <?php     
-        $result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $g5[bo_table] b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' AND c.mb_level = '27'"; 
+        $result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' AND c.mb_level = '27'"; 
         $result1=sql_query($result);
         while ($row = sql_fetch_array($result1)) {     
         ?>
-            <li class="d-table-row px-3 py-2 p-md-0 text-center text-muted">	
-                <div class="d-none d-table-cell nw-9 f-sm font-weight-normal py-md-2 px-md-1 border-right">
+            <tr>
+                <td class="td_left" style="text-align: left; white-space: nowrap;">
                     <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>">
                         <?php echo "[".$row['co_entity']."]";
                         $user_entity[$cnt]['co_entity']= $row['co_entity'];
                         ?> 
                     </a>
-                </div>
+                </td>
                 
-                <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1 text-center" style = "border-right: 0.5px solid blue;">
+                <td class="td_left">
                     <a style="color:blue; font-weight: bold;" data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == 0) { echo ''; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal"';}  ?>>
                         <?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
                     </a>
-                </div> 
-                <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1 text-center" style = "border-right: 0.5px solid blue;">
+                </td> 
+                <td class="td_left">
                     <a style="color:blue; font-weight: bold;" data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == 0){ echo ''; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal"';} ?>>
                         <?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
                     </a>
-                </div>
+                </td>
                 
-               <div class="float-left float-md-none d-table-cell nw-30 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1 text-left">
+                <td class="td_left">
                     <?php echo "쿠폰 받은사람 :"; ?> 
                     <ul id="userlist">
                     <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a RIGHT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
@@ -388,7 +398,7 @@ if( isset($_POST['id'])){
                     }
                     ?> 
                     </ul>
-                </div>
+                </td>
                 <div class="modal fade" id="couponCreate<?php echo $cnt;?>" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content" style="width: 350px; height: 320px; font-weight: bold;">
@@ -447,15 +457,14 @@ if( isset($_POST['id'])){
                         </div>
                     </div>
                 </div>       
-            </li>                        
-        <?php $cnt++; } ?>
-        </ul>
-        <?php if ($cnt == 0) { ?>
-            <div class="f-de px-3 py-5 text-center text-muted border-bottom">
-                자료가 없습니다.
-            </div>
-        <?php } ?>
-    
+            </tr>                        
+        <?php $cnt++; } 
+        if ($cnt == 0) { 
+            echo '<tr><td colspan="4" class="empty_table">자료가 없습니다.</td></tr>';
+        } ?>
+    </tbody>
+    </table>
+</div>
         <div class="modal fade" id="couponModal" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" style="width: 350px; height: 300px;">                  
@@ -532,7 +541,6 @@ if( isset($_POST['id'])){
         });    
 
         $('#btn_send').click(function(){
-		debugger;
             if($('#hasNick').val() != '정상적인 닉네임입니다.'){ 
                 alert("닉네임을 입력하시고 확인후 쿠폰 지원할 수 있습니다!");
                 $('#mb_nick').focus();
