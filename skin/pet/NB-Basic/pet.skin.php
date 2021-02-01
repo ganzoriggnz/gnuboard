@@ -19,16 +19,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             <img src="<?php echo G5_URL ?>/img/cat.png">
         </div>
     </div>
-        <div class="row_btn mt_54">
-            <button type="button" id="cat1" name="cat1" class="btn_pet_first">청소하기</button>
-        </div>      
-        <div class="row_btn mt_24">        
-            <button type="button" id="cat2" class="btn_pet_first">쓰담쓰담 하기</button>
-        </div>
-        <div class="row_btn mt_24">
-            <button type="button" id="cat3" class="btn_pet_first">사료주기</button>
-        </div>
-        <div id ="result"></div>
+    <?php $res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  p_but1_datetime > '{$p_begin_date}' AND '{$p_end_date}' >=  p_but1_datetime AND '{$p_end_date}' >=  p_but2_datetime AND '{$p_end_date}' >=  p_but3_datetime";
+    $row = sql_fetch($res); 
+    ?>  
+    <div class="row_btn mt_54">
+        <input type="hidden" id="but1" value="<?php echo $row['p_but1_datetime']; ?>">
+        <button type="button" id="cat1" name="cat1" class="<?php echo ($row['p_but1_datetime'] != '0000-00-00 00:00:00' && $row['p_but1_datetime']) ? "btn_pet_third" : "btn_pet_first" ?>">청소하기</button>
+    </div>      
+    <div class="row_btn mt_24">   
+        <input type="hidden" id="but2" value="<?php echo $row['p_but2_datetime']; ?>">     
+        <button type="button" id="cat2" class="<?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? "btn_pet_third" : "btn_pet_first" ?>">쓰담쓰담 하기</button>
+    </div>
+    <div class="row_btn mt_24">
+        <input type="hidden" id="but3" value="<?php echo $row['p_but3_datetime']; ?>">
+        <button type="button" id="cat3" class="<?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? "btn_pet_third" : "btn_pet_first" ?>">사료주기</button>
+    </div>
+    <div id ="result"></div>
     <div class="pet_bottom">
         <p>* 모든 버튼은 <span class="red">매일 12시 초기화 됩니다</span></p>
     </div>
@@ -54,7 +60,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             var isButtonClicked = 0;
             var lastClickedTime = new Date($.now());
             var count = 0;
-            /* setInterval(function(){ $('#demo').html(count) }, 1); */
 
             $('button').click(function(){
 
@@ -64,8 +69,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     isButtonClicked = 1;
                     lastClickedTime = new Date($.now());
                     count+=1;
+              /*       debugger;
+                    var but_time = $this.siblings('input[type=hidden]').val();
+                    alert(but_time); */
                     $('#demo').html("My current count is: " + count);
                     var id = this.id;
+                   
                     
                     $.ajax({
                         type: 'POST',
@@ -74,15 +83,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                             'id': id
                         },
                         dataType: 'text',
-                        success: function(response) {
-                            //$('#result').html(response);
-                        }
-                    });
-                }
-                else
-                {
+                        success: function(response) {                       
+                            //$('#result').html(response);                       
+                        }                       
+                    });                       
+                }                       
+                else                       
+                {                       
                     if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 2)
                     {
+                        /* var but_time = $this.siblings('input[type=hidden]').val();
+                        alert(but_time); */
                         $("#" + this.id).css("background","#4D4D4D");
                         lastClickedTime = new Date($.now());
                         count+=1;
@@ -113,37 +124,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 }
             }); 
 
-            /* function getSuccess(count, id){
-                if(count==3 && id.includes('cat')){
-                            $('#pet').html('고양이 ');
-                            $('.popup_box1').css("display", "block");
-                            $('.btn1').click(function(){
-                            $('.popup_box1').css("display", "none");
-                            });
-                        } else if(count==3 && id.includes('dog')){
-                            $('#pet').html('강아지 ');
-                            $('.popup_box1').css("display", "block");
-                            $('.btn1').click(function(){
-                            $('.popup_box1').css("display", "none");
-                            });
-                        } else if(count==6 && id.includes('cat')){
-                            $('#pet').html('고양이 ');
-                            $('.popup_box1').css("display", "block");
-                            $('.btn1').click(function(){
-                            $('.popup_box1').css("display", "none");
-                            });
-                        } else if(count==6 && id.includes('dog')){
-                            $('#pet').html('강아지 ');
-                            $('.popup_box1').css("display", "block");
-                            $('.btn1').click(function(){
-                            $('.popup_box1').css("display", "none");
-                            });
-                        }
-            } */
-
             function getSuccess(count, id){      
                 if(count==3){
-                    $('#pet').html('강아지 ');
+                    $('#pet').html('고양이 ');
                     $('.popup_box1').css("display", "block");
                     $('.btn1').click(function(){
                     $('.popup_box1').css("display", "none");
