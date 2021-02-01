@@ -20,7 +20,7 @@ function editor_html($id, $content, $is_dhtml_editor=true)
     }
 
     $width  = isset($editor_width)  ? $editor_width  : "100%";
-    $height = isset($editor_height) ? $editor_height : "250px";
+    $height = isset($editor_height) ? $editor_height : "500px";
     if (defined('G5_PUNYCODE'))
         $editor_url = G5_PUNYCODE.'/'.G5_EDITOR_DIR.'/'.$config['cf_editor'];
     else

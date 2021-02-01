@@ -92,17 +92,17 @@ $list_cnt = count($list);
 		$li_css = '';
 		if ($list[$i]['is_notice']) { // 공지사항
 			$li_css = ' bg-light';
-			$list[$i]['num'] = '<span class="na-notice ></span><span class="sr-only">공지사항</span>';
+			$list[$i]['num'] = '<span class="na-notice ></span><span class="sr-only"></span>';
 			$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
 		} 
 		if ($list[$i]['is_eventcheck']) { // 공지사항
 			$li_css = ' bg-light';
-			$list[$i]['num'] = '<span class="na-event ></span><span class="sr-only">event</span>';
+			$list[$i]['num'] = '<span class="na-event ></span><span class="sr-only"></span>';
 			$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
 		}
 		if ($list[$i]['is_best']) { // 공지사항
 			$li_css = ' bg-light';
-			$list[$i]['num'] = '<span class="na-best ></span><span class="sr-only">best</span>';
+			$list[$i]['num'] = '<span class="na-best ></span><span class="sr-only"></span>';
 			$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
 		}		
 		else if ($wr_id == $list[$i]['wr_id']) {
