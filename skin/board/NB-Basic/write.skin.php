@@ -230,8 +230,8 @@ if ($is_member)
 					<li class="list-group-item">
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label" for="$write['ca_name']">* 지역</label>
-							<div class="col-md-7">
-								<?php echo $write['ca_name']."  (지역과 업소명은 제휴신청때 작성된 정보가 자동입력됩니다. 변경시 제휴문의에 글 남기시거나 관리자에게 쪽지주세요.)" ?>
+							<div class="col-md-8 col-form-label" style="font-weight: 100;">
+								<?php echo $write['ca_name']." &emsp; (지역과 업소명은 제휴신청때 작성된 정보가 자동입력됩니다. 변경시 제휴문의에 글 남기시거나 관리자에게 쪽지주세요.)" ?>
 							<input type='hidden' name='ca_name' value='<?php echo $write['ca_name']?>' > 
 							</div>
 						</div>
@@ -242,11 +242,11 @@ if ($is_member)
 					<li class="list-group-item">
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label" for="$write['wr_3']">* 세부 지역</label>
-							<div class="col-md-7">
-								<?php echo $member['mb_addr2'] ?>
+							<div class="col-md-8 col-form-label" style="font-weight: 100;">
+								<?php echo $member['mb_addr2'] ?>&emsp;
 								<a href="<?php echo G5_URL ?>/bbs/member_confirm.php?url=register_form.php" target="_blank" style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
-									<i class="fa fa-map"></i><span>&nbsp;세부지역 변경</span></a>
-								<?php echo "  ※ 배너에 출력되는 주소 / 수정은 개인정보수정에서 가능 ( ex:서울 강남역 2번출구 )" ?>
+									<i class="fa fa-map"></i><span>세부지역 변경</span></a>
+								<?php echo "&emsp;  ※ 배너에 출력되는 주소 / 수정은 개인정보수정에서 가능 ( ex:서울 강남역 2번출구 )" ?>
 							</div>
 						</div>
 					</li>
@@ -256,12 +256,12 @@ if ($is_member)
 					<li class="list-group-item">
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label" for="wr_2">* 전화 번호</label>
-							<div class="col-md-7">
-								<?php echo $member['mb_hp'] ?>
+							<div class="col-md-7 col-form-label" style="font-weight: 100;">
+								<?php echo $member['mb_hp'] ?>&emsp;
 								<a onclick="window.open('<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>','전화번호 변경요청','width=300,height=300,scrollbars=no,padding=0, margin=0, top=300,left=800');" 
 					style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none" >
 						<font style="vertical-align: inherit;">전화번호 변경요청</font></a>	
-								<?php echo "※ 전화번호는 운영자가 확인 후 변경처리됩니다." ?>
+								<?php echo " &emsp;※ 전화번호는 운영자가 확인 후 변경처리됩니다." ?>
 							</div>
 						</div>
 					</li>

@@ -104,7 +104,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         기본정보       
         </label>
         <div class="col-sm-3 col-form-info">
-        <?php echo $row['mb_nick']." ".$row['mb_id']?>
+        <?php echo $row['mb_nick']." (".$row['mb_id'].")"?>
         </div>
         </div>
         <!-- 프로필 사진 user icon  -->
