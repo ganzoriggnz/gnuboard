@@ -29,7 +29,7 @@ $too = rand(0,$tood-1);
 <style>
 
 		.notice{width:100%; height:16px; overflow:hidden;}
-		.rolling{position:relative; width:100%; height:auto;}
+		.rolling{position:relative; width:100%; height:16px;}
 		.rolling li{width:100%; height:16px; line-height:50px;}
 
 		.rolling_stop{display:block; height:20px; color:#000; }
@@ -43,9 +43,15 @@ $too = rand(0,$tood-1);
 				<ul class="rolling">
 				<?php for ($i=0; $i<$tood;$i++ ) {		
 				?>
-				<li>
-				<?php echo $list[$i]?>
-				</li>
+				<li><?php echo $list[$i]?></li>
+				<?php }?>
+				<?php for ($i=0; $i<$tood;$i++ ) {		
+				?>
+				<li><?php echo $list[$i]?></li>
+				<?php }?>
+				<?php for ($i=0; $i<$tood;$i++ ) {		
+				?>
+				<li><?php echo $list[$i]?></li>
 				<?php }?>
 				</ul>
 			</div>
@@ -65,20 +71,20 @@ $(document).ready(function(){
 	function noticeRolling(){
 		move += height;
 		$(".rolling").animate({"top":-move},600,function(){
-			if( move >= max ){
+			if( move > max ){
 				$(this).css("top",0);
 				move = 0;
 			};
 		});
 	};
-	noticeRollingOff = setInterval(noticeRolling,3000);
+	noticeRollingOff = setInterval(noticeRolling,2000);
 	$(".rolling").append($(".rolling li").first().clone());
 
-	$(".rolling_stop").click(function(){
-		clearInterval(noticeRollingOff);
-	});
-	$(".rolling_start").click(function(){
-		noticeRollingOff = setInterval(noticeRolling,9000);
-	});
+	// $(".rolling_stop").click(function(){
+	// 	clearInterval(noticeRollingOff);
+	// });
+	// $(".rolling_start").click(function(){
+	// 	noticeRollingOff = setInterval(noticeRolling,9000);
+	// });
 });		
 </script>

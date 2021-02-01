@@ -131,10 +131,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                         $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
                         while ( $row=sql_fetch_array($result))
                         {
-                            $bo_table = $row['bo_table'];
-                            
-                            $res = sql_fetch("select wr_id from ".$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}'");
-                            
+                            $bo_table = $row['bo_table'];                            
+                            $res = sql_fetch("select wr_id from ".$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}'");                            
                             if($res){ ?>
                                 <?php if(defined('_INDEX_')) {?>    		
                                 <a href="./bbs/write.php?w=u&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>&page=" style="color: #BFAF88;" ><font color="blue"><b><i class="fa fa-pencil-square-o"></i> 업소정보 수정</b></font></a>
@@ -160,7 +158,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 </div>
 <?php } ?>
 
-<?php if( $member['mb_level'] == 27 || $member['mb_level'] == 27)
+<?php if( $member['mb_level'] == 26 || $member['mb_level'] == 27)
                     { ?>
          <!-- user  지역-업종   mb_nick  -->
 <div class="form-group row">
@@ -182,17 +180,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <?php echo $start_date." ~ ".$end_date.' - [';?><span style="color: blue;"><?php echo $diff_days.'일 남음';?></span>]
         </div>
 </div>
-<?php } ?>
+
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="reg_mb_nick">
     연락처      
     </label>
     <div class="col-sm- col-form-info">
-    <?php if($row['mb_hp']) {echo $row['mb_hp'].'<br>'; }?>(프로필과 배너에 출력되니 항상 최신번호로 유지해주세요)
+    <?php if($member['mb_hp']) { echo $member['mb_hp'].'<br>'; }?>(프로필과 배너에 출력되니 항상 최신번호로 유지해주세요)
+					<a onclick="window.open('<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>','전화번호 변경요청','width=300,height=300,scrollbars=no,padding=0, margin=0, top=300,left=800');" 
+					style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none" >
+						<font style="vertical-align: inherit;">전화번호 변경요청</font></a><i style='color: red;'>※ 전화번호는 운영자가 확인 후 변경처리됩니다.</i>
+								
     </div>
 </div>
 
+<?php } ?>
         <!-- user  가입일   mb_datetime  -->
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="reg_mb_nick">가입일</label>
