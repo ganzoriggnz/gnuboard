@@ -90,7 +90,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 }                       
                 else                       
                 {                       
-                    if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 2)
+                    if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 30)
                     {
                         /* var but_time = $this.siblings('input[type=hidden]').val();
                         alert(but_time); */
