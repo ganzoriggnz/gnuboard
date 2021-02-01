@@ -70,7 +70,68 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     </div>
     <!-- } 게시판 페이지 정보 및 버튼 끝 -->
 
-    <div class="tbl_head01 tbl_wrap">
+    <div class="px-3 px-sm-0 my-3">
+<ul class="row row-cols-10 row-cols-sm-8 row-cols-md-9 row-cols-lg-9 row-cols-xl-2 mx-n2">
+        <?php
+        $list = $list + $list;
+        for ($i=0; $i<count($list); $i++) {
+         ?>
+         <li class="col px-2 pb-10" style="width: 450px; height: 300px;" >
+                <div>
+                    <?php if ($is_checkbox) { ?>
+                        <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
+                        <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
+                    <?php } ?>
+                    <?php
+            if ($list[$i]['is_notice']) // 공지사항
+                echo '<strong class="notice_icon"><i class="fa fa-bullhorn" aria-hidden="true"></i><span class="sound_only">공지</span></strong>';
+            else if ($wr_id == $list[$i]['wr_id'])
+                echo "<span class=\"bo_current\">열람중</span>";
+            else
+                echo $list[$i]['num'];
+                if ($is_category && $list[$i]['ca_name']) {
+                    ?>
+                   <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
+                   <?php }                    
+                   $tmp_wr_link1 = explode("https://youtu.be/", $list[$i]['wr_link1']);
+                   $str_content = cut_str(nl2br(strip_tags($list[$i]['wr_content'])), $board['bo_1']);
+                   ?>
+                   <div class="bo_tit"> 
+                           <div class="video_wrap listImgA" style="margin-right:3%;">
+                             <div class="video_container">
+                             <iframe width="450" height="300" src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                           </div>
+                           <?php echo $list[$i]['icon_reply'] ?>
+                           <?php
+                               if (isset($list[$i]['icon_secret'])) echo rtrim($list[$i]['icon_secret']);
+                            ?>
+                           <a href="<?php echo $list[$i]['href'] ?>" class="">
+                           <strong><?php echo $list[$i]['subject'] ?></strong>
+                           <?php
+                           if (isset($list[$i]['icon_file'])) echo rtrim($list[$i]['icon_file']);
+                           if (isset($list[$i]['icon_link'])) echo rtrim($list[$i]['icon_link']);
+                           if (isset($list[$i]['icon_new'])) echo rtrim($list[$i]['icon_new']);
+                           if (isset($list[$i]['icon_hot'])) echo rtrim($list[$i]['icon_hot']);
+                           ?>
+                       <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><span class="cnt_cmt">+ <?php echo $list[$i]['wr_comment']; ?></span><span class="sound_only">개</span><?php } ?>
+                       </a>
+                       <em class="listCont"><?php echo cut_str(strip_tags($list[$i]['wr_content']),160," . . . ") ?></em>
+                       <u class="listInfo">
+                           <span class="sound_only">작성자</span> <u class="listInfoName"><?php echo $list[$i]['name'] ?></u> /
+                           <span class="sound_only">조회</span><i class="fa fa-eye" aria-hidden="true"></i> <u><?php echo $list[$i]['wr_hit'] ?></u> /
+                           <span class="sound_only">작성일</span><i class="fa fa-clock-o" aria-hidden="true"></i> <u><?php echo $list[$i]['datetime2'] ?></u>
+                       </u>
+                    </div></div>
+                </div>    
+                </li>            
+        <?php } ?>
+        
+      </ul>
+        
+    </div>
+
+<!-- dddddddddddddddddd --------------------------------------------------------asf -->
+    <!-- <div class="tbl_head01 tbl_wrap">
         <table>
         <caption><?php echo $board['bo_subject'] ?> 목록</caption>
         <thead>
@@ -88,6 +149,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </tr>
         </thead>
         <tbody>
+        
         <?php
         for ($i=0; $i<count($list); $i++) {
          ?>
@@ -108,7 +170,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 echo $list[$i]['num'];
              ?>
             </td>
-
             <td class="td_subject" style="padding-left:<?php echo $list[$i]['reply'] ? (strlen($list[$i]['wr_reply'])*10) : '0'; ?>px">
                 <?php
                 if ($is_category && $list[$i]['ca_name']) {
@@ -126,7 +187,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
                         <div class="video_wrap listImgA" style="margin-right:3%;">
                           <div class="video_container">
-                  <iframe width="300" height="200" src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                                <iframe width="450" height="300" src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                         </div>
                       </div>
 
@@ -161,11 +222,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <?php if ($is_nogood) { ?><td class="td_num"><?php echo $list[$i]['wr_nogood'] ?></td><?php } ?>
 
         </tr>
-        <?php } ?>
+        <?php } ?> -->
+
+<!-- 
+
         <?php if (count($list) == 0) { echo '<tr><td colspan="'.$colspan.'" class="empty_table">게시물이 없습니다.</td></tr>'; } ?>
         </tbody>
         </table>
-    </div>
+    </div> -->
+
 	<!-- 페이지 -->
 	<?php echo $write_pages; ?>
 	<!-- 페이지 -->
