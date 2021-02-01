@@ -36,7 +36,7 @@ if ($_POST['act_button'] == "선택수정") {
                 $mb_adult = 0;
 
             $sql = " update {$g5['member_table']}
-                        set mb_nick = if('{$_POST['mb_1']}' =  '여' && '{$_POST['mb_level']}' > 23, REPLACE('{$mb_nick}', '♥',''), '{$mb_nick}'),
+                        set mb_nick = if('{$_POST['mb_1'][$k]}' =  '여' && '{$_POST['mb_level'][$k]}' > 23, REPLACE('{$_POST['mb_nick'][$k]}', '♥',''), '{$_POST['mb_nick'][$k]}'),
                             mb_level = '".sql_real_escape_string($_POST['mb_level'][$k])."',
                             mb_6 = '".sql_real_escape_string($_POST['mb_6'][$k])."',
                             mb_intercept_date = '".sql_real_escape_string($_POST['mb_intercept_date'][$k])."',
