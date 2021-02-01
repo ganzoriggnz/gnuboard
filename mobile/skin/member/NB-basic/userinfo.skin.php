@@ -99,24 +99,34 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		</div>
     </nav>
     <section class="xm">
-        <table cellspacing="0" class="w-100 px-3 mr-3" cellpadding="0" width="100%"  style="font-size: 12px; padding:5px;" id="level-up">
+       <table cellspacing="0" class="w-100 px-3 mr-3" cellpadding="0" width="100%"  style="font-size: 12px; padding:5px;" id="level-up">
 		<thead>  
 			<tr style="font-size: 12px; " >
-				<th class="cl_tr">
-                    <label class="col-form-label" for="reg_mb_nick">
-        기본정보       
-        </label></th>
-				<th class="cl_tr"> <?php echo $row['mb_nick']." ".$row['mb_id']?></th>
+				<th class="cl_tr"><label class="col-form-label" for="reg_mb_nick">기본정보</label></th>
+				<th class="cl_tr"><?php echo $row['mb_nick']." ".$row['mb_id']?></th>
 			</tr>
 		</thead>
 		<tbody>
         <tr style=" font-size: 10px">
-				<td class="cl_td"></td>
-				<td class="cl_td" style="text-align: left;">보유파운드</td>	
+				<td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">보유파운드</label></td>
+				<td class="cl_tr" style="text-align: left;"> 
+                        <a href="#" target="_blank" class="win_memo" title="사진등록">
+                            <div class="photo pull-left"><i class="fa fa-user"></i></div></a></td>	
+        </tr>
+        <tr style=" font-size: 10px">
+				<td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">출근부</label></td>
+				<td class="cl_tr" style="text-align: left;"> 
+                        <a href="#" target="_blank" class="win_memo" title="사진등록">
+                            <div class="photo pull-left"><i class="fa fa-user"></i></div></a></td>	
+        </tr>
+        <tr style=" font-size: 10px">
+				<td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">보유파운드</label></td>
+				<td class="cl_tr" style="text-align: left;"> 
+                        <a href="#" target="_blank" class="win_memo" title="사진등록">
+                            <div class="photo pull-left"><i class="fa fa-user"></i></div></a></td>	
         </tr>
         </tbody>
 </table>
-
         <!-- user  기본정보   mb_nick  -->
         <div class="form-group row">
         <label class="col-form-label" for="reg_mb_nick">
