@@ -28,9 +28,10 @@ $too = rand(0,$tood-1);
 ?>
 <style>
 
-		.notice{width:100%; height:18px; overflow:hidden;}
+		.notice{width:100%; height:16px; overflow:hidden;}
 		.rolling{position:relative; width:100%; height:auto;}
-		.rolling li{width:100%; height:20px; line-height:50px;}
+		.rolling li{width:100%; height:16px; line-height:50px;}
+
 		.rolling_stop{display:block; height:20px; color:#000; }
 		.rolling_start{display:block;  height:20px; color:#000;}
 	</style>
@@ -63,22 +64,21 @@ $(document).ready(function(){
 	var move = 0;
 	function noticeRolling(){
 		move += height;
-		$(".rolling").animate({"top":-move},1000,function(){
+		$(".rolling").animate({"top":-move},600,function(){
 			if( move >= max ){
 				$(this).css("top",0);
 				move = 0;
 			};
 		});
 	};
-	noticeRollingOff = setInterval(noticeRolling,2000);
+	noticeRollingOff = setInterval(noticeRolling,3000);
 	$(".rolling").append($(".rolling li").first().clone());
-
 
 	$(".rolling_stop").click(function(){
 		clearInterval(noticeRollingOff);
 	});
 	$(".rolling_start").click(function(){
-		noticeRollingOff = setInterval(noticeRolling,600);
+		noticeRollingOff = setInterval(noticeRolling,9000);
 	});
 });		
 </script>
