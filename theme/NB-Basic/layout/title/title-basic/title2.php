@@ -48,8 +48,8 @@ $too = rand(0,$tood-1);
 				<?php }?>
 				</ul>
 			</div>
-			<a href="#" class="rolling_stop">Pause</a>
-<a href="#" class="rolling_start">Play</a>
+			<!-- <a href="#" class="rolling_stop">Pause</a>
+<a href="#" class="rolling_start">Play</a> -->
 		</div>
 
 	</div>
