@@ -73,10 +73,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <div class="px-3 px-sm-0 my-3">
 <ul class="row row-cols-10 row-cols-sm-8 row-cols-md-9 row-cols-lg-9 row-cols-xl-2 mx-n2">
         <?php
-        $list = $list + $list;
         for ($i=0; $i<count($list); $i++) {
          ?>
-         <li class="col px-2 pb-10" style="width: 450px; height: 300px;" >
+         <li class="col px-5 pb-10">
                 <div>
                     <?php if ($is_checkbox) { ?>
                         <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
@@ -88,7 +87,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             else if ($wr_id == $list[$i]['wr_id'])
                 echo "<span class=\"bo_current\">열람중</span>";
             else
-                echo $list[$i]['num'];
+                echo "№ ".$list[$i]['num'];
                 if ($is_category && $list[$i]['ca_name']) {
                     ?>
                    <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
@@ -124,7 +123,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     </div></div>
                 </div>    
                 </li>            
-        <?php } ?>
+        <?php }?>
         
       </ul>
         
