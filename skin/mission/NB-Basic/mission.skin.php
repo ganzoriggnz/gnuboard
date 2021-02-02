@@ -31,8 +31,8 @@ echo $res; */
 				점				
 				</td>
 				<td class="cl_td">
-					<div class="<?php if($cnt_at > 0){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
-                        <a href="#" target="_blank">				
+					<div class="miss_but_1">
+                        <a href="<?php echo G5_PLUGIN_URL ?>/attendance/attendance.php/" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>																
 				</td>
