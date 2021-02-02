@@ -100,7 +100,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				if($cnt1 < 2) { echo '0';} 
 				else if($cnt1 == 2) { echo '1';}
 				else if($cnt1 == 3) { echo '2';}
-				else if($cnt1 > 3) { echo '3';} ?>/3)				
+				else if($cnt1 == 4) { echo '3';} 
+				else if($cnt1 == 5 ) { echo '4';}
+				else if($cnt1 > 5) { echo '5';} ?>/5)				
 				</td>
 				<td class="cl_td_r">
 				10 
@@ -119,17 +121,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">6</td>
 				<td class="cl_td">댓글작성 후기</td>	
 				<td class="cl_td_l">자유게시판에 댓글 10회 작성하기(<?php 
-				if($cnt1 < 4) { echo '0';} 
-				else if($cnt1 == 5) { echo '1';}
-				else if($cnt1 == 6) { echo '2';}
-				else if($cnt1 == 7) { echo '3';}
-				else if($cnt1 == 8) { echo '4';}
-				else if($cnt1 == 9) { echo '5';}
-				else if($cnt1 == 10) { echo '6';}
-				else if($cnt1 == 11) { echo '7';}
-				else if($cnt1 == 12) { echo '8';}
-				else if($cnt1 == 13) { echo '9';}
-				else if($cnt1 > 13) { echo '10';} ?>/10)				
+				if($cnt1 < 6) { echo '0';} 
+				else if($cnt1 == 6) { echo '1';}
+				else if($cnt1 == 7) { echo '2';}
+				else if($cnt1 == 8) { echo '3';}
+				else if($cnt1 == 9) { echo '4';}
+				else if($cnt1 == 10) { echo '5';}
+				else if($cnt1 == 11) { echo '6';}
+				else if($cnt1 == 12) { echo '7';}
+				else if($cnt1 == 13) { echo '8';}
+				else if($cnt1 == 14) { echo '9';}
+				else if($cnt1 > 14) { echo '10';} ?>/10)				
 				</td>
 				<td class="cl_td_r">
 				50 
@@ -251,7 +253,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td_l"><font color="#f3bd49"><b>일일 미션 10개 모두 완료시 추가 공덕</b></font></td>	
 				<td class="cl_td_r">300점</td>
 				<td class="cl_td">
-					<div class="<?php if($cnt_rev > 15 && $cnt_att > 15 && $cnt1 > 13 && $cnt_at > 0 && $cnt > 0 &&
+					<div class="<?php if($cnt_rev > 15 && $cnt_att > 15 && $cnt1 > 14 && $cnt_at > 0 && $cnt > 0 &&
 					$row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but2_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but3_datetime'] != '0000-00-00 00:00:00')

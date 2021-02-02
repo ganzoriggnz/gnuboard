@@ -51,7 +51,7 @@ $q1 = "SELECT COUNT(*) as cnt FROM {$tmp_table} WHERE mb_id='{$member['mb_id']}'
 $row1 = sql_fetch($q1);
 $cnt1 = $row1['cnt'];
 
-$q_at = "SELECT COUNT(*) as cnt FROM {$g5['attendance']} WHERE mb_id='{$member['mb_id']}' AND `datetime` BETWEEN '{$start_date}' and '{$end_date}'";
+$q_at = "SELECT COUNT(*) as cnt FROM {$g5['attendance_table']} WHERE mb_id='{$member['mb_id']}' AND `datetime` BETWEEN '{$start_date}' and '{$end_date}'";
 $row_at = sql_fetch($q_at);
 $cnt_at = $row_at['cnt'];
 
