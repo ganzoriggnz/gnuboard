@@ -140,7 +140,7 @@ if ($member['mb_level']>=12 && $member['mb_level']<=22)
 {
 	echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 	<div class="form-group row">
-							<label class="col-form-label" for="reg_mb_nick">1 파편조각 1페니 (1:1)</label>
+							<label class="col-form-label" for="reg_mb_nick">1 파운드 100 페니 (1:100)</label>
 							<div class="col-sm-4">
 								<input type="hidden" name="mb_nick_default" value="">
 								<input type="number" min="'.$penychangelimit.'" name="niittoo" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="10만 파운드 이상 전환 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
@@ -149,12 +149,15 @@ if ($member['mb_level']>=12 && $member['mb_level']<=22)
 			</div>
 		</div>';}
 		else {
-			echo '<div id="" class="font-weight-normal px-3">
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_nick">Your peny: '.number_format($member['mb_peny']).'</label>
-						<div class="col-sm-4"></div>
+			echo '<div id="" class="font-weight-normal px-3 pt-3 ">
+			<div class="form-group row">
+									<label class="col-form-label" for="reg_mb_nick">1 파운드 100 페니 (1:100)</label>
+									<div class="col-sm-4">
+										<input type="hidden" name="mb_nick_default" value="">
+										<input type="number" min="'.$penychangelimit.'" disabled="disabled" name="niittoo" value="레벨 남작이상 파운드페니로 전환이 가능합니다." onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="레벨 남작이상 파운드페니로 전환이 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
+									</div>								
 					</div>
-				 </div>';
+				</div>';
 		}
 	?>
 
