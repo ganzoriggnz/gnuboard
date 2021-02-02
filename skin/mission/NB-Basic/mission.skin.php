@@ -109,14 +109,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 점				
                 </td>
 				<td class="cl_td">
-					<div class="<?php if($cnt1 > 3){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
-                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
+					<div class="<?php if($cnt1 > 5){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank" >				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>																
 				</td>
 			</tr>
-			
-					
+						
 			<tr>
 				<td class="cl_td">6</td>
 				<td class="cl_td">댓글작성 후기</td>	
@@ -253,11 +252,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td_l"><font color="#f3bd49"><b>일일 미션 10개 모두 완료시 추가 공덕</b></font></td>	
 				<td class="cl_td_r">300점</td>
 				<td class="cl_td">
-					<div class="<?php if($cnt_rev > 15 && $cnt_att > 15 && $cnt1 > 14 && $cnt_at > 0 && $cnt > 0 &&
+					<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?>">
+					<div <?php if($cnt_rev > 15 && $cnt_att > 15 && $cnt1 > 14 && $cnt_at > 0 && $cnt > 0 &&
 					$row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but2_datetime'] != '0000-00-00 00:00:00' && 
-					$row2['p_but3_datetime'] != '0000-00-00 00:00:00')
-					{ echo "miss_but_1";} else { echo "miss_but_3"; } ?>">
+					$row2['p_but3_datetime'] != '0000-00-00 00:00:00') 
+					{ echo 'class="miss_but_1" onclick = "givePoint()"';} else { echo 'class="miss_but_3"'; } ?>>
 					<i class="fa fa-gift"></i><br>완료<br>대기
 			        </div>
 				</td>
@@ -270,3 +270,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
     &nbsp;&nbsp;&nbsp;공덕이나 엽전 내역은 합산 저장되니 착오 없으시기 바랍니다. <br>
     </div>
 </div>
+<script>
+	function givePoint(){
+		$id = $("#mb_id").val();
+		$.ajax({
+			type: 'POST',
+			url: 'mission_update.php',
+			data: {
+				'id': id
+			},
+			dataType: 'text',
+			success: function(response) {                       
+		                    
+			}  
+		});
+	}
+</script>
