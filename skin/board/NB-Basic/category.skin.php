@@ -32,6 +32,11 @@ for ($i=0; $i<$ca_count; $i++) {
 #bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active { text-decoration:none; color:#000;font-weight: bold; background-color: #fff }
 #bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:95px; height:39px; display:flex; align-items:center; justify-content: center;}
 
+@media only screen and (max-width: 600px) {
+#bo_cate a {border-radius: 2px; font-size:12px; color:#000; width:58.2px; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
+#bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:58.2px; height:39px; display:flex; align-items:center; justify-content: center;}
+}
+
 </style>
 <nav id="bo_cate" class="sly-tab font-weight-normal mb-2">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
