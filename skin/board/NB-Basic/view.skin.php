@@ -111,8 +111,11 @@ $view_subject = get_text($view['wr_subject']);
 				<li class="pr-2">
 					<span class="sr-only">작성자</span>
 					<!-- hulan nemsen level mark -->
-					
 					<?php echo na_name_photo($view['mb_id'], $view['name']); ?>
+					<?php if (G5_IS_MOBILE) {
+						$phone=get_member($view['mb_id'],"mb_hp");						
+						echo  '<a href="tel:'.$phone['mb_hp'].'" style="border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/phone.svg" style="height:10px; " title=""> 전화걸기</a>
+					<a href="sms:'.$phone['mb_hp'].'" style="border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/sms.svg" style="height:14px; " title=""> SMS</a>    ';} ?>
 				</li>
 				<?php if ($is_ip_view) { ?>
 					<li class="pr-2">
