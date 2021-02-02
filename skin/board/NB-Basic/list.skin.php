@@ -107,7 +107,8 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 			<div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0">
 				<div class="d-flex align-items-center">
 					<div id="bo_list_total" class="flex-grow-1">
-						<!-- Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page -->
+					<?php if(!G5_IS_MOBILE) {?>
+						<!-- Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page -->						
 						<!-- hulan deed taliig tailbar bolgood dood taliig nemsen board, group admin hevleh heseg -->
 						<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
 						<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
@@ -115,6 +116,12 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 							<!-- 계급마크 출력-->
 						<?php echo get_level($row['mb_id']), $row['mb_nick'], "  ",  get_level($row1['mb_id']), $row1['mb_nick'],  " / " ?>
 						<?php echo "[ 글 작성 ", $board['bo_write_point'], " 파운드 /  댓글 작성 ", $board['bo_comment_point'], " 파운드 획득]" ?>
+						<?php } 
+						else {
+						?>
+		 Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page
+<?php }?>
+
 						<!-- ///ene hurtel /////////////////////////////////////////// -->
 					</div>
 					<div class="btn-group" role="group">
@@ -144,7 +151,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 						<?php if ($write_href) { ?>						
 								<div>
 								<button type="button" class="btn btn-primary" onclick="location.href='<?php echo $write_href ?>'">
-								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;"> 글쓰기
+								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;"><?php if(!G5_IS_MOBILE) echo "글쓰기"; ?>
 								</button>
 								</div>
 						<?php } ?>
