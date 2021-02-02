@@ -233,12 +233,7 @@ $menu_cnt = count($menu);
 		<!-- Icon -->
 		<div class="px-3">
 			<ul class="d-flex justify-content-between text-center f-de mt-3 mb-2">
-				<li>
-					<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=notice">
-						<i class="fa fa-bullhorn circle light-circle normal" aria-hidden="true"></i>
-						<span class="d-block mt-2">공지사항</span>
-					</a>
-				</li>
+
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/content.php?co_id=company">
 						<i class="fa circle light-circle normal" aria-hidden="true">
@@ -281,10 +276,7 @@ $menu_cnt = count($menu);
 								<?php for ($j = 0; $j < count($me['s']); $j++) {
 									$me1 = $me['s'][$j];
 								?>
-									<?php if ($me1['line']) { //구분라인
-									?>
-										<li class="me-line1"><a class="me-a1"><?php echo $me1['line']; ?></a></li>
-									<?php } ?>
+									
 
 									<li class="me-li1<?php echo ($me1['on']) ? ' active' : ''; ?>">
 
