@@ -134,7 +134,7 @@ $frm_submit = '<div class="col-sm-4">
 		<input type="hidden" name="uid" value="<?php echo get_uniqid(); ?>">
 		<input type="hidden" name="w" value="u">
 <?php 
-if ($member['mb_level']>=1 && $member['mb_level']<=30)
+if ($member['mb_level']>=12 && $member['mb_level']<=22)
 {
 	echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 	<div class="form-group row">
