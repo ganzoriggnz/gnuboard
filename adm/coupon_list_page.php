@@ -262,10 +262,10 @@ if( isset($_POST['id'])){
             <table>
                 <thead>
                     <tr>
-                        <th scope="col">Entity Name</th>
-                        <th scope="col">Half coupon quantity</th>
-                        <th scope="col">Free coupon quantity</th>
-                        <th scope="col">Sent coupons</th>
+                        <th scope="col">업소명</th>
+                        <th scope="col">원가권 쿠폰 개수</th>
+                        <th scope="col">무료권 쿠폰 개수</th>
+                        <th scope="col">쿠폰 받은사람</th>
                     </tr>
                 </thead>
             <tbody>
@@ -294,8 +294,7 @@ if( isset($_POST['id'])){
                     </a>
                 </td>
                 
-                <td class="td_left">
-                    <?php echo "쿠폰 받은사람 :"; ?> 
+                <td class="td_left"> 
                     <ul id="userlist">
                     <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a RIGHT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
                     $sql1 = sql_query($sql);
