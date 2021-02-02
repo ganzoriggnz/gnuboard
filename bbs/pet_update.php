@@ -10,6 +10,7 @@ if(isset($_POST['id']))
     $p_begin_date = date_format($p_date, 'Y-m-d 00:00:00');
     $p_end_date = date_format($p_date, 'Y-m-d 23:59:59');
     $id = $_POST['id'];
+    $date = $_POST['date'];
     $res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  p_but1_datetime > '{$p_begin_date}' AND '{$p_end_date}' >=  p_but1_datetime AND '{$p_end_date}' >=  p_but2_datetime AND '{$p_end_date}' >=  p_but3_datetime";
     $row = sql_fetch($res);
     if(!$row['p_no']){
@@ -55,8 +56,22 @@ if(isset($_POST['id']))
      if($row['p_but1_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime'] != '0000-00-00 00:00:00')
      
     insert_point($member['mb_id'], 100, "펫 기르기 포인트", "@pet", $member['mb_nick'], G5_TIME_YMD);
+
+    $now = G5_TIME_YMDHIS;
+    $p_date = date_create($now);
+    $p_begin_date = date_format($p_date, 'Y-m-d 00:00:00');
+    $p_end_date = date_format($p_date, 'Y-m-d 23:59:59');
+
+    $res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  p_but1_datetime > '{$p_begin_date}' AND '{$p_end_date}' >=  p_but1_datetime AND '{$p_end_date}' >=  p_but2_datetime AND '{$p_end_date}' >=  p_but3_datetime";
+    $row = sql_fetch($res);
+    if($row['p_but2_datetime'] && $row['p_but2_datetime']!='0000-00-00 00:00:00'){
+        echo $row['p_but2_datetime'];
+    }
+    else if($row['p_but1_datetime'] && $row['p_but1_datetime']!='0000-00-00 00:00:00'){
+        echo $row['p_but1_datetime'];
+    }    
 }
 
-goto_url(G5_HTTP_BBS_URL.'/pet.php');
+//goto_url(G5_HTTP_BBS_URL.'/pet.php');
 
 ?>
