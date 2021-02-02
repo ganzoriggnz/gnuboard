@@ -827,7 +827,7 @@ $data=array (
       0 => 
       array (
         'text' => '출석체크',
-        'href' => 'http://192.168.1.17/gnuboard/plugin/attendance/attendance.php',
+        'href' => 'http://192.168.1.17/gnuboard/plugin/attendance/m_attendance.php',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '공지사항',
