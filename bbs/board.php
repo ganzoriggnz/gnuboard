@@ -140,6 +140,8 @@ if ((isset($wr_id) && $wr_id) || (isset($wr_seo_title) && $wr_seo_title)) {
 
             insert_point($member['mb_id'], $board['bo_read_point'], ((G5_IS_MOBILE && $board['bo_mobile_subject']) ? $board['bo_mobile_subject'] : $board['bo_subject']).' '.$wr_id.' 글읽기', $bo_table, $wr_id, '읽기');
         }
+        $now = G5_TIME_YMDHIS;
+        sql_query(" insert into {$g5['read_table']} set r_hit = 1, mb_id= '{$member['mb_id']}', gr_id = '{$board['gr_id']}', r_board = '{$write_table}', r_datetime = '{$now}'");
 
         set_session($ss_name, TRUE);
     }

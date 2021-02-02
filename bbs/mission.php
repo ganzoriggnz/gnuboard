@@ -11,6 +11,31 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">', 0);
 
+if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['read_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+    $sql_table = "CREATE TABLE {$g5['read_table']} (   
+        r_no int(11) NOT NULL AUTO_INCREMENT,
+        mb_id varchar(20) NOT NULL DEFAULT '',
+        gr_id varchar(20) NOT NULL DEFAULT '', 
+        r_board varchar(30) NOT NULL DEFAULT '',
+        r_hit int(11) NOT NULL DEFAULT '0',       
+        r_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        PRIMARY KEY (r_no),
+        INDEX (mb_id)
+    )";
+   sql_query($sql_table, false);
+}
+
+if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['mission_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+    $sql_table1 = "CREATE TABLE {$g5['mission_table']} (   
+        m_no int(11) NOT NULL AUTO_INCREMENT,
+        mb_id varchar(20) NOT NULL DEFAULT '',       
+        m_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+        PRIMARY KEY (m_no),
+        INDEX (mb_id)
+    )";
+   sql_query($sql_table1, false);
+}
+
 $bo_table = "free";
 $tmp_table = $g5['write_prefix'].$bo_table;
 $now = G5_TIME_YMDHIS;
@@ -23,7 +48,7 @@ $row = sql_fetch($q);
 $cnt = $row['cnt'];
 
 $q1 = "SELECT COUNT(*) as cnt FROM {$tmp_table} WHERE mb_id='{$member['mb_id']}' AND wr_is_comment = '1' AND wr_datetime BETWEEN '{$start_date}' AND '{$end_date}'";
-$row1 = sql_fetch($q);
+$row1 = sql_fetch($q1);
 $cnt1 = $row1['cnt'];
 
 $q_at = "SELECT COUNT(*) as cnt FROM {$g5['attendance']} WHERE mb_id='{$member['mb_id']}' AND `datetime` BETWEEN '{$start_date}' and '{$end_date}'";
@@ -32,6 +57,16 @@ $cnt_at = $row_at['cnt'];
 
 $res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  p_but1_datetime > '{$start_date}' AND '{$end_date}' >=  p_but1_datetime AND '{$end_date}' >=  p_but2_datetime AND '{$end_date}' >=  p_but3_datetime";
 $row2 = sql_fetch($res);
+
+$q_att = "SELECT COUNT(*) as cnt_att FROM {$g5['read_table']} WHERE gr_id = 'attendance' AND r_datetime BETWEEN '{$start_date}' and '{$end_date}'";
+$row_att = sql_fetch($q_att);
+$cnt_att = $row_att['cnt_att'];
+
+$q_rev = "SELECT COUNT(*) as cnt_rev FROM {$g5['read_table']} WHERE gr_id = 'review' AND r_datetime BETWEEN '{$start_date}' and '{$end_date}'";
+$row_rev = sql_fetch($q_rev);
+$cnt_rev = $row_rev['cnt_rev'];
+
+
 
 $mission_skin_path = get_skin_path('mission', 'NB-Basic');
 $mission_skin_url  = get_skin_url('mission', 'NB-Basic');
