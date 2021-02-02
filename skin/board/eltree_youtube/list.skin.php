@@ -71,6 +71,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <!-- } 게시판 페이지 정보 및 버튼 끝 -->
 
     <div class="px-3 px-sm-0 my-3">
+    
+    
+    <th scope="col">번호</th>
+            <th scope="col">제목 / 내용</th>
+            <?php if ($is_good) { ?><th scope="col"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
+            <?php if ($is_nogood) { ?><th scope="col"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
+                </th>
 <ul class="row row-cols-10 row-cols-sm-8 row-cols-md-9 row-cols-lg-9 row-cols-xl-2 mx-n2">
         <?php
         for ($i=0; $i<count($list); $i++) {
