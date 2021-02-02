@@ -30,11 +30,11 @@ $point_skin_path = get_skin_path('member', $config['cf_member_skin']);
 $point_skin_url  = get_skin_url('member', $config['cf_member_skin']);
 $skin_file = $point_skin_path.'/point.skin.php';
 
-if(is_file($skin_file)) {
+// if(is_file($skin_file)) {
     include($skin_file);
-} else {
-    echo '<p>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</p>';
-}
+// } else {
+//     echo '<p>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</p>';
+// }
 
 include_once('./_tail.php');
 ?>
