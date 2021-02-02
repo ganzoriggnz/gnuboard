@@ -41,11 +41,11 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 
 
 <!-- 게시판 목록 시작 { -->
-<div id="bo_list_wrap" class="mb-4" style="width: 1200px;">
+<div id="bo_list_wrap" class="mb-4" >
 <!-- 인기글 { -->
 	
 	<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")   {
-		include_once('hit_latest.php'); }?>
+		if(!G5_IS_MOBILE) include_once('hit_latest.php'); }?>
 	<br>
 	<!-- 검색창 시작 { -->
 	<div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">

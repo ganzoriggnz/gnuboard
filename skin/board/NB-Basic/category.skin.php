@@ -25,36 +25,21 @@ for ($i=0; $i<$ca_count; $i++) {
 
 ?>
 <style>
+#bo_cate ul {zoom:1}
+#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
+#bo_cate li {display:inline-block;padding:0px;  }
+#bo_cate a {border-radius: 2px; font-size:12px; color:#000; width:92px; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
+#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active { text-decoration:none; color:#000;font-weight: bold; background-color: #fff }
+#bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:95px; height:39px; display:flex; align-items:center; justify-content: center;}
 
-#bo_cate_list ul {
-    position: relative;
-}
-#bo_cate_list ul:before, ul:after {
-    text-align: center;
-    display: block;
-    border: 1px solid black;
-    width: 100%;
-}
-
-    
-#bo_cate_list li {
-    text-align: right;
-    width: 10%;
-	float: left;
-	margin-bottom: -2px;
-    
-}
 </style>
 <nav id="bo_cate" class="sly-tab font-weight-normal mb-2">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
-	<div class="px-3 px-sm-0">
-		<div class="d-flex">
-			<div id="bo_cate_list" class="flex-grow-1">
-				<ul id="bo_cate_ul" class="border-left-0 text-nowrap">
+		<div class="bo_cate pl-2">
+			<div class="bo_cate">
+				<ul class="bo_cate_ul">
 					<?php echo $category_option ?>
 				</ul>
 			</div>
 		</div>
-	</div>
-	<hr style="margin-top:1px;"/> 
 </nav>
