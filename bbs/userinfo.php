@@ -64,7 +64,8 @@ $skin_file = $userinfo_skin_path.'/userinfo.skin.php';
 if(is_file($skin_file)) {
     include($skin_file);
 } else {
-    echo '<p>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</p>';
+    include(G5_PATH."/".$skin_file);
+    // echo '<p>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</p>';
 }
 ?>
 
