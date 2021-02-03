@@ -6,6 +6,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 @include_once(G5_THEME_PATH.'/common.php');
 
+if (!$is_member)
+	alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
 $mb_id='';
 $point='';
