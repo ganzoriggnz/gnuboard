@@ -58,11 +58,11 @@ $cnt_at = $row_at['cnt'];
 $res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  p_but1_datetime > '{$start_date}' AND '{$end_date}' >=  p_but1_datetime AND '{$end_date}' >=  p_but2_datetime AND '{$end_date}' >=  p_but3_datetime";
 $row2 = sql_fetch($res);
 
-$q_att = "SELECT COUNT(*) as cnt_att FROM {$g5['read_table']} WHERE gr_id = 'attendance' AND r_datetime BETWEEN '{$start_date}' and '{$end_date}'";
+$q_att = "SELECT COUNT(*) as cnt_att FROM {$g5['read_table']} WHERE mb_id = '{$member['mb_id']}' AND gr_id = 'attendance' AND r_datetime BETWEEN '{$start_date}' and '{$end_date}'";
 $row_att = sql_fetch($q_att);
 $cnt_att = $row_att['cnt_att'];
 
-$q_rev = "SELECT COUNT(*) as cnt_rev FROM {$g5['read_table']} WHERE gr_id = 'review' AND r_datetime BETWEEN '{$start_date}' and '{$end_date}'";
+$q_rev = "SELECT COUNT(*) as cnt_rev FROM {$g5['read_table']} WHERE mb_id = '{$member['mb_id']}' AND gr_id = 'review' AND r_datetime BETWEEN '{$start_date}' and '{$end_date}'";
 $row_rev = sql_fetch($q_rev);
 $cnt_rev = $row_rev['cnt_rev'];
 
