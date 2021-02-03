@@ -149,7 +149,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             
             function getElapsedMinutes(last, current) 
             {
-                debugger;
                 var res = Math.abs(current - last) / 1000;
             
                 var days = Math.floor(res / 86400);      
