@@ -23,16 +23,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     $row = sql_fetch($res); 
     ?>  
     <div class="row_btn mt_54">
-        <input type="hidden" id="but1" value="<?php echo $row['p_but1_datetime']; ?>">
+        <input type="text" id="but1" value="<?php if ($row['p_but1_datetime']) echo $row['p_but1_datetime']; ?>">
         <button type="button" id="cat1" name="cat1" <?php if($row['p_but1_datetime'] != '0000-00-00 00:00:00' && $row['p_but1_datetime']){ echo 'class="btn_pet_third" disabled="disabled"';} else { echo 'class="btn_pet_first"';} ?>>청소하기</button>
     </div>      
     <div class="row_btn mt_24">   
-        <input type="hidden" id="but2" value="<?php echo $row['p_but2_datetime']; ?>">     
-        <button type="button" id="cat2" <?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>쓰담쓰담 하기</button>
+        <input type="text" id="but2" value="<?php if ($row['p_but2_datetime']) echo $row['p_but2_datetime']; ?>">     
+        <button type="button" id="cat2" onclick="clickCat2('<?php echo $row['p_but1_datetime']?>');" <?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>쓰담쓰담 하기</button>
     </div>
     <div class="row_btn mt_24">
-        <input type="hidden" id="but3" value="<?php echo $row['p_but3_datetime']; ?>">
-        <button type="button" id="cat3" <?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>사료주기</button>
+        <input type="text" id="but3" value="<?php if ($row['p_but3_datetime']) echo $row['p_but3_datetime']; ?>">
+        <button type="button" id="cat3" onclick="clickCat3('<?php echo $row['p_but2_datetime'];?>');" <?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>사료주기</button>
     </div>
     <div id ="result"></div>
     <div class="pet_bottom">
@@ -56,129 +56,54 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     </div>
     <script>
         $(document).ready(function(){
-            
-            var isButtonClicked = 0;
-            /* var lastClickedTime = new Date($.now()); */
-            var count = 0;
-            $('button').click(function(){
-                if (!isButtonClicked)
-                {
-                    $("#" + this.id).css("background","#4D4D4D");
-                    isButtonClicked = 1;
-                    var lastClickedTime = new Date($.now());
-                    //alert(lastClickedTime); 
-                    
-                    count+=1;
-                    $('#demo').html("My current count is: " + count);
-                    var id = this.id;
-                                   
-                    $.ajax({
+            $("#cat1").click(function(){
+                var id = this.id;
+                $.ajax({
                         type: 'POST',
                         url: 'pet_update.php',
                         data: {
-                            'id': id,
-                            'date': lastClickedTime
-                        },
-                        dataType: 'text',
-                        success: function(response) {                       
-                            $('#but1').val(response);                       
-                        }                       
-                    });
-                    //lastClickedTime1 =  $("#but1").val();                                                
-                }                       
-                else                       
-                {        debugger;            
-                    if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 2)
-                    {
-                        $("#" + this.id).css("background","#4D4D4D");
-                        lastClickedTime = new Date($.now());
-                        count+=1;
-                        $('#demo').html("My current count is: " + count);
-                        var id = this.id; 
-                        getSuccess(count, id);
-
-                            $.ajax({
-                            type: 'POST',
-                            url: 'pet_update.php',
-                            data: {
-                                'id': id,
-                                'date': lastClickedTime
-                            },
-                            dataType: 'text',
-                            success: function(response) {                       
-                            $('#but2').val(response);                       
-                        }  
-                        });
-                        //lastClickedTime = $("#but2").val();
-                    }
-                    else
-                    {
-                        var time = getElapsedTime(lastClickedTime, new Date($.now()));
-                        $('#time').html(time);
-                        $('.popup_box').css("display", "block");
-                        $('.btn').click(function(){
-                            $('.popup_box').css("display", "none");
-                        }); 
-                    }
-                }
-            }); 
-
-            function getSuccess(count, id){      
-                if(count==3){
-                    $('#pet').html('고양이 ');
-                    $('.popup_box1').css("display", "block");
-                    $('.btn1').click(function(){
-                    $('.popup_box1').css("display", "none");
-                    });
-                } 
-            }
-
-            function getElapsedTime(last, current) 
-            {  
-                /* var end = (new Date(last)).getTime() + 30*60000;
-                var clicked = (new Date(current)).getTime(); */
-                /* var end = last.getTime() + 2*60000;
-                var clicked = current.getTime(); */
-                var res = Math.abs(current - last) / 1000;
-                var minutes = Math.floor(res / 60) % 60;
-                var seconds = Math.floor(res % 60);
-
-                return minutes + "분 " + seconds + "초";
-            }
-
-            
-            function getElapsedMinutes(last, current) 
-            {
-                var res = Math.abs(current - last) / 1000;
-            
-                var days = Math.floor(res / 86400);      
-                var hours = Math.floor(res / 3600) % 24;
-                var minutes = Math.floor(res / 60) % 60;
-                var seconds = Math.floor(res % 60);
-
-                return seconds / 60 + minutes + hours * 60 + days * 1440; 
-            }
-
-       
-            /* function insertTime(){
-                $('button').click(function(e){
-                    e.preventDefault();
-                    var id = this.id;
-                    
-                    $.ajax({
-                        type: 'POST',
-                        url: 'pet_update.php',
-                        data: {
+                            'btn_id': 1,
                             'id': id
                         },
                         dataType: 'text',
                         success: function(response) {
-                            //$('#result').html(response);
+                            //$('#result').val(response);
                         }
                     });
                 });
-            } */
-  
+
+            $("#cat2").click(function(){
+                var id = this.id;
+                $.ajax({
+                        type: 'POST',
+                        url: 'pet_update.php',
+                        data: {
+                            'btn_id': 2,
+                            'id': id
+                        },
+                        dataType: 'text',
+                        success: function(response) {
+                            //$('#result').val(response);
+                        }
+                    });
+                });
+
+            $("#cat3").click(function(){
+                var id = this.id;
+                $.ajax({
+                        type: 'POST',
+                        url: 'pet_update.php',
+                        data: {
+                            'btn_id': 3,
+                            'id': id
+                        },
+                        dataType: 'text',
+                        success: function(response) {
+                            //$('#result').val(response);
+                        }
+                    });
+                });
+
         });
     </script>
     
