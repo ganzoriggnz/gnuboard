@@ -41,7 +41,8 @@ $tmp_table = $g5['write_prefix'].$bo_table;
 $now = G5_TIME_YMDHIS;
 $date= date_create($now);
 $start_date = date_format($date, 'Y-m-d 00:00:00');
-$end_date = date_format($date, 'Y-m-d 23:59:59');
+/* $end_date = date_format($date, 'Y-m-d 23:59:59'); */
+$end_date = date('Y-m-d H:i:s', strtotime('+1 days', strtotime($date)));
 
 $q = "SELECT COUNT(*) as cnt FROM {$tmp_table} WHERE mb_id='{$member['mb_id']}' AND wr_is_comment = '0' AND wr_datetime BETWEEN '{$start_date}' AND '{$end_date}'";
 $row = sql_fetch($q);
