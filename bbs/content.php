@@ -80,7 +80,7 @@ $content_skin_url  = get_skin_url('content', $co['co_skin']);
 $skin_file = $content_skin_path.'/content.skin.php';
 
 if ($is_admin)
-    echo '<div id="bo_list_wrap" style="width: 1200px;"><div class="ctt_admin"><a href="'.G5_ADMIN_URL.'/contentform.php?w=u&amp;co_id='.$co_id.'" class="btn_admin btn">내용 수정</a></div></div>';
+    echo '<div id="bo_list_wrap"><div class="ctt_admin"><a href="'.G5_ADMIN_URL.'/contentform.php?w=u&amp;co_id='.$co_id.'" class="btn_admin btn">내용 수정</a></div></div>';
 ?>
 
 <?php

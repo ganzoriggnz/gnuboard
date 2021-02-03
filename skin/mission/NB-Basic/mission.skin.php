@@ -5,7 +5,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">', 0);
 
 ?>
-<div id="bo_v" style="width: 1200px;">   
+<div id="bo_v">   
     <table cellspacing="0" cellpadding="0" width="100%" align="center" style="border:1px solid #d3d3d3; padding:10px; margin-top: 20px;" id="level-up">
 		<thead>
 			<tr>

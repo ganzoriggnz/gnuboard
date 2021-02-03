@@ -36,7 +36,7 @@ $frm_submit = '<div class="col-sm-4">
 </div>';
 ?>
 
-<div id="bo_v" style="width: 100%;">
+<div id="bo_v">
 <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
 		<div class="px-3 px-sm-0">
 		

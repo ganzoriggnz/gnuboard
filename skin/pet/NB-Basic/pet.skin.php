@@ -5,7 +5,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
 
 ?>
-<div id="bo_v" style="width: 1200px;">
+<div id="bo_v">
     <div class="pet_text">
         <div>
             <h1>펫기르기</h1>
