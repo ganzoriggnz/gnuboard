@@ -56,9 +56,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">3</td>
 				<td class="cl_td">펫 기르기 게시판</td>	
 				<td class="cl_td_l">펫 먹이주기, 청소하기,쓰담쓰담해주기(<?php 
-				if($row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] == '0000-00-00 00:00:00' && $row2['p_but2_datetime'] == '0000-00-00 00:00:00') { echo '1';} 
-				else if($row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] == '0000-00-00 00:00:00') { echo '2';} 
-				else if($row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00') { echo '3';} 
+				if($row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] == '0000-00-00 00:00:00' && $row2['p_but2_datetime'] == '0000-00-00 00:00:00') { echo '1';} 
+				else if($row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] == '0000-00-00 00:00:00') { echo '2';} 
+				else if($row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00') { echo '3';} 
 				else { echo '0';} ?>/3)				
 				</td>
 				<td class="cl_td_r">
