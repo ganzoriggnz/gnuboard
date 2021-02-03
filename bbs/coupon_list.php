@@ -14,37 +14,43 @@ $g5['table_prefix']        = "g5_"; // 테이블명 접두사
 $g5['write_prefix']        = "g5_write_";
 $g5['bo_table'] = $g5['write_prefix'] . $bo_table;
 
-$co_created_datetime = G5_TIME_YMDHIS;
-$currentmonth = substr($co_created_datetime, 5, 2);
-$co_start = date_create($co_created_datetime);
-$s_begin_date = date_format($co_start, 'Y-m-01 00:00:00');
+$now = G5_TIME_YMDHIS;
+$currentyear = substr($now, 0, 4);
+$currentmonth = substr($now, 5, 2);
+$co_start = date_create($now);
+$co_send_date = date_format($co_start, 'Y-m-06 00:00:00');
+$co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
 
 if($currentmonth == '01')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '02')
-$s_end_date = date_format($co_start, 'Y-m-28 23:59:59');
+$co_end_datetime = 
+    ($currentyear % 4 ? date_format($co_start, 'Y-m-28 23:59:59') : 
+    ($currentyear % 100 ? date_format($co_start, 'Y-m-29 23:59:59') : 
+    ($currentyear % 400 ? date_format($co_start, 'Y-m-28 23:59:59') : 
+    date_format($co_start, 'Y-m-29 23:59:59'))));
 else if($currentmonth == '03')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '04')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '05')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '06')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '07')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '08')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '09')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '10')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '11')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '12')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 
-$result1 = "SELECT co_begin_datetime FROM {$g5['coupon_table']} WHERE co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
+$result1 = "SELECT co_begin_datetime FROM {$g5['coupon_table']} WHERE co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime'";
 $sql = sql_fetch($result1);
 $date = $sql['co_begin_datetime'];
 $year = substr($date, 0, 4);
@@ -55,7 +61,7 @@ $linkcount = strlen($re_table) - 2;
 $str_table =substr($re_table, 0, $linkcount);
 $at_table = "g5_write_".$str_table."at";
 
-$result = "SELECT COUNT(a.co_no) as cnt FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}'"; 
+$result = "SELECT COUNT(a.co_no) as cnt FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}'"; 
 $row=sql_fetch($result);
 $total_count = $row['cnt'];
 
@@ -66,7 +72,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
 $list = array();
 
-$sql = "SELECT * FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime='{$s_end_date}' limit $from_record, $rows ";
+$sql = "SELECT * FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}' limit $from_record, $rows ";
 $result = sql_query($sql);
 for ($i=0; $row=sql_fetch_array($result); $i++) {
 
@@ -95,7 +101,6 @@ while($row2 = sql_fetch_array($res2)){
     $res4 = sql_fetch($sql4); 
     $sql7 = "SELECT * FROM $re_table WHERE wr_name = '{$row2['cos_nick']}' AND wr_7 = '{$row2['cos_entity']}'";
     $res7 = sql_fetch($sql7);
-    $now = G5_TIME_YMDHIS;
     if($row2['cos_entity'] !== $res7['wr_7'] && $res4['alt_cnt'] == '0' && ($now > $row2['cos_post_datetime'])){
         $sql4 = "INSERT INTO {$g5['coupon_alert_table']} 
                         SET cos_no = '{$row2['cos_no']}',
@@ -115,7 +120,6 @@ while($row2 = sql_fetch_array($res2)){
     } 
 } 
 
-$now = G5_TIME_YMDHIS;
 $sql_acc = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_accept='N'";
 $res_acc = sql_query($sql_acc);
 while($row_acc = sql_fetch_array($res_acc)){

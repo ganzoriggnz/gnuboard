@@ -84,74 +84,47 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_msg_table']}",false)) {
 $mb_id = trim($member['mb_id']);
 $co_entity = $member['mb_name'];
 $co_created_datetime = G5_TIME_YMDHIS;
+$currentyear = substr($co_created_datetime, 0, 4);
 $currentmonth = substr($co_created_datetime, 5, 2);
 $co_start = date_create($co_created_datetime);
-$s_begin_date = date_format($co_start, 'Y-m-01 00:00:00');
-
-$date = date('Y-m-01');
-$newdate = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($date)));
-$final = date_create($newdate);
-$nextmonth = substr($newdate, 5, 2);
-$co_begin_datetime = $newdate;
+$co_insert_date = date_format($co_start, 'Y-m-05 23:59:59');
+$co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
 
 if($currentmonth == '01')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '02')
-$s_end_date = date_format($co_start, 'Y-m-28 23:59:59');
+$co_end_datetime = 
+    ($currentyear % 4 ? date_format($co_start, 'Y-m-28 23:59:59') : 
+    ($currentyear % 100 ? date_format($co_start, 'Y-m-29 23:59:59') : 
+    ($currentyear % 400 ? date_format($co_start, 'Y-m-28 23:59:59') : 
+    date_format($co_start, 'Y-m-29 23:59:59'))));
 else if($currentmonth == '03')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '04')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '05')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '06')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '07')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '08')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '09')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '10')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 else if($currentmonth == '11')
-$s_end_date = date_format($co_start, 'Y-m-30 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '12')
-$s_end_date = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 
-if($nextmonth == '01')
-$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
-else if($nextmonth == '02')
-$co_end_datetime = date_format($final, 'Y-m-28 23:59:59');
-else if($nextmonth == '03')
-$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
-else if($nextmonth == '04')
-$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
-else if($nextmonth == '05')
-$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
-else if($nextmonth == '06')
-$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
-else if($nextmonth == '07')
-$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
-else if($nextmonth == '08')
-$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
-else if($nextmonth == '09')
-$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
-else if($nextmonth == '10')
-$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
-else if($nextmonth == '11')
-$co_end_datetime = date_format($final, 'Y-m-30 23:59:59');
-else if($nextmonth == '12')
-$co_end_datetime = date_format($final, 'Y-m-31 23:59:59');
 
-$sql = " SELECT * FROM {$g5['coupon_table']} WHERE mb_id = '{$mb_id}' AND co_begin_datetime ='{$co_begin_datetime}' AND co_end_datetime ='{$co_end_datetime}'";
-$row = sql_fetch($sql); 
+$sql = "SELECT * FROM {$g5['coupon_table']} WHERE mb_id = '{$member['mb_id']}' AND co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime'";
+$row = sql_fetch($sql);
 
-$sql1 = "SELECT * FROM {$g5['coupon_table']} WHERE mb_id = '{$member['mb_id']}' AND co_begin_datetime='$s_begin_date' AND co_end_datetime='$s_end_date'";
-$row1 = sql_fetch($sql1);
-
-$diff_s = number_format($row1['co_sale_num'] - $row1['co_sent_snum']);
-$diff_f = number_format($row1['co_free_num'] - $row1['co_sent_fnum']);
+$diff_s = number_format($row['co_sale_num'] - $row['co_sent_snum']);
+$diff_f = number_format($row['co_free_num'] - $row['co_sent_fnum']);
 
 //dbconfig파일에 $g5['content_table'] 배열변수가 있는지 체크
 if( !isset($g5['member_table']) ){

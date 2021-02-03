@@ -98,26 +98,26 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
     </nav>
     <section class="xm">
     <div class="couponbg" >
-        <div class="coupon_noti">이번달 잔여 쿠폰개수는 매월 1일 초기화 됩니다.<br>이번달 잔여 쿠폰개수는 수정할 수 없습니다.<br>다음달 쿠폰지원개수는 말일까지 수정 가능합니다.
+        <div class="coupon_noti">이번달 쿠폰개수는 1일 -5일 까지 수정 가능합니다.<br>이번달 잔여 쿠폰개수는 수정할 수 없습니다.
     </div>
       
         <div class="coupon_info" style="float-left">
-            <h6>다음달 쿠폰 지원 개수</h6>
+            <h6>이번달 쿠폰 지원 개수</h6>
             <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
                 <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
                 <input type="hidden" name="co_entity" value="<?php echo $member['mb_name'] ?>">
 
                 <div class="p-20">
                     <div class="coupon_label col-form-label">원가권 :</div>
-                    <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="" class="form-control coupon_input">
+                    <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="" class="form-control coupon_input" <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else {echo '';}?>>
                 </div>
                 <div class="p-20">
                     <div class="coupon_label col-form-label">무료권 :</div>
-                    <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="" class="form-control coupon_input">
+                    <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="" class="form-control coupon_input" <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else { echo '';}?>>
                 </div>
                 <div class="p-20">
                     <div class="coupon_label"></div>
-                    <button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary coupon_btn">저장</button>
+                    <button type="submit" id="btn_submit" accesskey="s" <?php if($co_created_datetime > $co_insert_date) { echo 'class="miss_but_3" disabled="disabled"';}  else { echo 'class="miss_but_1"';}?>>저장</button>
                 </div>
                 <div class="popup_box1">
                     <h1>쿠폰</h1>
@@ -162,11 +162,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 </thead>
                 <tbody>
                     <tr class="coupon-create-tr">
-                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center;"><?php echo $row1['co_sent_snum']; ?></td>
+                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center;"><?php echo $row['co_sent_snum']; ?></td>
                         <td class="coupon-create-td"><?php echo $diff_s; ?></td>
                     </tr>
                     <tr class="coupon-create-tr-bottom" style="border-bottom: none;">
-                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center; padding-top: 10px;"><?php echo $row1['co_sent_fnum']; ?></td>
+                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center; padding-top: 10px;"><?php echo $row['co_sent_fnum']; ?></td>
                         <td class="coupon-create-td" style="text-align: center; padding-top: 10px;"><?php echo $diff_f; ?></td>
                     </tr>
                 </tbody>
