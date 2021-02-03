@@ -109,7 +109,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 점				
                 </td>
 				<td class="cl_td">
-					<div class="<?php if($cnt1 > 5){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
+					<div class="<?php if($cnt1 >= 6){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank" >				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>																
@@ -130,14 +130,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt1 == 12) { echo '7';}
 				else if($cnt1 == 13) { echo '8';}
 				else if($cnt1 == 14) { echo '9';}
-				else if($cnt1 > 14) { echo '10';} ?>/10)				
+				else if($cnt1 >= 15) { echo '10';} ?>/10)				
 				</td>
 				<td class="cl_td_r">
 				50 
                 점				
                 </td>
 				<td class="cl_td">
-					<div class="<?php if($cnt1 > 13){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
+					<div class="<?php if($cnt1 >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>													
@@ -188,7 +188,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 점				
                 </td>
 				<td class="cl_td">
-					<div class="<?php if($cnt_att > 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
+					<div class="<?php if($cnt_att >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=attendance" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>												
@@ -239,7 +239,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 점				
                 </td>
 				<td class="cl_td">
-                    <div class="<?php if($cnt_rev > 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
+                    <div class="<?php if($cnt_rev >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=review" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>							
@@ -253,7 +253,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td_r">300점</td>
 				<td class="cl_td">
 					<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?>">
-					<div <?php if($cnt_rev > 15 && $cnt_att > 15 && $cnt1 > 14 && $cnt_at > 0 && $cnt > 0 &&
+					<div id="give" <?php if($cnt_rev > 15 && $cnt_att > 15 && $cnt1 > 14 && $cnt_at > 0 && $cnt > 0 &&
 					$row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but2_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but3_datetime'] != '0000-00-00 00:00:00') 
@@ -281,8 +281,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			},
 			dataType: 'text',
 			success: function(response) {                       
-		                    
+		    alert("You earned 300 points");               
 			}  
 		});
+		$("div #give").prop('disabled', true);
+
 	}
 </script>
