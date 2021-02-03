@@ -171,7 +171,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">8</td>
 				<td class="cl_td">출근부</td>	
 				<td class="cl_td_l">출근부 10회 읽기(<?php 
-				if($cnt_att < 6 { echo '0';} 
+				if($cnt_att < 6) { echo '0';} 
 				else if($cnt_att == 6) { echo '1';}
 				else if($cnt_att == 7) { echo '2';}
 				else if($cnt_att == 8) { echo '3';}
