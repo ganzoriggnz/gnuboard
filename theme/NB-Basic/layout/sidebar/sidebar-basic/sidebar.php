@@ -285,10 +285,31 @@ $menu_cnt = count($menu);
 											<i class="fa fa-caret-right tree-toggle me-i1"></i>
 										<?php } ?>
 
-										<a class="me-a1" href="<?php echo $me1['href']; ?>" target="<?php echo $me1['target']; ?>">
+										<?php if($me1['text']=="실장업무게시판")
+												{if($member['mb_level']==26 || $member['mb_level']==27)
+													{ ?>
+										<a class="me-a1" href="<?php if($member['mb_level']==27)  echo $me1['href'];?>" <?php if($member['mb_level']==26)  echo 'onclick=levelalert();'?> target="<?php echo $me1['target']; ?>">
 											<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
 											<?php echo $me1['text']; ?>
 										</a>
+										<?php if($member['mb_level']==26) { ?>
+											<script>
+												function levelalert() {
+												alert("비제휴업소는 입장 불가능합니다.");
+												}
+												</script>
+													<?php } ?>
+
+										<?php } }else { ?>
+
+											<a class="me-a1" href="<?php echo $me1['href']; ?>" target="<?php echo $me1['target']; ?>">
+											<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
+											<?php echo $me1['text']; ?>
+										</a>
+
+
+
+	<?php }  ?>
 										<?php if (isset($me1['s'])) { // Is Sub Menu
 										?>
 											<ul class="me-ul2 tree <?php echo ($me1['on']) ? 'on' : 'off'; ?>">

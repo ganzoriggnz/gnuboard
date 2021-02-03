@@ -8,7 +8,7 @@ if( !isset($g5['member_table']) ){
 }
 
 if (!$is_member)
-    alert_close('회원만 조회하실 수 있습니다.');
+alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
 // 내용
 

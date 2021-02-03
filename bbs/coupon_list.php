@@ -1,9 +1,8 @@
 <?php 
-
 include_once('./_common.php');
 
 if (!$is_member)
-    alert_close('회원만 조회하실 수 있습니다.');
+alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
 $g5['title'] = '쿠폰지원 목록';
 include_once(G5_PATH.'/head.sub.php');

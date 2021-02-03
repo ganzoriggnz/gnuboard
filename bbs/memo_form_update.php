@@ -53,7 +53,7 @@ if (!$is_admin && $member['mb_level'] < 23) {
         $point = (int)$config['cf_memo_send_point'] * count($member_list['id']);
         if ($point) {
             if ($member['mb_point'] - $point < 0) {
-                alert('보유하신 포인트('.number_format($member['mb_point']).'점)가 모자라서 쪽지를 보낼 수 없습니다.');
+                alert('보유하신 파운드('.number_format($member['mb_point']).'점)가 모자라서 쪽지를 보낼 수 없습니다.');
             }
         }
     }
@@ -84,8 +84,10 @@ for ($i=0; $i<count($member_list['id']); $i++) {
     $sql = " update {$g5['member_table']} set mb_memo_call = '{$member['mb_id']}', mb_memo_cnt = '".get_memo_not_read($recv_mb_id)."' where mb_id = '$recv_mb_id' ";
     sql_query($sql);
 
-    if (!$is_admin && $member['mb_level'< 23]) {
+    if (!$is_admin && $member['mb_level'] < 23) {
+      
         insert_point($member['mb_id'], (int)$config['cf_memo_send_point'] * (-1), $recv_mb_nick.'('.$recv_mb_id.')님께 쪽지 발송', '@memo', $recv_mb_id, $me_id);
+       
     }
 }
 

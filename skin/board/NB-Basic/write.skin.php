@@ -8,7 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="' . G5_PLUGIN_URL . '/Lightweight-j
 
 // hulan nemsen 공지글 레벨 게시판에 따라 /////////////////////////////////////////
 if ($bo_table == "free" || $gr_id == "review" || $bo_table == "event") {
-	if ($member['mb_level'] > 23 && $member['mb_level'] != 26 && $member['mb_level'] != 27 && $w != 'r') {
+	if (($is_admin || $board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id']) && $w != 'r') {
 		$is_notice = true;
 		$is_eventcheck = true;
 		$is_best = true;
@@ -83,7 +83,7 @@ if ($bo_table == "woman") {
 	if ($member['mb_id'] && !$is_admin) {
 		$res = sql_fetch("select mb_1 from " . $g5['member_table'] . " where mb_id = '" . $member['mb_id'] . "' ");
 		if ($res['mb_1'] != '여') {
-			alert("여성회원만 원글 쓰이 가능합니다!!");
+			alert("여성회원만 원글 쓰기 가능합니다!!");
 		}
 	}
 }

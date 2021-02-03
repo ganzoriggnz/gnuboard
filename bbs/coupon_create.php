@@ -1,5 +1,9 @@
 <?php
 include_once('./_common.php');
+if (!$is_member)
+alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
+
+
 
 if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table = "CREATE TABLE {$g5['coupon_table']} (   
