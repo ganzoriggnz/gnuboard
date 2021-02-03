@@ -181,7 +181,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt_att == 12) { echo '7';}
 				else if($cnt_att == 13) { echo '8';}
 				else if($cnt_att == 14) { echo '9';}
-				else if($cnt_att > 15) { echo '10';} ?>/10)				
+				else if($cnt_att >= 15) { echo '10';} ?>/10)				
 				</td>
 				<td class="cl_td_r">
 				20 
@@ -232,7 +232,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt_rev == 12) { echo '7';}
 				else if($cnt_rev == 13) { echo '8';}
 				else if($cnt_rev == 14) { echo '9';}
-				else if($cnt_rev > 15) { echo '10';} ?>/10)				
+				else if($cnt_rev >= 15) { echo '10';} ?>/10)				
 				</td>
 				<td class="cl_td_r">
 				20 
