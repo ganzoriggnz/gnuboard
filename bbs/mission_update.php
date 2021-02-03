@@ -9,8 +9,7 @@ if(isset($_POST['id']))
     $now = G5_TIME_YMDHIS;
     $date= date_create($now);
     $start_date = date_format($date, 'Y-m-d 00:00:00');
-    /* $end_date = date_format($date, 'Y-m-d 23:59:59'); */
-    $end_date = date('Y-m-d H:i:s', strtotime('+1 days', strtotime($date)));
+    $end_date = date_format($date, 'Y-m-04 23:59:59');
 
     $sql1 = " INSERT INTO {$g5['mission_table']} 
                 SET mb_id = '{$mb_id}',
