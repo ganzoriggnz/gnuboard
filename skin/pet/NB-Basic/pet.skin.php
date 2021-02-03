@@ -24,15 +24,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     ?>  
     <div class="row_btn mt_54">
         <input type="hidden" id="but1" value="<?php echo $row['p_but1_datetime']; ?>">
-        <button type="button" id="cat1" name="cat1" class="<?php echo ($row['p_but1_datetime'] != '0000-00-00 00:00:00' && $row['p_but1_datetime']) ? "btn_pet_third" : "btn_pet_first" ?>">청소하기</button>
+        <button type="button" id="cat1" name="cat1" <?php if($row['p_but1_datetime'] != '0000-00-00 00:00:00' && $row['p_but1_datetime']){ echo 'class="btn_pet_third" disabled="disabled"';} else { echo 'class="btn_pet_first"';} ?>>청소하기</button>
     </div>      
     <div class="row_btn mt_24">   
         <input type="hidden" id="but2" value="<?php echo $row['p_but2_datetime']; ?>">     
-        <button type="button" id="cat2" class="<?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? "btn_pet_third" : "btn_pet_first" ?>">쓰담쓰담 하기</button>
+        <button type="button" id="cat2" <?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>쓰담쓰담 하기</button>
     </div>
     <div class="row_btn mt_24">
         <input type="hidden" id="but3" value="<?php echo $row['p_but3_datetime']; ?>">
-        <button type="button" id="cat3" class="<?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? "btn_pet_third" : "btn_pet_first" ?>">사료주기</button>
+        <button type="button" id="cat3" <?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>사료주기</button>
     </div>
     <div id ="result"></div>
     <div class="pet_bottom">
@@ -58,59 +58,59 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
         $(document).ready(function(){
             
             var isButtonClicked = 0;
-            var lastClickedTime = new Date($.now());
+            /* var lastClickedTime = new Date($.now()); */
             var count = 0;
-
             $('button').click(function(){
-
+                debugger;
                 if (!isButtonClicked)
                 {
                     $("#" + this.id).css("background","#4D4D4D");
                     isButtonClicked = 1;
-                    lastClickedTime = new Date($.now());
+                    var lastClickedTime = new Date($.now());
+                    //alert(lastClickedTime); 
+                    
                     count+=1;
-              /*       debugger;
-                    var but_time = $this.siblings('input[type=hidden]').val();
-                    alert(but_time); */
                     $('#demo').html("My current count is: " + count);
                     var id = this.id;
-                   
-                    
+                                   
                     $.ajax({
                         type: 'POST',
                         url: 'pet_update.php',
                         data: {
-                            'id': id
+                            'id': id,
+                            'date': lastClickedTime
                         },
                         dataType: 'text',
                         success: function(response) {                       
-                            //$('#result').html(response);                       
+                            $('#but1').val(response);                       
                         }                       
-                    });                       
+                    });
+                    lastClickedTime1 =  $("#but1").val();                                                
                 }                       
                 else                       
-                {                       
-                    if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 30)
+                {        debugger;            
+                    if (getElapsedMinutes(lastClickedTime1, new Date($.now())) > 2)
                     {
-                        /* var but_time = $this.siblings('input[type=hidden]').val();
-                        alert(but_time); */
                         $("#" + this.id).css("background","#4D4D4D");
                         lastClickedTime = new Date($.now());
                         count+=1;
                         $('#demo').html("My current count is: " + count);
                         var id = this.id; 
                         getSuccess(count, id);
+
                             $.ajax({
                             type: 'POST',
                             url: 'pet_update.php',
                             data: {
-                                'id': id
+                                'id': id,
+                                'date': lastClickedTime
                             },
                             dataType: 'text',
-                            success: function(response) {
-                                //$('#result').html(response);
-                            }
+                            success: function(response) {                       
+                            $('#but2').val(response);                       
+                        }  
                         });
+                        lastClickedTime = $("#but2").val();
                     }
                     else
                     {
@@ -135,19 +135,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             }
 
             function getElapsedTime(last, current) 
-            {
-                var res = Math.abs(current - last) / 1000;
-            
-                var days = Math.floor(res / 86400);      
-                var hours = Math.floor(res / 3600) % 24;
+            {   debugger;
+                var end = (new Date(last)).getTime() + 30*60000;
+                var clicked = (new Date(current)).getTime();
+                /* var end = last.getTime() + 2*60000;
+                var clicked = current.getTime(); */
+                var res = Math.abs(end - clicked) / 1000;
                 var minutes = Math.floor(res / 60) % 60;
                 var seconds = Math.floor(res % 60);
 
                 return minutes + "분 " + seconds + "초";
             }
 
+            
             function getElapsedMinutes(last, current) 
             {
+                debugger;
                 var res = Math.abs(current - last) / 1000;
             
                 var days = Math.floor(res / 86400);      
@@ -159,7 +162,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             }
 
        
-            function insertTime(){
+            /* function insertTime(){
                 $('button').click(function(e){
                     e.preventDefault();
                     var id = this.id;
@@ -176,7 +179,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         }
                     });
                 });
-            }
+            } */
   
         });
     </script>
