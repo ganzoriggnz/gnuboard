@@ -78,13 +78,13 @@
 /* ### 기본 스타일 커스터마이징 끝 ### */
 
 /* 게시판 목록 */
-#bo_cate h2 {width:1px;height:1px;font-size:0;line-height:0;overflow:hidden}
-#bo_cate ul {margin-bottom:10px;padding-left:1px;width:728px;zoom:1}
-#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
-#bo_cate li {float:left;margin-bottom:-1px}
-#bo_cate a {display:block;position:relative;margin-left:-1px;padding:6px 0 5px;width:90px;border:1px solid #ddd;background:#f7f7f7;color:#888;text-align:center;letter-spacing:-0.1em;line-height:1.2em;cursor:pointer}
-#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {text-decoration:none}
-#bo_cate #bo_cate_on {z-index:2;border:1px solid #565e60;background:#fff;color:#565e60;font-weight:bold}
+#bo_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
+#bo_cate ul {zoom:1}
+#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
+#bo_cate li {display:inline-block;padding:2px;  }
+#bo_cate a {border-radius: 2px; font-size:12px; color:#fff; border: 1px solid #818485; border-radius: 5px; background-color: #e4c980; width:95px; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 3px;}
+#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active { text-decoration:none; color:#000}
+#bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:95px; background-color: #c2a965; height:39px; display:flex; align-items:center; justify-content: center;}
 
 .td_subject img {margin-left:3px}
 
@@ -92,18 +92,30 @@
 #bo_gall h2 {margin:0;padding:0;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden}
 #bo_gall #gall_ul {margin:10px 0 0;padding:0;list-style:none;zoom:1}
 #bo_gall #gall_ul:after {display:block;visibility:hidden;clear:both;content:""}
-#bo_gall .gall_li {float:left;margin:0 10px 30px 0}
+#bo_gall .gall_li {
+    float:left;
+    margin:10px 0px 10px 10px;
+    background:#fff;
+    color:#565e60;
+    border: 1px solid #565e60; 
+    text-align:center;
+}
+
+.btn {
+    padding: 5px;
+    border: 1px solid #565e60; 
+}
 
 #bo_gall .gall_con {margin:0;padding:0;list-style:none}
-#bo_gall .gall_con li {margin:0 0 4px}
+#bo_gall .gall_con li {margin:10px; }
 #bo_gall .gall_con .gall_subject {display:inline-block;width:50px}
 
-#bo_gall .gall_now .gall_text_href a {color:#ff3061}
+#bo_gall .gall_now .gall_text_href a {color:##e4c980 }
 
 #bo_gall .gall_href a:link, #bo_gall .gall_href a:focus, #bo_gall .gall_href a:hover {text-decoration:none}
 #bo_gall .gall_href strong, #bo_gall .gall_href span {display:inline-block;background:#f7f7f7;text-align:center;line-height:10em}
 
-#bo_gall .gall_text_href {margin:10px 0 !important}
+#bo_gall .gall_text_href {margin:10px 0 !important; font-weight:bold}
 #bo_gall .gall_text_href a {font-weight:bold}
 #bo_gall .gall_text_href span {display:inline !important}
 #bo_gall .gall_text_href img {margin:0 0 0 4px}
@@ -117,12 +129,15 @@
 .btn_bo_user li {float:left;margin-left:5px}
 .btn_bo_adm {float:left}
 .btn_bo_adm li {float:left;margin-right:5px}
-.btn_bo_adm input {padding:7px;border:0;background:#e8180c;color:#fff;text-decoration:none;vertical-align:middle}
+.btn_bo_adm input {padding:7px;border:0;background:#e4c980;color:#fff;text-decoration:none;vertical-align:middle}
 .bo_notice td {background:#f7f7f2}
 .bo_notice td a {font-weight:bold}
 .td_num strong {color:#000}
 .bo_cate_link {display:inline-block;margin:0 3px 0 0;padding:0 6px 0 0;border-right:1px solid #e7f1ed;color:#999 !important;font-weight:bold;text-decoration:none} /* 글제목줄 분류스타일 */
-.bo_current {color:#e8180c}
+.bo_current {color:#e4c980}
+
+
+
 
 #bo_sch {margin-bottom:10px;padding-top:5px;text-align:center}
 #bo_sch legend {position:absolute;margin:0;padding:0;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
@@ -198,9 +213,9 @@ html.no-overflowscrolling #autosave_pop {height:auto;max-height:10000px !importa
 #bo_v_atc {min-height:200px;height:auto !important;height:200px}
 #bo_v_atc_title {position:absolute;font-size:0;line-height:0;overflow:hidden}
 
-#bo_v_img {margin:0 0 10px;width:100%;overflow:hidden;zoom:1}
+#bo_v_img {margin:0 0 0px;width:100%;overflow:hidden;zoom:1}
 #bo_v_img:after {display:block;visibility:hidden;clear:both;content:""}
-#bo_v_img img {margin-bottom:20px;max-width:100%;height:auto}
+#bo_v_img img {margin-bottom:0px;max-width:100%;height:auto}
 
 #bo_v_con {margin-bottom:30px;width:100%;line-height:1.7em;word-break:break-all;overflow:hidden}
 #bo_v_con a {color:#000;text-decoration:underline}

@@ -27,7 +27,6 @@ $(document).ready(function() {
 	});
 });
 </script>
-
  <?php include_once($board_skin_path.'/table.php');?>
  <?php include_once($board_skin_path.'/lib.php');?>
  <?php include_once($board_skin_path.'/ajax.php');?>
@@ -45,7 +44,6 @@ $(document).ready(function() {
         </ul>
     </nav>
     <?php } ?>
-
     <div class="bo_fx">
         <div id="bo_list_total">
             <span>Total <?php echo number_format($total_count) ?> || 내 Point: <?php echo $member['mb_1'] ?></span>&nbsp;&nbsp;&nbsp; 
@@ -79,13 +77,11 @@ $(document).ready(function() {
 
     <ul id="gall_ul">
         <?php for ($i=0; $i<count($list); $i++) {
-            if($i>0 && ($i % $bo_gallery_cols == 0))
-                $style = 'clear:both;';
-            else
                 $style = '';
             if ($i == 0) $k = 0;
             $k += 1;
-            if ($k % $bo_gallery_cols == 0) $style .= "margin:0 !important;";
+            // if ($k % $bo_gallery_cols == 0) $style .= "margin:0 !important;";
+            
 			if($list[$i]['wr_10'] == "Open") { 
          ?>
         <li class="gall_li <?php if ($wr_id == $list[$i]['wr_id']) { ?>gall_now<?php } ?>" style="<?php echo $style ?>width:<?php echo $board['bo_gallery_width'] ?>px">
@@ -93,12 +89,13 @@ $(document).ready(function() {
             <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
             <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
             <?php } ?>                    
-			<?php
+			<!-- <?php
                     // echo $list[$i]['icon_reply']; 갤러리는 reply 를 사용 안 할 것 같습니다. - 지운아빠 2013-03-04
                     if ($is_category && $list[$i]['ca_name']) {
                      ?>
-                    <?php if ($list[$i]['is_notice']) echo "<img src=".$board_skin_url."/img/star.png height=21>"; ?><?php if ($list[$i]['wr_good'] >= 100000) echo "<img src=".$board_skin_url."/img/good.png height=21>"; ?> <a href="<?php echo $list[$i]['ca_name_href'] ?>" ><?php echo $list[$i]['ca_name'] ?></a>
-             <?php } ?>
+                    <?php if ($list[$i]['is_notice']) echo "<img src=".$board_skin_url."/img/star.png height=21>"; ?><?php if ($list[$i]['wr_good'] >= 100000) 
+                    echo "<img src=".$board_skin_url."/img/good.png height=21>"; ?> <a href="<?php echo $list[$i]['ca_name_href'] ?>" ><?php echo $list[$i]['ca_name'] ?></a>
+             <?php } ?> -->
             <span class="sound_only">
                 <?php
                 if ($wr_id == $list[$i]['wr_id'])
@@ -109,42 +106,39 @@ $(document).ready(function() {
             </span>
             <ul class="gall_con">
                 <li class="gall_href">
-        
                     <?php
                     if ($list[$i]['is_notice']) { // 공지사항  
                              $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $imgmaxwidth, $imgmaxheight );
-
                         if($thumb['src']) {
-                            $img_content = '<a  rel="single"  class="pirobox"  href="'.$thumb['src'].'" title="'.$list[$i]['subject'].'"  style="margin:0 10px 0 0;"><img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="'.$imgminwidth.'" height="'.$imgminheight.'"> </a>';
+                            $img_content = '<a  rel="single"  class="pirobox"  href="'.$thumb['src'].'" title="'.$list[$i]['subject'].'"  
+                            style="margin:0 10px 0 0; border-radus: 5px;"><img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="150px" height=""> </a>';
                         } else {
                             $img_content = '<span style="width:'.$board['bo_gallery_width'].'px;height:'.$board['bo_gallery_height'].'px">no image</span>';
                         }
-
                         echo $img_content;
                      } else {
                       $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $imgmaxwidth, $imgmaxheight );
-
                         if($thumb['src']) {
-                            $img_content = '<a  rel="single"  class="pirobox"  href="'.$thumb['src'].'" title="'.$list[$i]['subject'].'"  style="margin:0 10px 0 0;"><img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="'.$imgminwidth.'" height="'.$imgminheight.'"> </a>';
+                            $img_content = '<a  rel="single"  class="pirobox"  href="'.$thumb['src'].'" title="'.$list[$i]['subject'].'" 
+                             style="margin:0 10px 0 0;  border-radus: 5px;"><img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="150px" height=""> </a>';
                         } else {
                             $img_content = '<span style="width:'.$board['bo_gallery_width'].'px;height:'.$board['bo_gallery_height'].'px">no image</span>';
                         }
-
                         echo $img_content;
                     }
                      ?>
-        
                 </li>
-                <li class="gall_text_href" style="width:<?php echo $board['bo_gallery_width'] ?>px">
+                <li class="gall_text_href" style="width:<?php echo $board['bo_gallery_width'] ?>px; color:red; ">
+                    <?php if($is_admin) { 
+                        ?><a href="<?php echo G5_URL ?>/bbs/write.php?w=u&bo_table=shop&wr_id=<?php echo $list[$i]['wr_id']?>&page=">
+                        <?php } ?>
 
-                    <?php if($is_admin) { ?><a href="<?php echo G5_URL ?>/bbs/write.php?w=u&bo_table=shop&wr_id=<?php echo $list[$i]['wr_id']?>&page="><?php } ?>
                         <?php echo $list[$i]['subject'] ?>
                         <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><?php echo $list[$i]['comment_cnt']; ?><span class="sound_only">개</span><?php } ?>
-                    </a>
+                         </a>
                     <?php
                     if (isset($list[$i]['icon_new'])) echo $list[$i]['icon_new'];
-
-                     ?>
+                     ?>                     
                 </li>
  <style type="text/css">
             .but
@@ -153,22 +147,26 @@ $(document).ready(function() {
             cursor:Per;border: none;
             }
         </style>
+        <li ><p style="height: 36px"><?php echo substr($list[$i]['wr_content'],0,50)   ?></p></li>
              <li><p><b><?php echo number_format($list[$i]['wr_1']) ?> </b>P</p><p>배송: <?php echo number_format($list[$i]['wr_2']) ?> <strong></strong>P</p></li>				
-            <li><p>  <input type=button class="but"  onclick="Process(<?php echo $list[$i]['wr_id'] ?>)"  style="height:28px;width:150px"></p></li>
+            <li>
+            <a class="btn"  onclick="Process(<?php echo $list[$i]['wr_id'] ?>)"  style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-cart.png" height=15px> 1 / 10</a>
+            <a class="btn"  onclick="Process(<?php echo $list[$i]['wr_id'] ?>)"  style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px> BUY</a>
+            </li>
+            
             </ul>
         </li>
         <?php } ?>
         <?php } ?>
         <?php if (count($list) == 0) { echo "<li class=\"empty_list\">게시물이 없습니다.</li>"; } ?>
     </ul>
-
     <?php if ($list_href || $is_checkbox || $write_href) { ?>
     <div class="bo_fx">
         <?php if ($is_checkbox) { ?>
         <ul class="btn_bo_adm">
-            <li><input type="submit" name="btn_submit" value="선택삭제" onclick="document.pressed=this.value"></li>
-            <li><input type="submit" name="btn_submit" value="선택복사" onclick="document.pressed=this.value"></li>
-            <li><input type="submit" name="btn_submit" value="선택이동" onclick="document.pressed=this.value"></li>
+            <li><input type="submit" class="btn" name="btn_submit" value="선택삭제" onclick="document.pressed=this.value"></li>
+            <li><input type="submit" class="btn" name="btn_submit" value="선택복사" onclick="document.pressed=this.value"></li>
+            <li><input type="submit" class="btn" name="btn_submit" value="선택이동" onclick="document.pressed=this.value"></li>
         </ul>
         <?php } ?>
 
@@ -182,7 +180,6 @@ $(document).ready(function() {
     <?php } ?>
     </form>
 </div>
-
 <?php if($is_checkbox) { ?>
 <noscript>
 <p>자바스크립트를 사용하지 않는 경우<br>별도의 확인 절차 없이 바로 선택삭제 처리하므로 주의하시기 바랍니다.</p>
@@ -205,7 +202,6 @@ $(document).ready(function() {
         <option value="wr_subject"<?php echo get_selected($sfl, 'wr_subject', true); ?>>상품명</option>
         <option value="wr_content"<?php echo get_selected($sfl, 'wr_content'); ?>>소개</option>
         <option value="wr_subject||wr_content"<?php echo get_selected($sfl, 'wr_subject||wr_content'); ?>>상품+소개</option>
-
     </select>
     <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
     <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required  class="frm_input required" size="15" maxlength="15">
