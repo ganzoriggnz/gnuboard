@@ -23,15 +23,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     $row = sql_fetch($res); 
     ?>  
     <div class="row_btn mt_54">
-        <input type="text" id="but1" value="<?php if ($row['p_but1_datetime']) echo $row['p_but1_datetime']; ?>">
+        <input type="hidden" id="but1" value="<?php if ($row['p_but1_datetime']) echo $row['p_but1_datetime']; ?>">
         <button type="button" id="cat1" name="cat1" <?php if($row['p_but1_datetime'] != '0000-00-00 00:00:00' && $row['p_but1_datetime']){ echo 'class="btn_pet_third" disabled="disabled"';} else { echo 'class="btn_pet_first"';} ?>>청소하기</button>
     </div>      
     <div class="row_btn mt_24">   
-        <input type="text" id="but2" value="<?php if ($row['p_but2_datetime']) echo $row['p_but2_datetime']; ?>">     
+        <input type="hidden" id="but2" value="<?php if ($row['p_but2_datetime']) echo $row['p_but2_datetime']; ?>">     
         <button type="button" id="cat2" onclick="clickCat2('<?php echo $row['p_but1_datetime']?>');" <?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>쓰담쓰담 하기</button>
     </div>
     <div class="row_btn mt_24">
-        <input type="text" id="but3" value="<?php if ($row['p_but3_datetime']) echo $row['p_but3_datetime']; ?>">
+        <input type="hidden" id="but3" value="<?php if ($row['p_but3_datetime']) echo $row['p_but3_datetime']; ?>">
         <button type="button" id="cat3" onclick="clickCat3('<?php echo $row['p_but2_datetime'];?>');" <?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>사료주기</button>
     </div>
     <div id ="result"></div>
