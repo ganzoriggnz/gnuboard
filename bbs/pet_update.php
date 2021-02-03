@@ -72,6 +72,6 @@ if(isset($_POST['id']))
     }    
 }
 
-//goto_url(G5_HTTP_BBS_URL.'/pet.php');
+goto_url(G5_HTTP_BBS_URL.'/pet.php');
 
 ?>

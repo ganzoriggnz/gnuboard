@@ -61,7 +61,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             /* var lastClickedTime = new Date($.now()); */
             var count = 0;
             $('button').click(function(){
-                debugger;
                 if (!isButtonClicked)
                 {
                     $("#" + this.id).css("background","#4D4D4D");
@@ -85,11 +84,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                             $('#but1').val(response);                       
                         }                       
                     });
-                    lastClickedTime1 =  $("#but1").val();                                                
+                    //lastClickedTime1 =  $("#but1").val();                                                
                 }                       
                 else                       
                 {        debugger;            
-                    if (getElapsedMinutes(lastClickedTime1, new Date($.now())) > 2)
+                    if (getElapsedMinutes(lastClickedTime, new Date($.now())) > 2)
                     {
                         $("#" + this.id).css("background","#4D4D4D");
                         lastClickedTime = new Date($.now());
@@ -110,7 +109,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                             $('#but2').val(response);                       
                         }  
                         });
-                        lastClickedTime = $("#but2").val();
+                        //lastClickedTime = $("#but2").val();
                     }
                     else
                     {
@@ -135,12 +134,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             }
 
             function getElapsedTime(last, current) 
-            {   debugger;
-                var end = (new Date(last)).getTime() + 30*60000;
-                var clicked = (new Date(current)).getTime();
+            {  
+                /* var end = (new Date(last)).getTime() + 30*60000;
+                var clicked = (new Date(current)).getTime(); */
                 /* var end = last.getTime() + 2*60000;
                 var clicked = current.getTime(); */
-                var res = Math.abs(end - clicked) / 1000;
+                var res = Math.abs(current - last) / 1000;
                 var minutes = Math.floor(res / 60) % 60;
                 var seconds = Math.floor(res % 60);
 
