@@ -171,13 +171,12 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                         <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
                         <?php } ?> -->
                                 <a href="<?php echo $list[$i]['href'] ?>" class="bo_tit" style="font-size: 16px; color: #E73D2F; font-weight: bold; text-align:center;">
-
                                     <?php // echo $list[$i]['icon_reply']; 
                                     ?>
                                     <!-- 갤러리 댓글기능 사용시 주석을 제거하세요. -->
 
                                     <div class="na-title" style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
-                                        <a href="<?php echo $list[$i]['href'] ?>" class="na-subject" style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;" <?php echo $target ?>>
+                                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>" class="na-subject" style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;" <?php echo $target ?>>
                                             <?php echo $wr_icon ?>
                                             <?php echo $list[$i]['mb_name'] ?>
                                         </a>
