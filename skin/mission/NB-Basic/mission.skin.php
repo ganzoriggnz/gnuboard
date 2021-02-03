@@ -102,7 +102,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt1 == 3) { echo '2';}
 				else if($cnt1 == 4) { echo '3';} 
 				else if($cnt1 == 5 ) { echo '4';}
-				else if($cnt1 > 5) { echo '5';} ?>/5)				
+				else if($cnt1 >= 6) { echo '5';} ?>/5)				
 				</td>
 				<td class="cl_td_r">
 				10 
@@ -153,7 +153,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt_att == 2) { echo '2';}
 				else if($cnt_att == 3) { echo '3';}
 				else if($cnt_att == 4) { echo '4';}
-				else if($cnt_att == 5) { echo '5';} ?>/5)				
+				else if($cnt_att >= 5) { echo '5';} ?>/5)				
 				</td>
 				<td class="cl_td_r">
 				10 
@@ -204,7 +204,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt_rev == 2) { echo '2';}
 				else if($cnt_rev == 3) { echo '3';}
 				else if($cnt_rev == 4) { echo '4';}
-				else if($cnt_rev == 5) { echo '5';} ?>/5)				
+				else if($cnt_rev >= 5) { echo '5';} ?>/5)				
 				</td>
 				<td class="cl_td_r">
 				10 
