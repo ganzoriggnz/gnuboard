@@ -120,7 +120,7 @@ if($kind=='friends'){
 else if($kind=='online') {
     $sql = " select a.mb_id, b.mb_nick, b.mb_name
     from {$g5['login_table']} a left join {$g5['member_table']} b on (a.mb_id = b.mb_id)
-    where a.mb_id <> '{$config['cf_admin']}'
+    where a.mb_id <> '{$config['cf_admin']}' and a.mb_id <> ''
     order by a.lo_datetime desc ";
 }
 
