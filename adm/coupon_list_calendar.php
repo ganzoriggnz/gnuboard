@@ -4,7 +4,7 @@ include_once('./_common.php');
 
 
 auth_check($auth[$sub_menu], 'r');
-$g5['title'] = "후기미작성자";
+$g5['title'] = "제휴업소관리";
 include_once('./admin.head.php');
 
 ?>
