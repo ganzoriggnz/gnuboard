@@ -253,7 +253,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td_r">300점</td>
 				<td class="cl_td">
 					<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?>">
-					<div id="give" <?php if($cnt_rev > 15 && $cnt_att > 15 && $cnt1 > 14 && $cnt_at > 0 && $cnt > 0 &&
+					<div id="give" <?php if($cnt_rev >= 15 && $cnt_att >= 15 && $cnt1 >= 14 && $cnt_at > 0 && $cnt > 0 &&
 					$row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but2_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but3_datetime'] != '0000-00-00 00:00:00') 
