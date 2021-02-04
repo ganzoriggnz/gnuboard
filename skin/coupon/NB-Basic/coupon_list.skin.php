@@ -239,9 +239,9 @@ $altcnt=0;
 	</div>
 	
 	<script>
-	$(window).on('load', function () {
+/* 	$(window).on('load', function () {
 	na_nav('topNav', 'topHeight', 'fixed-top');
-	});
+	}); */
 
 	$('#btn_send').click(function(){
 		debugger;
