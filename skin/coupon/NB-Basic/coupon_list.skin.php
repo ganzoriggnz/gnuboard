@@ -4,6 +4,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css">', 0);
 
+$cnt=0;
 $alert_nick;
 $altcnt=0;
 ?>
@@ -16,7 +17,7 @@ $altcnt=0;
 			<button type="button" class="close" aria-label="Close" onclick="window.close();">
 				<span aria-hidden="true" class="text-white">&times;</span>
 			</button>
-			<h5><?php echo $g5['title'] ?></h5>
+			<h5 class="text-center"><?php echo $g5['title'] ?></h5>
 		</div>
 	</div>
 
@@ -28,31 +29,41 @@ $altcnt=0;
 
 	<div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
 
-	<ul class="na-table d-table w-100 f-de" style="margin-top: 10px;">
+	<!-- <ul class="na-table d-table w-100 f-de" style="margin-top: 10px;"> -->
+	<div class="tbl_head02 tbl_wrap">
+        <table>
+			<thead>
+				<tr>
+					<th scope="col">업소명</th>
+					<th scope="col">원가권 쿠폰 개수</th>
+					<th scope="col">무료권 쿠폰 개수</th>
+					<th scope="col">쿠폰 받은사람</th>
+				</tr>
+			</thead>
+        <tbody>
 	<?php
 	$result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27'"; 
 	$result1=sql_query($result);
 	while ($row = sql_fetch_array($result1)) {
 	?>
-		<li class="d-table-row px-3 py-2 p-md-0 text-md-center text-muted">	
-			<div class="d-none d-table-cell nw-9 f-sm font-weight-normal py-md-2 px-md-1 border-right">
+		<tr>	
+			<td class="td_left">
 					<?php echo "[".$row['co_entity']."]";?> 
 					
-			</div> 
-			<div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1" style = "border-right: 0.5px solid blue;">
+			</td> 
+			<td class="td_left">
 			   <a data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
 			   		<?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
 				</a>
-            </div> 
-            <div class="d-none d-table-cell nw-6 f-sm font-weight-normal py-md-2 px-md-1" style = "border-right: 0.5px solid blue;">
+			</td> 
+            <td class="td_left">
 				<a data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
 			   		<?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
 				</a>
-            </div>
-			<div class="float-left float-md-none d-table-cell nw-30 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-				<?php echo "쿠폰 받은사람 :"; ?>
+			</td>
+			<td class="td_left">
 				<ul id="userlist">	
-				<?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a RIGHT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$s_begin_date}' AND a.co_end_datetime ='{$s_end_date}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
+				<?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a RIGHT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime ='{$co_end_datetime}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
 				$sql1 = sql_query($sql);
 				while ($row1 = sql_fetch_array($sql1)){
 					$alert_nick[$altcnt]['alt_nick'] = $row1['cos_nick']; 
@@ -152,15 +163,16 @@ $altcnt=0;
 				}
                     ?> 
                 </ul>
-			</div>
-		</li>
-    <?php } ?>
-	</ul>
-	<?php if (!$row['co_no']) { ?>
-		<div class="f-de px-3 py-5 text-center text-muted border-bottom">
-			자료가 없습니다.
-		</div>
-	<?php } ?>
+			</td>
+		</tr>
+		<?php $cnt++; } 
+        if ($cnt == 0) { 
+            echo '<tr><td colspan="4" class="empty_table">자료가 없습니다.</td></tr>';
+        } ?>
+	    </tbody>
+	</table>
+    </div>
+	
 	
 	<div class="modal fade" id="couponModal" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
 		<div class="modal-dialog" role="document">

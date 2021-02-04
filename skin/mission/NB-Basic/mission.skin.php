@@ -268,7 +268,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
     <div style="margin-top:20px; line-height:20px;font-size:14px;font-weight:bold;">
     ※ 일일수행은 <font color="red">매일 12시에 초기화</font> 됩니다. (초기화 안될시 새로고침 눌러주세요) <br>
     &nbsp;&nbsp;&nbsp;공덕이나 엽전 내역은 합산 저장되니 착오 없으시기 바랍니다. <br>
-    </div>
+	</div>
+</div>
+<div class="popup_box1" style="display: none;">
+	<h1>일일미션</h1>
+	<label>축하합니다. <br/> 일일미션 수행 300파운드 획득하였습니다</label>
+	<div class="btns1">
+		<a href="#" class="btn1">확인</a>
+	</div>
 </div>
 <script>
 	function givePoint(){
@@ -281,10 +288,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			},
 			dataType: 'text',
 			success: function(response) {                       
-		    alert("You earned 300 points");               
+				$('.popup_box1').css("display", "block");
+                    $('.btn').click(function(){
+                        $('.popup_box1').css("display", "none");
+                    });
+					$("div #give").prop('disabled', true);               
 			}  
-		});
-		$("div #give").prop('disabled', true);
+		});		
 
 	}
 </script>
