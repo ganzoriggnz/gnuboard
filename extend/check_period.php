@@ -53,7 +53,7 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $r
                 $mb_level = $member['mb_level'] + 1;
                 $sql = "update {$g5['member_table']} set mb_level = '{$mb_level}' where mb_id = '{$mb_id}'";
                 sql_query($sql);
-                insert_point($member['mb_id'], $levpoint, "등업 파운드",'','', "level change");
+                insert_point($member['mb_id'], $levpoint, "등업 축하파운드",'','', "level change");
                 alert("축하합니다" .$member['mb_nick']."님 등업원료되었습니다.");
                 
             } else {
@@ -186,7 +186,7 @@ else if ($member['mb_level'] == 5){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  7 days')); 
         $wrpost = 2;
         $wrcomment = 2;
-        $reviewpost = 1;
+        $reviewpost = 6;
         $levpoint = getlevelPoint('20'); }
     else if ($member['mb_level'] == 21){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  1000 days')); 

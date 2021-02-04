@@ -12,6 +12,6 @@ $menu['menu200'] = array (
     array('200500', '레벨별포인트지급', G5_ADMIN_URL.'/point_listlevel.php', 'mb_point2'),
     array('200900', '투표관리', G5_ADMIN_URL.'/poll_list.php', 'mb_poll'),
     array('200910', '전체쪽지보내기', G5_ADMIN_URL.'/memo.php', 'mb_memo'),
-    array('200600', '자동 등업시 지금할 파운드 값 입력', G5_ADMIN_URL.'/lev_point.php', 'lev_point_setting')
+    array('200600', '등업파운드설정 ', G5_ADMIN_URL.'/lev_point.php', 'lev_point_setting')
 );
 ?>
