@@ -272,7 +272,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 </div>
 <div class="popup_box1" style="display: none;">
 	<h1>일일미션</h1>
-	<label>축하합니다. <br/> 일일미션 수행 300파운드 획득하였습니다</label>
+	<label>축하합니다. <br/>300파운드 획득하였습니다</label>
 	<div class="btns1">
 		<a href="#" class="btn1">확인</a>
 	</div>
@@ -289,7 +289,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			dataType: 'text',
 			success: function(response) {                       
 				$('.popup_box1').css("display", "block");
-                    $('.btn').click(function(){
+                    $('.btn1').click(function(){
                         $('.popup_box1').css("display", "none");
                     });
 					$("div #give").prop('disabled', true);               
