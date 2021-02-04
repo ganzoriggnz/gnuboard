@@ -7,32 +7,119 @@ $imgmaxheight = 550;
 
 $imgminwidth = 174; 
 $imgminheight = 130; 
+$ordercnt;
 
 
-// add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
+if($_GET['backet'] !='' || $_GET['buy'] !='' ){
+
+    if($_GET['backet'] !='')
+        $q=$_GET["backet"];
+    if($_GET['buy'] !='')
+        $q=$_GET["buy"];
+    
+    $wr_1;
+    $wr_2;
+    $wr_8;
+    $wr_9;
+    $wr_subject;
+
+    $query5 = "select * from g5_write_shop  where wr_id = '$q'  ";
+    $result5 = sql_query($query5);
+    while($row  = sql_fetch_array($result5)) {        
+        $wr_subject = $row['wr_subject']; 
+        $wr_1 = $row['wr_1'];
+        $wr_2 = $row['wr_2']; 
+        $wr_8 = $row['wr_8']; 
+        $wr_9 = $row['wr_9']; 
+    }
+    
+    $query5 = "select wr_3 from g5_write_basket  where mb_id = '$member[mb_id]' and wr_10 = '구매대기' and wr_9 = '$wr_9' ";
+    $result5 = sql_query($query5);
+    while($row  = sql_fetch_array($result5)) {	
+        $cnt2 = $row['wr_3']; 
+    }
+    $wr_3 = $cnt2 + 1;
+    $wr_1 = $wr_3 * $wr_1;
+    if($cnt2 == "") {
+    $table = "g5_write_basket";
+    $bo_table = "basket";
+     $wr_num = $q;
+        $sql = " insert into $table
+                    set wr_num = '$wr_num',
+                         wr_reply = '$wr_reply',
+                         wr_comment = 0,
+                         ca_name = '구매대기',
+                         wr_option = '$html,$secret,$mail',
+                         wr_subject = '$wr_subject',
+                         wr_content = '필요한 내용을 넣으세요',
+                         wr_link1 = '$wr_link1',
+                         wr_link2 = '$wr_link2',
+                         wr_link1_hit = 0,
+                         wr_link2_hit = 0,
+                         wr_hit = 0,
+                         wr_good = 0,
+                         wr_nogood = 0,
+                         mb_id = '{$member['mb_id']}',
+                         wr_password = '$wr_password',
+                         wr_name =  '{$member['mb_name']}',
+                         wr_email =  '{$member['mb_main']}',
+                         wr_homepage = '$wr_homepage',
+                         wr_datetime = '".G5_TIME_YMDHIS."',
+                         wr_last = '".G5_TIME_YMDHIS."',
+                         wr_ip = '{$_SERVER['REMOTE_ADDR']}',
+                         wr_1 = '$wr_1',
+                         wr_2 = '$wr_2',
+                         wr_3 = '$wr_3',
+                         wr_4 = '$wr_4',
+                         wr_5 = '$wr_5',
+                         wr_6 = '$wr_6',
+                         wr_7 = '$wr_7',
+                         wr_8 = '$q',
+                         wr_9 = '$wr_9',
+                         wr_10 = '구매대기' ";
+           
+        sql_query($sql);    
+        // $wr_id = mysql_insert_id();    
+        // // 부모 아이디에 UPDATE
+        // sql_query(" update $table set wr_parent = '$wr_id' where wr_id = '$wr_id' ");    
+
+        // sql_query("update g5_board set bo_count_write = bo_count_write + 1 where bo_table = '$bo_table'");
+    }
+    if($cnt2 != "") { sql_query(" update g5_write_basket set wr_3 = '$wr_3', wr_1 = '$wr_1' where wr_9 = '$wr_9' and wr_10 = '구매대기' and mb_id = '{$member['mb_id']}' "); 
+                    }
+    if($_GET['backet'] !='')
+        goto_url(G5_URL."/bbs/board.php?bo_table=shop");
+    if($_GET['buy'] !='')
+        goto_url(G5_URL."/bbs/board.php?bo_table=basket");
+}
+
+$query5 = "select SUM(wr_3) as cnt from g5_write_basket  where mb_id = '$member[mb_id]' and wr_10 = '구매대기' ";
+    $result5 = sql_query($query5);
+    while($row  = sql_fetch_array($result5)) {	
+        $ordercnt= $row['cnt']; 
+    }
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
 ?>
-
-<link rel="stylesheet" href="<?php echo $board_skin_url ?>/style1.css">
-<link rel="stylesheet" href="<?php echo $board_skin_url ?>/table.css">
-
-<script type="text/javascript" src="<?php echo $board_skin_url ?>/lib/pirobox_extended.js"></script>
-<script type="text/javascript" src="<?php echo $board_skin_url ?>/lib/jquery-ui-1.8.2.custom.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-	$().piroBox_ext({
-	piro_speed : 700,
-		bg_alpha : 0.5,
-		piro_scroll : true // pirobox always positioned at the center of the page
-	});
-});
-</script>
- <?php include_once($board_skin_path.'/table.php');?>
- <?php include_once($board_skin_path.'/lib.php');?>
- <?php include_once($board_skin_path.'/ajax.php');?>
-
 <h2 id="container_title"><span class="sound_only"> 목록</span></h2>
 
+<ul id="">
+	<div class="alert bg-light border p-2 p-sm-3 mb-3 mx-3 mx-sm-0" style="text-align: center;">
+        <form name="fsearch" method="get">
+        <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+        <input type="hidden" name="sca" value="<?php echo $sca ?>">
+        <input type="hidden" name="sop" value="and">
+        <label for="sfl" class="sound_only">검색대상</label>
+		<legend class="sound_only">상세검색</legend>
+                    <select name="sfl" id="sfl" class="custom-select col-1" >
+                        <option value="wr_subject"<?php echo get_selected($sfl, 'wr_subject', true); ?>>상품명</option>
+                        <option value="wr_content"<?php echo get_selected($sfl, 'wr_content'); ?>>소개</option>
+                        <option value="wr_subject||wr_content"<?php echo get_selected($sfl, 'wr_subject||wr_content'); ?>>상품+소개</option>
+                    </select> 
+                    <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label> &nbsp;
+                        <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required  class="forml" size="25" maxlength="15">&nbsp;
+                        <input type="submit" class="btn btn-primary" value="검색" class="btn_submit">
+		</form>
+</div></ul>
 <!-- 게시판 목록 시작 { -->
 <div id="bo_gall" style="width:<?php echo $width; ?>">
 
@@ -40,26 +127,28 @@ $(document).ready(function() {
     <nav id="bo_cate">
         <h2><?php echo $board['bo_subject'] ?> 카테고리</h2>
         <ul id="bo_cate_ul">
-            <?php echo $category_option ?>
+            <?php echo $category_shop ?>
         </ul>
     </nav>
     <?php } ?>
     <div class="bo_fx">
+            
+
         <div id="bo_list_total">
-            <span>Total <?php echo number_format($total_count) ?> || 내 Point: <?php echo $member['mb_1'] ?></span>&nbsp;&nbsp;&nbsp; 
+        <strong> 파운드 :  <?php echo number_format($member['mb_point']) ?></strong> 
+            &nbsp;&nbsp;&nbsp; 
             <img src="<?php echo $board_skin_url?>/img/star.png" height=21> 추천 상품 <img src="<?php echo $board_skin_url?>/img/good.png" height=21> 특가 상품 
         </div>
 
         <?php if ($rss_href || $write_href) { ?>
         <ul class="btn_bo_user">
-            <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btn_b01">RSS</a></li><?php } ?>
-            <li><a href="./board.php?bo_table=basket" class="btn_admin">구매현황</a></li>
-            <?php if ($admin_href) { ?><li><a href="<?php echo $admin_href ?>" class="btn_admin">관리자</a></li><?php } ?>
-            <?php if ($admin_href) { ?><li><a href="<?php echo $write_href ?>" class="btn_b02">상품 올리기</a></li><?php } ?>
+            <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btnd">RSS</a></li><?php } ?>
+            <li><a href="./board.php?bo_table=basket" class="btnd"><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px> 구매현황<?php if($ordercnt) echo " (".$ordercnt.")"; ?> </a></li>
+            <?php if ($admin_href) { ?><li><a href="<?php echo $admin_href ?>" class="btnd">관리자</a></li><?php } ?>
+            <?php if ($admin_href) { ?><li><a href="<?php echo $write_href ?>" class="btnd">상품 올리기</a></li><?php } ?>
         </ul>
         <?php } ?>
     </div>
-
     <form name="fboardlist"  id="fboardlist" action="./board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
     <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
     <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
@@ -150,10 +239,9 @@ $(document).ready(function() {
         <li ><p style="height: 36px"><?php echo substr($list[$i]['wr_content'],0,50)   ?></p></li>
              <li><p><b><?php echo number_format($list[$i]['wr_1']) ?> </b>P</p><p>배송: <?php echo number_format($list[$i]['wr_2']) ?> <strong></strong>P</p></li>				
             <li>
-            <a class="btn"  onclick="Process(<?php echo $list[$i]['wr_id'] ?>)"  style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-cart.png" height=15px> 1 / 10</a>
-            <a class="btn"  onclick="Process(<?php echo $list[$i]['wr_id'] ?>)"  style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px> BUY</a>
+            <a class="btnd" href="./board.php?bo_table=shop&backet=<?php echo $list[$i]['wr_id'] ?>"  style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-cart.png" height=15px> <?php echo $list[$i]['wr_4'] ?> / <?php echo $list[$i]['wr_3'] ?></a>
+            <a class="btnd" href="./board.php?bo_table=shop&buy=<?php echo $list[$i]['wr_id'] ?>" style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px> BUY</a>
             </li>
-            
             </ul>
         </li>
         <?php } ?>
@@ -170,12 +258,6 @@ $(document).ready(function() {
         </ul>
         <?php } ?>
 
-        <?php if ($list_href || $write_href) { ?>
-        <ul class="btn_bo_user">
-            <?php if ($list_href) { ?><li><a href="<?php echo $list_href ?>" class="btn_b01">목록</a></li><?php } ?>
-            <?php if ($write_href) { ?><li><a href="<?php echo $write_href ?>" class="btn_b02">상품 올리기</a></li><?php } ?>
-        </ul>
-        <?php } ?>
     </div>
     <?php } ?>
     </form>
@@ -185,33 +267,16 @@ $(document).ready(function() {
 <p>자바스크립트를 사용하지 않는 경우<br>별도의 확인 절차 없이 바로 선택삭제 처리하므로 주의하시기 바랍니다.</p>
 </noscript>
 <?php } ?>
-
 <!-- 페이지 -->
-<?php echo $write_pages;  ?>
-
-<!-- 게시물 검색 시작 { -->
-<fieldset id="bo_sch">
-    <legend>게시물 검색</legend>
-
-    <form name="fsearch" method="get">
-    <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
-    <input type="hidden" name="sca" value="<?php echo $sca ?>">
-    <input type="hidden" name="sop" value="and">
-    <label for="sfl" class="sound_only">검색대상</label>
-    <select name="sfl" id="sfl">
-        <option value="wr_subject"<?php echo get_selected($sfl, 'wr_subject', true); ?>>상품명</option>
-        <option value="wr_content"<?php echo get_selected($sfl, 'wr_content'); ?>>소개</option>
-        <option value="wr_subject||wr_content"<?php echo get_selected($sfl, 'wr_subject||wr_content'); ?>>상품+소개</option>
-    </select>
-    <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-    <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required  class="frm_input required" size="15" maxlength="15">
-    <input type="submit" value="검색" class="btn_submit">
-    </form>
-</fieldset>
-<!-- } 게시물 검색 끝 -->
+<?php echo $write_pages; ?>
 
 <?php if ($is_checkbox) { ?>
 <script>
+function Process(id){
+    var el = document.getElementById('*too');
+    text = (id);
+}
+
 function all_checked(sw) {
     var f = document.fboardlist;
 

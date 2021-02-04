@@ -83,8 +83,8 @@
 #bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
 #bo_cate li {display:inline-block;padding:2px;  }
 #bo_cate a {border-radius: 2px; font-size:12px; color:#fff; border: 1px solid #818485; border-radius: 5px; background-color: #e4c980; width:95px; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 3px;}
-#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active { text-decoration:none; color:#000}
-#bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:95px; background-color: #c2a965; height:39px; display:flex; align-items:center; justify-content: center;}
+#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active { text-decoration:none; color:#000;background-color: #c2a965;  }
+#bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#fff; width:95px; background-color: #c2a965; height:39px; display:flex; align-items:center; justify-content: center;}
 
 .td_subject img {margin-left:3px}
 
@@ -101,9 +101,10 @@
     text-align:center;
 }
 
-.btn {
+.btnd {
     padding: 5px;
     border: 1px solid #565e60; 
+    cursor: pointer;
 }
 
 #bo_gall .gall_con {margin:0;padding:0;list-style:none}
@@ -165,6 +166,20 @@ html.no-overflowscrolling #autosave_pop {height:auto;max-height:10000px !importa
 
 /* 게시판 읽기 */
 #bo_v {margin-bottom:20px;padding-bottom:20px}
+
+
+.forml{
+    
+    color: #495057;
+    background-color: #fff;
+    height: calc(1.5em + .75rem + 2px);
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+} 
+
+
 
 #bo_v_table {position:absolute;top:0;right:16px;margin:0;padding:0 5px;height:25px;background:#565e60;color:#fff;font-weight:bold;line-height:2.2em}
 

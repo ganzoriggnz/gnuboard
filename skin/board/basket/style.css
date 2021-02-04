@@ -91,6 +91,14 @@
 
 /* ### 기본 스타일 커스터마이징 끝 ### */
 
+.btnd {
+    padding: 5px;
+    border: 1px solid #565e60; 
+    cursor: pointer;
+}
+
+
+
 /* 게시판 목록 */
 #bo_list .td_board {width:120px;text-align:center}
 #bo_list .td_chk {width:30px;text-align:center}
@@ -123,7 +131,7 @@
 .bo_fx:after {display:block;visibility:hidden;clear:both;content:""}
 .bo_fx ul {margin:0;padding:0;list-style:none}
 #bo_list_total {float:left;padding-top:5px}
-.btn_bo_user {float:right;margin:0;padding:0;list-style:none}
+.btn_bo_user {float:right;margin:0;padding:10px;list-style:none}
 .btn_bo_user li {float:left;margin-left:5px}
 .btn_bo_adm {float:left}
 .btn_bo_adm li {float:left;margin-right:5px}
