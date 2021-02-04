@@ -8,7 +8,6 @@ include_once('./_common.php');
 
 $g5['title'] = '현재접속자';
 
-
 ?>
 
 <!-- 쪽지 목록 시작 { -->
@@ -58,16 +57,13 @@ $g5['title'] = '현재접속자';
 			</div>
 <form name="form1" method="post">
 		<ul class="na-table d-table w-100">
-				<?php
-				for ($i=0; $i < count($list)-1; $i++) {
+                <?php
+                
+				for ($i=0; $i < $total_count; $i++) {
                     $location = conv_content($list[$i]['lo_location'], 0);
-                    
                     $name = get_sideview($list[$i]['mb_id'], $list[$i]['mb_nick'], $list[$i]['mb_homepage']);
                     $list['name'] = $name;
 
-					// $location = $list[$i]['lo_location'];
-					// 최고관리자에게만 허용
-					// 이 조건문은 가능한 변경하지 마십시오.
 					if ($list[$i]['lo_url'] && $is_admin == 'super') 
 						$display_location = "<a href=\"".$list[$i]['lo_url']."\">".$location."</a>";
 					else
@@ -167,7 +163,6 @@ $g5['title'] = '현재접속자';
                         ';
                         for ($i=0; $i < count($listfind); $i++) {
                         ?>
-
                             <li class="d-table-row border-bottom">
                                 <div class="d-table-cell text-center nw-3 py-2 py-md-2 f-sm">
                                     <span class="sr-only">check</span>
@@ -195,7 +190,7 @@ $g5['title'] = '현재접속자';
                                     </div>
                                 </div>       
                             </li>
-                        <?php                             
+                        <?php
                         }
                     echo "</ul>";
                     } else if (isset($_POST['find_id']))  {
