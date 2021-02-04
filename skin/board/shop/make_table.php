@@ -1,7 +1,7 @@
 <?php
 $sql_common = " gr_id               = '$board['gr_id']',
-                bo_subject          = 'Àå¹Ù±¸´Ï',
-                bo_mobile_subject   = 'Àå¹Ù±¸´Ï',
+                bo_subject          = 'ï¿½ï¿½Ù±ï¿½ï¿½ï¿½',
+                bo_mobile_subject   = 'ï¿½ï¿½Ù±ï¿½ï¿½ï¿½',
                 bo_device           = '{$_POST['bo_device']}',
                 bo_admin            = '{$_POST['bo_admin']}',
                 bo_list_level       = '2',
@@ -92,7 +92,7 @@ $sql_common = " gr_id               = '$board['gr_id']',
 
     $row = sql_fetch(" select count(*) as cnt from g5_board where bo_table = '{$bo_table}' ");
     if ($row['cnt'])
-        alert($bo_table.' Àº(´Â) ÀÌ¹Ì Á¸ÀçÇÏ´Â TABLE ÀÔ´Ï´Ù.');
+        alert($bo_table.' ï¿½ï¿½(ï¿½ï¿½) ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ TABLE ï¿½Ô´Ï´ï¿½.');
 
     $sql = " insert into g5_board
                 set bo_table = '{$bo_table}',
@@ -101,13 +101,12 @@ $sql_common = " gr_id               = '$board['gr_id']',
                     $sql_common ";
     sql_query($sql);
 
-    // °Ô½ÃÆÇ Å×ÀÌºí »ý¼º
     $file = file('./sql_write.sql');
     $sql = implode($file, "\n");
 
     $create_table = $g5['write_prefix'] . $bo_table;
 
-    // sql_board.sql ÆÄÀÏÀÇ Å×ÀÌºí¸íÀ» º¯È¯
+    // sql_board.sql ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
     $source = array('/__TABLE_NAME__/', '/;/');
     $target = array($create_table, '');
     $sql = preg_replace($source, $target, $sql);

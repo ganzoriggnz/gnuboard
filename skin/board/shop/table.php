@@ -1,8 +1,7 @@
 <?php
    $row = sql_fetch(" select count(*) as cnt from g5_board where bo_table = 'basket' ");
-    if ($row['cnt'] == 0)
-	{ 
-
+    if (!$row['cnt'])
+	{
 	$sql_common = " gr_id               = '$board[gr_id]',
                 bo_subject          = '결제하기',
                 bo_mobile_subject   = '결제하기',
@@ -93,9 +92,6 @@
                 bo_9                = '',
                 bo_10               = '' ";
 
-
- 
-
     $sql = " insert into g5_board
                 set bo_table = 'basket',
                     bo_count_write = '0',
@@ -114,7 +110,7 @@
     $target = array($create_table, '');
     $sql = preg_replace($source, $target, $sql);
     sql_query($sql, FALSE);
-	}
 
+	}
 
 ?>

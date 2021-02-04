@@ -132,7 +132,14 @@ $write_max = 100;
                 </div>
             </td>
         </tr>
-
+        <tr>
+            <th scope="row"><label for="wr_3">too <strong class="sound_only">필수</strong></label></th>
+            <td>
+                <div id="autosave_wrapper">
+                    <input type="text" name="wr_3" value="<?php echo $write['wr_3'] ?>" id="wr_3" required   onkeydown="this.value=this.value.replace(/[^0-9]/g,'')" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onblur="this.value=this.value.replace(/[^0-9]/g,'')" class="frm_input required" size="10" maxlength="255">원
+                </div>
+            </td>
+        </tr>
 
         <tr>
             <th scope="row"><label for="wr_8">배송료 계산<strong class="sound_only">필수</strong></label></th>

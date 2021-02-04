@@ -4,11 +4,12 @@
 <table width=100%>
 
 <?php
+
+
 $i = 0;
 $query5 = "select * from g5_write_basket  where mb_id = '$member[mb_id]'  and wr_10 = '구매대기'  ";
 $result5 = sql_query($query5);
-while($row  = sql_fetch_array($result5)) {
-	
+while($row  = sql_fetch_array($result5)) {	
 	$product[$i] = $row['wr_subject']; 
 	$amount[$i] = $row['wr_3'];
 	$price[$i] = $row['wr_1'];
@@ -42,6 +43,7 @@ if($amount[$i] != 0 ) {
 	if($check == "구매대기") $check = "결제하기";
 	if($check == "결제확인") $check = 1;
  }
+
 ?>
 <script language="javascript" type="text/javascript">
 //<!--

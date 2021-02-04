@@ -1,11 +1,11 @@
 <?php
 include_once("_common.php");
+
  $q=$_GET["q"];
 
 $query5 = "select * from g5_write_shop  where wr_id = '$q'  ";
 $result5 = sql_query($query5);
 while($row  = sql_fetch_array($result5)) {
-	
 	$wr_subject = $row['wr_subject']; 
 	$wr_1 = $row['wr_1'];
 	$wr_2 = $row['wr_2']; 
@@ -81,5 +81,4 @@ if($cnt2 != "") { sql_query(" update g5_write_basket set wr_3 = '$wr_3' where wr
 
 
 ?>
-
-   <?php include_once($board_skin_path.'/shop/ajax_in.php');?>
+<?php include_once($board_skin_path.'/shop/ajax_in.php');?>
