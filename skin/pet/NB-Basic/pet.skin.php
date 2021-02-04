@@ -21,8 +21,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     </div>
     <?php $res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  p_but1_datetime > '{$p_begin_date}' AND '{$p_end_date}' >=  p_but1_datetime AND '{$p_end_date}' >=  p_but2_datetime AND '{$p_end_date}' >=  p_but3_datetime";
     $row = sql_fetch($res); 
-    ?>  
-    <div class="row_btn mt_54">
+    }.op[\
+63
+.30
+     ?>+-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-+-----+-xxxxxxxqm  
+ 
+ [p'olyhjuikol[
+ \   <div class="row_btn mt_54">
         <input type="hidden" id="but1" value="<?php if ($row['p_but1_datetime']) echo $row['p_but1_datetime']; ?>">
         <button type="button" id="cat1" name="cat1" <?php if($row['p_but1_datetime'] != '0000-00-00 00:00:00' && $row['p_but1_datetime']){ echo 'class="btn_pet_third" disabled="disabled"';} else { echo 'class="btn_pet_first"';} ?>>청소하기</button>
     </div>      
@@ -58,6 +63,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
         $(document).ready(function(){
             $("#cat1").click(function(){
                 var id = this.id;
+                $("#" + this.id).css("background","#4D4D4D");
                 $.ajax({
                         type: 'POST',
                         url: 'pet_update.php',
@@ -68,7 +74,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         dataType: 'text',
                         success: function(response) {
                             //$('#result').val(response);
-                        }
+                        }7078
                     });
                 });
 

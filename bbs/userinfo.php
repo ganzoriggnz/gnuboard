@@ -59,21 +59,15 @@ if($member['mb_id']){
 
 $userinfo_skin_path = get_skin_path('member', $config['cf_member_skin']);
 $userinfo_skin_url  = get_skin_url('member', $config['cf_member_skin']);
+$userinfo_mobile_skin_path = get_skin_path('member', $config['cf_mobile_member_skin']);
+$userinfo_mobile_skin_url  = get_skin_url('member', $config['cf_mobile_member_skin']);
 $skin_file = $userinfo_skin_path.'/userinfo.skin.php';
+$mobile_skin_file = $userinfo_mobile_skin_path.'/userinfo.skin.php';
 
-// if(!G5_IS_MOBILE) {
+if(G5_IS_MOBILE) {
+    include($mobile_skin_file);
+} else { 
     include($skin_file);
-// } else {
-   
-
-    // if (G5_IS_MOBILE) {
-    //     include(G5_MOBILE_PATH.'skin/member/NB-basic/userinfo.skin.php');
-    //     // echo G5_MOBILE_PATH.'skin/member/NB-basic/userinfo.skin.php';
-    //     // C:\xampp\htdocs\gnuboard\mobile\skin\member\NB-basic\userinfo.skin.php
-
-    // }
-    // echo '<p>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</p>';
-// }
 ?>
 
 <?php
