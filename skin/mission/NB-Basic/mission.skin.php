@@ -257,7 +257,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 					$row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but2_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but3_datetime'] != '0000-00-00 00:00:00') 
-					{ echo 'class="miss_but_1" onclick = "givePoint()"';} else { echo 'class="miss_but_3"'; } ?>>
+					{ echo 'class="miss_but_1" onclick = "givePoint()" style="cursor: pointer;';} else { echo 'class="miss_but_3"'; } ?>>
 					<i class="fa fa-gift"></i><br>완료<br>대기
 			        </div>
 				</td>
