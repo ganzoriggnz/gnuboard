@@ -161,7 +161,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="<?php if($cnt_att >= 5){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
-                        <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=attendance" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_at" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>												
 				</td>
@@ -189,7 +189,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="<?php if($cnt_att >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
-                        <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=attendance" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_at" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>												
 				</td>
@@ -212,7 +212,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
 					<div class="<?php if($cnt_rev >= 5){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
-                        <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=review" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_re" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>					
 				</td>
@@ -240,7 +240,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                 </td>
 				<td class="cl_td">
                     <div class="<?php if($cnt_rev >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
-                        <a href="<?php echo G5_BBS_URL ?>/group.php?gr_id=review" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_re" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>							
 				</td>
@@ -292,9 +292,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
                     $('.btn1').click(function(){
                         $('.popup_box1').css("display", "none");
                     });
-					$("div #give").prop('disabled', true);               
+					$("#give").prop('disabled', true); 
+					$("#give").removeClass("miss_but_1");
+					$("#give").addClass("miss_but_3");              
 			}  
 		});		
-
 	}
 </script>
