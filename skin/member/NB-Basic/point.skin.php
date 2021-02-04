@@ -42,81 +42,75 @@ $frm_submit = '<div class="col-sm-4">
 			<div class="d-flex">
 				<div id="user_cate_list" class="sly-wrap flex-grow-1">
 					<ul id="user_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
-						<li>
+					<li >
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/userinfo.php" >
                                 <span>
-                                <i class="fa fa-user">
+                                <img src="<?php echo G5_URL?>/img/solid/user.svg" class="svg-img" style="height :13px;" >&nbsp
                                 회원정보
-                                </i>
+                             
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/mypost.php">
                                 <span>
-                                <i class="fa fa-pencil-alt">
+                                <img src="<?php echo G5_URL?>/img/solid/pen.svg" class="svg-img" style="height :13px;" >&nbsp
                                 내 글
-                                </i>
                                 </span>
                             </a>
                         </li>
                         <li>
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point2.php">
+                            <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/point2.php">
                                 <span>
-                                <i class="fa fa-book">
+                                <img src="<?php echo G5_URL?>/img/solid/book.svg" class="svg-img" style="height :13px;" >&nbsp
                                 파편조각 : <b><?php echo number_format($member['mb_point2']);?></b>
-                                </i>
                                 </span>
                             </a>
                         </li>
                         <li class="active">
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
                                 <span>
-                                <i class="fa fa-gem">
+                                <img src="<?php echo G5_URL?>/img/solid/gem.svg" class="svg-img" style="height :13px;" >&nbsp
                                 파운드 : <b><?php echo number_format($member['mb_point']);?></b>
-                                </i>
                                 </span>
                             </a>
                         </li>
-                        <li>
+                        <li >
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/scrap.php">
                                 <span>
-                                <i class="fa fa-paperclip">
+                                <img src="<?php echo G5_URL?>/img/solid/paperclip.svg" class="svg-img" style="height :14px;" >&nbsp
                                 스크랩
-                                </i>
                                 </span>
                             </a>
                         </li>
-						<?php if ($member['mb_level'] == 27) { ?>
+                        <?php if ($member['mb_level'] == 27) { ?>
                         <li>
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_create.php">
                                 <span>
-                                <i class="fa fa-cubes">
+                                <img src="<?php echo G5_URL?>/img/solid/cubes.svg" class="svg-img" style="height :14px;" >&nbsp
                                 쿠폰지원
-                                </i>
+                               
                                 </span>
                             </a>
                         </li>
-						<?php } ?>
-						<?php if ($member['mb_level'] < 23) { ?>
+                        <?php } ?>
+                        <?php if ($member['mb_level'] < 23) { ?>
                         <li>
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_accept.php">
                                 <span>
-                                <i class="fa fa-handshake">
+                                <img src="<?php echo G5_URL?>/img/solid/handshake.svg" class="svg-img" style="height :14px;" >&nbsp
                                 쿠폰관리
-                                </i>
                                 </span>
                             </a>
                         </li>
-						<?php } ?>
-                         <!-- if nuhtsul hulan nemsen 후기는 업소레벨에만 있으면 된다 -->
-						 <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
+                        <?php } ?>
+                        <!-- if nuhtsul hulan nemsen 후기는 업소레벨에만 있으면 된다 -->
+                        <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
                         <li>
                             <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/myreview.php">
                                 <span>
-                                    <i class="fa fa-pencil-alt">
-                                        후기보기
-                                    </i>
+                                <img src="<?php echo G5_URL?>/img/solid/reply.svg" class="svg-img" style="height :14px;" >&nbsp
+                                후기보기
                                 </span>
                             </a>
                         </li>
