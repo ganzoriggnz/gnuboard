@@ -344,6 +344,15 @@ var win_memo = function(href) {
 }
 
 /**
+ * 쿠폰
+ **/
+
+var win_coupon = function(href) {
+    var new_win = window.open(href, 'win_coupon', 'left=100,top=100,width=1200,height=600,scrollbars=1');
+    new_win.focus();
+}
+
+/**
  * 쪽지 창
  **/
 var check_goto_new = function(href, event) {
@@ -597,6 +606,11 @@ $(function(){
 
     $(".win_memo").click(function() {
         win_memo(this.href);
+        return false;
+    });
+
+    $(".win_coupon").click(function() {
+        win_coupon(this.href);
         return false;
     });
 
