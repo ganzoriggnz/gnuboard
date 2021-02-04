@@ -46,7 +46,7 @@ $g5['title'] = '현재접속자';
 <!-- sa fasdf a   list online current  -->
     
 	<section id="connect_list" class="mb-4">		
-			<div class="na-table d-table w-100 mb-0">
+			<div class=" w-100 d-table mb-0 px-3 py-2 bg-light border-bottom">
 				<div class="<?php echo $head_class ?> d-table-row">
                     <div class="d-table-cell nw-3"></div>
                     <div class="d-table-cell text-left nw-4"><b>아이디</b></div>                  
