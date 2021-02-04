@@ -279,7 +279,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 </div>
 <script>
 	function givePoint(){
-		$id = $("#mb_id").val();
+		var id = $("#mb_id").val();
 		$.ajax({
 			type: 'POST',
 			url: 'mission_update.php',
