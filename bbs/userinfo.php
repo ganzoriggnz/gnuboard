@@ -59,17 +59,9 @@ if($member['mb_id']){
 
 $userinfo_skin_path = get_skin_path('member', $config['cf_member_skin']);
 $userinfo_skin_url  = get_skin_url('member', $config['cf_member_skin']);
-$userinfo_mobile_skin_path = get_skin_path('member', $config['cf_mobile_member_skin']);
-$userinfo_mobile_skin_url  = get_skin_url('member', $config['cf_mobile_member_skin']);
 $skin_file = $userinfo_skin_path.'/userinfo.skin.php';
-$mobile_skin_file = $userinfo_mobile_skin_path.'/userinfo.skin.php';
 
-if(G5_IS_MOBILE) {
-    include($mobile_skin_file);
-} else { 
     include($skin_file);
-?>
-
-<?php
+    
     include_once('./_tail.php');
 ?>
