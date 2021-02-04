@@ -16,7 +16,6 @@ if($_GET['backet'] !='' || $_GET['buy'] !='' ){
         $q=$_GET["backet"];
     if($_GET['buy'] !='')
         $q=$_GET["buy"];
-    
     $wr_1;
     $wr_2;
     $wr_8;
@@ -173,11 +172,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             
 			if($list[$i]['wr_10'] == "Open") { 
          ?>
-        <li class="gall_li <?php if ($wr_id == $list[$i]['wr_id']) { ?>gall_now<?php } ?>" style="<?php echo $style ?>width:<?php echo $board['bo_gallery_width'] ?>px">
+        <li class="gall_li" style="width:190px">
             <?php if ($is_checkbox) { ?>
             <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
             <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
-            <?php } ?>                    
+            <?php } ?>
 			<!-- <?php
                     // echo $list[$i]['icon_reply']; 갤러리는 reply 를 사용 안 할 것 같습니다. - 지운아빠 2013-03-04
                     if ($is_category && $list[$i]['ca_name']) {
@@ -227,7 +226,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                          </a>
                     <?php
                     if (isset($list[$i]['icon_new'])) echo $list[$i]['icon_new'];
-                     ?>                     
+                     ?>
                 </li>
  <style type="text/css">
             .but
@@ -239,8 +238,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <li ><p style="height: 36px"><?php echo substr($list[$i]['wr_content'],0,50)   ?></p></li>
              <li><p><b><?php echo number_format($list[$i]['wr_1']) ?> </b>P</p><p>배송: <?php echo number_format($list[$i]['wr_2']) ?> <strong></strong>P</p></li>				
             <li>
-            <a class="btnd" href="./board.php?bo_table=shop&backet=<?php echo $list[$i]['wr_id'] ?>"  style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-cart.png" height=15px> <?php echo $list[$i]['wr_4'] ?> / <?php echo $list[$i]['wr_3'] ?></a>
-            <a class="btnd" href="./board.php?bo_table=shop&buy=<?php echo $list[$i]['wr_id'] ?>" style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px> BUY</a>
+            <a class="btnd <?php if ($list[$i]['wr_4'] >=$list[$i]['wr_3']) echo "disabled";?>" href="./board.php?bo_table=shop&backet=<?php echo $list[$i]['wr_id'] ?>" style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-cart.png" height=15px> <?php if($list[$i]['wr_4']) echo $list[$i]['wr_4']; else echo "0"; ?> / <?php echo $list[$i]['wr_3'] ?></a>
+            <a class="btnd <?php if ($list[$i]['wr_4'] >=$list[$i]['wr_3']) echo "disabled";?>" href="./board.php?bo_table=shop&buy=<?php echo $list[$i]['wr_id'] ?>" style="height:28px;width:80px"  ><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px> BUY</a>
             </li>
             </ul>
         </li>

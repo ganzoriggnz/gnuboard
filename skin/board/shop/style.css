@@ -81,7 +81,7 @@
 #bo_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #bo_cate ul {zoom:1}
 #bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
-#bo_cate li {display:inline-block;padding:2px;  }
+#bo_cate li {display:inline-block;padding:0px;  }
 #bo_cate a {border-radius: 2px; font-size:12px; color:#fff; border: 1px solid #818485; border-radius: 5px; background-color: #e4c980; width:95px; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 3px;}
 #bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active { text-decoration:none; color:#000;background-color: #c2a965;  }
 #bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#fff; width:95px; background-color: #c2a965; height:39px; display:flex; align-items:center; justify-content: center;}
@@ -94,13 +94,27 @@
 #bo_gall #gall_ul:after {display:block;visibility:hidden;clear:both;content:""}
 #bo_gall .gall_li {
     float:left;
-    margin:10px 0px 10px 10px;
+    margin:0px 5px 10px 0px;
     background:#fff;
     color:#565e60;
     border: 1px solid #565e60; 
     text-align:center;
 }
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+    color:#7b7b7b;
+    background:#b8b7b7b9;
 
+  }
+  a.disabled img path{
+    pointer-events: none;
+    cursor: default;
+    fill: #9d9d9d;
+    filter: invert(0.5);
+    background:#9d9d9d;
+    background-color: #fff;    
+  }
 .btnd {
     padding: 5px;
     border: 1px solid #565e60; 

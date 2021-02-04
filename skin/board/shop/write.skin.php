@@ -41,12 +41,10 @@ $write_max = 100;
                 $option_hidden .= '<input type="hidden" name="secret" value="secret">';
             }
         }
-
         if ($is_mail) {
             $option .= "\n".'<input type="checkbox" id="mail" name="mail" value="mail" '.$recv_email_checked.'>'."\n".'<label for="mail">답변메일받기</label>';
         }
     }
-
     echo $option;
     ?>
 

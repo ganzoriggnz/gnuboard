@@ -86,8 +86,6 @@ if($_POST['sw'] =='buy'){
         <ul class="btn_bo_user">
             <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btnd">RSS</a></li><?php } ?>
             <li><a href="./board.php?bo_table=shop" class="btnd"><img src="<?php echo $board_skin_url ?>/img/shopping-cart.png" height=15px> 구매현황<?php if($ordercnt) echo " (".$ordercnt.")"; ?> </a></li>
-            <?php if ($admin_href) { ?><li><a href="<?php echo $admin_href ?>" class="btnd">관리자</a></li><?php } ?>
-            <?php if ($admin_href) { ?><li><a href="<?php echo $write_href ?>" class="btnd">상품 올리기</a></li><?php } ?>
         </ul>
         <?php } ?>
 <div class="na-table d-none d-md-table w-100 mb-0 text-md-center bg-light">
@@ -108,16 +106,16 @@ if($_POST['sw'] =='buy'){
     <?php
         $k=1;
         for ($i=0; $i<count($listddd); $i++) {
-            if($listddd[$i]['mb_id']== $member['mb_id']){ $thumb = get_list_thumbnail("shop", $listddd[$i]['wr_id'], $imgmaxwidth, $imgmaxheight );?>
+            if($listddd[$i]['mb_id']== $member['mb_id']){ $thumb = get_list_thumbnail("shop", $listddd[$i]['wr_8'], $imgmaxwidth, $imgmaxheight );?>
 <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
             <div class="d-md-table-cell nw-2 px-md-1 text-md-center"><?php echo $k;?></div>
 			<div class="d-md-table-cell nw-6 px-md-1 text-md-center"><?php $img_content='<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="80px" height="">';  echo $img_content; ?></div>
-			<div class="d-md-table-cell nw-6 pl-2 px-md-1 pr-md-1 text-md-center"><?php echo $listddd[$i]['subject'] ?></div>
+			<div class="d-md-table-cell nw-6 pl-2 px-md-1 pr-md-1 text-md-center"><?php echo $listddd[$i]['wr_subject'] ?></div>
 			<div class="d-md-table-cell nw-6 pl-2 px-md-1 pr-md-1 text-md-center"><?php echo $listddd[$i]['wr_3'] ?></div>
 			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo number_format($listddd[$i]['wr_1']) ?>원</div>
 			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo number_format($listddd[$i]['wr_2']) ?>원  </div>
 			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php if($wr_8 == 1) echo "개별배송료"; else echo "묶음배송"; ?></div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $listddd[$i]['datetime2'] ?></div>
+			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $listddd[$i]['wr_last'] ?></div>
 			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $listddd[$i]['wr_10'] ?></div>
             <div class="d-md-table-cell nw-2 pr-md-1 text-md-center"><a href="./board.php?bo_table=basket&delete=<?php echo $listddd[$i]['wr_id'] ?>"><img src="<?php echo $board_skin_url ?>/img/btn_close.gif" height=15px></a></div>
 </li>
