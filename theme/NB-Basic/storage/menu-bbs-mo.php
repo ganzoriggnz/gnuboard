@@ -17,7 +17,7 @@ $data=array (
       0 => 
       array (
         'text' => '오피-강남영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opigangnam_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opigangnam_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -32,7 +32,7 @@ $data=array (
       1 => 
       array (
         'text' => '오피-비강남',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opibigangnam_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opibigangnam_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -47,7 +47,7 @@ $data=array (
       2 => 
       array (
         'text' => '오피-경기영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opigyeonggi_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opigyeonggi_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -62,7 +62,7 @@ $data=array (
       3 => 
       array (
         'text' => '오피-인천/부천',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opiinchon_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opiinchon_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -77,7 +77,7 @@ $data=array (
       4 => 
       array (
         'text' => '오피-강원/충청/대전',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opidaejeon_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opidaejeon_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -92,7 +92,7 @@ $data=array (
       5 => 
       array (
         'text' => '오피-경상영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opigyeongsang_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opigyeongsang_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -107,7 +107,7 @@ $data=array (
       6 => 
       array (
         'text' => '오피-대구영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opidaegu_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opidaegu_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -122,7 +122,7 @@ $data=array (
       7 => 
       array (
         'text' => '오피-전라/제주',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opijeju_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opijeju_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -137,7 +137,7 @@ $data=array (
       8 => 
       array (
         'text' => '안마-서울영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=anmaseoul_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=anmaseoul_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -152,7 +152,7 @@ $data=array (
       9 => 
       array (
         'text' => '안마-지방영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=anmachiban_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=anmachiban_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -167,7 +167,7 @@ $data=array (
       10 => 
       array (
         'text' => '건마-서울영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gonmaseoul_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gonmaseoul_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -182,7 +182,7 @@ $data=array (
       11 => 
       array (
         'text' => '건마-경기영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gonmakyonggi_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gonmakyonggi_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -197,7 +197,7 @@ $data=array (
       12 => 
       array (
         'text' => '건마-인천/부천',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gonmainchonbuchon_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gonmainchonbuchon_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -212,7 +212,7 @@ $data=array (
       13 => 
       array (
         'text' => '건마-강원/충천/대전',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gunmatechon_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gunmatechon_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -227,7 +227,7 @@ $data=array (
       14 => 
       array (
         'text' => '건마-경상/전라/제주',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gonmajeju_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gonmajeju_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -242,7 +242,7 @@ $data=array (
       15 => 
       array (
         'text' => '술집-서울영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=suljibseoul_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=suljibseoul_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -257,7 +257,7 @@ $data=array (
       16 => 
       array (
         'text' => '술집-지방영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=suljibchiban_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=suljibchiban_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -272,7 +272,7 @@ $data=array (
       17 => 
       array (
         'text' => '휴게텔-서울영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugetelseoul_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugetelseoul_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -287,7 +287,7 @@ $data=array (
       18 => 
       array (
         'text' => '휴게텔-경기영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugetelkyonggi_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugetelkyonggi_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -302,7 +302,7 @@ $data=array (
       19 => 
       array (
         'text' => '휴게텔-인천/부천',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugetelinchon_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugetelinchon_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -317,7 +317,7 @@ $data=array (
       20 => 
       array (
         'text' => '휴게텔 강원/충청/대전',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugeteldaejeon_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugeteldaejeon_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -332,7 +332,7 @@ $data=array (
       21 => 
       array (
         'text' => '휴게텔 경상/전라/제주',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugeteljeju_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugeteljeju_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -347,7 +347,7 @@ $data=array (
       22 => 
       array (
         'text' => '키스방-전국영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=kissall_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=kissall_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -362,7 +362,7 @@ $data=array (
       23 => 
       array (
         'text' => '립카페-전국영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=lipcafeall_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=lipcafeall_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -377,7 +377,7 @@ $data=array (
       24 => 
       array (
         'text' => '핸플/패티쉬영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=show_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=show_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -392,7 +392,7 @@ $data=array (
       25 => 
       array (
         'text' => '선불폰/프로필 여행사/기타',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=trip_at',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=trip_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
@@ -422,7 +422,7 @@ $data=array (
       0 => 
       array (
         'text' => '오피-강남영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opigangnam_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opigangnam_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -437,7 +437,7 @@ $data=array (
       1 => 
       array (
         'text' => '오피-비강남',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opibigangnam_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opibigangnam_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -452,7 +452,7 @@ $data=array (
       2 => 
       array (
         'text' => '오피-경기영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opigyeonggi_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opigyeonggi_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -467,7 +467,7 @@ $data=array (
       3 => 
       array (
         'text' => '오피-인천/부천',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opiinchon_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opiinchon_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -482,7 +482,7 @@ $data=array (
       4 => 
       array (
         'text' => '오피-강원/충청/대전',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opidaejeon_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opidaejeon_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -497,7 +497,7 @@ $data=array (
       5 => 
       array (
         'text' => '오피-경상영토 ',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opigyeongsang_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opigyeongsang_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -512,7 +512,7 @@ $data=array (
       6 => 
       array (
         'text' => '오피-대구영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opidaegu_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opidaegu_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -527,7 +527,7 @@ $data=array (
       7 => 
       array (
         'text' => '오피-전라/제주',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=opijeju_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=opijeju_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -542,7 +542,7 @@ $data=array (
       8 => 
       array (
         'text' => '안마-서울영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=anmaseoul_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=anmaseoul_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -557,7 +557,7 @@ $data=array (
       9 => 
       array (
         'text' => '안마-지방영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=anmachiban_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=anmachiban_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -572,7 +572,7 @@ $data=array (
       10 => 
       array (
         'text' => '건마-서울영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gonmaseoul_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gonmaseoul_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -587,7 +587,7 @@ $data=array (
       11 => 
       array (
         'text' => '건마-경기영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gonmakyonggi_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gonmakyonggi_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -602,7 +602,7 @@ $data=array (
       12 => 
       array (
         'text' => '건마-인천/부천',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gonmainchonbuchon_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gonmainchonbuchon_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -617,7 +617,7 @@ $data=array (
       13 => 
       array (
         'text' => '건마 (강원/충청/대전)',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gunmatechon_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gunmatechon_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -632,7 +632,7 @@ $data=array (
       14 => 
       array (
         'text' => '건마 경상/전라/제주',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=gonmajeju_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=gonmajeju_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -647,7 +647,7 @@ $data=array (
       15 => 
       array (
         'text' => '술집-서울영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=suljibseoul_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=suljibseoul_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -662,7 +662,7 @@ $data=array (
       16 => 
       array (
         'text' => '술집-지방영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=suljibchiban_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=suljibchiban_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -677,7 +677,7 @@ $data=array (
       17 => 
       array (
         'text' => '휴게텔-서울영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugetelseoul_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugetelseoul_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -692,7 +692,7 @@ $data=array (
       18 => 
       array (
         'text' => '휴게텔-경기영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugetelkyonggi_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugetelkyonggi_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -707,7 +707,7 @@ $data=array (
       19 => 
       array (
         'text' => '휴게텔-인천/부천',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugetelinchon_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugetelinchon_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -722,7 +722,7 @@ $data=array (
       20 => 
       array (
         'text' => '휴게텔 강원/충청/대전',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugeteldaejeon_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugeteldaejeon_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -737,7 +737,7 @@ $data=array (
       21 => 
       array (
         'text' => '휴게텔 경상/전라/제주',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=hyugeteljeju_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugeteljeju_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -752,7 +752,7 @@ $data=array (
       22 => 
       array (
         'text' => '키스방-전국영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=kissall_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=kissall_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -767,7 +767,7 @@ $data=array (
       23 => 
       array (
         'text' => '립카페-전국영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=lipcafeall_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=lipcafeall_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -782,7 +782,7 @@ $data=array (
       24 => 
       array (
         'text' => '핸플/패티쉬영토',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=show_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=show_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -797,7 +797,7 @@ $data=array (
       25 => 
       array (
         'text' => '선불폰/프로필 여행사/기타',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=trip_re',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=trip_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
@@ -827,7 +827,7 @@ $data=array (
       0 => 
       array (
         'text' => '출석체크',
-        'href' => 'http://192.168.1.17/gnuboard/plugin/attendance/m_attendance.php',
+        'href' => 'http://192.168.1.108/gnuboard/plugin/attendance/attendance.php',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '공지사항',
@@ -839,7 +839,7 @@ $data=array (
       1 => 
       array (
         'text' => '공지사항',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=notice',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -854,7 +854,7 @@ $data=array (
       2 => 
       array (
         'text' => '가입 인사',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=greeting',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=greeting',
         'icon' => 'fa-comments',
         'target' => '_top',
         'line' => '',
@@ -869,7 +869,7 @@ $data=array (
       3 => 
       array (
         'text' => '자유 게시판',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=free',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=free',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -884,7 +884,7 @@ $data=array (
       4 => 
       array (
         'text' => ' 미수다(女)',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=woman',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=woman',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -899,7 +899,7 @@ $data=array (
       5 => 
       array (
         'text' => ' 이벤트',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=event',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=event',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -938,7 +938,7 @@ $data=array (
       8 => 
       array (
         'text' => '왕궁 게시판',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=palace',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=palace',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -953,7 +953,7 @@ $data=array (
       9 => 
       array (
         'text' => '아이템샵',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=shop',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=shop',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -968,7 +968,7 @@ $data=array (
       10 => 
       array (
         'text' => '건의사항',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=suggestions',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=suggestions',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -983,7 +983,7 @@ $data=array (
       11 => 
       array (
         'text' => '트위터 인증',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=twitter',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=twitter',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -1013,7 +1013,7 @@ $data=array (
       0 => 
       array (
         'text' => '1:1문의',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/qalist.php',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/qalist.php',
         'icon' => 'fa-headphones',
         'target' => '_self',
         'line' => '',
@@ -1025,7 +1025,7 @@ $data=array (
       1 => 
       array (
         'text' => '파운드페니로전환',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/point.php',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/point.php',
         'icon' => 'fa-headphones',
         'target' => '_self',
         'line' => '',
@@ -1037,7 +1037,7 @@ $data=array (
       2 => 
       array (
         'text' => '파편조각페니로전환',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/point2.php',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/point2.php',
         'icon' => 'fa-headphones',
         'target' => '_self',
         'line' => '',
@@ -1073,7 +1073,7 @@ $data=array (
       5 => 
       array (
         'text' => '장터게시판',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=market',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=market',
         'icon' => 'fa-headphones',
         'target' => '_self',
         'line' => '',
@@ -1088,7 +1088,7 @@ $data=array (
       6 => 
       array (
         'text' => '구인구직 게시판',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=job',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=job',
         'icon' => 'fa-headphones',
         'target' => '_self',
         'line' => '',
@@ -1103,7 +1103,7 @@ $data=array (
       7 => 
       array (
         'text' => '실장업무게시판',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=work_board',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=work_board',
         'icon' => 'fa-headphones',
         'target' => '_self',
         'line' => '',
@@ -1133,7 +1133,7 @@ $data=array (
       0 => 
       array (
         'text' => '계급 랭킹',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=levelrank',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=levelrank',
         'icon' => 'fa-trophy',
         'target' => '_self',
         'line' => '',
@@ -1148,7 +1148,7 @@ $data=array (
       1 => 
       array (
         'text' => '파운드 랭킹',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=pointrank',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=pointrank',
         'icon' => 'fa-trophy',
         'target' => '_self',
         'line' => '',
@@ -1163,7 +1163,7 @@ $data=array (
       2 => 
       array (
         'text' => '페니 랭킹',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=penyrank',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=penyrank',
         'icon' => 'fa-trophy',
         'target' => '_self',
         'line' => '',
@@ -1268,7 +1268,7 @@ $data=array (
       0 => 
       array (
         'text' => '  영화 ',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=movie',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=movie',
         'icon' => 'fa-play-circle',
         'target' => '_self',
         'line' => '',
@@ -1283,7 +1283,7 @@ $data=array (
       1 => 
       array (
         'text' => 'TV영상',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=tv',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=tv',
         'icon' => 'fa-play-circle',
         'target' => '_self',
         'line' => '',
@@ -1298,7 +1298,7 @@ $data=array (
       2 => 
       array (
         'text' => ' 웹툰/야설 ',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=ucc',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=ucc',
         'icon' => 'fa-play-circle',
         'target' => '_self',
         'line' => '',
@@ -1313,7 +1313,7 @@ $data=array (
       3 => 
       array (
         'text' => '유튜브 영상',
-        'href' => 'http://192.168.1.17/gnuboard/bbs/board.php?bo_table=request',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=request',
         'icon' => 'fa-play-circle',
         'target' => '_self',
         'line' => '',
