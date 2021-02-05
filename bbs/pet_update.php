@@ -58,13 +58,12 @@ if($_POST['btn_id']==3)
                     WHERE p_no = '{$row['p_no']}'";
         sql_query($sql1);   
     } 
-
 }
 
      
      if($row['p_but1_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime'] != '0000-00-00 00:00:00')
      
-    insert_point($member['mb_id'], 100, "펫 기르기 포인트", "@pet", $member['mb_nick'], G5_TIME_YMD);
+    insert_point($member['mb_id'], 100, "펫 기르기 파운드", "@pet", $member['mb_nick'], G5_TIME_YMD);
 
 goto_url(G5_HTTP_BBS_URL.'/pet.php');
 

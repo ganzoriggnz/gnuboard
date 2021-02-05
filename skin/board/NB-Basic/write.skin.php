@@ -453,22 +453,22 @@ if ($is_member)
 
 				<div class="text-center en">
 					<div class="btn-group btn-group-lg" role="group">
-						<button type="button" class="btn btn-basic" title="이모티콘" onclick="na_clip('emo', '<?php echo $is_dhtml_editor ?>');">
+						<!-- <button type="button" class="btn btn-basic" title="이모티콘" onclick="na_clip('emo', '<?php echo $is_dhtml_editor ?>');">
 							<i class="far fa-smile" aria-hidden="true"></i>
 							<span class="sr-only">이모티콘</span>
-						</button>
-						<button type="button" class="btn btn-basic" title="폰트어썸 아이콘" onclick="na_clip('fa', '<?php echo $is_dhtml_editor ?>');">
+						</button> -->
+						<!-- <button type="button" class="btn btn-basic" title="폰트어썸 아이콘" onclick="na_clip('fa', '<?php echo $is_dhtml_editor ?>');">
 							<i class="fab fa-font-awesome" aria-hidden="true"></i>
 							<span class="sr-only">폰트어썸 아이콘</span>
 						</button>
 						<button type="button" class="btn btn-basic" title="동영상" onclick="na_clip('video', '<?php echo $is_dhtml_editor ?>');">
 							<i class="fab fa-youtube" aria-hidden="true"></i>
 							<span class="sr-only">동영상</span>
-						</button>
-						<button type="button" class="btn btn-basic" title="지도" onclick="na_clip('map', '<?php echo $is_dhtml_editor ?>');">
+						</button> -->
+						<!-- <button type="button" class="btn btn-basic" title="지도" onclick="na_clip('map', '<?php echo $is_dhtml_editor ?>');">
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 							<span class="sr-only">지도</span>
-						</button>
+						</button> -->
 						<!--<?php if ($is_member) { // 임시 저장된 글 기능
 							?>
 							<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="임시 저장된 글 목록 열기">
