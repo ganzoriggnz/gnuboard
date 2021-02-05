@@ -200,7 +200,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
             <input type="radio" name="mb_certify_case" value="hp" id="mb_certify_hp" <?php if($mb['mb_certify'] == 'hp') echo 'checked="checked"'; ?>>
             <label for="mb_certify_hp">휴대폰</label>
         </td>
-        <th scope="row">bo_table</th>
+        <th scope="row">해당 게시판</th>
         <td >
              <?php echo get_board_atname($mb['mb_6']); ?>
         </td>
