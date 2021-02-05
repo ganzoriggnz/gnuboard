@@ -229,7 +229,16 @@ i.orangered { color: orangered; }
 /* SLY 분류탭 */
 .sly-tab { border:0; overflow:hidden; }
 .sly-tab .d-flex { border-left:1px solid #e5e5e5; }
-.sly-tab li a {	display:block; text-align:center; border:1px solid #e5e5e5;	border-left:0; color:#333; background:#fafafa; }
+.sly-tab li a {	display:block; 
+    text-align:center; 
+    /* border:1px solid #e5e5e5;	 */
+    border-left: 0px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
+	border-bottom: 1px ridge #e5e5e5;
+	border-top: 1px solid #e5e5e5;
+    color:#333; 
+    background:#fafafa; 
+}
 .sly-tab li.active a { font-weight:bold; background:#fff; border-bottom:1px solid #fff; }
 .sly-tab .sly-btn {	display:none; text-align:center; border:1px solid #e5e5e5; color:#333; background:#fff; }
 .sly-tab .sly-btn:hover { background:#fafafa; }
