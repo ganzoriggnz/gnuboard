@@ -186,7 +186,7 @@ if ($category_option) {
 				<?php } ?>
 				제목
 			</div>
-			<div class="d-md-table-cell nw-10 pl-2 pr-md-1">이름</div>
+			<div class="d-md-table-cell nw-20 pl-2 pr-md-1">이름</div>
 			<div class="d-md-table-cell nw-5 pr-md-1">상태</div>
 			<div class="d-md-table-cell nw-8 pr-md-1">날짜</div>
 		</div>
@@ -223,7 +223,7 @@ if ($category_option) {
 					</div>
 				</div>
 			</div>
-			<div class="float-right float-md-none d-md-table-cell nw-10 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+			<div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<span class="sr-only">등록자</span>
 				<?php echo na_name_photo($list[$i]['mb_id'], get_sideview($list[$i]['mb_id'], $list[$i]['qa_name'], $list[$i]['qa_email'], '')) ?>
 			</div>
