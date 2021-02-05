@@ -130,7 +130,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <tr style=" font-size: 12px">
 				<td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">쿠폰</label></td>
 				<td class="cl_tr" style="text-align: left;"> 
-                <a href="<?php echo G5_BBS_URL ?>/coupon_create.php"><font color="blue"><b><i class="fa fa-paperclip"></i> <span class="hidden-xs">쿠폰</span></b></font></a>
+                <a href="<?php echo G5_BBS_URL ?>/coupon_create.php"><font color="blue"><b><i class="fa fa-cubes"></i> <span class="hidden-xs">쿠폰</span></b></font></a>
                 </td>	
         </tr>
         <?php if( $member['mb_level'] == 27 || $member['mb_level'] == 27)

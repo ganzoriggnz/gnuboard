@@ -149,7 +149,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     쿠폰       
     </label>
     <div class="col-sm-3 col-form-info">
-    <a href="<?php echo G5_BBS_URL ?>/coupon_create.php"><font color="blue"><b><i class="fa fa-paperclip"></i> <span class="hidden-xs">쿠폰</span></b></font></a>
+    <a href="<?php echo G5_BBS_URL ?>/coupon_create.php"><font color="blue"><b><i class="fa fa-cubes"></i> <span class="hidden-xs">쿠폰</span></b></font></a>
     </div>
 </div>
 <?php } ?>
