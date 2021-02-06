@@ -95,7 +95,7 @@ $view_subject = get_text($view['wr_subject']);
                 echo '<button id="board_singo" class="btn btn_b03"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>삭제요청</button>';
 			}
 			else{
-				echo '<button id="board_singo" class="btn btn_b03"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>신고</button>';
+				echo '<button id="board_singo" class="btn btn_b03"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>신고</button>';
 			}
         }
         ?>
