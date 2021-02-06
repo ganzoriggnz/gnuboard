@@ -106,6 +106,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                         <a href="#" target="_blank" class="win_memo" title="사진등록">
                             <div class="photo pull-left"><i class="fa fa-user"></i></div></a></td>	
         </tr>
+        <?php $now = G5_TIME_YMDHIS;
+              $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4'])));  ?>
+        <?php if( $member['mb_level'] == 27 || ($member['mb_level'] == '26' && $finish_date >= $now))
+        { ?>
         <tr style=" font-size: 12px">
 				<td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">출근부</label></td>
 				<td class="cl_tr" style="text-align: left;"> 
@@ -127,6 +131,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             } ?>                            
                             </td>	
         </tr>
+        <?php } ?>
         <tr style=" font-size: 12px">
 				<td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">쿠폰</label></td>
 				<td class="cl_tr" style="text-align: left;"> 

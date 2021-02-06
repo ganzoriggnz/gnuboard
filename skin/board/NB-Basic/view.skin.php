@@ -173,12 +173,12 @@ $view_subject = get_text($view['wr_subject']);
 							</button>
 							<div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
 								<div class="btn-group-vertical">
-								<?php if ($update_href) { ?>
+								<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || $member['mb_level'] == '27'){?>
 									<a href="<?php echo $update_href ?>" class="btn btn-primary py-2" role="button">
 										<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
 										글수정
 									</a>
-								<?php } ?>
+								<?php } } ?>
 								<!-- hulan nemsen level 24.25 can not delete post  -->
 								<?php if ($delete_href && $member['mb_level'] != 24 && $member['mb_level'] != 25) {if($is_admin ||  $member['mb_6']!=$bo_table ) {  ?>
 									<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;" class="btn btn-primary py-2" role="button">
