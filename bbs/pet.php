@@ -28,7 +28,7 @@ $p_date = date_create($now);
 $p_begin_date = date_format($p_date, 'Y-m-d 00:00:00');
 $p_end_date = date_format($p_date, 'Y-m-d 23:59:59');
 
-$res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  p_but1_datetime > '{$p_begin_date}' AND '{$p_end_date}' >=  p_but1_datetime AND '{$p_end_date}' >=  p_but2_datetime AND '{$p_end_date}' >=  p_but3_datetime";
+$res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  '{$now}' >= '{$p_begin_date}' AND '{$p_end_date}' >=  '{$now}'";
 $row = sql_fetch($res);
 $pet_skin_path = get_skin_path('pet', 'NB-Basic');
 $pet_skin_url  = get_skin_url('pet', 'NB-Basic');

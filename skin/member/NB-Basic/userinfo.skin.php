@@ -117,7 +117,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         </div>
         </div>
         <!-- user 출근부  -->
-        <?php if( $member['mb_level'] == 27)
+        <?php $now = G5_TIME_YMDHIS;
+			  $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4'])));  ?>
+				<?php if( $member['mb_level'] == 27 || ($member['mb_level'] == '26' && $finish_date >= $now))
                     { ?>
                    <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="reg_mb_nick">출근부</label>

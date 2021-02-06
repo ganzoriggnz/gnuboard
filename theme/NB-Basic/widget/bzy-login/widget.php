@@ -85,8 +85,9 @@ function insert_nickname($wer)
 				<?php echo ($member['mb_grade']) ? $member['mb_grade'] : $member['mb_level'].'등급' ;  ?> <br>
 				
 				<!-- hulan nemsen 출근부 수정 -->
-
-				<?php if( $member['mb_level'] == 27)
+				<?php $now = G5_TIME_YMDHIS;
+					  $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4'])));  ?>
+				<?php if( $member['mb_level'] == 27 || ($member['mb_level'] == '26' && $finish_date >= $now))
 				{ 
 
 					$g5['connect_db'];
