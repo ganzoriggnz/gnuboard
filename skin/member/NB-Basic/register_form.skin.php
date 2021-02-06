@@ -267,29 +267,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						</div>
 					</div>
 				<?php } ?>
-			</li>
-
-			<li class="list-group-item pt-5" style="display: none;">
-				<h5>기타 개인설정</h5>
-			</li>
-			<li class="list-group-item pt-3 pt-sm-4" style="display: none;">
-				<?php if ($config['cf_use_signature']) { ?>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_signature">서명<?php if ($config['cf_req_signature']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
-						<div class="col-sm-10">
-							<textarea name="mb_signature" rows="5" id="reg_mb_signature" <?php echo $config['cf_req_signature'] ? "required" : ""; ?> class="form-control <?php echo $config['cf_req_signature'] ? "required" : ""; ?>"><?php echo $member['mb_signature'] ?></textarea>
-						</div>
-					</div>
-				<?php } ?>
-
-				<?php if ($config['cf_use_profile']) { ?>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_profile">자기소개<?php if ($config['cf_req_profile']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
-						<div class="col-sm-10">
-							<textarea name="mb_profile" rows="5" id="reg_mb_profile" <?php echo $config['cf_req_profile'] ? "required" : ""; ?> class="form-control <?php echo $config['cf_req_profile'] ? "required" : ""; ?>"><?php echo $member['mb_profile'] ?></textarea>
-						</div>
-					</div>
-				<?php } ?>
 
 				<?php if ($config['cf_use_member_icon'] && $member['mb_level'] >= $config['cf_icon_level']) {
 					na_script('fileinput');	// 첨부파일
@@ -319,6 +296,32 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						</div>
 					</div>
 				<?php } ?>
+
+
+			</li>
+
+			<li class="list-group-item pt-5" style="display: none;">
+				<h5>기타 개인설정</h5>
+			</li>
+			<li class="list-group-item pt-3 pt-sm-4" style="display: none;">
+				<?php if ($config['cf_use_signature']) { ?>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="reg_mb_signature">서명<?php if ($config['cf_req_signature']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
+						<div class="col-sm-10">
+							<textarea name="mb_signature" rows="5" id="reg_mb_signature" <?php echo $config['cf_req_signature'] ? "required" : ""; ?> class="form-control <?php echo $config['cf_req_signature'] ? "required" : ""; ?>"><?php echo $member['mb_signature'] ?></textarea>
+						</div>
+					</div>
+				<?php } ?>
+
+				<?php if ($config['cf_use_profile']) { ?>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="reg_mb_profile">자기소개<?php if ($config['cf_req_profile']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
+						<div class="col-sm-10">
+							<textarea name="mb_profile" rows="5" id="reg_mb_profile" <?php echo $config['cf_req_profile'] ? "required" : ""; ?> class="form-control <?php echo $config['cf_req_profile'] ? "required" : ""; ?>"><?php echo $member['mb_profile'] ?></textarea>
+						</div>
+					</div>
+				<?php } ?>
+
 
 
 				<div class="form-group row" >
