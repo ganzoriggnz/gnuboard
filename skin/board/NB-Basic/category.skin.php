@@ -7,7 +7,7 @@ na_script('sly');
 $cn = $ca_select = 0;
 $ca_count = (isset($categories) && is_array($categories)) ? count($categories) : 0;
 $ca_start = ($sca) ? '' : ' class="active"';
-$category_option = '<li'.$ca_start.'><a class="py-2 px-3" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'">전체</a></li>';
+$category_option = '<li'.$ca_start.'><a class="py-2" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'">전체</a></li>';
 for ($i=0; $i<$ca_count; $i++) {
 	$category = trim($categories[$i]);
 	if ($category=='')
@@ -20,7 +20,7 @@ for ($i=0; $i<$ca_count; $i++) {
 		$ca_msg = '<span class="sr-only">현재 분류</span>';
 		$ca_select = $cn; // 현재 위치 표시
 	}
-	$category_option .= '<li'.$ca_active.'><a class="py-2 px-3" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'&sca='.$category.'">'.$ca_msg.$category.'</a></li>';
+	$category_option .= '<li'.$ca_active.'><a class="py-2" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'&sca='.$category.'">'.$ca_msg.$category.'</a></li>';
 }
 
 ?>
@@ -28,7 +28,7 @@ for ($i=0; $i<$ca_count; $i++) {
 #bo_cate ul {zoom:1}
 #bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
 #bo_cate li {display:inline-block;padding:0px;  }
-#bo_cate a {border-radius: 0px; font-size:12px; color:#000; width:7.105rem; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
+#bo_cate a {border-radius: 0px; font-size:12px; color:#000; width:8.105rem; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
 #bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active { text-decoration:none; color:#000;font-weight: bold; background-color: #fff }
 #bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:7.105rem; height:39px; display:flex; align-items:center; justify-content: center;}
 
