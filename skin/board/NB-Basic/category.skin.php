@@ -41,8 +41,8 @@ for ($i=0; $i<$ca_count; $i++) {
 <nav id="bo_cate" class="sly-tab font-weight-normal mb-2">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
 		<div class="bo_cate pl-2 cols-xl-5">
-			<div class="bo_cate">
-				<ul class="bo_cate_ul d-flex">
+			<div class="bo_cate d-flex">
+				<ul class="bo_cate_ul">
 					<?php echo $category_option ?>
 				</ul>
 			</div>

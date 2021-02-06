@@ -238,8 +238,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <li ><p style="height: 36px"><?php echo substr($list[$i]['wr_content'],0,50)   ?></p></li>
              <li><p><b><?php echo number_format($list[$i]['wr_1']) ?> </b>P</p><p>배송: <?php echo number_format($list[$i]['wr_2']) ?> <strong></strong>P</p></li>				
             <li>
-            <a class="btnd <?php if ($list[$i]['wr_4'] >=$list[$i]['wr_3']) echo "disabled";?>" href="./board.php?bo_table=shop&backet=<?php echo $list[$i]['wr_id'] ?>" style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-cart.png" height=15px> <?php if($list[$i]['wr_4']) echo $list[$i]['wr_4']; else echo "0"; ?> / <?php echo $list[$i]['wr_3'] ?></a>
-            <a class="btnd <?php if ($list[$i]['wr_4'] >=$list[$i]['wr_3']) echo "disabled";?>" href="./board.php?bo_table=shop&buy=<?php echo $list[$i]['wr_id'] ?>" style="height:28px;width:80px"  ><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px> BUY</a>
+            <a class="btnd <?php if ($list[$i]['wr_4'] >=$list[$i]['wr_3'] || $list[$i]['wr_3']==0) echo "disabled";?>" href="./board.php?bo_table=shop&backet=<?php echo $list[$i]['wr_id'] ?>" style="height:28px;width:80px" ><img src="<?php echo $board_skin_url ?>/img/shopping-cart.png" height=15px> <?php if($list[$i]['wr_4']) echo $list[$i]['wr_4']; else echo "0"; ?> / <?php echo $list[$i]['wr_3'] ?></a>
+            <a class="btnd <?php if ($list[$i]['wr_4'] >=$list[$i]['wr_3'] || $list[$i]['wr_3']==0) echo "disabled";?>" href="./board.php?bo_table=shop&buy=<?php echo $list[$i]['wr_id'] ?>" style="height:28px;width:80px"  ><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px> BUY</a>
             </li>
             </ul>
         </li>
