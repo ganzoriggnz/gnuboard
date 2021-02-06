@@ -109,7 +109,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             $(".panel3 button").click(function(){
                 id = this.id;
                 var secondTime = $('#but2').val(); 
-               if (getElapsedMinutes(secondTime, new Date($.now())) >= 1){
+               if (getElapsedMinutes(secondTime, new Date($.now())) >= 30){
                         lastClickedTime = new Date($.now());
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
@@ -136,7 +136,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             });
 
             function getElapsedTime(last, current) {  
-                var end = new Date(last).getTime() + 1 * 60000;
+                var end = new Date(last).getTime() + 30 * 60000;
                 var clicked = new Date(current).getTime();
                 var res = Math.abs(end - clicked) / 1000;
                 
