@@ -52,7 +52,7 @@ $view_subject = get_text($view['wr_subject']);
 
 <!-- // hulan nemsen admin bichsen bichvert gichuunii zasah erh olgoh -->
 
-<?php if($is_admin == 'super' && $gr_id == "attendance") { ?>
+<!-- <?php if($is_admin == 'super' && $gr_id == "attendance") { ?>
 	<div class="tbl_frm01 tbl_wrap">
 		<table>
 			<tbody>
@@ -69,7 +69,7 @@ $view_subject = get_text($view['wr_subject']);
 			</tbody>
 		</table>
 	</div>
-	<?php } ?>		
+	<?php } ?>		 -->
 	<!-- ////////////////////////////////////////////////////////////	 -->
 
 <script src="<?php echo G5_JS_URL; ?>/viewimageresize.js"></script>
