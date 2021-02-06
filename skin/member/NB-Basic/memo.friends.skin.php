@@ -125,13 +125,13 @@ $g5['title'] = '현재접속자';
         </br>
         <form name="form1" method="post">
         <table class="tbl_type" width="100%" cellspacing="0">
-            <thead>
-                <tr>
+            <thead class="border-top border-bottom bg-light">
+                <tr style="height: 30px;">
                     <th class="d-table-cell text-left text-sm-center" >새로운 친구 등록하기</th>
                 </tr>
              </thead>
     <tbody>
-        <tr class="text-center">
+        <tr class="text-center border" style="height: 50px;">
         <td>
         <input type="hidden"  name="fr_type" value="">
         <p class="col-form-label px-2" style="width: 100px; display: inline;">아이디 :</p>
@@ -197,7 +197,7 @@ $g5['title'] = '현재접속자';
                        echo '아이디를 찾을 수 없습니다';
                     }
                 } else if (isset($_POST['find_id']))  {
-                    echo '레벨 17 이상 친구 등록 가능합니다';
+                    echo '<p style="text-align:center"> 향리 레벨 이상 친구 등록 가능합니다</p>';
                  }
                 ?>        
         </form>
