@@ -169,7 +169,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
         <td><input type="password" name="mb_password" id="mb_password" <?php echo $required_mb_password ?> class="frm_input <?php echo $required_mb_password ?>" size="15" maxlength="20"></td>
     </tr>
     <tr>
-        <th scope="row"><label for="mb_name">이름(실명)<strong class="sound_only">필수</strong></label></th>
+        <th scope="row"><label for="mb_name">지역-업소명<strong class="sound_only">필수</strong></label></th>
         <td><input type="text" name="mb_name" value="<?php echo $mb['mb_name'] ?>" id="mb_name" required class="required frm_input" size="15"  maxlength="20"></td>
         <th scope="row"><label for="mb_nick">닉네임<strong class="sound_only">필수</strong></label></th>
         <td><input type="text" name="mb_nick" value="<?php echo $mb['mb_nick'] ?>" id="mb_nick" required class="required frm_input" size="15"  maxlength="20"></td>

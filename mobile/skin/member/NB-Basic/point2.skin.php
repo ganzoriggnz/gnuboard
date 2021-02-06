@@ -16,7 +16,7 @@ if ($w == '') {}
 else if ($w == 'u')
 {	
 	if($_POST['niittoo']<$penychangelimit || $_POST['niittoo']>$member['mb_point2']){
-		alert("보유 파운드 10만 파운드 이상 있어야 전환이 가능합니다. 현재 보유 파운드 ".number_format($member['mb_point2'])." 입니다. ");
+		alert("보유 파편조각 10만 파편조각 이상 있어야 전환이 가능합니다. 현재 보유 파편조각 ".number_format($member['mb_point2'])." 입니다. ");
 	}
 	else {
 		$mb_id=$member['mb_id'];
@@ -74,7 +74,7 @@ $frm_submit = '<div class="col-sm-4">
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
                                 <span>
                                 <img src="<?php echo G5_URL?>/img/solid/gem.svg" class="svg-img" style="height :13px;" >&nbsp
-                                파운드 : <b><?php echo number_format($member['mb_point']);?></b>
+								파편조각: <b><?php echo number_format($member['mb_point']);?></b>
                                 </span>
                             </a>
                         </li>
@@ -134,10 +134,10 @@ if ($member['mb_level']>=12 && $member['mb_level']<=22)
 {
 	echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 	<div class="form-group row">
-							<label class="col-form-label" for="reg_mb_nick">1 파운드 100 페니 (1:100)</label>
+							<label class="col-form-label" for="reg_mb_nick">1 파편조각 100 페니 (1:100)</label>
 							<div class="col-sm-4">
 								<input type="hidden" name="mb_nick_default" value="">
-								<input type="number" min="'.$penychangelimit.'" name="niittoo" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="10만 파운드 이상 전환 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
+								<input type="number" min="'.$penychangelimit.'" name="niittoo" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="10만 파편조각 이상 전환 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
 							</div>
 							'.$frm_submit.'
 			</div>
@@ -145,10 +145,10 @@ if ($member['mb_level']>=12 && $member['mb_level']<=22)
 		else {
 			echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 			<div class="form-group row">
-									<label class="col-form-label" for="reg_mb_nick">1 파운드 100 페니 (1:100)</label>
+									<label class="col-form-label" for="reg_mb_nick">1 파편조각 100 페니 (1:100)</label>
 									<div class="col-sm-4">
 										<input type="hidden" name="mb_nick_default" value="">
-										<input type="number" min="'.$penychangelimit.'" disabled="disabled" name="niittoo" value="레벨 남작이상 파운드페니로 전환이 가능합니다." onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="레벨 남작이상 파운드페니로 전환이 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
+										<input type="number" min="'.$penychangelimit.'" disabled="disabled" name="niittoo" value="레벨 남작이상 파편조각페니로 전환이 가능합니다." onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="text-align:center;" placeholder="레벨 남작이상 파편조각페니로 전환이 가능합니다." id="niittoo" required="" class="form-control nospace required" maxlength="20">
 									</div>								
 					</div>
 				</div>';
@@ -168,8 +168,8 @@ if ($member['mb_level']>=12 && $member['mb_level']<=22)
 			<tr style="border:1px solid #d3d3d3;font-size: 12px; text-align: center; " >
 				<th class="cl_tr">일시</th>
 				<th class="cl_tr">내용</th>
-				<th class="cl_tl">지급파운드</th>
-				<th class="cl_tr">사용파운드</th>
+				<th class="cl_tl">지급파편조각</th>
+				<th class="cl_tr">사용파편조각</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -213,13 +213,13 @@ if ($member['mb_level']>=12 && $member['mb_level']<=22)
 
 		<tr class="bg-light"  style="border:1px solid #d3d3d3; font-size: 10px">
 				<td class="cl_td"></td>
-				<td class="cl_td" style="text-align: left;">파운드 소계</td>	
+				<td class="cl_td" style="text-align: left;">파편조각 소계</td>	
 				<td class="cl_td_l" style="text-align: right;"><?php echo $sum_point1 ?></td>
 				<td class="cl_td_r" style="text-align: right;"><?php echo $sum_point2 ?> &nbsp;  &nbsp; </td>
 		</tr>
 		<tr class="bg-light"  style="border:1px solid #d3d3d3; font-size: 10px">
 				<td class="cl_td"></td>
-				<td class="cl_td" style="text-align: left;">보유파운드</td>	
+				<td class="cl_td" style="text-align: left;">보유파편조각</td>	
 				<td class="cl_td_l"></td>
 				<td class="cl_td_r" style="text-align: right;"><?php echo $sum_point3 ?> &nbsp;  &nbsp; </td>
 		</tr>

@@ -311,7 +311,7 @@ function na_shingo(bo_table, wr_id, c_id) {
 
 
 
-	if (confirm("블라인드 상태를 변경합니다. \n\n블라인드 처리하면 회원이 글을 읽을 수 없습니다.\n블라인드 해제하면  회원이 글을 읽을 수 있습니다. \n\n 정말 블라인드 상태를 변경하시겠습니까?")) {
+	if (confirm("[블라인드 상태를 변경]. \n\n블라인드 설정시 게시물은 회원에게 노출되지 않으며\n블라인드 블라인드 해제시 게시물은 회원에게 노출됩니다. \n\n  블라인드 상태를 변경하시겠습니까?")) {
 		$.post(href, function(data) {
 			if(data) {
 				alert(data);

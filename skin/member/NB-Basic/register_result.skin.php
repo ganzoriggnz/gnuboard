@@ -9,7 +9,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	<div class="f-de px-3 my-5">
 		<ul class="list-group mb-4">
 			<li class="list-group-item bg-primary border-primary">
-				<h5 class="text-white"><?php echo $mb['mb_name'] ?></strong>님의 회원가입을 축하합니다.</h5>
+				<h5 class="text-white"><?php echo $mb['mb_nick'] ?></strong>님의 회원가입을 축하합니다.</h5>
 			</li>
 			<li class="list-group-item py-md-4">
 				<ul class="mb-0" style="list-style:disc; padding-left:20px">

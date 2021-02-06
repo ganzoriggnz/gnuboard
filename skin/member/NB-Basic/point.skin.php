@@ -263,7 +263,7 @@ echo '<div id="" class="font-weight-normal px-3 pt-3 ">
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-20 nw-md-auto text-center f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<b class="float-left">
-					보유파운드
+					보유 파운드
 				</b>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto text-md-right f-sm font-weight-normal py-md-2 pr-md-1">
