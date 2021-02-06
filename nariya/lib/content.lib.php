@@ -415,7 +415,7 @@ function get_level($mb_id)
 	{
 		global $g5;
 		$f="";
-
+		if ($mb_id){
 		$result = sql_fetch(" SELECT `mb_level`,`mb_1`  FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
 		if ($result['mb_1']=="남" || ($result['mb_1']=="" && $result['mb_level'] < 24 )) $f = "M"; 
 		if ($result['mb_1']=="여") $f = "F";
@@ -423,6 +423,9 @@ function get_level($mb_id)
 		// if ($result['mb_level'] > 17)
 		
 		return '<img src=' . G5_URL . '/img/'.$f. $result['mb_level'] . '.png>';
+		}
+		else 
+		return '';
 	}
 
 function na_name_photo($mb_id, $name){

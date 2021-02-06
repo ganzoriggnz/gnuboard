@@ -114,7 +114,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 						<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
 						<?php echo "방장 : " ?>
 							<!-- 계급마크 출력-->
-						<?php echo get_level($row['mb_id'])."  ", $row['mb_nick'], "  ", $row1['mb_id'] ? get_level($row1['mb_id']) : "" ." ", $row1['mb_nick'],  " / " ?>
+						<?php echo get_level($row['mb_id'])."  ", $row['mb_nick'], "  ",  get_level($row1['mb_id'])."  ", $row1['mb_nick'],  " / " ?>
 						<?php echo "[ 글 작성 ", $board['bo_write_point'], " 파운드 /  댓글 작성 ", $board['bo_comment_point'], " 파운드 획득]" ?>
 						<?php } 
 						else {
