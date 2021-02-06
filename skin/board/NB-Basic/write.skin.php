@@ -310,7 +310,7 @@ if ($is_member)
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label">분류<strong class="sr-only">필수</strong></label>
 							<div class="col-md-4">
-								<select name="ca_name" id="ca_name" required class="custom-select">
+								<select name="ca_name" id="ca_name" required class="custom-select" <?php if ($member['mb_7'] && $member['mb_6']==$bo_table) echo "disabled" ?> >
 									<option value="">선택하세요</option>
 									<?php echo $category_option ?>
 								</select>
