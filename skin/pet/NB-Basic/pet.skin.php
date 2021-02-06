@@ -19,20 +19,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             <img src="<?php echo G5_URL ?>/img/cat.png">
         </div>
     </div>
-    <?php $res = "SELECT * FROM {$g5['pet_table']} WHERE mb_id = '{$member['mb_id']}' AND  p_but1_datetime > '{$p_begin_date}' AND '{$p_end_date}' >=  p_but1_datetime AND '{$p_end_date}' >=  p_but2_datetime AND '{$p_end_date}' >=  p_but3_datetime";
-    $row = sql_fetch($res); 
-    ?>
-    <div class="row_btn mt_54">
-        <input type="hidden" id="but1" value="<?php if ($row['p_but1_datetime']) echo $row['p_but1_datetime']; ?>">
+    <div class="row_btn mt_54 panel1">
+        <input type="text" id="but1" value="<?php if ($row['p_but1_datetime'] && $row['p_but1_datetime'] != '0000-00-00 00:00:00') echo $row['p_but1_datetime']; ?>">
         <button type="button" id="cat1" name="cat1" <?php if($row['p_but1_datetime'] != '0000-00-00 00:00:00' && $row['p_but1_datetime']){ echo 'class="btn_pet_third" disabled="disabled"';} else { echo 'class="btn_pet_first"';} ?>>청소하기</button>
     </div>      
-    <div class="row_btn mt_24">   
-        <input type="hidden" id="but2" value="<?php if ($row['p_but2_datetime']) echo $row['p_but2_datetime']; ?>">     
-        <button type="button" id="cat2" onclick="clickCat2('<?php echo $row['p_but1_datetime']?>');" <?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>쓰담쓰담 하기</button>
+    <div class="row_btn mt_24 panel2">   
+        <input type="text" id="but2" value="<?php if ($row['p_but2_datetime'] && $row['p_but2_datetime'] != '0000-00-00 00:00:00') echo $row['p_but2_datetime']; ?>">     
+        <button type="button" id="cat2" <?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>쓰담쓰담 하기</button>
     </div>
-    <div class="row_btn mt_24">
-        <input type="hidden" id="but3" value="<?php if ($row['p_but3_datetime']) echo $row['p_but3_datetime']; ?>">
-        <button type="button" id="cat3" onclick="clickCat3('<?php echo $row['p_but2_datetime'];?>');" <?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>사료주기</button>
+    <div class="row_btn mt_24 panel3">
+        <input type="text" id="but3" value="<?php if ($row['p_but3_datetime'] && $row['p_but3_datetime'] != '0000-00-00 00:00:00') echo $row['p_but3_datetime']; ?>">
+        <button type="button" id="cat3" <?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>사료주기</button>
     </div>
     <div id ="result"></div>
     <div class="pet_bottom">
@@ -56,8 +53,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     </div>
     <script>
         $(document).ready(function(){
-            $("#cat1").click(function(){
+            var count = 0;
+            $(".panel1 button").click(function(){
                 var id = this.id;
+                var lastClickedTime = new Date($.now());
+                count = 1;
                 $("#cat1").css("background","#4D4D4D");
                 $.ajax({
                         type: 'POST',
@@ -68,14 +68,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         },
                         dataType: 'text',
                         success: function(response) {
-                            //$('#result').val(response);
+                            /* $(".panel2 button").prop('disabled', false);  
+                            $(".panel2 button").removeProp('disabled'); */
+                            $('#but1').val(lastClickedTime);
                         }
                     });
                 });
 
-            $("#cat2").click(function(){
-                var id = this.id;
-                $.ajax({
+            $(".panel2 button").click(function(){
+                id = this.id;
+                var firstTime = $('#but1').val(); 
+               if (getElapsedMinutes(firstTime, new Date($.now())) >= 1){
+                        lastClickedTime = new Date($.now());
+                    $("#cat2").css("background","#4D4D4D");
+                    $.ajax({
                         type: 'POST',
                         url: 'pet_update.php',
                         data: {
@@ -84,14 +90,29 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         },
                         dataType: 'text',
                         success: function(response) {
-                            //$('#result').val(response);
+                            /* $(".panel3 button").prop('disabled', false);   
+                            $(".panel3 button").removeProp('disabled'); */
+                            $('#but2').val(lastClickedTime);
                         }
                     });
-                });
+ 
+                } else {
+                    var time = getElapsedTime(firstTime, new Date($.now()));
+                        $('#time').html(time);
+                        $('.popup_box').css("display", "block");
+                        $('.btn').click(function(){
+                            $('.popup_box').css("display", "none");
+                        }); 
+                }
+            });
 
-            $("#cat3").click(function(){
-                var id = this.id;
-                $.ajax({
+            $(".panel3 button").click(function(){
+                id = this.id;
+                var secondTime = $('#but2').val(); 
+               if (getElapsedMinutes(secondTime, new Date($.now())) >= 1){
+                        lastClickedTime = new Date($.now());
+                    $("#cat3").css("background","#4D4D4D");
+                    $.ajax({
                         type: 'POST',
                         url: 'pet_update.php',
                         data: {
@@ -100,10 +121,51 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         },
                         dataType: 'text',
                         success: function(response) {
-                            //$('#result').val(response);
+                            $('#but2').val(lastClickedTime);
                         }
                     });
-                });
+                    getSuccess();
+                } else {
+                    var time = getElapsedTime(secondTime, new Date($.now()));
+                        $('#time').html(time);
+                        $('.popup_box').css("display", "block");
+                        $('.btn').click(function(){
+                            $('.popup_box').css("display", "none");
+                        }); 
+                }
+            });
+
+            function getElapsedTime(last, current) {  
+                var end = new Date(last).getTime() + 1 * 60000;
+                var clicked = new Date(current).getTime();
+                var res = Math.abs(end - clicked) / 1000;
+                
+                var minutes = Math.floor(res / 60) % 60;
+                var seconds = Math.floor(res % 60);
+
+                return minutes + "분 " + seconds + "초";
+            }
+     
+            function getElapsedMinutes(last, current) {   
+                var end = new Date(last).getTime();
+                var clicked = new Date(current).getTime();
+                var res = Math.abs(clicked - end) / 1000;
+            
+                var days = Math.floor(res / 86400);      
+                var hours = Math.floor(res / 3600) % 24;
+                var minutes = Math.floor(res / 60) % 60;
+                var seconds = Math.floor(res % 60);
+
+                return seconds / 60 + minutes + hours * 60 + days * 1440; 
+            }
+
+            function getSuccess(){      
+                    $('#pet').html('고양이 ');
+                    $('.popup_box1').css("display", "block");
+                    $('.btn1').click(function(){
+                    $('.popup_box1').css("display", "none");
+                    });
+            }
 
         });
     </script>
