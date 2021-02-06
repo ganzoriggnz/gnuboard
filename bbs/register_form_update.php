@@ -394,7 +394,7 @@ if (isset($_FILES['mb_icon']) && is_uploaded_file($_FILES['mb_icon']['tmp_name']
             @mkdir($mb_dir, G5_DIR_PERMISSION);
             @chmod($mb_dir, G5_DIR_PERMISSION);
             $dest_path = $mb_dir.'/'.$mb_icon_img;
-            alert($dest_path );
+            // alert($dest_path );
             move_uploaded_file($_FILES['mb_icon']['tmp_name'], $dest_path);
             chmod($dest_path, G5_FILE_PERMISSION);
             if (file_exists($dest_path)) {

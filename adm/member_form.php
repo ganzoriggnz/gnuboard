@@ -200,10 +200,37 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
             <input type="radio" name="mb_certify_case" value="hp" id="mb_certify_hp" <?php if($mb['mb_certify'] == 'hp') echo 'checked="checked"'; ?>>
             <label for="mb_certify_hp">휴대폰</label>
         </td>
-        <th scope="row">해당 게시판</th>
-        <td >
+        <th  scope="row">해당 게시판</th>
+        <td class="panel1" >
              <?php echo get_board_atname($mb['mb_6']); ?>
         </td>
+        <script>
+        $(document).ready(function(){
+            var count = 0;
+            var e = document.getElementById("mb_6");
+            var strUser = e.options[e.selectedIndex].text;
+            $(".panel1 slct_category").click(function(){
+                var id = this.id;
+                count = 1;
+                $("#cat1").css("background","#4D4D4D");
+                $.ajax({
+                        type: 'POST',
+                        url: 'category.select.php',
+                        data: {
+                            'ca_name': strUser,
+                        },
+                        dataType: 'text',
+                        success: function(response) {
+                            $('#mb_7').val();
+                            /* $(".panel2 button").prop('disabled', false);  
+                            $(".panel2 button").removeProp('disabled'); */
+                            // $('#but1').val(lastClickedTime);
+                    }
+                });
+                
+        });
+    });
+        </script>
     </tr>
     <tr>
         <th scope="row">본인확인</th>
@@ -213,17 +240,20 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
             <input type="radio" name="mb_certify" value="" id="mb_certify_no" <?php echo $mb_certify_no; ?>>
             <label for="mb_certify_no">아니오</label>
         </td>
-        <th scope="row">성인인증</th>
+<!-- ------------------------- category name  ---------------------------------------------->
+        <th scope="row"><label for="mb_7">분류</label></th>
         <td>
-            <input type="radio" name="mb_adult" value="1" id="mb_adult_yes" <?php echo $mb_adult_yes; ?>>
-            <label for="mb_adult_yes">예</label>
-            <input type="radio" name="mb_adult" value="0" id="mb_adult_no" <?php echo $mb_adult_no; ?>>
-            <label for="mb_adult_no">아니오</label>
+        <div class="col-md-4">
+                    <?php echo get_board_category_name($mb['mb_7']); ?>
+			</div>
+            <input type="text" disabled name="mb_7t" value="<?php echo $mb['mb_7']; ?>" id="mb_7t" class="frm_input" size="30" maxlength="255">
+
         </td>
+<!-- ------------------------- category name  ------------------------------------->
     </tr>
     <tr>
         <th scope="row">주소</th>
-        <td colspan="3" class="td_addr_line">
+        <td class="td_addr_line">
             <label for="mb_zip" class="sound_only">우편번호</label>
             <input type="text" name="mb_zip" value="<?php echo $mb['mb_zip1'].$mb['mb_zip2']; ?>" id="mb_zip" class="frm_input readonly" size="5" maxlength="6">
             <button type="button" class="btn_frmline" onclick="win_zip('fmember', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소 검색</button><br>
@@ -236,6 +266,13 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
             <label for="mb_addr3">참고항목</label>
             <input type="hidden" name="mb_addr_jibeon" value="<?php echo $mb['mb_addr_jibeon']; ?>"><br>
         </td>
+        <th scope="row">성인인증</th>
+        <td>
+            <input type="radio" name="mb_adult" value="1" id="mb_adult_yes" <?php echo $mb_adult_yes; ?>>
+            <label for="mb_adult_yes">예</label>
+            <input type="radio" name="mb_adult" value="0" id="mb_adult_no" <?php echo $mb_adult_no; ?>>
+            <label for="mb_adult_no">아니오</label>
+        </td>  
     </tr>
     <tr>
         <th scope="row"><label for="mb_icon">회원아이콘</label></th>
@@ -466,10 +503,7 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
         <th scope="row"><label for="mb_5">여분 필드 5</label></th>
         <td colspan="3"><input type="text" name="mb_5" value="<?php echo $mb['mb_5']; ?>" id="mb_5" class="frm_input" size="30" maxlength="255"></td>
     </tr>
-    <tr>
-        <th scope="row"><label for="mb_7">여분 필드 7</label></th>
-        <td colspan="3"><input type="text" name="mb_7" value="<?php echo $mb['mb_7']; ?>" id="mb_7" class="frm_input" size="30" maxlength="255"></td>
-    </tr>
+
     <tr>
         <th scope="row"><label for="mb_8">여분 필드 8</label></th>
         <td colspan="3"><input type="text" name="mb_8" value="<?php echo $mb['mb_8']; ?>" id="mb_8" class="frm_input" size="30" maxlength="255"></td>

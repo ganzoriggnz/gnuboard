@@ -4225,7 +4225,7 @@ function get_board_atname($bo_table='')
         $list[$i]['bo_table']=$res['bo_table'];
         $list[$i]['bo_subject']=$res['bo_subject'];
     }
-    $str = '<select id="mb_6" name="mb_6">';
+    $str = '<select class="slct_category" id="mb_6" name="mb_6">';
     for ($i=0; $i<count($list); $i++) {
         $str .= '<option value="'.$list[$i]['bo_table'].'"';
         if ($bo_table == $list[$i]['bo_table'])
@@ -4236,6 +4236,46 @@ function get_board_atname($bo_table='')
     return $str;
 }
 
+function get_board_category_name($bo_table_category='')
+{
+    global $g5,$board;
+    $list = array();
+    $str;
+    $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance' ");
+    for($i=1; $res = sql_fetch_array($row); $i++){
+        $list[$i]['bo_table']=$res['bo_table'];
+        $list[$i]['bo_subject']=$res['bo_subject'];
+    }
+    $str = '<select class="slct_category" id="mb_7" name="mb_7"> <option></option>';
+    for ($i=1; $i<count($list); $i++) {
+        $str .= "<optgroup label= ".$list[$i]['bo_subject'].">\n";  
+             $str .= get_category_option4($list[$i]['bo_subject'],$bo_table_category);
+        $str .= ">".$list[$i]['bo_subject']."</option>\n";
+        $str .= "</optgroup>\n";
+    }
+    $str .= "</select>\n";
+    return $str;
+}
+
+function get_category_option4($bo_table='', $ca_name='')
+{
+    global $g5, $is_admin;
+
+    $sql = " select bo_category_list from {$g5['board_table']} where bo_subject = '$bo_table'";   
+    $row = sql_fetch($sql);
+    $categories = explode("|", $row['bo_category_list']); // 구분자가 | 로 되어 있음
+    $str = "";
+    for ($i=0; $i<count($categories); $i++) {
+        $category = trim($categories[$i]);
+        if (!$category) continue;
+        $str .= "<option value=\"$categories[$i]\"";
+        if ($category == $ca_name) {
+            $str .= ' selected="selected"';
+        }
+        $str .= ">".$bo_table."  -  ". $categories[$i]."</option>\n";
+    }
+    return $str;
+}
 
 function get_board_atname2($bo_table='',$too)
 {
