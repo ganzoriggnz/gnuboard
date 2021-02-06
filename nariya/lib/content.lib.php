@@ -414,9 +414,15 @@ function na_member_photo($mb_id){
 function get_level($mb_id)
 	{
 		global $g5;
-		$result = sql_fetch(" SELECT `mb_level` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
-		if ($result['mb_level'] > 17)
-			return '<img src=' . G5_URL . '/img/' . $result['mb_level'] . '.png>';
+		$f="";
+
+		$result = sql_fetch(" SELECT `mb_level`,`mb_1`  FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
+		if ($result['mb_1']=="남") $f = "M"; 
+		if ($result['mb_1']=="여") $f = "F";
+		if ($result['mb_level']==27 || $result['mb_level']==26 || $result['mb_level']==24 || $result['mb_level']==25) $f = "";
+		// if ($result['mb_level'] > 17)
+		
+		return '<img src=' . G5_URL . '/img/'.$f. $result['mb_level'] . '.png>';
 	}
 
 function na_name_photo($mb_id, $name){
