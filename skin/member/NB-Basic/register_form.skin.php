@@ -109,35 +109,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				</div>
 				
 
-				<?php if ($config['cf_use_member_icon'] && $member['mb_level'] >= $config['cf_icon_level']) {
-					na_script('fileinput');	// 첨부파일
-				?>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_profile">회원아이콘</label>
-						<div class="col-sm-10">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<label class="input-group-text" for="reg_mb_icon">아이콘</label>
-								</div>
-								<div class="custom-file">
-									<input type="file" name="mb_icon" class="custom-file-input" id="reg_mb_icon">
-									<label class="custom-file-label" for="reg_mb_icon" data-browse="선택"></label>
-								</div>
-							</div>
-							<?php if ($w == 'u' && file_exists($mb_icon_path)) {  ?>
-								<div class="custom-control custom-checkbox py-2">
-									<input type="checkbox" name="del_mb_icon" value="1" id="del_mb_icon" class="custom-control-input">
-									<label class="custom-control-label" for="del_mb_icon"><span>회원아이콘 삭제</span></label>
-								</div>
-							<?php }  ?>
-							<p class="form-control-plaintext f-de text-muted pb-0">
-								아이콘 크기는 가로 <?php echo $config['cf_member_icon_width'] ?>픽셀, 세로 <?php echo $config['cf_member_icon_height'] ?>픽셀 이하로 해주세요.
-								gif, jpg, png 파일만 가능하며 용량 <?php echo number_format($config['cf_member_icon_size'] / 1024) ?>kb 이하만 등록됩니다.
-							</p>
-						</div>
-					</div>
-				<?php } ?>
-
 				<?php if ($member['mb_level'] >= $config['cf_icon_level'] && $config['cf_member_img_size'] && $config['cf_member_img_width'] && $config['cf_member_img_height']) {
 					na_script('fileinput');	// 첨부파일
 				?>
@@ -316,6 +287,35 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						<label class="col-sm-2 col-form-label" for="reg_mb_profile">자기소개<?php if ($config['cf_req_profile']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
 						<div class="col-sm-10">
 							<textarea name="mb_profile" rows="5" id="reg_mb_profile" <?php echo $config['cf_req_profile'] ? "required" : ""; ?> class="form-control <?php echo $config['cf_req_profile'] ? "required" : ""; ?>"><?php echo $member['mb_profile'] ?></textarea>
+						</div>
+					</div>
+				<?php } ?>
+
+				<?php if ($config['cf_use_member_icon'] && $member['mb_level'] >= $config['cf_icon_level']) {
+					na_script('fileinput');	// 첨부파일
+				?>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="reg_mb_profile">회원아이콘</label>
+						<div class="col-sm-10">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<label class="input-group-text" for="reg_mb_icon">아이콘</label>
+								</div>
+								<div class="custom-file">
+									<input type="file" name="mb_icon" class="custom-file-input" id="reg_mb_icon">
+									<label class="custom-file-label" for="reg_mb_icon" data-browse="선택"></label>
+								</div>
+							</div>
+							<?php if ($w == 'u' && file_exists($mb_icon_path)) {  ?>
+								<div class="custom-control custom-checkbox py-2">
+									<input type="checkbox" name="del_mb_icon" value="1" id="del_mb_icon" class="custom-control-input">
+									<label class="custom-control-label" for="del_mb_icon"><span>회원아이콘 삭제</span></label>
+								</div>
+							<?php }  ?>
+							<p class="form-control-plaintext f-de text-muted pb-0">
+								아이콘 크기는 가로 <?php echo $config['cf_member_icon_width'] ?>픽셀, 세로 <?php echo $config['cf_member_icon_height'] ?>픽셀 이하로 해주세요.
+								gif, jpg, png 파일만 가능하며 용량 <?php echo number_format($config['cf_member_icon_size'] / 1024) ?>kb 이하만 등록됩니다.
+							</p>
 						</div>
 					</div>
 				<?php } ?>
