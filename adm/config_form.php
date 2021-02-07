@@ -730,7 +730,7 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
         </tr>
         <tr>
             <th scope="row"><label for="cf_register_level">회원가입시 권한</label></th>
-            <td><?php echo get_member_level_select('cf_register_level', 1, 29, $config['cf_register_level']) ?></td>
+            <td><?php echo get_member_level_select2('cf_register_level', 1, 29, $config['cf_register_level']) ?></td>
             <th scope="row"><label for="cf_register_point">회원가입시 포인트</label></th>
             <td><input type="text" name="cf_register_point" value="<?php echo $config['cf_register_point'] ?>" id="cf_register_point" class="frm_input" size="5"> 점</td>
         </tr>
@@ -749,7 +749,7 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
                 </select>
             </td>
             <th scope="row"><label for="cf_icon_level">회원 아이콘, 이미지 업로드 권한</label></th>
-            <td><?php echo get_member_level_select('cf_icon_level', 1, 29, $config['cf_icon_level']) ?> 이상</td>
+            <td><?php echo get_member_level_select2('cf_icon_level', 1, 29, $config['cf_icon_level']) ?> 이상</td>
         </tr>
         <tr>
             <th scope="row"><label for="cf_member_icon_size">회원아이콘 용량</label></th>

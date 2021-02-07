@@ -10,7 +10,7 @@ global $config, $member, $is_member, $urlencode, $is_admin, $g5;
 
 function insert_nickname($wer)
 {
-	aler("dddd : ".$wer);
+	alert("dddd : ".$wer);
 }
 
 ?>
