@@ -1102,6 +1102,8 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
     
     $startlimit;
     $endlimit;
+    $postlimit;
+    $commentlimit;
     $mb_point;
 
     $sql=" select mb_point2 from  {$g5['member_table']} where mb_id = '$mb_id'";
@@ -1110,11 +1112,13 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
         $mb_point=$row['mb_point2'];
     }
 
-    $sqlAdmin='select fr_start, fr_end FROM `g5_fragment_admin_limit` ORDER BY fr_id DESC limit 1';
+    $sqlAdmin='select bo_5, bo_6, bo_7, bo_8 FROM `g5_board` where bo_table = "'.$rel_table.'"';
     $result=sql_query($sqlAdmin);
     for($i=0; $row=sql_fetch_array($result); $i++) {
-        $startlimit=$row['fr_start'];
-        $endlimit=$row['fr_end'];
+        $startlimit=$row['bo_5'];
+        $endlimit=$row['bo_6'];
+        $postlimit=$row['bo_7'];
+        $commentlimit=$row['bo_8'];
     }
         
     $too = mt_rand($startlimit, $endlimit);       
