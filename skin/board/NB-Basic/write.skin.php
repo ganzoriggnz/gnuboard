@@ -305,7 +305,7 @@ if ($is_member)
 
 			<?php if ($is_admin || $is_member || ($gr_id == 'attendance'  &&  $w != 'u')) { ?>
 				
-				<?php if ($is_category) { ?>
+				<?php if ($is_category || (($member['mb_7'] && $member['mb_6']==$bo_table) &&  $w != 'u')) { ?>
 					<li class="list-group-item">
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label">분류<strong class="sr-only">필수</strong></label>
