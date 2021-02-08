@@ -236,7 +236,7 @@ if( isset($_POST['id'])){
     ?>
     <?php $q = "SELECT bo_subject FROM $g5[board_table] WHERE bo_table = '{$bo_table}'";
     $q1 = sql_fetch($q); ?>
-        <div><h3 style="text-align: center;"><?php echo "쿠폰지원목록 (".$q1['bo_subject'].")"; ?> </h3></div>
+        <div><h3 style="text-align: center; font-size: 14px;"><?php echo "쿠폰지원목록 (".$q1['bo_subject'].")"; ?> </h3></div>
         <div class="tbl_head01 tbl_wrap" style="margin-top: 20px;">
             <table>
                 <thead>
