@@ -60,6 +60,7 @@ if($w == ''){
                     co_begin_datetime = '{$co_begin_datetime}',
                     co_end_datetime = '{$co_end_datetime}' ";
     sql_query($sql);
+    echo $sql;
 
 } else if($w == 'u'){
     $sql = " UPDATE {$g5['coupon_table']}
