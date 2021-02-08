@@ -104,17 +104,53 @@
 #bo_list .txt_expired {color:#ccc}
 #bo_list tbody tr:hover {border-left:2px solid #e6dcc1}
 
-#bo_cate {background:#e6dcc1;padding:7px;margin:10px 0;border:1px solid #e6dcc1}
+#bo_cate {background:#fff;padding:7px;margin:10px 0;border:1px solid #fff}
 #bo_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #bo_cate ul {zoom:1}
 #bo_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
-#bo_cate li {display:inline-block;padding:2px;}
-#bo_cate a {display:block;line-height:26px;padding:0 10px;border-radius:3px;border:1px solid transparent}
-#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {text-decoration:none;background:#d2d6dc;}
-#bo_cate #bo_cate_on {z-index:2;background:#e6dcc1;color:#fff;font-weight:bold;border-bottom-color:#e6dcc1;
--webkit-box-shadow: inset 0 2px 5px  rgb(185, 189, 133);
+#bo_cate li {display:inline-block;
+	border-top: -1px solid #BABABA;
+	border-left: -1px solid #fff;
+	border-right: -1px solid #BABABA;
+	padding:5px 0px -1px 0px;    
+
+}
+#bo_cate a {display:block;
+    line-height:26px;
+	padding:2px 15px 2px 15px;	
+	color:#333;
+	background:#fafafa;
+	border-left: -1px solid #fff;
+	border-right: -1px solid #BABABA;
+	border-bottom: -1px ridge #BABABA;
+	border-top: -1px solid #BABABA;
+
+}
+#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {
+    font-weight:bold; 
+    background:#fff; 
+    text-decoration:none;
+    
+    
+}
+#bo_cate .d-flex {
+
+    border-left: 1px solid #e5e5e5;
+}
+#bo_cate #bo_cate_on {z-index:2;
+    color:#000;
+    font-weight:bold;
+    border-bottom-color:#BABABA;
+	border-bottom:1px solid #fff; 
+	border-top: 1px solid #BABABA;
+	border-left: 1px solid #BABABA;
+	border-right: 1px solid #BABABA;
+    text-decoration:none;
+
+/* -webkit-box-shadow: inset 0 2px 5px  rgb(185, 189, 133);
 -moz-box-shadow: inset 0 2px 5px  rgb(185, 189, 133);
-box-shadow:inset 0 2px 5px rgb(185, 189, 133);}
+box-shadow:inset 0 2px 5px rgb(185, 189, 133); */
+}
 .td_subject img {margin-left:5px}
 
 #bo_list .bo_tit {padding:10px;}

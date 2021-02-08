@@ -146,8 +146,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <?php } ?>
 
     <div class="btn_confirm write_div">
-        <a href="<?php echo get_pretty_url($bo_table); ?>" class="btn_cancel btn">취소</a>
-        <button type="submit" id="btn_submit" accesskey="s" class="btn_submit btn">작성완료</button>
+        <a href="<?php echo get_pretty_url($bo_table); ?>" class=" btn-primary btn" style="background: #434a54; border: 1px solid transparent;">취소</a>
+        <button type="submit" id="btn_submit" accesskey="s" class=" btn-primary btn">작성완료</button>
     </div>
     </form>
 

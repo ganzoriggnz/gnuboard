@@ -17,11 +17,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
     <!-- 게시판 카테고리 시작 { -->
     <?php if ($is_category) { ?>
-    <nav id="bo_cate">
+    <nav id="bo_cate" class="sly-tab font-weight-normal mb-2 ">
+        <div class="d-flex"> 
         <h2><?php echo $board['bo_subject'] ?> 카테고리</h2>
-        <ul id="bo_cate_ul">
+        <ul id="bo_cate_ul ">
             <?php echo $category_option ?>
         </ul>
+        </div>
     </nav>
     <?php } ?>
     <!-- } 게시판 카테고리 끝 -->
