@@ -543,7 +543,7 @@ var win_poll = function(href) {
  * 쿠폰
  **/
 var win_coupon = function(href) {
-    var new_win = window.open(href, "win_coupon", "left=100,top=100,width=1200, height=600, scrollbars=1");
+    var new_win = window.open(href, 'win_coupon', 'left= 50, top=150, width=1700, height=750, scrollbars=1');
     new_win.focus();
 }
 
@@ -644,11 +644,6 @@ $(function(){
         return false;
     });
     */
-
-    $(document).on("click", ".win_coupon", function() {
-		win_coupon(this.href);
-        return false;
-    });
 
     // 사이드뷰
     var sv_hide = false;
