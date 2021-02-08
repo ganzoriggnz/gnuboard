@@ -63,6 +63,8 @@ if (isset($_POST['wr_link2'])) {
     $wr_link2 = preg_replace("#[\\\]+$#", "", $wr_link2);
 }
 
+
+
 $msg = implode('<br>', $msg);
 if ($msg) {
     alert($msg);
@@ -272,6 +274,9 @@ if ($w == '' || $w == 'r') {
         $wr_reply = '';
     }
 
+    if ($member['mb_7'] && $member['mb_6']==$bo_table) 
+            $ca_name = $member['mb_7'];
+
     $sql = " insert into $write_table
                 set wr_num = '$wr_num',
                      wr_reply = '$wr_reply',
@@ -417,6 +422,9 @@ if ($w == '' || $w == 'r') {
     if (!$is_admin)
         $sql_ip = " , wr_ip = '{$_SERVER['REMOTE_ADDR']}' ";
 
+        if ($member['mb_7'] && $member['mb_6']==$bo_table) 
+            $ca_name = $member['mb_7'];
+            
     $sql = " update {$write_table}
                 set ca_name = '{$ca_name}',
                      wr_option = '{$html},{$secret},{$mail}',
