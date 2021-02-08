@@ -236,7 +236,7 @@ if( isset($_POST['id'])){
     ?>
     <?php $q = "SELECT bo_subject FROM $g5[board_table] WHERE bo_table = '{$bo_table}'";
     $q1 = sql_fetch($q); ?>
-        <div><h3 style="text-align: center; font-size: 14px;"><?php echo "쿠폰지원목록 (".$q1['bo_subject'].")"; ?> </h3></div>
+        <div><h3 style="text-align: center; font-size: 14px;"><?php echo "전체제휴업소 목록 (".$q1['bo_subject'].")"; ?> </h3></div>
         <div class="tbl_head01 tbl_wrap" style="margin-top: 20px;">
             <table>
                 <thead>
@@ -249,15 +249,15 @@ if( isset($_POST['id'])){
                 </thead>
             <tbody>
         <?php     
-        $result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27'"; 
+        $result = "SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27') || (b.co_begin_datetime IS NULL AND c.mb_level = '27')"; 
         $result1=sql_query($result);
         while ($row = sql_fetch_array($result1)) {     
         ?>
             <tr>
                 <td class="td_left" style="text-align: left; width: 7rem;">
-                    <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>">
-                        <?php echo "[".$row['co_entity']."]";
-                        $user_entity[$cnt]['co_entity']= $row['co_entity'];
+                    <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>" data-mb-id = "<?php echo $row['mbid'];?>" data-entity = "<?php echo $row['mb_name'];?>">
+                        <?php echo "[".$row['mb_name']."]";
+                        $user_entity[$cnt]['co_entity']= $row['mb_name'];
                         ?> 
                     </a>
                     <div class="modal fade" id="couponCreate<?php echo $cnt;?>" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
@@ -280,12 +280,12 @@ if( isset($_POST['id'])){
                                     </div> 	
                                     <div class="modal-body" style="text-align: left; font-weight: normal;">
                                         <form id="fcouponcreate<?php echo $cnt;?>" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
-                                            <input type="hidden" name="co_no" id="co_no" value="<?php echo $row3['co_no']; ?>">
-                                            <input type="hidden" name="mb_id" id="mb_id" value="<?php echo $row2['mb_id']; ?>">
-                                            <input type="hidden" name="cos_link" id="cos_link" value="<?php echo $bo_table; ?>">
+                                            <input type="hidden" name="co_no" id="co_no1" value="<?php echo $row3['co_no']; ?>">
+                                            <input type="hidden" name="mb_id" id="mb_id1" value="<?php echo $row2['mb_id']; ?>">
+                                            <input type="hidden" name="cos_link" id="cos_link1" value="<?php echo $bo_table; ?>">
                                             <div style="margin-left: 10px;"><?php echo $year."년 ".$month."월";?></div>
                                             <div style="margin-left: 10px;margin-top: 5px;"><?php echo "업소명 :";?>
-                                                <input type="text" name="cos_entity" id="cos_entity" value="<?php echo $row3['co_entity']; ?>" style="border:none; outline: none; width: 100px; font-size: 12px;">							
+                                                <input type="text" name="co_entity" id="cos_entity1" value="<?php echo $row3['co_entity']; ?>" style="border:none; outline: none; width: 100px; font-size: 12px;">							
                                             </div>
                                             <div class="coupon_info">
                                                 <p style="text-align: center;">지원 설정</p>
@@ -382,8 +382,9 @@ if( isset($_POST['id'])){
                                 </div>
                             </div>
                         </li>
-                        <?php
-                         } else if($row1['cos_accept'] == 'Y' && $row1['cos_alt_quantity'] == '0') { 
+                        <?php 
+                         } 
+                            else if($row1['cos_accept'] == 'Y' && $row1['cos_alt_quantity'] == '0') { 
                             echo '<li><a href="#" style="color:blue;" data-type ='.$row1['cos_type']." 
                             data-code = ". $row1['cos_code']." data-no = ".$row1['cos_no']." 
                             data-co-no = "; ?><?php echo $row1['co_no']." data-link = ". $bo_table.'>';
@@ -514,35 +515,6 @@ if( isset($_POST['id'])){
             </div>
         </div>
         
-        <div class="modal fade" id="couponDelete" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content" style="width: 350px; height: 220px;">
-                    <form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-                        <div class="modal-header" style="border-bottom: none;">
-                            <h3 class="modal-title" style="margin-left: 140px; font-weight: bold; font-size: 14px;">쿠폰회수</h3>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div> 	
-                        <div class="modal-body" style="padding: 40px 0px; font-size: 14px;">
-                            <input type="hidden" name = "w" value ="d">
-                            <input type="hidden" name="co_no" id="co_no" value="">
-                            <input type="hidden" name="cos_no" id="cos_no" value="">
-                            <input type="hidden" name="cos_type" id="cos_type" value="">
-                            <input type="hidden" name="cos_link" id="cos_link" value="">
-                            <input type="hidden" name="cos_code" id="cos_code" value="">
-                            <div style="margin-left:100px;">쿠폰을 회수하시겠습니까?</div>					
-                        </div>
-                        <div class="modal-footer" style="border-top: none;">
-                            <div style="margin-left: 140px; margin: 0 auto; text-align: center;">
-                                <button type="submit" accesskey="s" class="btn btn_01" style="width: 150px;">확인</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
         <script src="<?php echo NA_URL ?>/app/bs4/js/bootstrap.bundle.min.js"></script>
         <script> 
  
@@ -583,6 +555,15 @@ if( isset($_POST['id'])){
                 });
             });
 
+            $('body').on('click', '.coupon-create', function() {
+                var cos_entity = $(this).data('entity');
+                var mb_id = $(this).data('mb-id');
+                var cos_link = $(this).data('link');
+                $('.modal-body #cos_entity1').val(cos_entity);
+                $('.modal-body #mb_id1').val(mb_id);
+                $('.modal-body #cos_link1').val(cos_link);
+            }); 
+
             $('body').on('click', '.coupon-modal', function() {
                 var cos_type = $(this).data('type');
                 var cos_entity = $(this).data('entity');
@@ -602,11 +583,15 @@ if( isset($_POST['id'])){
                 var cos_type = $(this).data('type');
                 var cos_code = $(this).data('code');
                 var cos_link = $(this).data('link');
-                $('.modal-body #co_no').val(co_no);
-                $('.modal-body #cos_no').val(cos_no);
-                $('.modal-body #cos_type').val(cos_type);		
-                $('.modal-body #cos_code').val(cos_code);
-                $('.modal-body #cos_link').val(cos_link);
+                var cos_entity = $(this).data('entity');
+                var cos_nick = $(this).data('nick');
+                $('.modal-body #co_no_d').val(co_no);
+                $('.modal-body #cos_no_d').val(cos_no);
+                $('.modal-body #cos_type_d').val(cos_type);		
+                $('.modal-body #cos_code_d').val(cos_code);
+                $('.modal-body #cos_link_d').val(cos_link);
+                $('.modal-body #cos_entity_d').val(cos_entity);
+                $('.modal-body #cos_nick_d').val(cos_nick);
             }); 
 
         });
