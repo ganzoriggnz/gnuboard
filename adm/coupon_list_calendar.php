@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks: true, // can click day/week names to navigate views
         editable: true,
 		eventLimit: true, // allow "more" link when too many events
+		eventRender: function(info) {
+			info.el.querySelector('.fc-time').innerHTML = "";
+		},
         events: {
             url: 'coupon_load.php',
             error: function() {

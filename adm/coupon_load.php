@@ -14,7 +14,7 @@ while($row = sql_fetch_array($result))
 {
  $data[] = array(
   'id'   => '100',
-  'title'   => $row['cos_nick'],
+  'title'   => '['.$row['cos_entity'].'] '.$row['cos_nick'],
   'start'   => $row['cos_created_datetime'],
   'end'   => $row['cos_created_datetime'],
   'allday' => true,
@@ -34,7 +34,7 @@ while($row1 = sql_fetch_array($result1))
 {
  $data[] = array(
   'id'   => '200',
-  'title'   => $row1['cos_nick'],
+  'title'   => '['.$row1['cos_entity'].'] '.$row1['cos_nick'],
   'start'   => $row1['cos_accepted_datetime'],
   'end'   => $row1['cos_accepted_datetime'],
   'allday' => true,
@@ -58,7 +58,7 @@ while($row2 = sql_fetch_array($result2))
 
  $data[] = array(
   'id'   => '300',
-  'title'   => $row2['cos_nick'].'('.$res1['cos_alt_quantity'].')',
+  'title'   => '['.$row2['cos_entity'].'] '.$row2['cos_nick'].'('.$res1['cos_alt_quantity'].')',
   'start'   => $row2['cos_post_datetime'],
   'end'   => $row2['cos_post_datetime'],
   'allday' => true,
