@@ -75,6 +75,7 @@ img.light-circle { border-width: 1px; border-style: solid; background-color: #ff
 .na-col { 
     padding-left:0.75rem !important; 
     padding-right:0.75rem !important; 
+    background-color:#fff;
 }
 .flex80d {
     flex: 100%;
