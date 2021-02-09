@@ -8,7 +8,7 @@ $cnt=0;
 $alert_nick;
 $altcnt=0;
 $del_nick;
-$delcnt=0;
+$delcnt=0;ok
 
 auth_check($auth[$sub_menu], 'r'); 
 

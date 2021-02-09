@@ -28,5 +28,5 @@ if($cos_type == 'S'){
     sql_query($sql1);
 }
 
-goto_url(G5_ADMIN_URL.'/coupon_list.php?bo_table='.$cos_link,); 
+goto_url(G5_ADMIN_URL.'/coupon_list.php?bo_table='.$cos_link); 
 ?>
