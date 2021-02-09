@@ -78,7 +78,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             $(".panel2 button").click(function(){
                 id = this.id;
                 var firstTime = $('#but1').val(); 
-               if (getElapsedMinutes(firstTime, new Date($.now())) >= 1){
+               if (getElapsedMinutes(firstTime, new Date($.now())) >= 30){
                         lastClickedTime = new Date($.now());
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
