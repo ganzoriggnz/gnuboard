@@ -78,10 +78,12 @@ img.light-circle { border-width: 1px; border-style: solid; background-color: #ff
 }
 .flex80d {
     flex: 100%;
-    background-color:rgba(255, 255, 255, 0.796);
+    /* background-color:rgba(255, 255, 255, 0.796); */
 }
 
-
+.order-md-2 {
+    background-color:rgba(255, 255, 255, 0.796);
+}
 
 .nw-c1 { width:10.0rem; }
 .nw-c2 { width:11.0rem; }
