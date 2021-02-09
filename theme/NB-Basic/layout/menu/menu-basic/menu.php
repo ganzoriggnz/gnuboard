@@ -245,13 +245,21 @@ $is_col_all = 6;
 							    <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/noti.php" target="_self" title="알림확인">
 									<!--<i class="fa fa-bell" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png" >
+									<?php if(IS_NA_NOTI) { // 알림 ?>
+									<?php if ($member['as_noti']) { ?><b style="color: red"><?php echo number_format($member['as_noti']) ?></b><?php } ?>
+							<?php } ?>
 								</a>
+
 						    </li>
 							<li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en win_memo" href="<?php echo G5_BBS_URL?>/memo.php" target="_blank" role="button" title="쪽지">
 									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
 									<img src="<?php echo G5_URL?>/img/baseline-email-24px.png" >
+									<!-- maild irsen too -------------------------------------------------------sadf as df -->									
+									<?php if ($member['mb_memo_cnt']) { ?><b  style="color: red"><?php echo number_format($member['mb_memo_cnt']);?></b><?php } ?>
+									<!-- maild irsen too -------------------------------------------------------sadf as df -->
 								</a>
+				
 						    </li>
 							<li class="col p-0 me-li me-icon right_border">
 							    <a class="me-a f-md en win_memo" href="<?php echo G5_BBS_URL?>/memo_friend.php?kind=friends" target="_blank" title="">
