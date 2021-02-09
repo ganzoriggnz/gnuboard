@@ -144,6 +144,8 @@ if ($w == '') {
 
 }
 
+
+
 if ($is_admin != 'super') {
     $group = get_group($board['gr_id']);
     $is_admin = is_admin($member['mb_id']);
@@ -1000,7 +1002,21 @@ $pg_anchor = '<ul class="anchor">
          <tr>
             <th scope="row"><label for="bo_insert_content">글쓰기 기본 내용</label></th>
             <td>
-                <textarea id="bo_insert_content" name="bo_insert_content" rows="5"><?php echo html_purifier($board['bo_insert_content']); ?></textarea>
+                <?php echo editor_html("bo_insert_content", get_text(html_purifier($board['bo_insert_content']), 0)); ?>
+                <!-- <textarea id="bo_insert_content" name="bo_insert_content" rows="5"><?php echo html_purifier($board['bo_insert_content']); ?></textarea> -->
+				<?php if ($is_dhtml_editor) { ?>
+					<style>
+						#bo_insert_content {
+							display: none;
+						}
+					</style>
+				<?php } else { ?>
+					<script>
+						$("#bo_insert_content").hide().addClass("form-control").show();
+					</script>
+				<?php } ?>
+
+
             </td>
             <td class="td_grpset">
                 <input type="checkbox" name="chk_grp_insert_content" value="1" id="chk_grp_insert_content">

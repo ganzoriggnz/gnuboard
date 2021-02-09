@@ -9,6 +9,8 @@ auth_check($auth[$sub_menu], 'w');
 
 check_admin_token();
 
+
+
 $gr_id = isset($_POST['gr_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_POST['gr_id']) : '';
 $bo_admin = isset($_POST['bo_admin']) ? preg_replace('/[^a-z0-9_\, \|\#]/i', '', $_POST['bo_admin']) : '';
 
@@ -33,7 +35,11 @@ if ($board && ($board['bo_include_head'] !== $bo_include_head || $board['bo_incl
         alert('자동등록방지 숫자가 틀렸습니다.');
     }
 }
-
+// if (isset($_POST['bo_insert_content'])) {
+//     $bo_insert_content = substr(trim($_POST['bo_insert_content']),0,65536);
+//     $bo_insert_content = preg_replace("#[\\\]+$#", "", $bo_insert_content);
+//     alert($bo_insert_content);
+// }
 if ($file = $bo_include_head) {
     $file_ext = pathinfo($file, PATHINFO_EXTENSION);
 
@@ -87,6 +93,28 @@ $str_bo_category_list = preg_replace("/[\<\>\'\"\\\'\\\"\%\=\(\)\/\^\*]/", "", $
 
 $_POST['bo_subject'] = strip_tags(clean_xss_attributes($_POST['bo_subject']));
 $_POST['bo_mobile_subject'] = strip_tags(clean_xss_attributes($_POST['bo_mobile_subject']));
+
+
+$bo_insert_content = '';
+if (isset($_POST['bo_insert_content'])) {
+    $bo_insert_content = substr(trim($_POST['bo_insert_content']),0,65536);
+    $bo_insert_content = preg_replace("#[\\\]+$#", "", $bo_insert_content);
+}
+
+// $bo_insert_content = preg_replace(array("#[\\\]+$#", "#(<\?php|<\?)#i"), "", substr($bo_insert_content, 0, 255));
+// $msg = array();
+// if ($bo_insert_content == '') {
+//     $msg[] = '<strong>내용</strong>을 입력하세요.';
+// }
+
+// $msg = implode('<br>', $msg);
+// if ($msg) {
+//     alert($msg);
+// }
+if (substr_count($bo_insert_content, '&#') > 50) {
+    alert('내용에 올바르지 않은 코드가 다수 포함되어 있습니다.');
+    exit;
+}
 
 $sql_common = " gr_id               = '{$gr_id}',
                 bo_subject          = '{$_POST['bo_subject']}',
@@ -148,10 +176,11 @@ $sql_common .= " bo_include_head     = '".$bo_include_head."',
                 bo_content_tail     = '{$_POST['bo_content_tail']}',
                 bo_mobile_content_head     = '{$_POST['bo_mobile_content_head']}',
                 bo_mobile_content_tail     = '{$_POST['bo_mobile_content_tail']}',
+               
                 ";
 }
 
-$sql_common .= " bo_insert_content   = '{$_POST['bo_insert_content']}',
+$sql_common .= "bo_insert_content   = '$bo_insert_content',
                 bo_gallery_cols     = '{$_POST['bo_gallery_cols']}',
                 bo_gallery_width    = '{$_POST['bo_gallery_width']}',
                 bo_gallery_height   = '{$_POST['bo_gallery_height']}',
@@ -187,6 +216,8 @@ $sql_common .= " bo_insert_content   = '{$_POST['bo_insert_content']}',
                 bo_8                = '{$_POST['bo_8']}',
                 bo_9                = '{$_POST['bo_9']}',
                 bo_10               = '{$_POST['bo_10']}' ";
+
+                // echo $sql_common;
 
 if ($w == '') {
 
@@ -270,6 +301,8 @@ if ($w == '') {
                     bo_count_comment = '{$bo_count_comment}',
                     {$sql_common}
               where bo_table = '{$bo_table}' ";
+            //   echo $sql;
+    // alert($sql);
     sql_query($sql);
 
 }
@@ -348,6 +381,8 @@ if ($is_admin === 'super'){
     if (is_checked('chk_grp_content_tail'))         $grp_fields .= " , bo_content_tail = '{$bo_content_tail}' ";
     if (is_checked('chk_grp_mobile_content_head'))         $grp_fields .= " , bo_mobile_content_head = '{$bo_mobile_content_head}' ";
     if (is_checked('chk_grp_mobile_content_tail'))         $grp_fields .= " , bo_mobile_content_tail = '{$bo_mobile_content_tail}' ";
+    // if (is_checked('chk_grp_insert_content'))         $grp_fields .= " , bo_insert_content = '{$bo_insert_content}' ";
+
 }
 
 if (is_checked('chk_grp_insert_content'))       $grp_fields .= " , bo_insert_content = '{$bo_insert_content}' ";
