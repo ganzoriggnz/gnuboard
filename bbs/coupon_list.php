@@ -9,11 +9,6 @@ include_once(G5_PATH.'/head.sub.php');
 
 $bo_table = $_REQUEST['bo_table'];
 
-// 상수 선언
-$g5['table_prefix']        = "g5_"; // 테이블명 접두사
-$g5['write_prefix']        = "g5_write_";
-$g5['bo_table'] = $g5['write_prefix'] . $bo_table;
-
 $now = G5_TIME_YMDHIS;
 $currentyear = substr($now, 0, 4);
 $currentmonth = substr($now, 5, 2);
@@ -56,10 +51,10 @@ $date = $sql['co_begin_datetime'];
 $year = substr($date, 0, 4);
 $month = substr($date, 5, 2);
 
-$re_table = $g5['write_table'].$bo_table;
+$re_table = $g5['write_prefix'].$bo_table;
 $linkcount = strlen($re_table) - 2;
 $str_table =substr($re_table, 0, $linkcount);
-$at_table = "g5_write_".$str_table."at";
+$at_table = $str_table."at";
 
 $result = "SELECT COUNT(a.co_no) as cnt FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}'"; 
 $row=sql_fetch($result);
