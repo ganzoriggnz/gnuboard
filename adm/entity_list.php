@@ -28,8 +28,8 @@ include_once('./admin.head.php');
   padding: 0px 2px 4px 4px;
 }
 
-.nav > .active {
-    background-color: chartreuse; **//THIS WORKS**
+/* .nav > .active {
+    background-color: chartreuse; 
 }
 .nav > .active a{
   color : aqua
@@ -40,7 +40,7 @@ include_once('./admin.head.php');
 
 .nav li{
   list-style:none;
-}
+} */
 
 .modal.fade .modal-dialog {
    -webkit-transform: none;
@@ -100,8 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 type: 'POST',
                 data: {mb_id: mb_id},
                 success: function(response){ 
-                /* $(`.${mb_id}popUp`).html(response);
-                $('#links').html(response); */
                 $('#entitylinkModal .modal-body').html(response);
 					$('#entitylinkModal').modal(); 
                 }               
@@ -121,8 +119,7 @@ $('body').on('click', '.entity-modal', function() {
           onSelect: function(date, obj){
               $('#to_date').val(date);  
           }
-        });  
-  
+        });   
 }); 
 
 $(document).ready(function(){
@@ -165,10 +162,10 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 ?>
 	<div id="calendar">
 
-        <div class="modal fade" id="entitylinkModal" tabindex="-1" role="dialog" style="position: fixed; top: 10%; left: 0%;" aria-hidden="true">
+        <div class="modal fade" id="entitylinkModal" tabindex="-1" role="dialog" style="position: fixed; top: 20%; left: 0%;" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="width: 135px; height: 230px;">
-                        <div class="modal-header" style="border-bottom: none; height: 20px;">
+                    <div class="modal-content" style="width: 250px; height: 650px;">
+                        <div class="modal-header" style="border-bottom: none; height: 40px;">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button> 
