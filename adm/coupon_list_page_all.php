@@ -10,21 +10,15 @@ $altcnt=0;
 $del_nick;
 $delcnt=0;
 
-auth_check($auth[$sub_menu], 'r'); ?>
+auth_check($auth[$sub_menu], 'r'); 
 
-<?php
 if( isset($_POST['id'])){ 
     $bo_table = $_POST['id'];
 
-    $re_table = $g5['write_table'].$bo_table;
+    $re_table = $g5['write_prefix'].$bo_table;
     $linkcount = strlen($re_table) - 2;
     $str_table =substr($re_table, 0, $linkcount);
-    $at_table = "g5_write_".$str_table."at";
-}
-
-    $g5['table_prefix']        = "g5_"; // 테이블명 접두사
-    $g5['write_prefix']        = "g5_write_";
-    $g5['bo_table'] = $g5['write_prefix'] . $bo_table;
+    $at_table = $str_table."at";
 
 
     if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 쿠폰 테이블이 없다면 생성
@@ -177,7 +171,7 @@ if( isset($_POST['id'])){
 
     $sql2 = "Select a.*, b.wr_id, b.wr_7, b.wr_is_comment, b.wr_datetime from {$g5['coupon_sent_table']} a LEFT JOIN $re_table b ON a.cos_nick = b.wr_name WHERE a.cos_accept = 'Y'";
     $res2 = sql_query($sql2);
-    $now = G5_TIME_YMDHIS;
+
     while($row2 = sql_fetch_array($res2)){
         $sql3 = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
         $res3 = sql_fetch($sql3);
@@ -514,7 +508,7 @@ if( isset($_POST['id'])){
                 </div>
             </div>
         </div>
-        
+ <?php } ?>  
         <script src="<?php echo NA_URL ?>/app/bs4/js/bootstrap.bundle.min.js"></script>
         <script> 
  
