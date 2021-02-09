@@ -8,7 +8,7 @@ $cnt=0;
 $alert_nick;
 $altcnt=0;
 $del_nick;
-$delcnt=0;ok
+$delcnt=0;
 
 auth_check($auth[$sub_menu], 'r'); 
 
@@ -19,7 +19,7 @@ if( isset($_POST['id'])){
     $linkcount = strlen($re_table) - 2;
     $str_table =substr($re_table, 0, $linkcount);
     $at_table = $str_table."at";
-
+}
 
     if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 쿠폰 테이블이 없다면 생성
         $sql_table = "CREATE TABLE {$g5['coupon_table']} (   
@@ -508,7 +508,7 @@ if( isset($_POST['id'])){
                 </div>
             </div>
         </div>
- <?php } ?>  
+
         <script src="<?php echo NA_URL ?>/app/bs4/js/bootstrap.bundle.min.js"></script>
         <script> 
  

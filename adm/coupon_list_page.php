@@ -10,7 +10,7 @@ $altcnt=0;
 $del_nick;
 $delcnt=0;
 
-auth_check($auth[$sub_menu], 'r'); 
+//auth_check($auth[$sub_menu], 'r'); 
 
 if( isset($_POST['id'])){ 
     $bo_table = $_POST['id'];
@@ -244,7 +244,7 @@ if( isset($_POST['id'])){
         <?php     
         $result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27'"; 
         $result1=sql_query($result);
-        
+
         while ($row = sql_fetch_array($result1)) {     
         ?>
             <tr>
