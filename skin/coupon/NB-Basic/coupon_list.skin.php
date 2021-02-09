@@ -7,6 +7,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_list_skin_url.'/style.css
 $cnt=0;
 $alert_nick;
 $altcnt=0;
+$del_nick;
+$delcnt=0;
 ?>
 
 <!-- 쪽지 목록 시작 { -->
@@ -67,19 +69,55 @@ $altcnt=0;
 				$sql1 = sql_query($sql);
 				while ($row1 = sql_fetch_array($sql1)){
 					$alert_nick[$altcnt]['alt_nick'] = $row1['cos_nick']; 
+					$delete_nick[$delcnt]['del_nick']= $row1['cos_nick'];
 					if($row1['cos_accept'] == 'N' && $row1['cos_alt_quantity'] == '0') 
                         { echo '<li><a data-toggle="modal"
-                            data-target="#couponDelete"  
-                            href="#couponDelete" 
+                            data-target="#couponDelete'.$delcnt.'"  
+                            href="#couponDelete'.$delcnt.'" 
                             class="coupon-delete" 
-                            data-type ='.$row1['cos_type']." 
+							data-type ='.$row1['cos_type']." 
                             data-code = ".$row1['cos_code']." 
+                            data-entity = ".$row1['cos_entity']."
+                            data-nick = ".$row1['cos_nick']."  
                             data-no = ".$row1['cos_no']." 
                             data-co-no = ".$row1['co_no']." 
                             data-link = ".$bo_table.'>';
                             if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'];
                             if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick']; 
-                            echo '</a></li>';
+                            echo '</a>'; ?>
+
+							<div class="modal fade" id="couponDelete<?php echo $delcnt; ?>" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content" style="width: 350px; height: 250px;">
+											<form id="fcoupondelete<?php echo $delcnt; ?>" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+												<div class="modal-header" style="border-bottom: none;">
+													<h5 class="modal-title" style="margin-left: 130px;">쿠폰회수</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+													</button>
+												</div> 	
+												<div class="modal-body" style="padding: 30px 0px; font-size: 12px;">
+                                                <input type="hidden" name = "w" value ="d">
+                                                <input type="hidden" name="co_no" id="co_no_d" value="<?php echo $row1['co_no']; ?>">
+                                                <input type="hidden" name="cos_no" id="cos_no_d" value="<?php echo $row1['cos_no']; ?>">
+                                                <input type="hidden" name="cos_type" id="cos_type_d" value="<?php echo $row1['cos_type']; ?>">
+                                                <input type="hidden" name="cos_link" id="cos_link_d" value="<?php echo $bo_table; ?>">                           
+                                                <input type="hidden" name="cos_entity" id="cos_entity_d" value="<?php echo $row1['cos_entity']; ?>">
+                                                <input type="hidden" name="cos_nick" id="cos_nick_d" value="<?php echo $row1['cos_nick']; ?>">
+                                                <input type="hidden" name="cos_code" id="cos_code_d" value="<?php echo $row1['cos_code']; ?>">
+                                                <div style="text-align: center; line-height: 2;"><?php echo "[".$row1['cos_entity']."]"." ".$row1['cos_nick']." 회원 </br> 쿠폰을 회수하시겠습니까?" ?></div>					
+                                            </div>
+												<div class="modal-footer" style="border-top: none;">
+													<div style="margin: 0px auto 10px auto; text-align: center;">
+														<button type="submit" accesskey="s" class="btn btn-primary" style="width: 150px; font-size: 14px;">확인</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</li>
+						<?php
                          } else if($row1['cos_accept'] == 'Y' && $row1['cos_alt_quantity'] == '0') { 
                             echo '<li><a href="#" style="color:blue;" data-type ='.$row1['cos_type']." 
                             data-code = ". $row1['cos_code']." data-no = ".$row1['cos_no']." 
@@ -160,6 +198,7 @@ $altcnt=0;
 						</li> 
 						<?php } 					                               
 					$altcnt++;
+					$delcnt++;
 				}
                     ?> 
                 </ul>
@@ -207,33 +246,6 @@ $altcnt=0;
 							<button type="button" id="btn_send" accesskey="s" class="btn btn-primary" style="width: 150px;">보내기</button>
 						</div>
 					</div>				
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="couponDelete" tabindex="-1" role="dialog" style="position: fixed; top: 30%; left: 20%;">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content" style="width: 350px; height: 220px;">
-				<form id="fcoupondelete" name="fcoupondelete" action="<?php echo $coupon_delete_action_url; ?>" onsubmit="return fcoupondelete_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-					<div class="modal-header" style="border-bottom: none;">
-						<h5 class="modal-title" style="margin-left: 130px;">쿠폰회수</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-						</button>
-					</div> 	
-					<div class="modal-body" style="padding: 40px 0px; font-size: 14px;">
-						<input type="hidden" name="co_no" id="co_no" value="">
-						<input type="hidden" name="cos_no" id="cos_no" value="">
-						<input type="hidden" name="cos_type" id="cos_type" value="">
-						<input type="hidden" name="cos_link" id="cos_link" value="">
-						<input type="hidden" name="cos_code" id="cos_code" value="">
-						<div style="margin-left:100px;">쿠폰을 회수하시겠습니까?</div>					
-					</div>
-					<div class="modal-footer" style="border-top: none;">
-						<div style="margin-left: 140px; margin: 0px auto 10px auto; text-align: center;">
-							<button type="submit" accesskey="s" class="btn btn-primary" style="width: 150px; font-size: 14px;">확인</button>
-						</div>
-					</div>
-				</form>
 			</div>
 		</div>
 	</div>

@@ -15,10 +15,10 @@ auth_check($auth[$sub_menu], 'r');
 if( isset($_POST['id'])){ 
     $bo_table = $_POST['id'];
 
-    $re_table = $g5['write_table'].$bo_table;
+    $re_table = $g5['write_prefix'].$bo_table;
     $linkcount = strlen($re_table) - 2;
     $str_table =substr($re_table, 0, $linkcount);
-    $at_table = "g5_write_".$str_table."at";
+    $at_table = $str_table."at";
 }
 
     if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 쿠폰 테이블이 없다면 생성
@@ -244,6 +244,7 @@ if( isset($_POST['id'])){
         <?php     
         $result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27'"; 
         $result1=sql_query($result);
+        
         while ($row = sql_fetch_array($result1)) {     
         ?>
             <tr>
