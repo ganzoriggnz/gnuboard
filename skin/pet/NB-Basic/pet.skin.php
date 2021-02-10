@@ -79,7 +79,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 id = this.id;
                 var firstTime = $('#but1').val(); 
                if (getElapsedMinutes(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
-                        lastClickedTime = new Date($.now());
+                        lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
@@ -110,7 +110,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 id = this.id;
                 var secondTime = $('#but2').val(); 
                if (getElapsedMinutes(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
-                        lastClickedTime = new Date($.now());
+                        lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
