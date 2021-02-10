@@ -938,17 +938,14 @@ $data=array (
       8 => 
       array (
         'text' => '왕궁 게시판',
-        'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=palace',
+        'href' => 'http://192.168.1.108/gnuboard/bbs/blank.php',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-palace',
-        'bo_table' => 'palace',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'bbs-page-blank',
       ),
       9 => 
       array (
