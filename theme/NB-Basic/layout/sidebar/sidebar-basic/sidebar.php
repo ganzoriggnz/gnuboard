@@ -142,7 +142,7 @@ $menu_cnt = count($menu);
 						<ul class="row mx-n1">
 							<?php if ($config['cf_use_point']) { ?>
 								<li class="col-12 px-1">
-									<a href="<?php echo G5_BBS_URL ?>/point.php" target="_blank" class="btn btn-block btn-basic win_point f-sm mb-2">
+									<a href="<?php echo G5_BBS_URL ?>/point.php" target="_blank" class="btn btn-block btn-basic <?php if(G5_IS_MOBILE) echo "win_point" ?>  f-sm mb-2">
 										포인트 <b class="orangered"><?php echo number_format($member['mb_point']); ?></b>
 									</a>
 								</li>
