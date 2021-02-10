@@ -161,7 +161,7 @@ $menu_cnt = count($menu);
 								</a>
 							</li>
 							<li class="col-6 px-1">
-								<a href="<?php echo G5_BBS_URL ?>/scrap.php" target="_blank" class="btn btn-block btn-basic win_scrap f-sm mb-2">
+								<a href="<?php echo G5_BBS_URL ?>/scrap.php" target="_blank" class="btn btn-block btn-basic <?php if(G5_IS_MOBILE) echo "win_scrap" ?>  f-sm mb-2">
 									스크랩
 								</a>
 							</li>
