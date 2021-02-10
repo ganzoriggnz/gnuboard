@@ -72,7 +72,7 @@ if ($category_option) {
 		<div class="px-3 px-sm-0">
 			<div class="d-flex">
 				<div id="bo_cate_list" class="sly-wrap flex-grow-1">
-					<ul id="bo_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
+					<ul id="bo_cate_ul" class="sly-list d-flex border-left-0">
 						<?php echo $category_option ?>
 					</ul>
 				</div>

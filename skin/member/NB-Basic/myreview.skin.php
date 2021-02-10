@@ -140,8 +140,8 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
         
         while ($row = sql_fetch_array($result)) {
             $bo_table = $row['bo_table'];
-                $res = sql_query("select * from " . $g5['write_prefix'] . $bo_table . " where wr_7 ='{$member['mb_name']}'");
-                while ($res1 = sql_fetch_array( $res)) {?>
+                $res = sql_query("select * from " . $g5['write_prefix'] . $bo_table . " where wr_7 ='{$member['mb_name']}'  order by wr_datetime DESC");
+                while ($res1 = sql_fetch_array( $res)) { $resmember = get_member($res1['mb_id']); ?>
                         
                     <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
                         <div class="d-none d-md-table-cell nw-4 f-sm font-weight-normal py-md-2 px-md-1">
@@ -154,7 +154,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto text-left f-sm font-weight-normal py-md-2 pr-md-1">
                             <span class="sr-only">작성자</span>
-                            <?php echo get_level($res1['mb_id']), $res1['wr_name'] ?>
+                            <?php echo na_name_photo($res1['mb_id'], get_sideview($res1['mb_id'], $resmember['mb_nick'], $resmember['mb_homepage'])) ?>
                         </div>
                         <div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
                             <?php echo $res1['wr_datetime']; ?>
