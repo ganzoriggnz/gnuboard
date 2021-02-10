@@ -158,7 +158,7 @@ sql_query($sql);
 
 
 // 출석 포인트 지급
-insert_point($member['mb_id'], (int)($sql_point * 1), "출석 포인트", "@attendance", $member['mb_nick'], G5_TIME_YMD);
+insert_point($member['mb_id'], (int)($sql_point * 1), "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
 
 
 // 완료
