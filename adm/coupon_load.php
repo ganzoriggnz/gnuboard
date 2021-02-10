@@ -51,9 +51,9 @@ $result2 = sql_query($query2);
 
 while($row2 = sql_fetch_array($result2))
 {
-    $sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM '{$g5['coupon_alert_table']}' WHERE cos_nick = '{$row2['cos_nick']}'"; 
+    $sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert` WHERE cos_nick = '{$row2['cos_nick']}'"; 
     $row4 = sql_fetch($sql4);  
-    $res = "SELECT a.*, b.cos_accepted_datetime FROM {$g5['coupon_alert_table']} a INNER JOIN {$g5['coupon_sent_table']} b ON a.cos_no = b.cos_no WHERE alt_created_datetime = '{$row4['maxdate']}' ";
+    $res = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row4['maxdate']}' ";
     $res1 = sql_fetch($res);
 
  $data[] = array(
