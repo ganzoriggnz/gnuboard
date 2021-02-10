@@ -128,14 +128,14 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 		</thead>
 		<tbody>
         <?php 
-        $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='review'");
+        $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='review' ");
         $k++;
         while ($row = sql_fetch_array($result)) {
             $bo_table = $row['bo_table'];
-                $res = sql_query("select * from " . $g5['write_prefix'] . $bo_table . " where wr_7 ='{$member['mb_name']}'");
+                $res = sql_query("select * from " . $g5['write_prefix'] . $bo_table . " where wr_7 ='{$member['mb_name']}' order by wr_datetime DESC");
                 while ($res1 = sql_fetch_array( $res)) {?>
         <tr style="border:1px solid #d3d3d3;font-size: 10px; text-align: center; " >
-				<th class="cl_tr"><?php echo $k?></th>
+				<th class="cl_tr"><?php echo $res1['wr_id']?></th>
 				<th class="cl_tl" style="text-align: left;"> 
                 <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $bo_table?><?php echo "&wr_id=",$res1['wr_id']?>" style="color: #6c757d;">
                                 <?php echo $res1['wr_subject']; ?>
