@@ -35,7 +35,6 @@ $start_date = substr($row['mb_3'], 0, 10);
 $end_date = substr($row['mb_4'], 0, 10);
 $mb_note = $row['mb_5'];
 
-include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 ?>
 
 <style>
