@@ -210,7 +210,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                             $img_content = '<a  rel="single"  class="pirobox"  href="'.$thumb['src'].'" title="'.$list[$i]['subject'].'" 
                              style="margin:0 10px 0 0;  border-radus: 5px;"><img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="150px" height=""> </a>';
                         } else {
-                            $img_content = '<span style="width:'.$board['bo_gallery_width'].'px;height:'.$board['bo_gallery_height'].'px">no image</span>';
+                            $img_content = '<span style="width:150px;height:103px">No image</span>';
                         }
                         echo $img_content;
                     }
