@@ -262,6 +262,50 @@ $menu_cnt = count($menu);
 
 		<div id="nt_sidebar_menu">
 			<ul class="me-ul border-top">
+				<li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
+					<a class="fa fa-caret-down tree-toggle me-i" > &nbsp;&nbsp;퀵메뉴</a>
+						<ul class="me-ul1 tree off">
+							<li class="me-li1 ">
+							<a href= "<?php echo G5_URL?>/bbs/board.php?bo_table=notice">
+							<img src="<?php echo G5_URL?>/img/solid/microphone.svg" style="height: 13px;">&nbsp;공지사항</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_URL?>/bbs/content.php?co_id=company"><img src="<?php echo G5_URL?>/img/solid/baseline-import_contacts-24px.png">&nbsp;사이트안내</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_URL?>/bbs/member_list.php" ><img src="<?php echo G5_URL?>/img/solid/portrait.svg"  style="height: 13px; width: ">&nbsp;회원검색</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=shop" ><img src="<?php echo G5_URL?>/img/solid/gift.svg"  style="height: 13px;">&nbsp;아이템 샵</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=event" ><img src="<?php echo G5_URL?>/img/solid/baseline-wc-24px.png">&nbsp;이벤트모임</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=partnership" ><img src="<?php echo G5_URL?>/img/solid/comment-alt.svg"  style="height: 13px;">&nbsp;제휴문의</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_BBS_URL ?>/pet.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-adb-24px.png"  style="height: 13px;">&nbsp;펫 기르기</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_BBS_URL ?>/mission.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-ballot-24px.png" style="height: 13px;" >&nbsp;일일미션</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=free" ><img src="<?php echo G5_URL?>/img/solid/clone.svg"  style="height: 13px;">&nbsp;자유게시판</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_BBS_URL?>/point.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-swap_horizontal_circle-24px.png"  >&nbsp;파운드페니로전환</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="<?php echo G5_BBS_URL?>/point2.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-swap_horizontal_circle-24px.png"  >&nbsp;파편조각페니로전환</a>
+							</li>
+							<li class="me-li1 ">
+							<a href="#"><img src="<?php echo G5_URL?>/img/solid/baseline-monetization_on-24.png" >&nbsp;페니구매</a>
+							</li>
+						</ul>
+				</li>
+				
+
 				<?php for ($i = 0; $i < $menu_cnt; $i++) {
 					$me = $menu[$i];
 				?>
@@ -269,7 +313,6 @@ $menu_cnt = count($menu);
 						<?php if (isset($me['s'])) { //Is Sub Menu
 						?><a class="fa fa-caret-down tree-toggle me-i" > &nbsp;&nbsp;<?php echo $me['text']; ?></a>
 						<?php } ?>
-
 						<?php if (isset($me['s'])) { //Is Sub Menu
 						?>
 							<ul class="me-ul1 tree <?php echo ($me['on']) ? 'on' : 'off'; ?>">
