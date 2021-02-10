@@ -63,16 +63,15 @@ if ($category_option) {
 			$ca_select = $cn; // 현재 위치 표시
 		}
 		$category_option .= '<li'.$ca_active.'><a class="py-2 px-3" href="'.$category_href.'?sca='.urlencode($category).'">'.$ca_msg.$category.'</a></li>';
-	}	
-	
+	}
 ?>
 	<!-- 분류 시작 { -->
 	<nav id="bo_cate" class="sly-tab font-weight-normal mb-2">
 		<h3 class="sr-only"><?php echo $qaconfig['qa_title'] ?> 분류 목록</h3>
-		<div class="px-3 px-sm-0">
+		<div class="px-3">
 			<div class="d-flex">
-				<div id="bo_cate_list" class="sly-wrap flex-grow-1">
-					<ul id="bo_cate_ul" class="sly-list d-flex border-left-0">
+				<div id="bo_cate_list" class="">
+					<ul id="bo_cate_ul" class=" d-flex border-left-0">
 						<?php echo $category_option ?>
 					</ul>
 				</div>

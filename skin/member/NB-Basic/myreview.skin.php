@@ -3,6 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css">', 0);
+$i=0;
 ?>
 
 <div id="bo_v">
@@ -141,7 +142,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
         while ($row = sql_fetch_array($result)) {
             $bo_table = $row['bo_table'];
                 $res = sql_query("select * from " . $g5['write_prefix'] . $bo_table . " where wr_7 ='{$member['mb_name']}'  order by wr_datetime DESC");
-                while ($res1 = sql_fetch_array( $res)) { $resmember = get_member($res1['mb_id']); ?>
+                while ($res1 = sql_fetch_array( $res)) { $i++; $resmember = get_member($res1['mb_id']); ?>
                         
                     <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
                         <div class="d-none d-md-table-cell nw-4 f-sm font-weight-normal py-md-2 px-md-1">
@@ -161,12 +162,12 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                         </div>
                         <div class="clearfix d-block d-md-none"></div>
                     </li>
-               <?php  }
-            
+               <?php  }            
         } ?>
-
     </ul>
-    <?php if ($i == 0) { ?>
+    <?php 
+    
+    if ($i == 0) { ?>
         <div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">자료가 없습니다.</div>
     <?php } ?>
     <div class="font-weight-normal px-3 mt-4">
