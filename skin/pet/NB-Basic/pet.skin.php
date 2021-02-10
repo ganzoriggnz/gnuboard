@@ -56,7 +56,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             var count = 0;
             $(".panel1 button").click(function(){
                 var id = this.id;
-                var lastClickedTime = new Date($.now());
+                var lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
                 count = 1;
                 $("#cat1").css("background","#4D4D4D");
                 $.ajax({
@@ -78,7 +78,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             $(".panel2 button").click(function(){
                 id = this.id;
                 var firstTime = $('#but1').val(); 
-               if (getElapsedMinutes(firstTime, new Date($.now())) >= 30){
+               if (getElapsedMinutes(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
                         lastClickedTime = new Date($.now());
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
@@ -97,7 +97,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
  
                 } else {
-                    var time = getElapsedTime(firstTime, new Date($.now()));
+                    var time = getElapsedTime(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>"));
                         $('#time').html(time);
                         $('.popup_box').css("display", "block");
                         $('.btn').click(function(){
@@ -109,7 +109,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             $(".panel3 button").click(function(){
                 id = this.id;
                 var secondTime = $('#but2').val(); 
-               if (getElapsedMinutes(secondTime, new Date($.now())) >= 30){
+               if (getElapsedMinutes(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
                         lastClickedTime = new Date($.now());
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
@@ -126,7 +126,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
                     getSuccess();
                 } else {
-                    var time = getElapsedTime(secondTime, new Date($.now()));
+                    var time = getElapsedTime(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>"));
                         $('#time').html(time);
                         $('.popup_box').css("display", "block");
                         $('.btn').click(function(){
