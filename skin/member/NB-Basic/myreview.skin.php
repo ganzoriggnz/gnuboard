@@ -152,7 +152,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                                 <?php echo $res1['wr_subject']; ?>
                             </a>
                         </div>
-                        <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+                        <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto text-left f-sm font-weight-normal py-md-2 pr-md-1">
                             <span class="sr-only">작성자</span>
                             <?php echo get_level($res1['mb_id']), $res1['wr_name'] ?>
                         </div>
