@@ -28,28 +28,12 @@ include_once('./admin.head.php');
   padding: 0px 2px 4px 4px;
 }
 
-/* .nav > .active {
-    background-color: chartreuse; 
-}
-.nav > .active a{
-  color : aqua
-}
-.nav-item > a:hover {
-    color : aqua!important;
-}
-
-.nav li{
-  list-style:none;
-} */
-
 .modal.fade .modal-dialog {
    -webkit-transform: none;
    transform: none;
  }
 
- /* a:link, a:visited {
-     color: #fff;
- } */ 
+ #ui-datepicker-div {display: none;}
 
  .active {
      color: red;
