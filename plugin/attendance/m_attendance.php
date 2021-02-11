@@ -1,6 +1,7 @@
 <?php
 include_once("../../common.php");
 include_once("./_setup.php");
+
 $G5_TIME_YMD = G5_TIME_YMD;
 $g5['title'] = "출석체크";
 
@@ -98,7 +99,7 @@ if ($d) {
 
 }
 ?>
-<link rel="stylesheet" href="../attendance.css" />
+<link rel="stylesheet" href="<?php echo $G5_URL ?>/plugin/attendance/attendance.css" />
 <div id="bo_v">
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr height="<?php echo $config['cf_home_height']?>"><td align="center" colspan="<?php echo $colspan?>"></td></tr>
