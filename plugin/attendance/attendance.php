@@ -99,7 +99,7 @@ if ($d) {
 
 }
 ?>
-<link rel="stylesheet" href="./attendance.css" />
+<link rel="stylesheet" href="../attendance.css" />
 <div id="bo_v">
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr height="<?php echo $config['cf_home_height']?>"><td align="center" colspan="<?php echo $colspan?>"></td></tr>
