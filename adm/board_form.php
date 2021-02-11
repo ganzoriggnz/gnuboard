@@ -91,6 +91,7 @@ $readonly = "";
 $sound_only = "";
 if ($w == '') {
 
+
     $html_title .= ' 생성';
 
     $required = 'required';
@@ -140,10 +141,42 @@ if ($w == '') {
             alert('그룹이 틀립니다.');
     }
 
+    // $content = get_text(html_purifier($board['bo_insert_content']), 0);
+    // $bo_insert_content = conv_content(conv_unescape_nl(stripslashes($bo_insert_content)), $tmp_html);
+
     $readonly = 'readonly';
 
 }
 
+// -----------start ----------------------------------------------------------------------------------------------
+// $is_dhtml_editor = false;
+// $is_dhtml_editor_use = false;
+// $editor_content_js = '';
+// if(!is_mobile() || defined('G5_IS_MOBILE_DHTML_USE') && G5_IS_MOBILE_DHTML_USE)
+//     $is_dhtml_editor_use = true;
+
+// // 모바일에서는 G5_IS_MOBILE_DHTML_USE 설정에 따라 DHTML 에디터 적용
+// if ($config['cf_editor'] && $is_dhtml_editor_use && $board['bo_use_dhtml_editor'] && $member['mb_level'] >= $board['bo_html_level']) {
+//     $is_dhtml_editor = true;
+
+//     if ( $w == 'u'){
+//         // kisa 취약점 제보 xss 필터 적용
+//         $content = get_text(html_purifier($board['bo_insert_content']), 0);
+//         // $content = conv_content(conv_unescape_nl(stripslashes($bo_insert_content)), $tmp_html);
+//         // alert($content);
+//     }
+
+//     if(is_file(G5_EDITOR_PATH.'/'.$config['cf_editor'].'/autosave.editor.js'))
+//         $editor_content_js = '<script src="'.G5_EDITOR_URL.'/'.$config['cf_editor'].'/autosave.editor.js"></script>'.PHP_EOL;
+// }
+// $content = get_text(html_purifier($board['bo_insert_content']), 0);
+
+// $editor_html = editor_html('bo_insert_content', $content, $is_dhtml_editor);
+// $editor_js = '';
+// $editor_js .= get_editor_js('bo_insert_content', $is_dhtml_editor);
+// $editor_js .= chk_editor_js('bo_insert_content', $is_dhtml_editor);
+
+// -----------end ----------------------------------------------------------------------------------------------
 
 
 if ($is_admin != 'super') {
@@ -1002,20 +1035,10 @@ $pg_anchor = '<ul class="anchor">
          <tr>
             <th scope="row"><label for="bo_insert_content">글쓰기 기본 내용</label></th>
             <td>
-                <?php echo editor_html("bo_insert_content", get_text(html_purifier($board['bo_insert_content']), 0)); ?>
-                <!-- <textarea id="bo_insert_content" name="bo_insert_content" rows="5"><?php echo html_purifier($board['bo_insert_content']); ?></textarea> -->
-				<?php if ($is_dhtml_editor) { ?>
-					<style>
-						#bo_insert_content {
-							display: none;
-						}
-					</style>
-				<?php } else { ?>
-					<script>
-						$("#bo_insert_content").hide().addClass("form-control").show();
-					</script>
-				<?php } ?>
-
+                <!-- <?php echo editor_html("bo_insert_content", get_text(html_purifier($board['bo_insert_content']), 0)); ?> -->
+                <textarea id="bo_insert_content" name="bo_insert_content" rows="5"><?php echo html_purifier($board['bo_insert_content']); ?></textarea>
+                <!-- <?php echo $editor_html; ?> // 에디터 사용시는 에디터로, 아니면 textarea 로 노출 -->
+				
 
             </td>
             <td class="td_grpset">

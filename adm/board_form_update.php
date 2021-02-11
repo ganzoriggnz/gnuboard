@@ -9,7 +9,7 @@ auth_check($auth[$sub_menu], 'w');
 
 check_admin_token();
 
-
+// alert(get_text($_POST['bo_insert_content']));
 
 $gr_id = isset($_POST['gr_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_POST['gr_id']) : '';
 $bo_admin = isset($_POST['bo_admin']) ? preg_replace('/[^a-z0-9_\, \|\#]/i', '', $_POST['bo_admin']) : '';
@@ -95,12 +95,20 @@ $_POST['bo_subject'] = strip_tags(clean_xss_attributes($_POST['bo_subject']));
 $_POST['bo_mobile_subject'] = strip_tags(clean_xss_attributes($_POST['bo_mobile_subject']));
 
 
-$bo_insert_content = '';
-if (isset($_POST['bo_insert_content'])) {
-    $bo_insert_content = substr(trim($_POST['bo_insert_content']),0,65536);
-    $bo_insert_content = preg_replace("#[\\\]+$#", "", $bo_insert_content);
-}
-
+// $bo_insert_content = '';
+// if (isset($_POST['bo_insert_content'])) {
+//     $bo_insert_content = substr(trim($_POST['bo_insert_content']),0,65536);
+//     $bo_insert_content = preg_replace("#[\\\]+$#", "", $bo_insert_content);
+// }
+// $bo_insert_content = '';
+// if (isset($_POST['bo_insert_content'])) {
+//     $bo_insert_content = substr(trim($_POST['bo_insert_content']),0,65536);
+//     $bo_insert_content = preg_replace("#[\\\]+$#", "", $bo_insert_content);
+// }
+// if (substr_count($bo_insert_content, '&#') > 50) {
+//     alert('내용에 올바르지 않은 코드가 다수 포함되어 있습니다.');
+//     exit;
+// }
 // $bo_insert_content = preg_replace(array("#[\\\]+$#", "#(<\?php|<\?)#i"), "", substr($bo_insert_content, 0, 255));
 // $msg = array();
 // if ($bo_insert_content == '') {
@@ -111,10 +119,10 @@ if (isset($_POST['bo_insert_content'])) {
 // if ($msg) {
 //     alert($msg);
 // }
-if (substr_count($bo_insert_content, '&#') > 50) {
-    alert('내용에 올바르지 않은 코드가 다수 포함되어 있습니다.');
-    exit;
-}
+// if (substr_count($bo_insert_content, '&#') > 50) {
+//     alert('내용에 올바르지 않은 코드가 다수 포함되어 있습니다.');
+//     exit;
+// }
 
 $sql_common = " gr_id               = '{$gr_id}',
                 bo_subject          = '{$_POST['bo_subject']}',
@@ -170,7 +178,7 @@ $sql_common = " gr_id               = '{$gr_id}',
 
 // 최고 관리자인 경우에만 수정가능
 if ($is_admin === 'super'){
-$sql_common .= " bo_include_head     = '".$bo_include_head."',
+$sql_common .= " bo_include_head     = '{$_POST['bo_include_head']}',
                 bo_include_tail     = '".$bo_include_tail."',
                 bo_content_head     = '{$_POST['bo_content_head']}',
                 bo_content_tail     = '{$_POST['bo_content_tail']}',
@@ -221,6 +229,8 @@ $sql_common .= "bo_insert_content   = '$bo_insert_content',
 
 if ($w == '') {
 
+    // $bo_insert_content = conv_content(conv_unescape_nl(stripslashes($bo_insert_content)), $tmp_html);
+
     $row = sql_fetch(" select count(*) as cnt from {$g5['board_table']} where bo_table = '{$bo_table}' ");
     if ($row['cnt'])
         alert($bo_table.' 은(는) 이미 존재하는 TABLE 입니다.');
@@ -248,6 +258,7 @@ if ($w == '') {
 
 } else if ($w == 'u') {
 
+    
     // 게시판의 글 수
     $sql = " select count(*) as cnt from {$g5['write_prefix']}{$bo_table} where wr_is_comment = 0 ";
     $row = sql_fetch($sql);
@@ -475,7 +486,7 @@ if ($is_admin === 'super'){
     if (is_checked('chk_all_mobile_content_tail'))         $all_fields .= " , bo_mobile_content_tail = '{$bo_mobile_content_tail}' ";
 }
 
-if (is_checked('chk_all_insert_content'))       $all_fields .= " , bo_insert_content = '{$bo_insert_content}' ";
+if (is_checked('chk_all_insert_content'))       $all_fields .= " , bo_insert_content = '$bo_insert_content' ";
 if (is_checked('chk_all_use_search'))           $all_fields .= " , bo_use_search = '{$bo_use_search}' ";
 if (is_checked('chk_all_order'))                $all_fields .= " , bo_order = '{$bo_order}' ";
 for ($i=1; $i<=10; $i++) {
