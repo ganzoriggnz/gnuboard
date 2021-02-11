@@ -155,7 +155,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 var clicked = new Date(current).getTime();
                 var res = Math.abs(end - clicked) / 1000;
                 
-                var minutes = Math.floor(res / 60) % 60;
+                var minutes = Math.floor(res / 60) % 60 - 1;
                 var seconds = Math.floor(res % 60);
 
                 return minutes + "분 " + seconds + "초";
