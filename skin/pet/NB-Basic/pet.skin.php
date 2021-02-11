@@ -78,7 +78,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             $(".panel2 button").click(function(){
                 id = this.id;
                 var firstTime = $('#but1').val(); 
-               if (getElapsedMinutes(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
+                if(firstTime == ''){
+                    alert("Please, click first button!");
+                } else 
+                {
+                    if (getElapsedMinutes(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
                         lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
@@ -96,20 +100,29 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         }
                     });
  
-                } else {
-                    var time = getElapsedTime(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>"));
-                        $('#time').html(time);
-                        $('.popup_box').css("display", "block");
-                        $('.btn').click(function(){
-                            $('.popup_box').css("display", "none");
-                        }); 
+                    } else {
+                        var time = getElapsedTime(firstTime, new Date($.now()));
+                            $('#time').html(time);
+                            $('.popup_box').css("display", "block");
+                            $('.btn').click(function(){
+                                $('.popup_box').css("display", "none");
+                            }); 
+                    }
                 }
             });
 
             $(".panel3 button").click(function(){
                 id = this.id;
+                var firstTime = $('#but1').val(); 
                 var secondTime = $('#but2').val(); 
-               if (getElapsedMinutes(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
+                if(firstTime == '' && secondTime == ''){
+                    alert("Please, click first button!");
+                }
+                else if(firstTime != '' && secondTime == ''){
+                    alert("Please, click second button!");
+ 
+                } else {
+                    if (getElapsedMinutes(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
                         lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
@@ -125,14 +138,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         }
                     });
                     getSuccess();
-                } else {
-                    var time = getElapsedTime(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>"));
-                        $('#time').html(time);
-                        $('.popup_box').css("display", "block");
-                        $('.btn').click(function(){
-                            $('.popup_box').css("display", "none");
-                        }); 
+                    } else {
+                        var time = getElapsedTime(secondTime, new Date($.now()));
+                            $('#time').html(time);
+                            $('.popup_box').css("display", "block");
+                            $('.btn').click(function(){
+                                $('.popup_box').css("display", "none");
+                            }); 
+                    }
                 }
+               
             });
 
             function getElapsedTime(last, current) {  
@@ -140,7 +155,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 var clicked = new Date(current).getTime();
                 var res = Math.abs(end - clicked) / 1000;
                 
-                var minutes = Math.floor(res / 60) % 60;
+                var minutes = Math.floor(res / 60) % 60 - 1;
                 var seconds = Math.floor(res % 60);
 
                 return minutes + "분 " + seconds + "초";
