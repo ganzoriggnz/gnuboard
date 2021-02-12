@@ -1399,7 +1399,6 @@ function na_board_rows($wset) {
 	return $list;
 }
 
-
 // 게시물 추출
 function na_board_rows_coupon($wset) {
 	global $g5, $member;
@@ -1439,7 +1438,7 @@ function na_board_rows_coupon($wset) {
 		$sql_wr = ($wset['comment']) ? "and a.wr_parent <> a.wr_id" : "and a.wr_parent = a.wr_id";
 
 		// 기간(일수,today,yesterday,month,prev)
-		$sql_term = na_sql_term($term, 'a.bn_datetime');
+		$sql_term = na_sql_term($term, 'a.co_created_datetime');
 		
 		// 공통쿼리
 		$now = G5_TIME_YMDHIS;
@@ -1452,12 +1451,12 @@ function na_board_rows_coupon($wset) {
 			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
 		}
 		/* $result = sql_query(" select a.mb_id, a.bo_table, b.bo_subject $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false); */
-		$result = sql_query(" select a.mb_id, a.bo_table, b.bo_subject $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false);
+		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false);
 		for ($i=0; $row=sql_fetch_array($result); $i++) {
 
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table']; 
 
-			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.mb_id = b.mb_id ", false);
+			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id ", false);
 			
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];

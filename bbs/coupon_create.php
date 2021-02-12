@@ -7,7 +7,8 @@ alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".u
 
 if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 쿠폰 테이블이 없다면 생성
     $sql_table = "CREATE TABLE {$g5['coupon_table']} (   
-        co_no int(11) NOT NULL AUTO_INCREMENT,         
+        co_no int(11) NOT NULL AUTO_INCREMENT, 
+        wr_id int(11) NOT NULL DEFAULT '0',        
         mb_id varchar(20) NOT NULL DEFAULT '',
         bo_table varchar(20) NOT NULL DEFAULT '',
         co_entity varchar(20) NOT NULL DEFAULT '',
@@ -20,7 +21,7 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 
         co_begin_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         co_end_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         PRIMARY KEY (co_no), 
-        INDEX (mb_id, bo_table, co_entity)
+        INDEX (mb_id, wr_id, bo_table, co_entity)
     )";
 
    sql_query($sql_table, false);

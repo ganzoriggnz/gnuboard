@@ -44,6 +44,11 @@ $co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
 else if($currentmonth == '12')
 $co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
 
+$at_table = $g5['write_prefix'].$bo_table;
+
+$sql1 = "SELECT wr_id FROM $at_table WHERE mb_id = '{$mb_id}' AND wr_is_comment = '0'";
+$row1 = sql_fetch($sql1);
+
 $sql = "SELECT COUNT(co_no) as cnt FROM {$g5['coupon_table']} WHERE mb_id = '{$mb_id}' AND co_begin_datetime='{$co_begin_datetime}' AND co_end_datetime='{$co_end_datetime}'";
 $row = sql_fetch($sql);
 $cnt = $row['cnt'];
@@ -54,7 +59,8 @@ else
 
 if($w == ''){    
     $sql = " INSERT INTO {$g5['coupon_table']}
-                SET mb_id = '{$mb_id}',
+                SET wr_id = '{$row1['wr_id'],
+                    mb_id = '{$mb_id}',
                     bo_table = '{$bo_table}',
                     co_entity = '{$co_entity}',
                     co_sale_num = '{$_POST['co_sale_num']}',
