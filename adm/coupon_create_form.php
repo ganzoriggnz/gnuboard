@@ -58,7 +58,7 @@ else
 
 if($w == ''){    
     $sql = " INSERT INTO {$g5['coupon_table']}
-                SET wr_id = '{$row1['wr_id'],
+                SET wr_id = '{$row1['wr_id']}',
                     mb_id = '{$mb_id}',
                     bo_table = '{$bo_table}',
                     co_entity = '{$co_entity}',
