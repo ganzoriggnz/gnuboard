@@ -5,6 +5,7 @@ auth_check($auth[$sub_menu], 'r');
 
 $co_no = $_POST['co_no'];
 $mb_id = $_POST['mb_id'];
+$bo_table = $_POST['mb_6'];
 $co_entity = $_POST['co_entity'];
 $cos_link = $_POST['cos_link'];
 $now = G5_TIME_YMDHIS;
@@ -53,6 +54,7 @@ else
 if($w == ''){    
     $sql = " INSERT INTO {$g5['coupon_table']}
                 SET mb_id = '{$mb_id}',
+                    bo_table = '{$bo_table}',
                     co_entity = '{$co_entity}',
                     co_sale_num = '{$_POST['co_sale_num']}',
                     co_free_num = '{$_POST['co_free_num']}',

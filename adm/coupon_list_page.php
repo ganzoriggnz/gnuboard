@@ -25,6 +25,7 @@ if( isset($_POST['id'])){
         $sql_table = "CREATE TABLE {$g5['coupon_table']} (   
             co_no int(11) NOT NULL AUTO_INCREMENT,         
             mb_id varchar(20) NOT NULL DEFAULT '',
+            bo_table varchar(20) NOT NULL DEFAULT '',
             co_entity varchar(20) NOT NULL DEFAULT '',
             co_sale_num int(11) NOT NULL DEFAULT '0',
             co_free_num int(11) NOT NULL DEFAULT '0',
@@ -35,7 +36,7 @@ if( isset($_POST['id'])){
             co_begin_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
             co_end_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
             PRIMARY KEY (co_no), 
-            INDEX (mb_id, co_entity)
+            INDEX (mb_id, bo_table, co_entity)
         )";
     
        sql_query($sql_table, false);
@@ -258,7 +259,7 @@ if( isset($_POST['id'])){
                         <div class="modal-dialog" role="document">
                             <div class="modal-content" style="width: 350px; height: 340px; font-weight: bold;">
                                 <?php   
-                                    $sql2 = "SELECT a.co_entity, b.mb_id, b.mb_name FROM {$g5['coupon_table']} a INNER JOIN {$g5['member_table']} b ON a.mb_id = b.mb_id WHERE a.co_entity = '{$user_entity[$cnt]['co_entity']}'";
+                                    $sql2 = "SELECT a.co_entity, b.mb_id, b.mb_name, b.mb_6 FROM {$g5['coupon_table']} a INNER JOIN {$g5['member_table']} b ON a.mb_id = b.mb_id WHERE a.co_entity = '{$user_entity[$cnt]['co_entity']}'";
                                     $row2 = sql_fetch($sql2);                      
                                     $sql3 = "SELECT * FROM {$g5['coupon_table']} WHERE co_entity = '{$user_entity[$cnt]['co_entity']}' AND co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime'";
                                     $row3 = sql_fetch($sql3); 
@@ -276,6 +277,7 @@ if( isset($_POST['id'])){
                                         <form id="fcouponcreate<?php echo $cnt;?>" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
                                             <input type="hidden" name="co_no" id="co_no" value="<?php echo $row3['co_no']; ?>">
                                             <input type="hidden" name="mb_id" id="mb_id" value="<?php echo $row2['mb_id']; ?>">
+                                            <input type="hidden" name="mb_6" id="mb_6" value="<?php echo $row2['mb_6']; ?>">
                                             <input type="hidden" name="cos_link" id="cos_link" value="<?php echo $bo_table; ?>">
                                             <div style="margin-left: 10px;"><?php echo $year."년 ".$month."월";?></div>
                                             <div style="margin-left: 10px;margin-top: 5px;"><?php echo "업소명 :";?>

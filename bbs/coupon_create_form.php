@@ -6,6 +6,7 @@ if (!$is_member)
 
 $mb_id = trim($member['mb_id']);
 $co_entity = $member['mb_name'];
+$bo_table = $member['mb_6'];
 $co_sale_num = $_POST['co_sale_num']; 
 $co_free_num = $_POST['co_free_num'];
 $co_created_datetime = G5_TIME_YMDHIS;
@@ -54,6 +55,7 @@ else
 if($w == ''){    
     $sql = " INSERT INTO {$g5['coupon_table']}
                 SET mb_id = '{$mb_id}',
+                    bo_table = '{$bo_table}',
                     co_entity = '{$co_entity}',
                     co_sale_num = '{$_POST['co_sale_num']}',
                     co_free_num = '{$_POST['co_free_num']}',

@@ -9,6 +9,7 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 
     $sql_table = "CREATE TABLE {$g5['coupon_table']} (   
         co_no int(11) NOT NULL AUTO_INCREMENT,         
         mb_id varchar(20) NOT NULL DEFAULT '',
+        bo_table varchar(20) NOT NULL DEFAULT '',
         co_entity varchar(20) NOT NULL DEFAULT '',
         co_sale_num int(11) NOT NULL DEFAULT '0',
         co_free_num int(11) NOT NULL DEFAULT '0',
@@ -19,7 +20,7 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_table']}",false)) { // 
         co_begin_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         co_end_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         PRIMARY KEY (co_no), 
-        INDEX (mb_id, co_entity)
+        INDEX (mb_id, bo_table, co_entity)
     )";
 
    sql_query($sql_table, false);

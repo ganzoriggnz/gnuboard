@@ -59,7 +59,7 @@ if ($nt_wing_path)
             </h3>
             <hr class="hr" />
             <div class="px-3 px-sm-0 my-3">
-                <?php echo na_widget('basic-wr-gallery', 'gallery-1', 'bo_list=video ca_list=게임 rows=8'); ?>
+                <?php echo na_widget('basic-wr-coupon', 'coupon', 'bo_list=video ca_list=게임 rows=8'); ?>
             </div>
 
             <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
