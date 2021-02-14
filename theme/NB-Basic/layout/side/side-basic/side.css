@@ -41,6 +41,7 @@
 #nt_side_menu .me-li.active .me-a,
 #nt_side_menu .me-li1.active .me-a1,
 #nt_side_menu .me-li2.active .me-a2 {
+	padding-bottom: 10px;
 	text-decoration:none; 
 	color:red !important; 
 	border-color: red !important;
@@ -77,16 +78,66 @@
 	}
 }
 
-.sub-ul li {padding:0;font-size:13px; border-bottom:1px dashed #aaa; border-top: 0; font-weight: normal;}
-.sub-ul li div {display:block;padding:8px 5px 8px 0px}
+.sub-ul li {
+	height: 40px;
+	padding:0;
+	font-size:13px; 
+	border-bottom:1px dashed #aaa; 
+	border-top: 0; 
+	justify-content: center;
+	align-items: center;
+	font-weight: normal;
+
+}
+.sub-ul li div {
+	display:flex;
+    justify-content: left;
+	font-weight: bold;
+	font-size: 14px;	
+	margin-top: 7px;
+}
+.sub-ul li div p{
+	padding-top: 6px;
+	width: 200px;
+}
 .sub-ul li div a:hover {text-decoration:none; color:red !important; border-color: red !important;}
-.sub-ul li div a {border:1px solid grey; border-radius:2px !important; margin-left: 3px;}
+.sub-ul li div a {
+	border:1px solid grey; 
+	border-radius:0px !important; 
+	margin-left: 8px;
+	font-size: 12px;
+	padding-top: 18px;
+}
 .sub-ul > li.active,.sub-ul > li.active:hover {background:#f8f8f8;border-color:#BABABB}
-.sub-ul > li.active > a {color:#000;font-weight:bold}
-.sub-ul li div a.cat_1_bg {background-color: #e6dcc1; width: 40px; height: 20px; text-align: center; float: right; color: #242424; border-color: #aaa;}
-.sub-ul li div a.cat_2_bg {background-color: #e6dcc1; width: 40px; height: 20px; text-align: center; margin-right: 2px; float: right; color: #242424; border-color: #aaa;}
-.sub-ul li div a.cat_1_bg_a {background-color: #e6dcc1; width: 40px; height: 20px; text-align: center; float: right; color: red; border-color: red;}
-.sub-ul li div a.cat_2_bg_a {background-color: #e6dcc1; width: 40px; height: 20px; text-align: center; margin-right: 2px; float: right; color: red; border-color: red;}
+.sub-ul > li.active > a {
+	color:#000;
+	font-weight:bold
+}
+.sub-ul li div a.cat_1_bg {
+	background-color: #e6dcc1; 
+	width: 45px; 
+	height: 35px; 
+	
+	text-align: center; 
+	align-items: center;
+    justify-content: center;
+	float: right; 
+	color: #242424; 
+	border-color: #aaa;
+
+	padding-top: 7px;
+	font-weight: 500;
+
+}
+.sub-ul li div a.cat_2_bg {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; margin-right: 0px; float: right; color: #242424; border-color: #aaa;	align-items: center;
+    justify-content: center;padding-top: 7px;
+	font-weight: 500;}
+.sub-ul li div a.cat_1_bg_a {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; float: right; color: red; border-color: red;	align-items: center;
+    justify-content: center;padding-top: 7px;
+	font-weight: 500;}
+.sub-ul li div a.cat_2_bg_a {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; margin-right: 0px; float: right; color: red; border-color: red;	align-items: center;
+    justify-content: center;padding-top: 7px;
+	font-weight: 500;}
 
 
 

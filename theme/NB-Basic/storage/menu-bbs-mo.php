@@ -316,7 +316,7 @@ $data=array (
       ),
       20 => 
       array (
-        'text' => '휴게텔 강원/충청/대전',
+        'text' => '휴게텔-강원/충청/대전',
         'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugeteldaejeon_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
@@ -331,7 +331,7 @@ $data=array (
       ),
       21 => 
       array (
-        'text' => '휴게텔 경상/전라/제주',
+        'text' => '휴게텔-경상/전라/제주',
         'href' => 'http://192.168.1.108/gnuboard/bbs/board.php?bo_table=hyugeteljeju_at',
         'icon' => 'fa-calendar',
         'target' => '_self',

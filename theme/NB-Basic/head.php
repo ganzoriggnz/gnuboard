@@ -28,24 +28,32 @@ if($tset['size'] > 0) {
 
 ?>
 <style>
-	.nt-container {
-        max-width: 1500px;
-        /*max-width:*/<?php //echo $tset['size'];?>/*px; */
+.nt-container {
+    max-width: 1500px;
+    /*max-width:*/
+    <?php //echo $tset['size'];?>/*px; */
+}
+
+.nt-container .col-md-9 {
+    max-width: calc(100% - 354px);
+
+}
+
+.nt-container .col-md-3 {
+    max-width: 304px;
+    min-width: 304px;
+}
+
+@media (max-width:768px) {
+    .nt-container .col-md-9 {
+        max-width: 100%;
     }
-    .nt-container .col-md-9{
-		max-width: calc(100% - 300px);
-		
-    }
-    .nt-container .col-md-3{
-        max-width: 300px;
-        min-width: 300px;
-    }
-    @media (max-width:768px) {
-        .nt-container .col-md-9{
-            max-width: 100%;
-        }
-    }
-	.no-responsive .wrapper { min-width:<?php echo ($tset['size'] + 40);?>px; }
+}
+
+.no-responsive .wrapper {
+    min-width: <?php echo ($tset['size'] + 40);
+    ?>px;
+}
 </style>
 <?php
 // 필수 : 헤더,테일 사용안함
@@ -124,9 +132,9 @@ if($nt_top_path)
 	@include_once ($nt_top_path.'/top.php');
 ?>
 <div class="wrapper m-auto overflow-hidden">
-	<div id="nt_header">
-		<div id="nt_sticky">
-		<?php
+    <div id="nt_header">
+        <div id="nt_sticky">
+            <?php
 		// LNB
 		//if($nt_lnb_path)
 			//@include_once ($nt_lnb_path.'/lnb.php');
@@ -138,8 +146,8 @@ if($nt_top_path)
 		if($nt_header_path)
 			@include_once ($nt_header_path.'/header.php');
 		?>
-		</div>
-		<?php
+        </div>
+        <?php
 		// PAGE TITLE
 		if($nt_title_path)
 			@include_once ($nt_title_path.'/title2.php');
@@ -151,14 +159,14 @@ if($nt_top_path)
 			@include_once ($nt_wing_path.'/wing.php');
 
 		?>
-	</div><!-- #nt_header -->
+    </div><!-- #nt_header -->
 
-	<div id="nt_body" class="nt-body px-0 px-sm-4">
-	<?php if($is_page_col) { ?>
-		<div class="nt-container py-3 py-sm-4">
-		<?php if($is_page_col == "two") { ?>
-			<div class="row na-row">
-				<div class="col-md-<?php echo $is_content_col ?>
+    <div id="nt_body" class="nt-body px-0 px-sm-4">
+        <?php if($is_page_col) { ?>
+        <div class="nt-container py-3 py-sm-4">
+            <?php if($is_page_col == "two") { ?>
+            <div class="row na-row">
+                <div class="col-md-<?php echo $is_content_col ?>
 				<?php echo ($tset['left_side']) ? ' order-md-2' : ' order-md-2';?> na-col">
-		<?php } ?>
-	<?php } ?>
+                    <?php } ?>
+                    <?php } ?>

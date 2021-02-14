@@ -71,18 +71,24 @@ img.light-circle { border-width: 1px; border-style: solid; background-color: #ff
 .na-table-head > div { text-align:center; font-weight:bold;	padding-top:0.75rem; padding-bottom:0.75rem; }
 
 /* 너비 사이즈 */
-.na-row { margin-left:-0.75rem !important; margin-right:-0.75rem !important; }
+.na-row { 
+margin-left:-0.75rem !important;
+margin-right:-0.75rem !important; 
+}
 .na-col { 
-    padding-left:0.75rem !important; 
+    /* padding-left:0.75rem !important;  */
     padding-right:0.75rem !important; 
 }
 .flex80d {
     flex: 100%;
+    padding-left: 48px;
     /* background-color:rgba(255, 255, 255, 0.796); */
 }
 
 .order-md-2 {
     background-color:#fff;
+
+
 }
 
 .nw-c1 { width:10.0rem; }

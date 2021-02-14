@@ -189,9 +189,7 @@ function na_theme_href($type, $mode='', $fid='', $sid='') {
 function na_menu_item($it) {
 
 	$me = array();
-
-	$me = $it;
-	
+	$me = $it;	
 	// url 치환
 	$it['href'] = na_url_amp(na_url($it['href']));
 
