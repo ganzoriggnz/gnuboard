@@ -186,7 +186,6 @@ else if($end_time < $now_time){
 </ul>
 
 
-asdfa sdfas dfas dfas dfas dfasd f
 
 <ul class="sub-ul mb-3">
     <li class="me-li"
