@@ -15,6 +15,7 @@
 	padding-left:2.5rem;
 	border-top:1px solid #eee;
 	overflow:hidden;
+
 }
 #nt_side_menu .tree-toggle { 
 	position:absolute; 
@@ -107,6 +108,7 @@
 	margin-left: 8px;
 	font-size: 12px;
 	padding-top: 18px;
+	
 }
 .sub-ul > li.active,.sub-ul > li.active:hover {background:#f8f8f8;border-color:#BABABB}
 .sub-ul > li.active > a {
@@ -114,6 +116,7 @@
 	font-weight:bold
 }
 .sub-ul li div a.cat_1_bg {
+	background-image: url('./img/sidebuttonbg.png'); 
 	background-color: #e6dcc1; 
 	width: 45px; 
 	height: 35px; 
@@ -131,13 +134,13 @@
 }
 .sub-ul li div a.cat_2_bg {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; margin-right: 0px; float: right; color: #242424; border-color: #aaa;	align-items: center;
     justify-content: center;padding-top: 7px;
-	font-weight: 500;}
+	font-weight: 500; 	background-image: url('./img/sidebuttonbg.png'); }
 .sub-ul li div a.cat_1_bg_a {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; float: right; color: red; border-color: red;	align-items: center;
     justify-content: center;padding-top: 7px;
-	font-weight: 500;}
+	font-weight: 500;	background-image: url('./img/sidebuttonbg.png'); }
 .sub-ul li div a.cat_2_bg_a {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; margin-right: 0px; float: right; color: red; border-color: red;	align-items: center;
     justify-content: center;padding-top: 7px;
-	font-weight: 500;}
+	font-weight: 500;	background-image: url('./img/sidebuttonbg.png'); }
 
 
 

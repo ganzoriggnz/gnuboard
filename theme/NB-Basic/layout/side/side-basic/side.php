@@ -161,12 +161,12 @@ else if($end_time < $now_time){
         <?php } ?>
         <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
             <p><?php echo $me['text'];?></p>
+            <a class="cat_2_bg  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?>"
+                href="<?php echo $me['href']; ?>" target="_self">정보
+            </a>
             <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
                 href="<?php echo $menu[1]['s'][$i]['href']; ?>" target="_self">
                 후기
-            </a>
-            <a class="cat_2_bg  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?>"
-                href="<?php echo $me['href']; ?>" target="_self">정보
             </a>
         </div>
     </li>
