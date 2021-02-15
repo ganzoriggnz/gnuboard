@@ -103,13 +103,15 @@ for ($i=0; $i < $list_cnt; $i++) {
 					$zurag = "gibcafe";
 				?>
 				<div class="img-item" style="background-image:url('<?php echo G5_IMG_URL."/".$zurag ?>.png'); background-repeat: no-repeat; background-size: 100% 100%;">
-					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>
+					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
 						<?php echo $wr_tack ?>
 						<?php echo $wr_cap ?>
+						<img src="<?php echo G5_IMG_URL ?>/coupon.png" style="width: 80px; height: 80px; margin-top: 50px; margin-left: 0px;">
 						<?php if($thumb) { ?>
 							<img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
 							<?php }  ?>							
 					</a>
+					
 				</div>
             </div>
             <div class="na-title" style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
