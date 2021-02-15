@@ -68,8 +68,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         },
                         dataType: 'text',
                         success: function(response) {
-                            /* $(".panel2 button").prop('disabled', false);  
-                            $(".panel2 button").removeProp('disabled'); */
                             $('#but1').val(lastClickedTime);
                         }
                     });
@@ -79,7 +77,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 id = this.id;
                 var firstTime = $('#but1').val(); 
                 if(firstTime == ''){
-                    alert("Please, click first button!");
+                    alert("첫번째 버튼을 클릭하세요.");
                 } else 
                 {
                     if (getElapsedMinutes(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
@@ -94,8 +92,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         },
                         dataType: 'text',
                         success: function(response) {
-                            /* $(".panel3 button").prop('disabled', false);   
-                            $(".panel3 button").removeProp('disabled'); */
                             $('#but2').val(lastClickedTime);
                         }
                     });
@@ -116,10 +112,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 var firstTime = $('#but1').val(); 
                 var secondTime = $('#but2').val(); 
                 if(firstTime == '' && secondTime == ''){
-                    alert("Please, click first button!");
+                    alert("첫번째 버튼을 클릭하세요.");
                 }
                 else if(firstTime != '' && secondTime == ''){
-                    alert("Please, click second button!");
+                    alert("먼저 두번쨰 버튼을 클릭하세요.");
  
                 } else {
                     if (getElapsedMinutes(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
@@ -155,7 +151,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 var clicked = new Date(current).getTime();
                 var res = Math.abs(end - clicked) / 1000;
                 
-                var minutes = Math.floor(res / 60) % 60 - 1;
+                var minutes = Math.floor(res / 60) % 60;
                 var seconds = Math.floor(res % 60);
 
                 return minutes + "분 " + seconds + "초";
