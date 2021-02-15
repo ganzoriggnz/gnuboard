@@ -1,7 +1,7 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
-// add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
+// add_stylesheet('css 펫', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
 
 ?>
@@ -53,32 +53,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     </div>
     <script>
         $(document).ready(function(){
-
-            var offset = 0;
-            function calcOffset() {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", "https://210.114.18.63/", false);
-                xmlhttp.send();
-
-                var dateStr = xmlhttp.getResponseHeader('Date');
-                var serverTimeMillisGMT = Date.parse(new Date(Date.parse(dateStr)).toUTCString());
-                var localMillisUTC = Date.parse(new Date().toUTCString());
-
-                offset = serverTimeMillisGMT -  localMillisUTC;
-            }
-
-            function getServerTime() {
-                var date = new Date();
-
-                date.setTime(date.getTime() + offset);
-
-                return date;
-            }
-
             var count = 0;
             $(".panel1 button").click(function(){
                 var id = this.id;
-                var lastClickedTime = getServerTime();
+                var lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
                 count = 1;
                 $("#cat1").css("background","#4D4D4D");
                 $.ajax({
@@ -92,8 +70,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         success: function(response) {
                             $('#but1').val(lastClickedTime);
                         }
-                    });
                 });
+            });
 
             $(".panel2 button").click(function(){
                 id = this.id;
@@ -102,8 +80,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("첫번째 버튼을 클릭하세요.");
                 } else 
                 {
-                    if (getElapsedMinutes(firstTime, getServerTime()) >= 30){
-                        lastClickedTime = getServerTime();
+                    if (getElapsedMinutes(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
+                        lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
@@ -119,7 +97,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
  
                     } else {
-                        var time = getElapsedTime(firstTime, getServerTime());
+                        var time = getElapsedTime(firstTime, new Date($.now()));
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
@@ -140,7 +118,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("먼저 두번쨰 버튼을 클릭하세요.");
  
                 } else {
-                    if (getElapsedMinutes(secondTime, getServerTime()) >= 30){
+                    if (getElapsedMinutes(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
                         lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
@@ -157,7 +135,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
                     getSuccess();
                     } else {
-                        var time = getElapsedTime(secondTime, getServerTime());
+                        var time = getElapsedTime(secondTime, new Date($.now()));
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
@@ -173,8 +151,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                 var clicked = new Date(current).getTime();
                 var res = Math.abs(end - clicked) / 1000;
                 
-                var minutes = Math.floor(res / 60) % 60;
-                var seconds = Math.floor(res % 60);
+                var minutes = Math.floor(res / 60) % 60-1;
+                var seconds = Math.floor(res % 60)-15;
 
                 return minutes + "분 " + seconds + "초";
             }
