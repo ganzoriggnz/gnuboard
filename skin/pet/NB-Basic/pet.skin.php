@@ -53,10 +53,32 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     </div>
     <script>
         $(document).ready(function(){
+
+            var offset = 0;
+            function calcOffset() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", "https://210.114.18.63/", false);
+                xmlhttp.send();
+
+                var dateStr = xmlhttp.getResponseHeader('Date');
+                var serverTimeMillisGMT = Date.parse(new Date(Date.parse(dateStr)).toUTCString());
+                var localMillisUTC = Date.parse(new Date().toUTCString());
+
+                offset = serverTimeMillisGMT -  localMillisUTC;
+            }
+
+            function getServerTime() {
+                var date = new Date();
+
+                date.setTime(date.getTime() + offset);
+
+                return date;
+            }
+
             var count = 0;
             $(".panel1 button").click(function(){
                 var id = this.id;
-                var lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
+                var lastClickedTime = getServerTime();
                 count = 1;
                 $("#cat1").css("background","#4D4D4D");
                 $.ajax({
@@ -80,8 +102,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("첫번째 버튼을 클릭하세요.");
                 } else 
                 {
-                    if (getElapsedMinutes(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
-                        lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
+                    if (getElapsedMinutes(firstTime, getServerTime()) >= 30){
+                        lastClickedTime = getServerTime();
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
@@ -97,7 +119,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
  
                     } else {
-                        var time = getElapsedTime(firstTime, new Date($.now()));
+                        var time = getElapsedTime(firstTime, getServerTime());
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
@@ -118,7 +140,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("먼저 두번쨰 버튼을 클릭하세요.");
  
                 } else {
-                    if (getElapsedMinutes(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
+                    if (getElapsedMinutes(secondTime, getServerTime()) >= 30){
                         lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
@@ -135,7 +157,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
                     getSuccess();
                     } else {
-                        var time = getElapsedTime(secondTime, new Date($.now()));
+                        var time = getElapsedTime(secondTime, getServerTime());
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
