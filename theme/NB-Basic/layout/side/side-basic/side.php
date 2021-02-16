@@ -103,36 +103,24 @@ else if($end_time < $now_time){
 <!-- //////////////////////////////////////////////////// -->
 
 <ul class="sub-ul mb-3">
-    <?php 
 
+    <?php 
     if($member['mb_level'] == '26' || $member['mb_level'] == '27') { 
         ?>
-    <li class="me-li pt-3 pb-3 pr-2" style="font-weight: bold;">
-        <div class="text-left" style="display: inline;">제휴마감
-        </div>
-        <div class="text-center" style="color: #0000FF; display: inline;">D - <?php echo $diff_days ?>일
-        </div>
-        <div class="text-right" style="display: inline;"><a
-                href="<?php echo G5_URL; ?>/bbs/board.php?bo_table=partnership"
-                class="cat_1_bg <?php echo ($_GET['bo_table'] == "partnership") ? "activesubs" : "" ?>"
-                style="display: inline; width: 83px;">연장신청 </a>
+    <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
+        <div>
+            <p>제휴마감 <span style="color: #3333ff;">D-<?php echo $diff_days ?>일</span></p>
+            <a style="width: 90px;"
+                class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
+                href="<?php echo G5_URL; ?>/bbs/board.php?bo_table=partnership" target="_self">
+                연장신청
+            </a>
         </div>
     </li>
     <?php
-          } else { echo '<li  class="me-li pt-3 pb-3 text-center" style="font-weight: bold;">업소리스트</li>';
-          }
+          } 
+        //   else { echo '<li  class="me-li pt-3 pb-3 text-center" style="font-weight: bold;">업소리스트</li>';}
 
-          ?>
-</ul>
-
-
-
-
-
-
-
-<ul class="sub-ul mb-3">
-    <?php 
     $k=0;
     $listd;
     $listd[$k]['name'] = substr($menu[0]['s'][0]['text'], 0, strrpos($menu[0]['s'][0]['text'], "-"));
@@ -174,11 +162,9 @@ else if($end_time < $now_time){
     <?php 
    }     
    $k++;
-            $listd[$k]['name'] = substr($menu[0]['s'][$ii]['text'], 0, strrpos($menu[0]['s'][$ii]['text'], "-"));   
+   $listd[$k]['name'] = substr($menu[0]['s'][$ii]['text'], 0, strrpos($menu[0]['s'][$ii]['text'], "-"));   
 }
-
 } ?>
-
 
     <!------------ 업체정보-start------------------------------ -->
     <li class="me-li"
@@ -231,6 +217,12 @@ else if($end_time < $now_time){
     </li>
     <?php } //for  ?>
     <!------------ 업체정보 end------------------------------- -->
+
+
+
+
+
+
 </ul>
 
 
