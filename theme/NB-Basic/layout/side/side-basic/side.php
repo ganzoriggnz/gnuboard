@@ -231,11 +231,6 @@ else if($end_time < $now_time){
     </li>
     <?php } //for  ?>
     <!------------ 업체정보 end------------------------------- -->
-
-
-
-
-
 </ul>
 
 
@@ -254,9 +249,6 @@ else if($end_time < $now_time){
         <?php if(isset($me['s'])) { //Is Sub Menu ?>
         <?php } ?>
         <div class="col-6 m-0 px-0">
-            <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                       href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
-                    </a> -->
             <a class="border-0"
                 style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                 href="<?php echo $me['href']; ?>" target="_self"><img
@@ -333,9 +325,6 @@ else if($end_time < $now_time){
         <?php if(isset($me['s'])) { //Is Sub Menu ?>
         <?php } ?>
         <div class="col-6 m-0 px-0">
-            <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                              href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
-                        </a> -->
             <a class="border-0"
                 style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                 href="<?php echo $me['href']; ?>" target="_self"><img
@@ -368,9 +357,6 @@ else if($end_time < $now_time){
         <?php if(isset($me['s'])) { //Is Sub Menu ?>
         <?php } ?>
         <div class="col-6 m-0 px-0">
-            <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                   href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
-                </a> -->
             <a class="border-0"
                 style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                 href="<?php echo $me['href']; ?>" target="_self"><img
