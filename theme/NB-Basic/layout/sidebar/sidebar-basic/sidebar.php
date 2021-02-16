@@ -329,7 +329,7 @@ $menu_cnt = count($menu);
 										<?php } ?>
 
 										<?php if($me1['text']=="실장업무게시판")
-												{if($member['mb_level']==26 || $member['mb_level']==27)
+												{if($member['mb_level']==26 || $member['mb_level']==27 || $is_admin) 
 													{ ?>
 										<a class="me-a1" href="<?php if($member['mb_level']==27)  echo $me1['href'];?>" <?php if($member['mb_level']==26)  echo 'onclick=levelalert();'?> target="<?php echo $me1['target']; ?>">
 											<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
