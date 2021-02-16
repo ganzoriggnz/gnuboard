@@ -394,11 +394,11 @@ hr.hr {
 	text-align: left;
 }
 hr.hr::after { 
-	width:11.92rem;
+	width:13.1rem;
 	height:1px; 
 	content: ""; 
 	position:absolute; 
-	left:0; 
+	right:0; 
 	bottom:0; 
 	line-height:1px;
 }
