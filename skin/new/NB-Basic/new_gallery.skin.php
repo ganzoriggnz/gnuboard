@@ -8,6 +8,11 @@ $lg = ($wset['lg']) ? $wset['lg'] : 4;
 $xl = ($wset['xl']) ? $wset['xl'] : 5;
 
 ?>
+<style>
+	hr.hr::after { 
+	width:15.8rem;
+}
+</style>
 <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
     신규제휴업소 전체보기
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
