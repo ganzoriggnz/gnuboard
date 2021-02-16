@@ -1,7 +1,26 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; //개별 페이지 접근 불가
 
-// 이미지 영역 및 썸네일 크기 설정
+$xs = ($wset['xs']) ? $wset['xs'] : 2;
+$sm = ($wset['sm']) ? $wset['sm'] : 3;
+$md = ($wset['md']) ? $wset['md'] : 4;
+$lg = ($wset['lg']) ? $wset['lg'] : 4;
+$xl = ($wset['xl']) ? $wset['xl'] : 5;
+
+?>
+<h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
+    쿠폰 지원업소 보기
+    <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
+        <span class="float-right">
+            <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> gnuboard 프리미엄 제휴업소 전체보기
+        </span>
+    </a>
+</h3>
+<hr class="hr" />
+<div class="px-3 px-sm-0 my-3">
+	<ul class="row row-cols-<?php echo $xs ?> row-cols-sm-<?php echo $sm ?> row-cols-md-<?php echo $md ?> row-cols-lg-<?php echo $lg ?> row-cols-xl-<?php echo $xl ?> mx-n2">
+	<?php
+	// 이미지 영역 및 썸네일 크기 설정
 $wset['thumb_w'] = ($wset['thumb_w'] == "") ? 400 : (int)$wset['thumb_w'];
 $wset['thumb_h'] = ($wset['thumb_h'] == "") ? 225 : (int)$wset['thumb_h'];
 
@@ -17,7 +36,7 @@ $wset['sideview'] = 1; // 이름 레이어 출력
 $list = na_board_rows_coupon($wset);
 
 shuffle($list);
-$list_cnt = count($list)<=15 ? count($list) : 15;
+$list_cnt = count($list);
 
 // 랭킹
 $rank = na_rank_start($wset['rows'], $wset['page']);
@@ -176,3 +195,5 @@ for ($i=0; $i < $list_cnt; $i++) {
     글이 없습니다.
 </li>
 <?php } ?>
+	</ul>
+	</div>

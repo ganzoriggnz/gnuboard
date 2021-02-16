@@ -50,7 +50,7 @@ if ($nt_wing_path)
             ?>    
             <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
                 쿠폰 지원업소
-                <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
+                <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
                     <span class="float-right">
                         <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> 쿠폰 지원업소 전체보기
                     </span>
@@ -65,9 +65,9 @@ if ($nt_wing_path)
             <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
 
                 신규 제휴 업소
-                <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
+                <a href="<?php echo G5_URL?>/bbs/new_gallery.php">
                     <span class="float-right">
-                        <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> 신규 제휴업소 Best50 보기
+                        <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> 신규제휴업소 전체보기
                     </span>
                 </a>
             </h3>
