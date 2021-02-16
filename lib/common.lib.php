@@ -16,6 +16,38 @@ function get_microtime()
     return ((float)$usec + (float)$sec);
 }
 
+function get_cate_pic($catename,$pic=0){
+    $str = "";
+
+    if($catename == "안마" )
+        $zurag = "anma";				
+    else if($catename == "오피" )
+        $zurag = "ophy";
+    else if($catename== "휴게텔" )
+        $zurag = "tel";
+    else if($catename == "건마" )
+        $zurag = "massage";
+    else if($catename == "술집" )
+        $zurag = "suljip";
+    else if($catename == "립카페" )
+        $zurag = "lib";
+
+    else if($catename == "안마" )
+        $zurag = "petish";
+    else if($catename == "휴게텔" )
+        $zurag = "suljip";
+    else if($catename == "립카페" )
+        $zurag = "tel";
+
+    if ($pic==0)
+        $str = "background-image:url('".G5_IMG_URL."/main_".$zurag.".jpg');";
+    else if ($pic==1)
+        $str = '<img src="' . G5_IMG_URL . '/main_' . $zurag . '.jpg">';
+
+    return $str;
+}
+
+
 
 // 한페이지에 보여줄 행, 현재페이지, 총페이지수, URL
 function get_paging($write_pages, $cur_page, $total_page, $url, $add="")
@@ -24,7 +56,7 @@ function get_paging($write_pages, $cur_page, $total_page, $url, $add="")
     $url = preg_replace('#(&amp;)?page=[0-9]*#', '', $url);
 	$url .= substr($url, -1) === '?' ? 'page=' : '&amp;page=';
 
-    $str = '';
+    $str = ''; 
     if ($cur_page > 1) {
         $str .= '<a href="'.$url.'1'.$add.'" class="pg_page pg_start">처음</a>'.PHP_EOL;
     }

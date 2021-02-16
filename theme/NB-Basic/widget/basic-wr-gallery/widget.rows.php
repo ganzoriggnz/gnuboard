@@ -88,27 +88,16 @@ for ($i=0; $i < $list_cnt; $i++) {
 	$zurag = "anma";
 ?>
 
-<li class="col px-2 pb-4" style="width: 230px; height: 280px;">
+<li class="col px-2 pb-4" style="width: 230px; height: 300px;">
     <div style="background-image:url('<?php echo G5_IMG_URL?>/main_bgpicture.png'); background-size: 100% 100%;">
         <div>
             <div class="img-wrap mb-2">
-                <?php if($list[$i]['mb_2'] == "안마" )
-					$zurag = "anma";				
-				else if($list[$i]['mb_2'] == "오피" )
-					$zurag = "office";
-				else if($list[$i]['mb_2'] == "휴게텔" )
-					$zurag = "hyugetel";
-				else if($list[$i]['mb_2'] == "건마" )
-					$zurag = "gonma";
-				else if($list[$i]['mb_2'] == "립카페" )
-					$zurag = "gibcafe";
-				?>
                 <div class="img-item"
-                    style="background-image:url('<?php echo G5_IMG_URL."/".$zurag ?>.png'); background-repeat: no-repeat; background-size: 100% 100%;">
+                    style="<?php echo get_cate_pic($list[$i]['mb_2'])?> background-repeat: no-repeat; background-size: 100% 100%;">
                     <a href="<?php echo $list[$i]['href'] ?>" <?php echo $target ?> <?php echo $wr_tack ?>
                         <?php echo $wr_cap ?> <?php if($thumb) { ?> <img src="<?php echo $thumb ?>"
                         alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
-                        <?php }  ?>
+                        <?php }  echo $list[$i]['mb_2'];?>
                     </a>
                 </div>
             </div>

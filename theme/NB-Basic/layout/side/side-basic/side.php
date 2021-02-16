@@ -310,7 +310,7 @@ else if($end_time < $now_time){
         <?php } ?>
         <div class="col-6 m-0 px-0">
             <a class="border-0"
-                style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                 href="<?php echo $me['href']; ?>" target="_self"><img
                     src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
                     style="height :14px;"><?php echo $me['text'];?>
@@ -336,7 +336,7 @@ else if($end_time < $now_time){
         <?php } ?>
         <div class="col-6 m-0 px-0">
             <a class="border-0"
-                style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                 href="<?php echo $me['href']; ?>" target="_self"><img
                     src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
                     style="height :14px;"><?php echo $me['text'];?>
@@ -362,7 +362,7 @@ else if($end_time < $now_time){
         <?php } ?>
         <div class="col-6 m-0 px-0">
             <a class="border-0"
-                style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                 href="<?php echo $me['href']; ?>" target="_self"><img
                     src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
                     style="height :14px;"><?php echo $me['text'];?>
@@ -395,7 +395,7 @@ else if($end_time < $now_time){
                    href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
                 </a> -->
             <a class="border-0"
-                style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                 href="<?php echo $me['href']; ?>" target="_self"><img
                     src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
                     style="height :14px;"><?php echo $me['text'];?>

@@ -155,31 +155,17 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
                     </span>
                     <div class="gall_con">
                         <div class="gall_img">
-                            <a href="#">
+                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>">
                                 <?php
                                     if ($list[$i]['is_notice']) { // 공지사항  
                                     ?>
                                 <span class="is_notice">공지</span>
                                 <?php } else {
-                                        $picname = '';
-                                        if ($list[$i]['mb_2'] == "안마") {
-                                            $picname = "anma";
-                                        } else if ($list[$i]['mb_2'] == "오피") {
-                                            $picname = "office";
-                                        } else if ($list[$i]['mb_2'] == "건마") {
-                                            $picname = "gonma";
-                                        } else if ($list[$i]['mb_2'] == "립카페") {
-                                            $picname = "gibcafe";
-                                        } else if ($list[$i]['mb_2'] == "휴게텔") {
-                                            $picname = "hyugetel";
-                                        }
-                                        $imagee = '<img src="' . G5_IMG_URL . '/' . $picname . '.png">';
-                                        echo $imagee;
+                                        echo get_cate_pic($list[$i]['mb_2'],1);
                                     }
                                     ?>
                             </a>
                         </div>
-
 
                         <div class="gall_text_href"
                             style="display: flex; justify-content: center; flex-direction: column; align-items: center; width: 100%; height: 80px;">
