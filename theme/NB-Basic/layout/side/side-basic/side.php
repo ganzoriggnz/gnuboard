@@ -137,20 +137,16 @@ else if($end_time < $now_time){
     $listd;
     $listd[$k]['name'] = substr($menu[0]['s'][0]['text'], 0, strrpos($menu[0]['s'][0]['text'], "-"));
 
-    for ($ii=0 ; $ii < count($menu[0]['s']); $ii++){
+    for ($ii=0 ; $ii < 23; $ii++){
         if($listd[$k]['name'] != substr($menu[0]['s'][$ii]['text'], 0, strrpos($menu[0]['s'][$ii]['text'], "-")) )
         {
-            
-
-     
-
 ?>
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
         <img src="<?php echo G5_URL?>/img/img-flag5-on.png"><?php echo $listd[$k]['name']; ?> 업체정보
     </li>
     <?php 
-        for ($i=0; $i < count($menu[0]['s']); $i++) {
+        for ($i=0; $i < 22; $i++) {
             
             $me = $menu[0]['s'][$i];
              if (substr($me['text'], 0, strrpos($me['text'], "-")) == $listd[$k]['name'])
@@ -170,7 +166,6 @@ else if($end_time < $now_time){
             </a>
         </div>
     </li>
-
     <?php }} //for 
     if(!$menu_cnt) { ?>
     <li class="me-li">
@@ -183,6 +178,64 @@ else if($end_time < $now_time){
 }
 
 } ?>
+
+
+    <!------------ 업체정보-start------------------------------ -->
+    <li class="me-li"
+        style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png">업체정보
+    </li>
+    <?php 
+        for ($i=22; $i < 25; $i++) {            
+            $me = $menu[0]['s'][$i];
+            ?>
+    <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
+        <?php if(isset($me['s'])) { //Is Sub Menu ?>
+        <?php } ?>
+        <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
+            <p><?php echo $me['text'];?></p>
+            <a class="cat_2_bg  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?>"
+                href="<?php echo $me['href']; ?>" target="_self">정보
+            </a>
+            <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
+                href="<?php echo $menu[1]['s'][$i]['href']; ?>" target="_self">
+                후기
+            </a>
+        </div>
+    </li>
+    <?php } //for  ?>
+    <!------------ 업체정보 end------------------------------- -->
+
+    <!------------ 업체정보-start------------------------------ -->
+    <li class="me-li"
+        style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png">기타 업체정보
+    </li>
+    <?php 
+        for ($i=25; $i < 26; $i++) {            
+            $me = $menu[0]['s'][$i];
+            ?>
+    <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
+        <?php if(isset($me['s'])) { //Is Sub Menu ?>
+        <?php } ?>
+        <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
+            <p><?php echo $me['text'];?></p>
+            <a class="cat_2_bg  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?>"
+                href="<?php echo $me['href']; ?>" target="_self">정보
+            </a>
+            <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
+                href="<?php echo $menu[1]['s'][$i]['href']; ?>" target="_self">
+                후기
+            </a>
+        </div>
+    </li>
+    <?php } //for  ?>
+    <!------------ 업체정보 end------------------------------- -->
+
+
+
+
+
 </ul>
 
 
