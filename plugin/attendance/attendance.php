@@ -335,7 +335,7 @@ function dateGo(day)
     <td style="height:32px; border:0px solid">
 <form name="fattendance" method="post" onsubmit="return fattendance_submit(this);" style="margin:0px;">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td>
-    <div class="alert bg-light border form-row" style="height:40px; text-align: center; align-items: center; justify-content: center;">
+    <div class=" alert bg-light border form-row" style="height:40px; text-align: center; align-items: center; justify-content: center; margin:0px;">
             <input type="text" id="subject" name="subject" size="50" style="width:50%;" class="form-control input" value="출석인사를 입력해 주세요." onmouseover="if(!this.value || this.value == '출석인사를 입력해 주세요.')this.value='';" > 
             <input type="image" src= "<?php echo G5_IMG_URL ?>/attendance_ok.gif" border="0"  align="absmiddle">
     </div>
