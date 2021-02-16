@@ -224,7 +224,7 @@ else if($end_time < $now_time){
     }
     </style>
     <!------------ Quick menu start------------------------------- -->
-    <li class="me-li"
+    <!-- <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
         <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> 커뮤니티
     </li>
@@ -293,9 +293,33 @@ else if($end_time < $now_time){
             <a class="border-0" href="https://twitter.com/home" target="_blank">
                 <img src="<?php echo G5_URL?>/img/twitter.png" style="height: 12px;">트위터 인증</a>
         </div>
+    </li> -->
+
+
+    <li class="me-li"
+        style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[2]['text']?>
     </li>
-
-
+    <?php for ($i=0; $i < count($menu[2]['s']); $i++) {
+            $me = $menu[2]['s'][$i];
+            ?>
+    <?php if ($i%2==0) { ?>
+    <li class="row mx-0 me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
+        <?php } ?>
+        <?php if(isset($me['s'])) { //Is Sub Menu ?>
+        <?php } ?>
+        <div class="col-6 m-0 px-0">
+            <a class="border-0"
+                style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                href="<?php echo $me['href']; ?>" target="_self"><img
+                    src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
+                    style="height :14px;"><?php echo $me['text'];?>
+            </a>
+        </div>
+        <?php if ($i%2==1) { ?>
+    </li>
+    <?php }
+} ?>
     <!------------ 명예의전당 ------------------------------- -->
 
     <li class="me-li"
