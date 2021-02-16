@@ -91,7 +91,7 @@ for ($i=0; $i < $list_cnt; $i++) {
     <div style="background-image:url('<?php echo G5_IMG_URL?>/main_bgpicture.png'); background-size: 100% 100%;">
         <div>
             <div class="img-wrap mb-2">
-			<?php if($list[$i]['mb_2'] == "안마" )
+                <?php if($list[$i]['mb_2'] == "안마" )
 					$zurag = "anma";				
 				else if($list[$i]['mb_2'] == "오피" )
 					$zurag = "office";
@@ -102,23 +102,27 @@ for ($i=0; $i < $list_cnt; $i++) {
 				else if($list[$i]['mb_2'] == "립카페" )
 					$zurag = "gibcafe";
 				?>
-				<div class="img-item" style="background-image:url('<?php echo G5_IMG_URL."/".$zurag ?>.png'); background-repeat: no-repeat; background-size: 100% 100%;">
-					<a href="<?php echo $list[$i]['href'] ?>"<?php echo $target ?>>
-						<?php echo $wr_tack ?>
-						<?php echo $wr_cap ?>
-						<img src="<?php echo G5_IMG_URL ?>/coupon.png" style="width: 80px; height: 80px; margin-top: 50px; margin-left: 0px;">
-						<?php if($thumb) { ?>
-							<img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
-							<?php }  ?>							
-					</a>
-					
-				</div>
+                <div class="img-item"
+                    style="background-image:url('<?php echo G5_IMG_URL."/".$zurag ?>.png'); background-repeat: no-repeat; background-size: 100% 100%;">
+                    <a href="<?php echo $list[$i]['href'] ?>" <?php echo $target ?>>
+                        <?php echo $wr_tack ?>
+                        <?php echo $wr_cap ?>
+                        <img src="<?php echo G5_IMG_URL ?>/coupon.png"
+                            style="width: 80px; height: 80px; margin-top: 50px; margin-left: 0px;">
+                        <?php if($thumb) { ?>
+                        <img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
+                        <?php }  ?>
+                    </a>
+
+                </div>
             </div>
-            <div class="na-title" style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
-			<a href="<?php echo $list[$i]['href'] ?>" class="na-subject" style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;" <?php echo $target ?>>
-					<?php echo $wr_icon ?>
-					<?php echo $list[$i]['mb_name'] ?>
-				</a> 
+            <div class="na-title"
+                style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
+                <a href="<?php echo $list[$i]['href'] ?>" class="na-subject"
+                    style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;" <?php echo $target ?>>
+                    <?php echo $wr_icon ?>
+                    <?php echo $list[$i]['mb_name'] ?>
+                </a>
                 <p style="font-weight: bold; overflow: hidden;"><?php
 	    // global $g5;
 	    // $link = $g5['connect_db'];
@@ -131,16 +135,40 @@ for ($i=0; $i < $list_cnt; $i++) {
 
 		// 	}
 		// else {echo "false";}
-		echo $list[$i]['mb_addr2'] ?></p><div style="display: flex; align-items: center; line-height: 1.5;">
-	 		<p><?php echo $list[$i]['mb_hp'] ?></p> </div></div>
+		echo $list[$i]['mb_addr2'] ?></p>
+                <div style="display: flex; align-items: center; line-height: 1.5;">
+                    <p><?php echo $list[$i]['mb_hp'] ?></p>
+                </div>
+            </div>
 
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
+        <style>
+        .gal_btns {
+            background-color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 35px;
+            padding-top: 6px;
+            border: 1px solid black;
+        }
+        </style>
+        <div
+            style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
             <div>
-                <button type="button" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'" style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex; flex-direction: column;align-items: center; justify-content: center; width: 43px; height: 35px; margin-left: 44px; padding: 2px 2px;"><img src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png"><!-- <i class="fa fa-calendar"></i> --> 정보</button>
-            </div>
-            <div>
-                <button type="button" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>'" style="background-color: rgb(255, 255, 255, 0.05); font-size: 10px; font-weight: light; display: flex;flex-direction: column; align-items: center; justify-content: center; width: 43px; height: 35px; margin-right: 44px; padding: 2px 2px;"><img src="<?php echo G5_IMG_URL?>/chat_icon_main.png"><!-- <i class="fa fa-comments"></i> --> 후기</button>
+                <a type="button" class="gal_btns"
+                    onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"><img
+                        src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
+                    정보</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a type="button" class="gal_btns"
+                    onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>'"><img
+                        src="<?php echo G5_IMG_URL?>/chat_icon_main.png">
+                    후기</a>
             </div>
         </div>
     </div>
@@ -149,15 +177,21 @@ for ($i=0; $i < $list_cnt; $i++) {
             <span class="sr-only">등록자</span>
             <span class="sv_wrap">
                 <span class="sv">
-                    <a href="<?php echo G5_BBS_URL ?>/memo_form.php?me_recv_mb_id=user1" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-                    <a href="<?php echo G5_BBS_URL ?>/profile.php?mb_id=user1" onclick="win_profile(this.href); return false;">자기소개</a>
-                    <a href="<?php echo G5_BBS_URL ?>/new.php?mb_id=user1" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+                    <a href="<?php echo G5_BBS_URL ?>/memo_form.php?me_recv_mb_id=user1"
+                        onclick="win_memo(this.href); return false;">쪽지보내기</a>
+                    <a href="<?php echo G5_BBS_URL ?>/profile.php?mb_id=user1"
+                        onclick="win_profile(this.href); return false;">자기소개</a>
+                    <a href="<?php echo G5_BBS_URL ?>/new.php?mb_id=user1" class="link_new_page"
+                        onclick="check_goto_new(this.href, event);">전체게시물</a>
                 </span>
                 <noscript class="sv_nojs"><span class="sv">
-                    <a href="<?php echo G5_BBS_URL ?>/memo_form.php?me_recv_mb_id=user1" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-                    <a href="<?php echo G5_BBS_URL ?>/profile.php?mb_id=user1" onclick="win_profile(this.href); return false;">자기소개</a>
-                    <a href="<?php echo G5_BBS_URL ?>/new.php?mb_id=user1" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
-                </span>
+                        <a href="<?php echo G5_BBS_URL ?>/memo_form.php?me_recv_mb_id=user1"
+                            onclick="win_memo(this.href); return false;">쪽지보내기</a>
+                        <a href="<?php echo G5_BBS_URL ?>/profile.php?mb_id=user1"
+                            onclick="win_profile(this.href); return false;">자기소개</a>
+                        <a href="<?php echo G5_BBS_URL ?>/new.php?mb_id=user1" class="link_new_page"
+                            onclick="check_goto_new(this.href, event);">전체게시물</a>
+                    </span>
                 </noscript>
             </span>
         </span>
@@ -168,7 +202,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 <?php } ?>
 
 <?php if(!$list_cnt) { ?>
-	<li class="w-100 f-de text-muted text-center px-2 py-5">
-		글이 없습니다.
-	</li>
+<li class="w-100 f-de text-muted text-center px-2 py-5">
+    글이 없습니다.
+</li>
 <?php } ?>

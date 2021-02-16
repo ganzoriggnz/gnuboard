@@ -148,7 +148,7 @@ for ($i=0; $i < $list_cnt; $i++) {
                 <a type="button" class="gal_btns"
                     onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"
                     style=""><img src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
-                    <!-- <i class="fa fa-calendar"></i> --> 정보</a>
+                    정보</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a type="button" class="gal_btns"
                     onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>'">
