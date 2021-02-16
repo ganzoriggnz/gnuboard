@@ -31,13 +31,12 @@ function get_cate_pic($catename,$pic=0){
         $zurag = "suljip";
     else if($catename == "립카페" )
         $zurag = "lib";
-
-    else if($catename == "안마" )
+    else if($catename == "핸플" || $catename == "패티쉬" )
         $zurag = "petish";
-    else if($catename == "휴게텔" )
-        $zurag = "suljip";
-    else if($catename == "립카페" )
-        $zurag = "tel";
+    else if($catename == "기타" || $catename == "프로필 여행사" || $catename == "선불폰")
+        $zurag = "hand";
+    else if($catename == "키스방" )
+        $zurag = "kiss";
 
     if ($pic==0)
         $str = "background-image:url('".G5_IMG_URL."/main_".$zurag.".jpg');";
