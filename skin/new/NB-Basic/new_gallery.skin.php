@@ -12,7 +12,7 @@ $xl = ($wset['xl']) ? $wset['xl'] : 5;
     신규제휴업소 전체보기
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
         <span class="float-right">
-            <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> gnuboard 프리미엄 제휴업소 전체보기
+            <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> 프리미엄 제휴업소 전체보기
         </span>
     </a>
 </h3>
@@ -32,7 +32,6 @@ $xl = ($wset['xl']) ? $wset['xl'] : 5;
 
     // 추출하기
     $wset['sideview'] = 1; // 이름 레이어 출력
-
 
     $list = na_board_rows($wset);
 
@@ -113,7 +112,7 @@ $xl = ($wset['xl']) ? $wset['xl'] : 5;
                         <div class="img-item"
                             style="<?php echo get_cate_pic($list[$i]['mb_2'])?> background-repeat: no-repeat; background-size: 100% 100%;">
                             <a href="<?php echo $list[$i]['href'] ?>" <?php echo $target ?> <?php echo $wr_tack ?>
-                                <?php echo $wr_cap ?> <?php if($thumb) { ?> <img src="<?php echo $thumb ?>"
+                                <?php echo $wr_cap ?> <?php if($thumb) { ?>> <img src="<?php echo $thumb ?>"
                                 alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
                                 <?php }  echo $list[$i]['mb_2'];?>
                             </a>

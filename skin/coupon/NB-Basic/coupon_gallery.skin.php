@@ -12,7 +12,7 @@ $xl = ($wset['xl']) ? $wset['xl'] : 5;
     쿠폰 지원업소 보기
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
         <span class="float-right">
-            <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> gnuboard 프리미엄 제휴업소 전체보기
+            <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> 프리미엄 제휴업소 전체보기
         </span>
     </a>
 </h3>
@@ -98,7 +98,7 @@ for ($i=0; $i < $list_cnt; $i++) {
 	$zurag = "anma";
 ?>
 
-<li class="col px-2 pb-4" style="width: 230px; height: 280px;">
+<li class="col px-2 pb-4" style="width: 230px; height: 300px;">
     <div style="background-image:url('<?php echo G5_IMG_URL?>/main_bgpicture.png'); background-size: 100% 100%;">
         <div>
             <div class="img-wrap mb-2">
@@ -109,9 +109,9 @@ for ($i=0; $i < $list_cnt; $i++) {
                         <?php echo $wr_cap ?>
                         <img src="<?php echo G5_IMG_URL ?>/coupon.png"
                             style="width: 80px; height: 80px; margin-top: 50px; margin-left: 0px;">
-                        <?php if($thumb) { ?>
+                        <!-- <?php if($thumb) { ?>
                         <img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
-                        <?php }  ?>
+                        <?php }  ?> -->
                     </a>
 
                 </div>
