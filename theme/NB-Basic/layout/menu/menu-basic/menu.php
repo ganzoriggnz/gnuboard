@@ -113,7 +113,7 @@ $is_col_all = 6;
 											<li class="dropdown-item sub-1line" ><a class="me-sh sub-1da"><?php echo $me1['line'];?></a></li>
 										<?php } ?>										 -->
                                 <?php if($me1['text']=="실장업무게시판")
-												{if($member['mb_level']==26 || $member['mb_level']==27)
+												{if($member['mb_level']==26 || $member['mb_level']==27 || $is_admin)
 													{ ?>
                                 <li class="dropdown-submenu sub-1dli<?php echo ($me1['on']) ? ' on' : ''; ?>"
                                     style="flex:1;">
