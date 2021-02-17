@@ -9,11 +9,14 @@ $wsetss=$sca;
 $subcat=$subsca;
 $searchd=$searchd;
 $list = na_post_rows($wsetss,$subcat,$searchd); //
+
+$catecount = count(na_post_rows($wsetss));
 $list_cnt = count($list);
 
 
 $wsetrr=$sca;
 $listee = na_post_subcat($wsetrr); //
+
 $list_cnteee = count($listee);
 
 $stx = get_text(stripslashes($stx));
@@ -29,7 +32,7 @@ if ($board['bo_use_category']) {
     $category_option .= '<li><a href="'.$category_href.'"'; 
     if ($sca==''){
         $category_option .= ' id="bo_cate_on"';
-        $category_option .= '>전체('.$list_cnt.')</a></li>';
+        $category_option .= '>전체('.$catecount.')</a></li>';
     } else 
     $category_option .= '>전체</a></li>'; 
     
@@ -44,7 +47,7 @@ if ($board['bo_use_category']) {
         if ($category==$sca) { // 현재 선택된 카테고리라면
             $category_option .= ' id="bo_cate_on"';
             $category_msg = '<span class="sound_only">열린 분류 </span>';
-            $category_option .= '>'.$category_msg.$category.'('.$list_cnt.')</a></li>';
+            $category_option .= '>'.$category_msg.$category.'('.$catecount.')</a></li>';
         }
         else
         $category_option .= '>'.$category_msg.$category.'</a></li>';
