@@ -4,6 +4,77 @@ include_once(G5_LIB_PATH . '/thumbnail.lib.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">', 0);
+
+$wsetss=$sca;
+$subcat=$subsca;
+$searchd=$searchd;
+$list = na_post_rows($wsetss,$subcat,$searchd); //
+$list_cnt = count($list);
+
+
+$wsetrr=$sca;
+$listee = na_post_subcat($wsetrr); //
+
+$stx = get_text(stripslashes($stx));
+
+// 분류 사용 여부
+$is_category = false;
+$category_option = '';
+
+if ($board['bo_use_category']) {
+    $is_category = true;
+    $category_href = get_pretty_url($bo_table);
+
+    $category_option .= '<li><a href="'.$category_href.'"'; 
+    if ($sca==''){
+        $category_option .= ' id="bo_cate_on"';
+        $category_option .= '>전체('.$list_cnt.')</a></li>';
+    } else 
+    $category_option .= '>전체</a></li>'; 
+    
+     $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
+     
+    for ($i=0; $i<count($categories); $i++) {
+      
+         $category = trim($categories[$i]);
+        if ($category=='') continue;       
+         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
+        $category_msg = '';
+        if ($category==$sca) { // 현재 선택된 카테고리라면
+            $category_option .= ' id="bo_cate_on"';
+            $category_msg = '<span class="sound_only">열린 분류 </span>';
+            $category_option .= '>'.$category_msg.$category.'('.$list_cnt.')</a></li>';
+        }
+        else
+        $category_option .= '>'.$category_msg.$category.'</a></li>';
+    }    
+}
+
+$is_subcategory = false;
+$subcategory_option = '';
+
+if ($board['bo_use_category'] && $sca !='') {
+    $is_subcategory = true;
+    $subcategory_href = get_pretty_url($bo_table);  
+    
+     $subcategories = $listee[0]['ca_name']; // 구분자가 , 로 되어 있음
+   
+    for ($i=0; $i<$list_cnt; $i++) {
+        
+         $subcategory =  $listee[$i]['ca_name'];
+        if ($subcategory=='') continue;       
+         $subcategory_option .= '<li><a href="'.(get_pretty_url($bo_table,'','&sca='.$sca.'&subsca='.urlencode($subcategory))).'"';         
+         $subcategory_msg = '';
+        if ($subcategory==$subsca) { // 현재 선택된 카테고리라면
+            
+            $subcategory_option .= ' id="bo_subcate_on"';
+            $subcategory_msg = '<span class="sound_only">열린 분류 </span>';
+            $subcategory_option .= '>'.$subcategory_msg.$subcategory.'</a></li>';
+        }
+        else
+        $subcategory_option .= '>'.$subcategory_msg.$subcategory.'</a></li>';
+    }    
+}
 ?>
 
 
@@ -48,11 +119,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
         $img_height = ($wset['thumb_d']) ? $wset['thumb_d'] : '56.25';
     }
 
-    $wsetss=$sca;
-    $subcat=$subsca;
-    $searchd=$searchd;
-    $list = na_post_rows($wsetss,$subcat,$searchd); //
-    $list_cnt = count($list);
+   
     //-------------------------------------------------------------------------
 
     $group_select = '<label for="gr_id" class="sound_only">게시판 그룹선택</label><select name="gr_id" id="gr_id" class="select"><option value="">전체 분류';
