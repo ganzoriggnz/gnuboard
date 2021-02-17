@@ -352,6 +352,19 @@ function dateGo(day)
         </div>
     </div>
 </form>
+
+<script type="text/javascript">
+value=new Array();
+value[0]="출석문구0"
+value[1]="출석문구1"
+value[2]="출석문구2"
+value[3]="출석문구3"
+value[4]="출석문구4"
+rand = Math.floor( value.length * Math.random());
+randText = value[rand];
+document.getElementById("subject").value = randText;//$('#wr_text').html(randText);    
+</script>   
+
 <script type="text/javascript"> 
 /* function fattendance_submit(f) 
 { 
