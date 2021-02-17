@@ -40,6 +40,9 @@
 	background:#fff; 
 }
 
+.me-li img {
+ padding-right: 10px;
+}
 #nt_side_menu .me-li.active .me-a,
 #nt_side_menu .me-li1.active .me-a1,
 #nt_side_menu .me-li2.active .me-a2 {
@@ -89,6 +92,7 @@
 	border-top: 0; 
 	align-items: center;
 	font-weight: normal;
+	font-weight:bold;
 	font-family: "Roboto", sans-serif !important;
 
 }
