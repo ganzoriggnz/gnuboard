@@ -111,32 +111,34 @@ if ($d) {
     <td colspan="7" align="center">
 <table border="0" width="100%">
     <tr>
-        <td width="150" height="30" align="center" style='padding-top:10px;'>
+        <td  align="center" style="padding-top:10px;">
 		  <img src="<?php echo G5_ATTENDANCE_URL?>/img/icon_clock.gif" align="absmiddle"> <span id="time_view" style='color:#ccc;font-weight:none;'>0</span>
-		</td>
-        <td width="" height="30" style='padding-top:10px;'>
-		    <img src="<?php echo G5_ATTENDANCE_URL?>/img/exclamation.gif" align="absmiddle"> 출석부 이용안내
 		</td>
     </tr>
     <tr>
-        <td width="100" height="60" align="center">
+        <td  align="center">
 			<div id="box">
 				<li class="top"><a href="?d=<?php echo $DateP1?>&mode=<?php echo $mode?>" class="dot"><img src="<?php echo G5_ATTENDANCE_URL?>/img/btn_prev.gif" align="absmiddle"></a></li>
 				<li class="day"><span class="w"><?php echo $DateT1?></span></li>
 				<li class="top"><a href="?d=<?php echo $DateN3?>&mode=<?php echo $mode?>" class="dot"><img src="<?php echo G5_ATTENDANCE_URL?>/img/btn_next.gif" align="absmiddle"></a></li>
 			</div>		    
 		</td>
-        <td width="" height="60" style='padding-left:10px;'>
-		    출석시간 : <br />&nbsp;&nbsp;<?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br/><br/>
-            출석파운드 : <?php echo number_format($attendance['today_point'])?> 파운드<br /><br />
-            등수 파운드 : <br />&nbsp;&nbsp;1등 <?php echo number_format($attendance['first_point'])?> 파운드, 2등 <?php echo number_format($attendance['second_point'])?> 파운드, 3등 <?php echo number_format($attendance['third_point'])?> 파운드<br />
-            <br />
-            개근 파운드 : <br />
-            <?php echo $attendance['day']?>일 파운드 : <?php echo number_format($attendance['day_point'])?> 파운드,<br />
-            <?php echo $attendance['monthly']?>일 파운드 : <?php echo number_format($attendance['monthly_point'])?> 파운드, <br />
-            <?php echo $attendance['year1']?>일 파운드 : <?php echo number_format($attendance['year1_point'])?> 파운드, <br />
-            <?php echo $attendance['year2']?>일 파운드 : <?php echo number_format($attendance['year2_point'])?> 파운드, <br />
-            <?php echo $attendance['year3']?>일 파운드 : <?php echo number_format($attendance['year3_point'])?> 파운드, <br />
+        </tr>
+    <tr style="font-size: 12px;">
+
+		   
+
+        <td width=""  style='padding-left:10px;'>
+        <img src="<?php echo G5_ATTENDANCE_URL?>/img/exclamation.gif" align="absmiddle"> 출석부 이용안내 <br>
+		    출석시간 : <?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br/>
+            출석파운드 : <?php echo number_format($attendance['today_point'])?> 파운드<br />
+            등수 파운드 : 1등 <?php echo number_format($attendance['first_point'])?> 파운드, 2등 <?php echo number_format($attendance['second_point'])?> 파운드, 3등 <?php echo number_format($attendance['third_point'])?> 파운드<br />
+            개근 파운드 : 
+            <?php echo $attendance['day']?>일 파운드 : <?php echo number_format($attendance['day_point'])?> 파운드, 
+            <?php echo $attendance['monthly']?>일 파운드 : <?php echo number_format($attendance['monthly_point'])?> 파운드, 
+            <?php echo $attendance['year1']?>일 파운드 : <?php echo number_format($attendance['year1_point'])?> 파운드, 
+            <?php echo $attendance['year2']?>일 파운드 : <?php echo number_format($attendance['year2_point'])?> 파운드, 
+            <?php echo $attendance['year3']?>일 파운드 : <?php echo number_format($attendance['year3_point'])?> 파운드, 
             <?php echo $attendance['year']?>일 파운드 : <?php echo number_format($attendance['year_point'])?>파운드
 		</td>
     </tr>
@@ -384,7 +386,7 @@ function dateGo(day)
 <tr><td height="10"></td></tr>
 <tr>
     <td width="100%">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" valign="top" class="board_list">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" valign="top" class="board_list" style="font-size:10px;">
 <tr height="34">
     <td width="50" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>등수</td>
     <td width="100" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>출석시간</td>

@@ -90,7 +90,7 @@ $menu_cnt = count($menu);
 							<?php if ($member['as_noti']) { ?><b><?php echo number_format($member['as_noti']) ?></b><?php } ?>
 						</a>
 					<?php } ?> -->
-					<a href="<?php echo G5_ATTENDANCE_URL ?>/attendance.php/" class="btn btn-primary text-white" role="button">
+					<a href="<?php echo G5_ATTENDANCE_URL ?>/<?php echo  G5_IS_MOBILE ? "m_" : "" ?>attendance.php/" class="btn btn-primary text-white" role="button">
 					<!-- <i class="fas fa-calendar-check"></i></font></a> -->					
 					<img src="<?php echo G5_URL?>/img/solid/calendar-check.svg"  style="height:14px; " ></a>
 

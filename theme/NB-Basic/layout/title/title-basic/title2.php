@@ -28,6 +28,7 @@ $too = rand(0,$tood-1);
 ?>
 <style>
 
+
 		.notice{width:48%; height:16px; overflow:hidden;}
 		.rolling{position:relative; width:100%; height:16px;}
 		.rolling li{width:100%; height:16px; line-height:50px;}
