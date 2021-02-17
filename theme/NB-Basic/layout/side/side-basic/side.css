@@ -98,7 +98,7 @@
 }
 .sub-ul li div p{
 	padding-top: 6px;
-	width: 202px;
+	width: 181px;
 }
 .sub-ul li div a:hover {text-decoration:none; color:red !important; border-color: red !important;}
 .sub-ul li div a {
@@ -118,15 +118,13 @@
 	background-image: url('./img/sidebuttonbg.png'); 
 	background-color: #e6dcc1; 
 	width: 45px; 
-	height: 35px; 
-	
+	height: 35px; 	
 	text-align: center; 
 	align-items: center;
     justify-content: center;
 	float: right; 
 	color: #242424; 
 	border-color: #aaa;
-
 	padding-top: 7px;
 	font-weight: 500;
 
