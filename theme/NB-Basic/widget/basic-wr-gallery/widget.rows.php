@@ -95,9 +95,9 @@ for ($i=0; $i < $list_cnt; $i++) {
                 <div class="img-item"
                     style="<?php echo get_cate_pic($list[$i]['mb_2'])?> background-repeat: no-repeat; background-size: 100% 100%;">
                     <a href="<?php echo $list[$i]['href'] ?>" <?php echo $target ?> <?php echo $wr_tack ?>
-                        <?php echo $wr_cap ?> <?php if($thumb) { ?> <img src="<?php echo $thumb ?>"
+                        <?php echo $wr_cap ?> <!-- <?php if($thumb) { ?>> <img src="<?php echo $thumb ?>"
                         alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
-                        <?php }  echo $list[$i]['mb_2'];?>
+                        <?php } -->  echo $list[$i]['mb_2'];?>
                     </a>
                 </div>
             </div>
