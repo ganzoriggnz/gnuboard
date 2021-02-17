@@ -1283,10 +1283,10 @@ function na_post_subcat($wset,$subcat=''){
 				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id  GROUP BY a.ca_name", false  );
 			} else if ($subcat=='')
 				{								
-				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'  GROUP BY a.ca_name", false  );
+				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.wr_is_comment = '0'  GROUP BY a.ca_name", false  );
 			}
 			else {
-				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}' GROUP BY a.ca_name", false  );
+				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'  and a.wr_is_comment = '0' GROUP BY a.ca_name", false  );
 			}
 			while ( $row=sql_fetch_array($result1)) {					
 				$list[$cnt] = $row;				
