@@ -336,13 +336,21 @@ function dateGo(day)
 <tr>
     <td style="height:32px; border:0px solid">
 <form name="fattendance" method="post" onsubmit="return fattendance_submit(this);" style="margin:0px;">
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td>
+<!-- <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td>
     <input type="text" id="subject" name="subject" class="input" style="height: 30px;" value="출석인사를 입력해 주세요." onmouseover="if(!this.value || this.value == '출석인사를 입력해 주세요.')this.value='';" >
     <input type="image" style="height: 30px;"  src="<?php echo G5_IMG_URL ?>/attendance_ok.gif" border="0"  align="absmiddle">
-</td></tr></table>
+</td></tr></table> -->
+    <div id="msg_content" class="msg-content">
+        <div class="msg-cell">
+            <textarea id="subject" name="subject" class="form-control input-sm" rows="4" required="" maxlength="65536">출석인사를 입력해 주세요.</textarea>
+        </div>
+        <div tabindex="14" class="msg-cell msg-submit" onclick="att_submit();">
+            출석하기
+        </div>
+    </div>
 </form>
 <script type="text/javascript"> 
-function fattendance_submit(f) 
+/* function fattendance_submit(f) 
 { 
 
     var ChkSubject = document.getElementById("subject").value; 
@@ -354,8 +362,22 @@ function fattendance_submit(f)
 
     } 
    f.action = "<?php echo G5_PLUGIN_URL ?>/attendance/m_attendance_write_update.php"; 
-    // f.action = "./m_attendance_write_update.php"; 
-} 
+    f.action = "./m_attendance_write_update.php"; 
+}  */
+
+    function att_submit()
+    { 
+        var ChkSubject = $('#subject').val();
+        if (!ChkSubject || ChkSubject == '출석인사를 입력해 주세요.') { 
+
+            alert("출석인사를 입력하세요."); 
+            return false; 
+
+        } 
+        else {
+            $('#fattendance').submit();
+        } 
+    } 
 </script>
     </td>
 </tr>
