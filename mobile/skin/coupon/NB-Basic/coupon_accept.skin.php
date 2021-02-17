@@ -157,6 +157,3 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
         </script>
     </div>
 </div>
-
-    
- 
