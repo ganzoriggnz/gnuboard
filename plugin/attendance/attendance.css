@@ -36,3 +36,23 @@ A {text-decoration:none;}
 .board_list tr.bg1 { background-color:#ffffff; } 
 
 .input {height:22px}
+
+.msg-content {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.msg-content .msg-cell {
+    display: table-cell;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
+}
+.msg-cell.msg-submit {
+    width: 80px;
+    height: 100%;
+    background: #fafafa;
+    border: 1px solid #ccc;
+    border-left: 0px;
+    cursor: pointer;
+}
