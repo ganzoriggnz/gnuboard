@@ -1442,7 +1442,6 @@ function na_board_rows_coupon($wset) {
 		
 		// 공통쿼리
 		$now = G5_TIME_YMDHIS;
-		/* $sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and a.co_begin_datetime <= '{$now}' a.co_end_datetime >= '{$now}' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_wr $sql_term $sql_mb $sql_main $sql_where "; */
 		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and a.co_begin_datetime <= '{$now}' and a.co_end_datetime >= '{$now}' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
 		if($page > 1) {
 			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
@@ -1450,7 +1449,6 @@ function na_board_rows_coupon($wset) {
 			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
 		}
-		/* $result = sql_query(" select a.mb_id, a.bo_table, b.bo_subject $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false); */
 		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false);
 		for ($i=0; $row=sql_fetch_array($result); $i++) {
 

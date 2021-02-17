@@ -232,7 +232,14 @@ if ($board['bo_use_category'] && $sca !='') {
                                     ?>
                                 <span class="is_notice">공지</span>
                                 <?php } else {
-                                        echo get_cate_pic($list[$i]['mb_2'],1);
+                                        echo get_cate_pic($list[$i]['mb_2'],1); 
+                                        $now = G5_TIME_YMDHIS;                                      
+                                        $result_coupon = " select count(*) as co_cnt from {$g5['coupon_table']}  where mb_id='{$list[$i]['mb_id']}' and co_begin_datetime <= '{$now}' and co_end_datetime >= '{$now}'";
+                                        $row_co = sql_fetch($result_coupon);
+                                        $co_cnt = $row_co['co_cnt'];
+                                        if($co_cnt > '0'){ ?>
+                                            <img src="<?php echo G5_IMG_URL ?>/coupon.png" style="width: 80px; height: 80px; margin-top: 50px; margin-left: 0px;">
+                                  <?php }
                                     }
                                     ?>
                             </a>
