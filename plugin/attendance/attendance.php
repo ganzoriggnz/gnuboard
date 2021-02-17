@@ -394,7 +394,7 @@ function dateGo(day)
     <td width="170" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>닉네임</td>
     <td align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>출석인사</td>
     <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>접속중</td>
-    <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>파운드</td>
+    <td width="100" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>파운드</td>
     <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>개근</td>
 </tr>
 <?php
@@ -433,7 +433,7 @@ for ($i=0; $data=sql_fetch_array($result); $i++) {
 <tr height="30" class="bg<?php echo $list?>">
     <td align="center"><?php echo $rank?> 등</td>
     <td align="center"><?php echo substr($data['datetime'],10,16);?></td>
-    <td align="center"><?php echo na_name_photo($check['mb_id'], $name) ?></td>
+    <td align="left"><?php echo na_name_photo($check['mb_id'], $name) ?></td>
     <td style="padding:0 0 0 20px;"><?php echo get_text($data['subject'])?></td>
     <td align="center"><?php echo $on?></td>
     <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']);?> 파운드</td>
