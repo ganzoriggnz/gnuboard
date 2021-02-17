@@ -367,7 +367,6 @@ function dateGo(day)
 
     function att_submit()
     { 
-        debugger;
         var ChkSubject = $('#subject').val();
         if (!ChkSubject || ChkSubject == '출석인사를 입력해 주세요.') { 
 
