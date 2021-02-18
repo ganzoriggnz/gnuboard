@@ -118,7 +118,8 @@
 }
 .sub-ul > li.active,.sub-ul > li.active:hover {
 	/* background:#f8f8f8; */
-	border-color:#BABABB
+	border-color:#BABABB;
+	color: red;
 }
 .sub-ul > li.active > a {
 	color:#000;
