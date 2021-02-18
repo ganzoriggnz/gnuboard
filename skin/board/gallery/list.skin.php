@@ -97,7 +97,7 @@ if ($board['bo_use_category'] && $sca !='') {
         <ul id="bo_subcate_ul pb-5">
             <?php echo $subcategory_option ?>
         </ul>
-    </nav>
+    </nav><br>
     <nav id="bo_subcate">
         <h2><?php echo $board['bo_subject'] ?> subcategory</h2>
         <ul id="bo_subcate_ul">
