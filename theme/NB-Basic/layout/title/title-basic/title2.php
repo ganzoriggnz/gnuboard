@@ -28,6 +28,16 @@ $too = rand(0,$tood-1);
 ?>
 <style>
 
+@media (min-width: 481px) {
+		.notice{width:48%; height:16px; overflow:hidden;}
+		.rolling{position:relative; width:100%; height:16px;}
+		.rolling li{width:100%; height:16px; line-height:50px;}
+}
+@media (max-width: 480px) {
+	.notice{width:48%; height:16px; overflow:hidden;}
+	.rolling{position:relative; width:100%; height:16px;}
+	.rolling li{width:100%; height:16px; line-height:50px;}
+}
 
 		.notice{width:48%; height:16px; overflow:hidden;}
 		.rolling{position:relative; width:100%; height:16px;}
@@ -66,6 +76,19 @@ $too = rand(0,$tood-1);
 
 <!-- start------------------------------------- -->
 <?php
+$sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
+$res_date = sql_fetch($sql_date);
+$now = G5_TIME_YMD;
+if($res_date['mb_4'] > '0000:00:00 00:00:00')
+$end_time = strtotime($res_date['mb_4']);
+$now_time = strtotime($now);
+if($end_time >= $now_time){
+    $diff = $end_time - $now_time;
+    $diff_days = floor($diff / 86400);
+}
+else if($end_time < $now_time){
+    $diff_days = '0';
+}
 if($member['mb_level'] == '26' || $member['mb_level'] == '27') { 
         ?>
         <div class="d-md-block d-none" style="width:20%; padding:0px ">
