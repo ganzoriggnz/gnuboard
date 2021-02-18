@@ -66,26 +66,14 @@ if ($category_option) {
 	}
 ?>
 	<!-- 분류 시작 { -->
-	<nav id="bo_cate" class="sly-tab font-weight-normal mb-2">
+	<nav id="user_cate" class="sly-tab font-weight-normal mb-2">
 		<h3 class="sr-only"><?php echo $qaconfig['qa_title'] ?> 분류 목록</h3>
-		<div class="px-3">
-			<div class="d-flex">
-				<div id="bo_cate_list" class="">
-					<ul id="bo_cate_ul" class=" d-flex border-left-0">
+		<div class="">
+			<div class="">
+				<div id="" class="">
+					<ul id="user_cate" class="border-left-0">
 						<?php echo $category_option ?>
 					</ul>
-				</div>
-				<div>
-					<a href="javascript:;" class="sly-btn sly-prev ca-prev py-2 px-3">
-						<i class="fa fa-angle-left" aria-hidden="true"></i>
-						<span class="sr-only">이전 분류</span>
-					</a>
-				</div>
-				<div>
-					<a href="javascript:;" class="sly-btn sly-next ca-next py-2 px-3">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-						<span class="sr-only">다음 분류</span>
-					</a>				
 				</div>
 			</div>
 		</div>
@@ -161,7 +149,7 @@ if ($category_option) {
 				<?php if ($write_href) { ?>
 					<div>
 						<button type="button" class="btn btn-primary" onclick="location.href='<?php echo $write_href ?>'">
-						<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;"> 문의 등록
+						<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;">
 						</button>
 					</div>
 				<?php } ?>
@@ -191,7 +179,7 @@ if ($category_option) {
 		</div>
 	</div>
 	
-	<ul class="na-table d-md-table w-100 mb-4">
+	<ul class="na-table d-md-table w-100 mb-4" style="font-size:12px;">
 	<?php
 	$list_cnt = count($list);
 	for ($i=0; $i<$list_cnt; $i++) {
