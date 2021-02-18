@@ -124,7 +124,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     $str_content = cut_str(nl2br(strip_tags($list[$i]['wr_content'])), $board['bo_1']);
                   ?>
 
-                        <div class="video_wrap listImgA" style="margin-right:3%;">
+                        <div class="video_wrap listImgA d-md-block d-none" style="margin-right:3%;">
                           <div class="video_container">
                   <iframe width="300" height="200" src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                         </div>
@@ -145,7 +145,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 						?>
                     <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><span class="cnt_cmt">+ <?php echo $list[$i]['wr_comment']; ?></span><span class="sound_only">개</span><?php } ?>
                     </a>
-					<em class="listCont"><?php echo cut_str(strip_tags($list[$i]['wr_content']),160," . . . ") ?></em>
+					<!-- <em class="listCont"><?php echo cut_str(strip_tags($list[$i]['wr_content']),160," . . . ") ?></em> -->
 					<u class="listInfo">
 						<span class="sound_only">작성자</span> <u class="listInfoName"><?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name'])   ?></u> /
 						<span class="sound_only">조회</span><i class="fa fa-eye" aria-hidden="true"></i> <u><?php echo $list[$i]['wr_hit'] ?></u> /

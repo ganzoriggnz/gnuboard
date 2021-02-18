@@ -327,37 +327,37 @@ if ($board['bo_use_rss_view']) {
 // $stx = get_text(stripslashes($stx));
 
 // // 분류 사용 여부
-// $is_category = false;
-// $category_option = '';
+$is_category = false;
+$category_option = '';
 
-// if ($board['bo_use_category']) {
-//     $is_category = true;
-//     $category_href = get_pretty_url($bo_table);
+if ($board['bo_use_category']) {
+    $is_category = true;
+    $category_href = get_pretty_url($bo_table);
 
-//     $category_option .= '<li><a href="'.$category_href.'"'; 
-//     if ($sca==''){
-//         $category_option .= ' id="bo_cate_on"';
-//         $category_option .= '>전체('.$list_cnteee.')</a></li>';
-//     } else 
-//     $category_option .= '>전체</a></li>'; 
+    $category_option .= '<li><a href="'.$category_href.'"'; 
+    if ($sca==''){
+        $category_option .= ' id="bo_cate_on"';
+        $category_option .= '>전체</a></li>';
+    } else 
+    $category_option .= '>전체</a></li>'; 
     
-//      $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
+     $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
      
-//     for ($i=0; $i<count($categories); $i++) {
+    for ($i=0; $i<count($categories); $i++) {
       
-//          $category = trim($categories[$i]);
-//         if ($category=='') continue;       
-//          $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
-//         $category_msg = '';
-//         if ($category==$sca) { // 현재 선택된 카테고리라면
-//             $category_option .= ' id="bo_cate_on"';
-//             $category_msg = '<span class="sound_only">열린 분류 </span>';
-//             $category_option .= '>'.$category_msg.$category.'('.$list_cnteee.')</a></li>';
-//         }
-//         else
-//         $category_option .= '>'.$category_msg.$category.'</a></li>';
-//     }    
-// }
+         $category = trim($categories[$i]);
+        if ($category=='') continue;       
+         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
+        $category_msg = '';
+        if ($category==$sca) { // 현재 선택된 카테고리라면
+            $category_option .= ' id="bo_cate_on"';
+            $category_msg = '<span class="sound_only">열린 분류 </span>';
+            $category_option .= '>'.$category_msg.$category.'</a></li>';
+        }
+        else
+        $category_option .= '>'.$category_msg.$category.'</a></li>';
+    }    
+}
 
 
 if ($board['bo_use_category']) {
