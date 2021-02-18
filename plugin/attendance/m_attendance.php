@@ -344,13 +344,25 @@ function dateGo(day)
 </td></tr></table> -->
     <div id="msg_content" class="msg-content">
         <div class="msg-cell">
-            <textarea id="subject" name="subject" class="form-control input-sm" rows="4" required="" maxlength="65536">출석인사를 입력해 주세요.</textarea>
+            <textarea id="subject" name="subject" class="form-control input-sm" rows="4" required="" maxlength="65536"></textarea>
         </div>
         <div tabindex="14" class="msg-cell msg-submit" onclick="att_submit();">
             출석하기
         </div>
     </div>
 </form>
+<script type="text/javascript">
+value=new Array();
+value[0]="출석문구0"
+value[1]="출석문구1"
+value[2]="출석문구2"
+value[3]="출석문구3"
+value[4]="출석문구4"
+rand = Math.floor( value.length * Math.random());
+randText = value[rand];
+document.getElementById("subject").value = randText;//$('#wr_text').html(randText);    
+</script>   
+
 <script type="text/javascript"> 
 /* function fattendance_submit(f) 
 { 
