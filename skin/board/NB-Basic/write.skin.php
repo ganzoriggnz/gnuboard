@@ -303,7 +303,7 @@ if ($is_member)
 				</li>
 			<?php } ?>
 
-			<?php if ($is_admin || ($gr_id == 'attendance'  &&  $w != 'u')) { ?>
+			<?php if (($is_admin || $is_member || ($gr_id == 'attendance'  &&  $w != 'u')) && $fr !='widget') { ?> <!---fr- "from" ali files duudsaniig zaasan -->
 				
 				<?php if ($is_category || (($member['mb_7'] && $member['mb_6']==$bo_table) &&  $w != 'u')) { ?>
 					<li class="list-group-item">
@@ -316,11 +316,10 @@ if ($is_member)
 								</select>
 							</div>
 						</div>
-					</li> 
+					</li>
 				<?php } ?>
 			<?php } ?>
-
-			<?php if ($is_member || ($gr_id == 'attendance'  &&  $w != 'u')) { ?>
+			<?php if (($is_admin || $is_member || ($gr_id == 'attendance'  &&  $w != 'u')) && $fr =='widget'&& $member['mb_27'] == $bo_table ) { ?>
 				
 				<?php if ($is_category || (($member['mb_7'] && $member['mb_6']==$bo_table) &&  $w != 'u')) { ?>
 				<!--	<li class="list-group-item">

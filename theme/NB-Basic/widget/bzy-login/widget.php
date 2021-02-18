@@ -102,11 +102,11 @@ function insert_nickname($wer)
 							//  odoogiin huudas undsen nuur huudas bnuu 
 						     if(defined('_INDEX_')) {?>    
 							<i class="fa fa-edit" style="margin-right: 2px; border-color: #BFAF88"; ></i>			
-							<a href="./bbs/write.php?w=u&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>&page=" style="color: #BFAF88;" > 업소정보 수정</a>
+							<a href="./bbs/write.php?w=u&fr=widget&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>&page=" style="color: #BFAF88;" > 업소정보 수정</a>
 					<?php break;}
 							 else{?>    
 								<i class="fa fa-edit" style="margin-right: 2px; border-color: #BFAF88"; ></i>			
-								<a href="./write.php?w=u&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>&page=" style="color: #BFAF88;" > 업소정보 수정</a>
+								<a href="./write.php?w=u&fr=widget&bo_table=<?=$bo_table?>&wr_id=<?=$res['wr_id']?>&page=" style="color: #BFAF88;" > 업소정보 수정</a>
 					<?php break;}
 								}	
 					}	 
