@@ -116,7 +116,10 @@
 	/* padding-top: 18px; */
 	
 }
-.sub-ul > li.active,.sub-ul > li.active:hover {background:#f8f8f8;border-color:#BABABB}
+.sub-ul > li.active,.sub-ul > li.active:hover {
+	/* background:#f8f8f8; */
+	border-color:#BABABB
+}
 .sub-ul > li.active > a {
 	color:#000;
 	font-weight:bold
