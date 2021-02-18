@@ -49,7 +49,7 @@ $too = rand(0,$tood-1);
 <!-- Page Title -->
 <div id="nt_title" class="font-weight-normal">
 	<div class="nt-container px-3 px-sm-4 px-xl-0">	
-		<div class="d-flex pb-2" style="justify-content: left;">
+		<div class="d-flex pb-2" style="justify-content: left;" >
 		<img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png" title="" style="height:16px;width:10px; padding-top:5px;" >&nbsp;
 			<div class="notice">
 				<ul class="rolling">
@@ -57,19 +57,6 @@ $too = rand(0,$tood-1);
 				?>
 				<li><?php echo $list[$i]?></li>
 				<?php }?>
-				<?php for ($i=0; $i<$tood;$i++ ) {		
-				?>
-				<li><?php echo $list[$i]?></li>
-				<?php }?>
-				<?php for ($i=0; $i<$tood;$i++ ) {		
-				?>
-				<li><?php echo $list[$i]?></li>
-				<?php }?>
-				<?php for ($i=0; $i<$tood;$i++ ) {		
-				?>
-				<li><?php echo $list[$i]?></li>
-				<?php }?>
-				</ul>
 			</div>
 			<!-- <a href="#" class="rolling_stop">Pause</a>
 <a href="#" class="rolling_start">Play</a> -->

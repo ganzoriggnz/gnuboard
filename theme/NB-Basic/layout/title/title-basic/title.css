@@ -39,6 +39,7 @@
 @media all and (max-width:767px) {
 	.responsive #nt_title .d-flex { 
 		padding-top:1.5rem; 
+		height: 100%;
 	}
 	.responsive #nt_title .page-title { 
 		font-size:1.35rem;
@@ -48,5 +49,6 @@
 	.responsive #nt_title .d-flex { 
 		padding-top:1.25rem; 
 		font-size:1.25rem;
+		height: 100%;
 	}
 }
