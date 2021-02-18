@@ -32,7 +32,13 @@ $agree2 = preg_replace('#[^0-9]#', '', $agree2);
 
 // add_javascript('js 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 if ($config['cf_use_addr'])
-    add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
+    //add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
+    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>   
+        <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
+     <?php } else { ?> 
+     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+     <?php
+     }
 
 include_once($member_skin_path.'/register_form.skin.php');
 include_once('../tail.php');
