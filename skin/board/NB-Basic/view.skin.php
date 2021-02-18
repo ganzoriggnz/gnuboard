@@ -143,7 +143,7 @@ $view_subject = get_text($view['wr_subject']);
 						 
 					</li>
 				<?php } ?>
-				<?php if (G5_IS_MOBILE) {
+				<?php if (G5_IS_MOBILE && $gr_id == "attendance") {
 						$phone=get_member($view['mb_id'],"mb_hp");						
 						echo  '<li class="pr-3"><a href="tel:'.$phone['mb_hp'].'" style="border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/phone.svg" style="height:10px; " title=""> 전화걸기</a>
 					<a href="sms:'.$phone['mb_hp'].'" style="border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/sms.svg" style="height:14px; " title=""> 문자보내기</a>  </li>  ';} ?>
