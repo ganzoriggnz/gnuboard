@@ -71,7 +71,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <!-- } 게시판 페이지 정보 및 버튼 끝 -->
 
     <div class="tbl_head01 tbl_wrap">
-        <table>
+        <table style="font-size:12px;"> 
         <caption><?php echo $board['bo_subject'] ?> 목록</caption>
         <thead>
         <tr>
@@ -81,19 +81,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 <input type="checkbox" id="chkall" onclick="if (this.checked) all_checked(true); else all_checked(false);">
             </th>
             <?php } ?>
-            <th scope="col">번호</th>
+            <th scope="col" style="width:50px;">번호</th>
             <th scope="col">제목 / 내용</th>
 
 
-            <?php if ($is_good) { ?><th scope="col"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
-            <?php if ($is_nogood) { ?><th scope="col"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
+            <?php if ($is_good) { ?><th class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
+            <?php if ($is_nogood) { ?><th class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
         </tr>
         </thead>
         <tbody>
         <?php
         for ($i=0; $i<count($list); $i++) {
          ?>
-        <tr class="<?php if ($list[$i]['is_notice']) echo "bo_notice"; ?>">
+        <tr class=" border-bottom <?php if ($list[$i]['is_notice']) echo "bo_notice"; ?>">
             <?php if ($is_checkbox) { ?>
             <td class="td_chk">
                 <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
@@ -154,8 +154,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 </div>
             </td>
 
-            <?php if ($is_good) { ?><td class="td_num"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <?php echo $list[$i]['wr_good'] ?></td><?php } ?>
-            <?php if ($is_nogood) { ?><td class="td_num"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <?php echo $list[$i]['wr_nogood'] ?></td><?php } ?>
+            <?php if ($is_good) { ?><td class="td_num <?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <?php echo $list[$i]['wr_good'] ?></td><?php } ?>
+            <?php if ($is_nogood) { ?><td class="td_num <?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <?php echo $list[$i]['wr_nogood'] ?></td><?php } ?>
 
         </tr>
         <?php } ?>
