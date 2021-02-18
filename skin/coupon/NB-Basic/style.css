@@ -49,11 +49,11 @@
 .sly-tab hr { display:block; border-top:1px solid #e5e5e5; height:1px; margin:0; margin-top:-1px; padding:0; }
 
 /* Coupon create */
-.coupon_noti {margin-top:20px; margin-left: 50px;}
+.coupon_noti {margin-top:20px; margin-left: 5%;}
 .coupon_noti ul {margin:10px;}
 .coupon_noti ul li {list-style-type:disc; margin-left:12px; margin-bottom:5px;}
 
-.coupon_info {float:left;margin-top:30px; padding-left: 50px;}
+.coupon_info {float:left;margin-top:30px; padding-left:5%;}
 .coupon_info h6 {margin-left: 0;}
 .coupon_info .p-20 {padding:20px 0px;}
 .coupon_info .p-20 .coupon_label {font-size:12px; line-height: 1.5; padding: 5px 15px; float:left;margin:0px 20px;}
