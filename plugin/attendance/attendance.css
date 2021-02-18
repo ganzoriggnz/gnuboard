@@ -40,7 +40,7 @@ A {text-decoration:none;}
 .msg-content {
     display: table;
     width: 100%;
-    table-layout: fixed;
+    /* table-layout: fixed; */
 }
 .msg-content .msg-cell {
     display: table-cell;
