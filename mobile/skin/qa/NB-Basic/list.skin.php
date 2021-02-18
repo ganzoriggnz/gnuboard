@@ -62,7 +62,7 @@ if ($category_option) {
 			$ca_msg = '<span class="sr-only">현재 분류</span>';
 			$ca_select = $cn; // 현재 위치 표시
 		}
-		$category_option .= '<li'.$ca_active.'><a class="py-2 px-3" href="'.$category_href.'?sca='.urlencode($category).'">'.$ca_msg.$category.'</a></li>';
+		$category_option .= '<li'.$ca_active.'><a class="py-2 px-2" href="'.$category_href.'?sca='.urlencode($category).'">'.$ca_msg.$category.'</a></li>';
 	}
 ?>
 	<!-- 분류 시작 { -->
@@ -71,7 +71,7 @@ if ($category_option) {
 		<div class="">
 			<div class="">
 				<div id="" class="">
-					<ul id="user_cate" class="border-left-0">
+					<ul id="user_cate" class="d-flex border-left-0">
 						<?php echo $category_option ?>
 					</ul>
 				</div>
@@ -179,7 +179,7 @@ if ($category_option) {
 		</div>
 	</div>
 	
-	<ul class="na-table d-md-table w-100 mb-4" style="font-size:12px;">
+	<ul class="na-table d-md-table w-100 mb-4" style="font-size: 12px;">
 	<?php
 	$list_cnt = count($list);
 	for ($i=0; $i<$list_cnt; $i++) {
