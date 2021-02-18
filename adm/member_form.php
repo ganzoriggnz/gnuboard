@@ -137,7 +137,14 @@ $g5['title'] .= '회원 '.$html_title;
 include_once('./admin.head.php');
 
 // add_javascript('js 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
-add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
+//add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
+
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>   //https 통신일때 daum 주소 js
+   <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
+<?php } else { ?> //http 통신일때 daum 주소 js
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<?php
+}
 ?>
 
 <form name="fmember" id="fmember" action="./member_form_update.php" onsubmit="return fmember_submit(this);" method="post" enctype="multipart/form-data">
@@ -256,6 +263,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
         <td class="td_addr_line">
             <label for="mb_zip" class="sound_only">우편번호</label>
             <input type="text" name="mb_zip" value="<?php echo $mb['mb_zip1'].$mb['mb_zip2']; ?>" id="mb_zip" class="frm_input readonly" size="5" maxlength="6">
+            <!-- <button type="button" class="btn_frmline" onclick="win_zip('fmember', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소 검색</button><br> -->
             <button type="button" class="btn_frmline" onclick="win_zip('fmember', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소 검색</button><br>
             <input type="text" name="mb_addr1" value="<?php echo $mb['mb_addr1'] ?>" id="mb_addr1" class="frm_input readonly" size="60">
             <label for="mb_addr1">기본주소</label><br>
