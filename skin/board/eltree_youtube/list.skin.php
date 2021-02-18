@@ -83,6 +83,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <?php } ?>
             <th scope="col">번호</th>
             <th scope="col">제목 / 내용</th>
+
+
             <?php if ($is_good) { ?><th scope="col"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
             <?php if ($is_nogood) { ?><th scope="col"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
         </tr>
@@ -116,10 +118,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
                 <?php } ?>
                 <div class="bo_tit">
-
-                  <?
-                    $tmp_wr_link1 = explode("https://youtu.be/", $list[$i][wr_link1]);
-
+                  <?php
+                    $tmp_wr_link1 = explode("https://youtu.be/", $list[$i]['wr_link1']);
                   // 본문내용
                     $str_content = cut_str(nl2br(strip_tags($list[$i]['wr_content'])), $board['bo_1']);
                   ?>
@@ -129,15 +129,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                   <iframe width="300" height="200" src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                         </div>
                       </div>
-
                         <?php echo $list[$i]['icon_reply'] ?>
                         <?php
                             if (isset($list[$i]['icon_secret'])) echo rtrim($list[$i]['icon_secret']);
                          ?>
-
                     <a href="<?php echo $list[$i]['href'] ?>" class="listSbjA">
                         <strong><?php echo $list[$i]['subject'] ?></strong>
-
 						<?php
 						// if ($list[$i]['link']['count']) { echo '['.$list[$i]['link']['count']}.']'; }
 						// if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
@@ -150,15 +147,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     </a>
 					<em class="listCont"><?php echo cut_str(strip_tags($list[$i]['wr_content']),160," . . . ") ?></em>
 					<u class="listInfo">
-						<span class="sound_only">작성자</span> <u class="listInfoName"><?php echo $list[$i]['name'] ?></u> /
+						<span class="sound_only">작성자</span> <u class="listInfoName"><?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name'])   ?></u> /
 						<span class="sound_only">조회</span><i class="fa fa-eye" aria-hidden="true"></i> <u><?php echo $list[$i]['wr_hit'] ?></u> /
 						<span class="sound_only">작성일</span><i class="fa fa-clock-o" aria-hidden="true"></i> <u><?php echo $list[$i]['datetime2'] ?></u>
 					</u>
                 </div>
-
             </td>
-            <?php if ($is_good) { ?><td class="td_num"><?php echo $list[$i]['wr_good'] ?></td><?php } ?>
-            <?php if ($is_nogood) { ?><td class="td_num"><?php echo $list[$i]['wr_nogood'] ?></td><?php } ?>
+
+            <?php if ($is_good) { ?><td class="td_num"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <?php echo $list[$i]['wr_good'] ?></td><?php } ?>
+            <?php if ($is_nogood) { ?><td class="td_num"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <?php echo $list[$i]['wr_nogood'] ?></td><?php } ?>
 
         </tr>
         <?php } ?>
