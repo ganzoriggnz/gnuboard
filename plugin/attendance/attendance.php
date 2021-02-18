@@ -345,7 +345,7 @@ function dateGo(day)
     </td></tr></table> -->
     <div id="msg_content" class="msg-content">
         <div class="msg-cell">
-            <textarea id="subject" name="subject" class="form-control input-sm" rows="4" required="" maxlength="65536"></textarea>
+            <textarea id="subject" name="subject" class="form-attendance input-sm" rows="4" required="" maxlength="65536"></textarea>
         </div>
         <div tabindex="14" class="msg-cell msg-submit" onclick="att_submit();">
             출석하기
