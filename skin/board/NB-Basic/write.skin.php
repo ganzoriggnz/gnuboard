@@ -303,7 +303,7 @@ if ($is_member)
 				</li>
 			<?php } ?>
 
-			<?php if ($is_admin || $is_member || ($gr_id == 'attendance'  &&  $w != 'u')) { ?>
+			<?php if ($is_admin || ($gr_id == 'attendance'  &&  $w != 'u')) { ?>
 				
 				<?php if ($is_category || (($member['mb_7'] && $member['mb_6']==$bo_table) &&  $w != 'u')) { ?>
 					<li class="list-group-item">
@@ -316,7 +316,24 @@ if ($is_member)
 								</select>
 							</div>
 						</div>
-					</li>
+					</li> 
+				<?php } ?>
+			<?php } ?>
+
+			<?php if ($is_member || ($gr_id == 'attendance'  &&  $w != 'u')) { ?>
+				
+				<?php if ($is_category || (($member['mb_7'] && $member['mb_6']==$bo_table) &&  $w != 'u')) { ?>
+				<!--	<li class="list-group-item">
+						<div class="form-group row mb-0">
+							<label class="col-md-2 col-form-label">분류<strong class="sr-only">필수</strong></label>
+							<div class="col-md-4">
+								<select name="ca_name" id="ca_name" required class="custom-select" <?php if ($member['mb_7'] && $member['mb_6']==$bo_table) echo "disabled" ?> >
+									<option value="">선택하세요</option>
+									<?php echo $category_option ?>
+								</select>
+							</div>
+						</div>
+					</li> -->
 				<?php } ?>
 			<?php } ?>
 
