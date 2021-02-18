@@ -560,4 +560,5 @@ if ($w == '') {
         </html>';
     }
 }
+clearstatcache();
 ?>
