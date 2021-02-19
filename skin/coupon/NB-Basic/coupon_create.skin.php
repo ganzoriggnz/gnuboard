@@ -112,7 +112,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                         <td class="coupon_label col-form-label">원가권 :</td>
                         <td class="coupon-create-td"><input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="" class="form-control coupon_input" <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else {echo '';}?>></td>
 
-                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center;"><?php echo $row['co_sent_snum']; ?>0</td>
+                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center;"><?php echo $row['co_sent_snum']; ?></td>
                         <td class="coupon-create-td"><?php echo $diff_s; ?></td>
                     </tr>
 
@@ -120,7 +120,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                         <td class="coupon_label col-form-label">무료권 :</td>
                         <td class="coupon-create-td" > <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="" class="form-control coupon_input" <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else { echo '';}?>></td>
 
-                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center; padding-top: 10px;"><?php echo $row['co_sent_fnum']; ?>0</td>
+                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center; padding-top: 10px;"><?php echo $row['co_sent_fnum']; ?></td>
                         <td class="coupon-create-td" style="text-align: center; padding-top: 10px;"><?php echo $diff_f; ?></td>
                     </tr>
                 </tbody>
