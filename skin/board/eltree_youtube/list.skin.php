@@ -70,23 +70,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     </div>
     <!-- } 게시판 페이지 정보 및 버튼 끝 -->
 
-    <div class="tbl_head01 tbl_wrap">
+    <div class="">
         <table style="font-size:12px;"> 
         <caption><?php echo $board['bo_subject'] ?> 목록</caption>
         <thead>
-        <tr>
+        <tr class="border-top border-bottom text-center" style="height:40px;">
             <?php if ($is_checkbox) { ?>
             <th scope="col">
                 <label for="chkall" class="sound_only">현재 페이지 게시물 전체</label>
                 <input type="checkbox" id="chkall" onclick="if (this.checked) all_checked(true); else all_checked(false);">
             </th>
             <?php } ?>
-            <th scope="col" style="width:50px;">번호</th>
-            <th scope="col">제목 / 내용</th>
+            <th scope="col" ></th>
+            <th scope="col" >번호</th>
+            <th scope="col" >제목</th>
+            <th scope="col" >작성자</th>
 
-
-            <?php if ($is_good) { ?><th class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
-            <?php if ($is_nogood) { ?><th class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
+            <?php if ($is_good) { ?><th  class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
+            <?php if ($is_nogood) { ?><th  class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
         </tr>
         </thead>
         <tbody>
@@ -111,7 +112,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
              ?>
             </td>
 
-            <td class="td_subject" style="padding-left:<?php echo $list[$i]['reply'] ? (strlen($list[$i]['wr_reply'])*10) : '0'; ?>px">
+            <td class="td_subject" >
                 <?php
                 if ($is_category && $list[$i]['ca_name']) {
                  ?>
@@ -121,23 +122,27 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                   <?php
                     $tmp_wr_link1 = explode("https://youtu.be/", $list[$i]['wr_link1']);
                   // 본문내용
-                    $str_content = cut_str(nl2br(strip_tags($list[$i]['wr_content'])), $board['bo_1']);
+                    // $str_content = cut_str(nl2br(strip_tags($list[$i]['wr_content'])), $board['bo_1']);
                   ?>
 
                         <div class="video_wrap listImgA d-md-block d-none" style="margin-right:3%;">
                           <div class="video_container">
-                  <iframe width="300" height="200" src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                  <iframe width="250" height="160" src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                         </div>
                       </div>
                         <?php echo $list[$i]['icon_reply'] ?>
                         <?php
                             if (isset($list[$i]['icon_secret'])) echo rtrim($list[$i]['icon_secret']);
-                         ?>
+                         ?>             
+					<!-- <em class="listCont"><?php echo cut_str(strip_tags($list[$i]['wr_content']),160," . . . ") ?></em> -->
+                </div>
+            </td>
+            <td class="td_subject" >
+                <div class="bo_tit">
+					<u class="listInfo" >
                     <a href="<?php echo $list[$i]['href'] ?>" class="listSbjA">
-                        <strong><?php echo $list[$i]['subject'] ?></strong>
+                        <strong><?php echo substr($list[$i]['subject'],0,50)?></strong>
 						<?php
-						// if ($list[$i]['link']['count']) { echo '['.$list[$i]['link']['count']}.']'; }
-						// if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
 						if (isset($list[$i]['icon_file'])) echo rtrim($list[$i]['icon_file']);
 						if (isset($list[$i]['icon_link'])) echo rtrim($list[$i]['icon_link']);
 						if (isset($list[$i]['icon_new'])) echo rtrim($list[$i]['icon_new']);
@@ -145,8 +150,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 						?>
                     <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><span class="cnt_cmt">+ <?php echo $list[$i]['wr_comment']; ?></span><span class="sound_only">개</span><?php } ?>
                     </a>
-					<!-- <em class="listCont"><?php echo cut_str(strip_tags($list[$i]['wr_content']),160," . . . ") ?></em> -->
-					<u class="listInfo">
+					</u>
+                </div>
+            </td>
+            <td class="td_subject" >
+                <div class="bo_tit">
+					<u class="listInfo" >
 						<span class="sound_only">작성자</span> <u class="listInfoName"><?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name'])   ?></u> /
 						<span class="sound_only">조회</span><i class="fa fa-eye" aria-hidden="true"></i> <u><?php echo $list[$i]['wr_hit'] ?></u> /
 						<span class="sound_only">작성일</span><i class="fa fa-clock-o" aria-hidden="true"></i> <u><?php echo $list[$i]['datetime2'] ?></u>

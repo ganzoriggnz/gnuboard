@@ -95,7 +95,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
   //$prn_wr_link1 = $tmp_wr_link1[1];
   ?>
   <div style="padding-bottom:12px; text-align:center;">
-      <iframe width="727" height="409" src="https://www.youtube.com/embed/<?=$tmp_wr_link1[1];?>" frameborder="0" allowfullscreen></iframe>
+      <iframe width="80%" height="409" src="https://www.youtube.com/embed/<?=$tmp_wr_link1[1];?>" frameborder="0" allowfullscreen></iframe>
   </div>
 
           <?php
