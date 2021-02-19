@@ -293,7 +293,7 @@ $menu_cnt = count($menu);
 							<li class="me-li1 ">
 							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=free" ><img src="<?php echo G5_URL?>/img/solid/clone.svg"  style="height: 13px;">&nbsp;자유게시판</a>
 							</li>
-							<li class="me-li1 ">
+							<!-- <li class="me-li1 ">
 							<a href="<?php echo G5_BBS_URL?>/point.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-swap_horizontal_circle-24px.png"  >&nbsp;파운드페니로전환</a>
 							</li>
 							<li class="me-li1 ">
@@ -301,7 +301,7 @@ $menu_cnt = count($menu);
 							</li>
 							<li class="me-li1 ">
 							<a href="#"><img src="<?php echo G5_URL?>/img/solid/baseline-monetization_on-24.png" >&nbsp;페니구매</a>
-							</li>
+							</li> -->
 						</ul>
 				</li>
 				
