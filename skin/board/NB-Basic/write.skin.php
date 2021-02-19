@@ -303,7 +303,7 @@ if ($is_member)
 				</li>
 			<?php } ?>
 
-			<?php if (($is_admin || $is_member || ($gr_id == 'attendance'  &&  $w != 'u')) && $fr !='widget' && $member['mb_27'] != $bo_table ) { ?> <!---fr- "from" ali files duudsaniig zaasan -->
+			<?php if (($is_admin || $is_member || ($gr_id == 'attendance'  &&  $w != 'u'))  && $member['mb_7'] != $bo_table ) { ?> <!---fr- "from" ali files duudsaniig zaasan -->
 				
 				<?php if ($is_category || (($member['mb_7'] && $member['mb_6']==$bo_table) &&  $w != 'u')) { ?>
 					<li class="list-group-item">
