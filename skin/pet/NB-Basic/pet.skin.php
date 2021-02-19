@@ -54,9 +54,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     <script>
         $(document).ready(function(){
             var count = 0;
+            debugger;
             $(".panel1 button").click(function(){
                 var id = this.id;
-                var lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
+                var lastClickedTime = new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>");
                 count = 1;
                 $("#cat1").css("background","#4D4D4D");
                 $.ajax({
@@ -80,8 +81,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("첫번째 버튼을 클릭하세요.");
                 } else 
                 {
-                    if (getElapsedMinutes(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
-                        lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
+                    if (getElapsedMinutes(firstTime, new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>")) >= 30){
+                        lastClickedTime = new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>");
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
@@ -118,8 +119,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("먼저 두번쨰 버튼을 클릭하세요.");
  
                 } else {
-                    if (getElapsedMinutes(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
-                        lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
+                    if (getElapsedMinutes(secondTime, new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>")) >= 30){
+                        lastClickedTime = new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>");
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
