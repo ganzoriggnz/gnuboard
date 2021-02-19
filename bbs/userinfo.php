@@ -32,7 +32,7 @@ if($member['mb_id']){
     $sql = " select * from {$g5['member_table']} where mb_id = '{$member['mb_id']}'";
     $row = sql_fetch($sql); 
 
-    $now = G5_TIME_YMD;
+    $now = G5_TIME_YMDHIS;
     if($row['mb_4'] > '0000:00:00 00:00:00')
     $end_time = strtotime($row['mb_4']);
     $now_time = strtotime($now);
