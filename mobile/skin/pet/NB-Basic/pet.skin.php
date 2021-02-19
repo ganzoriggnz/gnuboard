@@ -98,7 +98,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
  
                     } else {
-                        var time = getElapsedTime(firstTime, new Date().getTime());
+                        var time = getElapsedTime(firstTime, new Date($.now()));
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
@@ -136,7 +136,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
                     getSuccess();
                     } else {
-                        var time = getElapsedTime(secondTime, new Date().getTime());
+                        var time = getElapsedTime(secondTime, new Date($.now()));
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
