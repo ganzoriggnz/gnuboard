@@ -110,8 +110,8 @@ else if($end_time < $now_time){
     <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
         <div>
             <p>제휴마감 <span style="color: #3333ff;">D-<?php echo $diff_days ?>일</span></p>
-            <a style="width: 90px;"
-                class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
+            <a style="width: 100px;"
+                class=" <?php if($bo_table=="partnership") echo"activesubs" ?> cat_2_bg"
                 href="<?php echo G5_URL; ?>/bbs/board.php?bo_table=partnership" target="_self">
                 연장신청
             </a>
@@ -145,10 +145,10 @@ else if($end_time < $now_time){
         <?php } ?>
         <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
             <p><?php echo $me['text'];?></p>
-            <a class="cat_2_bg  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?>"
+            <a class="<?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?> cat_2_bg" style="<?php if( strstr($me['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
                 href="<?php echo $me['href']; ?>" target="_self">정보
             </a>
-            <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
+            <a class="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?> cat_1_bg" style="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
                 href="<?php echo $menu[1]['s'][$i]['href']; ?>" target="_self">
                 후기
             </a>
@@ -180,10 +180,10 @@ else if($end_time < $now_time){
         <?php } ?>
         <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
             <p><?php echo $me['text'];?></p>
-            <a class="cat_2_bg  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?>"
+            <a class="  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?> cat_2_bg" style="<?php if( strstr($me['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
                 href="<?php echo $me['href']; ?>" target="_self">정보
             </a>
-            <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
+            <a class=" <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?> cat_1_bg " style="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
                 href="<?php echo $menu[1]['s'][$i]['href']; ?>" target="_self">
                 후기
             </a>
@@ -206,10 +206,10 @@ else if($end_time < $now_time){
         <?php } ?>
         <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
             <p><?php echo $me['text'];?></p>
-            <a class="cat_2_bg  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?>"
+            <a class=" <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?> cat_2_bg " style="<?php if( strstr($me['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
                 href="<?php echo $me['href']; ?>" target="_self">정보
             </a>
-            <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
+            <a class="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?> cat_1_bg " style="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
                 href="<?php echo $menu[1]['s'][$i]['href']; ?>" target="_self">
                 후기
             </a>

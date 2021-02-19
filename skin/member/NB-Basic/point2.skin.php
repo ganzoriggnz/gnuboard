@@ -62,19 +62,19 @@ $frm_submit = '<div class="col-sm-4">
                                 </span>
                             </a>
                         </li>
-                        <li  class="active">
+                        <!-- <li  class="active">
                             <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/point2.php">
                                 <span>
                                 <img src="<?php echo G5_URL?>/img/solid/book.svg" class="svg-img" style="height :13px;" >&nbsp
                                 파편조각 : <b><?php echo number_format($member['mb_point2']);?></b>
                                 </span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
                                 <span>
                                 <img src="<?php echo G5_URL?>/img/solid/gem.svg" class="svg-img" style="height :13px;" >&nbsp
-                                파편조각 : <b><?php echo number_format($member['mb_point']);?></b>
+                                파운드 : <b><?php echo number_format($member['mb_point']);?></b>
                                 </span>
                             </a>
                         </li>

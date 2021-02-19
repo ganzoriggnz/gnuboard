@@ -27,14 +27,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                                 </span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/point2.php">
                                 <span>
                                 <img src="<?php echo G5_URL?>/img/solid/book.svg" class="svg-img" style="height :13px;" >&nbsp
                                 파편조각 : <b><?php echo number_format($member['mb_point2']);?></b>
                                 </span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
                                 <span>

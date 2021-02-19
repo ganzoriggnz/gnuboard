@@ -49,14 +49,14 @@
 	padding-bottom: 10px;
 	text-decoration:none; 
 	color:red !important; 
-	border-color: red !important;
+	/* border-color: red !important; */
 	font-weight:bold;
 }
 
 .activesubs {
 	text-decoration:none; 
-	color:red !important; 
-	border-color: red !important;
+	/* color:red !important;  */
+	/* border-color: red !important; */
 }
 
 #nt_side_menu .me-li.line {
@@ -107,7 +107,11 @@
 	padding-top: 6px;
 	width: 181px;
 }
-.sub-ul li div a:hover {text-decoration:none; color:red !important; border-color: red !important;}
+.sub-ul li div a:hover {
+	text-decoration:none; 
+	/* color:red !important; 
+	border-color: red !important; */
+}
 .sub-ul li div a {
 	border:1px solid grey; 
 	border-radius:0px !important; 
@@ -125,6 +129,12 @@
 	color:#000;
 	font-weight:bold
 }
+.sub-ul li div a.cat_1_bg:hover,  
+.sub-ul li div a.cat_2_bg:hover {
+	background-color: #ffd345
+}
+
+
 .sub-ul li div a.cat_1_bg {
 	background-image: url('./img/sidebuttonbg.png'); 
 	background-color: #e6dcc1; 
@@ -142,13 +152,19 @@
 }
 .sub-ul li div a.cat_2_bg {
 	margin-left: 0px;
-	background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; margin-right: 0px; float: right; color: #242424; border-color: #aaa;	align-items: center;
-    justify-content: center;padding-top: 7px;
-	font-weight: 500; 	background-image: url('./img/sidebuttonbg.png'); }
-.sub-ul li div a.cat_1_bg_a {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; float: right; color: red; border-color: red;	align-items: center;
+	background-color: #e6dcc1; 
+	width: 45px; height: 35px; text-align: center; 
+	margin-right: 0px; 
+	float: right; color: #242424; border-color: #aaa;	align-items: center;
+    justify-content: center;
+	padding-top: 7px;
+	font-weight: 500; 	
+	background-image: url('./img/sidebuttonbg.png'); 
+}
+.sub-ul li div a.cat_1_bg_a {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; float: right; 	align-items: center;
     justify-content: center;padding-top: 7px;
 	font-weight: 500;	background-image: url('./img/sidebuttonbg.png'); }
-.sub-ul li div a.cat_2_bg_a {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; margin-right: 0px; float: right; color: red; border-color: red;	align-items: center;
+.sub-ul li div a.cat_2_bg_a {background-color: #e6dcc1; width: 45px; height: 35px; text-align: center; margin-right: 0px; float: right; align-items: center;
     justify-content: center;padding-top: 7px;
 	font-weight: 500;	background-image: url('./img/sidebuttonbg.png'); }
 
