@@ -64,23 +64,19 @@ global $config, $member, $is_member, $urlencode, $is_admin;
                 <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=free" style="color: #BFAF88;">자유게시판</a>
             </div>
         </div>
-        <div style="padding: 0px 14px;">
+        <!-- <div style="padding: 0px 14px;">
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
-                <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
                 <img src="<?php echo G5_URL?>/img/baseline-swap_horizontal_circle-24px.png" style="margin-right: 5px; border-color: #707070;" >
                 <a href="<?php echo G5_BBS_URL?>/point.php" style="color: #BFAF88;">파운드페니로전환</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
-                <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
                 <img src="<?php echo G5_URL?>/img/baseline-swap_horizontal_circle-24px.png" style="margin-right: 5px; border-color: #707070;" >
                 <a href="<?php echo G5_BBS_URL?>/point2.php" style="color: #BFAF88;">파편조각페니로전환</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
-                <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
                 <img src="<?php echo G5_URL?>/img/baseline-monetization_on-24.png" style="margin-right: 5px; border-color: #707070;" >
                 <a href="#" style="color: #BFAF88;">페니구매</a>
             </div>
-
-        </div>
+        </div> -->
     </div>
 </div>
