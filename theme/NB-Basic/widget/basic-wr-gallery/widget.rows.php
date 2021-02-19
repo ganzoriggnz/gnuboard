@@ -89,6 +89,12 @@ for ($i=0; $i < $list_cnt; $i++) {
 ?>
 
 <li class="col px-2 pb-4" style="width: 230px; height: 300px;">
+    <?php   
+        $at = $list[$i]['bo_table'];
+        $linkcount = strlen($at) - 2;
+        $str_table =substr($at, 0, $linkcount);
+        $re = $str_table."re"; 
+    ?>
     <div style="background-image:url('<?php echo G5_IMG_URL?>/main_bgpicture.png'); background-size: 100% 100%;">
         <div>
             <div class="img-wrap mb-2">
@@ -142,7 +148,7 @@ for ($i=0; $i < $list_cnt; $i++) {
                     정보</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a type="button" class="gal_btns"
-                    onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>'">
+                    onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>'">
                     <img src="<?php echo G5_IMG_URL?>/chat_icon_main.png"> 후기</a>
             </div>
         </div>
