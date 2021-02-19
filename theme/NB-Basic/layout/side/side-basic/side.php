@@ -296,6 +296,7 @@ else if($end_time < $now_time){
     <?php 
   
     for($k=2;$k<count($menu);$k++){
+        if ($menu[$k]['text']!="고객센터"){
 ?>
 
     <li class="me-li"
@@ -321,7 +322,7 @@ else if($end_time < $now_time){
         <?php if ($i%2==1) { ?>
     </li>
     <?php 
-    }}
+    }}}
 }
 ?>
     <!------------ 명예의전당 ------------------------------- -->
