@@ -36,14 +36,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                                 </span>
                             </a>
                         </li>
-                        <li >
+                        <!-- <li >
                             <a  href="<?php echo G5_BBS_URL ?>/point2.php">
                                 <span>
                                 <img src="<?php echo G5_URL?>/img/solid/book.svg" class="svg-img" style="height :13px;" >&nbsp
                                 파편조각 : <b><?php echo number_format($member['mb_point2']);?></b>
                                 </span>
                             </a>
-                        </li>
+                        </li> -->
                         </ul>
                         <ul id="user_cate_ul" class="sly-list d-flex border-left-0">
                         <li >
@@ -179,5 +179,3 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
     </div>  
         </section>
 </div> 
-  
-
