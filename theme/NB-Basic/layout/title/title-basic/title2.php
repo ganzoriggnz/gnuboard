@@ -66,7 +66,7 @@ $too = rand(0,$tood-1);
 $sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
 $res_date = sql_fetch($sql_date);
 $now = G5_TIME_YMDHIS;
-if($res_date['mb_4'] > '0000:00:00 00:00:00')
+if($res_date['mb_4'] != '')
 $end_time = strtotime($res_date['mb_4']);
 $now_time = strtotime($now);
 if($end_time >= $now_time){
