@@ -293,14 +293,17 @@ else if($end_time < $now_time){
                 <img src="<?php echo G5_URL?>/img/twitter.png" style="height: 12px;">트위터 인증</a>
         </div>
     </li> -->
-
+    <?php 
+  
+    for($k=2;$k<count($menu);$k++){
+?>
 
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[2]['text']?>
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[$k]['text']?>
     </li>
-    <?php for ($i=0; $i < count($menu[2]['s']); $i++) {
-            $me = $menu[2]['s'][$i];
+    <?php for ($i=0; $i < count($menu[$k]['s']); $i++) {
+            $me = $menu[$k]['s'][$i];
             ?>
     <?php if ($i%2==0) { ?>
     <li class="row mx-0 me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
@@ -317,98 +320,12 @@ else if($end_time < $now_time){
         </div>
         <?php if ($i%2==1) { ?>
     </li>
-    <?php }
-} ?>
+    <?php 
+    }}
+}
+?>
     <!------------ 명예의전당 ------------------------------- -->
 
-    <li class="me-li"
-        style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[4]['text']?>
-    </li>
-    <?php for ($i=0; $i < count($menu[4]['s']); $i++) {
-            $me = $menu[4]['s'][$i];
-            ?>
-    <?php if ($i%2==0) { ?>
-    <li class="row mx-0 me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
-        <?php } ?>
-        <?php if(isset($me['s'])) { //Is Sub Menu ?>
-        <?php } ?>
-        <div class="col-6 m-0 px-0">
-            <a class="border-0"
-                style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                href="<?php echo $me['href']; ?>" target="_self"><img
-                    src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
-                    style="height :14px;"><?php echo $me['text'];?>
-            </a>
-        </div>
-        <?php if ($i%2==1) { ?>
-    </li>
-    <?php }
-} ?>
-
-    <!------------ 자료실 ------------------------------- -->
-    <li class="me-li"
-        style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[7]['text']?>
-    </li>
-    <?php for ($i=0; $i < count($menu[7]['s']); $i++) {
-            $me = $menu[7]['s'][$i];
-            ?>
-    <?php if ($i%2==0) { ?>
-    <li class="row mx-0 me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
-        <?php } ?>
-        <?php if(isset($me['s'])) { //Is Sub Menu ?>
-        <?php } ?>
-        <div class="col-6 m-0 px-0">
-            <a class="border-0"
-                style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                href="<?php echo $me['href']; ?>" target="_self"><img
-                    src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
-                    style="height :14px;"><?php echo $me['text'];?>
-            </a>
-        </div>
-        <?php if ($i%2==1) { ?>
-    </li>
-    <?php } ?>
-    <?php } //for ?>
-    <?php if(!$menu_cnt) { ?>
-    <li class="me-li">
-        <a class="me-a" href="javascript:;">메뉴를 등록해 주세요.</a>
-    </li>
-    <?php } ?>
-    <!------------ 페니 게임 ------------------------------- -->
-    <li class="me-li"
-        style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[6]['text']?>
-    </li>
-    <?php for ($i=0; $i < count($menu[6]['s']); $i++) {
-            $me = $menu[6]['s'][$i];
-            ?>
-    <?php if ($i%2==0) { ?>
-    <li class="row mx-0 me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
-        <?php } ?>
-        <?php if(isset($me['s'])) { //Is Sub Menu ?>
-        <?php } ?>
-        <div class="col-6 m-0 px-0">
-            <!-- <a class="border-0" style="font-size: 13px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                   href="<?php echo $me['href']; ?>" target="_<?php echo $me['me_target']; ?>"><img src="<?php echo G5_URL?>/img/<?php echo $me['icon'] ?>.png" > <?php echo $me['text'];?>
-                </a> -->
-            <a class="border-0"
-                style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                href="<?php echo $me['href']; ?>" target="_self"><img
-                    src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
-                    style="height :14px;"><?php echo $me['text'];?>
-            </a>
-        </div>
-        <?php if ($i%2==1) { ?>
-    </li>
-    <?php } ?>
-    <?php } //for ?>
-    <?php if(!$menu_cnt) { ?>
-    <li class="me-li">
-        <a class="me-a" href="javascript:;">메뉴를 등록해 주세요.</a>
-    </li>
-    <?php } ?>
 </ul>
 
 <script>
