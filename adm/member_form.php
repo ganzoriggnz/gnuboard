@@ -139,9 +139,9 @@ include_once('./admin.head.php');
 // add_javascript('js 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 //add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 
-if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>   //https 통신일때 daum 주소 js
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>   
    <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
-<?php } else { ?> //http 통신일때 daum 주소 js
+<?php } else { ?> 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <?php
 }
