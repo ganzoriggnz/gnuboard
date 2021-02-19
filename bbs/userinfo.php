@@ -38,7 +38,7 @@ if($member['mb_id']){
     $now_time = strtotime($now);
     if($end_time >= $now_time){
         $diff = $end_time - $now_time;
-        $diff_days = floor($diff / 86400);
+        $diff_days = ceil($diff / 86400);
     }
     else if($end_time < $now_time){
         $diff_days = '0';
