@@ -28,10 +28,9 @@ $cnt=0;
 
                 if(($member['mb_level']==27 && substr($bo_table, -2)=="at") || ($member['mb_level']==26 && substr($bo_table, -2)=="at")){
 
-                    $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0'  order by wr_datetime");                    
+                    $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0' order by wr_datetime");                    
                     while($resee = sql_fetch_array($sql)){                       
-                        $list[$cnt] = $res;
-                        $list[$cnt]['wr_id'] = $res['wr_id'];
+                        $list[$cnt] = $resee;
                         $list[$cnt]['bo_table'] = $bo_table; 
                         $list[$cnt]['bo_subject'] = $bo_subject;
                         $list[$cnt]['gr_subject'] = $row['gr_subject']; 
@@ -42,7 +41,6 @@ $cnt=0;
                         $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where wr_parent ='{$parent}' and wr_is_comment = '1' order by wr_datetime");                 
                         while($res = sql_fetch_array($sql)){                    
                             $list[$cnt] = $res;
-                            $list[$cnt]['wr_id'] = $res['wr_id']; 
                             $list[$cnt]['bo_table'] = $bo_table; 
                             $list[$cnt]['bo_subject'] = $bo_subject;
                             $list[$cnt]['gr_subject'] = $row['gr_subject'];
@@ -54,7 +52,6 @@ $cnt=0;
                     $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' order by wr_datetime");
                     while($res = sql_fetch_array($sql)){
                         $list[$cnt] = $res;
-                        $list[$cnt]['wr_id'] = $res['wr_id']; 
                         $list[$cnt]['bo_table'] = $bo_table; 
                         $list[$cnt]['bo_subject'] = $bo_subject;
                         $list[$cnt]['wr_subject'] = $res['wr_subject'];
