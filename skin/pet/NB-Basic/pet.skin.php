@@ -97,7 +97,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
  
                     } else {
-                        var time = getElapsedTime(firstTime, new Date($.now()));
+                        var time = getElapsedTime(firstTime, new Date().getTime());
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
@@ -135,7 +135,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     });
                     getSuccess();
                     } else {
-                        var time = getElapsedTime(secondTime, new Date($.now()));
+                        var time = getElapsedTime(secondTime, new Date().getTime());
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
@@ -148,8 +148,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
 
             function getElapsedTime(last, current) {  
                 var end = new Date(last).getTime() + 30 * 60000;
-                var clicked = new Date(current).getTime();
-                var res = Math.abs(end - clicked) / 1000;
+                var res = Math.abs(end - current) / 1000;
                 
                 var minutes = Math.floor(res / 60) % 60;
                 var seconds = Math.floor(res % 60);
