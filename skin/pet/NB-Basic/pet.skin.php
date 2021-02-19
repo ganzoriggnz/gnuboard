@@ -31,9 +31,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
         <input type="hidden" id="but3" value="<?php if ($row['p_but3_datetime'] && $row['p_but3_datetime'] != '0000-00-00 00:00:00') echo $row['p_but3_datetime']; ?>">
         <button type="button" id="cat3" <?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>사료주기</button>
     </div>
-    <div id ="result"></div>
+    <?php $now = G5_TIME_YMDHIS; ?>
+    <input type="hidden" id="stime" value="<?php echo $now; ?>">
     <div class="pet_bottom">
-        <p>* 모든 버튼은 <span class="red">매일 12시 초기화 됩니다</span></p>
+        <p>* 모든 버튼은 <span class="red">매일 12시 초기화 됩니다</span></p>        
     </div>
     <div class="popup_box">
       <h1>펫기르기</h1>
@@ -54,10 +55,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     <script>
         $(document).ready(function(){
             var count = 0;
-            debugger;
             $(".panel1 button").click(function(){
                 var id = this.id;
-                var lastClickedTime = new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>");
+                var lastClickedTime = $('#stime').val();
                 count = 1;
                 $("#cat1").css("background","#4D4D4D");
                 $.ajax({
@@ -70,6 +70,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         dataType: 'text',
                         success: function(response) {
                             $('#but1').val(lastClickedTime);
+                            reload();
                         }
                 });
             });
@@ -81,8 +82,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("첫번째 버튼을 클릭하세요.");
                 } else 
                 {
-                    if (getElapsedMinutes(firstTime, new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>")) >= 30){
-                        lastClickedTime = new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>");
+                    if (getElapsedMinutes(firstTime, $('#stime').val()) >= 30){
+                        lastClickedTime = $('#stime').val();
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
@@ -119,8 +120,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("먼저 두번쨰 버튼을 클릭하세요.");
  
                 } else {
-                    if (getElapsedMinutes(secondTime, new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>")) >= 30){
-                        lastClickedTime = new Date("<?php echo date('Y-m-d H:i:s', G5_SERVER_TIME); ?>");
+                    if (getElapsedMinutes(secondTime, $('#stime').val()) >= 30){
+                        lastClickedTime = $('#stime').val();
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
