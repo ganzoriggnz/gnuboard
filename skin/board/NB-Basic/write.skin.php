@@ -303,8 +303,20 @@ if ($is_member)
 				</li>
 			<?php } ?>
 
-			<?php if (($is_admin || ($gr_id == 'attendance'  &&  $w != 'u')) && $member['mb_7'] != $bo_table || (($member['mb_7'] && $member['mb_6']==$bo_table) &&  $w != 'u') ) { ?>
-				<?php if ($is_category ) { ?>
+			<?php if ($is_admin || 
+							(
+								(
+									(
+										$gr_id == 'attendance'  &&  $w != 'u' && $member['mb_7'] != $bo_table
+									) || 
+									(
+										($member['mb_7'] && $member['mb_6']==$bo_table) &&  
+											$w != 'u'
+									) 
+								)
+							)
+					 ) { ?>
+				<?php if ($is_category) { ?>
 					<li class="list-group-item">
 						<div class="form-group row mb-0">
 							<label class="col-md-2 col-form-label">분류<strong class="sr-only">필수</strong></label>
