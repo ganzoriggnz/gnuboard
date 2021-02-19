@@ -71,7 +71,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <!-- } 게시판 페이지 정보 및 버튼 끝 -->
 
     <div class="">
-        <table style="font-size:12px; width:100%;> 
+        <table style="font-size:12px; width:100%;"> 
         <caption><?php echo $board['bo_subject'] ?> 목록</caption>
         <thead>
         <tr class="border-top border-bottom text-center" style="height:40px;">
