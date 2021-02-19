@@ -82,17 +82,16 @@ $(document).ready(function() {
         <img src="<?php echo G5_URL?>/img/side_top_img.png" style="display: block; margin: auto;"></a>
 </div>
 
-
 <?php 
 $sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
 $res_date = sql_fetch($sql_date);
-$now = G5_TIME_YMD;
+$now = G5_TIME_YMDHIS;
 if($res_date['mb_4'] > '0000:00:00 00:00:00')
 $end_time = strtotime($res_date['mb_4']);
 $now_time = strtotime($now);
 if($end_time >= $now_time){
     $diff = $end_time - $now_time;
-    $diff_days = floor($diff / 86400);
+    $diff_days = ceil($diff / 86400);
 }
 else if($end_time < $now_time){
     $diff_days = '0';
@@ -111,7 +110,7 @@ else if($end_time < $now_time){
         <div>
             <p>제휴마감 <span style="color: #3333ff;">D-<?php echo $diff_days ?>일</span></p>
             <a style="width: 100px;"
-                class=" <?php if($bo_table=="partnership") echo"activesubs" ?> cat_2_bg"
+                class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo "activesubs" ?>"
                 href="<?php echo G5_URL; ?>/bbs/board.php?bo_table=partnership" target="_self">
                 연장신청
             </a>

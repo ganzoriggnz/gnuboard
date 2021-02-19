@@ -121,8 +121,6 @@ $(document).ready(function(){
         }); 
 });
 
-    
-
 </script>
 
 <?php 
@@ -130,40 +128,41 @@ if($w == 'u'){
 	$mb_id = $_POST['mb_id'];
 	$mb_name = $_POST['mb_name'];
     $mb_start_date = $_POST['fr_date'];
-    $mb_end_date = $_POST['mb_4'];
+    $end_date = $_POST['mb_4'];
+    $curtime = date('H:i:s');
+    $mb_end_date = date("Y-m-d H:i:s", strtotime($end_date.$curtime));
     $mb_note = $_POST['mb_5'];
 
-	$sql = "UPDATE {$g5['member_table']} 
-				SET mb_4 = '{$mb_end_date}',
-                    mb_5 = '{$mb_note}'
-				WHERE mb_id='{$mb_id}'";
+    $sql = "UPDATE {$g5['member_table']} 
+            SET mb_4 = '{$mb_end_date}',
+                mb_5 = '{$mb_note}',
+                mb_level = '27'
+            WHERE mb_id='{$mb_id}'";
 
 	sql_query($sql);
-	goto_url($PHP_SELF, false);
+	goto_url($PHP_SELF, false);	
 }
 
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 ?>
-	<div id="calendar">
+<div id="calendar">
 
-        <div class="modal fade" id="entitylinkModal" tabindex="-1" role="dialog" style="position: fixed; top: 20%; left: 0%;" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="width: 250px; height: 650px;">
-                        <div class="modal-header" style="border-bottom: none; height: 40px;">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button> 
-                        </div>  	
-                        <div class="modal-body">
-                        </div>
+    <div class="modal fade" id="entitylinkModal" tabindex="-1" role="dialog" style="position: fixed; top: 20%; left: 0%;" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="width: 250px; height: 650px;">
+                    <div class="modal-header" style="border-bottom: none; height: 40px;">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button> 
+                    </div>  	
+                    <div class="modal-body">
                     </div>
                 </div>
-            </div>	
-        </div>
-		
+            </div>
+        </div>	
     </div>
     
-	
+</div>   	
 <?php
 include_once('./admin.tail.php');
 ?>
