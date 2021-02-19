@@ -31,6 +31,7 @@ $cnt=0;
                     $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}'  order by wr_datetime");                    
                     while($resee = sql_fetch_array($sql)){                       
                         $list[$cnt] = $res;
+                        $list[$cnt]['wr_id'] = $res['wr_id']; 
                         $list[$cnt]['bo_table'] = $bo_table; 
                         $list[$cnt]['bo_subject'] = $bo_subject;
                         $list[$cnt]['gr_subject'] = $row['gr_subject']; 
@@ -41,6 +42,7 @@ $cnt=0;
                         $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where wr_parent ='{$parent}' and wr_is_comment = '1' order by wr_datetime");                 
                         while($res = sql_fetch_array($sql)){                    
                             $list[$cnt] = $res;
+                            $list[$cnt]['wr_id'] = $res['wr_id']; 
                             $list[$cnt]['bo_table'] = $bo_table; 
                             $list[$cnt]['bo_subject'] = $bo_subject;
                             $list[$cnt]['gr_subject'] = $row['gr_subject'];
@@ -52,6 +54,7 @@ $cnt=0;
                     $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' order by wr_datetime");
                     while($res = sql_fetch_array($sql)){
                         $list[$cnt] = $res;
+                        $list[$cnt]['wr_id'] = $res['wr_id']; 
                         $list[$cnt]['bo_table'] = $bo_table; 
                         $list[$cnt]['bo_subject'] = $bo_subject;
                         $list[$cnt]['wr_subject'] = $res['wr_subject'];
@@ -79,4 +82,3 @@ if(is_file($skin_file)) {
 
     include_once('./_tail.php');
 ?>
-
