@@ -4,11 +4,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$nt_side_url.'/side.css">', 10);
 ?>
 
-<?php if($is_index) { // 인덱스에서만 출력 ?>
-<!-- 로그인 시작 -->
-
-<!-- 로그인 끝 -->
-<?php } else { // 페이지에서는 메뉴 출력 ?>
+<?php if(!$is_index) { // 페이지에서는 메뉴 출력 ?>
 <?php
 	$mes = array();
 	for ($i=0; $i < $menu_cnt; $i++) {
@@ -118,8 +114,6 @@ else if($end_time < $now_time){
     </li>
     <?php
           } 
-        //   else { echo '<li  class="me-li pt-3 pb-3 text-center" style="font-weight: bold;">업소리스트</li>';}
-
     $k=0;
     $listd;
     $listd[$k]['name'] = substr($menu[0]['s'][0]['text'], 0, strrpos($menu[0]['s'][0]['text'], "-"));
@@ -189,9 +183,8 @@ else if($end_time < $now_time){
         </div>
     </li>
     <?php } //for  ?>
-    <!------------ 업체정보 end------------------------------- -->
 
-    <!------------ 업체정보-start------------------------------ -->
+    <!------------ 기타 업체정보-start------------------------------ -->
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
         <img src="<?php echo G5_URL?>/img/img-flag5-on.png">기타 업체정보
@@ -216,89 +209,15 @@ else if($end_time < $now_time){
     </li>
     <?php } //for  ?>
     <!------------ 업체정보 end------------------------------- -->
-
     <style>
     .me-li div a img {
         padding-right: 15px;
     }
     </style>
-    <!------------ Quick menu start------------------------------- -->
-    <!-- <li class="me-li"
-        style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> 커뮤니티
-    </li>
-    <li class="row mx-0 me-li">
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/mission.php">
-                <img src="<?php echo G5_URL?>/img/solid/baseline-ballot-24px.png" style="height: 13px;">출석체크</a>
-        </div>
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/microphone.svg" style="height: 13px;">공지사항</a>
-        </div>
-    </li>
-    <li class="row mx-0 me-li">
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/commenting-o.svg" style="height: 13px;">가입인사</a>
-        </div>
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/clone.svg" style="height: 13px;">자유게시판</a>
-        </div>
-    </li>
-    <li class="row mx-0 me-li">
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/commenting-o.svg" style="height: 13px;">지식공유</a>
-        </div>
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/gift.svg" style="height: 13px;">이벤트</a>
-        </div>
-    </li>
-    <li class="row mx-0 me-li">
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/baseline-wc-24px.png" style="height: 13px;">이벤트</a>
-        </div>
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/commenting-o.svg" style="height: 13px;">정모게시판</a>
-        </div>
-    </li>
-    <li class="row mx-0 me-li">
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/commenting-o.svg" style="height: 13px;">외성게시판</a>
-        </div>
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/commenting-o.svg" style="height: 13px;">왕궁게시판</a>
-        </div>
-    </li>
-    <li class="row mx-0 me-li">
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=notice">
-                <img src="<?php echo G5_URL?>/img/solid/clone.svg" style="height: 13px;">건의사항</a>
-        </div>
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="http://192.168.1.108/gnuboard/bbs/board.php?bo_table=shop">
-                <img src="<?php echo G5_URL?>/img/solid/gift.svg" style="height: 13px;">아이템샵</a>
-        </div>
-    </li>
-    <li class="row mx-0 me-li">
-        <div class="col-6 m-0 px-0">
-            <a class="border-0" href="https://twitter.com/home" target="_blank">
-                <img src="<?php echo G5_URL?>/img/twitter.png" style="height: 12px;">트위터 인증</a>
-        </div>
-    </li> -->
-    <?php 
-  
+    <?php   
     for($k=2;$k<count($menu);$k++){
         if ($menu[$k]['text']!="고객센터"){
 ?>
-
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
         <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[$k]['text']?>
@@ -321,14 +240,8 @@ else if($end_time < $now_time){
         </div>
         <?php if ($i%2==1) { ?>
     </li>
-    <?php 
-    }}}
-}
-?>
-    <!------------ 명예의전당 ------------------------------- -->
-
+    <?php }}}} ?>
 </ul>
-
 <script>
 $('a.cat_2_bg').click(function() {
     $(this).removeClass('cat_2_bg').addClass('cat_2_bg_a');
