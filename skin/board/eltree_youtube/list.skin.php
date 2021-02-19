@@ -84,7 +84,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <th scope="col" ></th>
             <th scope="col" >번호</th>
             <th scope="col" >제목</th>
-            <th scope="col" >작성자</th>
+            <th scope="col" class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>">작성자</th>
 
             <?php if ($is_good) { ?><th  class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
             <?php if ($is_nogood) { ?><th  class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
@@ -150,10 +150,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 						?>
                     <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><span class="cnt_cmt">+ <?php echo $list[$i]['wr_comment']; ?></span><span class="sound_only">개</span><?php } ?>
                     </a>
+                    <?php if (G5_IS_MOBILE) { ?>
+                    <u class="listInfo" >
+						<span class="sound_only">작성자</span> <u class="listInfoName"><?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name'])   ?></u> /
+						<span class="sound_only">조회</span><i class="fa fa-eye" aria-hidden="true"></i> <u><?php echo $list[$i]['wr_hit'] ?></u> /
+						<span class="sound_only">작성일</span><i class="fa fa-clock-o" aria-hidden="true"></i> <u><?php echo $list[$i]['datetime2'] ?></u>
+					</u>
+                    <?php } ?>
 					</u>
                 </div>
-            </td>
-            <td class="td_subject" >
+            </td> 
+            <td class="td_subject <?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" >
                 <div class="bo_tit">
 					<u class="listInfo" >
 						<span class="sound_only">작성자</span> <u class="listInfoName"><?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name'])   ?></u> /
