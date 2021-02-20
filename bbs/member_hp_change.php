@@ -26,14 +26,15 @@ if($_POST['new_hp']!='')
     $sql= "update g5_member set mb_10 = '{$new_hp}' where mb_id ='{$member['mb_id']}'";            
     sql_query($sql);
 
+    $updateurl= '"'.G5_BBS_URL."phone_change.php?mb_id=".$member['mb_id'].'"';
 
     $tmp_row1 = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} ");
     $me_id1 = $tmp_row1['max_me_id'] + 1;
 
     $sql1 = " insert into {$g5['memo_table']} 
     ( me_recv_mb_id, me_send_mb_id, me_send_datetime, me_memo, me_read_datetime, me_type, me_send_ip ) values 
-    ( 'admin', '{$member['mb_id']}', '".G5_TIME_YMDHIS."', '{$member['mb_id']} 전화번호 변경요청 합니다 {$member['mb_10']} {$new_hp}', '0000-00-00 00:00:00' , 'recv', '{$_SERVER['REMOTE_ADDR']}' ) ";
-
+    ( 'admin', '{$member['mb_id']}', '".G5_TIME_YMDHIS."', '{$member['mb_id']} 전화번호 변경요청 합니다 {$member['mb_10']} {$new_hp}  <a href={$updateurl} >update click</a>', '0000-00-00 00:00:00' , 'recv', '{$_SERVER['REMOTE_ADDR']}' ) ";
+//    echo $sql1;
     sql_query($sql1);
     if( $me_id1 = sql_insert_id() ){
         // 보내는 회원 쪽지 INSERT
@@ -43,6 +44,8 @@ if($_POST['new_hp']!='')
         sql_query($sql1);		
     }
 
+    $sql = " update {$g5['member_table']} set mb_memo_call = '{$member['mb_id']}', mb_memo_cnt = '".get_memo_not_read("admin")."' where mb_id = 'admin' ";
+    sql_query($sql);
 
 }
 

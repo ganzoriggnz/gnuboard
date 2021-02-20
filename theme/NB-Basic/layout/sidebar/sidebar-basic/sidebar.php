@@ -382,8 +382,14 @@ $menu_cnt = count($menu);
 						<?php } //is_sub
 						?>
 					</li>
+					
 				<?php } //for
 				?>
+				<li class="me-li">
+						<br><br>
+						<br><br><br><br>
+						<br><br>
+				</li>
 				<?php if (!$menu_cnt) { ?>
 					<li class="me-li">
 						<a class="me-a" href="javascript:;">메뉴를 등록해 주세요.</a>
