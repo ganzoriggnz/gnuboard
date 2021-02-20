@@ -92,7 +92,11 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
         </div>
     </nav>
     <!-- 스크랩 목록 시작 { -->
-
+    <style>
+        .w-10 {width: 10% !important;}
+        .w-15 {width: 15% !important;}
+        .w-50 {width: 50% !important;}
+    </style>
     <section id="bo_list" class="mb-4">
         <div id="scrap_info" class="font-weight-normal px-3 pb-2 pt-4">
             전체 <?php echo number_format($total_count) ?>건 / <?php echo $page ?>페이지
@@ -120,24 +124,24 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                 for ($i = 0; $i < count($list);   $i++) { ?>
  
                     <li class="d-md-table-row px-3 py-2 p-md-0 text-md-left text-muted border-bottom">
-                        <div class="d-none d-md-table-cell nw-4 f-sm font-weight-normal py-md-2 px-md-1">
+                        <div class="d-none d-md-table-cell w-10 f-sm font-weight-normal py-md-2 px-md-1">
                             <?php echo $list[$i]['gr_subject']; ?>
                         </div>
-                        <div class="d-none d-md-table-cell nw-6 text-left f-sm font-weight-normal py-md-2 px-md-1">
+                        <div class="d-none d-md-table-cell w-15 text-left f-sm font-weight-normal py-md-2 px-md-1">
                             <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id']?>" style="color: #6c757d;">
                                 <?php echo $list[$i]['bo_subject'];?>
                         </a>
                         </div>
-                        <div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+                        <div class="float-right float-md-none d-md-table-cell w-50 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
                             <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id'] ?>" style="color: #6c757d;">                                                             
                                 <?php                                
                                 echo $list[$i]['wr_subject']; ?>
                             </a>
                         </div>
-                        <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+                        <div class="float-left float-md-none d-md-table-cell w-10 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
                             <?php echo   na_name_photo($member['mb_id'], get_sideview($member['mb_id'], $member['mb_nick'], $member['mb_homepage'])) ?>
                         </div>
-                        <div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+                        <div class="float-left float-md-none d-md-table-cell w-15 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
                             <span class="sr-only">등록일</span>
                             <?php echo $list[$i]['wr_datetime']; ?>
                         </div>
