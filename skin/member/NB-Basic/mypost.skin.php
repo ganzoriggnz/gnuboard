@@ -95,7 +95,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
     <style>
         .w-10 {width: 10% !important;}
         .w-15 {width: 15% !important;}
-        .w-50 {width: 50% !important;}
+        .w-45 {width: 45% !important;}
     </style>
     <section id="bo_list" class="mb-4">
         <div id="scrap_info" class="font-weight-normal px-3 pb-2 pt-4">
@@ -132,13 +132,13 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                                 <?php echo $list[$i]['bo_subject'];?>
                         </a>
                         </div>
-                        <div class="float-right float-md-none d-md-table-cell w-50 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+                        <div class="float-right float-md-none d-md-table-cell w-45 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
                             <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id'] ?>" style="color: #6c757d;">                                                             
                                 <?php                                
                                 echo $list[$i]['wr_subject']; ?>
                             </a>
                         </div>
-                        <div class="float-left float-md-none d-md-table-cell w-10 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+                        <div class="float-left float-md-none d-md-table-cell w-15 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
                             <?php echo   na_name_photo($member['mb_id'], get_sideview($member['mb_id'], $member['mb_nick'], $member['mb_homepage'])) ?>
                         </div>
                         <div class="float-left float-md-none d-md-table-cell w-15 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
