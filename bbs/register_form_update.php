@@ -52,16 +52,6 @@ $mb_profile     = isset($_POST['mb_profile'])       ? trim($_POST['mb_profile'])
 $mb_recommend   = isset($_POST['mb_recommend'])     ? trim($_POST['mb_recommend'])   : "";
 $mb_mailling    = isset($_POST['mb_mailling'])      ? trim($_POST['mb_mailling'])    : "";
 $mb_sms         = isset($_POST['mb_sms'])           ? trim($_POST['mb_sms'])         : "";
-$mb_1           = isset($_POST['mb_1'])             ? trim($_POST['mb_1'])           : "";
-$mb_2           = isset($_POST['mb_2'])             ? trim($_POST['mb_2'])           : "";
-$mb_3           = isset($_POST['mb_3'])             ? trim($_POST['mb_3'])           : "";
-$mb_4           = isset($_POST['mb_4'])             ? trim($_POST['mb_4'])           : "";
-$mb_5           = isset($_POST['mb_5'])             ? trim($_POST['mb_5'])           : "";
-$mb_6           = isset($_POST['mb_6'])             ? trim($_POST['mb_6'])           : "";
-$mb_7           = isset($_POST['mb_7'])             ? trim($_POST['mb_7'])           : "";
-$mb_8           = isset($_POST['mb_8'])             ? trim($_POST['mb_8'])           : "";
-$mb_9           = isset($_POST['mb_9'])             ? trim($_POST['mb_9'])           : "";
-$mb_10          = isset($_POST['mb_10'])            ? trim($_POST['mb_10'])          : "";
 
 $mb_name        = clean_xss_tags($mb_name);
 $mb_email       = get_email_address($mb_email);
@@ -237,16 +227,6 @@ if ($w == '') {
                      mb_sms = '{$mb_sms}',
                      mb_open = '{$mb_open}',
                      mb_open_date = '".G5_TIME_YMD."',
-                     mb_1 = '{$mb_1}',
-                     mb_2 = '{$mb_2}',
-                     mb_3 = '{$mb_3}',
-                     mb_4 = '{$mb_4}',
-                     mb_5 = '{$mb_5}',
-                     mb_6 = '{$mb_6}',
-                     mb_7 = '{$mb_7}',
-                     mb_8 = '{$mb_8}',
-                     mb_9 = '{$mb_9}',
-                     mb_10 = '{$mb_10}'
                      {$sql_certify} ";
 
     // 이메일 인증을 사용하지 않는다면 이메일 인증시간을 바로 넣는다
@@ -352,16 +332,6 @@ if ($w == '') {
                     mb_addr_jibeon = '{$mb_addr_jibeon}',
                     mb_signature = '{$mb_signature}',
                     mb_profile = '{$mb_profile}',
-                    mb_1 = '{$mb_1}',
-                    mb_2 = '{$mb_2}',
-                    mb_3 = '{$mb_3}',
-                    mb_4 = '{$mb_4}',
-                    mb_5 = '{$mb_5}',
-                    mb_6 = '{$mb_6}',
-                    mb_7 = '{$mb_7}',
-                    mb_8 = '{$mb_8}',
-                    mb_9 = '{$mb_9}',
-                    mb_10 = '{$mb_10}'
                     {$sql_password}
                     {$sql_nick_date}
                     {$sql_open_date}
@@ -564,5 +534,6 @@ clearstatcache();
 
 ?>
 <script>
+
 location.reload();
 </script>

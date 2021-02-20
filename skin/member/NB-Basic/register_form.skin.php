@@ -395,7 +395,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					</div>
 				</li>
 			<?php } ?>
-
 			
 		</ul>
 
