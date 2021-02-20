@@ -11,15 +11,16 @@ if ($is_nogood) $colspan++;
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
 ?>
+<style>
 
+</style>
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list" style="width:<?php echo $width; ?>">
-
     <!-- 게시판 카테고리 시작 { -->
     <?php if ($is_category) { ?>
-    <nav id="bo_cate">
+    <nav id="bo_cate" class="sly-tab">
         <h2><?php echo $board['bo_subject'] ?> 카테고리</h2>
-        <ul id="bo_cate_ul">
+        <ul id="bo_cate_ul" class="bo_cate  d-flex">
             <?php echo $category_option ?>
         </ul>
     </nav>
