@@ -360,33 +360,6 @@ if ($board['bo_use_category']) {
 }
 
 
-if ($board['bo_use_category']) {
-    $is_category = true;
-    $category_href = get_pretty_url($bo_table);
-
-    $category_shop .= '<li><a href="'.$category_href.'"'; 
-    if ($sca==''){
-        $category_shop .= ' id="bo_cate_on"';
-        $category_shop .= '>전체('.$total_count.')</a></li>';
-    } else 
-    $category_shop .= '>전체</a></li>'; 
-    
-     $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
-     
-    for ($i=0; $i<count($categories); $i++) {      
-         $category = trim($categories[$i]);
-        if ($category=='') continue;       
-         $category_shop .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
-        $category_msg = '';
-        if ($category==$sca) { // 현재 선택된 카테고리라면
-            $categorycategory_shop_option .= ' id="bo_cate_on"';
-            $category_msg = '<span class="sound_only">열린 분류 </span>';
-            $category_shop .= '>'.$category_msg.$category.'('.$total_count.')</a></li>';
-        }
-        else
-        $category_shop .= '>'.$category_msg.$category.'</a></li>';
-    }    
-}
 
 // $is_subcategory = false;
 // $subcategory_option = '';

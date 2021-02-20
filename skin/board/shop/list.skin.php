@@ -98,7 +98,41 @@ $query5 = "select SUM(wr_3) as cnt from g5_write_basket  where mb_id = '$member[
         $ordercnt= $row['cnt']; 
     }
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
+$total_count = count($list);
+$category_option="";
+
+if ($board['bo_use_category']) {
+    $is_category = true;
+    $category_href = get_pretty_url($bo_table);
+
+    $category_option .= '<li><a href="'.$category_href.'"'; 
+    if ($sca==''){
+        $category_option .= ' id="bo_cate_on"';
+        $category_option .= '>전체('.$total_count.')</a></li>';
+    } else 
+    $category_option .= '>전체</a></li>'; 
+    
+     $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
+     
+    for ($i=0; $i<count($categories); $i++) {
+      
+         $category = trim($categories[$i]);
+        if ($category=='') continue;       
+         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
+        $category_msg = '';
+        if ($category==$sca) { // 현재 선택된 카테고리라면
+            $category_option .= ' id="bo_cate_on"';
+            $category_msg = '<span class="sound_only">열린 분류 </span>';
+            $category_option .= '>'.$category_msg.$category.'('.$total_count.')</a></li>';
+        }
+        else
+        $category_option .= '>'.$category_msg.$category.'</a></li>';
+    }    
+}
 ?>
+
+
+
 <h2 id="container_title"><span class="sound_only"> 목록</span></h2>
 
 <ul id="">
@@ -123,10 +157,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 <div id="bo_gall" style="width:<?php echo $width; ?>">
 
     <?php if ($is_category) { ?>
-    <nav id="bo_cate">
+    <nav id="bo_cate" class="sly-tab">
         <h2><?php echo $board['bo_subject'] ?> 카테고리</h2>
-        <ul id="bo_cate_ul">
-            <?php echo $category_shop ?>
+        <ul id="bo_cate_ul"  class="bo_cate  d-flex">
+            <?php echo $category_option ?>
         </ul>
     </nav>
     <?php } ?>
@@ -143,17 +177,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <a href="./board.php?bo_table=basket" class="btnd"><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px><?php if(!G5_IS_MOBILE) echo " 구매현황";  if($ordercnt) echo " (".$ordercnt.")"; ?> </a>&nbsp;
             <?php if ($admin_href) { ?><a href="<?php echo $admin_href ?>" class="btnd">관리자</a><?php } ?>&nbsp;
             <?php if ($admin_href) { ?><a href="<?php echo $write_href ?>" class="btnd">상품 올리기</a><?php } ?>
-
         </div>
-
-
-        <!-- <ul class="btn_bo_user">
-            <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btnd">RSS</a></li><?php } ?>
-            <li><a href="./board.php?bo_table=basket" class="btnd"><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px><?php if(!G5_IS_MOBILE) echo " 구매현황";  if($ordercnt) echo " (".$ordercnt.")"; ?> </a></li>
-            <?php if ($admin_href) { ?><li><a href="<?php echo $admin_href ?>" class="btnd">관리자</a></li><?php } ?>
-            <?php if ($admin_href) { ?><li><a href="<?php echo $write_href ?>" class="btnd">상품 올리기</a></li><?php } ?>
-            &nbsp;&nbsp;&nbsp;
-        </ul> -->
         <?php } ?>
 
     </div>
