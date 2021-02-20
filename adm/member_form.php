@@ -492,23 +492,23 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
     run_event('admin_member_form_add', $mb, $w, 'table');
     ?>
     <tr>
-        <th scope="row"><label for="mb_1">여분 필드 1</label></th>
+        <th scope="row"><label for="mb_1">성별</label></th>
         <td colspan="3"><input type="text" name="mb_1" value="<?php echo $mb['mb_1']; ?>" id="mb_1" class="frm_input" size="30" maxlength="255"></td>
     </tr>
     <tr>
-        <th scope="row"><label for="mb_2">여분 필드 2</label></th>
+        <th scope="row"><label for="mb_2">업종</label></th>
         <td colspan="3"><input type="text" name="mb_2" value="<?php echo $mb['mb_2']; ?>" id="mb_2" class="frm_input" size="30" maxlength="255"></td>
     </tr>
     <tr>
-        <th scope="row"><label for="mb_3">여분 필드 3</label></th>
+        <th scope="row"><label for="mb_3">제휴시작날짜</label></th>
         <td colspan="3"><input type="text" name="mb_3" value="<?php echo $mb['mb_3']; ?>" id="mb_3" class="frm_input" size="30" maxlength="255"></td>
     </tr>
     <tr>
-        <th scope="row"><label for="mb_4">여분 필드 4</label></th>
+        <th scope="row"><label for="mb_4">제휴종료날짜</label></th>
         <td colspan="3"><input type="text" name="mb_4" value="<?php echo $mb['mb_4']; ?>" id="mb_4" class="frm_input" size="30" maxlength="255"></td>
     </tr>
     <tr>
-        <th scope="row"><label for="mb_5">여분 필드 5</label></th>
+        <th scope="row"><label for="mb_5">제휴연장메모</label></th>
         <td colspan="3"><input type="text" name="mb_5" value="<?php echo $mb['mb_5']; ?>" id="mb_5" class="frm_input" size="30" maxlength="255"></td>
     </tr>
 
