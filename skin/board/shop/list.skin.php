@@ -173,7 +173,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             
 			if($list[$i]['wr_10'] == "Open") { 
          ?>
-        <li class="gall_li" style="width:<?php if(G5_IS_MOBILE) echo "170"; else echo "190" ?>px">
+        <li class="gall_li" style="width:<?php if(G5_IS_MOBILE) echo "48%"; else echo "190px" ?>">
             <?php if ($is_checkbox) { ?>
             <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
             <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
