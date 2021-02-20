@@ -137,7 +137,7 @@ $frm_submit = '<div class="col-sm-4">
 <form name="fwrite" id="fwrite" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 		<input type="hidden" name="uid" value="<?php echo get_uniqid(); ?>">
 		<input type="hidden" name="w" value="u">
-<?php 
+<!-- <?php 
 if ($member['mb_level']>=12 && $member['mb_level']<=22)
 {
 	echo '<div id="" class="font-weight-normal px-3 pt-3 ">
@@ -161,7 +161,7 @@ if ($member['mb_level']>=12 && $member['mb_level']<=22)
 					</div>
 				</div>';
 		}
-	?>
+	?> -->
 
 	<div id="point_info" class="font-weight-normal px-3 pb-2">
 		전체 <?php echo number_format($total_count) ?>건 / <?php echo $page ?>페이지
