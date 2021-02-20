@@ -131,8 +131,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     </nav>
     <?php } ?>
     <div class="bo_fx">
-            
-
         <div id="bo_list_total">
         <strong> 파운드 :  <?php echo number_format($member['mb_point']) ?></strong> 
             &nbsp;&nbsp;&nbsp; 
@@ -140,14 +138,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </div>
 
         <?php if ($rss_href || $write_href) { ?>
-        <ul class="btn_bo_user">
+        <div id="bo_list_total2">
+        <?php if ($rss_href) { ?><a href="<?php echo $rss_href ?>" class="btnd">RSS</a><?php } ?>
+            <a href="./board.php?bo_table=basket" class="btnd"><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px><?php if(!G5_IS_MOBILE) echo " 구매현황";  if($ordercnt) echo " (".$ordercnt.")"; ?> </a>&nbsp;
+            <?php if ($admin_href) { ?><a href="<?php echo $admin_href ?>" class="btnd">관리자</a><?php } ?>&nbsp;
+            <?php if ($admin_href) { ?><a href="<?php echo $write_href ?>" class="btnd">상품 올리기</a><?php } ?>
+
+        </div>
+
+
+        <!-- <ul class="btn_bo_user">
             <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btnd">RSS</a></li><?php } ?>
             <li><a href="./board.php?bo_table=basket" class="btnd"><img src="<?php echo $board_skin_url ?>/img/shopping-basket1.png" height=15px><?php if(!G5_IS_MOBILE) echo " 구매현황";  if($ordercnt) echo " (".$ordercnt.")"; ?> </a></li>
             <?php if ($admin_href) { ?><li><a href="<?php echo $admin_href ?>" class="btnd">관리자</a></li><?php } ?>
             <?php if ($admin_href) { ?><li><a href="<?php echo $write_href ?>" class="btnd">상품 올리기</a></li><?php } ?>
             &nbsp;&nbsp;&nbsp;
-        </ul>
+        </ul> -->
         <?php } ?>
+
     </div>
     <form name="fboardlist"  id="fboardlist" action="./board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
     <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">

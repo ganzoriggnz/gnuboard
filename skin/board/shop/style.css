@@ -145,6 +145,7 @@ a.disabled {
 .bo_fx:after {display:block;visibility:hidden;clear:both;content:""}
 .bo_fx ul {margin:0;padding:0;list-style:none}
 #bo_list_total {float:left;padding-top:5px}
+#bo_list_total2 {float:right;padding-top:5px}
 .btn_bo_user {float:right;margin:0;padding:0;list-style:none}
 .btn_bo_user li {float:left;margin-left:5px}
 .btn_bo_adm {float:left}
