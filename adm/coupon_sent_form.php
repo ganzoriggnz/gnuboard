@@ -28,13 +28,14 @@ $cos_created_datetime = G5_TIME_YMDHIS;
 $cos_link = $_POST['cos_link'];
 $cos_type = $_POST['cos_type'];
 $mb_id = $_POST['mb_id'];
+$cos_entity = $_POST['cos_entity'];
 
 $coupon = generateCode(); 
 
 $sql = " INSERT INTO {$g5['coupon_sent_table']}
             SET co_no = '{$_POST['co_no']}',
                 cos_code = '{$coupon}',
-                cos_entity = '{$_POST['cos_entity']}',
+                cos_entity = '{$cos_entity}',
                 cos_nick = '{$_POST['cos_nick']}',
                 cos_type = '{$_POST['cos_type']}',
                 cos_created_datetime = '{$cos_created_datetime}' ";
@@ -61,7 +62,7 @@ if($cos_type == 'F'){ $coupon_type = '무료'; } else { $coupon_type = '원가';
 $res = "SELECT * FROM {$g5['coupon_msg_table']} ORDER BY msg_no DESC LIMIT 1";
 $row = sql_fetch($res); 
 
-$me_memo = $coupon_type.$row['msg_customer_title'] . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . $row['msg_customer_text'];
+$me_memo = $cos_entity." ".$coupon_type.$row['msg_customer_title'] . "\r\n" . "아이디 : " . $cus_id . "\r\n" . "닉네임 : " . $cus_nick . "\r\n" . $row['msg_customer_text'];
 
 $tmp_row = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} ");
     $me_id = $tmp_row['max_me_id'] + 1;
