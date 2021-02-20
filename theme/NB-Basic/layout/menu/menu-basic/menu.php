@@ -117,12 +117,11 @@ $is_col_all = 6;
 													{ ?>
                                 <li class="dropdown-submenu sub-1dli<?php echo ($me1['on']) ? ' on' : ''; ?>"
                                     style="flex:1;">
-                                    <a href="<?php if($member['mb_level']==27)  echo $me1['href'];?>"
+                                    <a href="<?php if($member['mb_level']==27 || $is_admin)  echo $me1['href'];?>"
                                         <?php if($member['mb_level']==26)  echo 'onclick=levelalert();'?>
                                         data-toggle="dropdown"
                                         class="dropdown-item <?php echo count($me1['s'])>1 ? ' dropdown-toggle' : ''?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : '';?>"
                                         target="<?php echo $me1['target'];?>">
-
                                         <img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>.svg"
                                             style="height :14px;">
                                         <?php echo $me1['text'];?>
