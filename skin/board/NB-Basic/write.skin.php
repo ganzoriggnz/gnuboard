@@ -314,7 +314,7 @@ if ($is_member)
 											$w != 'u'
 									) 
 								)
-							)
+							) || ($bo_table == "free" || $bo_table == "event")
 					 ) { ?>
 				<?php if ($is_category) { ?>
 					<li class="list-group-item">

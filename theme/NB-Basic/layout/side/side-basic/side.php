@@ -82,15 +82,20 @@ $(document).ready(function() {
 $sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
 $res_date = sql_fetch($sql_date);
 $now = G5_TIME_YMDHIS;
-if($res_date['mb_4'] != '')
-$end_time = strtotime($res_date['mb_4']);
-$now_time = strtotime($now);
-if($end_time >= $now_time){
-    $diff = $end_time - $now_time;
-    $diff_days = ceil($diff / 86400);
-}
-else if($end_time < $now_time){
-    $diff_days = '0';
+if($res_date['mb_4'] != ''){
+    $end_time = strtotime($res_date['mb_4']);
+    $now_time = strtotime($now);
+    if($end_time >= $now_time){
+        $diff = $end_time - $now_time;
+        $diff_days = ceil($diff / 86400);
+    }
+    else if($end_time < $now_time){
+        $diff_days = '0';
+        $sql_d = " UPDATE {$g5['member_table']} 
+                        SET mb_level = '26'
+                        WHERE mb_id = '{$mb['mb_id']}' AND mb_level='27'";
+        sql_query($sql_d);
+    }
 }
 
 ?>
