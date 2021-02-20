@@ -115,7 +115,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         <option value="wr_subject||wr_content"<?php echo get_selected($sfl, 'wr_subject||wr_content'); ?>>상품+소개</option>
                     </select> 
                     <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label> &nbsp;
-                        <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required  class="forml" size="25" maxlength="15">&nbsp;
+                        <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required  class="forml" size="20" maxlength="15">&nbsp;
                         <input type="submit" class="btn btn-primary" value="검색" class="btn_submit">
 		</form>
 </div></ul>
@@ -172,7 +172,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             
 			if($list[$i]['wr_10'] == "Open") { 
          ?>
-        <li class="gall_li" style="width:190px">
+        <li class="gall_li" style="width:<?php if(G5_IS_MOBILE) echo "170"; else echo "190" ?>px">
             <?php if ($is_checkbox) { ?>
             <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
             <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
