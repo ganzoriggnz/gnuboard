@@ -561,4 +561,8 @@ if ($w == '') {
     }
 }
 clearstatcache();
+
 ?>
+<script>
+location.reload();
+</script>
