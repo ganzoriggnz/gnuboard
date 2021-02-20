@@ -121,7 +121,12 @@ a.disabled {
     cursor: pointer;
 }
 
-#bo_gall .gall_con {margin:0;padding:0;list-style:none}
+#bo_gall .gall_con {
+  margin:0;
+  padding:0;
+  list-style:none
+  
+}
 #bo_gall .gall_con li {margin:10px; }
 #bo_gall .gall_con .gall_subject {display:inline-block;width:50px}
 
