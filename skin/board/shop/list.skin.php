@@ -115,7 +115,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         <option value="wr_subject||wr_content"<?php echo get_selected($sfl, 'wr_subject||wr_content'); ?>>상품+소개</option>
                     </select> 
                     <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label> &nbsp;
-                        <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required  class="forml" size="20" maxlength="15">&nbsp;
+                        <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required  class="forml" style="width:50%">&nbsp;
                         <input type="submit" class="btn btn-primary" value="검색" class="btn_submit">
 		</form>
 </div></ul>
