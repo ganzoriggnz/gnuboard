@@ -152,7 +152,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     </a>
                     <?php if (G5_IS_MOBILE) { ?>
                     <u class="listInfo" >
-						<span class="sound_only">작성자</span> <u class="listInfoName"><?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name'])   ?></u> /
+						<span class="sound_only">작성자</span> <u class="listInfoName"><?php 
+				$mbid= get_member($list[$i]['mb_id']);
+				 $name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);				
+				echo na_name_photo($list[$i]['mb_id'], $name ) ?></u> /
 						<span class="sound_only">조회</span><i class="fa fa-eye" aria-hidden="true"></i> <u><?php echo $list[$i]['wr_hit'] ?></u> /
 						<span class="sound_only">작성일</span><i class="fa fa-clock-o" aria-hidden="true"></i> <u><?php echo $list[$i]['datetime2'] ?></u>
 					</u>
@@ -163,7 +166,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <td class="td_subject <?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" >
                 <div class="bo_tit">
 					<u class="listInfo" >
-						<span class="sound_only">작성자</span> <u class="listInfoName"><?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name'])   ?></u> /
+						<span class="sound_only">작성자</span> <u class="listInfoName"><?php 
+				$mbid= get_member($list[$i]['mb_id']);
+				 $name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);				
+				echo na_name_photo($list[$i]['mb_id'], $name ) ?>
+                </u> /
 						<span class="sound_only">조회</span><i class="fa fa-eye" aria-hidden="true"></i> <u><?php echo $list[$i]['wr_hit'] ?></u> /
 						<span class="sound_only">작성일</span><i class="fa fa-clock-o" aria-hidden="true"></i> <u><?php echo $list[$i]['datetime2'] ?></u>
 					</u>

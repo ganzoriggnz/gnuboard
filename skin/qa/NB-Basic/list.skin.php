@@ -225,7 +225,10 @@ if ($category_option) {
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<span class="sr-only">등록자</span>
-				<?php echo na_name_photo($list[$i]['mb_id'], get_sideview($list[$i]['mb_id'], $list[$i]['qa_name'], $list[$i]['qa_email'], '')) ?>
+				<?php 
+				$mbid= get_member($list[$i]['mb_id']);
+				 $name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);				
+				echo na_name_photo($list[$i]['mb_id'], $name ) ?>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-5 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
 				<?php echo ($list[$i]['qa_status']) ? '<span class="orangered">완료</span>' : '대기'; ?>

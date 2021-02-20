@@ -148,7 +148,10 @@ if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin){
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-10 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
 				<span class="sr-only">등록자</span>
-				<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
+				<?php 
+				$mbid= get_member($list[$i]['mb_id']);
+				 $name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);				
+				echo na_name_photo($list[$i]['mb_id'], $name ) ?>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
 				<span class="sr-only">등록일</span>
