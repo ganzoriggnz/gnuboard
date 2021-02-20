@@ -190,7 +190,22 @@ if ($board['bo_use_category'] && $sca !='') {
                 </label>
             </div>
         <?php } ?> -->
-
+        <style>
+                    .gal_btns {
+                        background-color: rgba(255, 255, 255, 0.5);
+                        font-size: 12px;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        align-items: center;
+                        justify-content: center;
+                        width: 64px;
+                        height: 35px;
+                        padding-top: 6px;
+                        border: 1px solid black;
+                        border-radius: 0px;
+                    }
+                    </style>
         <ul id="gall_ul" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 mx-n2">
             <?php
             for ($i = 0; $i < $list_cnt; $i++) {
@@ -292,21 +307,7 @@ if ($board['bo_use_category'] && $sca !='') {
                             </a>
                         </div>
                     </div>
-                    <style>
-                    .gal_btns {
-                        background-color: rgba(255, 255, 255, 0.5);
-                        font-size: 12px;
-                        align-items: center;
-                        justify-content: center;
-                        text-align: center;
-                        align-items: center;
-                        justify-content: center;
-                        width: 64px;
-                        height: 35px;
-                        padding-top: 6px;
-                        border: 1px solid black;
-                    }
-                    </style>
+
                     <div
                         style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL ?>/main_780.png'); width: 100%; height: 52px;">
                         <div>

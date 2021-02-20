@@ -289,7 +289,6 @@ if ($board['bo_use_category']) {
             <li><input type="submit" class="btn" name="btn_submit" value="선택이동" onclick="document.pressed=this.value"></li>
         </ul>
         <?php } ?>
-
     </div>
     <?php } ?>
     </form>

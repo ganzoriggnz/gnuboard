@@ -78,7 +78,22 @@ for ($i=0; $i < $list_cnt; $i++) {
 	$thumb = ($wset['thumb_w']) ? na_thumb($img, $wset['thumb_w'], $wset['thumb_h']) : $img;
 	$zurag = "anma";
 ?>
-
+        <style>
+        .gal_btns {
+            background-color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 35px;
+            padding-top: 6px;
+            border: 1px solid black;
+            border-radius: 0px;
+        }
+        </style>
 <li class="col px-2 pb-4" style="width: 230px; height: 300px;">
     <?php   
         $at = $list[$i]['bo_table'];
@@ -118,21 +133,7 @@ for ($i=0; $i < $list_cnt; $i++) {
             </div>
 
         </div>
-        <style>
-        .gal_btns {
-            background-color: rgba(255, 255, 255, 0.5);
-            font-size: 12px;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 35px;
-            padding-top: 6px;
-            border: 1px solid black;
-        }
-        </style>
+
         <div
             style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
             <div>

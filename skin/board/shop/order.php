@@ -1,6 +1,7 @@
 <?php
 include_once("_common.php");
 
+
  $q=$_GET["q"];
 
 $query5 = "select * from g5_write_shop  where wr_id = '$q'  ";
@@ -60,12 +61,8 @@ $bo_table = "basket";
                      wr_8 = '$wr_8',
                      wr_9 = '$wr_9',
                      wr_10 = '구매대기' ";
-
     sql_query($sql);
-
     $wr_id = mysql_insert_id();
-
-
     // 부모 아이디에 UPDATE
     sql_query(" update $table set wr_parent = '$wr_id' where wr_id = '$wr_id' ");
 
@@ -78,7 +75,5 @@ $bo_table = "basket";
 if($cnt2 != "") { sql_query(" update g5_write_basket set wr_3 = '$wr_3' where wr_9 = '$wr_9' and wr_10 = '구매대기' "); 
 				  sql_query(" update g5_write_basket set wr_1 = '$wr_1' where wr_9 = '$wr_9' and wr_10 = '구매대기' "); 
 				}
-
-
 ?>
 <?php include_once($board_skin_path.'/shop/ajax_in.php');?>
