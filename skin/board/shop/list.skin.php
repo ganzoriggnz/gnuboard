@@ -134,7 +134,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <div id="bo_list_total">
         <strong> 파운드 :  <?php echo number_format($member['mb_point']) ?></strong> 
             &nbsp;&nbsp;&nbsp; 
-            <img src="<?php echo $board_skin_url?>/img/star.png" height=21> 추천 상품 <img src="<?php echo $board_skin_url?>/img/good.png" height=21> 특가 상품 
+            <!-- <img src="<?php echo $board_skin_url?>/img/star.png" height=21> 추천 상품 <img src="<?php echo $board_skin_url?>/img/good.png" height=21> 특가 상품  -->
         </div>
 
         <?php if ($rss_href || $write_href) { ?>
