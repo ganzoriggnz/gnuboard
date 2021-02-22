@@ -101,7 +101,15 @@ $(function(){
 
 		//$("#autosave_pop").hide();
 		$('#saveModal').modal('hide');
+        $('.modal-backdrop').remove();
+        $('body').removeClass( "modal-open" );
+
+  
+     
+
     });
+
+    
 
     $(document).on( "click", ".autosave_del", function(){
         var $li = $(this).parents("li");
