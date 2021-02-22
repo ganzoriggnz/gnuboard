@@ -85,7 +85,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("첫번째 버튼을 클릭하세요.");
                 } else 
                 {                  
-                    if (getElapsedMinutes(firstTime, clickTime2) >= 2){
+                    if (getElapsedMinutes(firstTime, clickTime2) >= 30){
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
@@ -123,7 +123,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("먼저 두번쨰 버튼을 클릭하세요.");
  
                 } else {
-                    if (getElapsedMinutes(secondTime, clickTime3) >= 2){
+                    if (getElapsedMinutes(secondTime, clickTime3) >= 30){
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
@@ -161,7 +161,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
 
             function getElapsedTime(last, current) { 
                 
-                var end = new Date(last).getTime() + 2 * 60000;
+                var end = new Date(last).getTime() + 30 * 60000;
                 var clicked = new Date(current).getTime();
                 var res = Math.abs(end - clicked) / 1000;
                 
