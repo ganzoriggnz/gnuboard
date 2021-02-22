@@ -104,12 +104,7 @@ $(function(){
         $('.modal-backdrop').remove();
         $('body').removeClass( "modal-open" );
 
-  
-     
-
     });
-
-    
 
     $(document).on( "click", ".autosave_del", function(){
         var $li = $(this).parents("li");

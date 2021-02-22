@@ -9,18 +9,15 @@ include_once('./admin.head.php');
 
 ?>
 <style>
-    .active {
-        color: red;
-    }
+    .active {color: red;}
 
-    a:active  {     background-color: yellow;  }
+    a:active  { background-color: yellow;  }
 </style>
 <div style="height: 740px;">
     <div style="float: left; width: 18%;">
         <div>
-            <input type="hidden" name="tuluw" id="tuluw" value="list">
             <button class="btn btn_02" id="coupon" onclick="load_coupon_page('<?php echo $bo_table ?>')">쿠폰제휴업소</button>
-            <button class="btn btn_02" id="all" onclick="load_coupon_page1('<?php echo $bo_table ?>')" style="margin-left: 5px;">전체제휴업소</button>
+            <button class="btn btn_03 all" id="all" onclick="load_coupon_page1('<?php echo $bo_table ?>')" style="margin-left: 5px;">전체제휴업소</button>
         </div>
         <ul class="coupon" style="margin-top: 20px;">
             <?php 
@@ -47,45 +44,42 @@ include_once('./admin.head.php');
         var param = $.urlParam('bo_table');
         $('#'+param).css("color", "#435ffe");
         $('#'+param).css("font-weight", "bold");
+        if( $('#all').attr('class') == "btn btn_03 all")
+        load_coupon_page1(param);
+        else if( $('#coupon').attr('class') == "btn btn_03 coupon")
         load_coupon_page(param);
         
  });
 
     function load_coupon_page(param){ 
-        if( $('#tuluw').val() == "list"){     
         $.ajax({
         url:"coupon_list_page.php",
         method: "POST",
         data: {id:param },
         success: function(data){
             $('#coupon_list').html(data);    
-            $('#tuluw').val('all');
-            $('#all').removeClass("btn_03");
+            $('#all').removeClass("btn_03 all");
             $('#all').addClass("btn_02"); 
             $('#coupon').removeClass("btn_02");
-            $('#coupon').addClass("btn_03");
+            $('#coupon').addClass("btn_03 coupon");
 
                 }
             });
-        }  
     } 
 
     function load_coupon_page1(param){ 
-        if( $('#tuluw').val() == "all"){
         $.ajax({ 
         url:"coupon_list_page_all.php",
         method: "POST",
         data: {id:param },
         success: function(data){
             $('#coupon_list').html(data);    
-            $('#tuluw').val('list');
-            $('#coupon').removeClass("btn_03");
+            $('#coupon').removeClass("btn_03 coupon");
             $('#coupon').addClass("btn_02");
             $('#all').removeClass('btn_02');
-            $('#all').addClass('btn_03'); 
+            $('#all').addClass('btn_03 all'); 
             }
-        });
-        }          
+        });       
     } 
 </script>
 
