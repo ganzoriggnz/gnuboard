@@ -120,7 +120,6 @@ for ($i=0; $i < $list_cnt; $i++) {
                         <?php echo $wr_cap ?> <!-- <?php if($thumb) { ?>
                         <img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
                         <?php } ?> -->
-                        <?php echo $list[$i]['mb_2'];?>
                     </a>
                 </div>
             </div>
