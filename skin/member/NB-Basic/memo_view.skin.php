@@ -58,7 +58,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	<div class="clearfix px-3 py-4">
 		<?php echo na_content(conv_content($memo['me_memo'], 0)) ?>
+		<?php if ($is_admin && $mb['mb_10']) { ?>
+		<a class="btn btn-primary float-right" href="<?php echo G5_BBS_URL.'/phone_change.php?mb_id='.$mb['mb_id']; ?>">전화 변경</a>
+		<?php } ?>
 	</div>
+	
 
 	<div class="px-3 pt-4 border-top">
 		<div class="na-table d-table w-100">
