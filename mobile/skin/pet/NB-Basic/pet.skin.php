@@ -31,6 +31,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
         <input type="hidden" id="but3" value="<?php if ($row['p_but3_datetime'] && $row['p_but3_datetime'] != '0000-00-00 00:00:00') echo $row['p_but3_datetime']; ?>">
         <button type="button" id="cat3" <?php echo ($row['p_but3_datetime'] != '0000-00-00 00:00:00' && $row['p_but3_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>사료주기</button>
     </div>
+    <input type="hidden" id="result" value="">
     <div class="pet_bottom">
         <p>* 모든 버튼은 <span class="red">매일 12시 초기화 됩니다</span></p>
     </div>
@@ -52,10 +53,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     </div>
     <script>
         $(document).ready(function(){
+            debugger;
             var count = 0;
+            getTime(); 
+            setInterval(getTime, 1000);
+
             $(".panel1 button").click(function(){
                 var id = this.id;
-                var lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
+                var clickTime1 = $('#result').val();
                 count = 1;
                 $("#cat1").css("background","#4D4D4D");
                 $.ajax({
@@ -67,21 +72,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         },
                         dataType: 'text',
                         success: function(response) {
-                            $('#but1').val(lastClickedTime);
-                            location.reload();
+                            $('#but1').val(clickTime1);
                         }
                 });
             });
 
             $(".panel2 button").click(function(){
                 id = this.id;
+                var clickTime2 = $('#result').val();
                 var firstTime = $('#but1').val(); 
                 if(firstTime == ''){
                     alert("첫번째 버튼을 클릭하세요.");
                 } else 
-                {
-                    if (getElapsedMinutes(firstTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
-                        lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
+                {                  
+                    if (getElapsedMinutes(firstTime, clickTime2) >= 2){
                     $("#cat2").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
@@ -92,13 +96,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         },
                         dataType: 'text',
                         success: function(response) {
-                            $('#but2').val(lastClickedTime);
-                            location.reload();
+                            $('#but2').val(clickTime2);
                         }
                     });
  
                     } else {
-                        var time = getElapsedTime(firstTime, new Date($.now()));
+                        var time = getElapsedTime(firstTime, clickTime2);
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
@@ -110,6 +113,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
 
             $(".panel3 button").click(function(){
                 id = this.id;
+                var clickTime3 = $('#result').val();
                 var firstTime = $('#but1').val(); 
                 var secondTime = $('#but2').val(); 
                 if(firstTime == '' && secondTime == ''){
@@ -119,8 +123,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                     alert("먼저 두번쨰 버튼을 클릭하세요.");
  
                 } else {
-                    if (getElapsedMinutes(secondTime, new Date("<?php echo date("Y-m-d H:i:s"); ?>")) >= 30){
-                        lastClickedTime = new Date("<?php echo date("Y-m-d H:i:s"); ?>");
+                    if (getElapsedMinutes(secondTime, clickTime3) >= 2){
                     $("#cat3").css("background","#4D4D4D");
                     $.ajax({
                         type: 'POST',
@@ -131,24 +134,34 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
                         },
                         dataType: 'text',
                         success: function(response) {
-                            $('#but2').val(lastClickedTime);
+                            $('#but2').val(clickTime3);
                         }
                     });
                     getSuccess();
                     } else {
-                        var time = getElapsedTime(secondTime, new Date($.now()));
+                        var time = getElapsedTime(secondTime, clickTime3);
                             $('#time').html(time);
                             $('.popup_box').css("display", "block");
                             $('.btn').click(function(){
                                 $('.popup_box').css("display", "none");
                             }); 
                     }
-                }
-               
+                }              
             });
 
-            function getElapsedTime(last, current) {  
-                var end = new Date(last).getTime() + 30 * 60000;
+            function getTime(){
+                $.ajax({
+                type: "POST",
+                url: "server_time.php",
+                success: function(msg){
+                    $("#result").val(msg);
+                    }
+                });
+            };
+
+            function getElapsedTime(last, current) { 
+                
+                var end = new Date(last).getTime() + 2 * 60000;
                 var clicked = new Date(current).getTime();
                 var res = Math.abs(end - clicked) / 1000;
                 
