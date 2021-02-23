@@ -186,7 +186,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     </label>
     <div class="col-sm-10 col-form-info">
     <?php if($member['mb_hp']) { echo $member['mb_hp'].'<br>'; }?>(프로필과 배너에 출력되니 항상 최신번호로 유지해주세요)
-					<a onclick="window.open('<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>','전화번호 변경요청','width=300,height=300,scrollbars=no,padding=0, margin=0, top=300,left=800');" 
+					<a onclick="window.open('<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>','전화번호 변경요청','width=500,height=300,scrollbars=no,padding=0, margin=0, top=300,left=800');" 
 					style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none" >
 						<font style="vertical-align: inherit;">전화번호 변경요청 </font></a>  <label style='color: red;'> &nbsp ※ 전화번호는 운영자가 확인 후 변경처리됩니다.</label>
 								
