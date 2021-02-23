@@ -141,7 +141,14 @@ $i=0;
         
         while ($row = sql_fetch_array($result)) {
             $bo_table = $row['bo_table'];
+            $at = $member['mb_6'];
+            $linkcount = strlen($at) - 2;
+            $str_table =substr($at, 0, $linkcount);
+            $re = $str_table."re";
+            
+            if($bo_table == $re){
                 $res = sql_query("select * from " . $g5['write_prefix'] . $bo_table . " where wr_7 ='{$member['mb_name']}'  order by wr_datetime DESC");
+                
                 while ($res1 = sql_fetch_array( $res)) { $i++; $resmember = get_member($res1['mb_id']); ?>
                         
                     <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
@@ -163,7 +170,7 @@ $i=0;
                         <div class="clearfix d-block d-md-none"></div>
                     </li>
                <?php  }            
-        } ?>
+        } } ?>
     </ul>
     <?php 
     
