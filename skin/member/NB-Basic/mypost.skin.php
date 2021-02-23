@@ -128,7 +128,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                             <?php echo $list[$i]['gr_subject']; ?>
                         </div>
                         <div class="d-none d-md-table-cell w-15 text-left f-sm font-weight-normal py-md-2 px-md-1">
-                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id']?>" style="color: #6c757d;">
+                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>" style="color: #6c757d;">
                                 <?php echo $list[$i]['bo_subject'];?>
                         </a>
                         </div>
