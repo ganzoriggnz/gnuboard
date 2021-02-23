@@ -9,7 +9,7 @@ if ($is_guest)
 
 set_session('ss_memo_delete_token', $token = uniqid(time()));
 
-$g5['title'] = '내 쪽지함ssss';
+$g5['title'] = '내 쪽지함';
 include_once(G5_PATH.'/head.sub.php');
 
 $kind = $kind ? clean_xss_tags(strip_tags($kind)) : 'friends';
