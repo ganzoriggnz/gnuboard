@@ -226,7 +226,7 @@ if ($w == '') {
                      mb_mailling = '{$mb_mailling}',
                      mb_sms = '{$mb_sms}',
                      mb_open = '{$mb_open}',
-                     mb_open_date = '".G5_TIME_YMD."',
+                     mb_open_date = '".G5_TIME_YMD."'
                      {$sql_certify} ";
 
     // 이메일 인증을 사용하지 않는다면 이메일 인증시간을 바로 넣는다
@@ -331,7 +331,7 @@ if ($w == '') {
                     mb_addr3 = '{$mb_addr3}',
                     mb_addr_jibeon = '{$mb_addr_jibeon}',
                     mb_signature = '{$mb_signature}',
-                    mb_profile = '{$mb_profile}',
+                    mb_profile = '{$mb_profile}'
                     {$sql_password}
                     {$sql_nick_date}
                     {$sql_open_date}
@@ -530,10 +530,6 @@ if ($w == '') {
         </html>';
     }
 }
-clearstatcache();
 
 ?>
-<script>
 
-location.reload();
-</script>
