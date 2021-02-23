@@ -31,8 +31,8 @@ if($_POST['new_hp']!='')
 
     $sql1 = " insert into {$g5['memo_table']} 
     ( me_recv_mb_id, me_send_mb_id, me_send_datetime, me_memo, me_read_datetime, me_type, me_send_ip ) values 
-    ( 'admin', '{$member['mb_id']}', '".G5_TIME_YMDHIS."', '{$member['mb_id']} 전화번호 변경요청 합니다 {$member['mb_10']} {$new_hp} ', '0000-00-00 00:00:00' , 'recv', '{$_SERVER['REMOTE_ADDR']}' ) ";
-//    echo $sql1;
+    ( 'admin', '{$member['mb_id']}', '".G5_TIME_YMDHIS."', '{$member['mb_nick']} 님 {$member['mb_10']} 전화 번호를 {$new_hp} 전화번호로 성공적으로 변경되었습니다', '0000-00-00 00:00:00' , 'recv', '{$_SERVER['REMOTE_ADDR']}' ) ";
+
     sql_query($sql1);
     if( $me_id1 = sql_insert_id() ){
         // 보내는 회원 쪽지 INSERT
