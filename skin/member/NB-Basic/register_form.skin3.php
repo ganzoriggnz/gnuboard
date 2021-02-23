@@ -432,8 +432,11 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 		
 		</ul>
-
-		<div class="px-3 px-sm-0 mb-4">
+		<div style="margin: 0 auto; text-align: center;">
+			<a href="<?php echo G5_URL ?>" class="btn btn-basic btn-lg en" style="width: 150px;">취소</a>
+			<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg en" style="margin-left: 20px; width: 150px;"><?php echo $w == '' ? '회원가입' : '정보수정'; ?></button>
+		</div>
+		<!-- <div class="px-3 px-sm-0 mb-4">
 			<div class="row mx-n2">
 				<div class="col-6 order-2 px-2">
 					<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg btn-block en"><?php echo $w == '' ? '회원가입' : '정보수정'; ?></button>
@@ -442,7 +445,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					<a href="<?php echo G5_URL ?>" class="btn btn-basic btn-lg btn-block en">취소</a>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 	</form>
 </div>
