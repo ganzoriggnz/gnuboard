@@ -11,7 +11,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 <div style="background-color:#f0f0f0; color:#000; font-weight:bold; padding:10px 0px 10px 0px; margin:0px; position:absolute; left:0px; top:0px; width:100%;" > <?php echo $g5['title']?></div>
 
-<form name="fmember" id="fmember" method="post">
+<form name="fmember" id="fmember" method="post" action="<?php echo G5_BBS_URL ?>/member_hp_update.php">
 <input type="hidden" name="mb_id" value="<?php echo $member['mb_id']?>" id="mb_id">
 <div class="tbl_head02 tbl_wrap" style="margin-top:50px">
     <table style="width:100%;margin:0 auto; font-size:13px;border:1px solid #707070" >
@@ -23,7 +23,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	</table>
 <br/>
 <div style="text-align:center">
-	<input type="submit" value="전화번호 변경요청" class="btn btn-primary btn-lg btn-block en">
+	<input type="button" id="change" value="전화번호 변경요청" class="btn btn-primary btn-lg btn-block en">
 	<button type="button" class="btn btn-primary btn-lg btn-block en" onclick="window.close();">창닫기</button>
 </div>	
 
@@ -32,3 +32,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 ?>		
 </div>
 </form>
+<script src="<?php echo NA_URL ?>/js/jquery-3.5.1.min.js"></script>
+<script>
+		$('#change').click(function(){
+			if (confirm("Are you sure to change previous phone number?")) {
+				alert("Your previous number changed successfully");
+				$('#fmember').submit();
+			}                  
+		});                                      
+</script>
