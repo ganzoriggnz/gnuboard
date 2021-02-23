@@ -52,6 +52,7 @@ $mb_profile     = isset($_POST['mb_profile'])       ? trim($_POST['mb_profile'])
 $mb_recommend   = isset($_POST['mb_recommend'])     ? trim($_POST['mb_recommend'])   : "";
 $mb_mailling    = isset($_POST['mb_mailling'])      ? trim($_POST['mb_mailling'])    : "";
 $mb_sms         = isset($_POST['mb_sms'])           ? trim($_POST['mb_sms'])         : "";
+$mb_1           = isset($_POST['mb_1'])             ? trim($_POST['mb_1'])           : "";
 
 $mb_name        = clean_xss_tags($mb_name);
 $mb_email       = get_email_address($mb_email);
@@ -226,7 +227,8 @@ if ($w == '') {
                      mb_mailling = '{$mb_mailling}',
                      mb_sms = '{$mb_sms}',
                      mb_open = '{$mb_open}',
-                     mb_open_date = '".G5_TIME_YMD."'
+                     mb_open_date = '".G5_TIME_YMD."',
+                     mb_1 = '{$mb_1}'
                      {$sql_certify} ";
 
     // 이메일 인증을 사용하지 않는다면 이메일 인증시간을 바로 넣는다
@@ -331,7 +333,8 @@ if ($w == '') {
                     mb_addr3 = '{$mb_addr3}',
                     mb_addr_jibeon = '{$mb_addr_jibeon}',
                     mb_signature = '{$mb_signature}',
-                    mb_profile = '{$mb_profile}'
+                    mb_profile = '{$mb_profile}',
+                    mb_1 = '{$mb_1}'
                     {$sql_password}
                     {$sql_nick_date}
                     {$sql_open_date}
