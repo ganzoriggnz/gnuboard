@@ -102,7 +102,7 @@ for ($i=0; $i < $list_cnt; $i++) {
             border-radius: 0px !important;
         }
         </style>
-<li class="col px-2 pb-4" style="margin-bottom: 15px;">
+<li class="col px-2" style="margin-bottom: 15px;">
     <?php   
         $at = $list[$i]['bo_table'];
         $linkcount = strlen($at) - 2;
