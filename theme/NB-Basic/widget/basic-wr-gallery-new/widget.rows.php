@@ -99,6 +99,7 @@ for ($i=0; $i < $list_cnt; $i++) {
             height: 35px;
             padding-top: 6px;
             border: 1px solid black;
+            border-radius: 0px !important;
         }
         </style>
 <li class="col px-2 pb-4" style="margin-bottom: 15px;">
