@@ -46,60 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         locale: initialLocaleCode,
         navLinks: true, // can click day/week names to navigate views
         editable: true,
-        eventLimit: true, // allow "more" link when too many events
-       eventRender: function(event, eventElement) {
-                /* eventElement.find("td.fc-event-container").append("<span class='sv_wrap'>");  */
-            /* info.el.querySelector('.fc-time').innerHTML = ""; */
-            //info.el.querySelector('.fc-title').innerHTML = "<i>" + info.event.title + `</li><div id="links" class="${info.event.extendedProps.mb_id}popUp"></div>`;
-            // info.el.append(`<div id=${info.el.extendedProps.mb_id}></div>`)
-            // var e = info.el.append("<span class='closeon'>&#10005;</span>");
-        }, 
-        events: {
-            url: 'entity_load.php',
-            error: function() {
-                $('#script-warning').show();
-            }
-		},
-		eventClick: function(info){
-			var eventObj = info.event;
-			var id = eventObj.id;
-			var title  = eventObj.title;
-            var end = eventObj.end;
-            var mb_id  = eventObj.extendedProps.mb_id;
-			var mb_name  = eventObj.extendedProps.mb_name;
-            var mb_note  = eventObj.extendedProps.mb_note;
-            
-            $.ajax({
-                url: 'entity_links.php',
-                type: 'POST',
-                data: {mb_id: mb_id},
-                success: function(response){ 
-                $('#entitylinkModal .modal-body').html(response);
-					$('#entitylinkModal').modal(); 
-                }               
-            }); 		
-        },
-        loading: function(bool) {
-            $('#loading').toggle(bool);
-		}		
-    });
-    calendar.render();
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var initialLocaleCode = 'ko';
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: [ 'dayGrid', 'timeGrid', 'list', 'interaction' ],
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,dayGridWeek,dayGridDay'
-        },
-        defaultDate: '<?php echo G5_TIME_YMD?>',
-        locale: initialLocaleCode,
-        navLinks: true, // can click day/week names to navigate views
-        editable: true,
 		eventLimit: true, // allow "more" link when too many events
 		eventRender: function(info) {
 			//info.el.querySelector('.fc-time').innerHTML = "";
