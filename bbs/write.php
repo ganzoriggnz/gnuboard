@@ -313,7 +313,11 @@ if ($is_guest || ($is_admin && $w == 'u' && $member['mb_id'] !== $write['mb_id']
    
 }
 //  hulan nemsen 출근부 수정 페이지  adm dotor bas bga
-if($member['mb_level'] == 27 && $gr_id == 'attendance') {
+
+$now = G5_TIME_YMDHIS;
+$finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4'])));  
+
+if(($member['mb_level'] == 27 || ($member['mb_level'] == '26' && $finish_date >= $now)) && $gr_id == 'attendance') {
     
     $is_phone = true;
     $is_address = true;

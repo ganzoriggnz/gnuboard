@@ -244,16 +244,27 @@ if( isset($_POST['id'])){
                     </tr>
                 </thead>
             <tbody>
-        <?php    
-        /* $result = "(SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27') || (b.co_begin_datetime IS NULL AND c.mb_level = '27')) 
-        UNION ALL (SELECT a.wr_id, c.mb_id as mbid, c.mb_name, c.mb_level FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE b.co_begin_datetime!='{$co_begin_datetime}' AND b.co_end_datetime!='{$co_end_datetime}' AND b.co_begin_datetime < '{$co_begin_datetime}' AND b.co_end_datetime < '{$co_end_datetime}' AND c.mb_level = '27')"; */
-        $result = "SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' AND a.wr_is_comment = '0')";
+        <?php   
+        $result = "SELECT a.wr_id, a.mb_id, b.co_no, b.mb_id as mb_id1, b.co_entity, b.wr_id, b.co_free_num, b.co_sale_num, 
+        b.co_sent_fnum, b.co_sent_snum, b.co_created_datetime, b.co_updated_datetime, b.co_begin_datetime, b.co_end_datetime, 
+        c.mb_id as mb_id2, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a 
+        LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id 
+        LEFT JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id 
+        WHERE (b.co_begin_datetime='{$co_begin_datetime}' 
+        AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' 
+        AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' 
+        AND a.wr_is_comment = '0') || (b.co_begin_datetime < '{$co_begin_datetime}' 
+        AND b.co_end_datetime < '{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0')"; 
+        /* $result = "SELECT a.wr_id, b.co_no, b.co_entity, b.wr_id as wrid, b.co_free_num, b.co_sale_num, b.co_sent_fnum, b.co_sent_snum, b.co_created_datetime, b.co_updated_datetime, b.co_begin_datetime, b.co_end_datetime, c.mb_id as mbid, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE ((b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime < '{$co_begin_datetime}' AND b.co_end_datetime < '{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0')"; */ 
+        /* UNION (SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level, mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE b.co_begin_datetime!='{$co_begin_datetime}' AND b.co_end_datetime!='{$co_end_datetime}' AND b.co_begin_datetime < '{$co_begin_datetime}' AND b.co_end_datetime < '{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0')"; */
+        /* $result = "SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' AND a.wr_is_comment = '0')"; */
         $result1=sql_query($result);
+        echo $result; 
         while ($row = sql_fetch_array($result1)) {     
         ?>
             <tr>
                 <td class="td_left" style="text-align: left; width: 7rem;">
-                    <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>" data-mb-id = "<?php echo $row['mbid'];?>" data-entity = "<?php echo $row['mb_name'];?>">
+                    <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-entity = "<?php echo $row['mb_name'];?>">
                         <?php echo "[".$row['mb_name']."]";
                         $user_entity[$cnt]['co_entity']= $row['mb_name'];
                         ?> 
@@ -280,7 +291,7 @@ if( isset($_POST['id'])){
                                     <div class="modal-body" style="text-align: left; font-weight: normal;">
                                         <form id="fcouponcreate<?php echo $cnt;?>" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
                                             <input type="hidden" name="co_no" id="co_no1" value="<?php echo $row3['co_no']; ?>">
-                                            <input type="hidden" name="mb_id" id="mb_id1" value="<?php echo $row2['mb_id']; ?>">
+                                            <input type="hidden" name="mb_id" id="mb_id1" value="<?php echo $row['mb_id']; ?>">
                                             <input type="hidden" name="mb_6" id="mb_6" value="<?php echo $row['mb_6']; ?>">
                                             <input type="hidden" name="cos_link" id="cos_link1" value="<?php echo $bo_table; ?>">
                                             <div style="margin-left: 10px;"><?php echo $year."년 ".$month."월";?></div>
@@ -319,13 +330,13 @@ if( isset($_POST['id'])){
                 
                 <td class="td_left">
                     <a data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
-                        <?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
+                        <?php if($row['co_begin_datetime'] < $co_begin_datetime) {echo "원가권 0개";} else { echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";}?>
                     </a>
                 </td> 
                 
                 <td class="td_left">
                     <a data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
-                        <?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
+                        <?php if($row['co_begin_datetime'] < $co_begin_datetime) {echo "무료권 0개";} else { echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";}?> 
                     </a>
                 </td>
                 
