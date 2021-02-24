@@ -87,7 +87,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <h2 id="bo_v_atc_title">본문</h2>
         <div id="bo_v_share">
         	<?php include_once(G5_SNS_PATH."/view.sns.skin.php"); ?>
-	        <?php if ($scrap_href) { ?><a href="<?php echo $scrap_href;  ?>" target="_blank" class="btn btn_b03" onclick="win_scrap(this.href); return false;"><i class="fa fa-bookmark" aria-hidden="true"></i> 스크랩</a><?php } ?>
+	        <?php if ($scrap_href) { ?><a href="<?php echo $scrap_href;  ?>" target="_blank" class="btn btn_b03" onclick="win_scrap(this.href); return false;" style="width:90px;"><i class="fa fa-bookmark" aria-hidden="true"></i> 스크랩</a><?php } ?>
 	    </div>
 
   <?php
@@ -113,7 +113,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
            ?>
 
           <!-- 본문 내용 시작 { -->
-          <div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
+          <!-- <div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div> -->
           <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
           <!-- } 본문 내용 끝 -->
 

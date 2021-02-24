@@ -15,16 +15,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 </style>
 <!-- 게시판 목록 시작 { -->
+   
 <div id="bo_list" style="width:<?php echo $width; ?>">
     <!-- 게시판 카테고리 시작 { -->
-    <?php if ($is_category) { ?>
+    <?php if ($is_category)
+		include_once($board_skin_path . '/category.skin.php');
+	?>
+    <!-- <?php if ($is_category) { ?>
     <nav id="bo_cate" class="sly-tab">
         <h2><?php echo $board['bo_subject'] ?> 카테고리</h2>
         <ul id="bo_cate_ul" class="bo_cate  d-flex">
             <?php echo $category_option ?>
         </ul>
     </nav>
-    <?php } ?>
+    <?php } ?> -->
     <!-- } 게시판 카테고리 끝 -->
 
     <form name="fboardlist" id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
