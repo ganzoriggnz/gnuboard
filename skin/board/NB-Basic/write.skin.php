@@ -673,8 +673,11 @@ if ($is_member)
 				</li>
 			<?php } ?>
 		</ul>
-
-		<div class="px-3 px-sm-0">
+		<div style="margin: 0 auto; text-align: center;">
+			<a href="<?php echo get_pretty_url($bo_table); ?>" class="btn btn-basic btn-lg en" style="width: 150px;">취소</a>
+			<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg en" style="margin-left: 20px; width: 150px;">작성완료</button>
+		</div>
+		<!-- <div class="px-3 px-sm-0">
 			<div class="row mx-n2">
 				<div class="col-6 order-2 px-2">
 					<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg btn-block en">작성완료</button>
@@ -683,7 +686,7 @@ if ($is_member)
 					<a href="<?php echo get_pretty_url($bo_table); ?>" class="btn btn-basic btn-lg btn-block en">취소</a>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</form>
 </section>
 
