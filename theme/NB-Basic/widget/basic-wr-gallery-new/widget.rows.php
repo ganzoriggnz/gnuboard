@@ -95,7 +95,7 @@ for ($i=0; $i < $list_cnt; $i++) {
             text-align: center;
             align-items: center;
             justify-content: center;
-            width: 64px;
+            width: 62px;
             height: 35px;
             padding-top: 6px;
             border: 1px solid black;

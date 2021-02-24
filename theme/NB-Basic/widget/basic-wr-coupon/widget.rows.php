@@ -110,7 +110,7 @@ for ($i=0; $i < $list_cnt; $i++) {
                     <a href="<?php echo $list[$i]['href'] ?>" <?php echo $target ?>>
                         <?php echo $wr_tack ?>
                         <?php echo $wr_cap ?>
-                        <img src="<?php echo G5_IMG_URL ?>/coupon.png" style="width: 80px; height: 80px; margin-top: 50px; margin-left: 0px;">
+                        <img src="<?php echo G5_IMG_URL ?>/coupon.png" style="width: 80px; height: 80px; margin-top: 30px; margin-left: 0px;">
                         <!-- <?php if($thumb) { ?>
                         <img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
                         <?php }  ?> -->

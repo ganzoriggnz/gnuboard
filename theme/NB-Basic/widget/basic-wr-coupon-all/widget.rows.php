@@ -87,7 +87,7 @@ for ($i=0; $i < $list_cnt; $i++) {
             text-align: center;
             align-items: center;
             justify-content: center;
-            width: 64px;
+            width: 62px;
             height: 35px;
             padding-top: 6px;
             border: 1px solid black;
@@ -110,7 +110,7 @@ for ($i=0; $i < $list_cnt; $i++) {
                         <?php echo $wr_tack ?>
                         <?php echo $wr_cap ?>
                         <img src="<?php echo G5_IMG_URL ?>/coupon.png"
-                            style="width: 80px; height: 80px; margin-top: 50px; margin-left: 0px;">
+                            style="width: 80px; height: 80px; margin-top: 30px; margin-left: 0px;">
                         <!-- <?php if($thumb) { ?>
                         <img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
                         <?php }  ?> -->
