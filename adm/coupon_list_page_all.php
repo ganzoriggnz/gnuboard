@@ -245,7 +245,7 @@ if( isset($_POST['id'])){
                 </thead>
             <tbody>
         <?php   
-        $result = "SELECT a.wr_id, a.mb_id, b.co_no, b.mb_id as mb_id1, b.co_entity, b.wr_id, b.co_free_num, b.co_sale_num, 
+        /* $result = "SELECT a.wr_id, a.mb_id, b.co_no, b.mb_id as mb_id1, b.co_entity, b.wr_id, b.co_free_num, b.co_sale_num, 
         b.co_sent_fnum, b.co_sent_snum, b.co_created_datetime, b.co_updated_datetime, b.co_begin_datetime, b.co_end_datetime, 
         c.mb_id as mb_id2, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a 
         LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id 
@@ -254,10 +254,11 @@ if( isset($_POST['id'])){
         AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' 
         AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' 
         AND a.wr_is_comment = '0') || (b.co_begin_datetime < '{$co_begin_datetime}' 
-        AND b.co_end_datetime < '{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0')"; 
+        AND b.co_end_datetime < '{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0')";  */
         /* $result = "SELECT a.wr_id, b.co_no, b.co_entity, b.wr_id as wrid, b.co_free_num, b.co_sale_num, b.co_sent_fnum, b.co_sent_snum, b.co_created_datetime, b.co_updated_datetime, b.co_begin_datetime, b.co_end_datetime, c.mb_id as mbid, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE ((b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime < '{$co_begin_datetime}' AND b.co_end_datetime < '{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0')"; */ 
         /* UNION (SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level, mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE b.co_begin_datetime!='{$co_begin_datetime}' AND b.co_end_datetime!='{$co_end_datetime}' AND b.co_begin_datetime < '{$co_begin_datetime}' AND b.co_end_datetime < '{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0')"; */
         /* $result = "SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' AND a.wr_is_comment = '0')"; */
+        $result = "SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' AND a.wr_is_comment = '0')";
         $result1=sql_query($result);
         echo $result; 
         while ($row = sql_fetch_array($result1)) {     
