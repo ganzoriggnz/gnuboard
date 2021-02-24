@@ -91,7 +91,6 @@ for ($i=0; $i < $list_cnt; $i++) {
             height: 35px;
             padding-top: 6px;
             border: 1px solid black;
-            border-radius: 0px;
         }
         </style>
 <li class="col px-2" style="margin-bottom: 15px;">
