@@ -260,7 +260,6 @@ if( isset($_POST['id'])){
         /* $result = "SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' AND a.wr_is_comment = '0')"; */
         $result = "SELECT a.wr_id, b.*, c.mb_id as mbid, c.mb_name, c.mb_level, c.mb_6 FROM $at_table a LEFT JOIN {$g5['coupon_table']} b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (b.co_begin_datetime='{$co_begin_datetime}' AND b.co_end_datetime='{$co_end_datetime}' AND c.mb_level = '27' AND a.wr_is_comment = '0') || (b.co_begin_datetime IS NULL AND c.mb_level = '27' AND a.wr_is_comment = '0')";
         $result1=sql_query($result);
-        echo $result; 
         while ($row = sql_fetch_array($result1)) {     
         ?>
             <tr>
