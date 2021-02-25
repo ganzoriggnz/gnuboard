@@ -236,8 +236,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 		</tbody>
     </table>
     <div style="margin-top:20px; line-height:20px;font-size:14px;font-weight:bold;">
-    ※ 일일수행은 <font color="red">매일 12시에 초기화</font> 됩니다. (초기화 안될시 새로고침 눌러주세요) <br>
-    &nbsp;&nbsp;&nbsp; 내역은 합산 저장되니 착오 없으시기 바랍니다. <br>
+    ※ 일일수행은 <font color="red">매일 12시에 초기화</font> 됩니다. (초기화 안될시 새로고침 눌러주세요) 
 	</div>
 </div>
 <div class="popup_box1" style="display: none;">
