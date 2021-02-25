@@ -13,7 +13,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<th class="cl_tr">수행명</th>
 				<th class="cl_tr">수행설명</th>
 				<th class="cl_tr"></th>
-				<th class="cl_tr">구분</th>
+				<th class="cl_tl">구분</th>
 			</tr>
 		</thead>
 		<tbody>

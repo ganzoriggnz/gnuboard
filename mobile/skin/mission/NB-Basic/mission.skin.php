@@ -12,8 +12,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<th class="cl_tr">수행 No</th>
 				<th class="cl_tr">수행명</th>
 				<th class="cl_tr">수행설명</th>
-				<th class="cl_tr">지급(공덕)</th>
-				<th class="cl_tr">구분</th>
+				<th class="cl_tr"></th>
+				<th class="cl_tl">구분</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,10 +23,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">출석체크</td>	
 				<td class="cl_td_l">출석체크 하기									
 				</td>
-				<td class="cl_td_r">
-				5 
-				점				
-				</td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($cnt_at > 0){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_PLUGIN_URL ?>/attendance/attendance.php/" target="_blank">				
@@ -40,10 +37,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">자유게시판</td>	
 				<td class="cl_td_l">자유게시판에 글 1회 작성하기(<?php if($cnt == 0) { echo '0'; } else if($cnt > 0) { echo '1';} ?> /1)				
 				</td>
-				<td class="cl_td_r">
-				10 
-				점				
-				</td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($cnt > 0){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
@@ -61,10 +55,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($row2['p_no'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00' && $row2['p_but3_datetime'] != '0000-00-00 00:00:00') { echo '3';} 
 				else { echo '0';} ?>/3)				
 				</td>
-				<td class="cl_td_r">
-				50 
-                점				
-                </td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($row2['p_no'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but3_datetime'] != '0000-00-00 00:00:00'){ echo "miss_but_3";} else {echo "miss_but_1"; } ?>">
@@ -81,10 +72,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				if($cnt1 == 0) { echo '0';} 
 				else if($cnt1 > 0) { echo '1';} ?>/1)				
 				</td>
-				<td class="cl_td_r">
-				5 
-                점				
-                </td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($cnt1 > 0){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
@@ -104,10 +92,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt1 == 5 ) { echo '4';}
 				else if($cnt1 >= 6) { echo '5';} ?>/5)				
 				</td>
-				<td class="cl_td_r">
-				10 
-                점				
-                </td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($cnt1 >= 6){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank" >				
@@ -132,10 +117,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt1 == 14) { echo '9';}
 				else if($cnt1 >= 15) { echo '10';} ?>/10)				
 				</td>
-				<td class="cl_td_r">
-				50 
-                점				
-                </td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($cnt1 >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
@@ -155,10 +137,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt_att == 4) { echo '4';}
 				else if($cnt_att >= 5) { echo '5';} ?>/5)				
 				</td>
-				<td class="cl_td_r">
-				10 
-                점				
-                </td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($cnt_att >= 5){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_at" target="_blank">				
@@ -183,10 +162,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt_att == 14) { echo '9';}
 				else if($cnt_att >= 15) { echo '10';} ?>/10)				
 				</td>
-				<td class="cl_td_r">
-				20 
-                점				
-                </td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($cnt_att >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_at" target="_blank">				
@@ -206,10 +182,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt_rev == 4) { echo '4';}
 				else if($cnt_rev >= 5) { echo '5';} ?>/5)				
 				</td>
-				<td class="cl_td_r">
-				10 
-                점				
-                </td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($cnt_rev >= 5){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_re" target="_blank">				
@@ -234,10 +207,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				else if($cnt_rev == 14) { echo '9';}
 				else if($cnt_rev >= 15) { echo '10';} ?>/10)				
 				</td>
-				<td class="cl_td_r">
-				20 
-                점				
-                </td>
+				<td class="cl_td_r"></td>
 				<td class="cl_td">
                     <div class="<?php if($cnt_rev >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_re" target="_blank">				
@@ -248,16 +218,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 					
 			<tr style="border-top:1px solid #f3bd49">
 				<td class="cl_td">+</td>
-				<td class="cl_td">추가공덕</td>				
-				<td class="cl_td_l"><font color="#f3bd49"><b>일일 미션 10개 모두 완료시 추가 공덕</b></font></td>	
-				<td class="cl_td_r">200점</td>
+				<td class="cl_td">지급파운드</td>				
+				<td class="cl_td_l"><font color="#f3bd49"><b>일일 미션 10개 모두 완료시 지급 파운드</b></font></td>	
+				<td class="cl_td_r">200P</td>
 				<td class="cl_td">
 					<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?>">
 					<div id="give" <?php if($cnt_rev >= 15 && $cnt_att >= 15 && $cnt1 >= 14 && $cnt_at > 0 && $cnt > 0 &&
 					$row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but2_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but3_datetime'] != '0000-00-00 00:00:00') 
-					{ echo 'class="miss_but_1" onclick = "givePoint()" style="cursor: pointer;';} else { echo 'class="miss_but_3"'; } ?>>
+					{ echo 'class="miss_but_1" onclick = "givePoint()" style="cursor: pointer;"';} else { echo 'class="miss_but_3"'; } ?>>
 					<i class="fa fa-gift"></i><br>완료<br>대기
 			        </div>
 				</td>
@@ -267,12 +237,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
     </table>
     <div style="margin-top:20px; line-height:20px;font-size:14px;font-weight:bold;">
     ※ 일일수행은 <font color="red">매일 12시에 초기화</font> 됩니다. (초기화 안될시 새로고침 눌러주세요) <br>
-    &nbsp;&nbsp;&nbsp;공덕이나 엽전 내역은 합산 저장되니 착오 없으시기 바랍니다. <br>
+    &nbsp;&nbsp;&nbsp; 내역은 합산 저장되니 착오 없으시기 바랍니다. <br>
 	</div>
 </div>
 <div class="popup_box1" style="display: none;">
 	<h1>일일미션</h1>
-	<label>축하합니다. <br/>300파운드 획득하였습니다</label>
+	<label>축하합니다. <br/>200파운드 획득하였습니다</label>
 	<div class="btns1">
 		<a href="#" class="btn1">확인</a>
 	</div>
