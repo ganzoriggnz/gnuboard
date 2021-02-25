@@ -221,7 +221,7 @@ if($res_date['mb_4'] != ''){
     </style>
     <?php   
     for($k=2;$k<count($menu);$k++){
-        if ($menu[$k]['text']!="고객센터" && $menu[$k]['text']!="명예의전당"){
+        if ($menu[$k]['text']!="고객센터" && $menu[$k]['text']!="명예의전당" && $menu[$k]['text']){
 ?>
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
@@ -246,6 +246,21 @@ if($res_date['mb_4'] != ''){
         <?php if ($i%2==1) { ?>
     </li>
     <?php }}}} ?>
+    <li class="me-li"
+        style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png">밤의제국
+    </li>
+    <li class="row mx-0 me-li<?php echo ($me['on']) ? ' active' : ''; ?>"> 
+        <div class="col-6 m-0 px-0">
+            <a class="border-0"
+                style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
+                href="<?php echo G5_BBS_URL ?>/board.php?bo_table=work_board" target="_self"><img
+                    src="<?php echo G5_URL?>/img/solid/headphones.svg"
+                    style="height :14px;">실장업무게시판
+            </a>
+        </div>
+    </li>
+    
 </ul>
 <script>
 $('a.cat_2_bg').click(function() {
