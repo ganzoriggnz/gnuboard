@@ -246,6 +246,10 @@ if($res_date['mb_4'] != ''){
         <?php if ($i%2==1) { ?>
     </li>
     <?php }}}} ?>
+    <?php $me_text="실장업무게시판";
+    if($me_text=="실장업무게시판")
+            {if($member['mb_level']==26 || $member['mb_level']==27 || $is_admin)
+                { ?>
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
         <img src="<?php echo G5_URL?>/img/img-flag5-on.png">밤의제국
@@ -254,12 +258,20 @@ if($res_date['mb_4'] != ''){
         <div class="col-6 m-0 px-0">
             <a class="border-0"
                 style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
-                href="<?php echo G5_BBS_URL ?>/board.php?bo_table=work_board" target="_self"><img
+                href="<?php if($member['mb_level']==27 || $is_admin) echo G5_BBS_URL.'/board.php?bo_table=work_board' ?>" target="_self" <?php if($member['mb_level']==26)  echo 'onclick=levelalert();'?>><img
                     src="<?php echo G5_URL?>/img/solid/headphones.svg"
-                    style="height :14px;">실장업무게시판
+                    style="height :14px;"><?php echo $me_text; ?>
             </a>
+            <?php if($member['mb_level']==26) { ?>
+            <script>
+                function levelalert() {
+                    alert("비제휴업소는 입장 불가능합니다.");
+                }
+            </script>
+            <?php } ?>
         </div>
     </li>
+    <?php } } ?>
     
 </ul>
 <script>
