@@ -73,10 +73,10 @@ $(document).ready(function() {
 <?php } ?>
 
 <!-- hulan nemsen  -->
-<div class="side_cate">
+<!-- <div class="side_cate">
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
         <img src="<?php echo G5_URL?>/img/side_top_img.png" style="display: block; margin: auto;"></a>
-</div>
+</div> -->
 
 <?php 
 $sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
@@ -221,7 +221,7 @@ if($res_date['mb_4'] != ''){
     </style>
     <?php   
     for($k=2;$k<count($menu);$k++){
-        if ($menu[$k]['text']!="고객센터"){
+        if ($menu[$k]['text']!="고객센터" && $menu[$k]['text']!="명예의전당"){
 ?>
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
