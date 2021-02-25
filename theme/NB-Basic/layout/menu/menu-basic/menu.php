@@ -241,7 +241,7 @@ $is_col_all = 6;
                                 </a>
                             </li>
                             <li class="col p-0 me-li me-icon right_border">
-                                <a class="me-a f-md en" href="#" target="_self" title="주소변경공지">
+                                <a class="me-a f-md en" href="<?php echo G5_BBS_URL ?>/logout.php" target="_self" title="로그아웃">
                                     <!--<i class="fa fa-wikipedia-w" aria-hidden="true"></i>-->
                                     <img src="<?php echo G5_URL?>/img/baseline-input-24px.png">
                                 </a>
@@ -301,12 +301,12 @@ $is_col_all = 6;
                                     <img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png">
                                 </a>
                             </li>
-                            <li class="col p-0 me-li me-icon right_border_red">
+                            <!-- <li class="col p-0 me-li me-icon right_border_red">
                                 <a class="me-a f-md en" href="#" target="_self" title="">
                                     <!--<i class="fas fa-atlas" aria-hidden="true"></i>-->
                                     <img src="<?php echo G5_URL?>/img/icon_setting.png">
                                 </a>
-                            </li>
+                            </li> -->
                         </div>
                         <?php } ?>
                     </ul>
