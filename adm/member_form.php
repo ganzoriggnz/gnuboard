@@ -559,7 +559,7 @@ var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7A
 		var text = that.val();
 
 		if (hangul.test(text)) {
-			limit = 6;
+			limit = 3;
 		} else {
 			limit = 12;
 		}

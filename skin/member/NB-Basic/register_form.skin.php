@@ -601,7 +601,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 		var text = that.val();
 
 		if (hangul.test(text)) {
-			limit = 6;
+			limit = 3;
 		} else {
 			limit = 12;
 		}
