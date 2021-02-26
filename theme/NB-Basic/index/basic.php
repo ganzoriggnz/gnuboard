@@ -8,16 +8,7 @@ $is_left_side = false;
 if ($nt_wing_path)
     @include_once($nt_wing_path . '/wing.php');
 ?>
-<style>
-    #bo_cate {margin-bottom: 20px;}
-#bo_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#bo_cate ul {zoom:1}
-#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
-#bo_cate li {display:inline-block;padding:2px;  }
-#bo_cate a {background-image:url('http://210.114.18.63/img/cat_btn_1.png'); border-radius: 2px; font-size:12px; color:#D5BD79; width:95px; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 3px;}
-#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png'); text-decoration:none; color:#FFF}
-#bo_cate #bo_cate_on {z-index:2; background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png'); font-size:12px; font-weight: bold; color:#FFF; width:95px; height:39px; display:flex; align-items:center; justify-content: center;}
-</style>
+
 <div class="nt-container pb-4 pt-0 pt-sm-4">
     <div class="row na-row" style="/* width: 1318px; */display: flex; justify-content: space-between;">
         <div class="col-md-3<?php echo ($is_left_side) ? ' order-md-1' : ''; ?> na-col d-md-block d-none">
@@ -104,7 +95,7 @@ if ($nt_wing_path)
          
             ?>    
 
-            <nav id="bo_cate">
+            <nav id="bo_cate_index">
                 <ul id="bo_cate_ul">
                     <?php echo $category_option ?>
                 </ul>
