@@ -51,11 +51,11 @@ $too = rand(0,$tood-1);
 	<div class="nt-container px-3 px-sm-4 px-xl-0">	
 		<div class="d-flex pb-2" style="justify-content: left;" >
 		<img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png" title="" style="height:16px;width:10px; padding-top:5px;" >&nbsp;
-			<div class="notice">
+			<div class="notice" style="width: 100%;">
 				<ul class="rolling">
 				<?php for ($i=0; $i<$tood;$i++ ) {		
 				?>
-				<li><?php echo $list[$i]?></li>
+				<li style="color:#e4c980;"><?php echo $list[$i]?></li>
 				<?php }?>
 			</div>
 			<!-- <a href="#" class="rolling_stop">Pause</a>
@@ -107,7 +107,7 @@ $(document).ready(function(){
 	var move = 0;
 	function noticeRolling(){
 		move += height;
-		$(".rolling").animate({"top":-move},600,function(){
+		$(".rolling").animate({"top":-move},1000,function(){
 			if( move > max ){
 				$(this).css("top",0);
 				move = 0;
