@@ -68,7 +68,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						<label class="col-sm-2 col-form-label" for="reg_mb_nick">닉네임<strong class="sr-only">필수</strong></label>
 						<div class="col-sm-4">
 							<input type="hidden" name="mb_nick_default" value="<?php echo isset($member['mb_nick']) ? get_text($member['mb_nick']) : ''; ?>">
-							<input type="text" name="mb_nick" value="<?php echo isset($member['mb_nick']) ? get_text($member['mb_nick']) : ''; ?>" id="reg_mb_nick" required class="form-control nospace required" maxlength="20">
+							<input type="text" name="mb_nick" value="<?php echo isset($member['mb_nick']) ? get_text($member['mb_nick']) : ''; ?>" id="reg_mb_nick" required class="form-control nospace required">
 						</div>
 						<div class="col-sm-6">
 							<p class="form-control-plaintext f-de text-muted pb-0">
