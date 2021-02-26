@@ -105,7 +105,13 @@ if ($auto_login) {
     set_cookie('ck_auto', '', 0);
 }
 
-$url = G5_URL.'/bbs/userinfo.php';
+$sql_m = "SELECT mb_level FROM {$g5['member_table']} WHERE mb_id = '{$mb['mb_id']}'";
+$res_m = sql_fetch($sql_m);
+$mb_level = $res_m['mb_level'];
+
+if($mb_level > 25)
+$url = G5_BBS_URL.'/userinfo.php';
+else $url = G5_URL;  
 
 if ($url) {
     // url 체크
@@ -147,10 +153,6 @@ if(function_exists('social_login_success_after')){
 }
 
 run_event('member_login_check', $mb, $link, $is_social_login);
-
-/* if($member['mb_level']==27)
-$link = G5_BBS_URL.'/userinfo.php';
-else $link = G5_URL;  */
  
 goto_url($link);
 ?>
