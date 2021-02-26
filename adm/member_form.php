@@ -179,7 +179,7 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>
         <th scope="row"><label for="mb_name">지역-업소명<strong class="sound_only">필수</strong></label></th>
         <td><input type="text" name="mb_name" value="<?php echo $mb['mb_name'] ?>" id="mb_name" required class="required frm_input" size="15"  maxlength="20"></td>
         <th scope="row"><label for="mb_nick">닉네임<strong class="sound_only">필수</strong></label></th>
-        <td><input type="text" name="mb_nick" value="<?php echo $mb['mb_nick'] ?>" id="mb_nick" required class="required frm_input" size="15"  maxlength="20"></td>
+        <td><input type="text" name="mb_nick" value="<?php echo $mb['mb_nick'] ?>" id="mb_nick" required class="required frm_input" size="15"></td>
     </tr>
     <tr>
         <th scope="row"><label for="mb_level">회원 권한</label></th>
@@ -551,6 +551,21 @@ function fmember_submit(f)
 
     return true;
 }
+
+var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7AF|\uD7B0-\uD7FF]");
+
+	$("#mb_nick").on("keypress keyup", function () {
+		var that = $(this);
+		var text = that.val();
+
+		if (hangul.test(text)) {
+			limit = 6;
+		} else {
+			limit = 12;
+		}
+		that.attr("maxlength", limit);
+		if (text.length > limit) that.val(text.substring(0, limit))
+	});
 </script>
 <?php
 run_event('admin_member_form_after', $mb, $w);

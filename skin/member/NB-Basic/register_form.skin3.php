@@ -68,7 +68,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						<label class="col-sm-2 col-form-label" for="reg_mb_nick">닉네임<strong class="sr-only">필수</strong></label>
 						<div class="col-sm-4">
 							<input type="hidden" name="mb_nick_default" value="<?php echo isset($member['mb_nick']) ? get_text($member['mb_nick']) : ''; ?>">
-							<input type="text" name="mb_nick" value="<?php echo isset($member['mb_nick']) ? get_text($member['mb_nick']) : ''; ?>" id="reg_mb_nick" required class="form-control nospace required" maxlength="20">
+							<input type="text" name="mb_nick" value="<?php echo isset($member['mb_nick']) ? get_text($member['mb_nick']) : ''; ?>" id="reg_mb_nick" required class="form-control nospace required">
 						</div>
 						<div class="col-sm-6">
 							<p class="form-control-plaintext f-de text-muted pb-0">
@@ -631,4 +631,19 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 		return true;
 	}
+
+	var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7AF|\uD7B0-\uD7FF]");
+
+	$("#reg_mb_nick").on("keypress keyup", function () {
+		var that = $(this);
+		var text = that.val();
+
+		if (hangul.test(text)) {
+			limit = 6;
+		} else {
+			limit = 12;
+		}
+		that.attr("maxlength", limit);
+		if (text.length > limit) that.val(text.substring(0, limit))
+	});
 </script>

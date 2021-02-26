@@ -601,4 +601,19 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 		return true;
 	}
+
+	var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7AF|\uD7B0-\uD7FF]");
+
+	$("#reg_mb_nick").on("keypress keyup", function () {
+		var that = $(this);
+		var text = that.val();
+
+		if (hangul.test(text)) {
+			limit = 6;
+		} else {
+			limit = 12;
+		}
+		that.attr("maxlength", limit);
+		if (text.length > limit) that.val(text.substring(0, limit))
+	});
 </script>
