@@ -8,7 +8,6 @@ $is_left_side = false;
 if ($nt_wing_path)
     @include_once($nt_wing_path . '/wing.php');
 ?>
-
 <div class="nt-container pb-4 pt-0 pt-sm-4">
     <div class="row na-row" style="/* width: 1318px; */display: flex; justify-content: space-between;">
         <div class="col-md-3<?php echo ($is_left_side) ? ' order-md-1' : ''; ?> na-col d-md-block d-none">
@@ -95,7 +94,7 @@ if ($nt_wing_path)
          
             ?>    
 
-            <nav id="bo_cate_index">
+            <nav id="bo_cate_index" style="margin-bottom: 20px;">
                 <ul id="bo_cate_ul">
                     <?php echo $category_option ?>
                 </ul>
