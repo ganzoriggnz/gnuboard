@@ -145,8 +145,8 @@ $view_subject = get_text($view['wr_subject']);
 				<?php } ?>
 				<?php if (G5_IS_MOBILE && $gr_id == "attendance") {
 						$phone=get_member($view['mb_id'],"mb_hp");						
-						echo  '<li class="pr-3"><a href="tel:'.$phone['mb_hp'].'" style="border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/phone.svg" style="height:10px; " title=""> 전화걸기</a>
-					<a href="sms:'.$phone['mb_hp'].'" style="border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/sms.svg" style="height:14px; " title=""> 문자보내기</a>  </li>  ';} ?>
+						echo  '<li class="pr-3"><a href="tel:'.$phone['mb_hp'].'" style="display: inline; border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/phone.svg" style="height:10px; " title=""> 전화걸기</a>
+					<a href="sms:'.$phone['mb_hp'].'" style="display: inline; margin-left: 5px; border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/sms.svg" style="height:14px; " title=""> 문자보내기</a>  </li>  ';} ?>
 				<li id="bo_v_btn" class="flex-grow-1 text-right">
 					<!-- 게시물 상단 버튼 시작 { -->
 					<?php ob_start(); ?>
