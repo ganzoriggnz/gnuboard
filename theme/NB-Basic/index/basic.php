@@ -45,16 +45,68 @@ if ($nt_wing_path)
             if (!$sfl) $sfl = 'wr_subject';
             if (!$sop) $sop = 'or';
 
-            include_once($search_skin_path . '/search2.skin.php');
+            $sql_bo="select bo_category_list from {$g5['board_table']} where bo_table='gallery'";
+            $res_bo = sql_fetch($sql_bo);
+
+
+            $wsetss=$sca;
+            $searchd=$searchd;
+            $list = na_post_rows($wsetss,$subcat,$searchd); //
+
+            $catecount = count(na_post_rows($wsetss));
+            $list_cnt = count($list);
+
+            $wsetrr=$sca;
             
+            $stx = get_text(stripslashes($stx));
+
+            // // 분류 사용 여부
+            $is_category = false;
+            $category_option = '';
+
+            
+            $is_category = true;
+            $bo_table = 'gallery';
+            $category_href = get_pretty_url($bo_table);
+
+            $category_option .= '<li><a href="'.$category_href.'"'; 
+            if ($sca==''){
+                $category_option .= ' id="bo_cate_on"';
+                $category_option .= '>전체('.$catecount.')</a></li>';
+            } else 
+            $category_option .= '>전체</a></li>'; 
+            
+            $categories = explode('|', $res_bo['bo_category_list']); // 구분자가 , 로 되어 있음
+            
+            for ($i=0; $i<count($categories); $i++) {
+            
+                $category = trim($categories[$i]);
+                if ($category=='') continue;       
+                $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
+                $category_msg = '';
+                if ($category==$sca) { // 현재 선택된 카테고리라면
+                    $category_option .= ' id="bo_cate_on"';
+                    $category_msg = '<span class="sound_only">열린 분류 </span>';
+                    $category_option .= '>'.$category_msg.$category.'('.$catecount.')</a></li>';
+                }
+                else
+                $category_option .= '>'.$category_msg.$category.'</a></li>';
+            }    
+         
             ?>    
+
+            <nav id="bo_cate">
+                <ul id="bo_cate_ul">
+                    <?php echo $category_option ?>
+                </ul>
+            </nav>
+            <?php include_once($search_skin_path . '/search2.skin.php'); ?>
             <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
                 쿠폰 지원업소
                 <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
                     <span class="float-right">
-                        <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> 쿠폰 지원업소 전체보기
+                        <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 쿠폰 지원업소 전체보기 -->
                     </span>
-
                 </a>
             </h3>
             <hr class="hr" />
@@ -68,7 +120,7 @@ if ($nt_wing_path)
                 신규 제휴 업소
                 <a href="<?php echo G5_URL?>/bbs/new_gallery.php">
                     <span class="float-right">
-                        <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> --> 신규제휴업소 전체보기
+                        <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 신규제휴업소 전체보기 -->
                     </span>
                 </a>
             </h3>

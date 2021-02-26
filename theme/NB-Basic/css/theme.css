@@ -394,11 +394,11 @@ hr.hr {
 	text-align: left;
 }
 hr.hr::after { 
-	width:13.1rem;
+	width:10.82rem;
 	height:1px; 
 	content: ""; 
 	position:absolute; 
-	right:0; 
+	left:0; 
 	bottom:0; 
 	line-height:1px;
 }
@@ -499,3 +499,11 @@ hr.hr::after {
 }
 
 #bo_list_wrap, #bo_v {background: #fff;}
+#bo_cate {margin-bottom: 20px;}
+#bo_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
+#bo_cate ul {zoom:1}
+#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
+#bo_cate li {display:inline-block;padding:2px;  }
+#bo_cate a {background-image:url('http://210.114.18.63/img/cat_btn_1.png'); border-radius: 2px; font-size:12px; color:#D5BD79; width:95px; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 3px;}
+#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png'); text-decoration:none; color:#FFF}
+#bo_cate #bo_cate_on {z-index:2; background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png'); font-size:12px; font-weight: bold; color:#FFF; width:95px; height:39px; display:flex; align-items:center; justify-content: center;}
