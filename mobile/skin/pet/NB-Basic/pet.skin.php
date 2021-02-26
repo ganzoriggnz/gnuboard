@@ -53,7 +53,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     </div>
     <script>
         $(document).ready(function(){
-            debugger;
             var count = 0;
             getTime(); 
             setInterval(getTime, 1000);

@@ -256,16 +256,11 @@ $delcnt=0;
 	}); */
 
 	$('#btn_send').click(function(){
-		debugger;
             if($('#hasNick').val() != '정상적인 닉네임입니다.'){ 
                 alert("닉네임을 입력하시고 확인후 쿠폰 지원할 수 있습니다!");
                 $('#mb_nick').focus();
             }  
-       /*      if($('#hasNick').length = 0 && $('#hasNick').val() != '정상적인 닉네임입니다.'){ 
-                alert("Please insert correct nick name!");
-                $('#mb_nick').focus();
-            }  */
-            if ($('#hasNick').val() == '정상적인 닉네임입니다.'){
+            else if ($('#hasNick').val() == '정상적인 닉네임입니다.'){
                 $('#fcouponsend').submit(); 
             }                  
         });   

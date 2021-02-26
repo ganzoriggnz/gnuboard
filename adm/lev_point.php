@@ -88,7 +88,6 @@ include_once('./admin.head.php');
 <script>
     function flev_point_submit(f)
     {
-        debugger;
         if (!is_checked("chk[]")) {
             alert(document.pressed+" 하실 항목을 하나 이상 선택하세요.");
             return false;
