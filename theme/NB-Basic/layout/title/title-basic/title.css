@@ -4,7 +4,7 @@
 ■ Page Title
 ********************************************************/
 #nt_title { 
-	background-color: #fafafa; 
+	/* background-color: #fafafa; */ 
 	border-bottom:1px solid #dfdfdf; 
 }
 #nt_title .d-flex { 

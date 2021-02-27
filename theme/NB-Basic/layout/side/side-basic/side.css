@@ -162,16 +162,12 @@
 	font-weight: 500; 	
 	/* background-image: url('./img/sidebuttonbg.png');  */
 }
-.sub-ul li div a.cat_1_bg_a {background-color: #e6dcc1; width: 46px; height: 33px; text-align: center; float: right; 	align-items: center;
+.sub-ul li div a.cat_1_bg_a {background-color: #fff; width: 46px; height: 33px; text-align: center; float: right; 	align-items: center;
     justify-content: center;padding-top: 7px;
 	font-weight: 500; border-radius:5px;}
-.sub-ul li div a.cat_2_bg_a {background-color: #e6dcc1; width: 46px; height: 33px; text-align: center; margin-right: 0px; float: right; align-items: center;
+.sub-ul li div a.cat_2_bg_a {background-color: #fff; width: 46px; height: 33px; text-align: center; margin-right: 0px; float: right; align-items: center;
     justify-content: center;padding-top: 7px;
 	font-weight: 500; border-radius:5px;}
-
-
-
-
 
 /*.sub-ul .row :first-child.col-6{
 	border-right: 1px solid #ddd;

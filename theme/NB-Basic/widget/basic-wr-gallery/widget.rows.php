@@ -90,7 +90,7 @@ for ($i=0; $i < $list_cnt; $i++) {
         <style>
         .gal_btns {
             background-color: rgba(255, 255, 255, 0.5);
-            font-size: 12px;
+            font-size: 13px;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -100,7 +100,7 @@ for ($i=0; $i < $list_cnt; $i++) {
             height: 35px;
             padding-top: 6px;
             border: 1px solid black;
-            border-radius: 0px !important;
+            border-radius: 5px;
         }
         </style>
 <li class="col px-2" style="margin-bottom: 15px;">
