@@ -114,9 +114,9 @@
 }
 .sub-ul li div a {
 	border:1px solid grey; 
-	border-radius:0px !important; 
+	/* border-radius:5px;  */
 	margin-left: 8px;
-	font-size: 12px;
+	font-size: 13px;
 	/* padding-top: 18px; */
 	
 }
@@ -137,25 +137,26 @@
 
 .sub-ul li div a.cat_1_bg {
 	/* background-image: url('./img/sidebuttonbg.png');  */
-	background-color: #e6dcc1; 
-	width: 45px; 
-	height: 35px; 	
+	background-color: #fff; 
+	width: 46px; 
+	height: 33px; 	
 	text-align: center; 
 	align-items: center;
     justify-content: center;
 	float: right; 
 	color: #242424; 
 	border-color: #aaa;
+	border-radius:5px;
 	padding-top: 7px;
 	font-weight: 500;
 
 }
 .sub-ul li div a.cat_2_bg {
 	margin-left: 0px;
-	background-color: #e6dcc1; 
-	width: 45px; height: 35px; text-align: center; 
+	background-color:  #fff; 
+	width: 46px; height: 33px; text-align: center; 
 	margin-right: 0px; 
-	float: right; color: #242424; border-color: #aaa;	align-items: center;
+	float: right; color: #242424; border-color: #aaa; border-radius:5px; align-items: center;
     justify-content: center;
 	padding-top: 7px;
 	font-weight: 500; 	
