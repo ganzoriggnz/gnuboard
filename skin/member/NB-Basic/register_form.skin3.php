@@ -49,11 +49,11 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					<label class="col-sm-2 control-label" for="reg_mb_1"><b>성별</b><strong class="sound_only">필수</strong></label>
 					<div class="col-sm-10">
 						<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" name="mb_1" value="남" id="reg_mb_1" class="custom-control-input" <?php if ($member['mb_2'] == "남" || !$member['mb_2']) echo "checked" ?>> 
+						<input type="radio" name="mb_1" value="남" id="reg_mb_1" class="custom-control-input" <?php if ($member['mb_id'] && $member['mb_1'] == "남" && $member['mb_1'] !='' && !$is_admin){echo "checked";} else if(!$member['mb_id']){ echo "";} else { echo "disabled";} ?>> 
 						<label class="custom-control-label" for="reg_mb_1">남</label>
 					</div>
 					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" name="mb_1" value="여" id="reg_mb_2" class="custom-control-input" <?php if ($member['mb_2'] == "여") echo "checked" ?>>
+						<input type="radio" name="mb_1" value="여" id="reg_mb_2" class="custom-control-input" <?php if ($member['mb_id'] && $member['mb_1'] == "여" && $member['mb_1'] !='' && !$is_admin){echo "checked";} else if(!$member['mb_id']){ echo "";} else { echo "disabled";} ?>>
 						<label class="custom-control-label" for="reg_mb_2">여</label> 
 					</div>
 						<p class="form-control-plaintext f-de text-muted pb-0">
