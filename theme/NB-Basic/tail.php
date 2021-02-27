@@ -25,12 +25,12 @@ if($tset['page_sub']) {
 	<?php } ?>
 	</div><!-- .nt-body -->
 
-	<?php
+</div><!-- .wrapper -->
+<?php
 	// FOOTER
 	if($nt_footer_path)
 		@include_once ($nt_footer_path.'/footer.php');
 	?>
-</div><!-- .wrapper -->
 <?php
 // SIDEBAR
 if($nt_sidebar_path)
