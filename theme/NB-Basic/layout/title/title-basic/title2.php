@@ -47,10 +47,12 @@ $too = rand(0,$tood-1);
 		.rolling_start{display:block;  height:20px; color:#000;}
 	</style>
 <!-- Page Title -->
+
 <div id="nt_title" class="font-weight-normal">
 	<div class="nt-container px-3 px-sm-4 px-xl-0">	
 		<div class="d-flex pb-2" style="justify-content: left;" >
-		<img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png" title="" style="height:16px;width:10px; padding-top:5px;" >&nbsp;
+			<?php if (!G5_IS_MOBILE) { ?>
+			<img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png" title="" style="height:16px;width:10px; padding-top:5px;" >&nbsp;
 			<div class="notice" style="width: 100%;">
 				<ul class="rolling">
 				<?php for ($i=0; $i<$tood;$i++ ) {		
@@ -58,6 +60,7 @@ $too = rand(0,$tood-1);
 				<li style="color:#e4c980;"><?php echo $list[$i]?></li>
 				<?php }?>
 			</div>
+			<?php } ?>
 			<!-- <a href="#" class="rolling_stop">Pause</a>
 <a href="#" class="rolling_start">Play</a> -->
 
@@ -92,13 +95,13 @@ if($member['mb_level'] == '26' || $member['mb_level'] == '27') {
             </a>
 			</div>
         </div>
-    <?php } ?>
+    
 <!-- end --------------------->
 
 		</div>
 	</div>
 </div>
-
+<?php } ?>
 <script>
 $(document).ready(function(){
 	var height =  $(".notice").height();
