@@ -507,3 +507,8 @@ hr.hr::after {
 #bo_cate_index a {background-image:url('http://210.114.18.63/img/cat_btn_1.png'); border-radius: 2px; font-size:12px; color:#D5BD79; width:95px; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 3px;}
 #bo_cate_index a:focus, #bo_cate_index a:hover, #bo_cate_index a:active {background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png'); text-decoration:none; color:#FFF}
 #bo_cate_index #bo_cate_on {z-index:2; background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png'); font-size:12px; font-weight: bold; color:#FFF; width:95px; height:39px; display:flex; align-items:center; justify-content: center;}
+
+@media (max-width: 480px) {
+	#bo_cate_index a {width:74px;}
+	#bo_cate_index #bo_cate_on {width:74px;}
+}

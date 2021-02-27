@@ -201,9 +201,10 @@ if ($board['bo_use_category'] && $sca !='') {
                         justify-content: center;
                         width: 64px;
                         height: 35px;
-                        padding-top: 6px;
+                        line-height: 35px;
+                        /* padding-top: 6px; */
                         border: 1px solid black;
-                        border-radius: 0px;
+                        border-radius: 5px;
                     }
                     </style>
         <ul id="gall_ul" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 mx-n2">
@@ -309,20 +310,15 @@ if ($board['bo_use_category'] && $sca !='') {
                         </div>
                     </div>
 
-                    <div
-                        style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL ?>/main_780.png'); width: 100%; height: 52px;">
-                        <div>
-
+                    <div style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL ?>/main_780.png'); width: 100%; height: 52px;">
                             <a type="button" class="gal_btns"
                                 onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"><img
                                     src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
                                 <!-- <i class="fa fa-calendar"></i> --> 정보</a>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a type="button" class="gal_btns"
                                 onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>'"><img
                                     src="<?php echo G5_IMG_URL?>/chat_icon_main.png">
                                 <!-- <i class="fa fa-comments"></i> --> 후기</a>
-                        </div>
                     </div>
                 </div>
             </li>

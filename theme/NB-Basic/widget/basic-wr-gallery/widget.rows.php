@@ -98,7 +98,8 @@ for ($i=0; $i < $list_cnt; $i++) {
             justify-content: center;
             width: 64px;
             height: 35px;
-            padding-top: 6px;
+            line-height: 35px;
+            /* padding-top: 6px; */
             border: 1px solid black;
             border-radius: 5px;
         }
@@ -136,21 +137,17 @@ for ($i=0; $i < $list_cnt; $i++) {
                     <p><?php echo $list[$i]['mb_hp'] ?></p>
                 </div>
             </div>
-
         </div>
 
         <div
-            style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
-            <div style="text-align: center;">
+            style="display: flex; align-items: center; justify-content: space-evenly; text-align:center; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
                 <a type="button" class="gal_btns"
                     onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"
                     style=""><img src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
                     정보</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a type="button" class="gal_btns"
                     onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>'">
                     <img src="<?php echo G5_IMG_URL?>/chat_icon_main.png"> 후기</a>
-            </div>
         </div>
     </div>
     <div class="clearfix f-sm font-weight-normal">

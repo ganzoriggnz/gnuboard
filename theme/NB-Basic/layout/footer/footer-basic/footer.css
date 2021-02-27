@@ -4,6 +4,7 @@
 ■ Footer 
 ********************************************************/
 #nt_footer {
+	position: fixed;
 	background-image: url('http://210.114.18.63/img/footer_bg_image.png'); 
 	height: 102px;
 }
