@@ -84,7 +84,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	                닉네임을 바꾸시면 앞으로 <?php echo (int)$config['cf_nick_modify'] ?>일 이내에는 변경 할 수 없습니다.
 	            </span>
 	            <input type="hidden" name="mb_nick_default" value="<?php echo isset($member['mb_nick'])?get_text($member['mb_nick']):''; ?>">
-	            <input type="text" name="mb_nick" value="<?php echo isset($member['mb_nick'])?get_text($member['mb_nick']):''; ?>" id="reg_mb_nick" required class="frm_input full_input required nospace" maxlength="20" placeholder="닉네임">
+	            <input type="text" name="mb_nick" value="<?php echo isset($member['mb_nick'])?get_text($member['mb_nick']):''; ?>" id="reg_mb_nick" required class="frm_input full_input required nospace" placeholder="닉네임">
 	            <span id="msg_mb_nick"></span>
 	        </li>
 	        <?php } ?>
@@ -476,6 +476,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 			var filename = $(this).val().split('/').pop().split('\\').pop();
 		}
 		$(this).siblings('.fileName').val(filename);
+	});
+
+    var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7AF|\uD7B0-\uD7FF]");
+
+	$("#reg_mb_nick").on("keypress keyup", function () {
+		var that = $(this);
+		var text = that.val();
+
+		if (hangul.test(text)) {
+			limit = 3;
+		} else {
+			limit = 12;
+		}
+		that.attr("maxlength", limit);
+		if (text.length > limit) that.val(text.substring(0, limit))
 	});
     </script>
 </div>
