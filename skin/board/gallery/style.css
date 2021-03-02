@@ -166,7 +166,7 @@ background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png');
 
 @media (max-width: 650px) {
     #bo_cate ul {width: 100%; margin-left: 5px; margin-right:5px;}
-    #bo_cate li {margin: 0px; width: 12.5% !important; height:39px;}
+    #bo_cate li {margin: 0px; width: 20% !important; height:39px;}
 	#bo_cate a {margin-left: 0px; height:39px;} 
     /* #bo_cate #bo_cate_on {height:25px;} */
     #bo_subcate ul {width: 100%; margin-top:4px;margin-left: 5px; margin-right:5px;}
