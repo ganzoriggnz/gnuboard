@@ -403,15 +403,13 @@ hr.hr::after {
 	line-height:1px;
 }
 
-@media all and (max-width:575px) {
+/* @media all and (max-width:575px) {
 	.responsive h3.h3 {
 		padding-left:1.0rem;
 		padding-right:1.0rem;
 	}
-	.responsive hr.hr::after {
-		left:1.0rem;
-	}
-}
+	
+} */
 
 /********************************************************
 ■ Bootstrap 4 : 부트스트랩 기본 속성
@@ -513,12 +511,14 @@ hr.hr::after {
 #bo_cate_index ul:after {display:block;visibility:hidden;clear:both;content:"";}
 #bo_cate_index li {display:inline-block; margin: 0px 0px 2px 0px; width: 10%; height: 39px;}
 
-#bo_cate_index a {border: 1px solid #c7a445; background-color: #fff; border-radius: 5px; font-size:12px; color:#000; height:39px; display: flex; align-items: center; justify-content:center; text-align: center; margin-right: 3px; padding: 0px;}
-#bo_cate_index a:focus, #bo_cate a:hover, #bo_cate a:active {border: 1px solid #c7a445; background-color:#868265; text-decoration:none; color:#fff;}
+#bo_cate_index a {border: 1px solid #c7a445; background-color: #fff; border-radius: 5px; font-size:12px; color:#000; height:39px; display: flex; align-items: center; justify-content:center; text-align: center; margin-left: 3px; padding: 0px;}
+#bo_cate_index ul li:first-child a{margin-left: 0px;}
+#bo_cate_index a:focus, #bo_cate_index a:hover, #bo_cate_index a:active {border: 1px solid #c7a445; background-color:#868265; text-decoration:none; color:#fff;}
 #bo_cate_index #bo_cate_on {z-index:2; background-color:#868265; font-size:12px; font-weight: bold; color:#FFF; height:39px; display:flex; align-items:center; justify-content: center; padding: 0px;}
 
 @media (max-width: 650px) {
     #bo_cate_index ul {width: 100%;}
     #bo_cate_index li {margin-bottom: 2px; width: 20% !important; height:39px;}
 	#bo_cate_index a {height:39px; background-color:#fff;} 
+    #bo_cate_index li:nth-child(6) a{margin-left: 0px;}
 }
