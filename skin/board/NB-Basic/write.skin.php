@@ -392,39 +392,37 @@ if ($is_member)
 
 
 			<li class="list-group-item">
-				<!-- hulan nemsen 제목 색상 변경 -->
-				<?php if ($member['mb_level'] >= 14) { ?>
-					<tr>
-						<th scope="row"><label for="wr_1">제목컬러<strong class="sound_only">필수</strong></label></th>
-						<td>
-							<select id="colorselector_2" name="wr_1">
-								<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
-								<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
-								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
-								<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
-								<option value="#008B8B" data-color="#008B8B" <?php echo get_selected($write['wr_1'], '#008B8B') ?>>darkcyan</option>
-								<option value="#B8860B" data-color="#B8860B" <?php echo get_selected($write['wr_1'], '#B8860B') ?>>darkgoldenrod</option>
-								<option value="#32CD32" data-color="#32CD32" <?php echo get_selected($write['wr_1'], '#32CD32') ?>>limegreen</option>
-								<option value="#FFD700" data-color="#FFD700" <?php echo get_selected($write['wr_1'], '#FFD700') ?>>gold</option>
-								<option value="#48D1CC" data-color="#48D1CC" <?php echo get_selected($write['wr_1'], '#48D1CC') ?>>mediumturquoise</option>
-								<option value="#87CEEB" data-color="#87CEEB" <?php echo get_selected($write['wr_1'], '#87CEEB') ?>>skyblue</option>
-								<option value="#FF69B4" data-color="#FF69B4" <?php echo get_selected($write['wr_1'], '#FF69B4') ?>>hotpink</option>
-								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
-								<option value="#87CEFA" data-color="#87CEFA" <?php echo get_selected($write['wr_1'], '#87CEFA') ?>>lightskyblue</option>
-								<option value="#6495ED" data-color="#6495ED" <?php echo get_selected($write['wr_1'], '#6495ED') ?>>cornflowerblue</option>
-								<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
-								<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
-								<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
-							</select>
-							<!-- <input type="hidden" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required class="frm_input required" size="30" maxlength="255"> -->
-						</td>
-					</tr>
-				<?php } ?>
-				<!-- //////////////////////////////////////////////////////////////////////////////// -->
-				<div class="form-group row mb-0">
 
+				<div style="padding: 1rem 0;">
+					<?php if ($member['mb_level'] >= 14) { ?>
+						<label style="font-weight: bold;" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
+						<select id="colorselector_2" name="wr_1">
+							<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
+							<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
+							<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+							<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
+							<option value="#008B8B" data-color="#008B8B" <?php echo get_selected($write['wr_1'], '#008B8B') ?>>darkcyan</option>
+							<option value="#B8860B" data-color="#B8860B" <?php echo get_selected($write['wr_1'], '#B8860B') ?>>darkgoldenrod</option>
+							<option value="#32CD32" data-color="#32CD32" <?php echo get_selected($write['wr_1'], '#32CD32') ?>>limegreen</option>
+							<option value="#FFD700" data-color="#FFD700" <?php echo get_selected($write['wr_1'], '#FFD700') ?>>gold</option>
+							<option value="#48D1CC" data-color="#48D1CC" <?php echo get_selected($write['wr_1'], '#48D1CC') ?>>mediumturquoise</option>
+							<option value="#87CEEB" data-color="#87CEEB" <?php echo get_selected($write['wr_1'], '#87CEEB') ?>>skyblue</option>
+							<option value="#FF69B4" data-color="#FF69B4" <?php echo get_selected($write['wr_1'], '#FF69B4') ?>>hotpink</option>
+							<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+							<option value="#87CEFA" data-color="#87CEFA" <?php echo get_selected($write['wr_1'], '#87CEFA') ?>>lightskyblue</option>
+							<option value="#6495ED" data-color="#6495ED" <?php echo get_selected($write['wr_1'], '#6495ED') ?>>cornflowerblue</option>
+							<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
+							<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
+							<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
+						</select>
+								<!-- <input type="hidden" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required class="frm_input required" size="30" maxlength="255"> -->
+					<?php } ?>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="form-group row mb-0">
 					<label class="col-md-2 col-form-label" for="wr_subject">제목<strong class="sr-only">필수</strong></label>
-					<div class="col-md-8">
+					<div style="display: flex; align-items: center;" class="col-md-8">
 						<input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="form-control required" maxlength="255">
 					</div>
 					<div class="col-md-2">
@@ -675,7 +673,7 @@ if ($is_member)
 		</ul>
 		<div style="margin: 0 auto; text-align: center;">
 			<a href="<?php echo get_pretty_url($bo_table); ?>" class="btn btn-basic btn-lg en" style="width: 150px;">취소</a>
-			<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg en" style="margin-left: 20px; width: 150px;">작성완료</button>
+			<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg en" style="margin-left: 20px; width: 150px; margin-top: 1rem;">작성완료</button>
 		</div>
 		<!-- <div class="px-3 px-sm-0">
 			<div class="row mx-n2">

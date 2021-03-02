@@ -168,7 +168,7 @@
 	border-left:0;
 	border-right:0;
 }
-#bo_w #wr_content { 
+#bo_w #wr_content {
 	margin-bottom:1.0rem !important;
 }
 @media all and (max-width:575px) {
@@ -178,6 +178,10 @@
 	}
 	.responsive #bo_w #wr_content {
 		max-height:160px !important;
+	}
+
+	.btn-basic {
+		margin-top: 1rem;
 	}
 }
 
