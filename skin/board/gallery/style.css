@@ -85,16 +85,15 @@
 #bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png'); text-decoration:none; color:#FFF}
 #bo_cate #bo_cate_on {z-index:2; background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png'); font-size:12px; font-weight: bold; color:#FFF; width:95px; height:39px; display:flex; align-items:center; justify-content: center;} */
 
-#bo_cate a {border: 1px solid #c7a445; background-color: #e4d9be; border-radius: 5px; font-size:12px; color:#000; width:95px; height:39px; display: flex; align-items:center; justify-content:center; }
-#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {background-color:#868265; text-decoration:none; color:#FFF}
-#bo_cate #bo_cate_on {z-index:2; background-color:#868265; font-size:12px; font-weight: bold; color:#FFF; width:95px; height:39px; display:flex; align-items:center; justify-content: center;}
+#bo_cate a {background-color: #e4d9be; border-radius: 5px; font-size:12px; color:#000; width:95px; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 3px;}
+#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {border: 1px solid #c7a445; background-color:#868265; text-decoration:none; color:#FFF}
+#bo_cate #bo_cate_on {border: 1px solid #c7a445; z-index:2; background-color:#868265; font-size:12px; font-weight: bold; color:#FFF; width:95px; height:39px; display:flex; align-items:center; justify-content: center;}
 
 @media (max-width: 650px) {
 	#bo_cate a {width:65px; margin-left: 0px;}
-    #bo_cate li {margin: 0px 0px 2px 0px;}
-	#bo_cate #bo_cate_on {width:65px;}
-
-    #bo_subcate li {margin: 2px 0px 0px 0px;}
+    #bo_cate li {margin: 0px;}
+    #bo_subcate ul {margin-top:4px;}
+    #bo_subcate li {margin: 0px;}
     #bo_subcate a {width: 40px; margin-left: 0px;}
 }
 
@@ -141,10 +140,9 @@ background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png');
 #bo_subcate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #bo_subcate ul {zoom:1}
 #bo_subcate ul:after {display:block;visibility:hidden;clear:both;content:""}
-#bo_subcate li {display:inline-block; margin: 2px 2px 0px 0px;}
+#bo_subcate li {display:inline-block; margin: 2px 2px 2px 0px;}
 #bo_subcate a {
     border-radius: 5px;
-    border: 1px solid #c7a445;
     background-color:#e4d9be;
     background-position: center;
     font-size:12px; 
@@ -158,13 +156,15 @@ background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png');
 }
 
 #bo_subcate a:focus, #bo_subcate a:hover, #bo_subcate a:active {
-    background-color:#868265;;
+    border: 1px solid #c7a445;
+    background-color:#868265;
     text-decoration:none; 
     color:#FFF
 }
 
 #bo_subcate #bo_subcate_on {
     z-index:2; 
+    border: 1px solid #c7a445;
     background-color:#868265; 
     font-size:12px;
     font-weight: normal; 
