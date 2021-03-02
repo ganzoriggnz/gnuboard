@@ -89,7 +89,7 @@
 #bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {background-color:#868265; text-decoration:none; color:#FFF}
 #bo_cate #bo_cate_on {z-index:2; background-color:#868265; font-size:12px; font-weight: bold; color:#FFF; width:95px; height:39px; display:flex; align-items:center; justify-content: center;}
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
 	#bo_cate a {width:65px;}
     #bo_cate li {margin: 0px 0px 2px 0px;}
 	#bo_cate #bo_cate_on {width:65px;}
