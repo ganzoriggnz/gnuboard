@@ -89,14 +89,6 @@
 #bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {border: 1px solid #c7a445; background-color:#868265; text-decoration:none; color:#FFF}
 #bo_cate #bo_cate_on {border: 1px solid #c7a445; z-index:2; background-color:#868265; font-size:12px; font-weight: bold; color:#FFF; width:95px; height:39px; display:flex; align-items:center; justify-content: center;}
 
-@media (max-width: 650px) {
-	#bo_cate a {width:65px; margin-left: 0px;}
-    #bo_cate li {margin: 0px;}
-    #bo_subcate ul {margin-top:4px;}
-    #bo_subcate li {margin: 0px;}
-    #bo_subcate a {width: 40px; margin-left: 0px;}
-}
-
 
 /* #bo_subcate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #bo_subcate ul {zoom:1}
@@ -174,6 +166,14 @@ background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png');
     display:flex; 
     align-items:center;
     justify-content: center;
+}
+
+@media (max-width: 650px) {
+	#bo_cate a {width:65px; margin-left: 0px;}
+    #bo_cate li {margin: 0px;}
+    #bo_subcate ul {margin-top:4px;}
+    #bo_subcate li {margin: 0px;}
+    #bo_subcate a {width: 40px; margin-left: 0px;}
 }
 
 -webkit-box-shadow:inset 0 2px 5px rgb(33, 135, 202);
