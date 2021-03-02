@@ -172,7 +172,7 @@ background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png');
 	#bo_cate a {height:39px; background-color:#fff;} 
     #bo_cate li:nth-child(6) a{margin-left: 0px;}
     #bo_subcate ul {width: 100%;}
-    #bo_subcate li {width: 13.35% !important; height:25px; margin: 2px 0px 2px 3px;}
+    #bo_subcate li {width: 14.27% !important; height:25px; margin: 2px 0px 2px 0px;}
     #bo_subcate a {height:25px;}
     #bo_subcate li:nth-child(8) a{margin-left: 0px;}
 }
