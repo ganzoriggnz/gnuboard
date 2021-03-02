@@ -965,16 +965,6 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
     global $g5;
     global $is_admin;
 
-<<<<<<< HEAD
-    // insert fragment fucntion =-------------------------------------
-    if($rel_action=='댓글'){ // Comment 
-    insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);}
-    else if($rel_action=='쓰기'){ // write ---------------
-        insert_fragment($mb_id, $content, $rel_table, $rel_id, $rel_action);
-    }
-=======
-
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
     // 포인트 사용을 하지 않는다면 return
     if (!$config['cf_use_point']) { return 0; }
@@ -1045,8 +1035,6 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
     return 1;
 }
 
-<<<<<<< HEAD
-=======
 
 function get_level_name($level){
     $levelname="";
@@ -1105,7 +1093,6 @@ function get_level_name($level){
         }
     return $levelname;
 }
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 // --------------------------------------------------------------------------------------------------
 function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_action=''){
     global $config;
@@ -1149,13 +1136,8 @@ function insert_fragment($mb_id, $content='', $rel_table='', $rel_id='', $rel_ac
     $sql = " update {$g5['member_table']} set mb_point2 = '$po_mb_point' where mb_id = '$mb_id'";
     sql_query($sql);
 
-<<<<<<< HEAD
-    $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
-    alert($massege);
-=======
     // $massege = "축하합니다.렌덤으로 $too 파편조각 획득하셨습니다.";    
     // alert($massege);
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
     return 1;
 }
 
@@ -1575,9 +1557,6 @@ function get_sideview($mb_id, $name='', $email='', $homepage='')
     return $str;
 }
 
-<<<<<<< HEAD
-
-=======
 function get_sideview_user($mb_id, $name='', $email='', $homepage='')
 {
     global $config;
@@ -1748,7 +1727,6 @@ function get_sideview_nick($mb_id, $name='', $email='', $homepage='')
     $str .= "</span>";
     return $str;
 }
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 // 파일을 보이게 하는 링크 (이미지, 플래쉬, 동영상)
 function view_file_link($file, $width, $height, $content='')
 {
@@ -4217,10 +4195,6 @@ function option_array_checked($option, $arr=array()){
 
     return $checked;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 function get_member_level_select2($name, $start_id=0, $end_id=30, $selected="", $event="")
 {
     global $g5,$config;
@@ -4237,8 +4211,6 @@ function get_member_level_select2($name, $start_id=0, $end_id=30, $selected="", 
     $str .= "</select>\n";
     return $str;
 }
-<<<<<<< HEAD
-=======
 
 function get_board_atname($bo_table='')
 {
@@ -4282,5 +4254,4 @@ function get_board_atname2($bo_table='',$too)
     $str .= "</select>\n";
     return $str;
 }
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 ?>

@@ -416,11 +416,7 @@ function get_level($mb_id)
 		global $g5;
 		$result = sql_fetch(" SELECT `mb_level` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
 		if ($result['mb_level'] > 17)
-<<<<<<< HEAD
-			return '<img src=' . G5_URL . '/img/' . $result['mb_level'] . '.gif>';
-=======
 			return '<img src=' . G5_URL . '/img/' . $result['mb_level'] . '.png>';
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 	}
 
 function na_name_photo($mb_id, $name){
@@ -428,25 +424,12 @@ function na_name_photo($mb_id, $name){
 	$levelimg;
 	$nick2;
 
-<<<<<<< HEAD
-
-
-	$result = sql_fetch(" SELECT `mb_level`,`mb_nick2`,`mb_nick` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
-	if ($result['mb_level'] > 17)
-		$levelimg= '<img class="levelimg" src=' . G5_URL . '/img/' . $result['mb_level'] . '.gif style="border-radius: none;">';
-		$nick2=$result['mb_nick2'];
-		$nick=$result['mb_nick'];
-
-		$name = $name.$nick2;
-	
-=======
 	$result = sql_fetch(" SELECT `mb_level`,`mb_nick2`,`mb_nick` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
 	if ($result['mb_level'] > 17)
 		$levelimg= '<img class="levelimg" src=' . G5_URL . '/img/' . $result['mb_level'] . '.png style="border-radius: none;">';
 		$nick2=$result['mb_nick2'];
 		$nick=$result['mb_nick'];
 		$name = $name.$nick2;
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 
 	if(!$config['cf_use_member_icon'] || !$mb_id)
 		return $name.$result['mb_nick2'];
@@ -463,12 +446,6 @@ function na_name_photo($mb_id, $name){
 			return str_replace($matches[0][$i], '<img src="'.na_member_photo($mb_id).'" width="'.$config['cf_member_icon_width'].'" height="'.$config['cf_member_icon_height'].'" style="border-radius:50%" alt=""/> '.$levelimg,$name);
 		}
     }
-<<<<<<< HEAD
-
-	return $name;
-}
-
-=======
 	return $name;
 }
 
@@ -499,7 +476,6 @@ function na_name_photo_only($mb_id, $name){
 
 
 
->>>>>>> 8e856fb351392b4b7cb50a4ad55a13eb8eac225b
 function na_sns_share_icon($url, $title, $img='', $icon='', $eol='') {
 	global $config;
 
