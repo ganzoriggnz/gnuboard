@@ -169,11 +169,13 @@ background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png');
 }
 
 @media (max-width: 650px) {
-	#bo_cate a {width:65px; margin-left: 0px;}
     #bo_cate li {margin: 0px;}
+	#bo_cate a {width:65px; margin-left: 0px;} 
+    #bo_cate #bo_cate_on {width:65px;}
     #bo_subcate ul {margin-top:4px;}
     #bo_subcate li {margin: 0px;}
     #bo_subcate a {width: 40px; margin-left: 0px;}
+    #bo_subcate #bo_subcate_on {width: 40px;}
 }
 
 -webkit-box-shadow:inset 0 2px 5px rgb(33, 135, 202);
