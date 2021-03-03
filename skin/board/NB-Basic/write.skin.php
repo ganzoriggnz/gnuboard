@@ -428,8 +428,8 @@ if ($is_member)
 					<div class="col-md-2">
 						<?php if ($is_member) { // 임시 저장된 글 기능
 						?>
-							<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="<?php if(!G5_IS_MOBILE) echo "임시 저장된 글 목록 열기"; ?>" style="background-color: #e6dcc1; float:right;">
-								<h6><?php if(!G5_IS_MOBILE) echo "임시 저장된 글 목록 열기"; ?></h6>
+							<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="<?php if(!G5_IS_MOBILE) echo "임시저장 글 열기"; ?>" style="background-color: #e6dcc1; float:right;">
+								<h6><?php if(!G5_IS_MOBILE) echo "임시저장 글 열기"; ?></h6>
 								<i class="fa fa-repeat" aria-hidden="true"></i>
 								<span class="sr-only">임시저장글</span>
 								(<span id="autosave_count" class="orangered"><?php echo $autosave_count; ?></span>)

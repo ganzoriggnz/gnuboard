@@ -5,7 +5,13 @@ use function PHPSTORM_META\map;
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 
+$bo_table = $_REQUEST['bo_table'];
 
+
+$linkcount = strlen($bo_table) - 2;
+$str_table =substr($bo_table, 0, $linkcount);
+$re = $str_table."re"; 
+    
 // hulan nemsen 글 보기 페이지에서 글쓰기 버튼을 숨기고 싶으면
 // 지정된 회원만 글쓰기 권한부여. 게시판 설정 여분필드 1번 값 사용
 if($gr_id == 'attendance'){
@@ -103,11 +109,139 @@ $view_subject = get_text($view['wr_subject']);
         </h1>
 
     </header>
-
+	<?php if (G5_IS_MOBILE && $gr_id == "attendance") { ?>
 	<section id="bo_v_info" class="f-sm font-weight-normal mb-4">
-		<div class="clearfix bg-light border-top text-muted px-3 py-2">
+		<div class="clearfix bg-light border-top text-muted py-2">
 	        <h3 class="sr-only">작성자 정보</h3>
-			<ul class="d-flex align-items-center">
+			<ul class="d-flex-start align-items-center">
+				<li>
+					<span class="sr-only">작성자</span>
+					<!-- hulan nemsen level mark -->
+					<?php echo na_name_photo($view['mb_id'], $view['name']); ?>
+
+				</li>
+				<?php if ($is_ip_view) { ?>
+					<li class="pr-2" style="float: left; display:inline;">
+						<span class="sr-only">아이피</span>
+						<span class="text-muted"><?php echo $ip ?></span>
+					</li>
+				<?php } ?>
+				<li class="flex-grow-1" style="float:left; display:inline;">
+					<span class="sr-only">작성일</span>
+					<time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_datetime'])) ?>"><?php echo date("Y.m.d H:i", strtotime($view['wr_datetime'])) ?></time>
+				</li>
+				<li style="float:left; margin-left: 10px; display:inline;">
+					<span class="sr-only">조회</span>
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					<?php echo number_format($view['wr_hit']) ?>
+				</li>
+				<?php if($view['wr_comment']) { ?>
+					<li style="float:left; margin-left: 5px; display:inline;">
+						<span class="sr-only">댓글</span>
+						<i class="fa fa-commenting-o" aria-hidden="true"></i>
+						<b class="orangered"><?php echo number_format($view['wr_comment']) ?></b>							
+					</li>
+				<?php } ?> 
+			</ul>
+		</div>
+	<!-- 	<div>
+			<ul class="d-flex-start align-items-center" style="font-size:10px;">
+				<li class="pr-3">
+					<span class="sr-only">조회</span>
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					<?php echo number_format($view['wr_hit']) ?>
+				</li>
+				   <?php if($view['wr_comment']) { ?>
+						<li class="pr-3">
+							<span class="sr-only">댓글</span>
+							<i class="fa fa-commenting-o" aria-hidden="true"></i>
+							<b class="orangered"><?php echo number_format($view['wr_comment']) ?></b>							
+						</li>
+				    <?php } ?>
+			</ul>
+		</div> -->
+
+		<div class="clearfix f-sm text-muted pt-2 pr-2">
+	        <h3 class="sr-only">컨텐츠 정보</h3>
+			<ul class="d-flex-start align-items-center">
+				<?php $phone=get_member($view['mb_id'],"mb_hp"); ?>					
+				<li style="display: inline;"><a href="<?php echo 'tel:'.$phone['mb_hp'] ?>" style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn" ><img src="<?php echo G5_IMG_URL.'/solid/phone.svg' ?>" style="height:12px;" title=""> 전화걸기</a></li>
+				<li style="display: inline;"><a href="sms:'.$phone['mb_hp'].'" style="display: inline; margin-left: 5px; border:1px solid #e5e5e5;font-size: 10px;" class="btn" ><img src="<?php echo G5_IMG_URL.'/solid/sms.svg' ?>" style="height:12px;" title=""> 문자보내기</a></li> 
+				<li id="bo_v_btn" class="flex-grow-1" style="display: inline;">
+					<!-- 게시물 상단 버튼 시작 { -->
+					<?php ob_start(); ?>
+					<div class="btn-group" role="group" style="float:right;">
+						<a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1" title="목록" role="button">
+							<i class="fa fa-list fa-md" aria-hidden="true"></i>
+							<span class="sr-only">목록</span>
+						</a>
+						<?php if ($reply_href) { ?>
+							<a href="<?php echo $reply_href ?>" class="btn btn_b01 nofocus py-1" title="답변" role="button">
+								<i class="fa fa-reply fa-md" aria-hidden="true"></i>
+								<span class="sr-only">답변</span>
+							</a>
+						<?php } ?>
+						<?php if ($write_href) { ?>
+							<a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
+								<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
+								<span class="sr-only">글쓰기</span>
+							</a>
+						<?php } ?>
+						<?php if($update_href || $delete_href || $copy_href || $move_href || $search_href) { ?>
+							<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 옵션">
+								<span class="sr-only">게시물 옵션</span>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
+								<div class="btn-group-vertical">
+								<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || $member['mb_level'] == '27'){?>
+									<a href="<?php echo $update_href ?>" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+										글수정
+									</a>
+								<?php } } ?>
+								<!-- hulan nemsen level 24.25 can not delete post  -->
+								<?php if ($delete_href && $member['mb_level'] != 24 && $member['mb_level'] != 25) {if($is_admin ||  $member['mb_6']!=$bo_table ) {  ?>
+									<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+										글삭제
+									</a>
+								<?php }} ?>
+								<?php if ($copy_href) { ?>
+									<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
+										글복사		
+									</a>
+								<?php } ?>
+								<?php if ($move_href) { ?>
+									<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
+										글이동
+									</a>
+								<?php } ?>
+								<?php if ($search_href) { ?>
+									<a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-search fa-fw" aria-hidden="true"></i>
+										글검색
+									</a>
+								<?php } ?>
+								</div> 
+							</div>
+						<?php } ?>
+					</div>
+					<?php
+					$link_buttons = ob_get_contents();
+					ob_end_flush();
+					?>
+					<!-- } 게시물 상단 버튼 끝 -->
+				</li>
+			</ul>
+		</div>
+    </section>
+	<?php } else if(G5_IS_MOBILE && $gr_id != "attendance") { ?>
+		<section id="bo_v_info" class="f-sm font-weight-normal mb-4">
+		<div class="clearfix bg-light border-top text-muted py-2">
+	        <h3 class="sr-only">작성자 정보</h3>
+			<ul class="d-flex-start align-items-center">
 				<li class="pr-2">
 					<span class="sr-only">작성자</span>
 					<!-- hulan nemsen level mark -->
@@ -115,38 +249,32 @@ $view_subject = get_text($view['wr_subject']);
 
 				</li>
 				<?php if ($is_ip_view) { ?>
-					<li class="pr-2">
+					<li class="pr-2" style="float: left; display:inline;">
 						<span class="sr-only">아이피</span>
-						<span class="f-xs text-muted"><?php echo $ip ?></span>
+						<span class="text-muted"><?php echo $ip ?></span>
 					</li>
 				<?php } ?>
-				<li class="flex-grow-1 text-right">
+				<li class="flex-grow-1 text-right" style="float: left; display:inline;">
 					<span class="sr-only">작성일</span>
-					<time class="f-xs" datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_datetime'])) ?>"><?php echo date("Y.m.d H:i", strtotime($view['wr_datetime'])) ?></time>
+					<time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_datetime'])) ?>"><?php echo date("Y.m.d H:i", strtotime($view['wr_datetime'])) ?></time>
 				</li>
-			</ul>
-		</div>
-
-		<div class="clearfix f-sm text-muted pl-3 pt-2 pr-2">
-	        <h3 class="sr-only">컨텐츠 정보</h3>
-			<ul class="d-flex align-items-center">
-				<li class="pr-3">
+				<li style="float:left; margin-left: 10px; display:inline;">
 					<span class="sr-only">조회</span>
 					<i class="fa fa-eye" aria-hidden="true"></i>
 					<?php echo number_format($view['wr_hit']) ?>
 				</li>
-				 <?php if($view['wr_comment']) { ?>
-					<li class="pr-3">
+				<?php if($view['wr_comment']) { ?>
+					<li style="float:left; margin-left: 5px; display:inline;">
 						<span class="sr-only">댓글</span>
-						 <i class="fa fa-commenting-o" aria-hidden="true"></i>
-						 <b class="orangered"><?php echo number_format($view['wr_comment']) ?></b>
-						 
+						<i class="fa fa-commenting-o" aria-hidden="true"></i>
+						<b class="orangered"><?php echo number_format($view['wr_comment']) ?></b>							
 					</li>
-				<?php } ?>
-				<?php if (G5_IS_MOBILE && $gr_id == "attendance") {
-						$phone=get_member($view['mb_id'],"mb_hp");						
-						echo  '<li class="pr-3"><a href="tel:'.$phone['mb_hp'].'" style="display: inline; border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/phone.svg" style="height:10px; " title=""> 전화걸기</a>
-					<a href="sms:'.$phone['mb_hp'].'" style="display: inline; margin-left: 5px; border:1px solid #e5e5e5;" class="btn" ><img src="'.G5_IMG_URL.'/solid/sms.svg" style="height:14px; " title=""> 문자보내기</a>  </li>  ';} ?>
+				<?php } ?> 
+			</ul>
+		</div>
+		<div class="clearfix f-sm text-muted pt-2 pr-2">
+	        <h3 class="sr-only">컨텐츠 정보</h3>
+			<ul class="d-flex-start align-items-center">			
 				<li id="bo_v_btn" class="flex-grow-1 text-right">
 					<!-- 게시물 상단 버튼 시작 { -->
 					<?php ob_start(); ?>
@@ -216,14 +344,131 @@ $view_subject = get_text($view['wr_subject']);
 				</li>
 			</ul>
 		</div>
-    </section>
+    </section>	
+
+	<?php } else { ?>
+		<section id="bo_v_info" class="f-sm font-weight-normal mb-4">
+		<div class="clearfix bg-light border-top text-muted px-3 py-2">
+	        <h3 class="sr-only">작성자 정보</h3>
+			<ul class="d-flex align-items-center">
+				<li class="pr-2">
+					<span class="sr-only">작성자</span>
+					<!-- hulan nemsen level mark -->
+					<?php echo na_name_photo($view['mb_id'], $view['name']); ?>
+
+				</li>
+				<?php if ($is_ip_view) { ?>
+					<li class="pr-2">
+						<span class="sr-only">아이피</span>
+						<span class="text-muted"><?php echo $ip ?></span>
+					</li>
+				<?php } ?>
+				<li class="flex-grow-1 text-right">
+					<span class="sr-only">작성일</span>
+					<time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_datetime'])) ?>"><?php echo date("Y.m.d H:i", strtotime($view['wr_datetime'])) ?></time>
+				</li>
+			</ul>
+		</div>
+
+		<div class="clearfix f-sm text-muted pl-3 pt-2 pr-2">
+	        <h3 class="sr-only">컨텐츠 정보</h3>
+			<ul class="d-flex align-items-center">
+				<li class="pr-3">
+					<span class="sr-only">조회</span>
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					<?php echo number_format($view['wr_hit']) ?>
+				</li>
+				 <?php if($view['wr_comment']) { ?>
+					<li class="pr-3">
+						<span class="sr-only">댓글</span>
+						 <i class="fa fa-commenting-o" aria-hidden="true"></i>
+						 <b class="orangered"><?php echo number_format($view['wr_comment']) ?></b>
+						 
+					</li>
+				<?php } ?>
+				<li class="pr-3">
+					<a type="button" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>'" class="btn btn_b01 nofocus py-1" title="답변">
+						<img src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">업소후기
+					</a>
+				</li>
+				<li id="bo_v_btn" class="flex-grow-1 text-right">
+					<!-- 게시물 상단 버튼 시작 { -->
+					<?php ob_start(); ?>
+					<div class="btn-group" role="group">
+						<a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1" title="목록" role="button">
+							<i class="fa fa-list fa-md" aria-hidden="true"></i>
+							<span class="sr-only">목록</span>
+						</a>
+						<?php if ($reply_href) { ?>
+							<a href="<?php echo $reply_href ?>" class="btn btn_b01 nofocus py-1" title="답변" role="button">
+								<i class="fa fa-reply fa-md" aria-hidden="true"></i>
+								<span class="sr-only">답변</span>
+							</a>
+						<?php } ?>
+						<?php if ($write_href) { ?>
+							<a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
+								<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
+								<span class="sr-only">글쓰기</span>
+							</a>
+						<?php } ?>
+						<?php if($update_href || $delete_href || $copy_href || $move_href || $search_href) { ?>
+							<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 옵션">
+								<span class="sr-only">게시물 옵션</span>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
+								<div class="btn-group-vertical">
+								<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || $member['mb_level'] == '27'){?>
+									<a href="<?php echo $update_href ?>" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+										글수정
+									</a>
+								<?php } } ?>
+								<!-- hulan nemsen level 24.25 can not delete post  -->
+								<?php if ($delete_href && $member['mb_level'] != 24 && $member['mb_level'] != 25) {if($is_admin ||  $member['mb_6']!=$bo_table ) {  ?>
+									<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+										글삭제
+									</a>
+								<?php }} ?>
+								<?php if ($copy_href) { ?>
+									<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
+										글복사		
+									</a>
+								<?php } ?>
+								<?php if ($move_href) { ?>
+									<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
+										글이동
+									</a>
+								<?php } ?>
+								<?php if ($search_href) { ?>
+									<a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
+										<i class="fa fa-search fa-fw" aria-hidden="true"></i>
+										글검색
+									</a>
+								<?php } ?>
+								</div> 
+							</div>
+						<?php } ?>
+					</div>
+					<?php
+					$link_buttons = ob_get_contents();
+					ob_end_flush();
+					?>
+					<!-- } 게시물 상단 버튼 끝 -->
+				</li>
+			</ul>
+		</div>
+    </section>	
+	<?php } ?>
 	
 
 	
     <section id="bo_v_atc">
         <h3 class="sr-only">본문</h3>
         <!-- 본문 내용 시작 { -->
-        <div id="bo_v_con" class="mb-4 px-3">
+        <div id="bo_v_con" <?php if(G5_IS_MOBILE) {echo 'class="mb-4"';} else { echo 'class="mb-4 px-3"';} ?>>
 	<!-- hulan nemsen 블라인드 처리 된 글 관리자에서 보이고 회원 페이지에서 삭제 처럼 안보이게 처리  -->
 			<?php if(IS_NA_BBS && $is_admin && $view['as_type'] == "-1") { // 블라인드처리 ?>
 				<div class="alert alert-danger text-center" role="alert">
@@ -278,7 +523,7 @@ $view_subject = get_text($view['wr_subject']);
 			<div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
 				<div class="btn-group btn-group-lg" role="group">
 					<?php if ($member['mb_level'] >= $board['bo_use_good']) { // 추천 ?>
-						<button type="button" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'good', 'wr_good');" class="btn btn-basic" title="추천">
+						<button type="button" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'good', 'wr_good');" class="btn btn-basic" title="추천" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 12px;"';} else { echo '';} ?>>
 							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
 							<span class="sr-only">추천</span>
 							<b id="wr_good" class="orangered"><?php echo number_format($view['wr_good']) ?></b>
@@ -286,14 +531,14 @@ $view_subject = get_text($view['wr_subject']);
 					<?php } ?>
 
 					<?php if ($member['mb_level'] >= $board['bo_use_nogood']) { // 비추천 ?>
-						<button type="button" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'nogood', 'wr_nogood');" class="btn btn-basic" title="비추천">
+						<button type="button" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'nogood', 'wr_nogood');" class="btn btn-basic" title="비추천" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 12px;"';} else { echo '';} ?>>
 							<i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
 							<span class="sr-only">비추천</span>
 							<b id="wr_nogood"><?php echo number_format($view['wr_nogood']) ?></b>
 						</button>
 					<?php } ?>
 					<?php if ($scrap_href) { // 스크랩 ?>
-						<button type="button" class="btn btn-basic" onclick="win_scrap('<?php echo $scrap_href ?>');" title="스크랩">
+						<button type="button" class="btn btn-basic" onclick="win_scrap('<?php echo $scrap_href ?>');" title="스크랩" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 12px;"';} else { echo '';} ?>>
 							<i class="fa fa-bookmark" aria-hidden="true"></i>
 							<span class="sr-only">스크랩</span>
 						</button>

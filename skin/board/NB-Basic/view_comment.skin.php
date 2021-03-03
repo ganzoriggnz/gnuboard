@@ -116,13 +116,11 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 						<h2 class="sr-only">
 							<?php echo get_text($list[$i]['wr_name']); ?>님의 <?php if ($cmt_depth) { ?><span class="sr-only">댓글의</span><?php } ?> 댓글
 						</h2>
-						<div class="clearfix font-weight-normal bg-light border-top text-muted f-sm px-3 py-2<?php echo $by_writer ?>">
-							<ul class="d-flex align-items-center">
-								<li class="pr-2">
-									<!-- hulan nemsen mark -->
-									
+						<div <?php if(G5_IS_MOBILE) { echo 'class="clearfix font-weight-normal bg-light border-top text-muted f-sm py-2 '.$by_writer.'"';} else { echo 'class="clearfix font-weight-normal bg-light border-top text-muted f-sm px-3 py-2 '.$by_writer.'"';} ?> >
+					<!-- 		<ul class="d-flex align-items-center">
+								<li class="pr-2">						
 									<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']); ?>
-									<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); // SNS 
+									<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); 
 									?>
 								</li>
 								<?php if ($is_ip_view) { ?>
@@ -136,6 +134,23 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 									<span class="sr-only">작성일</span>
 									<time class="f-xs" datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($list[$i]['wr_datetime'])) ?>"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d H:i', 'Y.m.d H:i'); ?></time>
 								</li>
+							</ul> -->
+							<ul class="d-flex-start align-items-center">
+								<li>
+									<span class="sr-only">작성자</span>
+									<?php echo na_name_photo($view['mb_id'], $view['name']); ?>
+									<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); ?>
+								</li>
+								<?php if ($is_ip_view) { ?>
+									<li class="pr-2" style="float: left; display:inline;">
+										<span class="sr-only">아이피</span>
+										<span class="text-muted"><?php echo $ip ?></span>
+									</li>
+								<?php } ?>
+								<li class="flex-grow-1" style="float: right; display:inline;">
+									<span class="sr-only">작성일</span>
+									<time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_datetime'])) ?>"><?php echo date("Y.m.d H:i", strtotime($view['wr_datetime'])) ?></time>
+								</li>							
 							</ul>
 						</div>
 					</header>
