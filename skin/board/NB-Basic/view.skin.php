@@ -91,13 +91,13 @@ $view_subject = get_text($view['wr_subject']);
 			</div>
 		<?php } ?>
 		<!-- <h1 id="bo_v_title"> hulan tailbar bolgood doodohoor uurchilsen -->  
-		<h1 id="bo_v_title"<?php if ($view['wr_1']) { echo " style='color:".$view['wr_1']."' "; } ?>>
-            <?php echo $view_subject; // 글제목 출력 ?> &nbsp;&nbsp;&nbsp;
+		<h1 id="bo_v_title"<?php if ($view['wr_1'] && !G5_IS_MOBILE) { echo " style='color:".$view['wr_1']."' "; } else {echo " style='color:".$view['wr_1']."; padding-left:0px; margin-left: 0px;' ";} ?>>
+            <?php echo $view_subject; // 글제목 출력 ?> 
 
 			<!-- hulan nemsen 삭제요청 ///////////////////////////////////-->
 			<?php
         if ($board['bo_2']) {
-            if ( $member['mb_level'] == 26 || $member['mb_level'] == 27) {
+            if ($member['mb_level'] == 26 || $member['mb_level'] == 27) {
                 echo '<button id="board_singo" class="btn btn_b03"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>삭제요청</button>';
 			}
 			else{
@@ -110,7 +110,7 @@ $view_subject = get_text($view['wr_subject']);
 
     </header>
 	<?php if (G5_IS_MOBILE && $gr_id == "attendance") { ?>
-	<section id="bo_v_info" class="f-sm font-weight-normal mb-4">
+	<section id="bo_v_info" class="f-sm font-weight-normal mb-4 px-3">
 		<div class="clearfix bg-light border-top text-muted py-2">
 	        <h3 class="sr-only">작성자 정보</h3>
 			<ul class="d-flex-start align-items-center">
@@ -144,23 +144,6 @@ $view_subject = get_text($view['wr_subject']);
 				<?php } ?> 
 			</ul>
 		</div>
-	<!-- 	<div>
-			<ul class="d-flex-start align-items-center" style="font-size:10px;">
-				<li class="pr-3">
-					<span class="sr-only">조회</span>
-					<i class="fa fa-eye" aria-hidden="true"></i>
-					<?php echo number_format($view['wr_hit']) ?>
-				</li>
-				   <?php if($view['wr_comment']) { ?>
-						<li class="pr-3">
-							<span class="sr-only">댓글</span>
-							<i class="fa fa-commenting-o" aria-hidden="true"></i>
-							<b class="orangered"><?php echo number_format($view['wr_comment']) ?></b>							
-						</li>
-				    <?php } ?>
-			</ul>
-		</div> -->
-
 		<div class="clearfix f-sm text-muted pt-2 pr-2">
 	        <h3 class="sr-only">컨텐츠 정보</h3>
 			<ul class="d-flex-start align-items-center">
@@ -238,7 +221,7 @@ $view_subject = get_text($view['wr_subject']);
 		</div>
     </section>
 	<?php } else if(G5_IS_MOBILE && $gr_id != "attendance") { ?>
-		<section id="bo_v_info" class="f-sm font-weight-normal mb-4">
+		<section id="bo_v_info" class="f-sm font-weight-normal mb-4 px-3">
 		<div class="clearfix bg-light border-top text-muted py-2">
 	        <h3 class="sr-only">작성자 정보</h3>
 			<ul class="d-flex-start align-items-center">
@@ -347,7 +330,7 @@ $view_subject = get_text($view['wr_subject']);
     </section>	
 
 	<?php } else { ?>
-		<section id="bo_v_info" class="f-sm font-weight-normal mb-4">
+	<section id="bo_v_info" class="f-sm font-weight-normal mb-4">
 		<div class="clearfix bg-light border-top text-muted px-3 py-2">
 	        <h3 class="sr-only">작성자 정보</h3>
 			<ul class="d-flex align-items-center">
@@ -468,7 +451,7 @@ $view_subject = get_text($view['wr_subject']);
     <section id="bo_v_atc">
         <h3 class="sr-only">본문</h3>
         <!-- 본문 내용 시작 { -->
-        <div id="bo_v_con" <?php if(G5_IS_MOBILE) {echo 'class="mb-4"';} else { echo 'class="mb-4 px-3"';} ?>>
+        <div id="bo_v_con" class="mb-4 px-3">
 	<!-- hulan nemsen 블라인드 처리 된 글 관리자에서 보이고 회원 페이지에서 삭제 처럼 안보이게 처리  -->
 			<?php if(IS_NA_BBS && $is_admin && $view['as_type'] == "-1") { // 블라인드처리 ?>
 				<div class="alert alert-danger text-center" role="alert">

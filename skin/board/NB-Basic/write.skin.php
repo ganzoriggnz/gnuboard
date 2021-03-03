@@ -200,7 +200,20 @@ if ($is_member)
 
 		<ul class="list-group mb-3">
 			<li class="list-group-item border-top-0">
-				<h5 class="font-weight-bold en"><?php echo str_replace($board['bo_subject'], '', $g5['title']) ?></h5>
+				<div class="form-group row mb-0">
+					<label class="col-md-2 col-form-label" for="wr_password"><?php echo str_replace($board['bo_subject'], '', $g5['title']) ?></label>
+					<!-- <h5 class="font-weight-bold en"><?php echo str_replace($board['bo_subject'], '', $g5['title']) ?></h5> -->
+					<div class="col-md-10">
+					<?php if ($is_member) { // 임시 저장된 글 기능
+					?>
+						<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="<?php if(!G5_IS_MOBILE) echo "임시저장 글 열기"; ?>" style="background-color: #e6dcc1; float:right; width: 150px;">
+							<h6>임시저장 글 열기<i class="fa fa-repeat" aria-hidden="true"></i>
+							<span class="sr-only">임시저장글</span>
+							(<span id="autosave_count" class="orangered"><?php echo $autosave_count; ?></span>)</h6>							
+						</button>
+					<?php } ?>
+					</div>
+				</div>
 			</li>
 			<?php if ($is_name) { ?>
 				<li class="list-group-item">
@@ -393,28 +406,30 @@ if ($is_member)
 
 			<li class="list-group-item">
 
-				<div style="padding: 1rem 0;">
+				<div class="form-group row mb-0">
 					<?php if ($member['mb_level'] >= 14) { ?>
-						<label style="font-weight: bold;" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
-						<select id="colorselector_2" name="wr_1">
-							<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
-							<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
-							<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
-							<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
-							<option value="#008B8B" data-color="#008B8B" <?php echo get_selected($write['wr_1'], '#008B8B') ?>>darkcyan</option>
-							<option value="#B8860B" data-color="#B8860B" <?php echo get_selected($write['wr_1'], '#B8860B') ?>>darkgoldenrod</option>
-							<option value="#32CD32" data-color="#32CD32" <?php echo get_selected($write['wr_1'], '#32CD32') ?>>limegreen</option>
-							<option value="#FFD700" data-color="#FFD700" <?php echo get_selected($write['wr_1'], '#FFD700') ?>>gold</option>
-							<option value="#48D1CC" data-color="#48D1CC" <?php echo get_selected($write['wr_1'], '#48D1CC') ?>>mediumturquoise</option>
-							<option value="#87CEEB" data-color="#87CEEB" <?php echo get_selected($write['wr_1'], '#87CEEB') ?>>skyblue</option>
-							<option value="#FF69B4" data-color="#FF69B4" <?php echo get_selected($write['wr_1'], '#FF69B4') ?>>hotpink</option>
-							<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
-							<option value="#87CEFA" data-color="#87CEFA" <?php echo get_selected($write['wr_1'], '#87CEFA') ?>>lightskyblue</option>
-							<option value="#6495ED" data-color="#6495ED" <?php echo get_selected($write['wr_1'], '#6495ED') ?>>cornflowerblue</option>
-							<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
-							<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
-							<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
-						</select>
+						<label class="col-md-2 col-form-label" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
+						<div class="col-md-10">
+							<select id="colorselector_2" name="wr_1">
+								<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
+								<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
+								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+								<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
+								<option value="#008B8B" data-color="#008B8B" <?php echo get_selected($write['wr_1'], '#008B8B') ?>>darkcyan</option>
+								<option value="#B8860B" data-color="#B8860B" <?php echo get_selected($write['wr_1'], '#B8860B') ?>>darkgoldenrod</option>
+								<option value="#32CD32" data-color="#32CD32" <?php echo get_selected($write['wr_1'], '#32CD32') ?>>limegreen</option>
+								<option value="#FFD700" data-color="#FFD700" <?php echo get_selected($write['wr_1'], '#FFD700') ?>>gold</option>
+								<option value="#48D1CC" data-color="#48D1CC" <?php echo get_selected($write['wr_1'], '#48D1CC') ?>>mediumturquoise</option>
+								<option value="#87CEEB" data-color="#87CEEB" <?php echo get_selected($write['wr_1'], '#87CEEB') ?>>skyblue</option>
+								<option value="#FF69B4" data-color="#FF69B4" <?php echo get_selected($write['wr_1'], '#FF69B4') ?>>hotpink</option>
+								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+								<option value="#87CEFA" data-color="#87CEFA" <?php echo get_selected($write['wr_1'], '#87CEFA') ?>>lightskyblue</option>
+								<option value="#6495ED" data-color="#6495ED" <?php echo get_selected($write['wr_1'], '#6495ED') ?>>cornflowerblue</option>
+								<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
+								<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
+								<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
+							</select>
+						</div>
 								<!-- <input type="hidden" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required class="frm_input required" size="30" maxlength="255"> -->
 					<?php } ?>
 				</div>
@@ -422,19 +437,8 @@ if ($is_member)
 			<li class="list-group-item">
 				<div class="form-group row mb-0">
 					<label class="col-md-2 col-form-label" for="wr_subject">제목<strong class="sr-only">필수</strong></label>
-					<div style="display: flex; align-items: center;" class="col-md-8">
+					<div style="display: flex; align-items: center;" class="col-md-10">
 						<input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="form-control required" maxlength="255">
-					</div>
-					<div class="col-md-2">
-						<?php if ($is_member) { // 임시 저장된 글 기능
-						?>
-							<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="<?php if(!G5_IS_MOBILE) echo "임시저장 글 열기"; ?>" style="background-color: #e6dcc1; float:right;">
-								<h6><?php if(!G5_IS_MOBILE) echo "임시저장 글 열기"; ?></h6>
-								<i class="fa fa-repeat" aria-hidden="true"></i>
-								<span class="sr-only">임시저장글</span>
-								(<span id="autosave_count" class="orangered"><?php echo $autosave_count; ?></span>)
-							</button>
-						<?php } ?>
 					</div>
 				</div>
 			</li>
