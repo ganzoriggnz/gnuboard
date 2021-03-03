@@ -173,12 +173,16 @@ $list_cnt = count($list);
 				</div>
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-16 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-				<span class="sr-only">등록자</span>				
+				<span class="sr-only">등록자</span>
 				<?php
 					$mbid= get_member($list[$i]['mb_id']);
 					$name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);
 					echo na_name_photo($list[$i]['mb_id'], $name)
 				?>
+			</div>
+			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+				<span class="sr-only">등록일</span>
+				<small><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d', 'Y.m.d') ?></small>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
 				<i class="fa fa-eye d-md-none" aria-hidden="true"></i>

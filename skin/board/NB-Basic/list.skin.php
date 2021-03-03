@@ -45,7 +45,9 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		padding: 0.5rem 0;
 	}
 	@media only screen and (max-width: 600px) {
-
+		.adminbtn {
+			padding: 0 0.1rem;
+		}
 	}
 </style>
 
@@ -142,14 +144,14 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 					</button>
 					<div class="btn-group ">
 					<?php if($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?> 
-						<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table'];?>" target="_blank" class="btn btn-primary win_coupon" role="button">
+						<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table'];?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
 						쿠폰지원내역 
 						</a>	</div>
 						&nbsp;&nbsp;
 					<?php } ?>		
 					<?php if ($write_href) { ?>						
 						<div>
-							<button type="button" class="btn btn-primary" onclick="location.href='<?php echo $write_href ?>'">
+							<button type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
 								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
 							</button>
 						</div>
