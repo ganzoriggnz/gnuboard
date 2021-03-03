@@ -47,11 +47,11 @@ $too = rand(0,$tood-1);
 		.rolling_start{display:block;  height:20px; color:#000;}
 	</style>
 <!-- Page Title -->
-
+<?php if (!G5_IS_MOBILE) { ?>
 <div id="nt_title" class="font-weight-normal">
 	<div class="nt-container px-3 px-sm-4 px-xl-0">	
 		<div class="d-flex pb-2" style="justify-content: left;" >
-			<?php if (!G5_IS_MOBILE) { ?>
+			
 			<img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png" title="" style="height:16px;width:10px; padding-top:5px;" >&nbsp;
 			<div class="notice" style="width: 100%;">
 				<ul class="rolling">
@@ -60,42 +60,41 @@ $too = rand(0,$tood-1);
 				<li style="color:#e4c980;"><?php echo $list[$i]?></li>
 				<?php }?>
 			</div>
-			<?php } ?>
 			<!-- <a href="#" class="rolling_stop">Pause</a>
 <a href="#" class="rolling_start">Play</a> -->
 
 <!-- start------------------------------------- -->
 <?php
-$sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
-$res_date = sql_fetch($sql_date);
-$now = G5_TIME_YMDHIS;
-if($res_date['mb_4'] != ''){
-	$end_time = strtotime($res_date['mb_4']);
-	$now_time = strtotime($now);
-	if($end_time >= $now_time){
-		$diff = $end_time - $now_time;
-		$diff_days = ceil($diff / 86400);
-	}
-	else if($end_time < $now_time){
-		$diff_days = '0';
-		$sql_d = " UPDATE {$g5['member_table']} 
-						SET mb_level = '26'
-						WHERE mb_id = '{$mb['mb_id']}' AND mb_level='27'";
-		sql_query($sql_d);
-	}
-}
-if($member['mb_level'] == '26' || $member['mb_level'] == '27') { 
-        ?>
-        <div class="d-md-block d-none" style="width:20%; padding:0px ">
-			<div  class="d-flex" style="padding:0px ">
-            <p>제휴마감 <span style="color: #3333ff;">D-<?php echo $diff_days ?>일</span></p>
-            <a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
-                href="<?php echo G5_URL; ?>/bbs/board.php?bo_table=partnership" target="_self">
-                연장신청
-            </a>
-			</div>
-        </div>
-    
+		$sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
+		$res_date = sql_fetch($sql_date);
+		$now = G5_TIME_YMDHIS;
+		if($res_date['mb_4'] != ''){
+			$end_time = strtotime($res_date['mb_4']);
+			$now_time = strtotime($now);
+			if($end_time >= $now_time){
+				$diff = $end_time - $now_time;
+				$diff_days = ceil($diff / 86400);
+			}
+			else if($end_time < $now_time){
+				$diff_days = '0';
+				$sql_d = " UPDATE {$g5['member_table']} 
+								SET mb_level = '26'
+								WHERE mb_id = '{$mb['mb_id']}' AND mb_level='27'";
+				sql_query($sql_d);
+			}
+		}
+		if($member['mb_level'] == '26' || $member['mb_level'] == '27') { 
+				?>
+				<div class="d-md-block d-none" style="width:20%; padding:0px ">
+					<div  class="d-flex" style="padding:0px ">
+					<p>제휴마감 <span style="color: #3333ff;">D-<?php echo $diff_days ?>일</span></p>
+					<a class="cat_1_bg <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?>"
+						href="<?php echo G5_URL; ?>/bbs/board.php?bo_table=partnership" target="_self">
+						연장신청
+					</a>
+					</div>
+				</div>
+		<?php } ?> 
 <!-- end --------------------->
 
 		</div>
