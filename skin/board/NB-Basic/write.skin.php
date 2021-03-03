@@ -673,7 +673,7 @@ if ($is_member)
 		</ul>
 		<div style="margin: 0 auto; text-align: center;">
 			<a href="<?php echo get_pretty_url($bo_table); ?>" class="btn btn-basic btn-lg en" style="width: 150px;">취소</a>
-			<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg en" style="margin-left: 20px; width: 150px; margin-top: 1rem;">작성완료</button>
+			<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg en" style="margin-left: 20px; width: 150px;">작성완료</button>
 		</div>
 		<!-- <div class="px-3 px-sm-0">
 			<div class="row mx-n2">
