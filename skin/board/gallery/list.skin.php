@@ -227,8 +227,7 @@ if ($board['bo_use_category'] && $sca !='') {
                     $str_table =substr($at, 0, $linkcount);
                     $re = $str_table."re"; 
                 ?>
-                <div class="gall_box" style="background-image:url('<?php echo G5_IMG_URL ?>/main_bgpicture.png')"
-                    style="width: 100%; height: 148px;">
+                <div class="gall_box" style="background-image:url('<?php echo G5_IMG_URL ?>/main_bgpicture.png'); background-size: 100% 100%;">
 
                     <!-- <?php if ($is_checkbox) { ?>
                                 <div class="gall_chk chk_box">
