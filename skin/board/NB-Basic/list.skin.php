@@ -42,7 +42,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 1rem 0;
+		padding: 0.5rem 0;
 	}
 	@media only screen and (max-width: 600px) {
 
@@ -52,7 +52,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list_wrap">
 <!-- 인기글 { -->
-	<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")   {
+	<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") {
 	if(!G5_IS_MOBILE) include_once('hit_latest.php'); }?>
 	<br>
 	<?php
@@ -95,6 +95,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 			</form>
 		</div>
 	</div>
+	
 	<!-- } 검색창 끝 -->
 
 	<form name="fboardlist" id="fboardlist" action="./board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
@@ -149,7 +150,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 					<?php if ($write_href) { ?>						
 						<div>
 							<button type="button" class="btn btn-primary" onclick="location.href='<?php echo $write_href ?>'">
-								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;"><?php echo " 글쓰기"; ?>
+								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
 							</button>
 						</div>
 					<?php } ?>

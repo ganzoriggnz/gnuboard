@@ -415,17 +415,17 @@ function get_level($mb_id)
 	{
 		global $g5;
 		$f="";
-		if ($mb_id){
-		$result = sql_fetch(" SELECT `mb_level`,`mb_1`  FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
-		if ($result['mb_1']=="남" || ($result['mb_1']=="" && $result['mb_level'] < 24 )) $f = "M"; 
-		if ($result['mb_1']=="여") $f = "F";
-		if ($result['mb_level']==27 || $result['mb_level']==26 || $result['mb_level']==24 || $result['mb_level']==25) $f = "";
-		// if ($result['mb_level'] > 17)
-		
-		return '<img src=' . G5_URL . '/img/'.$f. $result['mb_level'] . '.png>';
+		if($mb_id){
+			$result = sql_fetch(" SELECT `mb_level`,`mb_1`  FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
+			if ($result['mb_1']=="남" || ($result['mb_1']=="" && $result['mb_level'] < 24 )) $f = "M"; 
+			if ($result['mb_1']=="여") $f = "F";
+			if ($result['mb_level']==27 || $result['mb_level']==26 || $result['mb_level']==24 || $result['mb_level']==25) $f = "";
+			// if ($result['mb_level'] > 17)
+			
+			return '<img src=' . G5_URL . '/img/'.$f. $result['mb_level'] . '.png>';
 		}
-		else 
-		return '';
+		else
+			return '';
 	}
 
 function na_name_photo($mb_id, $name){
@@ -434,7 +434,7 @@ function na_name_photo($mb_id, $name){
 	$nick2;
 
 	$result = sql_fetch(" SELECT `mb_level`,`mb_nick2`,`mb_nick` FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
-		$levelimg= get_level($mb_id);
+		$levelimg = get_level($mb_id);
 		$nick2=$result['mb_nick2'];
 		$nick=$result['mb_nick'];
 		$name = $name.$nick2;
@@ -451,7 +451,7 @@ function na_name_photo($mb_id, $name){
 		preg_match("/alt=[\"\']?([^\"\']*)[\"\']?/", $matches[1][$i], $m);
 		
 		if($m[1]) {
-			return str_replace($matches[0][$i], '<img src="'.na_member_photo($mb_id).'" width="'.$config['cf_member_icon_width'].'" height="'.$config['cf_member_icon_height'].'" style="border-radius:50%" alt=""/> '.$levelimg,$name);
+			return str_replace($matches[0][$i], '<img class="member_photo" src="'.na_member_photo($mb_id).'" width="'.$config['cf_member_icon_width'].'" height="'.$config['cf_member_icon_height'].'" style="border-radius:50%;" alt=""/> '.$levelimg,$name);
 		}
     }
 	return $name;

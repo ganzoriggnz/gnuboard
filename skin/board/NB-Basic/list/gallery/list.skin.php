@@ -42,7 +42,7 @@ $list_cnt = count($list);
 <section id="bo_list" class="mb-4">
 
 	<!-- 목록 헤드 -->
-	<div class="w-100 mb-0 bg-<?php echo $head_color ?>" style="height:4px;"></div>
+	<div class="w-100 mb-0 bg-<?php echo $head_color ?>" style="height:1px;"></div>
 
 	<ul class="na-table d-md-table w-100 mb-3">
 	<?php

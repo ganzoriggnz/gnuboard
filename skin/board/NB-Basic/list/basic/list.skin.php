@@ -28,12 +28,17 @@ switch($boset['target']) {
 $list_cnt = count($list);
 ?>
 
-	
+<style>
+	@media only screen and (max-width: 600px) {
+		.member_photo {
+			display: none;
+		}
+	}
+</style>
 
 <section id="bo_list" class="mb-4" >
-
 	<!-- 목록 헤드 -->
-	<div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:4px;"></div>
+	<div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:1px;"></div>
 
 	<div class="na-table d-none d-md-table w-100 mb-0">
 		<div class="<?php echo $head_class ?> d-md-table-row">
@@ -59,60 +64,59 @@ $list_cnt = count($list);
 	</div>
 
 	<ul class="na-table d-md-table w-100">
-	<?php
-	for ($i=0; $i < $list_cnt; $i++) { 
+		<?php
+		for ($i=0; $i < $list_cnt; $i++) {
+			// hulan nemsen member table.회원 정보 가져오기
+			$mb=get_member($list[$i]['mb_id']);
+			//아이콘 체크
+			$wr_icon = '';
+			$is_lock = false;
+			if ($list[$i]['icon_secret']) {
+				$wr_icon = '<span class="na-icon na-secret"></span>';
+				$is_lock = true;
+			} else if ($list[$i]['icon_hot']) {
+				$wr_icon = '<span class="na-icon na-hot"></span>';
+			} else if ($list[$i]['icon_new']) {
+				$wr_icon = '<span class="na-icon na-new"></span>';
+			}
 
-		// hulan nemsen member table.회원 정보 가져오기
-		$mb=get_member($list[$i]['mb_id']);
-		//아이콘 체크
-		$wr_icon = '';
-		$is_lock = false;
-		if ($list[$i]['icon_secret']) {
-			$wr_icon = '<span class="na-icon na-secret"></span>';
-			$is_lock = true;
-		} else if ($list[$i]['icon_hot']) {
-			$wr_icon = '<span class="na-icon na-hot"></span>';
-		} else if ($list[$i]['icon_new']) {
-			$wr_icon = '<span class="na-icon na-new"></span>';
-		}
+			// 링크 이동
+			if($is_list_link && $list[$i]['wr_link1']) {
+				$list[$i]['href'] = $list[$i]['link_href'][1];
+			}
 
-		// 링크 이동
-		if($is_list_link && $list[$i]['wr_link1']) {
-			$list[$i]['href'] = $list[$i]['link_href'][1];
-		}
+			// 전체 보기에서 분류 출력하기 //hulan nemsen 후기, 출근부에 분류 안 보이게
+			if($board['gr_id'] !== "review" && $board['gr_id'] !== "attendance"){
+			if(!$sca && $is_category && $list[$i]['ca_name']) {
+				$list[$i]['subject'] = $list[$i]['ca_name'].' <span class="na-bar"></span> '.$list[$i]['subject'];
+			}
+			}
 
-		// 전체 보기에서 분류 출력하기 //hulan nemsen 후기, 출근부에 분류 안 보이게
-		if($board['gr_id'] !== "review" && $board['gr_id'] !== "attendance"){
-		if(!$sca && $is_category && $list[$i]['ca_name']) {
-			$list[$i]['subject'] = $list[$i]['ca_name'].' <span class="na-bar"></span> '.$list[$i]['subject'];
-		}
-		}
-
-		// 공지, 현재글 스타일 체크
-		$li_css = '';
-		if ($list[$i]['is_notice']) { // 공지사항
-			$li_css = ' bg-light';
-			$list[$i]['num'] = '<span class="na-notice ></span><span class="sr-only"></span>';
-			$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
-		} 
-		if ($list[$i]['is_eventcheck']) { // 공지사항
-			$li_css = ' bg-light';
-			$list[$i]['num'] = '<span class="na-event ></span><span class="sr-only"></span>';
-			$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
-		}
-		if ($list[$i]['is_best']) { // 공지사항
-			$li_css = ' bg-light';
-			$list[$i]['num'] = '<span class="na-best ></span><span class="sr-only"></span>';
-			$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
-		}		
-		else if ($wr_id == $list[$i]['wr_id']) {
-			$li_css = ' bg-light';
-			$list[$i]['num'] = '<span class="na-text text-primary">열람</span>';
-			$list[$i]['subject'] = '<b class="text-primary">'.$list[$i]['subject'].'</b>';
-		} else {
-			$list[$i]['num'] = '<span class="sr-only">번호</span>'.$list[$i]['num'];
-		}
-	?>
+			// 공지, 현재글 스타일 체크
+			$li_css = '';
+			if ($list[$i]['is_notice']) { // 공지사항
+				$li_css = ' bg-light';
+				$list[$i]['num'] = '<span class="na-notice ></span><span class="sr-only"></span>';
+				$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
+			} 
+			if ($list[$i]['is_eventcheck']) { // 공지사항
+				$li_css = ' bg-light';
+				$list[$i]['num'] = '<span class="na-event ></span><span class="sr-only"></span>';
+				$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
+			}
+			if ($list[$i]['is_best']) { // 공지사항
+				$li_css = ' bg-light';
+				$list[$i]['num'] = '<span class="na-best ></span><span class="sr-only"></span>';
+				$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
+			}		
+			else if ($wr_id == $list[$i]['wr_id']) {
+				$li_css = ' bg-light';
+				$list[$i]['num'] = '<span class="na-text text-primary">열람</span>';
+				$list[$i]['subject'] = '<b class="text-primary">'.$list[$i]['subject'].'</b>';
+			} else {
+				$list[$i]['num'] = '<span class="sr-only">번호</span>'.$list[$i]['num'];
+			}
+		?>
 		<?php if (!strstr($list[$i]['wr_option'], "secret") || $is_admin)  {?>
 		<li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css;?>">
 			<div class="d-none d-md-table-cell nw-5 f-sm font-weight-normal py-md-2 px-md-1">
@@ -169,35 +173,30 @@ $list_cnt = count($list);
 				</div>
 			</div>
 			<div class="float-right float-md-none d-md-table-cell nw-16 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-				<span class="sr-only">등록자</span>
-				<!-- hulan nemsen level mark hevleh heseg -->
-				
-				<?php 
-				$mbid= get_member($list[$i]['mb_id']);
-				 $name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);				
-				echo na_name_photo($list[$i]['mb_id'], $name ) ?>
-			</div>
-			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
-				<span class="sr-only">등록일</span>
-				<?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d', 'Y.m.d') ?>
+				<span class="sr-only">등록자</span>				
+				<?php
+					$mbid= get_member($list[$i]['mb_id']);
+					$name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);
+					echo na_name_photo($list[$i]['mb_id'], $name)
+				?>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
 				<i class="fa fa-eye d-md-none" aria-hidden="true"></i>
 				<span class="sr-only">조회</span>
-				<?php echo $list[$i]['wr_hit'] ?>
+				<small><?php echo $list[$i]['wr_hit'] ?></small>
 			</div>
 			<?php if($is_good) { ?>
 				<div class="float-left float-md-none d-md-table-cell nw-3 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
 					<i class="fa fa-thumbs-o-up d-md-none" aria-hidden="true"></i>
 					<span class="sr-only">추천</span>
-					<?php echo $list[$i]['wr_good'] ?>
+					<small><?php echo $list[$i]['wr_good'] ?></small>
 				</div>
 			<?php } ?>
 			<?php if($is_nogood) { ?>
 				<div class="float-left float-md-none d-md-table-cell nw-3 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
 					<i class="fa fa-thumbs-o-down d-md-none" aria-hidden="true"></i>
 					<span class="sr-only">비추천</span>
-					<?php echo $list[$i]['wr_nogood'] ?>
+					<small><?php echo $list[$i]['wr_nogood'] ?></small>
 				</div>
 			<?php } ?>
 			<div class="clearfix d-block d-md-none"></div>
