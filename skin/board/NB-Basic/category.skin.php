@@ -7,7 +7,7 @@ na_script('sly');
 $cn = $ca_select = 0;
 $ca_count = (isset($categories) && is_array($categories)) ? count($categories) : 0;
 $ca_start = ($sca) ? '' : ' class="active"';
-$category_option = '<li'.$ca_start.'><a class="py-2" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'">전체</a></li>';
+$category_option = '<div'.$ca_start.'><a class="py-2" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'">전체</a></div>';
 for ($i=0; $i<$ca_count; $i++) {
 	$category = trim($categories[$i]);
 	if ($category=='')
@@ -20,32 +20,55 @@ for ($i=0; $i<$ca_count; $i++) {
 		$ca_msg = '<span class="sr-only">현재 분류</span>';
 		$ca_select = $cn; // 현재 위치 표시
 	}
-	$category_option .= '<li'.$ca_active.'><a class="py-2" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'&sca='.$category.'">'.$ca_msg.$category.'</a></li>';
+	$category_option .= '<div'.$ca_active.'><a class="py-2" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'&sca='.$category.'">'.$ca_msg.$category.'</a></div>';
 }
 
 ?>
 <style>
-#bo_cate ul {zoom:1}
-#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
-#bo_cate li {display:inline-block;padding:0px;  }
-#bo_cate a {border-radius: 0px; font-size:12px; color:#000; width:8.105rem; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
-#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active { text-decoration:none; color:#000;font-weight: bold; background-color: #fff }
-#bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:7.105rem; height:39px; display:flex; align-items:center; justify-content: center;}
-
-@media only screen and (max-width: 600px) {
-#bo_cate a {border-radius: 0px; font-size:12px; color:#000; width:5.8rem; height:45px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
-#bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:5.8rem; height:45px; display:flex; align-items:center; justify-content: center;}
+.category-list {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-gap: 0.2rem;
+	text-align: center;
+	padding-bottom: 1rem;
 }
 
+.category-list div {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.category-list div a {
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.category-list .active, .category-list div a:focus, .category-list div a:hover {
+	font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+	.category-list {
+		padding: 0 0.6rem 1rem 0.5rem;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+	}
+	.category-list div a {
+		font-size: 10px;
+	}
+}
 </style>
-<nav id="bo_cate" class="sly-tab font-weight-normal mb-2">
+<nav id="bo_cate">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
-		<div class="bo_cate pl-2 cols-xl-5">
-			<div class="bo_cate d-flex">
-				<ul class="bo_cate_ul">
-					<?php echo $category_option ?>
-				</ul>
-			</div>
-		</div>
+
+	<div class="category-list">
+		<?php echo $category_option ?>
+	</div>
 </nav>
 
