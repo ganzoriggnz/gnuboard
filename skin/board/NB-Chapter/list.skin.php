@@ -19,7 +19,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 ?>
 
 <!-- 게시판 목록 시작 { -->
-<div id="bo_list_wrap" class="mb-4">
+<div id="bo_list_wrap">
 	<!-- 검색창 시작 { -->
 	<div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">
 		<div class="alert bg-light border">

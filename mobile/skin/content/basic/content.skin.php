@@ -6,6 +6,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$content_skin_url.'/style.css">',
 
 ?>
 
+<style>
+    #ctt #ctt_con table tbody tr td {
+        line-height: 1.3;
+        font-size: 10px;
+    }
+</style>
+
 <article id="ctt" class="ctt_<?php echo $co_id; ?>">
     <header>
         <h1><?php echo $g5['title']; ?></h1>

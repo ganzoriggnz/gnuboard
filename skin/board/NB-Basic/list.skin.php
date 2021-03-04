@@ -63,39 +63,37 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		include_once($board_skin_path . '/category.skin.php');
 	?>
 	<!-- 검색창 시작 { -->
-	<div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">
-		<div>
-			<form id="fsearch" name="fsearch" method="get" class="m-auto">
-				<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
-				<input type="hidden" name="sca" value="<?php echo $sca ?>">
-				<div class="form-row mx-n1">
-					<div class="col-6 col-sm-3 px-1">
-						<label for="sfl" class="sr-only">검색대상</label>
-						<select name="sfl" class="custom-select">
-							<?php echo get_board_sfl_select_options($sfl); ?>
-						</select>
-					</div>
-					<div class="col-6 col-sm-3 px-1">
-						<select name="sop" class="custom-select">
-							<option value="and" <?php echo get_selected($sop, "and") ?>>그리고</option>
-							<option value="or" <?php echo get_selected($sop, "or") ?>>또는</option>
-						</select>
-					</div>
-					<div class="col-12 col-sm-6 pt-2 pt-sm-0 px-1">
-						<label for="stx" class="sr-only">검색어</label>
-						<div class="input-group">
-							<input type="text" id="bo_stx" name="stx" value="<?php echo stripslashes($stx) ?>" required class="form-control" placeholder="검색어를 입력해 주세요.">
-							<div class="input-group-append">
-								<button type="submit" class="btn btn-primary" title="검색하기">
-									<i class="fa fa-search" aria-hidden="true"></i>
-									<span class="sr-only">검색하기</span>
-								</button>
-							</div>
+	<div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?> mt-3">
+		<form id="fsearch" name="fsearch" method="get" class="m-auto">
+			<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+			<input type="hidden" name="sca" value="<?php echo $sca ?>">
+			<div class="form-row mx-n1">
+				<div class="col-6 col-sm-3 px-1">
+					<label for="sfl" class="sr-only">검색대상</label>
+					<select name="sfl" class="custom-select">
+						<?php echo get_board_sfl_select_options($sfl); ?>
+					</select>
+				</div>
+				<div class="col-6 col-sm-3 px-1">
+					<select name="sop" class="custom-select">
+						<option value="and" <?php echo get_selected($sop, "and") ?>>그리고</option>
+						<option value="or" <?php echo get_selected($sop, "or") ?>>또는</option>
+					</select>
+				</div>
+				<div class="col-12 col-sm-6 pt-2 pt-sm-0 px-1">
+					<label for="stx" class="sr-only">검색어</label>
+					<div class="input-group">
+						<input type="text" id="bo_stx" name="stx" value="<?php echo stripslashes($stx) ?>" required class="form-control" placeholder="검색어를 입력해 주세요.">
+						<div class="input-group-append">
+							<button type="submit" class="btn btn-primary" title="검색하기">
+								<i class="fa fa-search" aria-hidden="true"></i>
+								<span class="sr-only">검색하기</span>
+							</button>
 						</div>
 					</div>
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
 	
 	<!-- } 검색창 끝 -->
