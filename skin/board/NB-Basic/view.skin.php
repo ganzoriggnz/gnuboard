@@ -91,22 +91,22 @@ $view_subject = get_text($view['wr_subject']);
 			</div>
 		<?php } ?>
 		<!-- <h1 id="bo_v_title"> hulan tailbar bolgood doodohoor uurchilsen -->  
-		<h1 id="bo_v_title"<?php if ($view['wr_1'] && !G5_IS_MOBILE) { echo " style='color:".$view['wr_1']."' "; } else {echo " style='color:".$view['wr_1']."; padding-left:0px; margin-left: 0px;' ";} ?>>
+		<h3 id="bo_v_title"<?php if ($view['wr_1'] && !G5_IS_MOBILE) { echo " style='color:".$view['wr_1']."' "; } else {echo " style='color:".$view['wr_1']."; padding-left:0px; margin-left: 0px;' ";} ?>>
             <?php echo $view_subject; // 글제목 출력 ?> 
 
 			<!-- hulan nemsen 삭제요청 ///////////////////////////////////-->
 			<?php
         if ($board['bo_2']) {
             if ($member['mb_level'] == 26 || $member['mb_level'] == 27) {
-                echo '<button id="board_singo" class="btn btn_b03"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>삭제요청</button>';
+                echo '<button id="board_singo" class="btn btn_b03" style="float:right;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>삭제요청</button>';
 			}
 			else{
-				echo '<button id="board_singo" class="btn btn_b03"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>신고</button>';
+				echo '<button id="board_singo" class="btn btn_b03" style="float:right;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>신고</button>';
 			}
         }
         ?>
 		<!-- /////////////////////////////////////////////////////////// -->
-        </h1>
+        </h3>
 
     </header>
 	<?php if (G5_IS_MOBILE && $gr_id == "attendance") { ?>
