@@ -8,8 +8,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$content_skin_url.'/style.css">',
 
 <style>
     #ctt #ctt_con table tbody tr td {
+        min-width: auto;
+        width: auto;
+    }
+    #ctt #ctt_con table tbody tr td p {
+        width: auto;
         line-height: 1.3;
         font-size: 10px;
+    }
+    #ctt #ctt_con table tbody tr td:last-of-type p {
+        text-indent: -5px;
     }
 </style>
 
