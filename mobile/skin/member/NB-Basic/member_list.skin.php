@@ -24,7 +24,7 @@ else if ($w == 'u')
 }
 ?>
 <div id="bo_v">
-<nav id="user_cate" class="sly-tab font-weight-normal mb-2" style="text-align: center">
+<nav id="user_cate" class="sly-tab font-weight-normal">
 	<div id="bo_search" class="collapse show">
 		<div class="alert bg-light border">
 			<form id="fwrite" name="fwrite" method="post" class="m-auto">
