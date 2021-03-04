@@ -54,7 +54,7 @@ $menu_cnt = count($menu);
 			<a class="sidebar-wing-btn" href="<?php echo G5_URL?>/bbs/chat.php" target="_blank" title="채팅방" >
 				<img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;">
 			</a>
-			<a class="sidebar-wing-btn" href="#" target="_self" title="주소변경공지">
+			<a class="sidebar-wing-btn" href="<?php echo G5_BBS_URL ?>/logout.php" target="_self" title="주소변경공지">
 				<img src="<?php echo G5_URL?>/img/baseline-input-24px.png" ></a>
 			<a class="sidebar-wing-btn" href="https://facebook.com" target="_blank" title="페이스 북">
 			<img src="<?php echo G5_URL?>/img/solid/facebook-logo.svg" style="height: 14px;"></a>
