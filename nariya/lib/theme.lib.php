@@ -1409,7 +1409,7 @@ function na_board_rows_coupon($wset) {
 	$rows = ($rows > 0) ? $rows : 7;
 	$page = (int)$wset['page'];
 	$page = ($page > 1) ? $page : 1;
-
+	
 	$bo_table = $wset['bo_list'];
 	$term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] : $wset['term'];
 	$sql_where = ($wset['where']) ? 'and '.$wset['where'] : '';
@@ -1454,7 +1454,7 @@ function na_board_rows_coupon($wset) {
 
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table']; 
 
-			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id ", false);
+			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and b.mb_4 >= '{$now}' ", false);
 			
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];

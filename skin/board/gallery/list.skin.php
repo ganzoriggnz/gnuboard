@@ -252,7 +252,10 @@ if ($board['bo_use_category'] && $sca !='') {
                                     $result_coupon = " select count(*) as co_cnt from {$g5['coupon_table']}  where mb_id='{$list[$i]['mb_id']}' and co_begin_datetime <= '{$now}' and co_end_datetime >= '{$now}'";
                                     $row_co = sql_fetch($result_coupon);
                                     $co_cnt = $row_co['co_cnt'];
-                                    if($co_cnt > '0'){ ?>
+                                    $result_period = " select mb_4 from {$g5['member_table']}  where mb_id='{$list[$i]['mb_id']}'";
+                                    $row_pe = sql_fetch($result_period);
+                                    $finish_period = $row_pe['mb_4'];
+                                    if($co_cnt > '0' && $finish_period >= $now){ ?>
                                         <img src="<?php echo G5_IMG_URL ?>/coupon.png" style="width: 80px; height: 80px; margin-top: 30px; margin-right: 140px;">
                                 <?php } ?>
                                 <!-- <?php
