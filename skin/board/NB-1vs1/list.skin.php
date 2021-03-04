@@ -24,8 +24,8 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 
 	<!-- 검색창 시작 { -->
 	<div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">
-		<div class="alert bg-light border p-2 p-sm-3 mb-3 mx-3 mx-sm-0">
-			<form id="fsearch" name="fsearch" method="get" class="m-auto" style="max-width:600px;">
+		<div class="alert bg-light border">
+			<form id="fsearch" name="fsearch" method="get" class="m-auto">
 				<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 				<input type="hidden" name="sca" value="<?php echo $sca ?>">
 				<div class="form-row mx-n1">
@@ -79,9 +79,9 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 		<!-- 게시판 페이지 정보 및 버튼 시작 { -->
 		<div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0">
 			<div class="d-flex align-items-center">
-				<div id="bo_list_total" class="flex-grow-1">
+				<!-- <div id="bo_list_total" class="flex-grow-1">
 					Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page
-				</div>
+				</div> -->
 				<div class="btn-group" role="group">
 					<?php if ($admin_href) { ?>
 						<a href="<?php echo $admin_href ?>" class="btn btn_admin nofocus py-1" title="관리자" role="button">

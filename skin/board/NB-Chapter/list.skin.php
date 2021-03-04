@@ -16,16 +16,14 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 
 // 리스트 헤드
 @include_once($list_skin_path.'/list.head.skin.php');
-
 ?>
 
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list_wrap" class="mb-4">
-
 	<!-- 검색창 시작 { -->
 	<div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">
-		<div class="alert bg-light border p-2 p-sm-3 mb-3 mx-3 mx-sm-0">
-			<form id="fsearch" name="fsearch" method="get" class="m-auto" style="max-width:600px;">
+		<div class="alert bg-light border">
+			<form id="fsearch" name="fsearch" method="get" class="m-auto">
 				<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 				<input type="hidden" name="sca" value="<?php echo $sca ?>">
 				<div class="form-row mx-n1">

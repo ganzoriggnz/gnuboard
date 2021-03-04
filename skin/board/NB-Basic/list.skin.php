@@ -36,7 +36,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 
 <style>
 	#bo_search {
-		padding: 0 0.6rem 1rem 0.5rem;
+		padding: 0 0.6rem 1rem 0.4rem;
 	}
 	#bo_btn_top {
 		display: flex;

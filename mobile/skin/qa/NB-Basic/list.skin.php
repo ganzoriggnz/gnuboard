@@ -18,95 +18,106 @@ if($wset['head_skin']) {
 
 ?>
 
+<style>
+	#bo_search {
+		padding: 0 0.6rem 1rem 0.4rem;
+	}
+	#user_category .category_btns {
+		padding: 0 0.6rem 1rem 0.4rem;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-gap: 0.2rem;
+	}
+	#user_category .category_btns div {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	#user_category .category_btns div a {
+		padding: 0.5rem 0;
+		border: 1px solid #e5e5e5;
+		border-radius: 5px;
+		width: 100%;
+	}
+	.category_btns .active, .category_btns div a:focus, .category_btns div a:hover {
+		font-weight: bold;
+	}
+	.writebtn {
+		padding: 0 0.1rem;
+	}
+	@media only screen and (max-width: 600px) {
+		#user_category .category_btns {
+			padding: 0 0.6rem 1rem 0.4rem;
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+		}
+		#user_category .category_btns div a {
+			font-size: 10px;
+		}
+}
+</style>
+
+<?php
+	// 분류
+	$is_category = false;
+	if ($category_option) { 
+		$is_category = true;
+
+		na_script('sly');
+
+		$cn = $ca_select = 0;
+		$ca_count = (isset($categories) && is_array($categories)) ? count($categories) : 0;
+		$ca_start = ($sca) ? '' : ' class="active"';
+		$category_option = '<div'.$ca_start.'><a href="'.$category_href.'">전체</a></div>';
+		for ($i=0; $i<$ca_count; $i++) {
+			$category = trim($categories[$i]);
+			if ($category=='') 
+				continue;
+
+			$cn++; // 카운트 증가
+			$ca_active = $ca_msg = '';
+			if($category==$sca) { // 현재 선택된 분류라면
+				$ca_active = ' class="active"';
+				$ca_msg = '<span class="sr-only">현재 분류</span>';
+				$ca_select = $cn; // 현재 위치 표시
+			}
+			$category_option .= '<div'.$ca_active.'><a href="'.$category_href.'?sca='.urlencode($category).'">'.$ca_msg.$category.'</a></div>';
+		}
+?>
+
+<!-- 분류 시작 { -->
+<nav id="user_category">
+	<h3 class="sr-only"><?php echo $qaconfig['qa_title'] ?> 분류 목록</h3>
+	<div class="category_btns">
+		<?php echo $category_option ?>
+	</div>
+</nav>
+<!-- } 분류 끝 -->
+<?php } ?>
+
 <!-- 검색창 시작 { -->
 <div id="bo_search" class="collapse<?php echo ($wset['search_open'] || $stx) ? ' show' : ''; ?>">
-	<div class="alert bg-light border p-2 p-sm-3 mb-3 mx-3 mx-sm-0">
-		<form id="fsearch" name="fsearch" method="get" class="m-auto" style="max-width:300px;">
-			<input type="hidden" name="sca" value="<?php echo $sca ?>">
-			<label for="stx" class="sr-only">검색어</label>
-			<div class="input-group">
-				<input type="text" name="stx" value="<?php echo stripslashes($stx); ?>" id="qa_stx" required class="form-control" maxlength="15" placeholder="검색어를 입력해주세요.">
-				<div class="input-group-append">
-					<button type="submit" class="btn btn-primary" title="검색하기">
-						<i class="fa fa-search" aria-hidden="true"></i>
-						<span class="sr-only">검색하기</span>
-					</button>
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
-<!-- } 검색창 끝 -->
-
-<?php 
-// 분류
-$is_category = false;
-if ($category_option) { 
-	$is_category = true;
-
-	na_script('sly');
-
-	$cn = $ca_select = 0;
-	$ca_count = (isset($categories) && is_array($categories)) ? count($categories) : 0;
-	$ca_start = ($sca) ? '' : ' class="active"';
-	$category_option = '<li'.$ca_start.'><a class="py-2 px-3" href="'.$category_href.'">전체</a></li>';
-	for ($i=0; $i<$ca_count; $i++) {
-		$category = trim($categories[$i]);
-		if ($category=='') 
-			continue;
-
-		$cn++; // 카운트 증가
-		$ca_active = $ca_msg = '';
-		if($category==$sca) { // 현재 선택된 분류라면
-			$ca_active = ' class="active"';
-			$ca_msg = '<span class="sr-only">현재 분류</span>';
-			$ca_select = $cn; // 현재 위치 표시
-		}
-		$category_option .= '<li'.$ca_active.'><a class="py-2 px-2" href="'.$category_href.'?sca='.urlencode($category).'">'.$ca_msg.$category.'</a></li>';
-	}
-?>
-	<!-- 분류 시작 { -->
-	<nav id="user_cate" class="sly-tab font-weight-normal mb-2">
-		<h3 class="sr-only"><?php echo $qaconfig['qa_title'] ?> 분류 목록</h3>
-		<div class="">
-			<div class="">
-				<div id="" class="">
-					<ul id="user_cate" class="d-flex border-left-0">
-						<?php echo $category_option ?>
-					</ul>
-				</div>
+	<form id="fsearch" name="fsearch" method="get">
+		<input type="hidden" name="sca" value="<?php echo $sca ?>">
+		<label for="stx" class="sr-only">검색어</label>
+		<div class="input-group">
+			<input type="text" name="stx" value="<?php echo stripslashes($stx); ?>" id="qa_stx" required class="form-control" maxlength="15" placeholder="검색어를 입력해주세요.">
+			<div class="input-group-append">
+				<button type="submit" class="btn btn-primary" title="검색하기">
+					<i class="fa fa-search" aria-hidden="true"></i>
+					<span class="sr-only">검색하기</span>
+				</button>
 			</div>
 		</div>
-		<hr/>
-		<script>
-			$(document).ready(function() {
-				$('#bo_cate .sly-wrap').sly({
-					horizontal: 1,
-					itemNav: 'basic',
-					smart: 1,
-					mouseDragging: 1,
-					touchDragging: 1,
-					releaseSwing: 1,
-					startAt: <?php echo $ca_select ?>,
-					speed: 300,
-					prevPage: '#bo_cate .ca-prev',
-					nextPage: '#bo_cate .ca-next'
-				});
-
-				// Sly Tab
-				var cate_id = 'bo_cate';
-				var cate_size = na_sly_size(cate_id);
-
-				na_sly(cate_id, cate_size);
-
-				$(window).resize(function(e) {
-					na_sly(cate_id, cate_size);
-				});
-			});
-		</script>
-	</nav>
-	<!-- } 분류 끝 -->
-<?php } ?>
+	</form>
+</div>
+<!-- } 검색창 끝 -->
 
 <div id="bo_list" class="mb-4">
 
@@ -116,10 +127,10 @@ if ($category_option) {
     <input type="hidden" name="page" value="<?php echo $page; ?>">
 
 	<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-	<div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0">
+	<div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0 pt-2">
 		<div class="d-flex align-items-center">
 			<div id="bo_list_total" class="flex-grow-1">
-				Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page
+				<!-- Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page -->
 			</div>
 			<div class="btn-group" role="group">
 				<?php if ($admin_href) { ?>
@@ -148,8 +159,8 @@ if ($category_option) {
 				</button>
 				<?php if ($write_href) { ?>
 					<div>
-						<button type="button" class="btn btn-primary" onclick="location.href='<?php echo $write_href ?>'">
-						<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;">
+						<button type="button" class="btn btn-primary writebtn" onclick="location.href='<?php echo $write_href ?>'">
+							<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;"> 글쓰기
 						</button>
 					</div>
 				<?php } ?>
@@ -159,7 +170,7 @@ if ($category_option) {
 	<!-- } 게시판 페이지 정보 및 버튼 끝 -->
 
 	<!-- 목록 헤드 -->
-	<div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:4px;"></div>
+	<div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:1px;"></div>
 
 	<div class="na-table d-none d-md-table w-100 mb-0">
 		<div class="<?php echo $head_class ?> d-md-table-row">
@@ -179,7 +190,7 @@ if ($category_option) {
 		</div>
 	</div>
 	
-	<ul class="na-table d-md-table w-100 mb-4" style="font-size: 12px;">
+<ul class="na-table d-md-table w-100 mb-4" style="font-size: 12px;">
 	<?php
 	$list_cnt = count($list);
 	for ($i=0; $i<$list_cnt; $i++) {
@@ -224,7 +235,7 @@ if ($category_option) {
 			<div class="clearfix d-block d-md-none"></div>
 		</li>
 	<?php }	?>
-	</ul>
+</ul>
 
 	<?php if (!$list_cnt) { ?>
 		<div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">게시물이 없습니다.</div>
