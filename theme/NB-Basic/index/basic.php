@@ -137,7 +137,7 @@ if ($nt_wing_path)
                 </div>
 
                 <!-- 메인 영역 -->
-                <div class="col-md-9<?php echo ($is_left_side) ? ' order-md-2' : ''; ?> na-col flex80d"  style=""  >
+                <div class="col-md-9<?php echo ($is_left_side) ? ' order-md-2' : ''; ?> na-col flex80d">
                     <?php include_once('./_common.php');
 
                     $g5['title'] = '전체검색 결과';
