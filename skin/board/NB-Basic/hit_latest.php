@@ -166,10 +166,6 @@ function latest_popular($bo_table, $rows=10, $subject_len=40, $term='', $options
       margin:0;
       display:inline-block;
   }
-
-  @media only screen and (max-width: 600px) {
-
-  }
 </style>
 
 <script src="<?php echo G5_JS_URL; ?>/jquery.rumiTab.js"></script>

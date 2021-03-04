@@ -28,19 +28,19 @@ else if ($w == 'u')
 <nav id="user_cate" class="sly-tab font-weight-normal mb-2 " style="text-align: center">
 
 <div id="bo_search" class="collapse show" style="">
-		<div class="alert bg-light border p-2 p-sm-3 mb-3 mx-3 mx-sm-0">
-			<form id="fwrite" name="fwrite" method="post" class="m-auto" style="max-width:600px;">
+		<div class="alert bg-light border">
+			<form id="fwrite" name="fwrite" method="post" class="m-auto">
 				<input type="hidden" name="w" value="u">
 				<div class="form-row mx-n1">
-                <div class="px-1">
-                    <input type="radio" id="id" name="types" value="id" checked="checked" ?>
-					<label for="id" class="pt-2">아이디</label>
-					&nbsp;&nbsp;
+                	<div class="px-1">
+						<input type="radio" id="id" name="types" value="id" checked="checked" ?>
+						<label for="id" class="pt-2">아이디</label>
+						&nbsp;&nbsp;
                     </div>
 					<div class="px-1">
-                    <input type="radio" id="nick" name="types" value="nick"  <?php if($_POST['types']=='nick') echo 'checked="checked"' ?>>
-					<label for="nick" class="pt-2">닉네임</label>
-					&nbsp;&nbsp;
+						<input type="radio" id="nick" name="types" value="nick"  <?php if($_POST['types']=='nick') echo 'checked="checked"' ?>>
+						<label for="nick" class="pt-2">닉네임</label>
+						&nbsp;&nbsp;
 					</div>
 					<div class="col-12 col-sm-6 pt-2 pt-sm-0 px-1">
 						<div class="input-group">
