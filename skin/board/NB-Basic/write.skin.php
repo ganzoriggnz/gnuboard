@@ -108,10 +108,17 @@ if ($is_member)
 	na_script('autosave');
 
 ?>
+<!-- <style>
+	ul.my-table {
+  display: table;
+  width: 100%;
+  text-align: center;
+}
 
-
-
-
+ul.my-table > li {
+  display: table-cell;
+}
+</style> -->
 <section id="bo_w" class="f-de font-weight-normal mb-4">
 	<h2 class="sr-only"><?php echo $g5['title'] ?></h2>
 
@@ -197,8 +204,516 @@ if ($is_member)
 
 		echo $option_hidden;
 		?>
+		<?php if(G5_IS_MOBILE){ ?>
+		<ul class="list-group mb-3">			
+			<li class=" list-group item border-top-0">
+				<div class="na-table d-table w-100">
+					<div class="d-table-row">
+						<div class="d-table-cell nw-8 text-left pl-3">
+							<h5 class="font-weight-bold en"><?php echo str_replace($board['bo_subject'], '', $g5['title']) ?></h5> 
+						</div>
+						<div class="d-table-cell nw-auto text-left pb-3 pr-3">
+							<?php if ($is_member) { ?>
+								<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="임시저장 글 열기" style="background-color: #e6dcc1; float:right; width: 200px;">
+									<h6>임시저장 글 열기<i class="fa fa-repeat" aria-hidden="true"></i>
+									<span class="sr-only">임시저장글</span> 
+									(<span id="autosave_count" class="orangered"><?php echo $autosave_count; ?></span>)</h6>						
+								</button>
+							<?php } ?>
+						</div>
+					</div>
+				</div>	
+			</li> 
+			<?php if ($is_name) { ?>
+				<li class="list-group-item">
+					<div class="form-group row mb-0">
+						<label class="col-md-2 col-form-label" for="wr_name">이름<strong class="sr-only">필수</strong></label>
+						<div class="col-md-4">
+							<input type="text" name="wr_name" value="<?php echo $name ?>" id="wr_name" required class="form-control required" maxlength="20">
+						</div>
+					</div>
+				</li>
+			<?php } ?>
 
-		<ul class="list-group mb-3">
+			<?php if ($is_password) { ?>
+				<li class="list-group-item">
+					<div class="form-group row mb-0">
+						<label class="col-md-2 col-form-label" for="wr_password">비밀번호<strong class="sr-only">필수</strong></label>
+						<div class="col-md-4">
+							<input type="password" name="wr_password" id="wr_password" <?php echo $password_required ?> class="form-control <?php echo $password_required ?>" maxlength="20">
+						</div>
+					</div>
+				</li>
+			<?php } ?>
+			<!-- hulan nemsen bichver zasah hesegt utasnii dugaar oruulah  level26 hesegt -->
+
+			<?php if ($gr_id == 'attendance' && $w == 'u' && !$is_admin) {
+				if ($is_category) { ?>
+					<li class="list-group-item">
+						<div class="form-group row mb-0">
+							<label class="col-md-2 col-form-label" for="$write['ca_name']">* 지역</label>
+							<div class="col-md-8 col-form-label" style="font-weight: 100;">
+								<?php echo $write['ca_name']." &emsp; (지역과 업소명은 제휴신청때 작성된 정보가 자동입력됩니다. 변경시 제휴문의에 글 남기시거나 관리자에게 쪽지주세요.)" ?>
+							<input type='hidden' name='ca_name' value='<?php echo $write['ca_name']?>' > 
+							</div>
+						</div>
+					</li>
+				<?php }  ?>
+
+				<?php if ($is_address) { ?>
+					<li class="list-group-item">
+						<div class="form-group row mb-0">
+							<label class="col-md-2 col-form-label" for="$write['wr_3']">* 세부 지역</label>
+							<div class="col-md-8 col-form-label" style="font-weight: 100;">
+								<?php echo $member['mb_addr2'] ?>&emsp;
+								<a href="<?php echo G5_URL ?>/bbs/member_confirm.php?url=register_form.php" target="_blank" style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
+									<i class="fa fa-map"></i><span>세부지역 변경</span></a>
+								<?php echo "&emsp;  ※ 배너에 출력되는 주소 / 수정은 개인정보수정에서 가능 ( ex:서울 강남역 2번출구 )" ?>
+							</div>
+						</div>
+					</li>
+				<?php } ?>
+
+				<?php if ($is_phone) { ?>
+					<li class="list-group-item">
+						<div class="form-group row mb-0">
+							<label class="col-md-2 col-form-label" for="wr_2">* 전화 번호</label>
+							<div class="col-md-7 col-form-label" style="font-weight: 100;">
+								<?php echo $member['mb_hp'] ?>&emsp;
+								<a onclick="window.open('<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>','전화번호 변경요청','width=300,height=300,scrollbars=no,padding=0, margin=0, top=300,left=800');" 
+					style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none" >
+						<font style="vertical-align: inherit;">전화번호 변경요청</font></a>	
+								<?php echo " &emsp;※ 전화번호는 운영자가 확인 후 변경처리됩니다." ?>
+							</div>
+						</div>
+					</li>
+				<?php } ?>
+
+				<?php if ($is_comname) { ?>
+					<li class="list-group-item">
+						<div class="form-group row mb-0">
+							<label class="col-md-2 col-form-label" for="wr_4">* 업소명</label>
+							<div class="col-md-7">
+								<?php echo $member['mb_name'] ?>
+							</div>
+						</div>
+					</li>
+				<?php } ?>
+
+			<?php }
+			?>
+			<!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
+			<?php if ($is_email) { ?>
+				<li class="list-group-item">
+					<div class="form-group row mb-0">
+						<label class="col-md-2 col-form-label" for="wr_email">E-mail</label>
+						<div class="col-md-7">
+							<input type="text" name="wr_email" id="wr_email" value="<?php echo $email ?>" class="form-control email" maxlength="100">
+						</div>
+					</div>
+				</li>
+			<?php } ?>
+
+			<?php if ($is_homepage) { ?>
+				<li class="list-group-item">
+					<div class="form-group row mb-0">
+						<label class="col-md-2 col-form-label" for="wr_homepage">홈페이지</label>
+						<div class="col-md-7">
+							<input type="text" name="wr_homepage" id="wr_homepage" value="<?php echo $homepage ?>" class="form-control">
+						</div>
+					</div>
+				</li>
+			<?php } ?>
+
+			<?php if ($is_admin || 
+							(
+								(
+									(
+										$gr_id == 'attendance'  &&  $w != 'u' && $member['mb_7'] != $bo_table
+									) || 
+									(
+										($member['mb_7'] && $member['mb_6']==$bo_table) &&  
+											$w != 'u'
+									) 
+								)
+							) || ($bo_table == "free" || $bo_table == "event" || $board['gr_id'] == "review")
+					 ) { ?>
+				<?php if ($is_category) { ?>
+					<li class="list-group-item">
+						<div class="form-group row mb-0">
+							<label class="col-md-2 col-form-label">분류<strong class="sr-only">필수</strong></label>
+							<div class="col-md-4">
+								<select name="ca_name" id="ca_name" required class="custom-select" <?php if ($member['mb_7'] && $member['mb_6']==$bo_table) echo "disabled" ?> >
+									<option value="">선택하세요</option>
+									<?php echo $category_option ?>
+								</select>
+							</div>
+						</div>
+					</li>
+				<?php } ?>
+			<?php } ?>
+
+				<!-- hulan nemsen review board write post 출근부 게시판에 글 있는 업소명 후기 선택에 보이기 -->
+				<?php if ($board['gr_id'] == "review" && ($w == '' || $w == 'u')  ) { 
+				     $scount = strlen($bo_table)-2;      // temdegt tooloh
+					$bo_tablef =  substr($bo_table, 0, $scount); 
+				    $hwrite_table = $g5['write_prefix'] . $bo_tablef."at";
+					$sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment = 0", false  );					
+					?>
+					<?php if ($is_category) { ?>
+						<li class="list-group-item">
+							<div class="form-group row mb-0">
+								<label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
+								<div class="col-md-4">
+									<select name="wr_7" id="wr_7" required class="custom-select">
+									<option value="">선택하세요</option>
+									<?php while ($res = sql_fetch_array($sql)){?>
+										<!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name'];?></option>  -->
+										
+										<option value=<?php echo $res['mb_name'];?> 
+										<?php if($write['wr_4']==$res['mb_name']) echo " selected ";?>>
+										<?php echo $res['mb_name'];?></option>
+									<?php } ?>
+										</select>
+								</div>
+							</div>
+						</li>
+						<?php } ?>
+						
+						
+							<li class="list-group-item">
+							<div class="form-group row mb-0">
+								<label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
+								<div class="col-md-7">
+									<input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" class="form-control">
+								</div>
+							</div>
+						</li>	
+					
+						
+					
+				<?php } ?>
+				<!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+					
+			
+
+			<?php if ($option) { ?>
+				<li class="list-group-item">
+					<div class="form-group row mb-0">
+						<label class="col-md-2 col-form-label">옵션</label>
+						<div class="col-sm-10">
+							<p class="form-control-plaintext pt-1 pb-0 float-left">
+								<?php echo $option ?>
+							</p>
+						</div>
+					</div>
+				</li>
+			<?php } ?>
+
+
+
+			<li class="list-group-item">
+
+				<div class="form-group row mb-0">
+					<?php if ($member['mb_level'] >= 14) { ?>
+				<!-- 		<label class="col-md-2 col-form-label" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
+						<div class="col-md-10">
+							<select id="colorselector_2" name="wr_1">
+								<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
+								<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
+								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+								<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
+								<option value="#008B8B" data-color="#008B8B" <?php echo get_selected($write['wr_1'], '#008B8B') ?>>darkcyan</option>
+								<option value="#B8860B" data-color="#B8860B" <?php echo get_selected($write['wr_1'], '#B8860B') ?>>darkgoldenrod</option>
+								<option value="#32CD32" data-color="#32CD32" <?php echo get_selected($write['wr_1'], '#32CD32') ?>>limegreen</option>
+								<option value="#FFD700" data-color="#FFD700" <?php echo get_selected($write['wr_1'], '#FFD700') ?>>gold</option>
+								<option value="#48D1CC" data-color="#48D1CC" <?php echo get_selected($write['wr_1'], '#48D1CC') ?>>mediumturquoise</option>
+								<option value="#87CEEB" data-color="#87CEEB" <?php echo get_selected($write['wr_1'], '#87CEEB') ?>>skyblue</option>
+								<option value="#FF69B4" data-color="#FF69B4" <?php echo get_selected($write['wr_1'], '#FF69B4') ?>>hotpink</option>
+								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+								<option value="#87CEFA" data-color="#87CEFA" <?php echo get_selected($write['wr_1'], '#87CEFA') ?>>lightskyblue</option>
+								<option value="#6495ED" data-color="#6495ED" <?php echo get_selected($write['wr_1'], '#6495ED') ?>>cornflowerblue</option>
+								<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
+								<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
+								<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
+							</select>
+						</div> -->
+						<div class="na-table d-table w-100">
+							<div class="d-table-row">
+								<div class="d-table-cell nw-8 text-left">
+									<label class="col-md-2 col-form-label" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
+								</div>
+								<div class="d-table-cell nw-auto text-left">
+								<select id="colorselector_2" name="wr_1">
+								<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
+								<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
+								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+								<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
+								<option value="#008B8B" data-color="#008B8B" <?php echo get_selected($write['wr_1'], '#008B8B') ?>>darkcyan</option>
+								<option value="#B8860B" data-color="#B8860B" <?php echo get_selected($write['wr_1'], '#B8860B') ?>>darkgoldenrod</option>
+								<option value="#32CD32" data-color="#32CD32" <?php echo get_selected($write['wr_1'], '#32CD32') ?>>limegreen</option>
+								<option value="#FFD700" data-color="#FFD700" <?php echo get_selected($write['wr_1'], '#FFD700') ?>>gold</option>
+								<option value="#48D1CC" data-color="#48D1CC" <?php echo get_selected($write['wr_1'], '#48D1CC') ?>>mediumturquoise</option>
+								<option value="#87CEEB" data-color="#87CEEB" <?php echo get_selected($write['wr_1'], '#87CEEB') ?>>skyblue</option>
+								<option value="#FF69B4" data-color="#FF69B4" <?php echo get_selected($write['wr_1'], '#FF69B4') ?>>hotpink</option>
+								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+								<option value="#87CEFA" data-color="#87CEFA" <?php echo get_selected($write['wr_1'], '#87CEFA') ?>>lightskyblue</option>
+								<option value="#6495ED" data-color="#6495ED" <?php echo get_selected($write['wr_1'], '#6495ED') ?>>cornflowerblue</option>
+								<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
+								<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
+								<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
+							</select>
+								</div>
+							</div>
+						</div>	
+								<!-- <input type="hidden" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required class="frm_input required" size="30" maxlength="255"> -->
+					<?php } ?>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="form-group row mb-0">
+					<label class="col-md-2 col-form-label" for="wr_subject">제목<strong class="sr-only">필수</strong></label>
+					<div style="display: flex; align-items: center;" class="col-md-10">
+						<input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="form-control required" maxlength="255">
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<span class="sr-only">내용<strong>필수</strong></span>
+				<?php if ($write_min || $write_max) { ?>
+					<!-- 최소/최대 글자 수 사용 시 -->
+					<p id="char_count_desc" class="f-sm text-muted">이 게시판은 최소 <strong><?php echo $write_min; ?></strong>글자 이상, 최대 <strong><?php echo $write_max; ?></strong>글자 이하까지 글을 쓰실 수 있습니다.</p>
+				<?php } ?>
+
+				<?php echo $editor_html; // 에디터 사용시는 에디터로, 아니면 textarea 로 노출
+				?>
+
+				<?php if ($is_dhtml_editor) { ?>
+					<style>
+						#wr_content {
+							display: none;
+						}
+					</style>
+				<?php } else { ?>
+					<script>
+						$("#wr_content").hide().addClass("form-control").show();
+					</script>
+				<?php } ?>
+
+				<div class="text-center en">
+					<div class="btn-group btn-group-lg" role="group">
+						<!-- <button type="button" class="btn btn-basic" title="이모티콘" onclick="na_clip('emo', '<?php echo $is_dhtml_editor ?>');">
+							<i class="far fa-smile" aria-hidden="true"></i>
+							<span class="sr-only">이모티콘</span>
+						</button> -->
+						<!-- <button type="button" class="btn btn-basic" title="폰트어썸 아이콘" onclick="na_clip('fa', '<?php echo $is_dhtml_editor ?>');">
+							<i class="fab fa-font-awesome" aria-hidden="true"></i>
+							<span class="sr-only">폰트어썸 아이콘</span>
+						</button>
+						<button type="button" class="btn btn-basic" title="동영상" onclick="na_clip('video', '<?php echo $is_dhtml_editor ?>');">
+							<i class="fab fa-youtube" aria-hidden="true"></i>
+							<span class="sr-only">동영상</span>
+						</button> -->
+						<!-- <button type="button" class="btn btn-basic" title="지도" onclick="na_clip('map', '<?php echo $is_dhtml_editor ?>');">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+							<span class="sr-only">지도</span>
+						</button> -->
+						<!--<?php if ($is_member) { // 임시 저장된 글 기능
+							?>
+							<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="임시 저장된 글 목록 열기">
+								<i class="fa fa-repeat" aria-hidden="true"></i>
+								<span class="sr-only">임시저장글</span>
+								<span id="autosave_count" class="orangered"><?php echo $autosave_count; ?></span>
+							</button>
+						<?php } ?>-->
+					</div>
+				</div>
+			</li>
+
+			<?php if (isset($boset['na_tag']) && $boset['na_tag']) { //태그
+			?>
+				<li class="list-group-item">
+					<div class="form-group row mb-0">
+						<label class="col-md-2 col-form-label" for="as_tag">태그</label>
+						<div class="col-md-10">
+							<input type="text" name="as_tag" id="as_tag" value="<?php echo $write['as_tag']; ?>" class="form-control" placeholder="콤마(,)로 구분하여 복수 태그 등록 가능">
+						</div>
+					</div>
+				</li>
+			<?php } ?>
+
+			<?php //관련링크
+			if ($is_link) {
+				$link_holder = (isset($boset['na_video_link']) && $boset['na_video_link']) ? '유튜브 등 동영상 공유주소 등록시 자동 출력' : 'https://...';
+			?>
+				<li class="list-group-item">
+					<div class="form-group row mb-0">
+						<label class="col-md-2 col-form-label">관련 링크</label>
+						<div class="col-md-10">
+							<?php for ($i = 1; $i <= G5_LINK_COUNT; $i++) { ?>
+								<div class="<?php echo ($i > 1) ? 'mt-2' : 'mt-0'; ?>">
+									<input type="text" name="wr_link<?php echo $i ?>" value="<?php echo $write['wr_link' . $i]; ?>" id="wr_link<?php echo $i ?>" class="form-control" placeholder="<?php echo $link_holder ?>">
+								</div>
+							<?php } ?>
+						</div>
+					</div>
+				</li>
+			<?php } ?>
+
+			<?php if ($is_file && (int)$board['bo_upload_count'] > 0) { // 첨부파일
+			?>
+				<li class="list-group-item">
+					<?php
+					na_script('fileinput');
+
+					// 칼럼
+					$file_col = ($is_file_content) ? 'col-sm-6' : 'col';
+
+					$file_script = "";
+					$file_length = -1;
+					// 수정의 경우 파일업로드 필드가 가변적으로 늘어나야 하고 삭제 표시도 해주어야 합니다.
+					if ($w == "u") {
+						for ($i = 0; $i < $file['count']; $i++) {
+							if ($file[$i]['source']) {
+								$file_script .= "add_file('";
+								if ($is_file_content) {
+									$file_script .= '<div class="' . $file_col . ' mt-2 px-2"><input type="text" name="bf_content[]" value="' . addslashes(get_text($file[$i]['bf_content'])) . '" class="form-control" placeholder="파일 내용 입력"></div>';
+								}
+
+								$file_script .= '<div class="col-12 mt-2 px-2 f-de"><div class="custom-control custom-checkbox">';
+								$file_script .= '<input type="checkbox" name="bf_file_del[' . $i . ']" value="1" id="bf_file_del' . $i . '" class="custom-control-input">';
+								$file_script .= '<label class="custom-control-label" for="bf_file_del' . $i . '"><span>' . $file[$i]['source'] . '(' . $file[$i]['size'] . ') 파일 삭제 - <a href="' . $file[$i]['href'] . '">열기</a></span></label>';
+								$file_script .= '</div></div>';
+								$file_script .= "');\n";
+							} else {
+								$file_script .= "add_file('');\n";
+							}
+						}
+						$file_length = $file['count'] - 1;
+					}
+
+					if ($file_length < 0) {
+						$file_script .= "add_file('');\n";
+						$file_length = 0;
+					}
+					?>
+					<div class="form-group row mb-0">
+						<label class="col-md-2 col-form-label">첨부 파일</label>
+						<div class="col-md-10">
+							<button type="button" onclick="add_file();" class="btn btn-basic">
+								<span class="text-muted"><i class="fa fa-plus"></i> 파일 추가</span>
+							</button>
+							<button type="button" onclick="del_file();" class="btn btn-basic">
+								<span class="text-muted"><i class="fa fa-times"></i> 파일 삭제</span>
+							</button>
+
+							<table id="variableFiles" class="w-100"></table>
+
+							<script>
+								var flen = 0;
+
+								function add_file(delete_code) {
+
+									var upload_count = <?php echo (int)$board['bo_upload_count']; ?>;
+									if (upload_count && flen >= upload_count) {
+										alert("이 게시판은 " + upload_count + "개 까지만 파일 업로드가 가능합니다.");
+										return;
+									}
+
+									var objTbl;
+									var objNum;
+									var objRow;
+									var objCell;
+									var objContent;
+									if (document.getElementById)
+										objTbl = document.getElementById("variableFiles");
+									else
+										objTbl = document.all["variableFiles"];
+
+									objNum = objTbl.rows.length;
+									objRow = objTbl.insertRow(objNum);
+									objCell = objRow.insertCell(0);
+
+									objContent = '<div class="row mx-n2">';
+									objContent += '<div class="<?php echo $file_col ?> mt-2 px-2"><div class="input-group"><div class="input-group-prepend"><label class="input-group-text" for="fwriteFile' + objNum + '">파일 ' + objNum + '</label></div>';
+									objContent += '<div class="custom-file"><input type="file" name="bf_file[]" class="custom-file-input" title="파일 용량 <?php echo $upload_max_filesize; ?> 이하만 업로드 가능" id="fwriteFile' + objNum + '">';
+									objContent += '<label class="custom-file-label" for="imgboxFile" data-browse="선택"></label></div></div></div>';
+									if (delete_code) {
+										objContent += delete_code;
+									} else {
+										<?php if ($is_file_content) { ?>
+											objContent += '<div class="<?php echo $file_col ?> mt-2 px-2"><input type="text" name="bf_content[]" class="form-control" placeholder="파일 내용 입력"></div>';
+										<?php } ?>
+										;
+									}
+									objContent += "</div>";
+
+									objCell.innerHTML = objContent;
+
+									bsCustomFileInput.init();
+
+									flen++;
+								}
+
+								<?php echo $file_script; //수정시에 필요한 스크립트
+								?>
+
+								function del_file() {
+									// file_length 이하로는 필드가 삭제되지 않아야 합니다.
+									var file_length = <?php echo (int)$file_length; ?>;
+									var objTbl = document.getElementById("variableFiles");
+									if (objTbl.rows.length - 1 > file_length) {
+										objTbl.deleteRow(objTbl.rows.length - 1);
+										flen--;
+									}
+								}
+							</script>
+						</div>
+					</div>
+				</li>
+				<?php if (IS_NA_BBS) { ?>
+					<li class="list-group-item">
+						<div class="form-group row mb-0">
+							<label class="col-md-2 col-form-label">첨부 사진</label>
+							<div class="col-sm-10">
+								<p class="form-control-plaintext pt-1 pb-0 float-left">
+									<div class="custom-control custom-radio custom-control-inline">
+										<input type="radio" id="as_img" name="as_img" value="0" <?php echo (!$write['as_img']) ? ' checked' : ''; ?> class="custom-control-input">
+										<label class="custom-control-label" for="as_img"><span>상단 위치</span></label>
+									</div>
+									<div class="custom-control custom-radio custom-control-inline">
+										<input type="radio" id="as_img1" name="as_img" value="1" <?php echo get_checked('1', $write['as_img']) ?> class="custom-control-input">
+										<label class="custom-control-label" for="as_img1"><span>하단 위치</span></label>
+									</div>
+									<div class="custom-control custom-radio custom-control-inline">
+										<input type="radio" id="as_img2" name="as_img" value="2" <?php echo get_checked('2', $write['as_img']) ?> class="custom-control-input">
+										<label class="custom-control-label" for="as_img2"><span>본문 삽입</span></label>
+									</div>
+								</p>
+								<p class="form-control-plaintext f-de text-muted pb-0">
+									본문 삽입시 {이미지:0}, {이미지:1} 형태로 글내용에 입력시 지정 첨부사진이 출력됩니다.
+								</p>
+							</div>
+						</div>
+					</li>
+				<?php } ?>
+			<?php } ?>
+
+			<?php if ($captcha_html) { //자동등록방지
+			?>
+				<li class="list-group-item">
+					<div class="form-group row mb-0">
+						<label class="col-md-2 col-form-label">자동등록방지</label>
+						<div class="col-md-10 f-small">
+							<?php echo $captcha_html; ?>
+						</div>
+					</div>
+				</li>
+			<?php } ?>
+		</ul>
+		<?php } else { ?>
+		<ul class="list-group mb-3">		
 			<li class="list-group-item border-top-0">
 				<div class="form-group row mb-0">
 					<label class="col-md-2 col-form-label" for="wr_password"><?php echo str_replace($board['bo_subject'], '', $g5['title']) ?></label>
@@ -206,7 +721,7 @@ if ($is_member)
 					<div class="col-md-10">
 					<?php if ($is_member) { // 임시 저장된 글 기능
 					?>
-						<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="<?php if(!G5_IS_MOBILE) echo "임시저장 글 열기"; ?>" style="background-color: #e6dcc1; float:right; width: 150px;">
+						<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="" style="background-color: #e6dcc1; float:right; width: 150px;">
 							<h6>임시저장 글 열기<i class="fa fa-repeat" aria-hidden="true"></i>
 							<span class="sr-only">임시저장글</span>
 							(<span id="autosave_count" class="orangered"><?php echo $autosave_count; ?></span>)</h6>							
@@ -675,6 +1190,7 @@ if ($is_member)
 				</li>
 			<?php } ?>
 		</ul>
+		<?php } ?>
 		<div style="margin: 0 auto; text-align: center;">
 			<a href="<?php echo get_pretty_url($bo_table); ?>" class="btn btn-basic btn-lg en" style="width: 150px;">취소</a>
 			<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg en" style="margin-left: 20px; width: 150px;">작성완료</button>
