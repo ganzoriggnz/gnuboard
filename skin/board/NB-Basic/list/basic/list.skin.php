@@ -189,7 +189,7 @@ $list_cnt = count($list);
 				<span class="sr-only">조회</span>
 				<small><?php echo $list[$i]['wr_hit'] ?></small>
 			</div>
-			<?php if($is_good) { ?>
+			<!-- <?php if($is_good) { ?>
 				<div class="float-left float-md-none d-md-table-cell nw-3 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
 					<i class="fa fa-thumbs-o-up d-md-none" aria-hidden="true"></i>
 					<span class="sr-only">추천</span>
@@ -202,7 +202,7 @@ $list_cnt = count($list);
 					<span class="sr-only">비추천</span>
 					<small><?php echo $list[$i]['wr_nogood'] ?></small>
 				</div>
-			<?php } ?>
+			<?php } ?> -->
 			<div class="clearfix d-block d-md-none"></div>
 		</li>
 		<?php } ?>
