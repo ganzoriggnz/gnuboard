@@ -128,13 +128,13 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 								<?php if ($is_ip_view) { ?>
 									<li class="pr-2">
 										<span class="sr-only">아이피</span>
-										<span class="f-xs text-muted"><?php echo $list[$i]['ip'] ?></span>
+										<span class="text-muted"><?php echo $list[$i]['ip'] ?></span>
 									</li>
 								<?php } ?>
 								</li>
 								<li class="flex-grow-1 text-right">
 									<span class="sr-only">작성일</span>
-									<time class="f-xs" datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($list[$i]['wr_datetime'])) ?>"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d H:i', 'Y.m.d H:i'); ?></time>
+									<time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($list[$i]['wr_datetime'])) ?>"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d H:i', 'Y.m.d H:i'); ?></time>
 								</li>
 							</ul>
 						</div>
