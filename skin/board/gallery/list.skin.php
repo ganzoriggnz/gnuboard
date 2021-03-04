@@ -83,7 +83,7 @@ if ($board['bo_use_category'] && $sca !='') {
 
 
 <!-- 게시판 목록 시작 { -->
-<div id="bo_gall">
+<div id="bo_gall" <?php if(G5_IS_MOBILE) { echo 'class="pl-1 pr-2"';} else {echo '';} ?>>
 
     <?php if ($is_category) { ?>
     <nav id="bo_cate">
@@ -92,14 +92,14 @@ if ($board['bo_use_category'] && $sca !='') {
             <?php echo $category_option ?>
         </ul>
     </nav>
-    <nav id="bo_subcate">
+    <nav id="bo_subcate" <?php if(G5_IS_MOBILE) { echo '';} else {echo 'class="pb-3"';} ?>>
         <h2><?php echo $board['bo_subject'] ?> subcategory</h2>
-        <ul id="bo_subcate_ul pb-5">
+        <ul id="bo_subcate_ul">
             <?php echo $subcategory_option ?>
         </ul>
-    </nav><br>
+    </nav>
     <nav id="bo_subcate">
-        <h2><?php echo $board['bo_subject'] ?> subcategory</h2>
+        <h2><?php echo $board['bo_subject'] ?> search</h2>
         <ul id="bo_subcate_ul">
             <?php include_once($search_skin_path . '/search2.skin.php'); 
                ?>
