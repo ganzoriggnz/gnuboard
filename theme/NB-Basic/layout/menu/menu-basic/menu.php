@@ -237,13 +237,19 @@ $is_col_all = 6;
                             <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en" title="채팅방"
                                     onclick="window.open('/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
-                                    <img src="<?php echo G5_URL?>/img/chat.png">
+                                    <img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;"> 
                                 </a>
                             </li>
                             <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en" href="<?php echo G5_BBS_URL ?>/logout.php" target="_self" title="로그아웃">
                                     <!--<i class="fa fa-wikipedia-w" aria-hidden="true"></i>-->
                                     <img src="<?php echo G5_URL?>/img/baseline-input-24px.png">
+                                </a>
+                            </li>
+                            <li class="col p-0 me-li me-icon right_border">
+                                <a class="me-a f-md en" href="https://facebook.com" target="_blank" title="페이스 북">
+                                    <!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
+                                    <img src="<?php echo G5_URL?>/img/solid/facebook-logo.svg" style="height: 14px;">
                                 </a>
                             </li>
                             <li class="col p-0 me-li me-icon right_border">
