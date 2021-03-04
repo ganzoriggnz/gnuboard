@@ -76,14 +76,14 @@ if($is_member && !$is_admin && $member['mb_level'] < 22){ //회원이고 , 23레
        
         $et_date = date('Y-m-d', strtotime($st_date. ' + 3 days'));   // 가입한 후 3 일 뒤
         $wrpost = 1;
-        $wrcomment = 2;
+        $wrcomment = 5;
         $reviewpost = 0;
         $levpoint = getlevelPoint('2');
     }
     else if ($member['mb_level'] == 3){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  7 days')); 
-        $wrpost = 2;
-        $wrcomment = 2;
+        $wrpost = 5;
+        $wrcomment = 10;
         $reviewpost = 0; 
         $levpoint = getlevelPoint('3'); }
     else if ($member['mb_level'] == 4){
@@ -177,16 +177,16 @@ else if ($member['mb_level'] == 5){
         $reviewpost = 100;
         $levpoint = getlevelPoint('18'); }
     else if ($member['mb_level'] == 19){
-        $et_date = date('Y-m-d', strtotime($st_date. ' + 7days'));  
-        $wrpost = 1;
-        $wrcomment =2;
-        $reviewpost =1;
+        $et_date = date('Y-m-d', strtotime($st_date. ' + 800days'));  
+        $wrpost = 600;
+        $wrcomment =1500;
+        $reviewpost =120;
         $levpoint = getlevelPoint('19'); }
     else if ($member['mb_level'] == 20){
-        $et_date = date('Y-m-d', strtotime($st_date. ' +  7 days')); 
-        $wrpost = 2;
-        $wrcomment = 2;
-        $reviewpost = 6;
+        $et_date = date('Y-m-d', strtotime($st_date. ' +  900 days')); 
+        $wrpost = 700;
+        $wrcomment = 1700;
+        $reviewpost = 140;
         $levpoint = getlevelPoint('20'); }
     else if ($member['mb_level'] == 21){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  1000 days')); 
