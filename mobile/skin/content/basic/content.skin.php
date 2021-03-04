@@ -16,8 +16,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$content_skin_url.'/style.css">',
         line-height: 1.3;
         font-size: 10px;
     }
-    #ctt #ctt_con table tbody tr td:last-of-type p {
-        text-indent: -5px;
+    #ctt #ctt_con table tbody tr:first-of-type td:last-of-type p {
+        width: auto;
+        min-width: 60px;
     }
 </style>
 
