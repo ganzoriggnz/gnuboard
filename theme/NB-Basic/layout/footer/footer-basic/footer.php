@@ -6,11 +6,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_footer_url.'/footer.css">', 0
 
 <style>
 	#nt_footer {
+		min-height: 5rem;
 		background-color: #202020;
 		width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		text-align: center;
 	}
 	#nt_footer .item-text {
 		padding: 1rem 0;
@@ -26,6 +28,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_footer_url.'/footer.css">', 0
 		}
 	}
 </style>
+
+<script>
+	var body = document.body,
+    html = document.documentElement
+
+	var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight )
+
+	window.onload = function() {
+		if(height > window.innerHeight) {
+			document.getElementById("nt_footer").style.position = "absolute";
+			document.getElementById("nt_footer").style.bottom = "-5rem";
+		}
+		else {
+			document.getElementById("nt_footer").style.position = "fixed";
+			document.getElementById("nt_footer").style.bottom = "0";
+		}
+	}
+</script>
 
 <footer id="nt_footer" class="f-de font-weight-normal">
 	<div class="item-text">

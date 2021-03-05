@@ -30,10 +30,12 @@ $list_cnt = count($list);
 
 <style>
 	@media only screen and (max-width: 600px) {
+		.float-left {
+			display: flex;
+			align-items: center;
+		}
 		.member_photo {
 			display: none;
-		}
-		.username {
 		}
 		.datetime {
 			color: black;

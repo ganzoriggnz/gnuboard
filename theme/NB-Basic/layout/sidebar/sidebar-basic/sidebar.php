@@ -23,13 +23,20 @@ global $member, $is_guest, $is_member, $is_admin, $at_href, $at_set, $menu, $sta
 add_stylesheet('<link rel="stylesheet" href="' . $nt_sidebar_url . '/sidebar.css">', 0);
 add_javascript('<script src="' . $nt_sidebar_url . '/sidebar.js"></script>', 0);
 
-
 // 카테고리
 $menu_id = 'sidebar_menu';
 $menu_cnt = count($menu);
 
 ?>
 
+<style>
+	@media only screen and (max-width: 600px) {
+		#nt_bottom .go-btn {
+			right: 1rem;
+			bottom: 1rem;
+		}
+	}
+</style>
 
 <script>
 	var sidebar_url = "<?php echo $sidebar_url; ?>";
@@ -451,8 +458,6 @@ $menu_cnt = count($menu);
 
 <div id="nt_sidebar_mask" class="sidebar-close"></div>
 <div class="flower_img d-md-block d-none"></div>
-
-
 
 <!-- 상단이동 버튼 -->
 <div id="nt_bottom">
