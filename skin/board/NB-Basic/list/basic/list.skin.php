@@ -33,6 +33,11 @@ $list_cnt = count($list);
 		.member_photo {
 			display: none;
 		}
+		.username {
+		}
+		.datetime {
+			color: black;
+		}
 	}
 </style>
 
@@ -172,19 +177,19 @@ $list_cnt = count($list);
 					</div>
 				</div>
 			</div>
-			<div class="float-right float-md-none d-md-table-cell nw-16 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+			<div class="float-right float-md-none d-md-table-cell nw-16 nw-md-auto text-left f-sm">
 				<span class="sr-only">등록자</span>
-				<?php
-					$mbid= get_member($list[$i]['mb_id']);
-					$name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);
-					echo na_name_photo($list[$i]['mb_id'], $name)
-				?>
+					<?php
+						$mbid= get_member($list[$i]['mb_id']);
+						$name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);
+						echo na_name_photo($list[$i]['mb_id'], "<p class='username'>".$name."</p>")
+					?>
 			</div>
-			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm">
 				<span class="sr-only">등록일</span>
-				<small><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d', 'Y.m.d') ?></small>
+				<p class="datetime"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d', 'Y.m.d') ?></p>
 			</div>
-			<div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+			<div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm">
 				<i class="fa fa-eye d-md-none" aria-hidden="true"></i>
 				<span class="sr-only">조회</span>
 				<small><?php echo $list[$i]['wr_hit'] ?></small>
