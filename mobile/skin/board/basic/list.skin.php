@@ -70,7 +70,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     <label for="chk_wr_id_<?php echo $i ?>">
                     	<span></span>
                     	<b class="sound_only"><?php echo $list[$i]['subject'] ?></b>
-                    </label>   	
+                    </label>
                 </div>
                 <?php } ?>
 
@@ -78,11 +78,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 	<?php if ($list[$i]['is_notice'] || ($is_category && $list[$i]['ca_name'])) { ?>
                 	<div class="bo_cate_ico">
                 		<?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?>
-	                    <?php if ($is_category && $list[$i]['ca_name']) { ?>       
+	                    <?php if ($is_category && $list[$i]['ca_name']) { ?>
 	                    <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name']; ?></a>
 	                    <?php } ?>
                     </div>
-                    <?php } ?> 
+                    <?php } ?>
                     
                     <a href="<?php echo $list[$i]['href'] ?>" class="bo_subject">
                         <?php echo $list[$i]['icon_reply']; ?>
