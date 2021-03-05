@@ -134,7 +134,7 @@ else if ($w == 'u')
     // 이메일중복체크
     $sql = " select mb_id, mb_name, mb_nick, mb_email from {$g5['member_table']} where mb_email = '{$mb_email}' and mb_id <> '$mb_id' ";
     $row = sql_fetch($sql);
-    if ($row['mb_id'])
+    if ($row['mb_id'] && $row['mb_email']!='')
         alert('이미 존재하는 이메일입니다.\\nＩＤ : '.$row['mb_id'].'\\n이름 : '.$row['mb_name'].'\\n닉네임 : '.$row['mb_nick'].'\\n메일 : '.$row['mb_email']);
 
     if ($mb_password)
@@ -154,7 +154,6 @@ else if ($w == 'u')
                 where mb_id = '{$mb_id}' ";
     sql_query($sql);
 
-   
 }
 else
     alert('제대로 된 값이 넘어오지 않았습니다.');
