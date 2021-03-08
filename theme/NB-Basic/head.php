@@ -149,7 +149,7 @@ if($nt_top_path)
         </div>
         <?php
 		// PAGE TITLE
-		if($nt_title_path)
+		if($nt_title_path && !G5_IS_MOBILE)
 			@include_once ($nt_title_path.'/title2.php');
 		// @include_once($nt_title_path.'/title2.php');
 
@@ -168,5 +168,7 @@ if($nt_top_path)
             <div class="row na-row"  style="display: flex; justify-content: space-between;">
                 <div class="col-md-<?php echo $is_content_col ?>
 				<?php echo ($tset['left_side']) ? ' order-md-2' : ' order-md-2';?> na-col">
-                    <?php } ?>
-                    <?php } ?>
+				<?php if($nt_title_path)
+					  @include_once ($nt_title_path.'/title.php');
+                        } 
+       		} ?>
