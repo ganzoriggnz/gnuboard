@@ -23,6 +23,6 @@ $data=array (
   'page' => '',
   'sort' => '',
   'term' => '',
-  'dayterm' => '',
+  'dayterm' => ''
 );
 ?>
