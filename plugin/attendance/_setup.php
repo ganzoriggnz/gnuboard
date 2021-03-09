@@ -61,19 +61,19 @@ $attendance['year1_point'] = "30000"; // 지정한 년도마다 포인트 지급
 $attendance['year2_point'] = "50000"; // 지정한 년도마다 포인트 지급
 
 // 개근시 포인트
-$attendance['year3_point'] = "100000"; // 지정한 년도마다 포인트 지급
+$attendance['year3_point'] = "70000"; // 지정한 년도마다 포인트 지급
 
 // 개근시 포인트
-$attendance['year_point'] = "200000"; // 지정한 년도마다 포인트 지급
+$attendance['year_point'] = "100000"; // 지정한 년도마다 포인트 지급
 
 
 // 일일 출석 포인트
-$attendance['today_point'] = "50"; //하루 출석 포인트 지급
+$attendance['today_point'] = "30"; //하루 출석 포인트 지급
 
 
 // 1등 포인트
-$attendance['first_point'] = "300";
-$attendance['second_point'] = "200";
+$attendance['first_point'] = "200";
+$attendance['second_point'] = "150";
 $attendance['third_point'] = "100";
 
 
