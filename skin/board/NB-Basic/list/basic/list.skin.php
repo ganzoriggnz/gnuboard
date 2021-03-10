@@ -30,15 +30,28 @@ $list_cnt = count($list);
 
 <style>
 	@media only screen and (max-width: 600px) {
-		.float-left {
-			display: flex;
-			align-items: center;
-		}
 		.member_photo {
 			display: none;
 		}
 		.datetime {
 			color: black;
+			padding-top: 4px;
+		}
+		.datetime, .username {
+			font-size: 10px;
+		}
+		.eye {
+			font-size: 10px;
+			display: flex;
+			align-items: center;
+			width: 20px;
+			justify-content: space-between;
+		}
+		.eye i {
+			padding-top: 3px;
+		}
+		.eye p {
+			padding-top: 4px;
 		}
 	}
 </style>
@@ -61,12 +74,6 @@ $list_cnt = count($list);
 			<div class="d-md-table-cell nw-10 pl-2 pr-md-1">이름</div>
 			<div class="d-md-table-cell nw-6 pr-md-1"><?php echo subject_sort_link('wr_datetime', $qstr2, 1) ?>날짜</a></div>
 			<div class="d-md-table-cell nw-4 pr-md-1"><?php echo subject_sort_link('wr_hit', $qstr2, 1) ?>조회</a></div>
-			<?php if($is_good) { ?>
-				<div class="d-md-table-cell nw-3 pr-md-1"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천</a></div>
-			<?php } ?>
-			<?php if($is_nogood) { ?>
-				<div class="d-md-table-cell nw-3 pr-md-1"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추</a></div>
-			<?php } ?>
 		</div>
 	</div>
 
@@ -192,9 +199,11 @@ $list_cnt = count($list);
 				<p class="datetime"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d', 'Y.m.d') ?></p>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-4 nw-md-auto f-sm">
-				<i class="fa fa-eye d-md-none" aria-hidden="true"></i>
 				<span class="sr-only">조회</span>
-				<small><?php echo $list[$i]['wr_hit'] ?></small>
+				<div class="eye">
+					<i class="fa fa-eye d-md-none" aria-hidden="true"></i>	
+					<?php echo "<p>".$list[$i]['wr_hit']."</p>" ?>
+				</div>
 			</div>
 			<!-- <?php if($is_good) { ?>
 				<div class="float-left float-md-none d-md-table-cell nw-3 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">

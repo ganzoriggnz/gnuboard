@@ -6,7 +6,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_footer_url.'/footer.css">', 0
 
 <style>
 	#nt_footer {
-		min-height: 5rem;
+		height: 6rem;
 		background-color: #202020;
 		width: 100%;
 		display: flex;
@@ -38,7 +38,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_footer_url.'/footer.css">', 0
 	window.onload = function() {
 		if(height > window.innerHeight) {
 			document.getElementById("nt_footer").style.position = "absolute";
-			document.getElementById("nt_footer").style.bottom = "-5rem";
 		}
 		else {
 			document.getElementById("nt_footer").style.position = "fixed";

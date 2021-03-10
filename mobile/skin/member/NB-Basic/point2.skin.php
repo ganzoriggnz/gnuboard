@@ -40,7 +40,7 @@ $frm_submit = '<div class="col-sm-4">
         font-size: 12px;
     }
     #user_cate_ul li a {
-       padding: 2px; 5px; 2px; 5px;
+       padding: 2px 5px 2px 5px;
     }
 </style>
 <div id="bo_v">

@@ -5,6 +5,35 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$qa_skin_url.'/style.css">', 0);
 ?>
 
+<style>
+    #actionbtns {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	#actionbtns button {
+        border: 0;
+		outline: 0;
+		padding: 1rem 0;
+		text-align: center;
+		background-color: navy;
+		color: white;
+		width: 25%;
+	}
+	#actionbtns button:nth-of-type(1) {
+		background-color: navy;
+	}
+	#actionbtns button:nth-of-type(2) {
+		background-color: tomato;
+	}
+	#actionbtns button:nth-of-type(3) {
+		background-color: limegreen;
+	}
+	#actionbtns button:nth-of-type(4) {
+		background-color: lightblue;
+	}
+</style>
+
 <?php if ($admin_href || $write_href) { ?>
 <ul class="btn_top top btn_bo_user">
     <?php if ($admin_href) { ?><li><a href="<?php echo $admin_href ?>" class="btn_admin btn"><i class="fa fa-cog fa-spin fa-fw"></i><span class="sound_only">관리자</span></a></li><?php } ?>
@@ -93,6 +122,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$qa_skin_url.'/style.css">', 0);
         </ul>
     </div>
     </form>
+</div>
+
+<div id="actionbtns">
+	<button>로그인</button>
+	<button>회원가입</button>
+	<button>제휴문의</button>
+	<button>dffff</button>
 </div>
 
 <?php if($is_checkbox) { ?>
