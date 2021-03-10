@@ -109,7 +109,7 @@ $sql_m = "SELECT mb_level FROM {$g5['member_table']} WHERE mb_id = '{$mb['mb_id'
 $res_m = sql_fetch($sql_m);
 $mb_level = $res_m['mb_level'];
 
-if($mb_level > 25 && $mb_level < 30){
+if($mb_level > 25 || $mb_level < 30){
     $url = G5_BBS_URL.'/userinfo.php';}
 else { $url = G5_URL;} 
 
