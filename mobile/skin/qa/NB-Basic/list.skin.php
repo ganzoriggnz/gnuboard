@@ -50,6 +50,32 @@ if($wset['head_skin']) {
 	.writebtn {
 		padding: 0 0.1rem;
 	}
+	#actionbtns {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	#actionbtns button {
+		border: 0;
+		outline: 0;
+		padding: 1rem 0;
+		text-align: center;
+		background-color: navy;
+		color: white;
+		width: 25%;
+	}
+	#actionbtns button:nth-of-type(1) {
+		background-color: navy;
+	}
+	#actionbtns button:nth-of-type(2) {
+		background-color: tomato;
+	}
+	#actionbtns button:nth-of-type(3) {
+		background-color: limegreen;
+	}
+	#actionbtns button:nth-of-type(4) {
+		background-color: lightblue;
+	}
 	@media only screen and (max-width: 600px) {
 		#user_category .category_btns {
 			padding: 0 0.6rem 1rem 0.4rem;
@@ -119,7 +145,7 @@ if($wset['head_skin']) {
 </div>
 <!-- } 검색창 끝 -->
 
-<div id="bo_list" class="mb-4">
+<div id="bo_list">
 
     <form name="fqalist" id="fqalist" action="./qadelete.php" onsubmit="return fqalist_submit(this);" method="post">
     <input type="hidden" name="stx" value="<?php echo $stx; ?>">
@@ -190,66 +216,73 @@ if($wset['head_skin']) {
 		</div>
 	</div>
 	
-<ul class="na-table d-md-table w-100 mb-4" style="font-size: 12px;">
-	<?php
-	$list_cnt = count($list);
-	for ($i=0; $i<$list_cnt; $i++) {
+	<ul class="na-table d-md-table w-100" style="font-size: 12px;">
+		<?php
+		$list_cnt = count($list);
+		for ($i=0; $i<$list_cnt; $i++) {
 
-		// 전체 보기에서 분류 출력하기
-		if(!$sca && $is_category && $list[$i]['category']) {
-			$list[$i]['subject'] = $list[$i]['category'].' <span class="na-bar"></span> '.$list[$i]['subject'];
-		}
-	?>
-		<li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css;?>">
-			<div class="d-none d-md-table-cell nw-5 f-sm font-weight-normal py-md-2 px-md-1">
-				<?php echo $list[$i]['num'] ?>
-			</div>
-			<div class="d-md-table-cell text-left py-md-2 pr-md-1">
-				<div class="na-title float-md-left">
-					<div class="na-item">
-						<?php if ($is_checkbox) { ?>
-							<input type="checkbox" class="mb-0 mr-2" name="chk_qa_id[]" value="<?php echo $list[$i]['qa_id'] ?>" id="chk_qa_id_<?php echo $i ?>">
-						<?php } ?>
-						<a href="<?php echo $list[$i]['view_href'] ?>" class="na-subject">
-							<?php echo $wr_icon ?>
-							<?php echo $list[$i]['subject'] ?>
-						</a>
-						<?php
-							if($list[$i]['icon_file'])
-								echo '<span class="na-ticon na-file"></span>'.PHP_EOL;
-						?>
+			// 전체 보기에서 분류 출력하기
+			if(!$sca && $is_category && $list[$i]['category']) {
+				$list[$i]['subject'] = $list[$i]['category'].' <span class="na-bar"></span> '.$list[$i]['subject'];
+			}
+		?>
+			<li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css;?>">
+				<div class="d-none d-md-table-cell nw-5 f-sm font-weight-normal py-md-2 px-md-1">
+					<?php echo $list[$i]['num'] ?>
+				</div>
+				<div class="d-md-table-cell text-left py-md-2 pr-md-1">
+					<div class="na-title float-md-left">
+						<div class="na-item">
+							<?php if ($is_checkbox) { ?>
+								<input type="checkbox" class="mb-0 mr-2" name="chk_qa_id[]" value="<?php echo $list[$i]['qa_id'] ?>" id="chk_qa_id_<?php echo $i ?>">
+							<?php } ?>
+							<a href="<?php echo $list[$i]['view_href'] ?>" class="na-subject">
+								<?php echo $wr_icon ?>
+								<?php echo $list[$i]['subject'] ?>
+							</a>
+							<?php
+								if($list[$i]['icon_file'])
+									echo '<span class="na-ticon na-file"></span>'.PHP_EOL;
+							?>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-				<span class="sr-only">등록자</span>
-				<?php echo na_name_photo($list[$i]['mb_id'], get_sideview($list[$i]['mb_id'], $list[$i]['qa_name'], $list[$i]['qa_email'], '')) ?>
-			</div>
-			<div class="float-left float-md-none d-md-table-cell nw-5 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
-				<?php echo ($list[$i]['qa_status']) ? '<span class="orangered">완료</span>' : '대기'; ?>
-			</div>
-			<div class="float-left float-md-none d-md-table-cell nw-8 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
-				<span class="sr-only">등록일</span>
-				<?php echo na_date($list[$i]['qa_datetime'], 'orangered', 'H:i', 'm.d', 'Y.m.d') ?>
-			</div>
-			<div class="clearfix d-block d-md-none"></div>
-		</li>
-	<?php }	?>
-</ul>
+				<div class="float-right float-md-none d-md-table-cell nw-20 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+					<span class="sr-only">등록자</span>
+					<?php echo na_name_photo($list[$i]['mb_id'], get_sideview($list[$i]['mb_id'], $list[$i]['qa_name'], $list[$i]['qa_email'], '')) ?>
+				</div>
+				<div class="float-left float-md-none d-md-table-cell nw-5 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+					<?php echo ($list[$i]['qa_status']) ? '<span class="orangered">완료</span>' : '대기'; ?>
+				</div>
+				<div class="float-left float-md-none d-md-table-cell nw-8 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+					<span class="sr-only">등록일</span>
+					<?php echo na_date($list[$i]['qa_datetime'], 'orangered', 'H:i', 'm.d', 'Y.m.d') ?>
+				</div>
+				<div class="clearfix d-block d-md-none"></div>
+			</li>
+		<?php }	?>
+	</ul>
 
 	<?php if (!$list_cnt) { ?>
 		<div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">게시물이 없습니다.</div>
 	<?php } ?>
 
 	<!-- 페이지 -->
-	<div class="font-weight-normal px-3 px-sm-0">
-		<ul class="pagination justify-content-center en mb-0">
+	<div class="mb-4 mt-4">
+		<ul class="pagination justify-content-center en">
 			<?php echo preg_replace('/(\.php)(&amp;|&)/i', '$1?', na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, './qalist.php'.$qstr.'&amp;page='));?>
 		</ul>
 	</div>
 	<!-- 페이지 -->
 	
     </form>
+</div>
+
+<div id="actionbtns">
+	<button>로그인</button>
+	<button>회원가입</button>
+	<button>제휴문의</button>
+	<button>dffff</button>
 </div>
 
 <div class="h30"></div>
