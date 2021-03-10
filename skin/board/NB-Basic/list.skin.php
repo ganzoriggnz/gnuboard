@@ -35,6 +35,9 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 ?>
 
 <style>
+	#bo_search {
+		padding: 0 0.6rem 1rem 0.4rem;
+	}
 	#bo_btn_top {
 		display: flex;
 		align-items: center;
@@ -42,9 +45,6 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		padding: 0.5rem 0;
 	}
 	@media only screen and (max-width: 600px) {
-		#bo_search {
-			padding: 0 0.6rem 1rem 0.4rem;
-		}
 		.adminbtn {
 			padding: 0 0.1rem;
 		}

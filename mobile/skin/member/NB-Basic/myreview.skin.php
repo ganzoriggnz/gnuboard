@@ -9,7 +9,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
         font-size: 12px;
     }
     #user_cate_ul li a {
-       padding: 2px 5px 2px 5px;
+       padding: 2px; 5px; 2px; 5px;
     }
 </style>
 <nav id="user_cate" class="sly-tab font-weight-normal mb-2">

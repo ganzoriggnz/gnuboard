@@ -17,10 +17,10 @@ if( count($faq_master_list) ){
 
 <div id="faq_sch">
     <form name="faq_search_form" method="get">
-        <input type="hidden" name="fm_id" value="<?php echo $fm_id;?>">
-        <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-        <input type="text" name="stx" value="<?php echo $stx;?>" required id="stx" class="frm_input" size="15" maxlength="15">
-        <button type="submit" value="검색" class="btn_submit"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
+    <input type="hidden" name="fm_id" value="<?php echo $fm_id;?>">
+    <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+    <input type="text" name="stx" value="<?php echo $stx;?>" required id="stx" class="frm_input" size="15" maxlength="15">
+    <button type="submit" value="검색" class="btn_submit"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
     </form>
 </div>
 

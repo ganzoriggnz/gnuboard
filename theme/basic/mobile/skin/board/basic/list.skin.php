@@ -10,35 +10,6 @@ if ($is_checkbox) $colspan++;
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
 ?>
 
-<style>
-    #actionbtns {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-	}
-	#actionbtns button {
-        border: 0;
-		outline: 0;
-		padding: 1rem 0;
-		text-align: center;
-		background-color: navy;
-		color: white;
-		width: 25%;
-	}
-	#actionbtns button:nth-of-type(1) {
-		background-color: navy;
-	}
-	#actionbtns button:nth-of-type(2) {
-		background-color: tomato;
-	}
-	#actionbtns button:nth-of-type(3) {
-		background-color: limegreen;
-	}
-	#actionbtns button:nth-of-type(4) {
-		background-color: lightblue;
-	}
-</style>
-
 <form name="fboardlist" id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
 <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
@@ -147,14 +118,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </ul>
     </div>
 </div>
-</form>
 
-<div id="actionbtns">
-    <button>로그인</button>
-    <button>회원가입</button>
-    <button>제휴문의</button>
-    <button>dffff</button>
-</div>
+</form>
 
 <?php if($is_checkbox) { ?>
 <noscript>
