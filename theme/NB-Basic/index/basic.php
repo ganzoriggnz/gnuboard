@@ -13,25 +13,7 @@ if ($nt_wing_path)
                 <div class="row na-row" style="display: flex; justify-content: space-between;">
                 <div class="nt-container pb-4 pt-0 pt-sm-4">
                     <div class="row na-row" style="display: flex; justify-content: space-between;">
-                        <div class="na-col px-3" style="width: 100%;">
-                            <div id="nt_title" class="font-weight-normal" style="margin-bottom: 10px;"> 
-                                <div class="nt-container px-3 px-sm-4 px-xl-0">	
-                                    <div class="d-flex pb-1">
-                                        <div class="align-self-center page-title en text-nowrap">
-                                            <strong>Main page</strong>
-                                        </div> 
-                                        <!-- <div class="align-self-start d-sm-block">
-                                            <nav aria-label="breadcrumb" class="f-sm">
-                                                <ol class="breadcrumb bg-transparent p-0 m-0">                             
-                                                    <li class="breadcrumb-item mb-0">
-                                                        <a href="<?php echo NT_HOME_URL ?>">Main page</a>
-                                                    </li>                            
-                                                </ol>
-                                            </nav>
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="na-col px-3" style="width: 100%; margin-right: 3px;">
                 <?php include_once('./_common.php');
 
                 $g5['title'] = '전체검색 결과';
@@ -156,24 +138,6 @@ if ($nt_wing_path)
 
                 <!-- 메인 영역 -->
                 <div class="col-md-9<?php echo ($is_left_side) ? ' order-md-2' : ''; ?> na-col">
-                    <div id="nt_title" class="font-weight-normal" style="margin-bottom: 10px;"> 
-                        <div class="nt-container px-3 px-sm-4 px-xl-0">	
-                            <div class="d-flex pb-1">
-                                <div class="align-self-center page-title en text-nowrap">
-                                    <strong>Main page</strong>
-                                </div>
-                                <!-- <div class="align-self-end ml-auto d-sm-block">
-                                    <nav aria-label="breadcrumb" class="f-sm">
-                                        <ol class="breadcrumb bg-transparent p-0 m-0">                             
-                                                <li class="breadcrumb-item mb-0">
-                                                    <a href="<?php echo NT_HOME_URL ?>"><i class="fa fa-home"></i></a>
-                                                </li>                            
-                                        </ol>
-                                    </nav>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
                     <?php include_once('./_common.php');
 
                     $g5['title'] = '전체검색 결과';
@@ -184,8 +148,6 @@ if ($nt_wing_path)
                     $write_pages = "";
                     $text_stx = "";
                     $srows = 0;
-
-
 
                     $group_select = '<label for="gr_id" class="sound_only">게시판 그룹선택</label><select name="gr_id" id="gr_id" class="select"><option value="">전체 분류';
                     $sql = " select gr_id, gr_subject from {$g5['group_table']} order by gr_id ";
