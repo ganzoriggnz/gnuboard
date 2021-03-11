@@ -158,13 +158,23 @@ $list_cnt = count($list);
 								
 							?>
 							<!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
-							<?php 
+							<!-- <?php 
 								
 							 if($board['gr_id'] == "review" ){?>
 							<?php echo "[",$list[$i]['wr_7'],"-",$list[$i]['wr_5'], "] ", "&nbsp;&nbsp", $list[$i]['subject'] ;}
 							elseif($board['gr_id'] == "attendance"){
 								echo "[",$mb['mb_name'],"] ", "&nbsp;&nbsp",  $list[$i]['subject'] ;} 
 								else{echo  $list[$i]['subject'] ;}
+							?> -->
+
+							<?php 
+								
+								if($board['gr_id'] == "review" ){ ?><span style="color: #000;">
+							   <?php echo "[".$list[$i]['wr_7']."-".$list[$i]['wr_5']. "]" ?></span><?php echo $list[$i]['subject'];}
+							   elseif($board['gr_id'] == "attendance"){ ?>
+							   <span style="color: #000;">
+								   <?php echo "[".$mb['mb_name']."]" ?> </span><?php echo $list[$i]['subject'] ;} 
+								   else {echo  $list[$i]['subject'] ;}
 							?>
 							
 						</a>
