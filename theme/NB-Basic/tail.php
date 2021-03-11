@@ -47,7 +47,7 @@ if ($is_admin == 'super' || IS_DEMO)
 include_once(G5_THEME_PATH.'/tail.sub.php');
 ?>
 <!-- } 하단 끝 -->
-<?php if(!is_mobile()) { // PC에서만 실행 ?>
+
 <script>
 function nt_body_size() {
 	var $nt_body = $(window).height() - $('#nt_header').height() - $('#nt_footer').height();
@@ -61,5 +61,5 @@ $(document).ready(function() {
 	});
 });
 </script>
-<?php } ?>
+
 <!-- Nariya <?php echo NA_VERSION ?> -->
