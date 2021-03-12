@@ -63,6 +63,9 @@
 }
 
 @media only screen and (max-width : 767px) {
+	#nt_footer {
+		height: 60px;
+	}
 	
 	#nt_footer .nt-container {
 		display: flex;
