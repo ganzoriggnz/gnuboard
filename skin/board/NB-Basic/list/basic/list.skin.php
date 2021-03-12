@@ -44,14 +44,14 @@ $list_cnt = count($list);
 			font-size: 10px;
 			display: flex;
 			align-items: center;
-			width: 20px;
-			justify-content: space-between;
+			width: 40px;
+			justify-content: flex-start;
 		}
 		.eye i {
 			padding-top: 3px;
 		}
 		.eye p {
-			padding-top: 4px;
+			padding-top: 4px; margin-left: 3px;
 		}
 	}
 </style>
