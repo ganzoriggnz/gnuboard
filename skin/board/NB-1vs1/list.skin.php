@@ -225,7 +225,6 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 		</div>
 		<!-- } 페이지 끝 -->
 	</form>
-
 </div>
 
 <?php if ($is_checkbox) { ?>

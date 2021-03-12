@@ -268,7 +268,6 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		?>
 		<!-- } 게시물 목록 끝 -->
 
-
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 			<!--  hulan nemsen 1 mur -->
 			<!-- 페이지 시작 { -->
@@ -287,14 +286,12 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 			<!-- } 페이지 끝 -->
 		<?php } ?>
 	</form>
-
 </div>
-
 
 <?php if ($is_checkbox) { ?>
 	<noscript>
 		<p align="center">자바스크립트를 사용하지 않는 경우 별도의 확인 절차 없이 바로 선택삭제 처리하므로 주의하시기 바랍니다.</p>
-	</noscript>
+	</noscript>	
 
 	<script>
 		function all_checked(sw) {

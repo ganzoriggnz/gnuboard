@@ -25,8 +25,6 @@ if ($nt_wing_path)
                 $text_stx = "";
                 $srows = 0;
 
-
-
                 $group_select = '<label for="gr_id" class="sound_only">게시판 그룹선택</label><select name="gr_id" id="gr_id" class="select"><option value="">전체 분류';
                 $sql = " select gr_id, gr_subject from {$g5['group_table']} order by gr_id ";
                 $result = sql_query($sql);

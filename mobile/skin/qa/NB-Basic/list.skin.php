@@ -18,77 +18,6 @@ if($wset['head_skin']) {
 
 ?>
 
-<style>
-	#bo_search {
-		padding: 0 0.6rem 1rem 0.4rem;
-	}
-	#user_category .category_btns {
-		padding: 0 0.6rem 1rem 0.4rem;
-		width: 100%;
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		grid-gap: 0.2rem;
-	}
-	#user_category .category_btns div {
-		width: 100%;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-	}
-	#user_category .category_btns div a {
-		padding: 0.5rem 0;
-		border: 1px solid #e5e5e5;
-		border-radius: 5px;
-		width: 100%;
-	}
-	.category_btns .active, .category_btns div a:focus, .category_btns div a:hover {
-		font-weight: bold;
-	}
-	.writebtn {
-		padding: 0 0.1rem;
-	}
-	#actionbtns {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-	}
-	#actionbtns button {
-		border: 0;
-		outline: 0;
-		padding: 1rem 0;
-		text-align: center;
-		background-color: navy;
-		color: white;
-		width: 25%;
-	}
-	#actionbtns button:nth-of-type(1) {
-		background-color: navy;
-	}
-	#actionbtns button:nth-of-type(2) {
-		background-color: tomato;
-	}
-	#actionbtns button:nth-of-type(3) {
-		background-color: limegreen;
-	}
-	#actionbtns button:nth-of-type(4) {
-		background-color: lightblue;
-	}
-	@media only screen and (max-width: 600px) {
-		#user_category .category_btns {
-			padding: 0 0.6rem 1rem 0.4rem;
-			width: 100%;
-			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-		}
-		#user_category .category_btns div a {
-			font-size: 10px;
-		}
-}
-</style>
-
 <?php
 	// 분류
 	$is_category = false;
@@ -276,13 +205,6 @@ if($wset['head_skin']) {
 	<!-- 페이지 -->
 	
     </form>
-</div>
-
-<div id="actionbtns">
-	<button>로그인</button>
-	<button>회원가입</button>
-	<button>제휴문의</button>
-	<button>dffff</button>
 </div>
 
 <div class="h30"></div>
