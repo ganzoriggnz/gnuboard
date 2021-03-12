@@ -103,6 +103,8 @@ if ($bo_table == "greeting") {
 // Clip Modal
 na_script('clip');
 
+
+
 // 임시 저장된 글 기능 : AutoSave Modal
 if ($is_member)
 	na_script('autosave');
@@ -119,8 +121,10 @@ ul.my-table > li {
   display: table-cell;
 }
 </style> -->
+<script src="<?php echo $board_skin_url?>/iColorPicker.js" type="text/javascript"></script>
 <section id="bo_w" class="f-de font-weight-normal mb-4">
 	<h2 class="sr-only"><?php echo $g5['title'] ?></h2>
+	
 
 	<!-- 게시물 작성/수정 시작 { -->
 	<form name="fwrite" id="fwrite" action="<?php echo $action_url ?>" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
@@ -215,9 +219,9 @@ ul.my-table > li {
 						<div class="d-table-cell nw-auto text-left pb-3 pr-3">
 							<?php if ($is_member) { ?>
 								<button type="button" id="btn_autosave" data-toggle="modal" data-target="#saveModal" class="btn btn-basic" title="임시저장 글 열기" style="background-color: #e6dcc1; float:right; width: 200px;">
-									<h6>임시저장 글 열기<i class="fa fa-repeat" aria-hidden="true"></i>
+									<p style="font-size: 10px;">임시저장 글 열기<i class="fa fa-repeat" aria-hidden="true"></i>
 									<span class="sr-only">임시저장글</span> 
-									(<span id="autosave_count" class="orangered"><?php echo $autosave_count; ?></span>)</h6>						
+									(<span id="autosave_count" class="orangered"><?php echo $autosave_count; ?></span>)</p>						
 								</button>
 							<?php } ?>
 						</div>
@@ -365,7 +369,7 @@ ul.my-table > li {
 							<div class="form-group row mb-0">
 								<label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
 								<div class="col-md-4">
-									<select name="wr_7" id="wr_7" required class="custom-select">
+									<select name="wr_7" id="wr_7" class="custom-select" <?php if($is_admin || $board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id']) { echo '';} else {echo 'required';} ?>>
 									<option value="">선택하세요</option>
 									<?php while ($res = sql_fetch_array($sql)){?>
 										<!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name'];?></option>  -->
@@ -379,9 +383,8 @@ ul.my-table > li {
 							</div>
 						</li>
 						<?php } ?>
-						
-						
-							<li class="list-group-item">
+												
+						<li class="list-group-item">
 							<div class="form-group row mb-0">
 								<label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
 								<div class="col-md-7">
@@ -417,53 +420,32 @@ ul.my-table > li {
 
 				<div class="form-group row mb-0">
 					<?php if ($member['mb_level'] >= 14) { ?>
-				<!-- 		<label class="col-md-2 col-form-label" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
-						<div class="col-md-10">
-							<select id="colorselector_2" name="wr_1">
-								<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
-								<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
-								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
-								<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
-								<option value="#008B8B" data-color="#008B8B" <?php echo get_selected($write['wr_1'], '#008B8B') ?>>darkcyan</option>
-								<option value="#B8860B" data-color="#B8860B" <?php echo get_selected($write['wr_1'], '#B8860B') ?>>darkgoldenrod</option>
-								<option value="#32CD32" data-color="#32CD32" <?php echo get_selected($write['wr_1'], '#32CD32') ?>>limegreen</option>
-								<option value="#FFD700" data-color="#FFD700" <?php echo get_selected($write['wr_1'], '#FFD700') ?>>gold</option>
-								<option value="#48D1CC" data-color="#48D1CC" <?php echo get_selected($write['wr_1'], '#48D1CC') ?>>mediumturquoise</option>
-								<option value="#87CEEB" data-color="#87CEEB" <?php echo get_selected($write['wr_1'], '#87CEEB') ?>>skyblue</option>
-								<option value="#FF69B4" data-color="#FF69B4" <?php echo get_selected($write['wr_1'], '#FF69B4') ?>>hotpink</option>
-								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
-								<option value="#87CEFA" data-color="#87CEFA" <?php echo get_selected($write['wr_1'], '#87CEFA') ?>>lightskyblue</option>
-								<option value="#6495ED" data-color="#6495ED" <?php echo get_selected($write['wr_1'], '#6495ED') ?>>cornflowerblue</option>
-								<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
-								<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
-								<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
-							</select>
-						</div> -->
 						<div class="na-table d-table w-100">
 							<div class="d-table-row">
 								<div class="d-table-cell nw-8 text-left">
 									<label class="col-md-2 col-form-label" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
 								</div>
 								<div class="d-table-cell nw-auto text-left">
-								<select id="colorselector_2" name="wr_1">
-								<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
-								<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
-								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
-								<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
-								<option value="#008B8B" data-color="#008B8B" <?php echo get_selected($write['wr_1'], '#008B8B') ?>>darkcyan</option>
-								<option value="#B8860B" data-color="#B8860B" <?php echo get_selected($write['wr_1'], '#B8860B') ?>>darkgoldenrod</option>
-								<option value="#32CD32" data-color="#32CD32" <?php echo get_selected($write['wr_1'], '#32CD32') ?>>limegreen</option>
-								<option value="#FFD700" data-color="#FFD700" <?php echo get_selected($write['wr_1'], '#FFD700') ?>>gold</option>
-								<option value="#48D1CC" data-color="#48D1CC" <?php echo get_selected($write['wr_1'], '#48D1CC') ?>>mediumturquoise</option>
-								<option value="#87CEEB" data-color="#87CEEB" <?php echo get_selected($write['wr_1'], '#87CEEB') ?>>skyblue</option>
-								<option value="#FF69B4" data-color="#FF69B4" <?php echo get_selected($write['wr_1'], '#FF69B4') ?>>hotpink</option>
-								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
-								<option value="#87CEFA" data-color="#87CEFA" <?php echo get_selected($write['wr_1'], '#87CEFA') ?>>lightskyblue</option>
-								<option value="#6495ED" data-color="#6495ED" <?php echo get_selected($write['wr_1'], '#6495ED') ?>>cornflowerblue</option>
-								<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
-								<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
-								<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
-							</select>
+									<!-- <select id="colorselector_2" name="wr_1">
+										<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
+										<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
+										<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+										<option value="#FF4500" data-color="#FF4500" <?php echo get_selected($write['wr_1'], '#FF4500') ?>>orangered</option>
+										<option value="#008B8B" data-color="#008B8B" <?php echo get_selected($write['wr_1'], '#008B8B') ?>>darkcyan</option>
+										<option value="#B8860B" data-color="#B8860B" <?php echo get_selected($write['wr_1'], '#B8860B') ?>>darkgoldenrod</option>
+										<option value="#32CD32" data-color="#32CD32" <?php echo get_selected($write['wr_1'], '#32CD32') ?>>limegreen</option>
+										<option value="#FFD700" data-color="#FFD700" <?php echo get_selected($write['wr_1'], '#FFD700') ?>>gold</option>
+										<option value="#48D1CC" data-color="#48D1CC" <?php echo get_selected($write['wr_1'], '#48D1CC') ?>>mediumturquoise</option>
+										<option value="#87CEEB" data-color="#87CEEB" <?php echo get_selected($write['wr_1'], '#87CEEB') ?>>skyblue</option>
+										<option value="#FF69B4" data-color="#FF69B4" <?php echo get_selected($write['wr_1'], '#FF69B4') ?>>hotpink</option>
+										<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
+										<option value="#87CEFA" data-color="#87CEFA" <?php echo get_selected($write['wr_1'], '#87CEFA') ?>>lightskyblue</option>
+										<option value="#6495ED" data-color="#6495ED" <?php echo get_selected($write['wr_1'], '#6495ED') ?>>cornflowerblue</option>
+										<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
+										<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
+										<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
+									</select> -->
+									<input id="color1" class="iColorPicker" type="text" name="wr_1" style="width:55px;color:#fff; text-align:center;" onChange="wr_subject.style.color=this.style.backgroundColor;" value="<?php if($write['wr_1']){echo $write['wr_1'];} else { echo "#222";} ?>" />	
 								</div>
 							</div>
 						</div>	
@@ -925,7 +907,7 @@ ul.my-table > li {
 					<?php if ($member['mb_level'] >= 14) { ?>
 						<label class="col-md-2 col-form-label" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
 						<div class="col-md-10">
-							<select id="colorselector_2" name="wr_1">
+							<!-- <select id="colorselector_2" name="wr_1">
 								<option value="#000000" selected data-color="#000000" <?php echo get_selected($write['wr_1'], '#000000') ?>>black</option>
 								<option value="#A0522D" data-color="#A0522D" <?php echo get_selected($write['wr_1'], '#A0522D') ?>>sienna</option>
 								<option value="#CD5C5C" data-color="#CD5C5C" <?php echo get_selected($write['wr_1'], '#CD5C5C') ?>>indianred</option>
@@ -943,7 +925,8 @@ ul.my-table > li {
 								<option value="#DC143C" data-color="#DC143C" <?php echo get_selected($write['wr_1'], '#DC143C') ?>>crimson</option>
 								<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
 								<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
-							</select>
+							</select> -->
+							<input id="color1" class="iColorPicker" type="text" name="wr_1" style="width:55px;color:#fff; text-align:center;" onChange="wr_subject.style.color=this.style.backgroundColor;" value="<?php if($write['wr_1']){echo $write['wr_1'];} else { echo "#222";} ?>" />
 						</div>
 								<!-- <input type="hidden" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required class="frm_input required" size="30" maxlength="255"> -->
 					<?php } ?>
