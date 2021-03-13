@@ -64,11 +64,11 @@ function latest_popular($bo_table, $rows=10, $subject_len=40, $term='', $options
       <li>
       <?php
       echo "<a href=\"".$list[$i]['href']."\">";
-      echo "<div class=\"num\">".($i+1)."</div> ";
+      echo "<div class=\"num float-left\">".($i+1)."</div> ";
       echo $list[$i]['subject'];
       ?>
       <!-- //  ner oruulj ireh -->
-      <div> ★ 익명</div>
+      <div class="float-right"> ★ 익명</div>
       <?php echo "</a>"; ?>
       
         </li>
