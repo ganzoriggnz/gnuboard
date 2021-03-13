@@ -31,7 +31,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 		        <input type="hidden" name="mb_nick" value="<?php echo get_text($member['mb_nick']) ?>">
 			<?php }  ?>
 
-		<ul class="list-group mb-4" style="margin-top: 51px;">
+		<ul class="list-group mb-4">
 			<li class="list-group-item border-top-0">
 				<h5>사이트 이용정보 입력</h5>
 			</li>
