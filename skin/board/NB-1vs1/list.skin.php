@@ -77,12 +77,12 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 		<input type="hidden" name="sw" value="">
 
 		<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-		<div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0">
+		<div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0 float-right">
 			<div class="d-flex align-items-center">
 				<!-- <div id="bo_list_total" class="flex-grow-1">
 					Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page
 				</div> -->
-				<div class="btn-group" role="group">
+				<div class="btn-group" role="group" class="float-right">
 					<?php if ($admin_href) { ?>
 						<a href="<?php echo $admin_href ?>" class="btn btn_admin nofocus py-1" title="관리자" role="button">
 							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
@@ -123,7 +123,14 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 					<?php } ?>
 					<div class="btn-group" role="group">
 						<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
-							<?php
+							<?php if($bo_table == 'partnership'){
+								switch($sst) {
+									case 'wr_datetime'	: $sst_icon = 'history'; $sst_txt = '날짜순 정렬'; break;
+									case 'wr_hit'		: $sst_icon = 'eye'; $sst_txt = '조회순 정렬'; break;
+									default				: $sst_icon = 'sort-numeric-desc'; $sst_txt = '게시물 정렬'; break;
+								}
+
+							} else {
 								switch($sst) {
 									case 'wr_datetime'	: $sst_icon = 'history'; $sst_txt = '날짜순 정렬'; break;
 									case 'wr_hit'		: $sst_icon = 'eye'; $sst_txt = '조회순 정렬'; break;
@@ -131,6 +138,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 									case 'wr_nogood'	: $sst_icon = 'thumbs-o-down'; $sst_txt = '비추천순 정렬'; break;
 									default				: $sst_icon = 'sort-numeric-desc'; $sst_txt = '게시물 정렬'; break;
 								}
+							}
 							?>
 							<i class="fa fa-<?php echo $sst_icon ?> fa-md" aria-hidden="true"></i>
 							<span class="sr-only"><?php echo $sst_txt ?></span>

@@ -115,17 +115,17 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
 			<div id="bo_btn_top">
-				<?php if(!G5_IS_MOBILE) {?>
-				<div id="bo_list_total" class="float-left">					
+				<div id="bo_list_total">
+					<?php if(!G5_IS_MOBILE) {?>
 					<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
 					<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
 					<?php echo "&nbsp; 방장 : " ?>
 						<!-- 계급마크 출력-->
 					<?php echo get_level($row['mb_id'])."  ", $row['mb_nick'], "  ",  get_level($row1['mb_id'])."  ", $row1['mb_nick'], "&nbsp;&nbsp;" ," / " ,"&nbsp;&nbsp;"?>
-					<?php echo "[글 작성 ", $board['bo_write_point'], " 파운드 /  댓글 작성 ", $board['bo_comment_point'], " 파운드 획득]" ?>					
+					<?php echo "[글 작성 ", $board['bo_write_point'], " 파운드 /  댓글 작성 ", $board['bo_comment_point'], " 파운드 획득]" ?>
+					<?php } ?>
 				</div>
-				<?php } ?>
-				<div role="group" class="float-right">
+				<div role="group">
 					<?php if ($admin_href) { ?>
 						<a href="<?php echo $admin_href ?>" class="btn btn_admin nofocus py-1" title="관리자" role="button">
 							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
@@ -169,7 +169,6 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 									$sst_icon = 'eye';
 									$sst_txt = '조회순 정렬';
 									break;
-							if($board !='partnership'){
 								case 'wr_good':
 									$sst_icon = 'thumbs-o-up';
 									$sst_txt = '추천순 정렬';
@@ -178,7 +177,6 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 									$sst_icon = 'thumbs-o-down';
 									$sst_txt = '비추천순 정렬';
 									break;
-								}
 								default:
 									$sst_icon = 'sort-numeric-desc';
 									$sst_txt = '게시물 정렬';
@@ -196,12 +194,12 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 								<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
 								조회순
 								</a>
-								<?php if ($is_good && $board !='partnership') { ?>
+								<?php if ($is_good) { ?>
 									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
 									추천순
 									</a>
 								<?php } ?>
-								<?php if ($is_nogood && $board !='partnership') { ?>
+								<?php if ($is_nogood) { ?>
 									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
 									비추천순
 									</a>
