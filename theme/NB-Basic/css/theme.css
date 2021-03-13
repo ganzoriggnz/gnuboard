@@ -554,3 +554,7 @@ hr.hr::after {
 .writebtn {
 	padding: 0 0.1rem;
 }
+
+.text-left {
+	text-align: left !important;
+}
