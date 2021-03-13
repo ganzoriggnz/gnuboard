@@ -77,12 +77,12 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 		<input type="hidden" name="sw" value="">
 
 		<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-		<div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0 float-right">
-			<div class="d-flex align-items-center">
+		<div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0">
+			<div class="d-flex align-items-center float-right">
 				<!-- <div id="bo_list_total" class="flex-grow-1">
 					Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page
 				</div> -->
-				<div class="btn-group" role="group" class="float-right">
+				<div class="btn-group" role="group">
 					<?php if ($admin_href) { ?>
 						<a href="<?php echo $admin_href ?>" class="btn btn_admin nofocus py-1" title="관리자" role="button">
 							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
@@ -151,12 +151,12 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 								<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
 									조회순
 								</a>
-								<?php if($is_good) { ?>
+								<?php if($is_good && $bo_table != 'partnership') { ?>
 									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
 										추천순
 									</a>
 								<?php } ?>
-								<?php if($is_nogood) { ?>
+								<?php if($is_nogood && $bo_table != 'partnership') { ?>
 									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
 										비추천순
 									</a>
