@@ -196,7 +196,7 @@ $list_cnt = count($list);
 					</div>
 				</div>
 			</div>
-			<div class="float-right float-md-none d-md-table-cell nw-16 nw-md-auto text-left f-sm" style="text-align: left !important;">
+			<div class="float-md-none d-md-table-cell nw-16 nw-md-auto text-left f-sm">
 				<span class="sr-only">등록자</span>
 					<?php
 						$mbid= get_member($list[$i]['mb_id']);
