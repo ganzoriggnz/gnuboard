@@ -123,14 +123,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 					<?php } ?>
 					<div class="btn-group" role="group">
 						<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
-							<?php if($bo_table == 'partnership'){
-								switch($sst) {
-									case 'wr_datetime'	: $sst_icon = 'history'; $sst_txt = '날짜순 정렬'; break;
-									case 'wr_hit'		: $sst_icon = 'eye'; $sst_txt = '조회순 정렬'; break;
-									default				: $sst_icon = 'sort-numeric-desc'; $sst_txt = '게시물 정렬'; break;
-								}
-
-							} else {
+							<?php 
 								switch($sst) {
 									case 'wr_datetime'	: $sst_icon = 'history'; $sst_txt = '날짜순 정렬'; break;
 									case 'wr_hit'		: $sst_icon = 'eye'; $sst_txt = '조회순 정렬'; break;
@@ -138,7 +131,6 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 									case 'wr_nogood'	: $sst_icon = 'thumbs-o-down'; $sst_txt = '비추천순 정렬'; break;
 									default				: $sst_icon = 'sort-numeric-desc'; $sst_txt = '게시물 정렬'; break;
 								}
-							}
 							?>
 							<i class="fa fa-<?php echo $sst_icon ?> fa-md" aria-hidden="true"></i>
 							<span class="sr-only"><?php echo $sst_txt ?></span>

@@ -162,14 +162,14 @@ if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin){
 				<span class="sr-only">조회</span>
 				<?php echo $list[$i]['wr_hit'] ?>
 			</div>
-			<?php if($is_good) { ?>
+			<?php if($is_good && $bo_table != 'partnership') { ?>
 				<div class="float-left float-md-none d-md-table-cell nw-3 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
 					<i class="fa fa-thumbs-o-up d-md-none" aria-hidden="true"></i>
 					<span class="sr-only">추천</span>
 					<?php echo $list[$i]['wr_good'] ?>
 				</div>
 			<?php } ?>
-			<?php if($is_nogood) { ?>
+			<?php if($is_nogood  && $bo_table != 'partnership') { ?>
 				<div class="float-left float-md-none d-md-table-cell nw-3 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
 					<i class="fa fa-thumbs-o-down d-md-none" aria-hidden="true"></i>
 					<span class="sr-only">비추천</span>
