@@ -53,7 +53,6 @@ $list_cnt = count($list);
 		.eye p {
 			padding-top: 4px; margin-left: 3px;
 		}
-		.ml-50 {margin-left: 50px;}
 	}
 </style>
 
@@ -197,13 +196,15 @@ $list_cnt = count($list);
 					</div>
 				</div>
 			</div>
-			<div class="float-left float-md-none d-md-table-cell nw-16 nw-md-auto text-left f-sm ml-50">
+			<div class="float-right float-md-none d-md-table-cell nw-16 nw-md-auto text-left f-sm">
+				<div style="width: 200px; text-align:left;">
 				<span class="sr-only">등록자</span>
 					<?php
 						$mbid= get_member($list[$i]['mb_id']);
 						$name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);
 						echo na_name_photo($list[$i]['mb_id'], "<p class='username'>".$name."</p>")
 					?>
+					</div>
 			</div>
 			<div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm">
 				<span class="sr-only">등록일</span>
