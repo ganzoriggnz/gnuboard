@@ -261,13 +261,13 @@ $is_col_all = 6;
 
 
                             <?php if($is_member) { ?>
-                            <li class="col p-0 me-li me-icon right_border">
+                            <!-- <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en" href="javascript:;"
                                     onclick="sidebar_open('sidebar-menu'); return false;" target="_self" title="마이페이지">
-                                    <!--<i class="fa fa-mobile" aria-hidden="true"></i>-->
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
                                     <img src="<?php echo G5_URL?>/img/baseline-person-24px.png">
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self"
                                     title="회원검색">
