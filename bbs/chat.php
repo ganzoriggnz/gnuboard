@@ -2,7 +2,7 @@
             
  <?php
             include_once("_common.php");
-        if($member['mb_level'] >= 6) { // 레벨 6 이상 입장 가능
+        if($member['mb_level'] >= 5) { // 레벨 6 이상 입장 가능
             
             if (!function_exists('uchat_array2data')) {
                 function uchat_array2data($arr)
