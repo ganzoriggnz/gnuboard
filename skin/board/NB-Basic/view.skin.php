@@ -198,7 +198,7 @@ $view_subject = get_text($view['wr_subject']);
 								<?php if ($move_href) { ?>
 									<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;" class="btn btn-primary py-2" role="button">
 										<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
-										글이동
+										글이동허하
 									</a>
 								<?php } ?>
 								<?php if ($search_href) { ?>
@@ -306,8 +306,7 @@ $view_subject = get_text($view['wr_subject']);
 								<?php if ($move_href) { ?>
 									<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;" class="btn btn-primary py-2" role="button">
 										<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
-										글이동
-									</a>
+										글이동ㅣㅣ
 								<?php } ?>
 								<?php if ($search_href) { ?>
 									<a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
@@ -338,7 +337,6 @@ $view_subject = get_text($view['wr_subject']);
 					<span class="sr-only">작성자</span>
 					<!-- hulan nemsen level mark -->
 					<?php echo na_name_photo($view['mb_id'], $view['name']); ?>
-
 				</li>
 				<?php if ($is_ip_view) { ?>
 					<li class="pr-2">
@@ -407,12 +405,13 @@ $view_subject = get_text($view['wr_subject']);
 									</a>
 								<?php } } ?>
 								<!-- hulan nemsen level 24.25 can not delete post  -->
-								<?php if ($delete_href && $member['mb_level'] != 24 && $member['mb_level'] != 25) {if($is_admin ||  $member['mb_6']!=$bo_table ) {  ?>
+								<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25') { 
+								if ($delete_href) {  ?>
 									<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;" class="btn btn-primary py-2" role="button">
 										<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
 										글삭제
 									</a>
-								<?php }} ?>
+								<?php } ?>
 								<?php if ($copy_href) { ?>
 									<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;" class="btn btn-primary py-2" role="button">
 										<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
@@ -424,7 +423,7 @@ $view_subject = get_text($view['wr_subject']);
 										<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
 										글이동
 									</a>
-								<?php } ?>
+								<?php } }?>
 								<?php if ($search_href) { ?>
 									<a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
 										<i class="fa fa-search fa-fw" aria-hidden="true"></i>
@@ -433,7 +432,7 @@ $view_subject = get_text($view['wr_subject']);
 								<?php } ?>
 								</div> 
 							</div>
-						<?php } ?>
+						<?php  } ?>
 					</div>
 					<?php
 					$link_buttons = ob_get_contents();
@@ -504,7 +503,7 @@ $view_subject = get_text($view['wr_subject']);
 		<?php 
 		if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
 			<div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
-				<div class="btn-group btn-group-lg" role="group">
+				<div class="btn-group btn-group-lg" role="group"
 					<?php if ($member['mb_level'] >= $board['bo_use_good']) { // 추천 ?>
 						<button type="button" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'good', 'wr_good');" class="btn btn-basic" title="추천" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 12px;"';} else { echo '';} ?>>
 							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
