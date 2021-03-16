@@ -112,7 +112,7 @@ if ($d) {
 <table border="0" width="100%">
     <tr>
         <td  align="center" style="padding-top:10px;">
-		  <img src="<?php echo G5_ATTENDANCE_URL?>/img/icon_clock.gif" align="absmiddle"> <span id="time_view" style='color:#ccc;font-weight:none;'>0</span>
+		  <img src="<?php echo G5_ATTENDANCE_URL?>/img/icon_clock.gif" align="absmiddle"> <span id="time_view" class="time_col">0</span>
 		</td>
     </tr>
     <tr>
@@ -125,9 +125,6 @@ if ($d) {
 		</td>
         </tr>
     <tr style="font-size: 12px;">
-
-		   
-
         <td width=""  style='padding-left:10px;'>
         <img src="<?php echo G5_ATTENDANCE_URL?>/img/exclamation.gif" align="absmiddle"> 출석부 이용안내 <br>
 		    출석시간 : <?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br/>

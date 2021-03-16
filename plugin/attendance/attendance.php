@@ -112,23 +112,24 @@ if ($d) {
     <td colspan="7" align="center">
 <table border="0" width="100%">
     <tr>
-        <td width="200" height="30" align="center" style='padding-top:10px;'>
-		  <img src="<?php echo G5_ATTENDANCE_URL?>/img/icon_clock.gif" align="absmiddle"> <span id="time_view" style='color:#ccc;font-weight:none;'>0</span>
+        <td class="att_top1">
+		  <img src="<?php echo G5_ATTENDANCE_URL?>/img/icon_clock.gif" align="absmiddle"> <span id="time_view" class="time_col">0</span>
 		</td>
         <!-- <td width="50" height="90" rowspan="2"><img src="<?php echo G5_ATTENDANCE_URL?>/img/att.gif" align="absmiddle"></td> -->
-        <td width="" height="30" style='padding-top:10px;'>
-		    <img src="<?php echo G5_ATTENDANCE_URL?>/img/exclamation.gif" align="absmiddle"> 출석부 이용안내
+        <td class="att_top2">
+		    <img src="<?php echo G5_ATTENDANCE_URL?>/img/exclamation.gif" align="absmiddle"> 출석부 이용안내 </br>
 		</td>
     </tr>
     <tr>
-        <td width="200" height="60" align="center">
+        <td class="att_top3">
 			<div id="box">
 				<li class="top"><a href="?d=<?php echo $DateP1?>&mode=<?php echo $mode?>" class="dot"><img src="<?php echo G5_ATTENDANCE_URL?>/img/btn_prev.gif" align="absmiddle"></a></li>
 				<li class="day"><span class="w"><?php echo $DateT1?></span></li>
 				<li class="top"><a href="?d=<?php echo $DateN3?>&mode=<?php echo $mode?>" class="dot"><img src="<?php echo G5_ATTENDANCE_URL?>/img/btn_next.gif" align="absmiddle"></a></li>
 			</div>		    
 		</td>
-        <td style='padding-left:10px;'>
+        <td class="att_top4">
+        <div class="show_exc"><img src="<?php echo G5_ATTENDANCE_URL?>/img/exclamation.gif" align="absmiddle"> 출석부 이용안내 <br> </div>
 		    . 출석시간 : <?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br>
             . 출석파운드 : <?php echo number_format($attendance['today_point'])?> 파운드
             <br>
@@ -405,7 +406,7 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
     <td width="50" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>등수</td>
     <td width="100" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>출석시간</td>
     <td width="170" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>닉네임</td>
-    <td align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>출석인사</td>
+    <td class="show_at" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>출석인사</td>
     <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>접속중</td>
     <td width="100" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>파운드</td>
     <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>개근</td>
@@ -447,7 +448,7 @@ for ($i=0; $data=sql_fetch_array($result); $i++) {
     <td align="center"><?php echo $rank?> 등</td>
     <td align="center"><?php echo substr($data['datetime'],10,16);?></td>
     <td align="left"><?php echo na_name_photo($check['mb_id'], $name) ?></td>
-    <td style="padding:0 0 0 20px;"><?php echo get_text($data['subject'])?></td>
+    <td class="show_at" style="padding:0 0 0 20px;"><?php echo get_text($data['subject'])?></td>
     <td align="center"><?php echo $on?></td>
     <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']);?> 파운드</td>
     <td align="center"><?php echo $data['day']?> 일째</td>

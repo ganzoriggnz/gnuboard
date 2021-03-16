@@ -8,6 +8,7 @@ A {text-decoration:none;}
 #att_layer #box {width:120px;}
 #att_layer #box .top {padding-top:4px; width:20px; float:left;}
 #att_layer #box .day {width:80px; float:left;}
+#att_layer #box .top1 {padding-top:4px; width:20px; float:left;}
 
 #att_layer .w {font-weight:bold; line-height:20px; color:#333333; font-size:15px; font-family:굴림,돋움;}
 #att_layer .attendance {background:url('./img/attendance.gif') no-repeat;}
@@ -69,4 +70,31 @@ A {text-decoration:none;}
     margin: 0;
     border-left: 0px;
     cursor: pointer;
+}
+
+.att_top1 { width: 200px; height: 30px; text-align: center; padding-top: 10px;}
+.att_top2 {height: 30px; padding-top: 10px;}
+
+.time_col{ color:#ccc;font-weight:none;}
+
+.att_top3 { width: 200px; height: 60px; text-align: center; padding-top: 10px;}
+.att_top4 {height: 30px; padding-top: 10px; padding-left: 10px;}
+.show_exc { display: none;}
+
+@media (max-width: 1100px){
+    .show_at {
+        display: none;
+    }
+    .att_top1 {width: 100%; height:auto; display: block;}
+    .att_top2 {display: none;}
+    .att_top3 {width: 100%; height:auto; display: block; text-align: center; padding-top: 10px}
+    .att_top4 {width: 100%; height: auto; display: block;}
+    .show_exc {display: block;}
+    #att_layer #box {width: 100%}
+    #att_layer #box .top {float: none; display: inline-block;}
+    #att_layer #box .day {float: none; display: inline-block;}
+    #att_layer #box .top1 {float: none; display: inline-block;}
+    #att_layer .attendance {background:url('./img/m_attendance.gif') no-repeat;}
+    #att_layer .attendance_off {background:url('./img/m_attendance_off.gif') no-repeat;}
+
 }
