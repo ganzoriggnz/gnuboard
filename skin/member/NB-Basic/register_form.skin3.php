@@ -49,7 +49,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					<label class="col-sm-2 control-label" for="reg_mb_1"><b>성별</b><strong class="sound_only">필수</strong></label>
 					<div class="col-sm-10">
 						<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" name="mb_1" value="남" id="reg_mb_1" class="custom-control-input" <?php if ($member['mb_id'] && $member['mb_1'] == "남" && $member['mb_1'] !='' && !$is_admin){echo "checked";} else if(!$member['mb_id']){ echo "";} else { echo "disabled";} ?>> 
+						<input type="radio" name="mb_1" checked value="남" id="reg_mb_1" class="custom-control-input" <?php if ($member['mb_id'] && $member['mb_1'] == "남" && $member['mb_1'] !='' && !$is_admin){echo "checked";} else if(!$member['mb_id']){ echo "";} else { echo "disabled";} ?>> 
 						<label class="custom-control-label" for="reg_mb_1">남</label>
 					</div>
 					<div class="custom-control custom-radio custom-control-inline">
@@ -59,7 +59,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						<p class="form-control-plaintext f-de text-muted pb-0">
 							남성회원이 여성회원으로 가입시 아이디가 삭제조취 될수있으니 유의하여 가입하시기 바랍니다.
 						</p>
-
 					</div>
 				</div>
 					<!-- if ($req_nick) ene muriig solison hulan -->
@@ -72,7 +71,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						</div>
 						<div class="col-sm-6">
 							<p class="form-control-plaintext f-de text-muted pb-0">
-								공백없이 한글,영문,숫자만 가능 (한글2자,영문4자 이상 가능)
+								공백없이 한글,영문,숫자만 가능 (한글8자,영문16자 이상 가능)
 							</p>
 						</div>
 						<?php if ($config['cf_nick_modify']) { ?>
@@ -142,7 +141,6 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					</div>
 				</div>
 <!-- ASDFASDFASDASDFASDFASDFDDD   -->
-
 
 <?php if ($member['mb_level'] >= $config['cf_icon_level'] && $config['cf_member_img_size'] && $config['cf_member_img_width'] && $config['cf_member_img_height']) {
 					na_script('fileinput');	// 첨부파일				
@@ -639,9 +637,9 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 		var text = that.val();
 
 		if (hangul.test(text)) {
-			limit = 3;
+			limit = 8;
 		} else {
-			limit = 12;
+			limit = 16;
 		}
 		that.attr("maxlength", limit);
 		if (text.length > limit) that.val(text.substring(0, limit))
