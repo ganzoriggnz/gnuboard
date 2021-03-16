@@ -98,3 +98,21 @@ A {text-decoration:none;}
     #att_layer .attendance_off {background:url('./img/m_attendance_off.gif') no-repeat;}
 
 }
+
+@media (max-device-width: 1100px){
+    .show_at {
+        display: none;
+    }
+    .att_top1 {width: 100%; height:auto; display: block;}
+    .att_top2 {display: none;}
+    .att_top3 {width: 100%; height:auto; display: block; text-align: center; padding-top: 10px}
+    .att_top4 {width: 100%; height: auto; display: block;}
+    .show_exc {display: block;}
+    #att_layer #box {width: 100%}
+    #att_layer #box .top {float: none; display: inline-block;}
+    #att_layer #box .day {float: none; display: inline-block;}
+    #att_layer #box .top1 {float: none; display: inline-block;}
+    #att_layer .attendance {background:url('./img/m_attendance.gif') no-repeat;}
+    #att_layer .attendance_off {background:url('./img/m_attendance_off.gif') no-repeat;}
+
+}
