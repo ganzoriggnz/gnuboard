@@ -28,7 +28,8 @@ $g5['title'] = "출석체크";
     }
 
 if (!$is_member) {
-    alert("로그인 후 이용하세요.");
+    /* alert("로그인 후 이용하세요."); */
+    alert("로그인 후 이용하세요.", G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 }
 
 include_once(G5_THEME_PATH."/head.sub.php");
@@ -343,8 +344,8 @@ function dateGo(day)
         <div class="msg-cell">
             <textarea id="subject" name="subject" class="form-attendance input-sm" rows="4" required="" maxlength="65536"></textarea>
         </div>
-        <div tabindex="14" class="msg-cell msg-submit" onclick="att_submit();">
-            출석하기
+        <div tabindex="14" class="msg-cell msg-submit">
+           <input type="submit" class="msg-cell msg-submit" style="border: none;" value="출석하기">
         </div>
     </div>
 </form>
@@ -361,22 +362,9 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
 </script>   
 
 <script type="text/javascript"> 
-/* function fattendance_submit(f) 
-{ 
 
-    var ChkSubject = document.getElementById("subject").value; 
 
-    if (!ChkSubject || ChkSubject == '출석인사를 입력해 주세요.') { 
-
-        alert("출석인사를 입력하세요."); 
-        return false; 
-
-    } 
-   f.action = "<?php echo G5_PLUGIN_URL ?>/attendance/m_attendance_write_update.php"; 
-    f.action = "./m_attendance_write_update.php"; 
-}  */
-
-    function att_submit()
+    /* function att_submit()
     { 
         var ChkSubject = $('#subject').val();
         if (!ChkSubject || ChkSubject == '출석인사를 입력해 주세요.') { 
@@ -388,7 +376,11 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
         else {
             $('#fattendance').submit();
         } 
-    } 
+    }  */
+
+    function fattendance_submit(f) {
+        return true;
+    }
 </script>
     </td>
 </tr>
@@ -440,7 +432,7 @@ for ($i=0; $data=sql_fetch_array($result); $i++) {
 <tr height="30" class="bg<?php echo $list?>">
     <td align="center"><?php echo $rank?> 등</td>
     <td align="center"><?php echo substr($data['datetime'],10,16);?></td>
-    <td align="center"><?php echo $name?></td>
+    <td align="left"><?php echo $name?></td>
     <td align="center"><?php echo $on?></td>
     <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']);?> 파운드</td>
     <td align="center"><?php echo $data['day']?> 일째</td>
