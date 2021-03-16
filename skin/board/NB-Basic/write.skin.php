@@ -419,7 +419,7 @@ ul.my-table > li {
 			<li class="list-group-item">
 
 				<div class="form-group row mb-0">
-					<?php if ($member['mb_level'] >= 14) { ?>
+					<?php if ($member['mb_level'] >= 13) { ?>
 						<div class="na-table d-table w-100">
 							<div class="d-table-row">
 								<div class="d-table-cell nw-8 text-left">
@@ -445,7 +445,7 @@ ul.my-table > li {
 										<option value="#FF8C00" data-color="#FF8C00" <?php echo get_selected($write['wr_1'], '#FF8C00') ?>>darkorange</option>
 										<option value="#C71585" data-color="#C71585" <?php echo get_selected($write['wr_1'], '#C71585') ?>>mediumvioletred</option>
 									</select> -->
-									<input id="color1" class="iColorPicker" type="text" name="wr_1" style="width:55px;color:#fff; text-align:center;" onChange="wr_subject.style.color=this.style.backgroundColor;" value="<?php if($write['wr_1']){echo $write['wr_1'];} else { echo "#222";} ?>" />	
+									<input id="color1" class="iColorPicker" type="text" name="wr_1" style="width:60px;color:#fff; text-align:center;" onChange="wr_subject.style.color=this.style.backgroundColor;" value="<?php if($write['wr_1']){echo $write['wr_1'];} else { echo "#222";} ?>" />	
 								</div>
 							</div>
 						</div>	
@@ -904,7 +904,7 @@ ul.my-table > li {
 			<li class="list-group-item">
 
 				<div class="form-group row mb-0">
-					<?php if ($member['mb_level'] >= 14) { ?>
+					<?php if ($member['mb_level'] >= 13) { ?>
 						<label class="col-md-2 col-form-label" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
 						<div class="col-md-10">
 							<!-- <select id="colorselector_2" name="wr_1">
