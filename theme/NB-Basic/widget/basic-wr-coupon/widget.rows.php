@@ -96,7 +96,7 @@ for ($i=0; $i < $list_cnt; $i++) {
         }
         a[type="button"] {
             -webkit-appearance: none;
-            border-radius: 0;
+            border-radius: 5px;
         }
         </style>
 <li class="col px-2" style="margin-bottom: 15px;">
