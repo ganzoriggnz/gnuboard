@@ -128,25 +128,52 @@ if ($d) {
 				<li class="top1"><a href="?d=<?php echo $DateN3?>&mode=<?php echo $mode?>" class="dot"><img src="<?php echo G5_ATTENDANCE_URL?>/img/btn_next.gif" align="absmiddle"></a></li>
 			</div>		    
 		</td>
-        <td class="att_top4">
+        <?php if(G5_IS_MOBILE){ ?>
+            <tr style="font-size: 12px;">
+            <td width=""  style='padding-left:10px;'>
+            <img src="<?php echo G5_ATTENDANCE_URL?>/img/exclamation.gif" align="absmiddle"> 출석부 이용안내 <br>
+                출석시간 : <?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br/>
+                출석파운드 : <?php echo number_format($attendance['today_point'])?> 파운드<br />
+                등수 파운드 : 1등 <?php echo number_format($attendance['first_point'])?> 파운드, 2등 <?php echo number_format($attendance['second_point'])?> 파운드, 3등 <?php echo number_format($attendance['third_point'])?> 파운드<br />
+                개근 파운드 : 
+                <?php echo $attendance['day']?>일 파운드 : <?php echo number_format($attendance['day_point'])?> 파운드, 
+                <?php echo $attendance['monthly']?>일 파운드 : <?php echo number_format($attendance['monthly_point'])?> 파운드, 
+                <?php echo $attendance['year1']?>일 파운드 : <?php echo number_format($attendance['year1_point'])?> 파운드, 
+                <?php echo $attendance['year2']?>일 파운드 : <?php echo number_format($attendance['year2_point'])?> 파운드, 
+                <?php echo $attendance['year3']?>일 파운드 : <?php echo number_format($attendance['year3_point'])?> 파운드, 
+                <?php echo $attendance['year']?>일 파운드 : <?php echo number_format($attendance['year_point'])?>파운드
+            </td>
+        </tr>
+        <?php } else { ?>
+            <td class="att_top4">
         <div class="show_exc"><img src="<?php echo G5_ATTENDANCE_URL?>/img/exclamation.gif" align="absmiddle"> 출석부 이용안내 <br> </div>
 		    출석시간 : <?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br>
             출석파운드 : <?php echo number_format($attendance['today_point'])?> 파운드
             <br>
-			1등 파운드 : <?php echo number_format($attendance['first_point'])?> 파운드&nbsp;&nbsp;
-			2등 파운드 : <?php echo number_format($attendance['second_point'])?> 파운드&nbsp;&nbsp;
-			3등 파운드 : <?php echo number_format($attendance['third_point'])?> 파운드
+			• 1등 파운드 : <?php echo number_format($attendance['first_point'])?> 파운드&nbsp;&nbsp;
+			• 2등 파운드 : <?php echo number_format($attendance['second_point'])?> 파운드&nbsp;&nbsp;
+			• 3등 파운드 : <?php echo number_format($attendance['third_point'])?> 파운드
             <br>            
-            개근상 : <?php echo $attendance['day']?>일 : <?php echo number_format($attendance['day_point'])?> 파운드,&nbsp;&nbsp;	<?php echo $attendance['monthly']?>일 : <?php echo number_format($attendance['monthly_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year1']?>일 : <?php echo number_format($attendance['year1_point'])?> 파운드,
+            • 개근상 : <?php echo $attendance['day']?>일 : <?php echo number_format($attendance['day_point'])?> 파운드,&nbsp;&nbsp;	<?php echo $attendance['monthly']?>일 : <?php echo number_format($attendance['monthly_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year1']?>일 : <?php echo number_format($attendance['year1_point'])?> 파운드,
             &nbsp;&nbsp;<?php echo $attendance['year2']?>일 : <?php echo number_format($attendance['year2_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year3']?>일 : <?php echo number_format($attendance['year3_point'])?> 파운드,&nbsp;&nbsp;<?php echo $attendance['year']?>일 : <?php echo number_format($attendance['year_point'])?> 파운드
             <br> &nbsp;
 		</td>
+        <?php } ?>      
     </tr>
 </table>
 </td>
 </tr>
 <tr><td colspan="7" height="1" bgcolor="#e4e4e4"></td></tr>
 <tr height='30'>
+<?php if(G5_IS_MOBILE){ ?>
+    <td align="center" class="title_sun"><img src="<?php echo G5_ATTENDANCE_URL?>/img/su.gif" align="absmiddle"> 일</td>
+    <td align="center" class="title_day"><img src="<?php echo G5_ATTENDANCE_URL?>/img/mo.gif" align="absmiddle"> 월</td>
+    <td align="center" class="title_day"><img src="<?php echo G5_ATTENDANCE_URL?>/img/tu.gif" align="absmiddle"> 화</td>
+    <td align="center" class="title_day"><img src="<?php echo G5_ATTENDANCE_URL?>/img/we.gif" align="absmiddle"> 수</td>
+    <td align="center" class="title_day"><img src="<?php echo G5_ATTENDANCE_URL?>/img/th.gif" align="absmiddle"> 목</td>
+    <td align="center" class="title_day"><img src="<?php echo G5_ATTENDANCE_URL?>/img/fr.gif" align="absmiddle"> 금</td>
+    <td align="center" class="title_sat"><img src="<?php echo G5_ATTENDANCE_URL?>/img/sa.gif" align="absmiddle"> 토</td> 
+    <?php } else { ?> 
     <td align="center" class="title_sun"><img src="<?php echo G5_ATTENDANCE_URL?>/img/su.gif" align="absmiddle"> 일요일</td>
     <td align="center" class="title_day"><img src="<?php echo G5_ATTENDANCE_URL?>/img/mo.gif" align="absmiddle"> 월요일</td>
     <td align="center" class="title_day"><img src="<?php echo G5_ATTENDANCE_URL?>/img/tu.gif" align="absmiddle"> 화요일</td>
@@ -154,6 +181,7 @@ if ($d) {
     <td align="center" class="title_day"><img src="<?php echo G5_ATTENDANCE_URL?>/img/th.gif" align="absmiddle"> 목요일</td>
     <td align="center" class="title_day"><img src="<?php echo G5_ATTENDANCE_URL?>/img/fr.gif" align="absmiddle"> 금요일</td>
     <td align="center" class="title_sat"><img src="<?php echo G5_ATTENDANCE_URL?>/img/sa.gif" align="absmiddle"> 토요일</td>
+    <?php } ?>
 </tr>
 <tr height='50'>
 <?php
@@ -337,7 +365,7 @@ function dateGo(day)
 <tr><td align="center" colspan="<?php echo $colspan?>"></td></tr>
 <tr>
     <td style="height:32px; border:0px solid">
-<form id="fattendance" name="fattendance" action = "<?php echo G5_PLUGIN_URL ?>/attendance/attendance_write_update.php" onsubmit="return fattendance_submit(this);" method="post" enctype="multipart/form-data" style="margin:0px;">
+<form id="fattendance" name="fattendance" action = "<?php echo G5_PLUGIN_URL ?>/attendance/attendance_write_update.php" method="post" enctype="multipart/form-data" style="margin:0px;">
 <!-- <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td> 
     <div class=" alert bg-light border form-row" style="height:40px; text-align: center; align-items: center; justify-content: center; margin:0px;">
             <input type="text" id="subject" name="subject" size="50" style="width:50%;" class="form-control input" value="출석인사를 입력해 주세요." onmouseover="if(!this.value || this.value == '출석인사를 입력해 주세요.')this.value='';" > 
@@ -348,8 +376,8 @@ function dateGo(day)
         <div class="msg-cell">
             <textarea id="subject" name="subject" class="form-attendance input-sm" rows="4" required="" maxlength="65536"></textarea>
         </div>
-        <div tabindex="14" class="msg-cell msg-submit">
-           <input type="submit" class="msg-cell msg-submit" style="border: none;" value="출석하기">
+        <div tabindex="14" class="msg-cell msg-submit" onclick="att_submit();">
+            출석하기
         </div>
     </div>
 </form>
@@ -382,7 +410,7 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
     f.action = "./m_attendance_write_update.php"; 
 }  */
 
-   /*  function att_submit()
+    function att_submit()
     { 
         var ChkSubject = $('#subject').val();
         if (!ChkSubject || ChkSubject == '출석인사를 입력해 주세요.') { 
@@ -394,16 +422,78 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
         else {
             $('#fattendance').submit();
         }
-    }  */
-
-    function fattendance_submit(f) {
-        return true;
-    }
+    } 
 </script>
     </td>
 </tr>
 <tr><td height="10"></td></tr>
+<?php if(G5_IS_MOBILE){ ?>
 <tr>
+    <td width="100%">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" valign="top" class="board_list" style="font-size:10px;">
+<tr height="34">
+    <td width="50" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>등수</td>
+    <td width="100" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>출석시간</td>
+    <td width="110" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>닉네임</td>
+    <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>접속중</td>
+    <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>파운드</td>
+    <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>개근</td>
+</tr>
+<?php
+// 출석 테이블 연결
+$sql = " select * from $g5[attendance_table] where $sql_common order by datetime asc, day desc ";
+$result = sql_query($sql);
+for ($i=0; $data=sql_fetch_array($result); $i++) {
+
+    // 접속자테이블 연결
+    $sql = " select mb_id from $g5[login_table] where mb_id = '$data[mb_id]' ";
+    $ing = sql_fetch($sql);
+
+    // 접속상태
+    if ($ing['mb_id']) {
+
+        $on = "접속중";
+
+    } else {
+
+        $on = "미접속";
+
+    }
+
+    // 회원 테이블 연결
+    $check = get_member($data['mb_id']);
+
+    // 닉네임
+    $name = get_sideview($check['mb_id'], $check['mb_nick'], $check['mb_email'], $check['mb_homepage']);
+
+    // 랭킹
+    $rank = $i + 1;
+
+    $list = $i%2 ? 0 : 1;
+	 
+?>
+<tr height="30" class="bg<?php echo $list?>">
+    <td align="center"><?php echo $rank?> 등</td>
+    <td align="center"><?php echo substr($data['datetime'],10,16);?></td>
+    <td align="left"><?php echo $name?></td>
+    <td align="center"><?php echo $on?></td>
+    <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']);?> 파운드</td>
+    <td align="center"><?php echo $data['day']?> 일째</td>
+</tr>
+<tr><td bgcolor="#EEEEEE" colspan="<?php echo $colspan?>" height="1"></td></tr>
+<?php } ?>
+<?php if (!$i) { ?>
+<tr><td height="100" colspan="<?php echo $colspan?>" align="center">출석한 사람이 없습니다.<br><br>출석시간 : <?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?></td></tr>
+<tr><td colspan="<?php echo $colspan?>" height="1" bgcolor="#eeeeee"></td></tr>
+<?php } ?>
+</table></td>
+</tr>
+<tr><td height="30"></td></tr>
+</table>
+</div>
+
+<?php } else { ?>
+    <tr>
     <td width="100%">
 <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" valign="top" class="board_list">
 <tr height="34">
@@ -468,6 +558,8 @@ for ($i=0; $data=sql_fetch_array($result); $i++) {
 <tr><td height="30"></td></tr>
 </table>
 </div>
+<?php } ?>
+
 <?php
 $strYear = date("Y", G5_SERVER_TIME);
 $strMonth = date("m", G5_SERVER_TIME) - 1;

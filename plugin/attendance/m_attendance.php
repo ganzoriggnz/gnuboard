@@ -335,7 +335,7 @@ function dateGo(day)
 <tr><td align="center" colspan="<?php echo $colspan?>"></td></tr>
 <tr>
     <td style="height:32px; border:0px solid">
-<form name="fattendance" method="post" onsubmit="return fattendance_submit(this);" style="margin:0px;">
+<form id="fattendance" name="fattendance" method="post" action = "<?php echo G5_PLUGIN_URL ?>/attendance/attendance_write_update.php" enctype="multipart/form-data" style="margin:0px;">
 <!-- <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td>
     <input type="text" id="subject" name="subject" class="input" style="height: 30px;" value="출석인사를 입력해 주세요." onmouseover="if(!this.value || this.value == '출석인사를 입력해 주세요.')this.value='';" >
     <input type="image" style="height: 30px;"  src="<?php echo G5_IMG_URL ?>/attendance_ok.gif" border="0"  align="absmiddle">
@@ -344,8 +344,7 @@ function dateGo(day)
         <div class="msg-cell">
             <textarea id="subject" name="subject" class="form-attendance input-sm" rows="4" required="" maxlength="65536"></textarea>
         </div>
-        <div tabindex="14" class="msg-cell msg-submit">
-           <input type="submit" class="msg-cell msg-submit" style="border: none;" value="출석하기">
+        <div tabindex="14" class="msg-cell msg-submit">출석하기
         </div>
     </div>
 </form>
@@ -364,7 +363,7 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
 <script type="text/javascript"> 
 
 
-    /* function att_submit()
+    function att_submit()
     { 
         var ChkSubject = $('#subject').val();
         if (!ChkSubject || ChkSubject == '출석인사를 입력해 주세요.') { 
@@ -376,11 +375,8 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
         else {
             $('#fattendance').submit();
         } 
-    }  */
+    }  
 
-    function fattendance_submit(f) {
-        return true;
-    }
 </script>
     </td>
 </tr>

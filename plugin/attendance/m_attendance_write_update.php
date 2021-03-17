@@ -5,7 +5,8 @@ include_once("./_setup.php");
 // 비회원
 if (!$is_member) {
 
-    alert("로그인 후 이용하세요.");
+    /* alert("로그인 후 이용하세요."); */
+    alert("로그인 후 이용하세요.", G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
 }
 
