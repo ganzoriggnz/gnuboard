@@ -543,7 +543,7 @@ $view_subject = get_text($view['wr_subject']);
 	        <?php 
 		if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
 	        <div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
-	            <div class="btn-group btn-group-lg" role="group"
+	            <div class="btn-group btn-group-lg" role="group">
 	                <?php if ($member['mb_level'] >= $board['bo_use_good']) { // 추천 ?> <button type="button"
 	                onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'good', 'wr_good');"
 	                class="btn btn-basic" title="추천"
