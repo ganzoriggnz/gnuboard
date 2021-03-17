@@ -4,7 +4,7 @@ include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'r');
 
-$sql_common = " from {$g5['singo_table']} ";
+$sql_common = " from {$g5['board_singo_table']} ";
 
 $sql_search = " where (1) ";
 

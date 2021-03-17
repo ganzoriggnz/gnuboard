@@ -67,7 +67,7 @@ if ($is_member) {
 }
 
 if (!$row['bo_3']) {
-    $row2 = sql_fetch(" select count(*) as cnt from {$g5['singo_table']} {$row2_where} order by bo_id desc limit 1 ");
+    $row2 = sql_fetch(" select count(*) as cnt from {$g5['board_singo_table']} {$row2_where} order by bo_id desc limit 1 ");
     
     if ($row2['cnt']) {
         $data = array(
@@ -80,7 +80,7 @@ if (!$row['bo_3']) {
 }
 
 $bo_link = G5_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id;
-$sql = " insert into {$g5['singo_table']}
+$sql = " insert into {$g5['board_singo_table']}
          set bo_table = '{$bo_table}',
              bo_wr_id = '{$wr_id}',
              bo_link = '{$bo_link}',

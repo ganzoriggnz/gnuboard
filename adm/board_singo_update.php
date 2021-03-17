@@ -19,7 +19,7 @@ if ($_POST['act_button'] == "선택삭제") {
         $k = $_POST['chk'][$i];
         
         // 포인트 내역삭제
-        $sql = " delete from {$g5['singo_table']} where bo_id = '{$_POST['bo_id'][$k]}' ";
+        $sql = " delete from {$g5['board_singo_table']} where bo_id = '{$_POST['bo_id'][$k]}' ";
         sql_query($sql);
     }
 } else if ($_POST['act_button'] == "선택처리") {
@@ -29,7 +29,7 @@ if ($_POST['act_button'] == "선택삭제") {
         $k = $_POST['chk'][$i];
         
         // 포인트 내역삭제
-        $sql = " update {$g5['singo_table']} set bo_status = '1' where bo_id = '{$_POST['bo_id'][$k]}' ";
+        $sql = " update {$g5['board_singo_table']} set bo_status = '1' where bo_id = '{$_POST['bo_id'][$k]}' ";
         sql_query($sql);
     }
 }
