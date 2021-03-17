@@ -81,7 +81,6 @@ if ($board['bo_use_category'] && $sca !='') {
 }
 ?>
 
-
 <!-- 게시판 목록 시작 { -->
 <div id="bo_gall" <?php if(G5_IS_MOBILE) { echo 'class="pl-1 pr-2"';} else {echo '';} ?>>
 
@@ -206,6 +205,12 @@ if ($board['bo_use_category'] && $sca !='') {
                         border: 1px solid black;
                         border-radius: 5px;
                     }
+
+                    a[type="button"]{
+                        -webkit-appearance: none;
+                        border-radius: 5px;
+                    }
+                    
                     </style>
         <ul id="gall_ul" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 mx-n2">
             <?php
