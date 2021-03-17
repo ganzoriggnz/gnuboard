@@ -7,6 +7,9 @@ if ($sop != 'and' && $sop != 'or')
 
 // 분류 선택 또는 검색어가 있다면
 $stx = trim($stx);
+
+
+
 //검색인지 아닌지 구분하는 변수 초기화
 $is_search_bbs = false;
 $sql;
@@ -217,10 +220,18 @@ if ($sst) {
     $sql_order = " order by {$sst} {$sod} ";
 }
 
+$nameddd = "";
+
+if($_GET['nameid']){
+    $nameddd = " and wr_7 = '".get_member($_GET['nameid'])['mb_name']."'";
+    // alert($nameddd);
+}
+
+
 if ($is_search_bbs) {
     $sql = " select distinct wr_parent from {$write_table} where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
-    $sql = " select * from {$write_table} where wr_is_comment = 0 ";
+    $sql = " select * from {$write_table} where wr_is_comment = 0  ".$nameddd;
     $mddd_id = "";
     if(!empty($notice_array))
         $mddd_id.= implode(', ', $notice_array);
