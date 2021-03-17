@@ -11,7 +11,7 @@ if (G5_IS_MOBILE) {
 
 // Page Loader 때문에 먼저 실행함
 include_once(G5_THEME_PATH.'/head.sub.php');
-include_once(G5_THEME_PATH.'/_loader.php');
+//include_once(G5_THEME_PATH.'/_loader.php');
 
 // 파일경로 체크
 $nt_index_path = G5_THEME_PATH.'/index'; 
