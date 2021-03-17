@@ -115,7 +115,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			<?
 			$tmp_wr_1 = explode("https://youtu.be/", $write[wr_link1]);
 			?>
-			<?=$tmp_wr_1[1]?><input type="text" name="wr_link1" value="<?php if($w=="u") {echo $write['wr_link1'];} ?>" id="wr_link1"required class="frm_input full_input required" size="50" maxlength="255" placeholder="유튜브 동영상 주소">
+			<?=$tmp_wr_1[1]?><input type="text" name="wr_link1" value="<?php if($w=="u") {echo $write['wr_link1'];} ?>" id="wr_link1" class="frm_input full_input" size="50" maxlength="255" placeholder="유튜브 동영상 주소">
 		<div style="color:#777;">※ 예) https://youtu.be/fULAvIbMGWM</div>
 
 </div>

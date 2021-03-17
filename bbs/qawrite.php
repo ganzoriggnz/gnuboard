@@ -47,14 +47,14 @@ if(is_file($skin_file)) {
 
     // 분류
     $category_option = '';
-    if(trim($qaconfig['qa_category'])) {
+    /* if(trim($qaconfig['qa_category'])) {
         $category = explode('|', $qaconfig['qa_category']);
         for($i=0; $i<count($category); $i++) {
             $category_option .= option_selected($category[$i], $write['qa_category']);
         }
     } else {
         alert('1:1문의 설정에서 분류를 설정해 주십시오');
-    }
+    } */
 
     $is_dhtml_editor = false;
     if ($config['cf_editor'] && $qaconfig['qa_use_editor'] && (!is_mobile() || defined('G5_IS_MOBILE_DHTML_USE') && G5_IS_MOBILE_DHTML_USE)) {

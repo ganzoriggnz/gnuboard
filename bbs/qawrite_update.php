@@ -16,7 +16,7 @@ $msg = array();
 $qaconfig = get_qa_config();
 $qa_id = isset($qa_id) ? (int) $qa_id : 0;
 
-if(trim($qaconfig['qa_category'])) {
+/* if(trim($qaconfig['qa_category'])) {
     if($w != 'a') {
         $category = explode('|', $qaconfig['qa_category']);
         if(!in_array($qa_category, $category))
@@ -24,7 +24,7 @@ if(trim($qaconfig['qa_category'])) {
     }
 } else {
     alert('1:1문의 설정에서 분류를 설정해 주십시오');
-}
+} */
 
 // e-mail 체크
 $qa_email = '';

@@ -789,7 +789,6 @@ $(function() {
         if (!confirm('이 게시물을 신고 하시겠습니까?\n\n신고는 취소가 불가합니다.\n\n주의) 허위 신고시 신고자의 서비스 이용이 제한됩니다.')) {
             return false;
         }
-        
         $.ajax({
             'url': g5_bbs_url+'/ajax.singo.php',
     	      'dataType': 'json',

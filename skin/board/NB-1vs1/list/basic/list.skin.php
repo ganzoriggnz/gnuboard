@@ -65,12 +65,7 @@ if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin){
 		//아이콘 체크
 		$wr_icon = '';
 		$is_lock = false;
-		if ($list[$i]['icon_secret']) {
-			$wr_icon = '<span class="na-icon na-hot"></span>';
-			$is_lock = true;
-		} else if ($list[$i]['icon_hot']) {
-			$wr_icon = '<span class="na-icon na-hot"></span>';
-		} else if ($list[$i]['icon_new']) {
+		if ($list[$i]['icon_new']) {
 			$wr_icon = '<span class="na-icon na-new"></span>';
 		}
 
