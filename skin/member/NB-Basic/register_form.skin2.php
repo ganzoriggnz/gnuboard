@@ -72,7 +72,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						</div>
 						<div class="col-sm-6">
 							<p class="form-control-plaintext f-de text-muted pb-0">
-								공백없이 한글,영문,숫자만 가능 (한글8자,영문16자 이상 가능)
+								공백없이 한글,영문,숫자만 가능 (한글 8자, 영문16자 이하 가능)
 							</p>
 						</div>
 						<?php if ($config['cf_nick_modify']) { ?>
