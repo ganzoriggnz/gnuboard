@@ -44,7 +44,7 @@ if($tset['size'] > 0) {
     min-width: 304px;
 }
 
-@media (max-width:768px) {
+@media (max-width:667px) {
     .nt-container .col-md-9 {
         max-width: 100%;
     }
