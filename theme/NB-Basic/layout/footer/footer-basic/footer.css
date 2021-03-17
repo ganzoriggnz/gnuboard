@@ -5,7 +5,7 @@
 ********************************************************/
 #nt_footer {
 	background-image: url('http://210.114.18.63/img/footer_bg_image.png'); 
-	height: 102px;
+	height: 51px;
 }
 #nt_footer .nt-links { 
 	background:#fafafa; 
@@ -51,7 +51,7 @@
 #nt_footer .nt-container {
 	display: flex;
 	align-items: center;
-	height: 102px;
+	height: 51px;
 }
 
 #nt_footer .nt-container .item-text {
@@ -64,12 +64,12 @@
 
 @media only screen and (max-width : 767px) {
 	#nt_footer {
-		height: 60px;
+		height: 30px;
 	}
 	
 	#nt_footer .nt-container {
 		display: flex;
-		height: 60px;
+		height: 30px;
 		width:343px;
 	}
 
