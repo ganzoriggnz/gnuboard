@@ -94,6 +94,10 @@ for ($i=0; $i < $list_cnt; $i++) {
             border: 1px solid black;
             border-radius: 5px;
         }
+        a[type="button"] {
+            -webkit-appearance: none;
+            border-radius: 0;
+        }
         </style>
 <li class="col px-2" style="margin-bottom: 15px;">
     <?php   
