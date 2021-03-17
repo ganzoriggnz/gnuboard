@@ -141,7 +141,7 @@ if(!isset($qaconfig['qa_include_head'])) {
             <th scope="row"><label for="qa_category">분류<strong class="sound_only">필수</strong></label></th>
             <td>
                 <?php echo help('분류와 분류 사이는 | 로 구분하세요. (예: 질문|답변) 첫자로 #은 입력하지 마세요. (예: #질문|#답변 [X])') ?>
-                <input type="text" name="qa_category" value="<?php echo get_sanitize_input($qaconfig['qa_category']); ?>" id="qa_category" required class="required frm_input" size="70">
+                <input type="text" name="qa_category" value="<?php echo get_sanitize_input($qaconfig['qa_category']); ?>" id="qa_category" class="frm_input" size="70">
             </td>
         </tr>
         <tr>
