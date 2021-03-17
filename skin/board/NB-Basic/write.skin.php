@@ -340,7 +340,7 @@ ul.my-table > li {
 											$w != 'u'
 									) 
 								)
-							) || ($bo_table == "free" || $bo_table == "event" || $board['gr_id'] == "review")
+							) || ($bo_table == "free" || $bo_table == "event" || $board['gr_id'] == "review" || $bo_table == "woman")
 					 ) { ?>
 				<?php if ($is_category) { ?>
 					<li class="list-group-item">
@@ -824,7 +824,7 @@ ul.my-table > li {
 											$w != 'u'
 									) 
 								)
-							) || ($bo_table == "free" || $bo_table == "event" || $board['gr_id'] == "review")
+							) || ($bo_table == "free" || $bo_table == "event" || $board['gr_id'] == "review" || $bo_table == "woman")
 					 ) { ?>
 				<?php if ($is_category) { ?>
 					<li class="list-group-item">
