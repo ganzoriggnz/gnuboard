@@ -71,7 +71,7 @@ $list_cnt = count($list);
 				<?php } ?>
 				제목
 			</div>
-			<div class="d-md-table-cell nw-10 pl-2 pr-md-1">이름</div>
+			<div class="d-md-table-cell nw-10 pl-2 pr-md-1 text-left">이름</div>
 			<div class="d-md-table-cell nw-6 pr-md-1"><?php echo subject_sort_link('wr_datetime', $qstr2, 1) ?>날짜</a></div>
 			<div class="d-md-table-cell nw-4 pr-md-1"><?php echo subject_sort_link('wr_hit', $qstr2, 1) ?>조회</a></div>
 		</div>
