@@ -52,28 +52,15 @@ if ($board['bo_9'] && $w != 'u' && !$is_admin && $member['mb_level'] != 26 && $m
 }
 //////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////
-// 그룹 지정 글쓰기 횟수 제한
-$set_id = "review"; // 그룹 ID 지정
+if($gr_id == "review"){	
 $gr_limit = "1"; // 그룹 제한 글 수
-$wr_sum = 0;
-$ress = sql_query( " select bo_table from $g5[board_table] where gr_id = '{$set_id}' " );
-$sql_today = na_sql_term('today', 'wr_datetime'); // 기간(일수,today,yesterday,month,prev)
-for ( $i = 1; $bo = sql_fetch_array( $ress ); ) {
- $tmp_wr_table = $g5[ 'write_prefix' ] . $bo[ 'bo_table' ]; // 지정 그룹 게시판 테이블
- // 회원 글 가져오기
- $result = sql_query( " select * from $tmp_wr_table where mb_id='$member[mb_id]' and wr_is_comment ='0' $sql_today  " );
- for ( $i == 0; $row = sql_fetch_array( $result ); $i++ ) {
-  $wr_sum = $wr_sum+1;
-  //echo $i."--".$member[mb_id]; // 확인
- }
+	$wr_sum = post_today_count("review",$member['mb_id']);
+	if ( $w != 'u' ) {
+		if ( !$is_admin && $wr_sum >= $gr_limit  ) {
+		 alert( "후기글은 하루에 {$gr_limit}회 만 등록할 수 있습니다. " );
+		}
+	   }
 }
-if ( $w != 'u' ) {
- if ( !$is_admin && $wr_sum >= $gr_limit && $gr_id == $set_id ) {
-  alert( "후기글은 하루에 {$gr_limit}회 만 등록할 수 있습니다. " );
- }
-}
-////////////////////////////////////////////////
 
 
 ///////////////////////////////////////////////////////////////////
