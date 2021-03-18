@@ -76,6 +76,19 @@ define('G5_THEME_DIR',      'theme');
 define('G5_GROUP_DIR',      'group');
 define('G5_CONTENT_DIR',    'content');
 
+
+function checkAdminDomain() {
+    if($_SERVER['HTTP_HOST'] === "dkswjs-tjdrhd.com" || $_SERVER['HTTP_HOST'] === "210.114.18.63" || $_SERVER['HTTP_HOST'] === "localhost" || $_SERVER['HTTP_HOST'] === "localhost:8080"){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+define('G5_BZY_CHECK', checkAdminDomain());
+
+define('G5_CONTENT_DIR',    'content');
+
 // URL 은 브라우저상에서의 경로 (도메인으로 부터의)
 if (G5_DOMAIN) {
     define('G5_URL', G5_DOMAIN);
