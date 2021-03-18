@@ -118,26 +118,33 @@ $list_cnt = count($list);
 			$li_css = '';
 			if ($list[$i]['is_notice']) { // 공지사항
 				$li_css = ' bg-light';
-				$list[$i]['num'] = '<span class="na-notice ></span><span class="sr-only"></span>';
+				$list[$i]['num'] = '<span class="na-notice" ></span><span class="sr-only"></span>';
+				$list[$i]['num2'] = '<span class="na-notice d-md-none" ></span><span class="sr-only"></span>';
 				$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
 			} 
 			if ($list[$i]['is_eventcheck']) { // 공지사항
 				$li_css = ' bg-light';
-				$list[$i]['num'] = '<span class="na-event ></span><span class="sr-only"></span>';
+				$list[$i]['num'] = '<span class="na-event" ></span><span class="sr-only"></span>';
+				$list[$i]['num2'] = '<span class="na-event d-md-none" ></span><span class="sr-only"></span>';
 				$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
 			}
 			if ($list[$i]['is_best']) { // 공지사항
 				$li_css = ' bg-light';
-				$list[$i]['num'] = '<span class="na-best ></span><span class="sr-only"></span>';
+				$list[$i]['num'] = '<span class="na-best" ></span><span class="sr-only"></span>';
+				$list[$i]['num2'] = '<span class="na-best d-md-none" ></span><span class="sr-only"></span>';
 				$list[$i]['subject'] = '<strong>'.$list[$i]['subject'].'</strong>';
 			}		
 			else if ($wr_id == $list[$i]['wr_id']) {
 				$li_css = ' bg-light';
 				$list[$i]['num'] = '<span class="na-text text-primary">열람</span>';
+				$list[$i]['num2'] = '<span class="na-text text-primary d-md-none">열람</span>';
 				$list[$i]['subject'] = '<b class="text-primary">'.$list[$i]['subject'].'</b>';
 			} else {
 				$list[$i]['num'] = '<span class="sr-only">번호</span>'.$list[$i]['num'];
 			}
+
+
+
 		?>
         <?php if (!strstr($list[$i]['wr_option'], "secret") || $is_admin)  {?>
         <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css;?>">
@@ -148,6 +155,7 @@ $list_cnt = count($list);
             <div class="d-md-table-cell text-left py-md-2 pr-md-1">
                 <div class="na-title float-md-left">
                     <div class="na-item">
+                        <?php echo $list[$i]['num2'] ?>
                         <?php if ($is_checkbox) { ?>
                         <input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]"
                             value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
