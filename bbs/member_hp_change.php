@@ -7,10 +7,8 @@ if ($is_guest)
 
 $g5['title'] = " ▶  전화번호 변경요청";
 $mb_id=  $_POST['mb_id'];
-$phone_skin_path = get_skin_path('member', $config['cf_member_skin']);
-$point_skin_url  = get_skin_url('member', $config['cf_member_skin']);
 
-$skin_file = $phone_skin_path.'/phone_change_request.skin.php';
+$skin_file = $member_skin_path.'/phone_change_request.skin.php';
 
 if(is_file($skin_file)) {
     include($skin_file);

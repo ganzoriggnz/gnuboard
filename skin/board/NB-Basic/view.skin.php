@@ -556,7 +556,8 @@ if ($gr_id=='review') {
 		if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
 	        <div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
 	            <div class="btn-group btn-group-lg" role="group">
-	                <?php if ($member['mb_level'] >= $board['bo_use_good']) { // 추천 ?> <button type="button"
+	                <?php if ($member['mb_level'] >= $board['bo_use_good'] && $gr_id!="attendance" && $bo_table!="job" && $bo_table!="greeting" && $bo_table!="notice" && $bo_table!="event") { // 추천 ?>
+	                <button type="button"
 	                    onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'good', 'wr_good');"
 	                    class="btn btn-basic" title="추천"
 	                    <?php if(G5_IS_MOBILE) { echo 'style="font-size: 12px;"';} else { echo '';} ?>>
@@ -566,7 +567,7 @@ if ($gr_id=='review') {
 	                </button>
 	                <?php } ?>
 
-	                <?php if ($member['mb_level'] >= $board['bo_use_nogood']) { // 비추천 ?>
+	                <!-- <?php if ($member['mb_level'] >= $board['bo_use_nogood']) { // 비추천 ?>
 	                <button type="button"
 	                    onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'nogood', 'wr_nogood');"
 	                    class="btn btn-basic" title="비추천"
@@ -575,12 +576,12 @@ if ($gr_id=='review') {
 	                    <span class="sr-only">비추천</span>
 	                    <b id="wr_nogood"><?php echo number_format($view['wr_nogood']) ?></b>
 	                </button>
-	                <?php } ?>
+	                <?php } ?> -->
 	                <?php if ($scrap_href) { // 스크랩 ?>
 	                <button type="button" class="btn btn-basic" onclick="win_scrap('<?php echo $scrap_href ?>');"
 	                    title="스크랩" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 12px;"';} else { echo '';} ?>>
-	                    <i class="fa fa-bookmark" aria-hidden="true"></i>
-	                    <span class="sr-only">스크랩</span>
+	                    <i class="fa fa-bookmark" aria-hidden="true"> 스크랩</i>
+	                    <span class=" sr-only">스크랩</span>
 	                </button>
 	                <?php } ?>
 
