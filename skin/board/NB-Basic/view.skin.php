@@ -11,7 +11,8 @@ $bo_table = $_REQUEST['bo_table'];
 $linkcount = strlen($bo_table) - 2;
 $str_table =substr($bo_table, 0, $linkcount);
 $re = $str_table."re"; 
-    
+$at = $str_table."at";
+$atwr_id;
 // hulan nemsen 글 보기 페이지에서 글쓰기 버튼을 숨기고 싶으면
 // 지정된 회원만 글쓰기 권한부여. 게시판 설정 여분필드 1번 값 사용
 if($gr_id == 'attendance'){
@@ -38,7 +39,9 @@ if($gr_id == 'attendance'){
 		$reply_href = '';
 	}
 	/////////////////////////////////////////////////////////////////////////////////
-	
+
+
+
 // SyntaxHighLighter
 if(isset($boset['na_code']) && $boset['na_code'])
 	na_script('code');
@@ -52,7 +55,9 @@ $view['seo_img'] = na_wr_img($bo_table, $view);
 // SEO 등과 공용사용
 $view_subject = get_text($view['wr_subject']);
 
-
+if ($gr_id=='review') {
+	$atwr_id = sql_fetch(" select wr_id from {$g5['write_prefix']}{$at} where mb_id = (select mb_id from g5_member where mb_name = '{$view['wr_7']}' limit 1) limit 1 ");
+}
 /////////////////////////////////////////////////////////////////////////////
 ?>
 
@@ -384,11 +389,8 @@ $view_subject = get_text($view['wr_subject']);
 	                    <span class="sr-only">댓글</span>
 	                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
 	                    <b class="orangered"><?php echo number_format($view['wr_comment']) ?></b>
-
 	                </li>
 	                <?php } ?>
-	                <!-- ----------------start new button ------------------ viewcomment -->
-	                <?php if ($gr_id=='attendance') { ?>
 	                <li class="pr-3">
 	                    <span class="sr-only">조회</span>
 
@@ -397,12 +399,22 @@ $view_subject = get_text($view['wr_subject']);
 	                        <i class="fa fa-reply" aria-hidden="true"></i>본문건너뛰기
 	                    </a>
 	                </li>
-
+	                <!-- ----------------start new button ------------------ viewcomment -->
+	                <?php if ($gr_id=='attendance') { ?>
 	                <li class="pr-3">
 	                    <a type="button"
 	                        onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 	                        class="btn btn_b01 nofocus py-1" title="업소후기" style="border: 1px solid; color:black; ">
 	                        <i class="fa fa-list-alt" aria-hidden="true"></i>업소후기
+	                    </a>
+	                </li>
+	                <?php } ?>
+	                <?php if ($gr_id=='review') { ?>
+	                <li class="pr-3">
+	                    <a type="button"
+	                        onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
+	                        class="btn btn_b01 nofocus py-1" title="업소정보" style="border: 1px solid; color:black; ">
+	                        <i class="fa fa-list-alt" aria-hidden="true"></i>업소정보
 	                    </a>
 	                </li>
 	                <?php } ?>
@@ -545,12 +557,12 @@ $view_subject = get_text($view['wr_subject']);
 	        <div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
 	            <div class="btn-group btn-group-lg" role="group">
 	                <?php if ($member['mb_level'] >= $board['bo_use_good']) { // 추천 ?> <button type="button"
-	                onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'good', 'wr_good');"
-	                class="btn btn-basic" title="추천"
-	                <?php if(G5_IS_MOBILE) { echo 'style="font-size: 12px;"';} else { echo '';} ?>>
-	                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-	                <span class="sr-only">추천</span>
-	                <b id="wr_good" class="orangered"><?php echo number_format($view['wr_good']) ?></b>
+	                    onclick="na_good('<?php echo $bo_table ?>', '<?php echo $wr_id ?>', 'good', 'wr_good');"
+	                    class="btn btn-basic" title="추천"
+	                    <?php if(G5_IS_MOBILE) { echo 'style="font-size: 12px;"';} else { echo '';} ?>>
+	                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+	                    <span class="sr-only">추천</span>
+	                    <b id="wr_good" class="orangered"><?php echo number_format($view['wr_good']) ?></b>
 	                </button>
 	                <?php } ?>
 
@@ -816,7 +828,7 @@ $(function() {
     $("a.view_image").click(function() {
         window.open(this.href, "large_image",
             "location=yes,links=no,toolbar=no,top=10,left=10,width=10,height=10,resizable=yes,scrollbars=no,status=no"
-            );
+        );
         return false;
     });
 

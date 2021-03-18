@@ -325,18 +325,6 @@ if ($board['bo_use_rss_view']) {
     $rss_href = G5_BBS_URL.'/rss.php?bo_table='.$bo_table;
 }
 
-// $wsetss=$sca;
-// $subcat=$subsca;
-// $searchd=$searchd;
-// $list = na_post_rows($wsetss,$subcat,$searchd); //
-// $list_cnt = count($list);
-
-// $wsetrr=$sca;
-// $listee = na_post_subcat($wsetrr); //
-// $list_cnteee = count($listee);
-
-// $stx = get_text(stripslashes($stx));
-
 // // 분류 사용 여부
 $is_category = false;
 $category_option = '';
@@ -369,34 +357,6 @@ if ($board['bo_use_category']) {
         $category_option .= '>'.$category_msg.$category.'</a></li>';
     }    
 }
-
-
-
-// $is_subcategory = false;
-// $subcategory_option = '';
-
-// if ($board['bo_use_category'] && $sca !='') {
-//     $is_subcategory = true;
-//     $subcategory_href = get_pretty_url($bo_table);  
-    
-//      $subcategories = $listee[0]['ca_name']; // 구분자가 , 로 되어 있음
-   
-//     for ($i=0; $i<$list_cnteee; $i++) {
-        
-//          $subcategory =  $listee[$i]['ca_name'];
-//         if ($subcategory=='') continue;       
-//          $subcategory_option .= '<li><a href="'.(get_pretty_url($bo_table,'','&sca='.$sca.'&subsca='.urlencode($subcategory))).'"';         
-//          $subcategory_msg = '';
-//         if ($subcategory==$subsca) { // 현재 선택된 카테고리라면
-            
-//             $subcategory_option .= ' id="bo_subcate_on"';
-//             $subcategory_msg = '<span class="sound_only">열린 분류 </span>';
-//             $subcategory_option .= '>'.$subcategory_msg.$subcategory.'</a></li>';
-//         }
-//         else
-//         $subcategory_option .= '>'.$subcategory_msg.$subcategory.'</a></li>';
-//     }    
-// }
 
 include_once($board_skin_path.'/list.skin.php');
 ?>
