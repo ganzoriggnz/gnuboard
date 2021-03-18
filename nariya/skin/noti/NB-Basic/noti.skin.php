@@ -10,8 +10,24 @@ $wset = na_skin_config('noti');
 $head_color = ($wset['head_color']) ? $wset['head_color'] : 'primary';
 
 ?>
+<style>
+#noti_cate ul {zoom:1; width: 100%;}
+#noti_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
+#noti_cate li {display:inline-block; width: 15%; height: 39px;}
 
-<nav id="noti_cate" class="sly-tab font-weight-normal mb-2">
+#noti_cate a {width: 100%; border: 1px solid #c7a445; border-left: none; background-color: #fff; font-size:12px; color:#000; height:39px; display: flex; align-items: center; justify-content:center; text-align: center; padding: 0px;}
+#noti_cate ul li:first-child a{border-left: 1px solid #c7a445;}
+#noti_cate a:focus, #noti_cate a:hover, #noti_cate a:active {border: 1px solid #c7a445; background-color:#868265; text-decoration:none; color:#fff;}
+#noti_cate .bo_cate_on {z-index:2; background-color:#868265; font-size:12px; font-weight: bold; color:#FFF; height:39px; display:flex; align-items:center; justify-content: center; padding: 0px;}
+
+@media (max-width: 667px) {
+    #noti_cate ul {width: 100%;}
+    #noti_cate li {width: 33.33% !important; height:39px;}
+	#noti_cate a {width: 100%;} 
+}
+</style>
+
+<!-- <nav id="noti_cate" class="sly-tab font-weight-normal mb-2">
 	<div id="noti_cate_list" class="sly-wrap px-3 px-sm-0">
 		<ul id="noti_cate_ul" class="clearfix sly-list text-nowrap border-left">
 			<li class="float-left<?php echo ($is_read == "all") ? ' active' : '';?>"><a href="<?php echo G5_BBS_URL ?>/noti.php" class="py-2 px-3">전체보기</a></li>
@@ -19,6 +35,14 @@ $head_color = ($wset['head_color']) ? $wset['head_color'] : 'primary';
 			<li class="float-left<?php echo ($is_read == 'n') ? ' active' : '';?>"><a href="<?php echo G5_BBS_URL ?>/noti.php?read=n" class="py-2 px-3">안읽은알림</a></li>
 		</ul>
 	</div>
+	<hr/>
+</nav> -->
+<nav id="noti_cate">
+		<ul id="noti_cate_ul">
+			<li><a href="<?php echo G5_BBS_URL ?>/noti.php" class="float-left<?php echo ($is_read == "all") ? ' bo_cate_on' : '';?>">전체보기</a></li>
+			<li><a href="<?php echo G5_BBS_URL ?>/noti.php?read=y" class="float-left<?php echo ($is_read == 'y') ? ' bo_cate_on' : '';?>">읽은알림</a></li>
+			<li><a href="<?php echo G5_BBS_URL ?>/noti.php?read=n" class="float-left<?php echo ($is_read == 'n') ? ' bo_cate_on' : '';?>">안읽은알림</a></li>
+		</ul>
 	<hr/>
 </nav>
 
