@@ -78,27 +78,28 @@ for ($i=0; $i < $list_cnt; $i++) {
 	$thumb = ($wset['thumb_w']) ? na_thumb($img, $wset['thumb_w'], $wset['thumb_h']) : $img;
 	$zurag = "anma";
 ?>
-        <style>
-        .gal_btns {
-            background-color: rgba(255, 255, 255, 0.5);
-            font-size: 13px;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 35px;
-            line-height: 35px;
-            /* padding-top: 6px; */
-            border: 1px solid black;
-            border-radius: 5px;
-        }
-        a[type="button"] {
-            -webkit-appearance: none;
-            border-radius: 5px;
-        }
-        </style>
+<style>
+.gal_btns {
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 35px;
+    line-height: 35px;
+    /* padding-top: 6px; */
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+a[type="button"] {
+    -webkit-appearance: none;
+    border-radius: 5px;
+}
+</style>
 <li class="col px-2" style="margin-bottom: 15px;">
     <?php   
         $at = $list[$i]['bo_table'];
@@ -115,7 +116,8 @@ for ($i=0; $i < $list_cnt; $i++) {
                     <a href="<?php echo $list[$i]['href'] ?>" <?php echo $target ?>>
                         <?php echo $wr_tack ?>
                         <?php echo $wr_cap ?>
-                        <img src="<?php echo G5_IMG_URL ?>/coupon.png" style="width: 80px; height: 80px; margin-top: 30px; margin-left: 0px;">
+                        <img src="<?php echo G5_IMG_URL ?>/coupon.png"
+                            style="width: 80px; height: 80px; margin-top: 30px; margin-left: 0px;">
                         <!-- <?php if($thumb) { ?>
                         <img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
                         <?php }  ?> -->
@@ -141,14 +143,14 @@ for ($i=0; $i < $list_cnt; $i++) {
 
         <div
             style="display: flex; align-items: center; text-align:center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
-                <a type="button" class="gal_btns"
-                    onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"><img
-                        src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
-                    정보</a>
-                <a type="button" class="gal_btns"
-                    onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>'">
-                    <img src="<?php echo G5_IMG_URL?>/chat_icon_main.png">
-                    후기</a>
+            <a type="button" class="gal_btns" href="#"
+                onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"><img
+                    src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
+                정보</a>
+            <a type="button" class="gal_btns" href="#"
+                onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $list[$i]['mb_id'];?>'">
+                <img src="<?php echo G5_IMG_URL?>/chat_icon_main.png">
+                후기</a>
         </div>
     </div>
     <div class="clearfix f-sm font-weight-normal">

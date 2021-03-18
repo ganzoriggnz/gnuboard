@@ -41,27 +41,27 @@ for ($i=0; $i < $list_cnt; $i++) {
 	}
 
 ?>
-	<li class="px-3 px-sm-0">
-		<div class="na-title">
-			<div class="float-right text-muted f-sm font-weight-normal ml-2">
-				<span class="sr-only">등록자</span>
-				<?php echo $list[$i]['name'] ?>
+<li class="px-3 px-sm-0">
+    <div class="na-title">
+        <div class="float-right text-muted f-sm font-weight-normal ml-2">
+            <span class="sr-only">등록자</span>
+            <?php echo $list[$i]['name'] ?>
 
-				<span class="sr-only">등록일</span>
-				<span class="ml-2"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d', 'm.d') ?></span>
-			</div>
-			<div class="na-item">
-				<a href="<?php echo $list[$i]['href'] ?>" class="na-subject">
-					<?php echo $wr_icon ?>
-					<?php echo $list[$i]['subject'] ?>
-				</a>
-			</div>
-		</div>
-	</li>
+            <span class="sr-only">등록일</span>
+            <span class="ml-2"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d', 'm.d') ?></span>
+        </div>
+        <div class="na-item">
+            <a href="<?php echo $list[$i]['href'] ?>" class="na-subject">
+                <?php echo $wr_icon ?>
+                <?php echo $list[$i]['subject'] ?>
+            </a>
+        </div>
+    </div>
+</li>
 <?php } ?>
 
 <?php if(!$list_cnt) { ?>
-	<li class="f-de px-4 py-5 text-muted text-center">
-		댓글이 없습니다.
-	</li>
+<li class="f-de px-4 py-5 text-muted text-center">
+    댓글이 없습니다.
+</li>
 <?php } ?>

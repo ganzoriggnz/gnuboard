@@ -190,28 +190,27 @@ if ($board['bo_use_category'] && $sca !='') {
             </div>
         <?php } ?> -->
         <style>
-                    .gal_btns {
-                        background-color: rgba(255, 255, 255, 0.5);
-                        font-size: 12px;
-                        align-items: center;
-                        justify-content: center;
-                        text-align: center;
-                        align-items: center;
-                        justify-content: center;
-                        width: 64px;
-                        height: 35px;
-                        line-height: 35px;
-                        /* padding-top: 6px; */
-                        border: 1px solid black;
-                        border-radius: 5px;
-                    }
+        .gal_btns {
+            background-color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 35px;
+            line-height: 35px;
+            /* padding-top: 6px; */
+            border: 1px solid black;
+            border-radius: 5px;
+        }
 
-                    a[type="button"]{
-                        -webkit-appearance: none;
-                        border-radius: 5px;
-                    }
-                    
-                    </style>
+        a[type="button"] {
+            -webkit-appearance: none;
+            border-radius: 5px;
+        }
+        </style>
         <ul id="gall_ul" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 mx-n2">
             <?php
             for ($i = 0; $i < $list_cnt; $i++) {
@@ -232,7 +231,8 @@ if ($board['bo_use_category'] && $sca !='') {
                     $str_table =substr($at, 0, $linkcount);
                     $re = $str_table."re"; 
                 ?>
-                <div class="gall_box" style="background-image:url('<?php echo G5_IMG_URL ?>/main_bgpicture.png'); background-size: 100% 100%;">
+                <div class="gall_box"
+                    style="background-image:url('<?php echo G5_IMG_URL ?>/main_bgpicture.png'); background-size: 100% 100%;">
 
                     <!-- <?php if ($is_checkbox) { ?>
                                 <div class="gall_chk chk_box">
@@ -251,9 +251,11 @@ if ($board['bo_use_category'] && $sca !='') {
                                 ?>
                     </span>
                     <div class="gall_con">
-                        <div class="gall_img" style="<?php echo get_cate_pic($list[$i]['mb_2'])?>  background-repeat: no-repeat; background-size: 100% 100%;">
-                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>">
-                            <?php $now = G5_TIME_YMDHIS;                                      
+                        <div class="gall_img"
+                            style="<?php echo get_cate_pic($list[$i]['mb_2'])?>  background-repeat: no-repeat; background-size: 100% 100%;">
+                            <a
+                                href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>">
+                                <?php $now = G5_TIME_YMDHIS;                                      
                                     $result_coupon = " select count(*) as co_cnt from {$g5['coupon_table']}  where mb_id='{$list[$i]['mb_id']}' and co_begin_datetime <= '{$now}' and co_end_datetime >= '{$now}'";
                                     $row_co = sql_fetch($result_coupon);
                                     $co_cnt = $row_co['co_cnt'];
@@ -261,7 +263,8 @@ if ($board['bo_use_category'] && $sca !='') {
                                     $row_pe = sql_fetch($result_period);
                                     $finish_period = $row_pe['mb_4'];
                                     if($co_cnt > '0' && $finish_period >= $now){ ?>
-                                        <img src="<?php echo G5_IMG_URL ?>/coupon.png" style="width: 80px; height: 80px; margin-top: 30px; margin-right: 140px;">
+                                <img src="<?php echo G5_IMG_URL ?>/coupon.png"
+                                    style="width: 80px; height: 80px; margin-top: 30px; margin-right: 140px;">
                                 <?php } ?>
                                 <!-- <?php
                                     if ($list[$i]['is_notice']) {  
@@ -317,15 +320,16 @@ if ($board['bo_use_category'] && $sca !='') {
                         </div>
                     </div>
 
-                    <div style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL ?>/main_780.png'); width: 100%; height: 52px;">
-                            <a type="button" class="gal_btns"
-                                onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"><img
-                                    src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
-                                <!-- <i class="fa fa-calendar"></i> --> 정보</a>
-                            <a type="button" class="gal_btns"
-                                onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>'"><img
-                                    src="<?php echo G5_IMG_URL?>/chat_icon_main.png">
-                                <!-- <i class="fa fa-comments"></i> --> 후기</a>
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL ?>/main_780.png'); width: 100%; height: 52px;">
+                        <a type="button" class="gal_btns" href="#"
+                            onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"><img
+                                src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
+                            <!-- <i class="fa fa-calendar"></i> --> 정보</a>
+                        <a type="button" class="gal_btns" href="#"
+                            onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>&nameid=<?php echo $list[$i]['mb_id'];?>'"><img
+                                src="<?php echo G5_IMG_URL?>/chat_icon_main.png">
+                            <!-- <i class="fa fa-comments"></i> --> 후기</a>
                     </div>
                 </div>
             </li>

@@ -86,22 +86,22 @@ for ($i=0; $i < $list_cnt; $i++) {
 	$thumb = ($wset['thumb_w']) ? na_thumb($img, $wset['thumb_w'], $wset['thumb_h']) : $img;
 	$zurag = "anma";
 ?>
-        <style>
-        .gal_btns {
-            background-color: rgba(255, 255, 255, 0.5);
-            font-size: 12px;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            width: 62px;
-            height: 35px;
-            padding-top: 6px;
-            border: 1px solid black;
-            border-radius: 0px !important;
-        }
-        </style>
+<style>
+.gal_btns {
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 35px;
+    padding-top: 6px;
+    border: 1px solid black;
+    border-radius: 0px !important;
+}
+</style>
 <li class="col px-2" style="margin-bottom: 15px;">
     <?php   
         $at = $list[$i]['bo_table'];
@@ -114,9 +114,10 @@ for ($i=0; $i < $list_cnt; $i++) {
             <div class="img-wrap mb-2">
                 <div class="img-item"
                     style="<?php echo get_cate_pic($list[$i]['mb_2'])?> background-repeat: no-repeat; background-size: 100% 100%;">
-                    <a href="<?php echo $list[$i]['href'] ?>" <?php echo $target ?>> 
+                    <a href="<?php echo $list[$i]['href'] ?>" <?php echo $target ?>>
                         <?php echo $wr_tack ?>
-                        <?php echo $wr_cap ?> <!-- <?php if($thumb) { ?>
+                        <?php echo $wr_cap ?>
+                        <!-- <?php if($thumb) { ?>
                         <img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
                         <?php } ?> -->
                     </a>
@@ -141,13 +142,13 @@ for ($i=0; $i < $list_cnt; $i++) {
         <div
             style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
             <div style="text-align: center;">
-                <a type="button" class="gal_btns"
+                <a type="button" class="gal_btns" href="#"
                     onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"
                     style=""><img src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
                     정보</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a type="button" class="gal_btns"
-                    onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>'">
+                <a type="button" class="gal_btns" href="#"
+                    onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>&nameid=<?php echo $list[$i]['mb_id'];?>'">
                     <img src="<?php echo G5_IMG_URL?>/chat_icon_main.png"> 후기</a>
             </div>
         </div>
