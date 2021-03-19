@@ -559,9 +559,9 @@ var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7A
 		var text = that.val();
 
 		if (hangul.test(text)) {
-			limit = 3;
+			limit = 10;
 		} else {
-			limit = 12;
+			limit = 20;
 		}
 		that.attr("maxlength", limit);
 		if (text.length > limit) that.val(text.substring(0, limit))
