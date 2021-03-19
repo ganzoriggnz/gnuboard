@@ -156,7 +156,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 
             </script>
         </div>
-        <div class="coupon_current">
+        <!-- <div class="coupon_current">
             <table class="coupon-table">
                 <thead>
                     <tr class="coupon-create-tr">
@@ -175,7 +175,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div> -->
     </div>  
         </section>
 </div> 
