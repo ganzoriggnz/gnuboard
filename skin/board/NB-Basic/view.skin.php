@@ -330,8 +330,9 @@ if ($gr_id=='review') {
 	                                <a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
 	                                    class="btn btn-primary py-2" role="button">
 	                                    <i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
-	                                    글이동ㅣㅣ
+	                                    글이동 </a>
 	                                    <?php } ?>
+
 	                                    <?php if ($search_href) { ?>
 	                                    <a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
 	                                        <i class="fa fa-search fa-fw" aria-hidden="true"></i>
