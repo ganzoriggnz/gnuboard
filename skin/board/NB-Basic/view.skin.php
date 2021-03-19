@@ -6,7 +6,7 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 
 $bo_table = $_REQUEST['bo_table'];
-
+$phone=get_member($view['mb_id'],"mb_hp");
 
 $linkcount = strlen($bo_table) - 2;
 $str_table =substr($bo_table, 0, $linkcount);
@@ -154,7 +154,7 @@ if ($gr_id=='review') {
 	        <div class="clearfix f-sm text-muted pt-2 pr-2">
 	            <h3 class="sr-only">컨텐츠 정보</h3>
 	            <ul class="d-flex-start align-items-center">
-	                <?php $phone=get_member($view['mb_id'],"mb_hp"); ?>
+	                
 	                <li style="display: inline;"><a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><img
 	                            src="<?php echo G5_IMG_URL.'/solid/phone.svg' ?>" style="height:12px;" title=""> 전화걸기</a>
@@ -659,7 +659,7 @@ if ($gr_id=='review') {
 					<button type="button" class="btn btn-basic"
 					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
 	                    title="연락처 " <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
-	                    <i class="fa fa-phone" aria-hidden="true"> <?php if(G5_IS_MOBILE)  echo " 전화걸기"; else echo $phone['mb_hp']; ?> </i>
+	                    <i class="fa fa-phone" aria-hidden="true"> <?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?> </i>
 	                    <span class=" sr-only"><?php G5_IS_MOBILE ?  " 전화걸기" : $phone['mb_hp'] ?></span>
 	                </button>
 					<button type="button" class="btn btn-basic" onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
