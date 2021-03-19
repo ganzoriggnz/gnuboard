@@ -52,7 +52,7 @@
 
 /* Coupon create */
 .coupon_noti {margin-top:20px; margin-left: 15px; margin-right: 15px;}
-.coupon_noti ul {margin:10px;}
+.coupon_noti ul {margin:10px; font-size: 10px;}
 .coupon_noti ul li {list-style-type:disc; margin-bottom:5px; font-size: 10px;}
 
 .coupon_info {float:left; margin-top:30px;}
@@ -72,10 +72,10 @@
 .coupon_current .coupon_div {padding-top: 30px; margin-left: 40px;}
 .coupon_current .coupon_div .count {text-decoration: underline; letter-spacing: 5px; line-height: 1.5; font-size: 12px;}
 
-.coupon-table {width: 320px;margin-bottom: 20px;}
+.coupon-table {width: 300px; margin-bottom: 20px;}
 .coupon-table .coupon-create-tr {border-bottom: 1px solid #ced4da;}
-.coupon-table .coupon-create-tr .coupon-create-th {font-size:14px; margin-left: 20px; margin-right: 20px; width: 140px; height: 45px; max-height: 45px; font-weight: lighter; text-align: center;}
-.coupon-table .coupon-create-tr .coupon-create-td  {font-size:12px; margin-left: 20px; margin-right: 20px; width: 140px; height: 40px; max-height: 40px; text-align: center;}
+.coupon-table .coupon-create-tr .coupon-create-th {font-size:14px; margin-left: 10px; margin-right: 10px; width: 140px; height: 45px; max-height: 45px; font-weight: lighter; text-align: center;}
+.coupon-table .coupon-create-tr .coupon-create-td  {font-size:12px; margin-left: 10px; margin-right: 10px; width: 140px; height: 40px; max-height: 40px; text-align: center;}
 
 /****************************************************************************************************************************/
 
