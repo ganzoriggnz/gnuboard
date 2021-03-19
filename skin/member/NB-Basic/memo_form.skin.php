@@ -28,7 +28,6 @@ if($daylimit > $total_count){
 		$check = 1;
 	}
 ?>
-
 <div id="memo_write" class="mb-4">  
 
 	<div id="topNav" class="bg-primary text-white">
@@ -46,26 +45,15 @@ if($daylimit > $total_count){
 
 	<div id="topHeight"></div>
 
-	<!-- <nav id="memo_cate" class="sly-tab font-weight-normal mt-3">
+	<nav id="memo_cate" class="sly-tab font-weight-normal mt-3">
 		<div id="noti_cate_list" class="sly-wrap px-3">
 			<ul id="noti_cate_ul" class="clearfix sly-list text-nowrap border-left">
 				<li class="float-left<?php echo ($kind == "recv") ? ' active' : '';?>"><a href="./memo.php?kind=recv" class="py-2 px-3">받은쪽지</a></li>
 				<li class="float-left<?php echo ($kind == "send") ? ' active' : '';?>"><a href="./memo.php?kind=send" class="py-2 px-3">보낸쪽지</a></li>
-				<li class="float-left<?php echo ($kind == "") ? ' active' : '';?>"><a href="./memo_form.php" class="py-2 px-3">쪽지쓰기</a></li> -->
+				<li class="float-left<?php echo ($kind == "") ? ' active' : '';?>"><a href="./memo_form.php" class="py-2 px-3">쪽지쓰기</a></li>
 				<!-- <li class="float-left<?php echo ($kind == "friends") ? ' active' : '';?>"><a href="./memo_friend.php?kind=friends" class="py-2 px-3">친구관리</a></li> -->
 				<!-- <li class="float-left<?php echo ($kind == "online") ? ' active' : '';?>"><a href="./memo_friend.php?kind=online" class="py-2 px-3">현재접속자</a></li> -->
-		<!-- 	</ul>
-		</div>
-	</nav> -->
-	
-	<nav id="memo_cate">
-			<ul id="noti_cate_ul">
-				<li><a href="./memo.php?kind=recv" class="float-left<?php echo ($kind == "recv") ? ' bo_cate_on' : '';?>">받은쪽지</a></li>
-				<li><a href="./memo.php?kind=send" class="float-left<?php echo ($kind == "send") ? ' bo_cate_on' : '';?>">보낸쪽지</a></li>
-				<li><a href="./memo_form.php" class="float-left<?php echo ($kind == "") ? ' bo_cate_on' : '';?>">쪽지쓰기</a></li>
-				<!-- <li class="float-left<?php echo ($kind == "friends") ? ' active' : '';?>"><a href="./memo_friend.php?kind=friends" class="py-2 px-3">친구관리</a></li> -->
-				<!-- <li class="float-left<?php echo ($kind == "online") ? ' active' : '';?>"><a href="./memo_friend.php?kind=online" class="py-2 px-3">현재접속자</a></li> -->
-			</ul>         
+			</ul>
 		</div>
 	</nav>
 	<div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
