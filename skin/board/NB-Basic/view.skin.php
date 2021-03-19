@@ -239,12 +239,21 @@ if ($gr_id=='review') {
 				<!-- start    mobile   -->
 				<ul class="d-flex-start align-items-center pt-2">
 				<li style="display: inline;"><a href="#viewcomment"		
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 본문건너뛰기</a>
+	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
 	                </li>
 				<?php if ($gr_id=='attendance') { ?>
 	                <li style="display: inline;"><a href="#"
 					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소후기</a>
+	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 후기바로가기</a>
+	                </li>
+
+					<li class="pr-3"><a href="#" type="button"
+					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
+					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-phone" aria-hidden="true"></i>  <?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?></a>
+	                </li>
+					<li class="pr-3"><a href="#" type="button"
+					onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
+					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-pencil" aria-hidden="true"></i> 업소후기작성</a>
 	                </li>
 	                <?php } ?>
 	                <?php if ($gr_id=='review') { ?>
@@ -373,13 +382,23 @@ if ($gr_id=='review') {
 								<!-- start    mobile   -->
 								<ul class="d-flex-start align-items-center pt-2">
 				<li style="display: inline;"><a href="#viewcomment"		
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 본문건너뛰기</a>
+	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
 	                </li>
 				<?php if ($gr_id=='attendance') { ?>
 	                <li style="display: inline;"><a href="#"
 					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소후기</a>
+	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 후기바로가기</a>
 	                </li>
+					<li class="pr-3"><a href="#" type="button"
+					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
+					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-phone" aria-hidden="true"></i>  <?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?></a>
+	                </li>
+					<li class="pr-3"><a href="#" type="button"
+					onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
+					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-pencil" aria-hidden="true"></i> 업소후기작성</a>
+	                </li>
+
+
 	                <?php } ?>
 	                <?php if ($gr_id=='review') { ?>
 	                <li style="display: inline;">
@@ -388,6 +407,8 @@ if ($gr_id=='review') {
 						style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
 	                </li>
 	                <?php } ?>
+
+
 				 <!-- end   / -->
 	        </div>
 	    </section>
@@ -435,8 +456,8 @@ if ($gr_id=='review') {
 	                    <span class="sr-only">조회</span>
 
 	                    <a type="button" style="border: 1px solid; color:black; " href="#viewcomment"
-	                        class="btn btn_b01 nofocus py-1" title="본문건너뛰기">
-	                        <i class="fa fa-arrow-down" aria-hidden="true"></i> 본문건너뛰기
+	                        class="btn btn_b01 nofocus py-1" title="댓글바로가기">
+	                        <i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기
 	                    </a>
 	                </li>
 	                <!-- ----------------start new button ------------------ viewcomment -->
@@ -444,9 +465,18 @@ if ($gr_id=='review') {
 	                <li class="pr-3">
 	                    <a type="button"
 	                        onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-	                        class="btn btn_b01 nofocus py-1" title="업소후기" style="border: 1px solid; color:black; ">
-	                        <i class="fa fa-list-alt" aria-hidden="true"></i> 업소후기
+	                        class="btn btn_b01 nofocus py-1" title="후기바로가기" style="border: 1px solid; color:black; ">
+	                        <i class="fa fa-list-alt" aria-hidden="true"></i> 후기바로가기
 	                    </a>
+	                </li>
+
+					<li class="pr-3"><a href="#" type="button"
+					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
+					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-phone" aria-hidden="true"></i>  <?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?></a>
+	                </li>
+					<li class="pr-3"><a href="#" type="button"
+					onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
+					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-pencil" aria-hidden="true"></i> 업소후기작성</a>
 	                </li>
 	                <?php } ?>
 	                <?php if ($gr_id=='review') { ?>
@@ -652,9 +682,9 @@ if ($gr_id=='review') {
 					<?php if ($gr_id=="attendance") { // 스크랩 ?>
 	                
 					<button type="button" class="btn btn-basic" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-	                    title="업소후기" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
-	                    <i class="fa fa-list-alt" aria-hidden="true"> 업소후기</i>
-	                    <span class=" sr-only">업소후기</span>
+	                    title="후기바로가기" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
+	                    <i class="fa fa-list-alt" aria-hidden="true"> 후기바로가기</i>
+	                    <span class=" sr-only">후기바로가기</span>
 	                </button>
 					<button type="button" class="btn btn-basic"
 					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
