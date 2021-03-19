@@ -11,7 +11,7 @@ $g5['title'] = '현재접속자';
 ?>
 
 <!-- 쪽지 목록 시작 { -->
-<div id="memo_list" class="mb-4">
+<div id="memo_list" style="background:white;" class="mb-4">
 
 	<div id="topNav" class="bg-primary text-white">
 		<div class="p-3">
@@ -22,20 +22,34 @@ $g5['title'] = '현재접속자';
 		</div>
 	</div>
 	<div id="topHeight"></div>
+    <?php if(G5_IS_MOBILE)
+	{ ?>
+	<nav id="memo_cate" class="sly-tab font-weight-normal mt-3 mb-2">
+		<div id="noti_cate_list" class="sly-wrap px-1">
+			<ul id="noti_cate_ul" class="clearfix sly-list text-nowrap border-left">
+				<li style="width:25%" class="float-left<?php echo ($kind == "recv") ? ' active' : '';?>"><a href="./memo.php?kind=recv" class="py-2 px-3">받은쪽지</a></li>
+				<li style="width:25%" class="float-left<?php echo ($kind == "send") ? ' active' : '';?>"><a href="./memo.php?kind=send" class="py-2 px-3">보낸쪽지</a></li>
+				<li style="width:25%" class="float-left<?php echo ($kind == "") ? ' active' : '';?>"><a href="./memo_form.php" class="py-2 px-3">쪽지쓰기</a></li>
+				<li style="width:25%" class="float-left<?php echo ($kind == "friends") ? ' active' : '';?>"><a href="./memo_friend.php?kind=friends" class="py-2 px-3">친구관리</a></li>
+				<li style="width:25%"  class="float-left<?php echo ($kind == "online") ? ' active' : '';?>"><a href="./memo_friend.php?kind=online" class="py-2 px-3">현재접속자</a></li>
+			</ul>
+		</div>
+		<hr/>
+	</nav>
+		<?php } else {?>
 	<nav id="memo_cate" class="sly-tab font-weight-normal mt-3 mb-2">
 		<div id="noti_cate_list" class="sly-wrap px-3">
 			<ul id="noti_cate_ul" class="clearfix sly-list text-nowrap border-left">
 				<li class="float-left<?php echo ($kind == "recv") ? ' active' : '';?>"><a href="./memo.php?kind=recv" class="py-2 px-3">받은쪽지</a></li>
 				<li class="float-left<?php echo ($kind == "send") ? ' active' : '';?>"><a href="./memo.php?kind=send" class="py-2 px-3">보낸쪽지</a></li>
                 <li class="float-left<?php echo ($kind == "") ? ' active' : '';?>"><a href="./memo_form.php" class="py-2 px-3">쪽지쓰기</a></li>                
-				<!-- <li class="float-left<?php echo ($kind == "friends") ? ' active' : '';?>"><a href="./memo_friend.php?kind=friends" class="py-2 px-3">친구관리</a></li> -->
-                <!-- <li class="float-left<?php echo ($kind == "online") ? ' active' : '';?>"><a href="./memo_friend.php?kind=online" class="py-2 px-3">현재접속자</a></li> -->
-                
+				<li class="float-left<?php echo ($kind == "friends") ? ' active' : '';?>"><a href="./memo_friend.php?kind=friends" class="py-2 px-3">친구관리</a></li>
+                <li class="float-left<?php echo ($kind == "online") ? ' active' : '';?>"><a href="./memo_friend.php?kind=online" class="py-2 px-3">현재접속자</a></li>
 			</ul>
 		</div>
 		<hr/>
 	</nav>
-
+    <?php } ?>
 	<div id="memo_info" class="f-de font-weight-normal mb-2 px-3">
 		전체 <?php echo $kind_title ?>쪽지 <b> <?php echo $total_count ?></b>통 / <?php echo $page ?>페이지
 	</div>
@@ -197,7 +211,7 @@ $g5['title'] = '현재접속자';
                        echo '아이디를 찾을 수 없습니다';
                     }
                 } else if (isset($_POST['find_id']))  {
-                    echo '<p style="text-align:center"> 향리 레벨 이상 친구 등록 가능합니다</p>';
+                    echo '<p style="text-align:center; color:red;"> 향리 레벨 이상 친구 등록 가능합니다</p>';
                  }
                 ?>        
         </form>
