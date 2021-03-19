@@ -29,6 +29,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 // 리스트 헤드
 
 @include_once($list_skin_path . '/list.head.skin.php');
+
 // 인기글
 add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 // 인기글
@@ -57,7 +58,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 	<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" 
 	&& $bo_table != "mypage" && $gr_id!="attendance" && $bo_table != "greeting" && $bo_table != "notice" && $bo_table != "twitter"
 	&& $bo_table != "facebook" && $bo_table != "twitter" && $bo_table != "ucc" && $bo_table != "work_abroad") {
-	if(!G5_IS_MOBILE) include_once('hit_latest.php'); }?>
+	if(!G5_IS_MOBILE && $bo_table != "work_board") include_once('hit_latest.php'); }?>
 	<br>
 	<?php
 	// 게시판 카테고리
