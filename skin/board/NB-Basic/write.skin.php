@@ -379,7 +379,7 @@ ul.my-table > li {
 							<div class="form-group row mb-0">
 								<label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
 								<div class="col-md-7">
-									<input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" class="form-control">
+									<input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" required class="form-control required">
 								</div>
 							</div>
 						</li>	
@@ -864,7 +864,7 @@ ul.my-table > li {
 							<div class="form-group row mb-0">
 								<label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
 								<div class="col-md-7">
-									<input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" class="form-control">
+									<input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" required class="form-control required">
 								</div>
 							</div>
 						</li>	
