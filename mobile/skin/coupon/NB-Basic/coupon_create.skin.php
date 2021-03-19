@@ -100,7 +100,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 			</div>
 		</div>
     </nav>
-    <section class="xm">
     <div class="couponbg" >
         <ul class="coupon_noti"><li>이번달 쿠폰개수는 1일 -5일 까지 수정 가능합니다.</li><li>이번달 잔여 쿠폰개수는 수정할 수 없습니다.</li>
                         </ul>
@@ -156,7 +155,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 
             </script>
         </div>
-        <!-- <div class="coupon_current">
+        <div class="coupon_current">
             <table class="coupon-table">
                 <thead>
                     <tr class="coupon-create-tr">
@@ -175,7 +174,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                     </tr>
                 </tbody>
             </table>
-        </div> -->
+        </div>
     </div>  
-        </section>
 </div> 
