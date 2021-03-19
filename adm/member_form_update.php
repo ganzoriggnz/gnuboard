@@ -16,7 +16,7 @@ check_admin_token();
 $mb_id = trim($_POST['mb_id']);
 
 // 휴대폰번호 체크
-$mb_hp = hyphen_hp_number($_POST['new_hp']);
+$mb_hp = hyphen_hp_number($_POST['mb_hp']);
 if($mb_hp) {
     $result = exist_mb_hp($mb_hp, $mb_id);
     if ($result)
