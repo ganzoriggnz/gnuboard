@@ -121,7 +121,7 @@ echo '<div id="faq_hhtml">'.conv_content($fm['fm_head_html'], 1).'</div>';
 			Total <b><?php echo number_format($total_count) ?></b> / <?php echo $page ?> Page
 		</div>
 		<div class="btn-group" role="group">
-			<?php if($admin_href) { ?>
+			<?php if($admin_href && G5_BZY_CHECK) { ?>
 				<a href="<?php echo $admin_href ?>" title="FAQ 수정" class="btn btn_admin nofocus py-1" role="button">
 					<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
 					<span class="sr-only">FAQ 수정</span>

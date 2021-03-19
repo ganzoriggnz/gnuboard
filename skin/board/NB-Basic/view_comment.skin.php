@@ -121,7 +121,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 								<li class="pr-2">
 									<!-- hulan nemsen mark -->
 									
-									<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']); ?>
+									<?php echo na_name_photo1($list[$i]['mb_id'], $list[$i]['name']); ?>
 									<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); // SNS 
 									?>
 								</li>
