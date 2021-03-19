@@ -113,96 +113,34 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 							<span class="na-icon na-reply"></span>
 						</div>
 					<?php } ?>
-					<table>
-						<tr>
-							<td rowspan="3"> 
-								<?php echo na_member_photo($list[$i]['mb_id']); ?>
-							</td>
-							<td>				
-								<h2 class="sr-only">
-									<?php echo get_text($list[$i]['wr_name']); ?>님의 <?php if ($cmt_depth) { ?><span class="sr-only">댓글의</span><?php } ?> 댓글
-								</h2>
-								<div class="float-left clearfix font-weight-normal bg-light border-top text-muted f-sm px-3 py-2<?php echo $by_writer ?>">
-									<ul class="d-flex align-items-center">
-										<li class="pr-2">
-											<!-- hulan nemsen mark -->
-											
-											<?php echo na_name_photo1($list[$i]['mb_id'], $list[$i]['name']); ?>
-											<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); // SNS 
-											?>
-										</li>
-										<?php if ($is_ip_view) { ?>
-											<li class="pr-2">
-												<span class="sr-only">아이피</span>
-												<span class="text-muted"><?php echo $list[$i]['ip'] ?></span>
-											</li>
-										<?php } ?>
-										</li>
-										<li class="flex-grow-1 text-right">
-											<span class="sr-only">작성일</span>
-											<time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($list[$i]['wr_datetime'])) ?>"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d H:i', 'Y.m.d H:i'); ?></time>
-										</li>
-									</ul>
-								</div>
-				
-							</td>
-							<td>
-							<?php if (!$is_lock && (int)$list[$i]['wr_10']) { // 럭키포인트 
-							?>
-								<div class="f-de text-muted px-3 my-2">
-									<i class="fa fa-gift" aria-hidden="true"></i>
-									<b class="orangered"><?php echo number_format($list[$i]['wr_10']) ?></b> 럭키포인트 당첨!
-								</div>
-							<?php } ?>
-							<?php if ($is_comment_reply_edit || $cmt_shingo || $is_cgood || $is_cnogood) {
-								if ($w == 'cu') {
-									$sql = " select wr_id, wr_content, mb_id from $write_table where wr_id = '$c_id' and wr_is_comment = '1' ";
-									$cmt = sql_fetch($sql);
-									if (!($is_admin || ($member['mb_id'] == $cmt['mb_id'] && $cmt['mb_id'])))
-										$cmt['wr_content'] = '';
-									$c_wr_content = $cmt['wr_content'];
-								}
-							?>
-								<div class="float-right cmt-btn clearfix font-weight-normal px-3">
-									<ul class="float-right">
-										<?php if ($list[$i]['is_reply']) { ?>
-											<li><a href="javascript:;" onclick="comment_box('<?php echo $comment_id ?>','c'); return false;">답글</a></li>
-										<?php } ?>
-										<?php if ($list[$i]['is_edit']) { ?>
-											<li><a href="javascript:;" onclick="comment_box('<?php echo $comment_id ?>','cu'); return false;">수정</a></li>
-										<?php } ?>
-										<?php if ($list[$i]['is_del']) { ?>
-											<li><a href="<?php echo $list[$i]['del_link']; ?>" onclick="<?php echo ($list[$i]['del_back']) ? "na_delete('viewcomment', '" . $list[$i]['del_href'] . "','" . $list[$i]['del_back'] . "'); return false;" : "return comment_delete();"; ?>">삭제</a></li>
-										<?php } ?>
-										<?php if ($cmt_shingo) { ?>
-											<li><a href="javascript:;" onclick="na_shingo('<?php echo $bo_table ?>','<?php echo $comment_id ?>','<?php echo $wr_id ?>'); return false;">신고</a></li>
-										<?php } ?>
-										<?php if ($is_cgood || $is_cnogood) { ?>
-											<li class="no-bar p-0">
-												<?php if ($is_cgood) { ?>
-													<a href="javascript:;" class="na-cgood" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $comment_id ?>', 'good', 'c_g<?php echo $comment_id ?>', 1);" title="추천"> <span class="sr-only">추천</span><b id="c_g<?php echo $comment_id ?>" class="orangered"><?php echo $list[$i]['wr_good'] ?></b></a><?php } ?><?php if ($is_cnogood) { ?><a href="javascript:;" class="na-cnogood" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $comment_id ?>', 'nogood', 'c_ng<?php echo $comment_id ?>', 1);" title="비추천"><span class="sr-only">비추천</span><b id="c_ng<?php echo $comment_id; ?>"><?php echo $list[$i]['wr_nogood']; ?></b>
-													</a>
-												<?php } ?>
-											</li>
-										<?php } ?>
-									</ul>
-								</div>
-							<?php } ?>
-							<div class="clearfix pl-3">
-								<span id="edit_<?php echo $comment_id ?>" class="bo_vc_w"></span><!-- 수정 -->
-								<span id="reply_<?php echo $comment_id ?>" class="bo_vc_re"></span><!-- 답변 -->
-								<?php if ($is_paging) { ?>
-									<input type="hidden" value="<?php echo $comment_url . '&amp;page=' . $page; ?>" id="comment_url_<?php echo $comment_id ?>">
-									<input type="hidden" value="<?php echo $page; ?>" id="comment_page_<?php echo $comment_id ?>">
+					<header style="z-index:<?php echo $cmt_sv; ?>">
+						<h2 class="sr-only">
+							<?php echo get_text($list[$i]['wr_name']); ?>님의 <?php if ($cmt_depth) { ?><span class="sr-only">댓글의</span><?php } ?> 댓글
+						</h2>
+						<div class="clearfix font-weight-normal bg-light border-top text-muted f-sm px-3 py-2<?php echo $by_writer ?>">
+							<ul class="d-flex align-items-center">
+								<li class="pr-2">
+									<!-- hulan nemsen mark -->
+									
+									<?php echo na_name_photo1($list[$i]['mb_id'], $list[$i]['name']); ?>
+									<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); // SNS 
+									?>
+								</li>
+								<?php if ($is_ip_view) { ?>
+									<li class="pr-2">
+										<span class="sr-only">아이피</span>
+										<span class="text-muted"><?php echo $list[$i]['ip'] ?></span>
+									</li>
 								<?php } ?>
-								<input type="hidden" value="<?php echo strstr($list[$i]['wr_option'], "secret") ?>" id="secret_comment_<?php echo $comment_id ?>">
-								<textarea id="save_comment_<?php echo $comment_id ?>" style="display:none"><?php echo get_text($list[$i]['content1'], 0) ?></textarea>
-							</div>
-							</td>
-						</tr>
-								
-						<tr>
-					<td colspan="2">				
+								</li>
+								<li class="flex-grow-1 text-right">
+									<span class="sr-only">작성일</span>
+									<time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($list[$i]['wr_datetime'])) ?>"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d H:i', 'Y.m.d H:i'); ?></time>
+								</li>
+							</ul>
+						</div>
+					</header>
+
 					<!-- 댓글 출력 -->
 					<div class="cmt-content p-3">
 						<?php if (IS_NA_BBS && $is_admin && $list[$i]['as_type'] == "-1") { // 신고처리 
@@ -221,11 +159,60 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 						<?php echo $comment ?>
 
 					</div>
-					</td>
-					</tr>					
-				</table>
+					<?php if (!$is_lock && (int)$list[$i]['wr_10']) { // 럭키포인트 
+					?>
+						<div class="f-de text-muted px-3 my-2">
+							<i class="fa fa-gift" aria-hidden="true"></i>
+							<b class="orangered"><?php echo number_format($list[$i]['wr_10']) ?></b> 럭키포인트 당첨!
+						</div>
+					<?php } ?>
+					<?php if ($is_comment_reply_edit || $cmt_shingo || $is_cgood || $is_cnogood) {
+						if ($w == 'cu') {
+							$sql = " select wr_id, wr_content, mb_id from $write_table where wr_id = '$c_id' and wr_is_comment = '1' ";
+							$cmt = sql_fetch($sql);
+							if (!($is_admin || ($member['mb_id'] == $cmt['mb_id'] && $cmt['mb_id'])))
+								$cmt['wr_content'] = '';
+							$c_wr_content = $cmt['wr_content'];
+						}
+					?>
+						<div class="cmt-btn clearfix font-weight-normal px-3">
+							<ul class="float-right">
+								<?php if ($list[$i]['is_reply']) { ?>
+									<li><a href="javascript:;" onclick="comment_box('<?php echo $comment_id ?>','c'); return false;">답글</a></li>
+								<?php } ?>
+								<?php if ($list[$i]['is_edit']) { ?>
+									<li><a href="javascript:;" onclick="comment_box('<?php echo $comment_id ?>','cu'); return false;">수정</a></li>
+								<?php } ?>
+								<?php if ($list[$i]['is_del']) { ?>
+									<li><a href="<?php echo $list[$i]['del_link']; ?>" onclick="<?php echo ($list[$i]['del_back']) ? "na_delete('viewcomment', '" . $list[$i]['del_href'] . "','" . $list[$i]['del_back'] . "'); return false;" : "return comment_delete();"; ?>">삭제</a></li>
+								<?php } ?>
+								<?php if ($cmt_shingo) { ?>
+									<li><a href="javascript:;" onclick="na_shingo('<?php echo $bo_table ?>','<?php echo $comment_id ?>','<?php echo $wr_id ?>'); return false;">신고</a></li>
+								<?php } ?>
+								<?php if ($is_cgood || $is_cnogood) { ?>
+									<li class="no-bar p-0">
+										<?php if ($is_cgood) { ?>
+											<a href="javascript:;" class="na-cgood" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $comment_id ?>', 'good', 'c_g<?php echo $comment_id ?>', 1);" title="추천"> <span class="sr-only">추천</span><b id="c_g<?php echo $comment_id ?>" class="orangered"><?php echo $list[$i]['wr_good'] ?></b></a><?php } ?><?php if ($is_cnogood) { ?><a href="javascript:;" class="na-cnogood" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $comment_id ?>', 'nogood', 'c_ng<?php echo $comment_id ?>', 1);" title="비추천"><span class="sr-only">비추천</span><b id="c_ng<?php echo $comment_id; ?>"><?php echo $list[$i]['wr_nogood']; ?></b>
+											</a>
+										<?php } ?>
+									</li>
+								<?php } ?>
+							</ul>
+						</div>
+					<?php } ?>
+					<div class="clearfix pl-3">
+						<span id="edit_<?php echo $comment_id ?>" class="bo_vc_w"></span><!-- 수정 -->
+						<span id="reply_<?php echo $comment_id ?>" class="bo_vc_re"></span><!-- 답변 -->
+						<?php if ($is_paging) { ?>
+							<input type="hidden" value="<?php echo $comment_url . '&amp;page=' . $page; ?>" id="comment_url_<?php echo $comment_id ?>">
+							<input type="hidden" value="<?php echo $page; ?>" id="comment_page_<?php echo $comment_id ?>">
+						<?php } ?>
+						<input type="hidden" value="<?php echo strstr($list[$i]['wr_option'], "secret") ?>" id="secret_comment_<?php echo $comment_id ?>">
+						<textarea id="save_comment_<?php echo $comment_id ?>" style="display:none"><?php echo get_text($list[$i]['content1'], 0) ?></textarea>
+					</div>
 				</div>
 			</article>
+			
 		<?php } ?>
 		<?php if (!$cmt_amt) { //댓글이 없다면 : 숨김처리함 
 		?>
