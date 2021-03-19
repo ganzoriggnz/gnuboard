@@ -190,9 +190,9 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 								<?php if ($list[$i]['is_del']) { ?>
 									<li><a href="<?php echo $list[$i]['del_link']; ?>" onclick="<?php echo ($list[$i]['del_back']) ? "na_delete('viewcomment', '" . $list[$i]['del_href'] . "','" . $list[$i]['del_back'] . "'); return false;" : "return comment_delete();"; ?>">삭제</a></li>
 								<?php } ?>
-								<?php if ($cmt_shingo) { ?>
+								<!-- <?php if ($cmt_shingo) { ?>
 									<li><a href="javascript:;" onclick="na_shingo('<?php echo $bo_table ?>','<?php echo $comment_id ?>','<?php echo $wr_id ?>'); return false;">신고</a></li>
-								<?php } ?>
+								<?php } ?> -->
 								<?php if ($is_cgood || $is_cnogood) { ?>
 									<li class="no-bar p-0">
 										<?php if ($is_cgood) { ?>
