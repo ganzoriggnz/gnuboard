@@ -9,7 +9,15 @@ $is_sub_w = 170;
 
 // 전체메뉴 줄나눔
 $is_col_all = 6;
-
+if (G5_IS_MOBILE) {
+    echo
+"
+<style>
+body::after{ 
+	background: white !important;
+}
+</style>";
+}
 ?>
 <style>
 #nt_menu .me-sw {
