@@ -51,11 +51,11 @@
 .sly-tab hr { display:block; border-top:1px solid #e5e5e5; height:1px; margin:0; margin-top:-1px; padding:0; }
 
 /* Coupon create */
-.coupon_noti {margin-top:20px; margin-left: 15px; margin-right: 15px;}
-.coupon_noti ul {list-style-type:disc; margin:10px; font-size: 10px;}
-.coupon_noti ul li {margin-bottom:5px; font-size: 10px;}
+.couponbg {margin-top: 20px;}
+.coupon_noti {list-style-type: disc; margin: 0px auto 0px auto; font-size: 12px;}
+ul.coupon_noti li {margin-bottom: 5px;}
 
-.coupon_info {float:left; margin-top:30px;}
+.coupon_info {margin-top:30px;}
 .coupon_info h6 {text-align: center;}
 .coupon_info .p-20 {padding:20px 0px;}
 .coupon_info .p-20 .coupon_label {font-size:12px; line-height: 1.5; padding: 5px 15px; float:left;margin:0px 20px;}
@@ -65,9 +65,7 @@
   border-radius: 5px; padding-top: 7.5px; padding-bottom: 7.5px; color: #fff;}
 .coupon_info .p-20 .miss_but_1 a, .miss_but_1 a:hover, .miss_but_1 a:link {color:#fff;}
 .miss_but_3 {background: #4D4D4D; margin-left: 37px; margin-top: 20px; text-align:center; line-height:12px; width: 200px; border:1px solid #999999; border-radius:5px; padding-top: 7.5px; padding-bottom: 7.5px; color:#999999}
-.couponbg {
-  margin-top: 20px;
-}
+
 .coupon_current {float:left; margin-top:10px; margin-left: 10%;}
 .coupon_current .coupon_div {padding-top: 30px; margin-left: 40px;}
 .coupon_current .coupon_div .count {text-decoration: underline; letter-spacing: 5px; line-height: 1.5; font-size: 12px;}
@@ -75,9 +73,12 @@
 .coupon-table {width: 300px; margin-bottom: 20px;}
 .coupon-table .coupon-create-tr {border-bottom: 1px solid #ced4da;}
 .coupon-table .coupon-create-tr {border-bottom: none;}
-.coupon-table .coupon-create-tr .coupon-create-th {font-size:14px; margin-left: 5px; margin-right: 15px; width: 140px; height: 45px; max-height: 45px; font-weight: lighter; text-align: center;}
-.coupon-table .coupon-create-tr .coupon-create-td  {font-size:12px; margin-left: 5px; margin-right: 15px; width: 140px; height: 40px; max-height: 40px; text-align: center;}
-.coupon-table .coupon-create-tr_bottom .coupon-create-td  {font-size:12px; margin-left: 5px; margin-right: 15px; width: 140px; height: 40px; max-height: 40px; text-align: center;}
+.coupon-table .coupon-create-tr td:first-child {border-right: 1px solid #ced4da;}
+.coupon-table .coupon-create-tr-bottom td:first-child {border-right: 1px solid #ced4da;}
+.coupon-table .coupon-create-tr_bottom {border-bottom: 1px solid #ced4da;}
+.coupon-table .coupon-create-tr .coupon-create-th {font-size:14px; margin-right: 20px; width: 140px; height: 45px; max-height: 45px; font-weight: lighter; text-align: center;}
+.coupon-table .coupon-create-tr .coupon-create-td  {font-size:12px; margin-right: 20px; width: 140px; height: 40px; max-height: 40px; text-align: center;}
+.coupon-table .coupon-create-tr_bottom .coupon-create-td  {font-size:12px; margin-left: 5px; margin-right: 15px; width: 140px; height: 40px; max-height: 40px; text-align: center; padding-top: 10px;}
 /****************************************************************************************************************************/
 
 /* Coupon accept */

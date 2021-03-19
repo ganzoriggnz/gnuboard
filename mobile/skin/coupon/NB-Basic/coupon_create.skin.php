@@ -106,7 +106,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             <li>이번달 잔여 쿠폰개수는 수정할 수 없습니다.</li>
         </ul>
       
-        <div class="coupon_info" style="float-left">
+        <div class="coupon_info">
             <h6>이번달 쿠폰 지원 개수</h6>
             <form id="fcouponcreate" name="fcouponcreate" action="<?php echo $coupon_action_url ?>" onsubmit="return fcouponcreate_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
                 <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
@@ -167,12 +167,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 </thead>
                 <tbody>
                     <tr class="coupon-create-tr">
-                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center;"><?php echo $row['co_sent_snum']; ?></td>
+                        <td class="coupon-create-td"><?php echo $row['co_sent_snum']; ?></td>
                         <td class="coupon-create-td"><?php echo $diff_s; ?></td>
                     </tr>
                     <tr class="coupon-create-tr-bottom">
-                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center; padding-top: 10px;"><?php echo $row['co_sent_fnum']; ?></td>
-                        <td class="coupon-create-td" style="text-align: center; padding-top: 10px;"><?php echo $diff_f; ?></td>
+                        <td class="coupon-create-td"><?php echo $row['co_sent_fnum']; ?></td>
+                        <td class="coupon-create-td"><?php echo $diff_f; ?></td>
                     </tr>
                 </tbody>
             </table>
