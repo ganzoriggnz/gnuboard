@@ -49,6 +49,7 @@ if (G5_IS_MOBILE) {
 } else {
     echo '<meta http-equiv="imagetoolbar" content="no">'.PHP_EOL;
     echo '<meta http-equiv="X-UA-Compatible" content="IE=Edge">'.PHP_EOL;
+    echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">'.PHP_EOL;
 }
 
 if($config['cf_add_meta'])
