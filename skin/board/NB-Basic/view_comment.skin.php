@@ -135,7 +135,33 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 										<span class="sr-only">아이피</span>
 										<span class="text-muted"><?php echo $list[$i]['ip'] ?></span>
 									</li>
+								<?php } ?>				
+								
+								<li class="flex-grow-1 text-left">
+								<div class="cmt-btn clearfix font-weight-normal px-3">
+							<ul class="float-left">
+								<?php if ($list[$i]['is_reply']) { ?>
+									<li><a href="javascript:;" onclick="comment_box('<?php echo $comment_id ?>','c'); return false;">답글</a></li>
 								<?php } ?>
+								<?php if ($list[$i]['is_edit']) { ?>
+									<li><a href="javascript:;" onclick="comment_box('<?php echo $comment_id ?>','cu'); return false;">수정</a></li>
+								<?php } ?>
+								<?php if ($list[$i]['is_del']) { ?>
+									<li><a href="<?php echo $list[$i]['del_link']; ?>" onclick="<?php echo ($list[$i]['del_back']) ? "na_delete('viewcomment', '" . $list[$i]['del_href'] . "','" . $list[$i]['del_back'] . "'); return false;" : "return comment_delete();"; ?>">삭제</a></li>
+								<?php } ?>
+								<?php if ($cmt_shingo) { ?>
+									<li><a href="javascript:;" onclick="na_shingo('<?php echo $bo_table ?>','<?php echo $comment_id ?>','<?php echo $wr_id ?>'); return false;">신고</a></li>
+								<?php } ?>
+								<?php if ($is_cgood || $is_cnogood) { ?>
+									<li class="no-bar p-0">
+										<?php if ($is_cgood) { ?>
+											<a href="javascript:;" class="na-cgood" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $comment_id ?>', 'good', 'c_g<?php echo $comment_id ?>', 1);" title="추천"> <span class="sr-only">추천</span><b id="c_g<?php echo $comment_id ?>" class="orangered"><?php echo $list[$i]['wr_good'] ?></b></a><?php } ?><?php if ($is_cnogood) { ?><a href="javascript:;" class="na-cnogood" onclick="na_good('<?php echo $bo_table ?>', '<?php echo $comment_id ?>', 'nogood', 'c_ng<?php echo $comment_id ?>', 1);" title="비추천"><span class="sr-only">비추천</span><b id="c_ng<?php echo $comment_id; ?>"><?php echo $list[$i]['wr_nogood']; ?></b>
+											</a>
+										<?php } ?>
+									</li>
+								<?php } ?>
+							</ul>
+						</div>
 								</li>
 								<li class="flex-grow-1 text-right">
 									<span class="sr-only">작성일</span>
@@ -179,7 +205,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 							$c_wr_content = $cmt['wr_content'];
 						}
 					?>
-						<div class="cmt-btn clearfix font-weight-normal px-3">
+						<!-- <div class="cmt-btn clearfix font-weight-normal px-3">
 							<ul class="float-right">
 								<?php if ($list[$i]['is_reply']) { ?>
 									<li><a href="javascript:;" onclick="comment_box('<?php echo $comment_id ?>','c'); return false;">답글</a></li>
@@ -202,7 +228,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 									</li>
 								<?php } ?>
 							</ul>
-						</div>
+						</div> -->
 					<?php } ?>
 					<div class="clearfix pl-3">
 						<span id="edit_<?php echo $comment_id ?>" class="bo_vc_w"></span><!-- 수정 -->
