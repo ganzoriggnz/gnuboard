@@ -78,7 +78,7 @@ $list_cnt = count($list);
                 <?php } ?>
                 제목
             </div>
-            <div class="d-md-table-cell nw-10 pl-2 pr-md-1 text-left">이름</div>
+            <div class="d-md-table-cell nw-14 pl-2 pr-md-1 text-center">이름</div>
             <div class="d-md-table-cell nw-6 pr-md-1"><?php echo subject_sort_link('wr_datetime', $qstr2, 1) ?>날짜</a>
             </div>
             <div class="d-md-table-cell nw-4 pr-md-1"><?php echo subject_sort_link('wr_hit', $qstr2, 1) ?>조회</a></div>
@@ -213,13 +213,13 @@ $list_cnt = count($list);
                     </div>
                 </div>
             </div>
-            <div class="float-right float-md-none d-md-table-cell nw-16 nw-md-auto text-left f-sm">
-                <div style="width: 120px; text-align:left;">
+            <div class="float-right float-md-none d-md-table-cell nw-15 nw-md-auto text-left f-sm">
+                <div style=" text-align:left;">
                     <span class="sr-only">등록자</span>
                     <?php
 						$mbid= get_member($list[$i]['mb_id']);
 						$name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);
-						echo na_name_photo($list[$i]['mb_id'], "<p class='username'>".$name."</p>")
+						echo na_name_photo($list[$i]['mb_id'], $name)
 					?>
                 </div>
             </div>
