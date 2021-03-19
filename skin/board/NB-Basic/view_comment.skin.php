@@ -113,6 +113,12 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 							<span class="na-icon na-reply"></span>
 						</div>
 					<?php } ?>
+					<table>
+						<tr>
+							<td rowspan="3"> 
+								<?php echo na_name_photo_only($mb_id, $name); ?>
+					</td>
+							<td>
 					<header style="z-index:<?php echo $cmt_sv; ?>">
 						<h2 class="sr-only">
 							<?php echo get_text($list[$i]['wr_name']); ?>님의 <?php if ($cmt_depth) { ?><span class="sr-only">댓글의</span><?php } ?> 댓글
@@ -122,7 +128,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 								<li class="pr-2">
 									<!-- hulan nemsen mark -->
 									
-									<?php echo na_name_photo1($list[$i]['mb_id'], $list[$i]['name']); ?>
+									<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']); ?>
 									<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); // SNS 
 									?>
 								</li>
@@ -140,7 +146,8 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 							</ul>
 						</div>
 					</header>
-
+								</td>
+					<td>				
 					<!-- 댓글 출력 -->
 					<div class="cmt-content p-3">
 						<?php if (IS_NA_BBS && $is_admin && $list[$i]['as_type'] == "-1") { // 신고처리 
@@ -159,6 +166,8 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 						<?php echo $comment ?>
 
 					</div>
+						</td>
+					<td>
 					<?php if (!$is_lock && (int)$list[$i]['wr_10']) { // 럭키포인트 
 					?>
 						<div class="f-de text-muted px-3 my-2">
@@ -210,6 +219,9 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 						<input type="hidden" value="<?php echo strstr($list[$i]['wr_option'], "secret") ?>" id="secret_comment_<?php echo $comment_id ?>">
 						<textarea id="save_comment_<?php echo $comment_id ?>" style="display:none"><?php echo get_text($list[$i]['content1'], 0) ?></textarea>
 					</div>
+						</td>
+						</tr>
+						</table>
 				</div>
 			</article>
 		<?php } ?>
