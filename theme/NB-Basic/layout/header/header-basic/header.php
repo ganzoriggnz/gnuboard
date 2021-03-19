@@ -4,6 +4,17 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // 모바일 헤드는 메뉴에 들어가 있음. 상단고정문제 때문에...ㅠㅠ
 
 add_stylesheet('<link rel="stylesheet" href="'.$nt_header_url.'/header.css">', 0);
+
+
+if (G5_IS_MOBILE) {
+    echo
+"
+<style>
+body::after{ 
+	background: white !important;
+}
+</style>";
+}
 ?>
 
 <!-- PC Header -->
