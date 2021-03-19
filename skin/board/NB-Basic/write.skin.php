@@ -57,7 +57,7 @@ if($gr_id == "review"){
 $gr_limit = "1"; // 그룹 제한 글 수
 	$wr_sum = post_today_count("review",$member['mb_id']);
 	if ( $w != 'u' ) {
-		if ( !$is_admin && $wr_sum >= $gr_limit  ) {
+		if ( !$is_admin && $wr_sum >= $gr_limit && $member['mb_level'] != 26 && $member['mb_level'] != 27 ) {
 		 alert( "후기글은 하루에 {$gr_limit}회 만 등록할 수 있습니다. " );
 		}
 	   }
