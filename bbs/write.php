@@ -12,6 +12,13 @@ if (!$bo_table) {
     alert("bo_table 값이 넘어오지 않았습니다.\\nwrite.php?bo_table=code 와 같은 방식으로 넘겨 주세요.", G5_URL);
 }
 
+$nameddd = "";
+
+if($_GET['nameid']){
+    $nameddd = get_member($_GET['nameid'])['mb_name'];
+    // alert($nameddd);
+}
+
 check_device($board['bo_device']);
 
 $notice_array = explode(',', trim($board['bo_notice']));

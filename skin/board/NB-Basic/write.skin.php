@@ -366,12 +366,10 @@ ul.my-table > li {
 									<option value="">선택하세요</option>
 									<?php while ($res = sql_fetch_array($sql)){?>
 										<!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name'];?></option>  -->
-										
-										<option value=<?php echo $res['mb_name'];?> 
-										<?php if($write['wr_4']==$res['mb_name']) echo " selected ";?>>
+										<option value=<?php echo $res['mb_name']; if($write['wr_4']==$res['mb_name'] || $nameddd==$res['mb_name']) echo " selected ";?>>
 										<?php echo $res['mb_name'];?></option>
 									<?php } ?>
-										</select>
+										</select>										
 								</div>
 							</div>
 						</li>
@@ -852,7 +850,7 @@ ul.my-table > li {
 										<!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name'];?></option>  -->
 										
 										<option value=<?php echo $res['mb_name'];?> 
-										<?php if($write['wr_4']==$res['mb_name']) echo " selected ";?>>
+										<?php if($write['wr_4']==$res['mb_name'] || $nameddd==$res['mb_name']) echo " selected ";?>>
 										<?php echo $res['mb_name'];?></option>
 									<?php } ?>
 										</select>
