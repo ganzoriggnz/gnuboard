@@ -7010,7 +7010,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .d-md-none {
     display: none !important;
   }
