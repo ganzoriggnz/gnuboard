@@ -106,7 +106,11 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 			$cmt_shingo = (IS_NA_BBS && $boset['na_shingo']) ? true : false;
 			$by_writer = ($view['mb_id'] && $view['mb_id'] == $list[$i]['mb_id']) ? ' by-writer' : '';
 		?>
-			<article id="c_<?php echo $comment_id ?>" <?php if ($cmt_depth) { ?>style="margin-left:<?php echo $cmt_depth ?>px;" <?php } ?>>
+			<table>
+				<tr>
+					<td><img  src="<?php echo na_member_photo($list[$i]['mb_id']);  ?>" style="border-radius:50%;" alt=""/></td>
+					<td width="100%">
+					<article id="c_<?php echo $comment_id ?>" <?php if ($cmt_depth) { ?>style="margin-left:<?php echo $cmt_depth ?>px;" <?php } ?>>
 				<div class="cmt-wrap position-relative mb-2">
 					<?php if ($cmt_depth) { ?>
 						<div class="cmt-reply position-absolute mt-1">
@@ -212,6 +216,11 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 					</div>
 				</div>
 			</article>
+					</td>				
+				</tr>				
+			</table>
+
+			
 			
 		<?php } ?>
 		<?php if (!$cmt_amt) { //댓글이 없다면 : 숨김처리함 
