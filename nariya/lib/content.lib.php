@@ -480,7 +480,7 @@ function na_name_photo1($mb_id, $name){
 		preg_match("/alt=[\"\']?([^\"\']*)[\"\']?/", $matches[1][$i], $m);
 		
 		if($m[1]) {
-			return str_replace($matches[0][$i], '<img class="member_photo" src="'.na_member_photo($mb_id).'" width="'.$config['cf_member_icon_width'].'" height="'.$config['cf_member_icon_height'].'" style="border-radius:50%;" alt=""/> '.$levelimg,$name);
+			return str_replace($matches[0][$i], '<img class="member_photo1" src="'.na_member_photo($mb_id).'" width="'.$config['cf_member_icon_width'].'" height="'.$config['cf_member_icon_height'].'" style="border-radius:50%;" alt=""/> '.$levelimg,$name);
 		}
     }
 	return $name;

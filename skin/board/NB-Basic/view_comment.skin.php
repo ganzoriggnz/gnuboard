@@ -21,13 +21,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 	<!-- 댓글 시작 { -->
 	<div id="viewcomment">
 	<?php } ?>
-	<style>
-		@media only screen and (max-width: 667px) {
-			.member_photo {
-				display: block;
-			}
-		}
-	</style>
+
 	<div class="clearfix f-de px-3 px-sm-0 pt-4 pt-sm-5 pb-1">
 		<div class="float-left">
 			댓글 <b class="orangered"><?php echo $write['wr_comment'] ?></b>개
