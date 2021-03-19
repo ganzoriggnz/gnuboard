@@ -116,7 +116,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 					<table>
 						<tr>
 							<td rowspan="3"> 
-								<?php echo na_member_photo($mb_id); ?>
+								<?php echo na_member_photo($list[$i]['mb_id']); ?>
 							</td>
 							<td>				
 								<h2 class="sr-only">
