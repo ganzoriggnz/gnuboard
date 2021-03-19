@@ -99,6 +99,7 @@ if (G5_IS_MOBILE) {
     echo '<meta name="bzyfuzy" content="Desktop">'.PHP_EOL;
     echo '<meta http-equiv="imagetoolbar" content="no">'.PHP_EOL;
     echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">'.PHP_EOL;
+    echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">'.PHP_EOL;
 }
 
 if($config['cf_add_meta'])
