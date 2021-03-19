@@ -205,7 +205,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
                 </div>
             </div>
-
             <?php } ?>
             <!-- user  가입일   mb_datetime  -->
             <div class="form-group row">
@@ -229,6 +228,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <div class="col-sm-3 col-form-info">
                     …</div>
             </div>
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="reg_mb_nick"> 
+                </label>
+                <div class="col-sm-3 col-form-info">
+                <a href="<?php echo G5_URL ?>/bbs/member_confirm.php?url=register_form.php"  style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">회원정보변경</a></div>
+            </div>
+
         </dl>
     </section>
 </div>

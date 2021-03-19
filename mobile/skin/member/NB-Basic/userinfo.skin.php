@@ -209,6 +209,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     <td class="cl_tr" style="text-align: left;">
                         …</td>
                 </tr>
+                <tr style=" font-size: 12px">
+                    <td class="cl_tr"></td>
+                    <td class="cl_tr" style="text-align: left;">
+                    <a href="<?php echo G5_URL ?>/bbs/member_confirm.php?url=register_form.php"  style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">회원정보변경</a></td>
+                </tr>
             </tbody>
         </table>
     </section>
