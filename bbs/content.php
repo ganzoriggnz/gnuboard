@@ -79,7 +79,7 @@ $content_skin_path = get_skin_path('content', $co['co_skin']);
 $content_skin_url  = get_skin_url('content', $co['co_skin']);
 $skin_file = $content_skin_path.'/content.skin.php';
 
-if ($is_admin)
+if ($is_admin && G5_BZY_CHECK)
     echo '<div id="bo_list_wrap"><div class="ctt_admin"><a href="'.G5_ADMIN_URL.'/contentform.php?w=u&amp;co_id='.$co_id.'" class="btn_admin btn">내용 수정</a></div></div>';
 ?>
 
