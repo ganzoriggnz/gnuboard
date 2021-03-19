@@ -30,6 +30,10 @@ $list_cnt = count($list);
 
 <style>
 @media only screen and (max-width: 667px) {
+    .member_photo {
+        display: none;
+    } 
+
     .datetime {
         color: black;
         padding-top: 4px;
