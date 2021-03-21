@@ -13,7 +13,6 @@ if(!$mode)
     alert('값이 넘어오지 않았습니다.');
 
 $menu_json = $_POST['menu_json'];
-
 if(!$menu_json)
     alert('등록된 메뉴가 없습니다.');
 

@@ -191,7 +191,7 @@ function na_menu_item($it) {
 	$me = $it;
 	
 	// url 치환
-	$it['href'] = na_url_amp(na_url($it['href']));
+	$it['href'] = na_url_amp($it['href']);
 
 	// 링크 분석
 	if(strpos($it['href'], G5_URL) !== false) {
