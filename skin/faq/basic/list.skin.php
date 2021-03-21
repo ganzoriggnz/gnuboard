@@ -104,7 +104,7 @@ if ($timg_src)
 <!-- } FAQ 끝 -->
 
 <?php
-if ($admin_href)
+if ($admin_href && G5_BZY_CHECK)
     echo '<div class="faq_admin"><a href="'.$admin_href.'" class="btn_admin btn" title="FAQ 수정"><i class="fa fa-cog fa-spin fa-fw"></i><span class="sound_only">FAQ 수정</span></a></div>';
 ?>
 

@@ -150,7 +150,7 @@ if ($board['bo_use_category'] && $sca !='') {
         <div id="bo_btn_top">
 
             <ul class="btn_bo_user">
-                <?php if ($admin_href) { ?><li><a href="<?php echo $admin_href ?>" class="btn_admin btn" title="관리자"><i
+                <?php if ($admin_href && G5_BZY_CHECK) { ?><li><a href="<?php echo $admin_href ?>" class="btn_admin btn" title="관리자"><i
                             class="fa fa-cog fa-spin fa-fw"></i><span class="sound_only">관리자</span></a></li><?php } ?>
                 <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btn_b01 btn" title="RSS"><i
                             class="fa fa-rss" aria-hidden="true"></i><span class="sound_only">RSS</span></a></li>
@@ -345,7 +345,7 @@ if ($board['bo_use_category'] && $sca !='') {
         <div class="bo_fx">
             <?php if ($list_href || $write_href) { ?>
             <ul class="btn_bo_user">
-                <?php if ($admin_href) { ?><li><a href="<?php echo $admin_href ?>" class="btn_admin btn" title="관리자"><i
+                <?php if ($admin_href && G5_BZY_CHECK) { ?><li><a href="<?php echo $admin_href ?>" class="btn_admin btn" title="관리자"><i
                             class="fa fa-cog fa-spin fa-fw"></i><span class="sound_only">관리자</span></a></li><?php } ?>
                 <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btn_b01 btn" title="RSS"><i
                             class="fa fa-rss" aria-hidden="true"></i><span class="sound_only">RSS</span></a></li>

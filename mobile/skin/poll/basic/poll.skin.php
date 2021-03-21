@@ -13,7 +13,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$poll_skin_url.'/style.css">', 0)
     <header>
         <h2>설문조사</h2>
         <a href="<?php echo G5_BBS_URL."/poll_result.php?po_id=$po_id&amp;skin_dir=".urlencode($skin_dir); ?>" target="_blank" onclick="poll_result(this.href); return false;" class="btn_result">결과보기</a>
-        <?php if ($is_admin == "super") { ?><a href="<?php echo G5_ADMIN_URL ?>/poll_form.php?w=u&amp;po_id=<?php echo $po_id ?>" class="btn_admin btn"><i class="fa fa-cog fa-spin fa-fw"></i><span class="sound_only">관리자 관리</span></a><?php } ?>
+        <?php if ($is_admin == "super" && G5_BZY_CHECK ) { ?><a href="<?php echo G5_ADMIN_URL ?>/poll_form.php?w=u&amp;po_id=<?php echo $po_id ?>" class="btn_admin btn"><i class="fa fa-cog fa-spin fa-fw"></i><span class="sound_only">관리자 관리</span></a><?php } ?>
     </header>
     <div class="poll_con">
 	    <p><?php echo $po['po_subject'] ?></p>
