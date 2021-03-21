@@ -159,34 +159,37 @@ if (file_exists($dbconfig_file)) {
 
 <!doctype html>
 <html lang="ko">
+
 <head>
-<meta charset="utf-8">
-<title>오류! <?php echo G5_VERSION ?> 설치하기</title>
-<link rel="stylesheet" href="install/install.css">
+    <meta charset="utf-8">
+    <title>오류! <?php echo G5_VERSION ?> 설치하기</title>
+    <link rel="stylesheet" href="install/install.css">
 </head>
+
 <body>
 
-<div id="ins_bar">
-    <span id="bar_img">GNUBOARD5</span>
-    <span id="bar_txt">Message</span>
-</div>
-<h1>그누보드5를 먼저 설치해주십시오.</h1>
-<div class="ins_inner">
-    <p>다음 파일을 찾을 수 없습니다.</p>
-    <ul>
-        <li><strong><?php echo G5_DATA_DIR.'/'.G5_DBCONFIG_FILE ?></strong></li>
-    </ul>
-    <p>그누보드 설치 후 다시 실행하시기 바랍니다.</p>
-    <div class="inner_btn">
-        <a href="<?php echo G5_URL; ?>/install/"><?php echo G5_VERSION ?> 설치하기</a>
+    <div id="ins_bar">
+        <span id="bar_img">GNUBOARD5</span>
+        <span id="bar_txt">Message</span>
     </div>
-</div>
-<div id="ins_ft">
-    <strong>GNUBOARD5</strong>
-    <p>GPL! OPEN SOURCE GNUBOARD</p>
-</div>
+    <h1>그누보드5를 먼저 설치해주십시오.</h1>
+    <div class="ins_inner">
+        <p>다음 파일을 찾을 수 없습니다.</p>
+        <ul>
+            <li><strong><?php echo G5_DATA_DIR.'/'.G5_DBCONFIG_FILE ?></strong></li>
+        </ul>
+        <p>그누보드 설치 후 다시 실행하시기 바랍니다.</p>
+        <div class="inner_btn">
+            <a href="<?php echo G5_URL; ?>/install/"><?php echo G5_VERSION ?> 설치하기</a>
+        </div>
+    </div>
+    <div id="ins_ft">
+        <strong>GNUBOARD5</strong>
+        <p>GPL! OPEN SOURCE GNUBOARD</p>
+    </div>
 
 </body>
+
 </html>
 
 <?php
@@ -538,6 +541,7 @@ if(isset($config['cf_theme']) && trim($config['cf_theme'])) {
         define('G5_THEME_PATH',        $theme_path);
         define('G5_THEME_URL',         G5_URL.'/'.G5_THEME_DIR.'/'.$config['cf_theme']);
         define('G5_THEME_MOBILE_PATH', $theme_path.'/'.G5_MOBILE_DIR);
+        define('G5_THEME_MOBILE_PATH2', G5_PATH.'/'.G5_MOBILE_DIR);
         define('G5_THEME_LIB_PATH',    $theme_path.'/'.G5_LIB_DIR);
         define('G5_THEME_CSS_URL',     G5_THEME_URL.'/'.G5_CSS_DIR);
         define('G5_THEME_IMG_URL',     G5_THEME_URL.'/'.G5_IMG_DIR);

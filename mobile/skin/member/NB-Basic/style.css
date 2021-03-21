@@ -487,3 +487,26 @@ box-shadow:inset 0 2px 5px rgb(33, 135, 202)}
     font-size: inherit;
     line-height: 1.5;
  }
+ 
+#tabletab tr td {
+    border: 1px solid #BABABA;
+}
+
+#tabletab tr td a span {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+#tabletab tr td a.actived {
+    font-weight: bold !important;
+    background: #fff !important;
+}
+
+#tabletab tr td a {
+    padding: 5px 10px !important;
+    margin: 0px !important;
+}
+
+#tabletab tr td {
+    text-align: center;
+}
