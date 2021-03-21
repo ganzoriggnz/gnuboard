@@ -7,93 +7,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
 
 <div id="bo_v">
     <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
-		<div class="px-3 px-sm-0">
-			<div class="d-flex">
-				<div id="user_cate_list" class="sly-wrap flex-grow-1">
-					<ul id="user_cate_ul" class="sly-list d-flex border-left-0 text-nowrap">
-                    <li >
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/userinfo.php" >
-                                <span>
-                                <img src="<?php echo G5_URL?>/img/solid/user.svg" class="svg-img" style="height :13px;" >&nbsp
-                                회원정보
-                             
-                                </span>
-                            </a>
-                        </li>
-                        <li >
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/mypost.php">
-                                <span>
-                                <img src="<?php echo G5_URL?>/img/solid/pen.svg" class="svg-img" style="height :13px;" >&nbsp
-                                내 글
-                                </span>
-                            </a>
-                        </li>
-                        <!-- <li >
-                            <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/point2.php">
-                                <span>
-                                <img src="<?php echo G5_URL?>/img/solid/book.svg" class="svg-img" style="height :13px;" >&nbsp
-                                파편조각 : <b><?php echo number_format($member['mb_point2']);?></b>
-                                </span>
-                            </a>
-                        </li> -->
-                        </ul>
-                        <ul id="user_cate_ul" class="sly-list d-flex border-left-0">
-                        <li >
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/point.php">
-                                <span>
-                                <img src="<?php echo G5_URL?>/img/solid/gem.svg" class="svg-img" style="height :13px;" >&nbsp
-                                파운드 : <b><?php echo number_format($member['mb_point']);?></b>
-                                </span>
-                            </a>
-                        </li>
-                        <li >
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/scrap.php">
-                                <span>
-                                <img src="<?php echo G5_URL?>/img/solid/paperclip.svg" class="svg-img" style="height :14px;" >&nbsp
-                                스크랩
-                                </span>
-                            </a>
-                        </li>
-                        <?php if ($member['mb_level'] == 27) { ?>
-                        <li >
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_create.php">
-                                <span>
-                                <img src="<?php echo G5_URL?>/img/solid/cubes.svg" class="svg-img" style="height :14px;" >&nbsp
-                                쿠폰지원
-                               
-                                </span>
-                            </a>
-                        </li>
-                        <?php } ?>
-                        <?php if ($member['mb_level'] < 23) { ?>
-                        <li class="active">
-                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_accept.php">
-                                <span>
-                                <img src="<?php echo G5_URL?>/img/solid/handshake.svg" class="svg-img" style="height :14px;" >&nbsp
-                                쿠폰관리
-                                </span>
-                            </a>
-                        </li>
-                        <?php } ?>
-                        <!-- if nuhtsul hulan nemsen 후기는 업소레벨에만 있으면 된다 -->
-                        <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
-                        <li > 
-                            <a class="py2 px-3" href="<?php echo G5_BBS_URL ?>/myreview.php">
-                                <span>
-                                <img src="<?php echo G5_URL?>/img/solid/reply.svg" class="svg-img" style="height :14px;" >&nbsp
-                                후기보기
-                                </span>
-                            </a>
-                        </li>
-                        <?php }?>
-                    </ul>
-                    <hr/>
-				</div>
-			</div>
-		</div>
+        <?php
+    $activedd = "actived";
+    include G5_THEME_MOBILE_PATH2."/skin/member/NB-Basic/infotab.php";
+    ?>
     </nav>
     <div style="margin-top: 30px; margin-left: 20px; font-size: 12px;">
-        <table class="coupon_accept_table"> 
+        <table class="coupon_accept_table">
             <thead>
                 <tr style="background-color: #e3e2e3;">
                     <th>발행업소</th>
@@ -104,7 +24,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                 </tr>
             </thead>
             <tbody>
-            <?php $sql = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_nick='{$member['mb_nick']}'";
+                <?php $sql = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_nick='{$member['mb_nick']}'";
                 $res = sql_query($sql);
                 for($i=0; $row = sql_fetch_array($res); $i++){ ?>
                 <tr id="<?php echo $i; ?>">
@@ -113,20 +33,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                         if($row['cos_type'] == 'S') {echo "원가권"; }  
                         else if($row['cos_type'] == 'F') {echo "무료권"; }?>
                     </td>
-                    <td id="changeText"><?php if($row['cos_accept'] == 'N') { echo "(사용하기 누를때 나옴)"; } else { echo $row['cos_code']; } ?></td>
-                    <td><?php echo "당첨 ".$row['cos_created_datetime'];?></br><?php if($row['cos_accept'] == 'Y') echo "사용 ".$row['cos_accepted_datetime']; ?></td>
+                    <td id="changeText">
+                        <?php if($row['cos_accept'] == 'N') { echo "(사용하기 누를때 나옴)"; } else { echo $row['cos_code']; } ?>
+                    </td>
+                    <td><?php echo "당첨 ".$row['cos_created_datetime'];?></br><?php if($row['cos_accept'] == 'Y') echo "사용 ".$row['cos_accepted_datetime']; ?>
+                    </td>
                     <td>
-                        <form id="<?php echo "fcouponaccept".$i; ?>" action="<?php echo $coupon_accept_action_url ?>" method="post" enctype="multipart/form-data" autocomplete="off">
-                            <input type="hidden" name="cos_no" value="<?php echo $row['cos_no']; ?>"/>
-                            <input type="hidden" name="co_no" value="<?php echo $row['co_no']; ?>"/>
-                            <input type="hidden" name="cos_code" value="<?php echo $row['cos_code']; ?>"/>
-                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="사용완료"' : 'class="accept_btn" value="쿠폰사용하기"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰사용하기"; ?></button>
-                        </form> 
+                        <form id="<?php echo "fcouponaccept".$i; ?>" action="<?php echo $coupon_accept_action_url ?>"
+                            method="post" enctype="multipart/form-data" autocomplete="off">
+                            <input type="hidden" name="cos_no" value="<?php echo $row['cos_no']; ?>" />
+                            <input type="hidden" name="co_no" value="<?php echo $row['co_no']; ?>" />
+                            <input type="hidden" name="cos_code" value="<?php echo $row['cos_code']; ?>" />
+                            <button type="button" id="<?php echo $i; ?>"
+                                <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="사용완료"' : 'class="accept_btn" value="쿠폰사용하기"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰사용하기"; ?></button>
+                        </form>
                     </td>
                 </tr>
                 <?php
                 }
-            ?>   
+            ?>
             </tbody>
         </table>
         <div class="popup_box">
@@ -143,17 +68,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
             </ul>
         </div>
         <script>
-           $(document).ready(function(){
-                $('button').click(function(){
-                    var formId = "#fcouponaccept" + this.id;
-                    $('.popup_box').css("display", "block");
-                    $('.btn').click(function(){
-                        $('.popup_box').css("display", "none");
-                        $(formId).submit();
-                    });
-                });                                  
-            })            
-                                        
+        $(document).ready(function() {
+            $('button').click(function() {
+                var formId = "#fcouponaccept" + this.id;
+                $('.popup_box').css("display", "block");
+                $('.btn').click(function() {
+                    $('.popup_box').css("display", "none");
+                    $(formId).submit();
+                });
+            });
+        })
         </script>
     </div>
 </div>
