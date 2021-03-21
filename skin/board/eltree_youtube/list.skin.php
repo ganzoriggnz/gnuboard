@@ -91,8 +91,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <th scope="col" >제목</th>
             <th scope="col" class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>">작성자</th>
 
-            <?php if ($is_good) { ?><th  class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
-            <?php if ($is_nogood) { ?><th  class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
+            <!-- <?php if ($is_good) { ?><th  class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?>추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?>
+            <?php if ($is_nogood) { ?><th  class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>" scope="col"><?php echo subject_sort_link('wr_nogood', $qstr2, 1) ?>비추천 <i class="fa fa-sort" aria-hidden="true"></i></a></th><?php } ?> -->
         </tr>
         </thead>
         <tbody>
@@ -182,8 +182,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 </div>
             </td>
 
-            <?php if ($is_good) { ?><td class="td_num <?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <?php echo $list[$i]['wr_good'] ?></td><?php } ?>
-            <?php if ($is_nogood) { ?><td class="td_num <?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <?php echo $list[$i]['wr_nogood'] ?></td><?php } ?>
+            <!-- <?php if ($is_good) { ?><td class="td_num <?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <?php echo $list[$i]['wr_good'] ?></td><?php } ?>
+            <?php if ($is_nogood) { ?><td class="td_num <?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <?php echo $list[$i]['wr_nogood'] ?></td><?php } ?> -->
 
         </tr>
         <?php } ?>
