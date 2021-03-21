@@ -23,7 +23,7 @@ do
             sed -n 's/\(.*\);/\1;  \/\/to translate/p' $1 >> ${file}.new
             ;;
     esac
-    echo "?>" >> ${file}.new
+    echo >> ${file}.new
     rm $file
     mv ${file}.new $file
 done

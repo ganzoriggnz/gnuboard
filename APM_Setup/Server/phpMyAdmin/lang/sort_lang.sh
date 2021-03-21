@@ -65,7 +65,7 @@ sortlang()
     echo "<?php" > $f
     cat $targetdir/cvs $targetdir/head $targetdir/sort $targetdir/translate \
     | uniq >> $f
-    echo "?>" >> $f
+    echo >> $f
 
     rm -rf $targetdir
 }
