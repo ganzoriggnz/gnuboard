@@ -5,6 +5,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
 
 @include_once(G5_THEME_PATH.'/common.php');
+
 $result;
 
 if ($w == '') {}
@@ -24,92 +25,74 @@ else if ($w == 'u')
 }
 ?>
 <div id="bo_v">
-<nav id="user_cate" class="sly-tab font-weight-normal">
-	<div id="bo_search" class="collapse show">
-		<div class="alert bg-light border">
-			<form id="fwrite" name="fwrite" method="post" class="m-auto">
-				<input type="hidden" name="w" value="u">
-				<div class="form-row mx-n1">
-					<div class="px-1">
-						<input type="radio" id="id" name="types" value="id" checked="checked" ?>
-						<label for="id" class="pt-2">아이디</label>
-						&nbsp;&nbsp;
-					</div>
-					<div class="px-1">
-						<input type="radio" id="nick" name="types" value="nick"  <?php if($_POST['types']=='nick') echo 'checked="checked"' ?>>
-						<label for="nick" class="pt-2">닉네임</label>
-						&nbsp;&nbsp;
-					</div>
-					<div class="col-12 col-sm-6 pt-2 pt-sm-0 px-1">
-						<div class="input-group">
-							<input type="text" id="searchd" name="searchd" value="<?php if($_POST['searchd']) echo $_POST['searchd']; ?>" required="" class="form-control" placeholder="검색어를 입력해 주세요.">
-							<div class="input-group-append">
-								<button type="submit" class="btn btn-primary" title="검색하기">
-									<i class="fa fa-search" aria-hidden="true"></i>
-									<span class="sr-only">검색하기</span>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</nav>
+    <nav id="user_cate" class="sly-tab font-weight-normal">
+        <div id="bo_search" class="collapse show">
+            <div class="alert bg-light border">
+                <form id="fwrite" name="fwrite" method="post" class="m-auto">
+                    <input type="hidden" name="w" value="u">
+                    <div class="form-row mx-n1">
+                        <div class="px-1">
+                            <input type="radio" id="id" name="types" value="id" checked="checked" ?>
+                            <label for="id" class="pt-2">아이디</label>
+                            &nbsp;&nbsp;
+                        </div>
+                        <div class="px-1">
+                            <input type="radio" id="nick" name="types" value="nick"
+                                <?php if($_POST['types']=='nick') echo 'checked="checked"' ?>>
+                            <label for="nick" class="pt-2">닉네임</label>
+                            &nbsp;&nbsp;
+                        </div>
+                        <div class="col-12 col-sm-6 pt-2 pt-sm-0 px-1">
+                            <div class="input-group">
+                                <input type="text" id="searchd" name="searchd"
+                                    value="<?php if($_POST['searchd']) echo $_POST['searchd']; ?>" required=""
+                                    class="form-control" placeholder="검색어를 입력해 주세요.">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-primary" title="검색하기">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                        <span class="sr-only">검색하기</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
 
-<section id="bo_list" class="mb-4"> 
-
-	<div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
-
-	<!-- 목록 헤드 -->
-	<div class="d-block d-md-none w-100 mb-10 bg-<?php echo $head_color ?>" style="height:4px;"></div>
-
-	<div class="na-table d-none d-md-table w-100 mb-0 text-md-center bg-light">
-		<div class="na-table-head border-primary d-md-table-row bg-light">	
-			<div class="d-md-table-cell nw-2 px-md-1 text-md-center">계급</div>
-			<div class="d-md-table-cell nw-6 pl-2 px-md-1 pr-md-1 text-md-center">아이디</div>			
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">닉네임</div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">파운드</div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">파편조각</div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">회원가입일</div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center">최종접속일</div>
-
-		</div>
-	</div>
-
-	<ul class="na-table d-md-table w-100">
-		<?php
-		$sum_point1 = $sum_point2 = $sum_point3 = 0;
-
-		
+    <section id="bo_list" class="mb-4">
+        <div class="w-100 mb-0 bg-primary" style="height:4px;"></div>
+        <!-- 목록 헤드 -->
+        <div class="d-block d-md-none w-100 mb-10 bg-<?php echo $head_color ?>" style="height:4px;"></div>
+        <table cellspacing="0" class="w-100 px-3 mr-3" cellpadding="0" width="100%"
+            style="border:1px solid #d3d3d3;font-size: 12px; padding:5px;" id="level-up">
+            <thead class="bg-light">
+                <tr style="border:1px solid #d3d3d3;font-size: 12px; text-align: center; ">
+                    <th class="cl_tr">아이디</th>
+                    <th class="cl_tl">파운드</th>
+                    <th class="cl_tr">파편조각</th>
+                    <th class="cl_tr">회원가입일</th>
+                    <th class="cl_tr">최종접속일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+				// $sum_point1 = $sum_point2 = $sum_point3 = 0;
 		for ($i=0; $row=sql_fetch_array($result); $i++) {
-        $name = get_sideview_user($row['mb_id'], $row['mb_nick'], $row['mb_homepage']);
-        $row['name'] = $name;
-		?>	
-		<li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
-            <div class="d-md-table-cell nw-2 px-md-1 text-md-center"><?php 
-             if (get_level($row['mb_id'])) 
-                echo get_level($row['mb_id']);
-             else 
-                 echo get_level_name($row['mb_level']); 
-            ?></div>
-			<div class="d-md-table-cell nw-6 px-3 pt-1 pb-1 text-md-left">
-                <?php 
-                echo na_name_photo_only($row['mb_id'], $row['name']) ?>
-                </div>
-			<div class="d-md-table-cell nw-6 px-3 pt-1 pb-1 text-md-left"><?php echo $row['mb_nick']; ?></div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_point']; ?></div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_point2']; ?></div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_datetime']; ?></div>
-			<div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_today_login']; ?></div>
-		</li>
-		<?php
-		}
+		?>
+                <tr style="border:1px solid #d3d3d3; font-size: 10px">
+                    <td class="cl_td"><?php echo na_name_photo($row['mb_id'], $row['name']); ?></td>
+                    <td class="cl_td" style="text-align: left;"><?php echo $row['mb_nick']; ?></td>
+                    <td class="cl_td_r" style="text-align: left;"><?php echo $row['mb_point']; ?></td>
+                    <td class="cl_td_r" style="text-align: left;"><?php echo $row['mb_datetime']; ?></td>
+                    <td class="cl_td_r" style="text-align: left;"><?php echo $row['mb_today_login']; ?></td>
+                </tr>
+                <?php }
 		if ($i == 0)
 			echo '<li class="list-group-item border-left-0 border-right-0 f-de font-weight-normal py-5 text-muted text-center">자료가 없습니다.</li>';
 		?>
-	</ul>
-
-</section>
+            </tbody>
+        </table>
+    </section>
 </div>
-
