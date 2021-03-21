@@ -127,8 +127,8 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 								switch($sst) {
 									case 'wr_datetime'	: $sst_icon = 'history'; $sst_txt = '날짜순 정렬'; break;
 									case 'wr_hit'		: $sst_icon = 'eye'; $sst_txt = '조회순 정렬'; break;
-									case 'wr_good'		: $sst_icon = 'thumbs-o-up'; $sst_txt = '추천순 정렬'; break;
-									case 'wr_nogood'	: $sst_icon = 'thumbs-o-down'; $sst_txt = '비추천순 정렬'; break;
+									// case 'wr_good'		: $sst_icon = 'thumbs-o-up'; $sst_txt = '추천순 정렬'; break;
+									// case 'wr_nogood'	: $sst_icon = 'thumbs-o-down'; $sst_txt = '비추천순 정렬'; break;
 									default				: $sst_icon = 'sort-numeric-desc'; $sst_txt = '게시물 정렬'; break;
 								}
 							?>
@@ -143,7 +143,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 								<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
 									조회순
 								</a>
-								<?php if($is_good && $bo_table != 'partnership') { ?>
+								<!-- <?php if($is_good && $bo_table != 'partnership') { ?>
 									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
 										추천순
 									</a>
@@ -151,7 +151,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 								<?php if($is_nogood && $bo_table != 'partnership') { ?>
 									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
 										비추천순
-									</a>
+									</a> -->
 								<?php } ?>
 							</div>
 						</div>

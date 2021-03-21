@@ -8,8 +8,12 @@
     margin: 0px !important;
 }
 
-#tabletab tr td a span,
-img {
+#tabletab tr td a span img {
+    height: 13px !important;
+    font-size: 13px !important;
+}
+
+#tabletab tr td a span {
     height: 13px !important;
     font-size: 13px !important;
 }
