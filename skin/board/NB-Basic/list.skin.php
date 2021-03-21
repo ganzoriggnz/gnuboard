@@ -58,7 +58,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 	<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" 
 	&& $bo_table != "mypage" && $gr_id!="attendance" && $bo_table != "greeting" && $bo_table != "notice" && $bo_table != "twitter"
 	&& $bo_table != "facebook" && $bo_table != "twitter" && $bo_table != "ucc" && $bo_table != "work_abroad") {
-	if(!G5_IS_MOBILE && $bo_table != "work_board") include_once('hit_latest.php'); }?>
+	if(!G5_IS_MOBILE && $bo_table != "work_board" && $bo_table != "woman" && $bo_table != "job") include_once('hit_latest.php'); }?>
 	<br>
 	<?php
 	// 게시판 카테고리
@@ -175,14 +175,14 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 									$sst_icon = 'eye';
 									$sst_txt = '조회순 정렬';
 									break;
-								case 'wr_good':
-									$sst_icon = 'thumbs-o-up';
-									$sst_txt = '추천순 정렬';
-									break;
-								case 'wr_nogood':
-									$sst_icon = 'thumbs-o-down';
-									$sst_txt = '비추천순 정렬';
-									break;
+								// case 'wr_good':
+								// 	$sst_icon = 'thumbs-o-up';
+								// 	$sst_txt = '추천순 정렬';
+								// 	break;
+								// case 'wr_nogood':
+								// 	$sst_icon = 'thumbs-o-down';
+								// 	$sst_txt = '비추천순 정렬';
+								// 	break;
 								default:
 									$sst_icon = 'sort-numeric-desc';
 									$sst_txt = '게시물 정렬';

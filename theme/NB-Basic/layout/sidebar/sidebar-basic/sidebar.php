@@ -154,7 +154,7 @@ $menu_cnt = count($menu);
 							<?php if ($config['cf_use_point']) { ?>
 								<li class="col-12 px-1">
 									<a href="<?php echo G5_BBS_URL ?>/point.php" target="_blank" class="btn btn-block btn-basic <?php if(G5_IS_MOBILE) echo "win_point" ?>  f-sm mb-2">
-										포인트 <b class="orangered"><?php echo number_format($member['mb_point']); ?></b>
+										파운드 <b class="orangered"><?php echo number_format($member['mb_point']); ?></b>
 									</a>
 								</li>
 							<?php } ?>
@@ -290,7 +290,7 @@ $menu_cnt = count($menu);
 							<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=shop" ><img src="<?php echo G5_URL?>/img/solid/gift.svg"  style="height: 13px;">&nbsp;아이템 샵</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=event" ><img src="<?php echo G5_URL?>/img/solid/baseline-wc-24px.png">&nbsp;이벤트모임</a>
+							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=event" ><img src="<?php echo G5_URL?>/img/solid/baseline-wc-24px.png">&nbsp;이벤트</a>
 							</li>
 							<li class="me-li1 ">
 							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=partnership" ><img src="<?php echo G5_URL?>/img/solid/comment-alt.svg"  style="height: 13px;">&nbsp;제휴문의</a>
