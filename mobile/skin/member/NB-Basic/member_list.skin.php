@@ -70,8 +70,8 @@ else if ($w == 'u')
             <thead class="bg-light">
                 <tr style="border:1px solid #d3d3d3;font-size: 12px; text-align: center; ">
                     <th class="cl_tr">아이디</th>
-                    <th class="cl_tl">파운드</th>
-                    <th class="cl_tr">파편조각</th>
+                    <th class="cl_tl">닉네임</th>
+                    <th class="cl_tr">파운드</th>
                     <th class="cl_tr">회원가입일</th>
                     <th class="cl_tr">최종접속일</th>
                 </tr>
@@ -82,7 +82,9 @@ else if ($w == 'u')
 		for ($i=0; $row=sql_fetch_array($result); $i++) {
 		?>
                 <tr style="border:1px solid #d3d3d3; font-size: 10px">
-                    <td class="cl_td"><?php echo na_name_photo($row['mb_id'], $row['name']); ?></td>
+                    <td class="cl_td">
+                        <?php echo na_name_photo($row['mb_id'], get_sideview($row['mb_id'], $row['mb_name'], $row['mb_email'])  ); ?>
+                    </td>
                     <td class="cl_td" style="text-align: left;"><?php echo $row['mb_nick']; ?></td>
                     <td class="cl_td_r" style="text-align: left;"><?php echo $row['mb_point']; ?></td>
                     <td class="cl_td_r" style="text-align: left;"><?php echo $row['mb_datetime']; ?></td>
