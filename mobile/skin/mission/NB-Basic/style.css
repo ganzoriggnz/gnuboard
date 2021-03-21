@@ -8,5 +8,5 @@
 .cl_tr {text-align: center;font-size: 13px;color: #000000;height: 50px;border-bottom: 2px solid #D5BD79}
 .cl_tl {text-align: left;font-size: 13px;color: #000000;height: 50px;border-bottom: 2px solid #D5BD79}
 .cl_td   {text-align: center; font-size: 13px;color: #000;height: 40px;border-bottom: 1px dashed #d3d3d3}
-.cl_td_l {text-align: left;   font-size: 13px;color: #000;height: 40px;border-bottom: 1px dashed #d3d3d3}
+.cl_td_l {min-width: 120px; text-align: left;   font-size: 13px;color: #000;height: 40px;border-bottom: 1px dashed #d3d3d3}
 .cl_td_r {text-align: right;  font-size: 13px;color: #000;height: 40px;border-bottom: 1px dashed #d3d3d3}

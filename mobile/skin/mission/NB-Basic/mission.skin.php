@@ -10,8 +10,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 		<thead>
 			<tr>
 				<th class="cl_tr">수행 No</th>
-				<th class="cl_tr">수행명</th>
-				<th class="cl_tr">수행설명</th>
+				<th class="cl_tl">수행명</th>
+				<th class="cl_tl">수행설명</th>
 				<th class="cl_tr"></th>
 				<th class="cl_tl">구분</th>
 			</tr>
@@ -20,7 +20,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				
 			<tr>
 				<td class="cl_td">1</td>
-				<td class="cl_td">출석체크</td>	
+				<td class="cl_td_l">출석체크</td>	
 				<td class="cl_td_l">출석체크 하기									
 				</td>
 				<td class="cl_td_r"></td>
@@ -34,7 +34,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 					
 			<tr>
 				<td class="cl_td">2</td>
-				<td class="cl_td">자유게시판</td>	
+				<td class="cl_td_l">자유</br>게시판</td>	
 				<td class="cl_td_l">자유게시판에 글 1회 작성하기(<?php if($cnt == 0) { echo '0'; } else if($cnt > 0) { echo '1';} ?> /1)				
 				</td>
 				<td class="cl_td_r"></td>
@@ -48,8 +48,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 								
 			<tr>
 				<td class="cl_td">3</td>
-				<td class="cl_td">펫 기르기 게시판</td>	
-				<td class="cl_td_l">펫 먹이주기, 청소하기,쓰담쓰담해주기(<?php 
+				<td class="cl_td_l">펫 기르기 </br>게시판</td>	
+				<td class="cl_td_l">펫 먹이주기, 청소하기,놀아주기(<?php 
 				if($row2['p_no'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] == '0000-00-00 00:00:00' && $row2['p_but3_datetime'] == '0000-00-00 00:00:00') { echo '1';} 
 				else if($row2['p_no'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00' && $row2['p_but3_datetime'] == '0000-00-00 00:00:00') { echo '2';} 
 				else if($row2['p_no'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00' && $row2['p_but3_datetime'] != '0000-00-00 00:00:00') { echo '3';} 
@@ -67,7 +67,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 					
 			<tr>
 				<td class="cl_td">4</td>
-				<td class="cl_td">댓글작성 후기</td>	
+				<td class="cl_td_l">댓글작성 </br>후기</td>	
 				<td class="cl_td_l">자유게시판에 댓글 1회 작성하기(<?php 
 				if($cnt1 == 0) { echo '0';} 
 				else if($cnt1 > 0) { echo '1';} ?>/1)				
@@ -83,7 +83,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 								
 			<tr>
 				<td class="cl_td">5</td>
-				<td class="cl_td">댓글작성 후기</td>	
+				<td class="cl_td_l">댓글작성 </br>후기</td>	
 				<td class="cl_td_l">자유게시판에 댓글 5회 작성하기(<?php 
 				if($cnt1 < 2) { echo '0';} 
 				else if($cnt1 == 2) { echo '1';}
@@ -103,7 +103,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 						
 			<tr>
 				<td class="cl_td">6</td>
-				<td class="cl_td">댓글작성 후기</td>	
+				<td class="cl_td_l">댓글작성 </br>후기</td>	
 				<td class="cl_td_l">자유게시판에 댓글 10회 작성하기(<?php 
 				if($cnt1 < 6) { echo '0';} 
 				else if($cnt1 == 6) { echo '1';}
@@ -128,7 +128,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 								
 			<tr>
 				<td class="cl_td">7</td>
-				<td class="cl_td">출근부</td>	
+				<td class="cl_td_l">출근부</td>	
 				<td class="cl_td_l">출근부 5회 읽기(<?php 
 				if($cnt_att == 0) { echo '0';} 
 				else if($cnt_att == 1) { echo '1';}
@@ -148,7 +148,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 								
 			<tr>
 				<td class="cl_td">8</td>
-				<td class="cl_td">출근부</td>	
+				<td class="cl_td_l">출근부</td>	
 				<td class="cl_td_l">출근부 10회 읽기(<?php 
 				if($cnt_att < 6) { echo '0';} 
 				else if($cnt_att == 6) { echo '1';}
@@ -173,7 +173,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 								
 			<tr>
 				<td class="cl_td">9</td>
-				<td class="cl_td">후기</td>	
+				<td class="cl_td_l">후기</td>	
 				<td class="cl_td_l">후기 5회 읽기(<?php 
 				if($cnt_rev == 0) { echo '0';} 
 				else if($cnt_rev == 1) { echo '1';}
@@ -193,7 +193,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 								
 			<tr>
 				<td class="cl_td">10</td>
-				<td class="cl_td">후기</td>	
+				<td class="cl_td_l">후기</td>	
 				<td class="cl_td_l">후기 10회 읽기(<?php 
 				if($cnt_rev < 6) { echo '0';} 
 				else if($cnt_rev == 6) { echo '1';}
@@ -219,7 +219,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 			<tr style="border-top:1px solid #f3bd49">
 				<td class="cl_td">+</td>
 				<td class="cl_td">지급파운드</td>				
-				<td class="cl_td_l"><font color="#f3bd49"><b>일일 미션 10개 모두 완료시 지급 파운드</b></font></td>	
+				<td class="cl_td_l"><font color="#f3bd49"><b>일일 미션 10개 모두 완료시 </br>지급 파운드</b></font></td>	
 				<td class="cl_td_r">200P</td>
 				<td class="cl_td">
 					<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?>">
