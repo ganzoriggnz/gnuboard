@@ -184,16 +184,15 @@ function na_theme_href($type, $mode='', $fid='', $sid='') {
 }
 
 function isLocalhost() {
-    return $_SERVER['HTTP_HOST'] === "localhost";
+    return $_SERVER['HTTP_HOST'] === "localhost" || $_SERVER['HTTP_HOST'] === "192.168.0.103";
 }
 // 메뉴 아이템 가공
 function na_menu_item($it) {
 
 	$me = array();
-
 	$me = $it;
 	// url 치환
-	$it['href'] = isLocalhost() ?na_url_amp(na_url($it['href'])) :na_url_amp($it['href']) ;
+	$it['href'] = isLocalhost() ?na_url_amp(na_url(".".$it['href'])) :na_url_amp($it['href']) ;
 
 	// 링크 분석
 	if(strpos($it['href'], G5_URL) !== false) {
