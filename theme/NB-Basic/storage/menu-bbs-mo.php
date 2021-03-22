@@ -671,7 +671,7 @@ $data=array (
       0 => 
       array (
         'text' => '출석체크',
-        'href' => './plugin/attendance/attendance.php',
+        'href' => '/plugin/attendance/attendance.php',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '공지사항',
