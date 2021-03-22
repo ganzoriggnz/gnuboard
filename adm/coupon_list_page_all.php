@@ -334,13 +334,13 @@ if( isset($_POST['id'])){
                     </a>
                 </td> 
                 
-                <td class="td_left">
+                <td class="td_left" style="text-align: left; width: 8rem;"> 
                     <a data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
                         <?php if($row['co_begin_datetime'] < $co_begin_datetime) {echo "무료권 0개";} else { echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";}?> 
                     </a>
                 </td>
                 
-                <td class="td_left" style="text-align: left; width: 8rem;"> 
+                <td class="td_left"> 
                     <ul id="userlist">
                     <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a RIGHT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime ='{$co_end_datetime}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
                     $sql1 = sql_query($sql);
