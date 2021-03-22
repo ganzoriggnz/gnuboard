@@ -51,17 +51,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             <br />
             <div style="text-align:center">
                 <input type="submit" id="change" value="전화번호 변경요청" class="btn btn-primary en">
+                <button type="cancel" class="btn btn-primary en" onclick="self.close()">창닫기</button>
+            </div>
+            <?php if($_POST['new_hp']!='')
+            echo '<br/><div style="text-align:center">전화번호 변경요청 완료되었습니다</div>'; 
+            ?>
+        </div>
     </form>
-    <button type="button" class="btn btn-primary en" onclick="window.close();">창닫기</button>
-</div>
-
-<!-- <?php if($_POST['new_hp']!='')
- echo '<br/><div style="text-align:center">전화번호 변경요청 완료되었습니다</div>'; 
-
- 
-?> -->
-</div>
-
 </div>
 
 <script src="<?php echo NA_URL ?>/js/jquery-3.5.1.min.js"></script>
