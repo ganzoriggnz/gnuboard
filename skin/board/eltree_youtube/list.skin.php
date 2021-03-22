@@ -144,7 +144,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
                                 <div class="video_wrap listImgA d-md-block d-none" style="margin-right:4%;">
                                     <div class="video_container">
-                                        <iframe width="250" height="140"
+                                        <iframe width="220" height="120"
                                             src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>"
                                             frameborder="0" webkitAllowFullScreen mozallowfullscreen
                                             allowFullScreen></iframe>
