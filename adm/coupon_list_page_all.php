@@ -264,7 +264,7 @@ if( isset($_POST['id'])){
         ?>
             <tr>
                 <td class="td_left" style="text-align: left; width: 10rem;">
-                    <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-entity = "<?php echo $row['mb_name'];?>">
+                    <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>" data-mb-id = "<?php echo $row['mbid'];?>" data-entity = "<?php echo $row['mb_name'];?>">
                         <?php echo "[".$row['mb_name']."]";
                         $user_entity[$cnt]['co_entity']= $row['mb_name'];
                         ?> 
