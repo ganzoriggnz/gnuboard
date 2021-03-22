@@ -291,7 +291,7 @@ if( isset($_POST['id'])){
                                     <div class="modal-body" style="text-align: left; font-weight: normal;">
                                         <form id="fcouponcreate<?php echo $cnt;?>" name="fcouponcreate" action="<?php echo $coupon_create_action_url; ?>" onsubmit="" method="post" enctype="multipart/form-data" autocomplete="off">
                                             <input type="hidden" name="co_no" id="co_no1" value="<?php echo $row3['co_no']; ?>">
-                                            <input type="hidden" name="mb_id" id="mb_id1" value="<?php echo $row['mb_id']; ?>">
+                                            <input type="hidden" name="mb_id" id="mb_id1" value="<?php echo $row['mbid']; ?>">
                                             <input type="hidden" name="mb_6" id="mb_6" value="<?php echo $row['mb_6']; ?>">
                                             <input type="hidden" name="cos_link" id="cos_link1" value="<?php echo $bo_table; ?>">
                                             <div style="margin-left: 10px;"><?php echo $year."년 ".$month."월";?></div>
