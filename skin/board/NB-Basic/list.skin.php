@@ -133,7 +133,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 					<?php } ?>
 				</div>
 				<div role="group">
-					<?php if ($admin_href && G5_BZY_CHECK) { ?>
+					<?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
 						<a href="<?php echo $admin_href ?>" class="btn btn_admin nofocus py-1" title="관리자" role="button">
 							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
 							<span class="sr-only">관리자</span>
@@ -156,7 +156,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 						</a>	</div>
 						&nbsp;&nbsp;
 					<?php } ?>	
-					<?php if ($gr_id != "review" && $member_level != 26 && $member_level != 27 ) { ?>	
+					<?php if ($is_admin || $gr_id != "review" && ($member_level != 26 || $member_level != 27 )) { ?>	
 					<?php if ($write_href) { ?>						
 						<div>
 							<button type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
