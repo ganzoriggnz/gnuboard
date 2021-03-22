@@ -16,7 +16,7 @@ $list_cnt = count($list);
 
 $wsetrr=$sca;
 $listee = na_post_subcat($wsetrr); //
-
+sort($listee);
 $list_cnteee = count($listee);
 
 $stx = get_text(stripslashes($stx));
