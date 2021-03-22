@@ -97,6 +97,7 @@ if($gr_id == 'attendance'){
             for ($i=0; $i < $list_cnt; $i++) {
                 // hulan nemsen member table.회원 정보 가져오기
                 $mb=get_member($list[$i]['mb_id']);
+                $title = $list[$i]['subject'];
                 //아이콘 체크
                 $wr_icon = '';
                 $is_lock = false;
@@ -168,7 +169,7 @@ if($gr_id == 'attendance'){
                             <input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]"
                                 value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
                             <?php } ?>
-                            <a href="<?php echo $list[$i]['href'] ?>" <?php 
+                            <a href="<?php echo $list[$i]['href'] ?>" title="<?php echo $title;?>" <?php 
                             // secret bolson bgaad admin bol doorh style 
                             if (strstr($list[$i]['wr_option'], "secret") && $is_admin) { echo "style='color:#bababa;text-decoration: line-through' "; }
 
