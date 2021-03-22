@@ -250,7 +250,7 @@ if( isset($_POST['id'])){
         while ($row = sql_fetch_array($result1)) {     
         ?>
             <tr>
-                <td class="td_left" style="text-align: left; width: 7rem;">
+                <td class="td_left" style="text-align: left; width: 10rem;">
                     <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>">
                         <?php echo "[".$row['co_entity']."]";
                         $user_entity[$cnt]['co_entity']= $row['co_entity'];
@@ -314,13 +314,13 @@ if( isset($_POST['id'])){
                     </div>       
                 </td>
                 
-                <td class="td_left">
+                <td class="td_left" style="text-align: left; width: 8rem;">
                     <a data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
                         <?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
                     </a>
                 </td> 
                 
-                <td class="td_left">
+                <td class="td_left" style="text-align: left; width: 8rem;">
                     <a data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
                         <?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
                     </a>
