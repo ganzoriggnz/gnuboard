@@ -44,22 +44,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     <td style="background-color:#f0f0f0;padding:5px">변경 전화번호</td>
                     <td><input type="tel" name="new_hp" id="new_hp" value="<?php echo $member['mb_10']?>"
                             style="width:120px;height:25px; text-align:left; margin-right:25px; border:1px solid #b5b5b5"
-                            size="14" maxlength="14" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"></td>
+                            placeholder="010-1234-5678" size="14" maxlength="14" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}">
+                    </td>
                 </tr>
             </table>
             <br />
             <div style="text-align:center">
                 <input type="submit" id="change" value="전화번호 변경요청" class="btn btn-primary en">
-                <button type="button" class="btn btn-primary en" onclick="window.close();">창닫기</button>
-            </div>
+    </form>
+    <button type="button" class="btn btn-primary en" onclick="window.close();">창닫기</button>
+</div>
 
-            <!-- <?php if($_POST['new_hp']!='')
+<!-- <?php if($_POST['new_hp']!='')
  echo '<br/><div style="text-align:center">전화번호 변경요청 완료되었습니다</div>'; 
 
  
 ?> -->
-        </div>
-    </form>
+</div>
+
 </div>
 
 <script src="<?php echo NA_URL ?>/js/jquery-3.5.1.min.js"></script>
