@@ -54,11 +54,12 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list_wrap">
-<!-- 인기글 { -->
+<!-- 인기글 -->
 	<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" 
 	&& $bo_table != "mypage" && $gr_id!="attendance" && $bo_table != "greeting" && $bo_table != "notice" && $bo_table != "twitter"
-	&& $bo_table != "facebook" && $bo_table != "twitter" && $bo_table != "ucc" && $bo_table != "work_abroad") {
-	if(!G5_IS_MOBILE && $bo_table != "work_board" && $bo_table != "woman" && $bo_table != "job") include_once('hit_latest.php'); }?>
+	&& $bo_table != "facebook" && $bo_table != "ucc" && $bo_table != "work_abroad" && $bo_table != "work_board" && $bo_table != "woman" && $bo_table != "event" && $bo_table != "job") 
+	if(!G5_IS_MOBILE )
+	include_once('hit_latest.php'); ?>
 	<br>
 	<?php
 	// 게시판 카테고리
@@ -154,13 +155,15 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 						쿠폰지원내역 
 						</a>	</div>
 						&nbsp;&nbsp;
-					<?php } ?>		
+					<?php } ?>	
+					<?php if ($gr_id != "review" && $member_level != 26 && $member_level != 27 ) { ?>	
 					<?php if ($write_href) { ?>						
 						<div>
 							<button type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
 								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
 							</button>
 						</div>
+					<?php } ?>
 					<?php } ?>
 					</div>
 					<div class="btn-group" role="group">
