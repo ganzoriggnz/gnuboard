@@ -32,7 +32,11 @@ if ($bo_table == "free" || $gr_id == "review" || $bo_table == "event") {
 		}
 	}
 }
-
+$is_select = "";
+if ($notice_checked== 'checked')
+$is_select = "selected";
+if ($event_checked== 'checked' )
+$is_select = "selected";
 
 // ////////////////////////////////////////////////////////
 
@@ -358,9 +362,9 @@ ul.my-table > li {
                             <?php echo $category_option;
                             if ($is_admin){
                                 echo "
-                                <option value='공지'>공지</option>
-                                <option value='이벤트진행'>이벤트진행</option>
-                                <option value='이벤트결과'>이벤트결과</option>
+                                <option value='공지' $is_select>공지</option>
+                                <option value='이벤트진행' $is_select>이벤트진행</option>
+                                <option value='이벤트결과' $is_select>이벤트결과</option>
                                 ";}
                             ?>
                         </select>
@@ -393,9 +397,9 @@ ul.my-table > li {
                             <?php } 
                             if ($is_admin){
                                 echo "
-                                <option value='공지'>공지</option>
-                                <option value='이벤트진행'>이벤트진행</option>
-                                <option value='이벤트결과'>이벤트결과</option>
+                                <option value='공지' $is_select>공지</option>
+                                <option value='이벤트진행' $is_select>이벤트진행</option>
+                                <option value='이벤트결과' $is_select>이벤트결과</option>
                                 ";}                            
                             ?>                            
                         </select>
@@ -888,10 +892,12 @@ ul.my-table > li {
                             <?php echo $category_option; 
                             
                             if ($is_admin){
+                                
+
                                 echo "
-                                <option value='공지'>공지</option>
-                                <option value='이벤트진행'>이벤트진행</option>
-                                <option value='이벤트결과'>이벤트결과</option>
+                                <option value='공지' $is_select>공지</option>
+                                <option value='이벤트진행'  $is_select>이벤트진행</option>
+                                <option value='이벤트결과' $is_select>이벤트결과</option>
                                 ";}
                             ?>
 
@@ -925,9 +931,9 @@ ul.my-table > li {
                             <?php } 
                             if ($is_admin){
                                 echo "
-                                <option value='공지'>공지</option>
-                                <option value='이벤트진행'>이벤트진행</option>
-                                <option value='이벤트결과'>이벤트결과</option>
+                                <option value='공지' $is_select>공지</option>
+                                <option value='이벤트진행' $is_select>이벤트진행</option>
+                                <option value='이벤트결과' $is_select>이벤트결과</option>
                                 ";}                            
                             ?>
                         </select>
