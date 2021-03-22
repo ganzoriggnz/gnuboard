@@ -79,6 +79,10 @@ if ($board['bo_use_category'] && $sca !='') {
         $subcategory_option .= '>'.$subcategory_msg.$subcategory.'</a></li>';
     }    
 }
+
+if (G5_IS_MOBILE) {
+    echo "<style> #bo_cate_on {font-size:8px !important;} </style>";
+}
 ?>
 
 <!-- 게시판 목록 시작 { -->
