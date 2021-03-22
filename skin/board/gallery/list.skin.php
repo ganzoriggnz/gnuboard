@@ -16,7 +16,7 @@ $list_cnt = count($list);
 
 $wsetrr=$sca;
 $listee = na_post_subcat($wsetrr); //
-
+sort($listee);
 $list_cnteee = count($listee);
 
 $stx = get_text(stripslashes($stx));
@@ -78,6 +78,10 @@ if ($board['bo_use_category'] && $sca !='') {
         else
         $subcategory_option .= '>'.$subcategory_msg.$subcategory.'</a></li>';
     }    
+}
+
+if (G5_IS_MOBILE) {
+    echo "<style> #bo_cate_on {font-size:8px !important;} </style>";
 }
 ?>
 

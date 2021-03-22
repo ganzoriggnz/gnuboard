@@ -1281,13 +1281,13 @@ function na_post_subcat($wset,$subcat=''){
 			$bo_table = $res['bo_table'];			
 			$hwrite_table = $g5['write_prefix'] . $bo_table;	
 			if($wset==''){				
-				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id  GROUP BY a.ca_name", false  );
+				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id  GROUP BY a.ca_name ORDER BY a.ca_name ASC", false  );
 			} else if ($subcat=='')
 				{								
-				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.wr_is_comment = '0'  GROUP BY a.ca_name", false  );
+				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.wr_is_comment = '0'  GROUP BY a.ca_name ORDER BY a.ca_name ASC", false  );
 			}
 			else {
-				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'  and a.wr_is_comment = '0' GROUP BY a.ca_name", false  );
+				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'  and a.wr_is_comment = '0' GROUP BY a.ca_name ORDER BY a.ca_name ASC", false  );
 			}
 			while ( $row=sql_fetch_array($result1)) {					
 				$list[$cnt] = $row;				

@@ -75,7 +75,7 @@
 /* 게시판 목록 */
 /* #bo_cate {margin:25px 0} */
 #bo_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#bo_cate ul {zoom:1; width: 100%;}
+#bo_cate ul {zoom:1; width: 100% ;}
 #bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
 #bo_cate li {display:inline-block; margin: 0px 0px 2px 0px; width: 10%; height: 39px;}
 
@@ -89,7 +89,7 @@
 #bo_cate a {border: 1px solid #c7a445; background-color: #fff; border-radius: 5px; font-size:12px; color:#000; height:39px; display: flex; align-items: center; justify-content:center; text-align: center; margin-left: 3px; padding: 0px;}
 #bo_cate ul li:first-child a{margin-left: 0px;}
 #bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {border: 1px solid #c7a445; background-color:#868265; text-decoration:none; color:#fff;}
-#bo_cate #bo_cate_on {z-index:2; background-color:#868265; font-size:8px; font-weight: bold; color:#FFF; height:39px; display:flex; align-items:center; justify-content: center; padding: 0px;}
+#bo_cate #bo_cate_on {z-index:2; background-color:#868265;  font-weight: bold; color:#FFF; height:39px; display:flex; align-items:center; justify-content: center; padding: 0px;}
 
 
 /* #bo_subcate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}

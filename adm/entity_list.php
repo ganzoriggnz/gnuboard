@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         locale: initialLocaleCode,
         navLinks: true, // can click day/week names to navigate views
         editable: true,
-        eventLimit: true, // allow "more" link when too many events
+        eventLimit: false, // allow "more" link when too many events
        eventRender: function(event, eventElement) {
                 /* eventElement.find("td.fc-event-container").append("<span class='sv_wrap'>");  */
             /* info.el.querySelector('.fc-time').innerHTML = ""; */

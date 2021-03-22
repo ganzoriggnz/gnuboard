@@ -105,6 +105,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         <?php } ?>
                         <th class="d-none" scope="col"></th>
                         <th scope="col">번호</th>
+                        <th scope="col" class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>"></th>
+                        <th scope="col" class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>"></th>
                         <th scope="col">제목</th>
                         <th scope="col" class="<?php if (G5_IS_MOBILE) echo "d-md-block d-none" ?>">작성자</th>
 
@@ -135,22 +137,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 echo $list[$i]['num'];
              ?></td>
                         <td class="td_subject ">
-                            <?php
-                if ($is_category && $list[$i]['ca_name']) {
-                 ?>
-                            <a href="<?php echo $list[$i]['ca_name_href'] ?>"
-                                class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
-                            <?php } ?>
-                            <div class="bo_tit">
+                            <div class="">
                                 <?php
                     $tmp_wr_link1 = explode("https://youtu.be/", $list[$i]['wr_link1']);
-                  // 본문내용
-                    // $str_content = cut_str(nl2br(strip_tags($list[$i]['wr_content'])), $board['bo_1']);
                   ?>
 
                                 <div class="video_wrap listImgA d-md-block d-none" style="margin-right:4%;">
                                     <div class="video_container">
-                                        <iframe width="250" height="160"
+                                        <iframe width="220" height="120"
                                             src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>"
                                             frameborder="0" webkitAllowFullScreen mozallowfullscreen
                                             allowFullScreen></iframe>
@@ -160,8 +154,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                                 <?php
                             if (isset($list[$i]['icon_secret'])) echo rtrim($list[$i]['icon_secret']);
                          ?>
-                                <!-- <em class="listCont"><?php echo cut_str(strip_tags($list[$i]['wr_content']),160," . . . ") ?></em> -->
-                            </div>
+                            </div></td>
+                            <td>
+                            <?php
+                if ($is_category && $list[$i]['ca_name']) {
+                 ?>
+                            <a href="<?php echo $list[$i]['ca_name_href'] ?>"
+                                class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
+                            <?php } ?>
                         </td>
                         <td class="td_subject">
 

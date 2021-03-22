@@ -32,7 +32,11 @@ if ($bo_table == "free" || $gr_id == "review" || $bo_table == "event") {
 		}
 	}
 }
-
+$is_select = "";
+if ($notice_checked== 'checked')
+$is_select = "selected";
+if ($event_checked== 'checked' )
+$is_select = "selected";
 
 // ////////////////////////////////////////////////////////
 
@@ -184,13 +188,13 @@ ul.my-table > li {
 			}
 
 			// 게시판 플러그인 사용시
-			if (IS_NA_BBS && $is_notice) {
-				$as_type_checked = ($write['as_type'] == "1") ? ' checked' : '';
-				$option .= $option_start;
-				$option .= '<input type="checkbox" name="as_type" value="1" id="as_type" class="custom-control-input" ' . $as_type_checked . '>';
-				$option .= '<label class="custom-control-label" for="as_type"><span>메인</span></label>';
-				$option .= $option_end;
-			}
+			// if (IS_NA_BBS && $is_notice) {
+			// 	$as_type_checked = ($write['as_type'] == "1") ? ' checked' : '';
+			// 	$option .= $option_start;
+			// 	$option .= '<input type="checkbox" name="as_type" value="1" id="as_type" class="custom-control-input" ' . $as_type_checked . '>';
+			// 	$option .= '<label class="custom-control-label" for="as_type"><span>메인</span></label>';
+			// 	$option .= $option_end;
+			// }
 
 			if ($is_mail) {
 				$option .= $option_start;
@@ -355,7 +359,14 @@ ul.my-table > li {
                         <select name="ca_name" id="ca_name" required class="custom-select"
                             <?php if ($member['mb_7'] && $member['mb_6']==$bo_table) echo "disabled" ?>>
                             <option value="">선택하세요</option>
-                            <?php echo $category_option ?>
+                            <?php echo $category_option;
+                            if ($is_admin){
+                                echo "
+                                <option value='공지' $is_select>공지</option>
+                                <option value='이벤트진행' $is_select>이벤트진행</option>
+                                <option value='이벤트결과' $is_select>이벤트결과</option>
+                                ";}
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -383,7 +394,14 @@ ul.my-table > li {
                             <option
                                 value=<?php echo $res['mb_name']; if($write['wr_4']==$res['mb_name'] || $nameddd==$res['mb_name']) echo " selected ";?>>
                                 <?php echo $res['mb_name'];?></option>
-                            <?php } ?>
+                            <?php } 
+                            if ($is_admin){
+                                echo "
+                                <option value='공지' $is_select>공지</option>
+                                <option value='이벤트진행' $is_select>이벤트진행</option>
+                                <option value='이벤트결과' $is_select>이벤트결과</option>
+                                ";}                            
+                            ?>                            
                         </select>
                     </div>
                 </div>
@@ -401,11 +419,8 @@ ul.my-table > li {
             </li>
 
 
-
             <?php } ?>
             <!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-
 
 
             <?php if ($option) { ?>
@@ -420,6 +435,9 @@ ul.my-table > li {
                 </div>
             </li>
             <?php } ?>
+                    <script>
+                        // notice
+                    </script>
 
 
 
@@ -871,7 +889,18 @@ ul.my-table > li {
                         <select name="ca_name" id="ca_name" required class="custom-select"
                             <?php if ($member['mb_7'] && $member['mb_6']==$bo_table) echo "disabled" ?>>
                             <option value="">선택하세요</option>
-                            <?php echo $category_option ?>
+                            <?php echo $category_option; 
+                            
+                            if ($is_admin){
+                                
+
+                                echo "
+                                <option value='공지' $is_select>공지</option>
+                                <option value='이벤트진행'  $is_select>이벤트진행</option>
+                                <option value='이벤트결과' $is_select>이벤트결과</option>
+                                ";}
+                            ?>
+
                         </select>
                     </div>
                 </div>
@@ -899,7 +928,14 @@ ul.my-table > li {
                             <option value=<?php echo $res['mb_name'];?>
                                 <?php if($write['wr_4']==$res['mb_name'] || $nameddd==$res['mb_name']) echo " selected ";?>>
                                 <?php echo $res['mb_name'];?></option>
-                            <?php } ?>
+                            <?php } 
+                            if ($is_admin){
+                                echo "
+                                <option value='공지' $is_select>공지</option>
+                                <option value='이벤트진행' $is_select>이벤트진행</option>
+                                <option value='이벤트결과' $is_select>이벤트결과</option>
+                                ";}                            
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -1350,6 +1386,26 @@ $(function() {
             $("#wr_1").val(color);
         }
     });
+});
+
+$( document ).ready(function() {
+    $('#notice').click(function() {
+  if ($(this).is(':checked')) {
+        $("#ca_name").val("공지");
+  }
+  else {
+        $("#ca_name").val(null);
+	  }
+});
+    $('#event').click(function() {
+  if ($(this).is(':checked')) {
+        $("#ca_name").val("이벤트진행");
+  }
+  else {
+        $("#ca_name").val(null);
+	  }
+});
+
 });
 
 // $("input:checkbox").on('click', function() {

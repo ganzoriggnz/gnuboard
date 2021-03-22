@@ -66,14 +66,14 @@ if ($is_member)
 				}
 			}
 
-			// 게시판 플러그인 사용시
-			if (IS_NA_BBS && $is_notice) {
-				$as_type_checked = ($write['as_type'] == "1") ? ' checked' : '';
-				$option .= $option_start;
-				$option .= '<input type="checkbox" name="as_type" value="1" id="as_type" class="custom-control-input" '.$as_type_checked.'>';
-				$option .= '<label class="custom-control-label" for="as_type"><span>메인</span></label>';
-				$option .= $option_end;
-			}
+			// // 게시판 플러그인 사용시
+			// if (IS_NA_BBS && $is_notice) {
+			// 	$as_type_checked = ($write['as_type'] == "1") ? ' checked' : '';
+			// 	$option .= $option_start;
+			// 	$option .= '<input type="checkbox" name="as_type" value="1" id="as_type" class="custom-control-input" '.$as_type_checked.'>';
+			// 	$option .= '<label class="custom-control-label" for="as_type"><span>메인</span></label>';
+			// 	$option .= $option_end;
+			// }
 
 			if ($is_mail) {
 				$option .= $option_start;
@@ -468,6 +468,8 @@ function html_auto_br(obj) {
     } else
         obj.value = "";
 }
+
+
 
 function fwrite_submit(f) {
 
