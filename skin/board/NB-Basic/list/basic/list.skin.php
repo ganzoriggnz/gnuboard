@@ -117,7 +117,7 @@ if($gr_id == 'attendance'){
                 // 전체 보기에서 분류 출력하기 //hulan nemsen 후기, 출근부에 분류 안 보이게
                 if($board['gr_id'] !== "review" && $board['gr_id'] !== "attendance"){
                 if(!$sca && $is_category && $list[$i]['ca_name']) {
-                    $list[$i]['subject'] = $list[$i]['ca_name'].' <span class="na-bar"></span> '.$list[$i]['subject'];
+                    $list[$i]['subject'] = "<span style='color: #000;'>[".$list[$i]['ca_name'].'] </span>'.$list[$i]['subject'];
                 }
                 }
     
@@ -170,21 +170,17 @@ if($gr_id == 'attendance'){
                             <?php } ?>
                             <a href="<?php echo $list[$i]['href'] ?>" <?php 
                             // secret bolson bgaad admin bol doorh style 
-                            
                             if (strstr($list[$i]['wr_option'], "secret") && $is_admin) { echo "style='color:#bababa;text-decoration: line-through' "; }
-                            //elseif(strstr($list[$i]['wr_option'], "secret") && $is_member) { echo "style='display: none;' "; } 
+
                             if ($list[$i]['wr_1']) { echo " style='color:".$list[$i]['wr_1']."' "; } ?> class="na-subject"
                                 <?php echo $target ?>>
                                 <?php
                                     if($list[$i]['icon_reply'])
-                                        echo '<span class="na-hicon na-reply"></span>'.PHP_EOL;
-    
+                                        echo '<span class="na-hicon na-reply" ></span>'.PHP_EOL;
                                     echo $wr_icon;
-                                    
                                 ?>
                                 <!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
                                 <!-- <?php 
-                                    
                                  if($board['gr_id'] == "review" ){?>
                                 <?php echo "[",$list[$i]['wr_7'],"-",$list[$i]['wr_5'], "] ", "&nbsp;&nbsp", $list[$i]['subject'] ;}
                                 elseif($board['gr_id'] == "attendance"){
@@ -206,9 +202,6 @@ if($gr_id == 'attendance'){
                             <?php
                                 if(isset($list[$i]['icon_file']))
                                     echo '<span class="na-ticon na-file"></span>'.PHP_EOL;
-    
-                                //if(isset($list[$i]['icon_link']) && $list[$i]['icon_link'])
-                                    //echo '<span class="na-ticon na-link"></span>'.PHP_EOL;
                             ?>
                             <?php if($list[$i]['wr_comment']) { ?>
                             <div class="na-info">
