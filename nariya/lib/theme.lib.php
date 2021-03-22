@@ -872,133 +872,133 @@ function na_widget_cache_file($widget_file, $wset, $wcache){
 
 			$handle = fopen($cache_file, 'w');
 			$content = "<?php\nif (!defined('_GNUBOARD_')) exit;\n?>\n".$widget."\n";
-			fwrite($handle, $content);
-			fclose($handle);
-		} else {
-			ob_start();
-			@include($cache_file);
-			$widget = ob_get_contents();
-			ob_end_clean();
-		}
-	} else {
-	    ob_start();
-		@include ($widget_file);
-	    $widget = ob_get_contents();
-		ob_end_clean();
-	}
+fwrite($handle, $content);
+fclose($handle);
+} else {
+ob_start();
+@include($cache_file);
+$widget = ob_get_contents();
+ob_end_clean();
+}
+} else {
+ob_start();
+@include ($widget_file);
+$widget = ob_get_contents();
+ob_end_clean();
+}
 
-	return $widget;
+return $widget;
 }
 
 // 위젯 함수
 function na_widget($wname, $wid='', $opt='', $mopt='', $wdir='', $addon=''){
-	global $is_admin;
+global $is_admin;
 
-	// 적합성 체크
-	if(!na_check_id($wname) || !na_check_id($wid))
-		return '<p class="text-muted text-center">스킨명과 아이디는 영문자, 숫자, -, _ 만 가능함</p>';
+// 적합성 체크
+if(!na_check_id($wname) || !na_check_id($wid))
+return '<p class="text-muted text-center">스킨명과 아이디는 영문자, 숫자, -, _ 만 가능함</p>';
 
-	if($wdir) {
-	    $wdir = preg_replace('/[^-A-Za-z0-9_\/]/i', '', trim(str_replace(G5_PATH, '', $wdir)));
-		$widget_path = G5_PATH.$wdir.'/'.$wname;
-		$widget_url = str_replace(G5_PATH, G5_URL, $widget_path);
-	} else if($addon) {
-		$widget_url = NA_URL.'/skin/addon/'.$wname;
-		$widget_path = NA_PATH.'/skin/addon/'.$wname;
-	} else {
-		$widget_url = G5_THEME_URL.'/widget/'.$wname;
-		$widget_path = G5_THEME_PATH.'/widget/'.$wname;
-	}
+if($wdir) {
+$wdir = preg_replace('/[^-A-Za-z0-9_\/]/i', '', trim(str_replace(G5_PATH, '', $wdir)));
+$widget_path = G5_PATH.$wdir.'/'.$wname;
+$widget_url = str_replace(G5_PATH, G5_URL, $widget_path);
+} else if($addon) {
+$widget_url = NA_URL.'/skin/addon/'.$wname;
+$widget_path = NA_PATH.'/skin/addon/'.$wname;
+} else {
+$widget_url = G5_THEME_URL.'/widget/'.$wname;
+$widget_path = G5_THEME_PATH.'/widget/'.$wname;
+}
 
-	if(!is_file($widget_path.'/widget.php')) 
-		return;
+if(!is_file($widget_path.'/widget.php'))
+return;
 
-	$wchk = ($addon) ? 'addon' : 'widget'; 
-	$wfile = (G5_IS_MOBILE) ? 'mo' : 'pc'; 
-	$widget_file = G5_THEME_PATH.'/storage/'.$wchk.'/'.$wchk.'-'.$wname.'-'.$wid.'-'.$wfile.'.php';
-	$cache_file = G5_THEME_PATH.'/storage/cache/'.$wchk.'-'.$wname.'-'.$wid.'-'.$wfile.'-cache.php';
-	$setup_href = '';
+$wchk = ($addon) ? 'addon' : 'widget';
+$wfile = (G5_IS_MOBILE) ? 'mo' : 'pc';
+$widget_file = G5_THEME_PATH.'/storage/'.$wchk.'/'.$wchk.'-'.$wname.'-'.$wid.'-'.$wfile.'.php';
+$cache_file = G5_THEME_PATH.'/storage/cache/'.$wchk.'-'.$wname.'-'.$wid.'-'.$wfile.'-cache.php';
+$setup_href = '';
 
-	// 캐시용
-	$wcache = array('id'=>$wid, 'url'=>$widget_url, 'path'=>$widget_path, 'file'=>$cache_file, 'addon'=>$addon);
+// 캐시용
+$wcache = array('id'=>$wid, 'url'=>$widget_url, 'path'=>$widget_path, 'file'=>$cache_file, 'addon'=>$addon);
 
-	$wset = array();
+$wset = array();
 
-	$is_opt = true;
-	if($wid) {
-		if(is_file($widget_file)) {
-			$wset = na_file_var_load($widget_file);
-			$is_opt = false;
-		}
+$is_opt = true;
+if($wid) {
+if(is_file($widget_file)) {
+$wset = na_file_var_load($widget_file);
+$is_opt = false;
+}
 
-		if($is_admin == 'super' || IS_DEMO) {
-			$setup_href = na_setup_href('widget', $wid, $wname);
-			if($wdir) {
-				$setup_href .= '&amp;wdir='.urlencode($wdir);
-			}
-			if($addon) {
-				$setup_href .= '&amp;opt=1';
-			}
-		}
-	}
-	
-	if($is_opt && $opt) {
-		$wset = na_query($opt);
-		if(G5_IS_MOBILE && !empty($wset) && $mopt) {
-			$wset = array_merge($wset, na_query($mopt));
-		}
-		// 옵션지정시 추가쿼리구문 작동안됨
-		unset($wset['where']);
-		unset($wset['orderby']);
-	}
+if($is_admin == 'super' || IS_DEMO) {
+$setup_href = na_setup_href('widget', $wid, $wname);
+if($wdir) {
+$setup_href .= '&amp;wdir='.urlencode($wdir);
+}
+if($addon) {
+$setup_href .= '&amp;opt=1';
+}
+}
+}
 
-	// 초기값
-	if($wset['bo_new'] == "")
-		$wset['bo_new'] = 24;
+if($is_opt && $opt) {
+$wset = na_query($opt);
+if(G5_IS_MOBILE && !empty($wset) && $mopt) {
+$wset = array_merge($wset, na_query($mopt));
+}
+// 옵션지정시 추가쿼리구문 작동안됨
+unset($wset['where']);
+unset($wset['orderby']);
+}
 
-	$wset['cache'] = (int)$wset['cache'];
+// 초기값
+if($wset['bo_new'] == "")
+$wset['bo_new'] = 24;
 
-    ob_start();
-	@include ($widget_path.'/widget.php');
-    $widget = ob_get_contents();
-	ob_end_clean();
+$wset['cache'] = (int)$wset['cache'];
 
-	return $widget;
+ob_start();
+@include ($widget_path.'/widget.php');
+$widget = ob_get_contents();
+ob_end_clean();
+
+return $widget;
 }
 
 // 애드온 함수
 function na_addon($wname, $wid='', $opt='', $mopt='', $wdir=''){
-	return na_widget($wname, $wid, $opt, $mopt, $wdir, 1);
+return na_widget($wname, $wid, $opt, $mopt, $wdir, 1);
 }
 
 // 기간 체크
 function na_sql_term($term, $field) {
 
-	$sql_term = '';
-	if($term && $field) {
-		if($term > 0 || $term == 'week') {
-			$term = ($term == 'week') ? 1 + (int)date("w", G5_SERVER_TIME) : $term;
-			$chk_term = date("Y-m-d H:i:s", G5_SERVER_TIME - ($term * 86400));
-			$sql_term = " and $field >= '{$chk_term}' ";
-		} else {
-			$day = getdate();
-			$today = $day['year'].'-'.sprintf("%02d",$day['mon']).'-'.sprintf("%02d",$day['mday']).' 00:00:00';	// 오늘
-			$yesterday = date("Y-m-d", (G5_SERVER_TIME - 86400)).' 00:00:00'; // 어제
-			$nowmonth = $day['year'].'-'.sprintf("%02d",$day['mon']).'-01 00:00:00'; // 이번달
+$sql_term = '';
+if($term && $field) {
+if($term > 0 || $term == 'week') {
+$term = ($term == 'week') ? 1 + (int)date("w", G5_SERVER_TIME) : $term;
+$chk_term = date("Y-m-d H:i:s", G5_SERVER_TIME - ($term * 86400));
+$sql_term = " and $field >= '{$chk_term}' ";
+} else {
+$day = getdate();
+$today = $day['year'].'-'.sprintf("%02d",$day['mon']).'-'.sprintf("%02d",$day['mday']).' 00:00:00'; // 오늘
+$yesterday = date("Y-m-d", (G5_SERVER_TIME - 86400)).' 00:00:00'; // 어제
+$nowmonth = $day['year'].'-'.sprintf("%02d",$day['mon']).'-01 00:00:00'; // 이번달
 
-			if($day['mon'] == "1") { //1월이면
-				$prevyear = $day['year'] - 1;
-				$prevmonth = $prevyear.'-12-01 00:00:00';
-			} else {
-				$prev = $day['mon'] - 1;
-				$prevmonth = $day['year'].'-'.sprintf("%02d",$prev).'-01 00:00:00';
-			}
+if($day['mon'] == "1") { //1월이면
+$prevyear = $day['year'] - 1;
+$prevmonth = $prevyear.'-12-01 00:00:00';
+} else {
+$prev = $day['mon'] - 1;
+$prevmonth = $day['year'].'-'.sprintf("%02d",$prev).'-01 00:00:00';
+}
 
-			switch($term) {
-				case 'today'		: $sql_term = " and $field >= '{$today}'"; break;
-				case 'yesterday'	: $sql_term = " and $field >= '{$yesterday}' and $field < '{$today}'"; break;
-				case 'month'		: $sql_term = " and $field >= '{$nowmonth}'"; break;
-				case 'prev'			: $sql_term = " and $field >= '{$prevmonth}' and $field < '{$nowmonth}'"; break;
+switch($term) {
+case 'today' : $sql_term = " and $field >= '{$today}'"; break;
+case 'yesterday' : $sql_term = " and $field >= '{$yesterday}' and $field < '{$today}'"; break;
+				case 'month'		: $sql_term = " and $field>= '{$nowmonth}'"; break;
+    case 'prev' : $sql_term = " and $field >= '{$prevmonth}' and $field < '{$nowmonth}'"; break;
 			}
 		}
 	}
@@ -1067,621 +1067,649 @@ function na_sql_find($field, $str, $ex) {
 		return;
 
 	$ex = ($ex) ? '=0' : '';
-	$sql = "and find_in_set(".$field.", '".$str."')".$ex;
-
-	return $sql;
-}
-
-// 랭킹시작 번호
-function na_rank_start($rows, $page) {
-
-	$rows = (int)$rows;
-	$page = (int)$page;
-
-	$rank = ($rows > 0 && $page > 1) ?  (($page - 1) * $rows + 1) : 1;
-
-	return $rank;
-}
-
-// Date & Time
-function na_date($date, $class='', $day='H:i', $month='m.d H:i', $year='Y.m.d H:i') {
-
-	$date = strtotime($date);
-	$today = date('Y-m-d', $date);
-
-	if (G5_TIME_YMD == $today) {
-		if($day == 'before') {
-			$diff = G5_SERVER_TIME - $date;
-
-			$s = 60; //1분 = 60초
-			$h = $s * 60; //1시간 = 60분
-			$d = $h * 24; //1일 = 24시간
-			$y = $d * 10; //1년 = 1일 * 10일
-
-			if ($diff < $s) {
-				$time = $diff.'초 전';
-			} else if ($h > $diff && $diff >= $s) {
-				$time = $diff.'분 전';
-			} else if ($d > $diff && $diff >= $h) {
-				$time = $diff.'시간 전';
-			} else {
-				$time = date($day, $date);
-			} 
-		} else {
-			$time = date($day, $date);
-		}
-
-		if($class) {
-			$time = '<span class="'.$class.'">'.$time.'</span>';
-		}
-	} else if(substr(G5_TIME_YMD, 0, 7) == substr($today, 0, 7)) {
-		$time = date($month, $date);
-	} else {
-		$time = date($year, $date);
-	} 
-
-	return $time;
-}
-
-// 게시물 정리
-function na_wr_row($wr, $wset) {
-	global $g5;
-
-	//비번은 아예 배열에서 삭제
-	unset($wr['wr_password']);
-
-	//이메일 저장 안함
-	$wr['wr_email'] = '';
-	if($wset['comment']) { // 댓글일 때
-		if (strstr($wr['wr_option'], 'secret')){
-			$wr['wr_subject'] = $wr['wr_content'] = '비밀댓글입니다.';
-		} else {
-			$tmp_write_table = $g5['write_prefix'] . $wr['bo_table'];
-			$row = sql_fetch("select wr_option from $tmp_write_table where wr_id = '{$wr['wr_parent']}' ", false);
-			if (strstr($row['wr_option'], 'secret')){
-				$wr['wr_subject'] = $wr['wr_content'] = '비밀댓글입니다.';
-				$wr['wr_option'] = $row['wr_option'];
-			} else {
-				// 댓글에서 40자 잘라서 글제목으로
-				$wr['wr_subject'] = cut_str($wr['wr_content'], 80);
-			}
-		}
-	} else if (strstr($wr['wr_option'], 'secret')){
-		$wr['wr_content'] = '비밀글입니다.';
-		$wr['wr_link1'] = $wr['wr_link2'] = '';
-		$wr['file'] = array('count'=>0);
-	}
-
-	$bo = array();
-	$bo['bo_table'] = $wr['bo_table'];
-	$bo['bo_new'] = $wset['bo_new'];
-	$bo['bo_use_list_content'] = $wset['list_content'];
-	$bo['bo_use_sideview'] = $wset['sideview'];
-	$bo['bo_use_list_file'] = $wset['list_file'];
-	
-	$list = array();
-	$list = get_list($wr, $bo, $wset['widget_url'], 255);
-
-	if($bo['bo_use_sideview']) {
-		$list['name'] = na_name_photo($list['mb_id'], $list['name']);
-	}
-
-	return $list;
-}
-
-// 그룹 내 게시판
-function na_bo_list($gr_list, $gr_except, $bo_list, $bo_except) {
-	global $g5;
-
-	$bo = array();
-	$plus = array();
-	$minus = array();
-
-	if($gr_list) {
-		$gr = array();
-
-		// 지정그룹의 게시판 다 뽑기
-		$result = sql_query(" select bo_table from {$g5['board_table']} where find_in_set(gr_id, '{$gr_list}') ", false);
-		for ($i=0; $row=sql_fetch_array($result); $i++) {
-			$gr[] = $row['bo_table'];
-		}
-
-		if($bo_list) {
-			$bo = array_map('trim', explode(",", $bo_list));
-			if($gr_except) {
-				if($bo_except) {
-					$minus = array_unique($gr, $bo);
-				} else {
-					$minus = array_diff($gr, $bo);
-					$plus = $bo;
-				}
-			} else {
-				if($bo_except) {
-					$plus = array_diff($gr, $bo);
-					$minus = $bo;
-				} else {
-					$plus = array_unique($gr, $bo);
-				}
-			}
-		} else {
-			if($gr_except) {
-				$minus = $gr;				
-			} else {
-				$plus = $gr;
-			}
-		}
-	} else if($bo_list) {
-		$bo = array_map('trim', explode(",", $bo_list));
-		if($bo_except) {
-			$minus = $bo;
-		} else {
-			$plus = $bo;
-		}
-	} 
-
-	return array(implode(',', $plus), implode(',', $minus));
-}
-
-function na_post_rows($wset,$subcat='',$search=''){
-	global $g5;
-	$list = array();        
-		// 공통쿼리		
-		$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
-		$cnt=0;
-
-		if ($search==''){		
-			for ($i=0; $res = sql_fetch_array($result); $i++) {
-			
-				$bo_table = $res['bo_table'];			
-				$hwrite_table = $g5['write_prefix'] . $bo_table;	
-				if($wset==''){				
-					$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment =0 and a.mb_id = b.mb_id", false  );
-				} else if ($subcat=='')
-					{								
-					$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment =0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false  );
-				}
-				else {
-					$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment =0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false  );
-				}
-				while ( $row=sql_fetch_array($result1)) {				
-					$list[$cnt] = $row;
-					$list[$cnt]['bo_table']= $bo_table;
-					$cnt ++;	
-				}				
-			} 
-		}
-		else {
-			for ($i=0; $res = sql_fetch_array($result); $i++) {
-			
-				$bo_table = $res['bo_table'];			
-				$hwrite_table = $g5['write_prefix'] . $bo_table;
-				$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%')", false  );
-
-				while ( $row=sql_fetch_array($result1)) {
-				
-					$list[$cnt] = $row;
-					$list[$cnt]['bo_table']= $bo_table;
-					$cnt ++;	
-				}				
-			} 
-		}
-
-	return $list;
-}
-
-
-function na_post_subcat($wset,$subcat=''){
-	global $g5;
-	$list = array();        
-		// 공통쿼리		
-		$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
-		$cnt =0;
-		for ($i=0; $res = sql_fetch_array($result); $i++) {
-			
-			$bo_table = $res['bo_table'];			
-			$hwrite_table = $g5['write_prefix'] . $bo_table;	
-			if($wset==''){				
-				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id  GROUP BY a.ca_name", false  );
-			} else if ($subcat=='')
-				{								
-				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.wr_is_comment = '0'  GROUP BY a.ca_name", false  );
-			}
-			else {
-				$result1 = sql_query("select a.ca_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'  and a.wr_is_comment = '0' GROUP BY a.ca_name", false  );
-			}
-			while ( $row=sql_fetch_array($result1)) {					
-				$list[$cnt] = $row;				
-				$cnt ++;	
-			}			
-		} 
-	return $list;
-}
-
-function na_board_rows($wset) {
-	global $g5, $member;
-
-	$list = array();
-
-	$rows = (int)$wset['rows'];
-	$rows = ($rows > 0) ? $rows : 7;
-	$page = (int)$wset['page'];
-	$page = ($page > 1) ? $page : 1;
-
-	$bo_table = $wset['bo_list'];
-	$term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] : $wset['term'];
-	$sql_where = ($wset['where']) ? 'and '.$wset['where'] : '';
-	$sql_orderby = ($wset['orderby']) ? $wset['orderby'].',' : '';
-
-	$start_rows = 0;
-	$board_cnt = array_map('trim', explode(",", $bo_table));
-	if(!$bo_table || count($board_cnt) > 1 || $wset['bo_except']) {
-
-		// 메인글
-		$sql_main = (IS_NA_BBS && $wset['main']) ? "and a.as_type = '".(int)$wset['main']."'" : "";
-
-		// 회원글
-		$sql_mb = na_sql_find('a.mb_id', $wset['mb_list'], $wset['mb_except']);
-
-		// 정렬
-		$orderby = na_sql_sort('new', $wset['sort']);
-		$orderby = ($orderby) ? $orderby : 'a.bn_id desc';
-
-		// 추출게시판 정리
-		list($plus, $minus) = na_bo_list($wset['gr_list'], $wset['gr_except'], $wset['bo_list'], $wset['bo_except']);
-		$sql_plus = na_sql_find('a.bo_table', $plus, 0);
-		$sql_minus = na_sql_find('a.bo_table', $minus, 1);
-
-		//글, 댓글
-		$sql_wr = ($wset['comment']) ? "and a.wr_parent <> a.wr_id" : "and a.wr_parent = a.wr_id";
-
-		// 기간(일수,today,yesterday,month,prev)
-		$sql_term = na_sql_term($term, 'a.bn_datetime');
-		
-		// 공통쿼리
-		$sql_common = " from {$g5['board_new_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and b.bo_use_search = 1 $sql_plus $sql_minus $sql_wr $sql_term $sql_mb $sql_main $sql_where ";
-		if($page > 1) {
-			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
-			$total_count = $total['cnt'];
-			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
-			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
-		}
-		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false);
-		for ($i=0; $row=sql_fetch_array($result); $i++) {
-
-			$tmp_write_table = $g5['write_prefix'] . $row['bo_table']; 
-
-			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id ", false);
-			
-			$wr['bo_table'] = $row['bo_table'];
-			$wr['bo_subject'] = $row['bo_subject'];
-			$wr['wr_id'] = $row['wr_id'];
-
-			$list[$i] = na_wr_row($wr, $wset);
-		}
-	} else { //단수
-
-		// 메인글
-		$sql_main = (IS_NA_BBS && $wset['main']) ? "and as_type = '".(int)$wset['main']."'" : "";
-
-		// 회원글
-		$sql_mb = na_sql_find('mb_id', $wset['mb_list'], $wset['mb_except']);
-
-		// 정렬
-		$orderby = na_sql_sort('bo', $wset['sort']);
-		$orderby = ($orderby) ? $orderby : 'wr_id desc';
-
-		// 기간(일수,today,yesterday,month,prev)
-		$sql_term = na_sql_term($term, 'wr_datetime');
-
-		// 분류
-		$sql_ca = na_sql_find('ca_name', $wset['ca_list'], $wset['ca_except']);
-
-		//글, 댓글
-		$sql_wr = ($wset['comment']) ? 1 : 0;
-
-		$tmp_write_table = $g5['write_prefix'] . $bo_table;
-
-		$sql_common = "from $tmp_write_table where wr_is_comment = '{$sql_wr}' $sql_ca $sql_term $sql_mb $sql_main $sql_where";
-		if($page > 1) {
-			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
-			$total_count = $total['cnt'];
-			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
-			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
-		}
-		$result = sql_query(" select * $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false);
-		for ($i=0; $row=sql_fetch_array($result); $i++) { 
-
-			$row['bo_table'] = $bo_table;
-
-			$list[$i] = na_wr_row($row, $wset);
-		}
-	}
-
-	return $list;
-}
-
-// 게시물 추출
-function na_board_rows_coupon($wset) {
-	global $g5, $member;
-
-	$list = array();
-
-	$rows = (int)$wset['rows'];
-	$rows = ($rows > 0) ? $rows : 7;
-	$page = (int)$wset['page'];
-	$page = ($page > 1) ? $page : 1;
-	
-	$bo_table = $wset['bo_list'];
-	$term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] : $wset['term'];
-	$sql_where = ($wset['where']) ? 'and '.$wset['where'] : '';
-	$sql_orderby = ($wset['orderby']) ? $wset['orderby'].',' : '';
-
-	$start_rows = 0;
-	$board_cnt = array_map('trim', explode(",", $bo_table));
-	if(!$bo_table || count($board_cnt) > 1 || $wset['bo_except']) {
-
-		// 메인글
-		$sql_main = (IS_NA_BBS && $wset['main']) ? "and a.as_type = '".(int)$wset['main']."'" : "";
-
-		// 회원글
-		$sql_mb = na_sql_find('a.mb_id', $wset['mb_list'], $wset['mb_except']);
-
-		// 정렬
-		$orderby = na_sql_sort('coupon', $wset['sort']);
-		$orderby = ($orderby) ? $orderby : 'a.co_no desc';
-
-		// 추출게시판 정리
-		list($plus, $minus) = na_bo_list($wset['gr_list'], $wset['gr_except'], $wset['bo_list'], $wset['bo_except']);
-		$sql_plus = na_sql_find('a.bo_table', $plus, 0);
-		$sql_minus = na_sql_find('a.bo_table', $minus, 1);
-
-		//글, 댓글
-		$sql_wr = ($wset['comment']) ? "and a.wr_parent <> a.wr_id" : "and a.wr_parent = a.wr_id";
-
-		// 기간(일수,today,yesterday,month,prev)
-		$sql_term = na_sql_term($term, 'a.co_created_datetime');
-		
-		// 공통쿼리
-		$now = G5_TIME_YMDHIS;
-		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and a.co_begin_datetime <= '{$now}' and a.co_end_datetime >= '{$now}' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
-		if($page > 1) {
-			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
-			$total_count = $total['cnt'];
-			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
-			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
-		}
-		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false);
-		for ($i=0; $row=sql_fetch_array($result); $i++) {
-
-			$tmp_write_table = $g5['write_prefix'] . $row['bo_table']; 
-
-			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and b.mb_4 >= '{$now}' ", false);
-			
-			$wr['bo_table'] = $row['bo_table'];
-			$wr['bo_subject'] = $row['bo_subject'];
-			if($wr['wr_id']){
-			$wr['wr_id'] = $row['wr_id'];
-
-			$list[$i] = na_wr_row($wr, $wset);
-			}
-		}
-	} else { //단수
-
-		// 메인글
-		$sql_main = (IS_NA_BBS && $wset['main']) ? "and as_type = '".(int)$wset['main']."'" : "";
-
-		// 회원글
-		$sql_mb = na_sql_find('mb_id', $wset['mb_list'], $wset['mb_except']);
-
-		// 정렬
-		$orderby = na_sql_sort('bo', $wset['sort']);
-		$orderby = ($orderby) ? $orderby : 'wr_id desc';
-
-		// 기간(일수,today,yesterday,month,prev)
-		$sql_term = na_sql_term($term, 'wr_datetime');
-
-		// 분류
-		$sql_ca = na_sql_find('ca_name', $wset['ca_list'], $wset['ca_except']);
-
-		//글, 댓글
-		$sql_wr = ($wset['comment']) ? 1 : 0;
-
-		$tmp_write_table = $g5['write_prefix'] . $bo_table;
-
-		$sql_common = "from $tmp_write_table where wr_is_comment = '{$sql_wr}' $sql_ca $sql_term $sql_mb $sql_main $sql_where";
-		if($page > 1) {
-			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
-			$total_count = $total['cnt'];
-			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
-			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
-		}
-		$result = sql_query(" select * $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false);
-		for ($i=0; $row=sql_fetch_array($result); $i++) { 
-
-			$row['bo_table'] = $bo_table;
-
-			$list[$i] = na_wr_row($row, $wset);
-		}
-	}
-
-	return $list;
-}
-
-// 회원추출
-function na_member_rows($wset) {
-	global $g5;
-
-	$list = array();
-
-	$rows = (int)$wset['rows'];
-	$rows = ($rows > 0) ? $rows : 7;
-	$mode = (isset($wset['mode']) && $wset['mode']) ? $wset['mode'] : '';
-	$term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] : $wset['term'];
-	$sql_mb = na_sql_find('mb_id', $wset['mb_list'], 1);
-
-	if($mode == 'connect') { // 현재접속회원
-		$sql = " select * from {$g5['login_table']} where mb_id <> '' $sql_mb order by lo_datetime desc ";
-
-	} else if($mode == 'post' || $mode == 'comment') { // 글,댓글 등록수
-		$sql_term = na_sql_term($term, 'bn_datetime');
-		$sql_wr = ($mode == 'comment') ? "and wr_parent <> wr_id" : "and wr_parent = wr_id";
-		$sql = " select mb_id, count(mb_id) as cnt from {$g5['board_new_table']} 
-					where mb_id <> '' $sql_wr $sql_mb $sql_term group by mb_id order by cnt desc limit 0, $rows ";
-
-	} else if($term && $mode == 'point') { // 포인트(기간설정)
-		$sql_term = na_sql_term($term, 'po_datetime');
-		$sql = " select mb_id, sum(po_point) as cnt from {$g5['point_table']} 
-					where po_point > 0 $sql_mb $sql_term group by mb_id order by cnt desc limit 0, $rows ";
-
-	} else if($term && $mode == 'exp') { // 경험치(기간설정)
-		$sql_term = na_sql_term($term, 'xp_datetime');
-		$sql = " select mb_id, sum(xp_point) as cnt from {$g5['na_xp']} 
-					where 1 $sql_mb $sql_term group by mb_id order by cnt desc limit 0, $rows ";
-
-	} else {
-		$field = 'mb_point';
-		switch($mode) {
-			case 'exp'		: $field = 'as_exp'; $orderby = 'as_exp desc'; break; //경험치
-			case 'new'		: $orderby = 'mb_datetime desc'; break; //신규가입
-			case 'recent'	: $orderby = 'mb_today_login desc'; break; //최근접속
-			default			: $orderby = 'mb_point desc'; break; //포인트(기본값)
-		}
-		$sql = "select *, $field as cnt from {$g5['member_table']} where mb_leave_date = '' and mb_intercept_date = '' $sql_mb order by $orderby limit 0, $rows ";
-	}
-
-	$result = sql_query($sql, false);
-	for ($i=0; $row=sql_fetch_array($result); $i++) {
-		$list[$i] = ($row['mb_id'] && $row['mb_nick']) ? $row : get_member($row['mb_id']);
-		$list[$i]['cnt'] = $row['cnt'];
-		if(!$list[$i]['mb_open']) {
-			$list[$i]['mb_email'] = '';
-			$list[$i]['mb_homepage'] = '';
-		}
-		$list[$i]['name'] = get_sideview($list[$i]['mb_id'], $list[$i]['mb_nick'], $list[$i]['mb_email'], $list[$i]['mb_homepage']);
-	}
-
-	return $list;
-}
-
-// 인기검색어 추출
-function na_popular_rows($wset) {
-	global $g5;
-
-	$list = array();
-
-	$rows = (int)$wset['rows'];
-	$rows = ($rows > 0) ? $rows : 10;
-
-	// 기간(일수,today,yesterday,month,prev)
-	$term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] : $wset['term'];
-	$sql_term = na_sql_term($term, 'pp_date');
-
-	// 한글이 포함된 검색어만
-	$sql_han = ($wset['han']) ? "and pp_word regexp '[가-힣]'" : '';
-	$sql = " select pp_word, count(pp_word) as cnt from {$g5['popular_table']} where (1) $sql_term $sql_han group by pp_word order by cnt desc limit 0, $rows ";
-	$result = sql_query($sql, false);
-	for ($i=0; $row=sql_fetch_array($result); $i++) { 
-		$list[$i] = $row;
-	}
-
-	return $list;
-}
-
-// 태그추출
-function na_tag_rows($wset) {
-	global $g5;
-
-	$list = array();
-
-	$rows = (int)$wset['rows'];
-	$rows = ($rows > 0) ? $rows : 10;
-
-	$orderby = ((int)$wset['new'] > 0) ? "lastdate desc," : "";
-	$result = sql_query(" select * from {$g5['na_tag']} where cnt > 0 order by $orderby cnt desc, type, idx, tag limit 0, $rows ", false);
-	for ($i=0; $row=sql_fetch_array($result); $i++) {
-		$list[$i] = $row;
-		$list[$i]['href'] = G5_BBS_URL.'/tag.php?q='.urlencode($row['tag']);
-	}
-	return $list;
-}
-
-// 태그 관련글 추출
-function na_tag_post_rows($wset) {
-	global $g5;
-
-	$list = array();
-
-	$tag = $wset['tag'];
-
-	if(!$tag)
-		return $list;	
-
-	$rows = (int)$wset['rows'];
-	$rows = ($rows > 0) ? $rows : 7;
-	$page = (int)$wset['page'];
-	$page = ($page > 1) ? $page : 1;
-
-	$term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] : $wset['term'];
-
-	// 회원글
-	$sql_mb = na_sql_find('mb_id', $wset['mb_list'], $wset['mb_except']);
-
-	// 추출게시판 정리
-	list($plus, $minus) = na_bo_list($wset['gr_list'], $wset['gr_except'], $wset['bo_list'], $wset['bo_except']);
-	$sql_plus = na_sql_find('bo_table', $plus, 0);
-	$sql_minus = na_sql_find('bo_table', $minus, 1);
-
-	// 기간(일수,today,yesterday,month,prev)
-	$sql_term = na_sql_term($term, 'lastdate');
-
-	$start_rows = 0;
-
-	// 공통쿼리
-	$sql_common = " from {$g5['na_tag_log']} where bo_table <> '' and find_in_set(tag, '{$tag}') $sql_plus $sql_minus $sql_mb $sql_term group by bo_table, wr_id ";
-
-	if($page > 1) {
-		$total = sql_query(" select count(*) as cnt $sql_common ", false);
-		$total_count = @sql_num_rows($total);
-		$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
-		$start_rows = ($page - 1) * $rows; // 시작 열을 구함
-	}
-
-	$result = sql_query(" select bo_table, wr_id $sql_common order by regdate desc limit $start_rows, $rows ", false);
-
-	for ($i=0; $row=sql_fetch_array($result); $i++) {
-
-		$tmp_write_table = $g5['write_prefix'] . $row['bo_table']; 
-
-		$wr = sql_fetch(" select * from $tmp_write_table where wr_id = '{$row['wr_id']}' ", false);
-		
-		$wr['bo_table'] = $row['bo_table'];
-
-		$list[$i] = na_wr_row($wr, $wset);
-	}
-
-	return $list;
-}
-
-// FAQ 추출
-function na_faq_rows($wset) {
-	global $g5;
-
-	$list = array();
-
-	$rows = (int)$wset['rows'];
-	$rows = ($rows > 0) ? $rows : 7;
-
-	$sql_fa = na_sql_find('fm_id', $wset['fa_list'], $wset['except']);
-
-	$result = sql_query(" select * from {$g5['faq_table']} where 1 $sql_fa order by fa_order, fa_id limit 0, $rows ", false);
-	for ($i=0; $row=sql_fetch_array($result); $i++) { 
-		$list[$i] = $row;
-		$list[$i]['subject'] = get_text($row['fa_subject']);
-		$list[$i]['content'] = conv_content($row['fa_content'], 1);
-		$list[$i]['href'] = G5_BBS_URL.'/faq.php?fm_id='.$row['fm_id'];
-	}
-
-	return $list;
-}
-
-?>
+	$sql = " and find_in_set(".$field.", '".$str."' )".$ex; return $sql; } // 랭킹시작 번호 function na_rank_start($rows, $page)
+        { $rows=(int)$rows; $page=(int)$page; $rank=($rows> 0 && $page > 1) ? (($page - 1) * $rows + 1) : 1;
+
+        return $rank;
+        }
+
+        // Date & Time
+        function na_date($date, $class='', $day='H:i', $month='m.d H:i', $year='Y.m.d H:i') {
+
+        $date = strtotime($date);
+        $today = date('Y-m-d', $date);
+
+        if (G5_TIME_YMD == $today) {
+        if($day == 'before') {
+        $diff = G5_SERVER_TIME - $date;
+
+        $s = 60; //1분 = 60초
+        $h = $s * 60; //1시간 = 60분
+        $d = $h * 24; //1일 = 24시간
+        $y = $d * 10; //1년 = 1일 * 10일
+
+        if ($diff < $s) { $time=$diff.'초 전'; } else if ($h> $diff && $diff >= $s) {
+            $time = $diff.'분 전';
+            } else if ($d > $diff && $diff >= $h) {
+            $time = $diff.'시간 전';
+            } else {
+            $time = date($day, $date);
+            }
+            } else {
+            $time = date($day, $date);
+            }
+
+            if($class) {
+            $time = '<span class="'.$class.'">'.$time.'</span>';
+            }
+            } else if(substr(G5_TIME_YMD, 0, 7) == substr($today, 0, 7)) {
+            $time = date($month, $date);
+            } else {
+            $time = date($year, $date);
+            }
+
+            return $time;
+            }
+
+            // 게시물 정리
+            function na_wr_row($wr, $wset) {
+            global $g5;
+
+            //비번은 아예 배열에서 삭제
+            unset($wr['wr_password']);
+
+            //이메일 저장 안함
+            $wr['wr_email'] = '';
+            if($wset['comment']) { // 댓글일 때
+            if (strstr($wr['wr_option'], 'secret')){
+            $wr['wr_subject'] = $wr['wr_content'] = '비밀댓글입니다.';
+            } else {
+            $tmp_write_table = $g5['write_prefix'] . $wr['bo_table'];
+            $row = sql_fetch("select wr_option from $tmp_write_table where wr_id = '{$wr['wr_parent']}' ", false);
+            if (strstr($row['wr_option'], 'secret')){
+            $wr['wr_subject'] = $wr['wr_content'] = '비밀댓글입니다.';
+            $wr['wr_option'] = $row['wr_option'];
+            } else {
+            // 댓글에서 40자 잘라서 글제목으로
+            $wr['wr_subject'] = cut_str($wr['wr_content'], 80);
+            }
+            }
+            } else if (strstr($wr['wr_option'], 'secret')){
+            $wr['wr_content'] = '비밀글입니다.';
+            $wr['wr_link1'] = $wr['wr_link2'] = '';
+            $wr['file'] = array('count'=>0);
+            }
+
+            $bo = array();
+            $bo['bo_table'] = $wr['bo_table'];
+            $bo['bo_new'] = $wset['bo_new'];
+            $bo['bo_use_list_content'] = $wset['list_content'];
+            $bo['bo_use_sideview'] = $wset['sideview'];
+            $bo['bo_use_list_file'] = $wset['list_file'];
+
+            $list = array();
+            $list = get_list($wr, $bo, $wset['widget_url'], 255);
+
+            if($bo['bo_use_sideview']) {
+            $list['name'] = na_name_photo($list['mb_id'], $list['name']);
+            }
+
+            return $list;
+            }
+
+            // 그룹 내 게시판
+            function na_bo_list($gr_list, $gr_except, $bo_list, $bo_except) {
+            global $g5;
+
+            $bo = array();
+            $plus = array();
+            $minus = array();
+
+            if($gr_list) {
+            $gr = array();
+
+            // 지정그룹의 게시판 다 뽑기
+            $result = sql_query(" select bo_table from {$g5['board_table']} where find_in_set(gr_id, '{$gr_list}') ",
+            false);
+            for ($i=0; $row=sql_fetch_array($result); $i++) {
+            $gr[] = $row['bo_table'];
+            }
+
+            if($bo_list) {
+            $bo = array_map('trim', explode(",", $bo_list));
+            if($gr_except) {
+            if($bo_except) {
+            $minus = array_unique($gr, $bo);
+            } else {
+            $minus = array_diff($gr, $bo);
+            $plus = $bo;
+            }
+            } else {
+            if($bo_except) {
+            $plus = array_diff($gr, $bo);
+            $minus = $bo;
+            } else {
+            $plus = array_unique($gr, $bo);
+            }
+            }
+            } else {
+            if($gr_except) {
+            $minus = $gr;
+            } else {
+            $plus = $gr;
+            }
+            }
+            } else if($bo_list) {
+            $bo = array_map('trim', explode(",", $bo_list));
+            if($bo_except) {
+            $minus = $bo;
+            } else {
+            $plus = $bo;
+            }
+            }
+
+            return array(implode(',', $plus), implode(',', $minus));
+            }
+
+            function na_post_rows($wset,$subcat='',$search=''){
+            global $g5;
+            $list = array();
+            // 공통쿼리
+            $result = sql_query(" select bo_table from {$g5['board_table']} where gr_id= 'attendance' ");
+            $cnt=0;
+
+            if ($search==''){
+            for ($i=0; $res = sql_fetch_array($result); $i++) {
+
+            $bo_table = $res['bo_table'];
+            $hwrite_table = $g5['write_prefix'] . $bo_table;
+            if($wset==''){
+            $result1 = sql_query("select * from {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment =0 and
+            a.mb_id = b.mb_id", false );
+            } else if ($subcat=='')
+            {
+            $result1 = sql_query("select * from {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment =0 and
+            a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false );
+            }
+            else {
+            $result1 = sql_query("select * from {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment =0 and
+            a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false );
+            }
+            while ( $row=sql_fetch_array($result1)) {
+            $list[$cnt] = $row;
+            $list[$cnt]['bo_table']= $bo_table;
+            $cnt ++;
+            }
+            }
+            }
+            else {
+            for ($i=0; $res = sql_fetch_array($result); $i++) {
+
+            $bo_table = $res['bo_table'];
+            $hwrite_table = $g5['write_prefix'] . $bo_table;
+            $result1 = sql_query("select * from {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and
+            a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like
+            '%{$search}%')", false );
+
+            while ( $row=sql_fetch_array($result1)) {
+
+            $list[$cnt] = $row;
+            $list[$cnt]['bo_table']= $bo_table;
+            $cnt ++;
+            }
+            }
+            }
+
+            return $list;
+            }
+
+
+            function na_post_subcat($wset,$subcat=''){
+            global $g5;
+            $list = array();
+            // 공통쿼리
+            $result = sql_query(" select bo_table from {$g5['board_table']} where gr_id= 'attendance' ");
+            $cnt =0;
+            for ($i=0; $res = sql_fetch_array($result); $i++) {
+
+            $bo_table = $res['bo_table'];
+            $hwrite_table = $g5['write_prefix'] . $bo_table;
+            if($wset==''){
+            $result1 = sql_query("select a.ca_name from {$hwrite_table} a, {$g5['member_table']} b where a.mb_id =
+            b.mb_id GROUP BY a.ca_name order by a.ca_name ASC", false );
+            } else if ($subcat=='')
+            {
+            $result1 = sql_query("select a.ca_name from {$hwrite_table} a, {$g5['member_table']} b where a.mb_id =
+            b.mb_id and b.mb_2 like '%{$wset}%' and a.wr_is_comment = '0' GROUP BY a.ca_name order by a.ca_name ASC",
+            false
+            );
+            }
+            else {
+            $result1 = sql_query("select a.ca_name from {$hwrite_table} a, {$g5['member_table']} b where a.mb_id =
+            b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}' and a.wr_is_comment = '0' GROUP BY
+            a.ca_name order by a.ca_name ASC", false );
+            }
+            while ( $row=sql_fetch_array($result1)) {
+            $list[$cnt] = $row;
+            $cnt ++;
+            }
+            }
+            return $list;
+            }
+
+            function na_board_rows($wset) {
+            global $g5, $member;
+
+            $list = array();
+
+            $rows = (int)$wset['rows'];
+            $rows = ($rows > 0) ? $rows : 7;
+            $page = (int)$wset['page'];
+            $page = ($page > 1) ? $page : 1;
+
+            $bo_table = $wset['bo_list'];
+            $term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] : $wset['term'];
+            $sql_where = ($wset['where']) ? 'and '.$wset['where'] : '';
+            $sql_orderby = ($wset['orderby']) ? $wset['orderby'].',' : '';
+
+            $start_rows = 0;
+            $board_cnt = array_map('trim', explode(",", $bo_table));
+            if(!$bo_table || count($board_cnt) > 1 || $wset['bo_except']) {
+
+            // 메인글
+            $sql_main = (IS_NA_BBS && $wset['main']) ? "and a.as_type = '".(int)$wset['main']."'" : "";
+
+            // 회원글
+            $sql_mb = na_sql_find('a.mb_id', $wset['mb_list'], $wset['mb_except']);
+
+            // 정렬
+            $orderby = na_sql_sort('new', $wset['sort']);
+            $orderby = ($orderby) ? $orderby : 'a.bn_id desc';
+
+            // 추출게시판 정리
+            list($plus, $minus) = na_bo_list($wset['gr_list'], $wset['gr_except'], $wset['bo_list'],
+            $wset['bo_except']);
+            $sql_plus = na_sql_find('a.bo_table', $plus, 0);
+            $sql_minus = na_sql_find('a.bo_table', $minus, 1);
+
+            //글, 댓글
+            $sql_wr = ($wset['comment']) ? "and a.wr_parent <> a.wr_id" : "and a.wr_parent = a.wr_id";
+
+                // 기간(일수,today,yesterday,month,prev)
+                $sql_term = na_sql_term($term, 'a.bn_datetime');
+
+                // 공통쿼리
+                $sql_common = " from {$g5['board_new_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table
+                and b.bo_use_search = 1 $sql_plus $sql_minus $sql_wr $sql_term $sql_mb $sql_main $sql_where ";
+                if($page > 1) {
+                $total = sql_fetch("select count(*) as cnt $sql_common ", false);
+                $total_count = $total['cnt'];
+                $total_page = ceil($total_count / $rows); // 전체 페이지 계산
+                $start_rows = ($page - 1) * $rows; // 시작 열을 구함
+                }
+                $result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by
+                $sql_orderby $orderby limit $start_rows, $rows ", false);
+                for ($i=0; $row=sql_fetch_array($result); $i++) {
+
+                $tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
+
+                $wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id =
+                '{$row['wr_id']}' and a.mb_id = b.mb_id ", false);
+
+                $wr['bo_table'] = $row['bo_table'];
+                $wr['bo_subject'] = $row['bo_subject'];
+                $wr['wr_id'] = $row['wr_id'];
+
+                $list[$i] = na_wr_row($wr, $wset);
+                }
+                } else { //단수
+
+                // 메인글
+                $sql_main = (IS_NA_BBS && $wset['main']) ? "and as_type = '".(int)$wset['main']."'" : "";
+
+                // 회원글
+                $sql_mb = na_sql_find('mb_id', $wset['mb_list'], $wset['mb_except']);
+
+                // 정렬
+                $orderby = na_sql_sort('bo', $wset['sort']);
+                $orderby = ($orderby) ? $orderby : 'wr_id desc';
+
+                // 기간(일수,today,yesterday,month,prev)
+                $sql_term = na_sql_term($term, 'wr_datetime');
+
+                // 분류
+                $sql_ca = na_sql_find('ca_name', $wset['ca_list'], $wset['ca_except']);
+
+                //글, 댓글
+                $sql_wr = ($wset['comment']) ? 1 : 0;
+
+                $tmp_write_table = $g5['write_prefix'] . $bo_table;
+
+                $sql_common = "from $tmp_write_table where wr_is_comment = '{$sql_wr}' $sql_ca $sql_term $sql_mb
+                $sql_main $sql_where";
+                if($page > 1) {
+                $total = sql_fetch("select count(*) as cnt $sql_common ", false);
+                $total_count = $total['cnt'];
+                $total_page = ceil($total_count / $rows); // 전체 페이지 계산
+                $start_rows = ($page - 1) * $rows; // 시작 열을 구함
+                }
+                $result = sql_query(" select * $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ",
+                false);
+                for ($i=0; $row=sql_fetch_array($result); $i++) {
+
+                $row['bo_table'] = $bo_table;
+
+                $list[$i] = na_wr_row($row, $wset);
+                }
+                }
+
+                return $list;
+                }
+
+                // 게시물 추출
+                function na_board_rows_coupon($wset) {
+                global $g5, $member;
+
+                $list = array();
+
+                $rows = (int)$wset['rows'];
+                $rows = ($rows > 0) ? $rows : 7;
+                $page = (int)$wset['page'];
+                $page = ($page > 1) ? $page : 1;
+
+                $bo_table = $wset['bo_list'];
+                $term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] : $wset['term'];
+                $sql_where = ($wset['where']) ? 'and '.$wset['where'] : '';
+                $sql_orderby = ($wset['orderby']) ? $wset['orderby'].',' : '';
+
+                $start_rows = 0;
+                $board_cnt = array_map('trim', explode(",", $bo_table));
+                if(!$bo_table || count($board_cnt) > 1 || $wset['bo_except']) {
+
+                // 메인글
+                $sql_main = (IS_NA_BBS && $wset['main']) ? "and a.as_type = '".(int)$wset['main']."'" : "";
+
+                // 회원글
+                $sql_mb = na_sql_find('a.mb_id', $wset['mb_list'], $wset['mb_except']);
+
+                // 정렬
+                $orderby = na_sql_sort('coupon', $wset['sort']);
+                $orderby = ($orderby) ? $orderby : 'a.co_no desc';
+
+                // 추출게시판 정리
+                list($plus, $minus) = na_bo_list($wset['gr_list'], $wset['gr_except'], $wset['bo_list'],
+                $wset['bo_except']);
+                $sql_plus = na_sql_find('a.bo_table', $plus, 0);
+                $sql_minus = na_sql_find('a.bo_table', $minus, 1);
+
+                //글, 댓글
+                $sql_wr = ($wset['comment']) ? "and a.wr_parent <> a.wr_id" : "and a.wr_parent = a.wr_id";
+
+                    // 기간(일수,today,yesterday,month,prev)
+                    $sql_term = na_sql_term($term, 'a.co_created_datetime');
+
+                    // 공통쿼리
+                    $now = G5_TIME_YMDHIS;
+                    $sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table
+                    and a.co_begin_datetime <= '{$now}' and a.co_end_datetime>= '{$now}' and b.bo_use_search = 1
+                        $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
+                        if($page > 1) {
+                        $total = sql_fetch("select count(*) as cnt $sql_common ", false);
+                        $total_count = $total['cnt'];
+                        $total_page = ceil($total_count / $rows); // 전체 페이지 계산
+                        $start_rows = ($page - 1) * $rows; // 시작 열을 구함
+                        }
+                        $result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by
+                        $sql_orderby $orderby limit $start_rows, $rows ", false);
+                        for ($i=0; $row=sql_fetch_array($result); $i++) {
+
+                        $tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
+
+                        $wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id =
+                        '{$row['wr_id']}' and a.mb_id = b.mb_id and b.mb_4 >= '{$now}' ", false);
+
+                        $wr['bo_table'] = $row['bo_table'];
+                        $wr['bo_subject'] = $row['bo_subject'];
+                        if($wr['wr_id']){
+                        $wr['wr_id'] = $row['wr_id'];
+
+                        $list[$i] = na_wr_row($wr, $wset);
+                        }
+                        }
+                        } else { //단수
+
+                        // 메인글
+                        $sql_main = (IS_NA_BBS && $wset['main']) ? "and as_type = '".(int)$wset['main']."'" : "";
+
+                        // 회원글
+                        $sql_mb = na_sql_find('mb_id', $wset['mb_list'], $wset['mb_except']);
+
+                        // 정렬
+                        $orderby = na_sql_sort('bo', $wset['sort']);
+                        $orderby = ($orderby) ? $orderby : 'wr_id desc';
+
+                        // 기간(일수,today,yesterday,month,prev)
+                        $sql_term = na_sql_term($term, 'wr_datetime');
+
+                        // 분류
+                        $sql_ca = na_sql_find('ca_name', $wset['ca_list'], $wset['ca_except']);
+
+                        //글, 댓글
+                        $sql_wr = ($wset['comment']) ? 1 : 0;
+
+                        $tmp_write_table = $g5['write_prefix'] . $bo_table;
+
+                        $sql_common = "from $tmp_write_table where wr_is_comment = '{$sql_wr}' $sql_ca $sql_term $sql_mb
+                        $sql_main $sql_where";
+                        if($page > 1) {
+                        $total = sql_fetch("select count(*) as cnt $sql_common ", false);
+                        $total_count = $total['cnt'];
+                        $total_page = ceil($total_count / $rows); // 전체 페이지 계산
+                        $start_rows = ($page - 1) * $rows; // 시작 열을 구함
+                        }
+                        $result = sql_query(" select * $sql_common order by $sql_orderby $orderby limit $start_rows,
+                        $rows ", false);
+                        for ($i=0; $row=sql_fetch_array($result); $i++) {
+
+                        $row['bo_table'] = $bo_table;
+
+                        $list[$i] = na_wr_row($row, $wset);
+                        }
+                        }
+
+                        return $list;
+                        }
+
+                        // 회원추출
+                        function na_member_rows($wset) {
+                        global $g5;
+
+                        $list = array();
+
+                        $rows = (int)$wset['rows'];
+                        $rows = ($rows > 0) ? $rows : 7;
+                        $mode = (isset($wset['mode']) && $wset['mode']) ? $wset['mode'] : '';
+                        $term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] :
+                        $wset['term'];
+                        $sql_mb = na_sql_find('mb_id', $wset['mb_list'], 1);
+
+                        if($mode == 'connect') { // 현재접속회원
+                        $sql = " select * from {$g5['login_table']} where mb_id <> '' $sql_mb order by lo_datetime desc
+                            ";
+
+                            } else if($mode == 'post' || $mode == 'comment') { // 글,댓글 등록수
+                            $sql_term = na_sql_term($term, 'bn_datetime');
+                            $sql_wr = ($mode == 'comment') ? "and wr_parent <> wr_id" : "and wr_parent = wr_id";
+                                $sql = " select mb_id, count(mb_id) as cnt from {$g5['board_new_table']}
+                                where mb_id <> '' $sql_wr $sql_mb $sql_term group by mb_id order by cnt desc limit 0,
+                                    $rows ";
+
+                                    } else if($term && $mode == 'point') { // 포인트(기간설정)
+                                    $sql_term = na_sql_term($term, 'po_datetime');
+                                    $sql = " select mb_id, sum(po_point) as cnt from {$g5['point_table']}
+                                    where po_point > 0 $sql_mb $sql_term group by mb_id order by cnt desc limit 0, $rows
+                                    ";
+
+                                    } else if($term && $mode == 'exp') { // 경험치(기간설정)
+                                    $sql_term = na_sql_term($term, 'xp_datetime');
+                                    $sql = " select mb_id, sum(xp_point) as cnt from {$g5['na_xp']}
+                                    where 1 $sql_mb $sql_term group by mb_id order by cnt desc limit 0, $rows ";
+
+                                    } else {
+                                    $field = 'mb_point';
+                                    switch($mode) {
+                                    case 'exp' : $field = 'as_exp'; $orderby = 'as_exp desc'; break; //경험치
+                                    case 'new' : $orderby = 'mb_datetime desc'; break; //신규가입
+                                    case 'recent' : $orderby = 'mb_today_login desc'; break; //최근접속
+                                    default : $orderby = 'mb_point desc'; break; //포인트(기본값)
+                                    }
+                                    $sql = "select *, $field as cnt from {$g5['member_table']} where mb_leave_date = ''
+                                    and mb_intercept_date = '' $sql_mb order by $orderby limit 0, $rows ";
+                                    }
+
+                                    $result = sql_query($sql, false);
+                                    for ($i=0; $row=sql_fetch_array($result); $i++) {
+                                    $list[$i] = ($row['mb_id'] && $row['mb_nick']) ? $row : get_member($row['mb_id']);
+                                    $list[$i]['cnt'] = $row['cnt'];
+                                    if(!$list[$i]['mb_open']) {
+                                    $list[$i]['mb_email'] = '';
+                                    $list[$i]['mb_homepage'] = '';
+                                    }
+                                    $list[$i]['name'] = get_sideview($list[$i]['mb_id'], $list[$i]['mb_nick'],
+                                    $list[$i]['mb_email'], $list[$i]['mb_homepage']);
+                                    }
+
+                                    return $list;
+                                    }
+
+                                    // 인기검색어 추출
+                                    function na_popular_rows($wset) {
+                                    global $g5;
+
+                                    $list = array();
+
+                                    $rows = (int)$wset['rows'];
+                                    $rows = ($rows > 0) ? $rows : 10;
+
+                                    // 기간(일수,today,yesterday,month,prev)
+                                    $term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] :
+                                    $wset['term'];
+                                    $sql_term = na_sql_term($term, 'pp_date');
+
+                                    // 한글이 포함된 검색어만
+                                    $sql_han = ($wset['han']) ? "and pp_word regexp '[가-힣]'" : '';
+                                    $sql = " select pp_word, count(pp_word) as cnt from {$g5['popular_table']} where (1)
+                                    $sql_term $sql_han group by pp_word order by cnt desc limit 0, $rows ";
+                                    $result = sql_query($sql, false);
+                                    for ($i=0; $row=sql_fetch_array($result); $i++) {
+                                    $list[$i] = $row;
+                                    }
+
+                                    return $list;
+                                    }
+
+                                    // 태그추출
+                                    function na_tag_rows($wset) {
+                                    global $g5;
+
+                                    $list = array();
+
+                                    $rows = (int)$wset['rows'];
+                                    $rows = ($rows > 0) ? $rows : 10;
+
+                                    $orderby = ((int)$wset['new'] > 0) ? "lastdate desc," : "";
+                                    $result = sql_query(" select * from {$g5['na_tag']} where cnt > 0 order by $orderby
+                                    cnt desc, type, idx, tag limit 0, $rows ", false);
+                                    for ($i=0; $row=sql_fetch_array($result); $i++) {
+                                    $list[$i] = $row;
+                                    $list[$i]['href'] = G5_BBS_URL.'/tag.php?q='.urlencode($row['tag']);
+                                    }
+                                    return $list;
+                                    }
+
+                                    // 태그 관련글 추출
+                                    function na_tag_post_rows($wset) {
+                                    global $g5;
+
+                                    $list = array();
+
+                                    $tag = $wset['tag'];
+
+                                    if(!$tag)
+                                    return $list;
+
+                                    $rows = (int)$wset['rows'];
+                                    $rows = ($rows > 0) ? $rows : 7;
+                                    $page = (int)$wset['page'];
+                                    $page = ($page > 1) ? $page : 1;
+
+                                    $term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] :
+                                    $wset['term'];
+
+                                    // 회원글
+                                    $sql_mb = na_sql_find('mb_id', $wset['mb_list'], $wset['mb_except']);
+
+                                    // 추출게시판 정리
+                                    list($plus, $minus) = na_bo_list($wset['gr_list'], $wset['gr_except'],
+                                    $wset['bo_list'], $wset['bo_except']);
+                                    $sql_plus = na_sql_find('bo_table', $plus, 0);
+                                    $sql_minus = na_sql_find('bo_table', $minus, 1);
+
+                                    // 기간(일수,today,yesterday,month,prev)
+                                    $sql_term = na_sql_term($term, 'lastdate');
+
+                                    $start_rows = 0;
+
+                                    // 공통쿼리
+                                    $sql_common = " from {$g5['na_tag_log']} where bo_table <> '' and find_in_set(tag,
+                                        '{$tag}') $sql_plus $sql_minus $sql_mb $sql_term group by bo_table, wr_id ";
+
+                                        if($page > 1) {
+                                        $total = sql_query(" select count(*) as cnt $sql_common ", false);
+                                        $total_count = @sql_num_rows($total);
+                                        $total_page = ceil($total_count / $rows); // 전체 페이지 계산
+                                        $start_rows = ($page - 1) * $rows; // 시작 열을 구함
+                                        }
+
+                                        $result = sql_query(" select bo_table, wr_id $sql_common order by regdate desc
+                                        limit $start_rows, $rows ", false);
+
+                                        for ($i=0; $row=sql_fetch_array($result); $i++) {
+
+                                        $tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
+
+                                        $wr = sql_fetch(" select * from $tmp_write_table where wr_id = '{$row['wr_id']}'
+                                        ", false);
+
+                                        $wr['bo_table'] = $row['bo_table'];
+
+                                        $list[$i] = na_wr_row($wr, $wset);
+                                        }
+
+                                        return $list;
+                                        }
+
+                                        // FAQ 추출
+                                        function na_faq_rows($wset) {
+                                        global $g5;
+
+                                        $list = array();
+
+                                        $rows = (int)$wset['rows'];
+                                        $rows = ($rows > 0) ? $rows : 7;
+
+                                        $sql_fa = na_sql_find('fm_id', $wset['fa_list'], $wset['except']);
+
+                                        $result = sql_query(" select * from {$g5['faq_table']} where 1 $sql_fa order by
+                                        fa_order, fa_id limit 0, $rows ", false);
+                                        for ($i=0; $row=sql_fetch_array($result); $i++) {
+                                        $list[$i] = $row;
+                                        $list[$i]['subject'] = get_text($row['fa_subject']);
+                                        $list[$i]['content'] = conv_content($row['fa_content'], 1);
+                                        $list[$i]['href'] = G5_BBS_URL.'/faq.php?fm_id='.$row['fm_id'];
+                                        }
+
+                                        return $list;
+                                        }
+
+                                        ?>
