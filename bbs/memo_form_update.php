@@ -9,7 +9,7 @@ if (!chk_captcha()) {
     alert('자동등록방지 숫자가 틀렸습니다.');
 }
 
-$recv_list = explode(',', trim($_POST['me_recv_mb_id']));
+$recv_list = explode(',', trim($_POST['me_recv_mb_id'], " "));
 $str_nick_list = '';
 $msg = '';
 $error_list  = array();
@@ -17,27 +17,26 @@ $member_list = array('id'=>array(), 'nick'=>array());
 
 run_event('memo_form_update_before', $recv_list);
 
-for ($i=0; $i<count($recv_list); $i++) {
-    $row = sql_fetch(" select mb_id, mb_nick, mb_open, mb_leave_date, mb_intercept_date from {$g5['member_table']} where mb_id = '{$recv_list[$i]}' ");
+foreach ($recv_list as $key => $value) {
+    $need = str_replace(' ', '', $value);
+    $querry = "select mb_id, mb_nick, mb_open, mb_leave_date, mb_intercept_date from ".$g5['member_table']." where mb_id = '".$need."'";
+    $row = sql_fetch($querry);
     if ($row) {
-        if ($is_admin || ((!$row['mb_leave_date'] && !$row['mb_intercept_date']))) {
-            $member_list['id'][]   = $row['mb_id'];
-            $member_list['nick'][] = $row['mb_nick'];
-        } else {
-            $error_list[]   = $recv_list[$i];
-        }
-    }
-    /*
-    // 관리자가 아니면서
-    // 가입된 회원이 아니거나 정보공개를 하지 않았거나 탈퇴한 회원이거나 차단된 회원에게 쪽지를 보내는것은 에러
-    if ((!$row['mb_id'] || !$row['mb_open'] || $row['mb_leave_date'] || $row['mb_intercept_date']) && !$is_admin) {
-        $error_list[]   = $recv_list[$i];
-    } else {
-        $member_list['id'][]   = $row['mb_id'];
-        $member_list['nick'][] = $row['mb_nick'];
-    }
-    */
+                if ($is_admin || ((!$row['mb_leave_date'] && !$row['mb_intercept_date']))) {
+                    $member_list['id'][]   = $row['mb_id'];
+                    $member_list['nick'][] = $row['mb_nick'];
+                } else {
+                    $error_list[]   = $value;
+                }
+            }
+    // if ((!$row['mb_id'] || !$row['mb_open'] || $row['mb_leave_date'] || $row['mb_intercept_date']) && !$is_admin) {
+    //             $error_list[]   = $value;
+    //         } else {
+    //             $member_list['id'][]   = $row['mb_id'];
+    //             $member_list['nick'][] = $row['mb_nick'];
+    //         }
 }
+
 
 $error_msg = implode(",", $error_list);
 
@@ -59,7 +58,11 @@ if (!$is_admin && $member['mb_level'] < 23) {
     }
 }
 
+
 for ($i=0; $i<count($member_list['id']); $i++) {
+
+    
+
     $tmp_row = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} ");
     $me_id = $tmp_row['max_me_id'] + 1;
 
