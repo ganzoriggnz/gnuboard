@@ -156,15 +156,17 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 						</a>	</div>
 						&nbsp;&nbsp;
 					<?php } ?>	
-					<?php if ($is_admin || $gr_id != "review" && ($member_level != 26 || $member_level != 27 )) { ?>	
+					<?php if ($is_admin 
+					|| ($gr_id != "review") 
+					|| ($gr_id == "review" && ($member['mb_level'] != 26 && $member['mb_level'] != 27 ))
+					) { ?>	
 					<?php if ($write_href) { ?>						
 						<div>
 							<button type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
 								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
 							</button>
 						</div>
-					<?php } ?>
-					<?php } ?>
+					<?php }} ?>
 					</div>
 					<div class="btn-group" role="group">
 						<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
