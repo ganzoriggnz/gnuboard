@@ -263,7 +263,7 @@ if( isset($_POST['id'])){
         while ($row = sql_fetch_array($result1)) {     
         ?>
             <tr>
-                <td class="td_left" style="text-align: left; width: 7rem;">
+                <td class="td_left" style="text-align: left; width: 10rem;">
                     <a data-toggle="modal" data-target="#couponCreate<?php echo $cnt;?>" href="#couponCreate<?php echo $cnt;?>" style="color:blue; font-weight: bold;" class="coupon-create" data-link="<?php echo $bo_table;?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-entity = "<?php echo $row['mb_name'];?>">
                         <?php echo "[".$row['mb_name']."]";
                         $user_entity[$cnt]['co_entity']= $row['mb_name'];
@@ -328,7 +328,7 @@ if( isset($_POST['id'])){
                     </div>       
                 </td>
                 
-                <td class="td_left">
+                <td class="td_left" style="text-align: left; width: 8rem;">
                     <a data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
                         <?php if($row['co_begin_datetime'] < $co_begin_datetime) {echo "원가권 0개";} else { echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";}?>
                     </a>
@@ -340,7 +340,7 @@ if( isset($_POST['id'])){
                     </a>
                 </td>
                 
-                <td class="td_left"> 
+                <td class="td_left" style="text-align: left; width: 8rem;"> 
                     <ul id="userlist">
                     <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a RIGHT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime ='{$co_end_datetime}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
                     $sql1 = sql_query($sql);

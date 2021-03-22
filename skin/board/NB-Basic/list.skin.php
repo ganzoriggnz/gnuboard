@@ -203,7 +203,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 								<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
 								조회순
 								</a>
-								<?php if ($is_good) { ?>
+								<!-- <?php if ($is_good) { ?>
 									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
 									추천순
 									</a>
@@ -212,7 +212,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
 									비추천순
 									</a>
-								<?php } ?>
+								<?php } ?> -->
 							</div>
 						</div>
 					</div>
