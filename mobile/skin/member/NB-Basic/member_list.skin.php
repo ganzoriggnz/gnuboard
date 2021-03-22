@@ -78,7 +78,6 @@ else if ($w == 'u')
             </thead>
             <tbody>
                 <?php
-				// $sum_point1 = $sum_point2 = $sum_point3 = 0;
 		for ($i=0; $row=sql_fetch_array($result); $i++) {
 		?>
                 <tr style="border:1px solid #d3d3d3; font-size: 10px">
