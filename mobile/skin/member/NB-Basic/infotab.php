@@ -1,6 +1,6 @@
 <style>
 #tabletab tr td {
-    border: 1px solid #BABABA !important;
+    border: 0.5px solid #BABABA !important;
 }
 
 #tabletab tr td a span {
