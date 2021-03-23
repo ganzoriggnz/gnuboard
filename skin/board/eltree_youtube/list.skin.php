@@ -224,13 +224,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <div class="bo_fx">
             <?php if ($list_href || $write_href) { ?>
             <ul class="btn_bo_user">
-                <?php if ($admin_href && G5_BZY_CHECK) { ?><li><a href="<?php echo $admin_href ?>" class="btn_admin btn"
+                <!-- <?php if ($admin_href && G5_BZY_CHECK) { ?><li><a href="<?php echo $admin_href ?>" class="btn_admin btn"
                         title="관리자"><i class="fa fa-cog fa-spin fa-fw"></i><span class="sound_only">관리자</span></a></li>
                 <?php } ?>
                 <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btn_b01 btn" title="RSS"><i
                             class="fa fa-rss" aria-hidden="true"></i><span class="sound_only">RSS</span></a></li>
                 <?php } ?>
-                <!-- <?php if ($write_href) { ?><li><button href="<?php echo $write_href ?>" class="btn btn-primary" title="글쓰기"><i class="fa fa-pencil" aria-hidden="true"></i><?php if(!G5_IS_MOBILE) echo " 글쓰기" ?><span class="sound_only">글쓰기</span></button></li><?php } ?> -->
+                 <?php if ($write_href) { ?><li><button href="<?php echo $write_href ?>" class="btn btn-primary" title="글쓰기"><i class="fa fa-pencil" aria-hidden="true"></i><?php if(!G5_IS_MOBILE) echo " 글쓰기" ?><span class="sound_only">글쓰기</span></button></li><?php } ?> -->
             </ul>
             <?php } ?>
         </div>

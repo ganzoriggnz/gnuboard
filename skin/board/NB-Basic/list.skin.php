@@ -128,7 +128,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 						$name2 = get_sideview($mbid2['mb_id'], $mbid2['mb_nick'], $mbid2['mb_homepage']);
 					?>
 					<?php if($board['bo_admin']!='') { echo $board['bo_subject']." 관리자 : "?> <?php echo na_name_photo($board['bo_admin'], "<p class='username' style='display: inline-block;'>".$name1."</p>");}?> 
-					<?php if($group['gr_admin']!=''){ echo "&nbsp;&nbsp;".$group['gr_subject']." 관리자 : ".na_name_photo($group['gr_admin'], "<p class='username' style='display: inline-block;'>".$name2."</p>");} ?> <?php echo "&nbsp;&nbsp;" ," / " ,"&nbsp;&nbsp;"?>
+					<?php if($group['gr_admin']!=''){ echo "&nbsp;&nbsp;".$group['gr_subject']." 관리자 : ".na_name_photo($group['gr_admin'], "<p class='username' style='display: inline-block;'>".$name2."</p>");} ?> <?php echo "&nbsp;&nbsp;" ,"" ,"&nbsp;&nbsp;"?>
 					<?php echo "[글 작성 ".$board['bo_write_point']." 파운드 /  댓글 작성 ".$board['bo_comment_point']." 파운드 획득]" ?>
 					<?php } ?>
 				</div>
