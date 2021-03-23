@@ -1443,7 +1443,7 @@ function na_board_rows_coupon($wset) {
 		
 		// 공통쿼리
 		$now = G5_TIME_YMDHIS;
-		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and a.co_begin_datetime <= '{$now}' and a.co_end_datetime >= '{$now}' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
+		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and a.co_begin_datetime <= '{$now}' and a.co_end_datetime >= '{$now}' and a.co_sale_num > '0' and a.co_free_num > '0' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
 		if($page > 1) {
 			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
 			$total_count = $total['cnt'];
