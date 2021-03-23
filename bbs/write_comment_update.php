@@ -22,6 +22,9 @@ $wr_name  = trim($_POST['wr_name']);
 $wr_email = '';
 $reply_array = array();
 
+if(G5_IS_MOBILE){
+    $wr_2 = "1";
+}
 if (!empty($_POST['wr_email']))
     $wr_email = get_email_address(trim($_POST['wr_email']));
 
@@ -32,6 +35,7 @@ if ($is_guest) {
     if(!chk_captcha())
         alert('자동등록방지 숫자가 틀렸습니다.');
 }
+
 
 if ($w == "c" || $w == "cu") {
     if ($member['mb_level'] < $board['bo_comment_level'])

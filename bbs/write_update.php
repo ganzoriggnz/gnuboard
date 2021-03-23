@@ -242,6 +242,11 @@ if (!isset($_POST['wr_subject']) || !trim($_POST['wr_subject']))
 
 $wr_seo_title = exist_seo_title_recursive('bbs', generate_seo_title($wr_subject), $write_table, $wr_id);
 
+if(G5_IS_MOBILE){
+    $wr_2 = "1";
+}
+
+
 if ($w == '' || $w == 'r') {
 
     if ($member['mb_id']) {

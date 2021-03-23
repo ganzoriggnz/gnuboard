@@ -123,7 +123,7 @@ if ($gr_id=='review') {
 	                <li>
 	                    <span class="sr-only">작성자</span>
 	                    <!-- hulan nemsen level mark -->
-	                    <?php echo na_name_photo($view['mb_id'], $view['name']); ?>
+	                    <?php if ($view['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>'; echo na_name_photo($view['mb_id'], $view['name']); ?>
 
 	                </li>
 	                <?php if ($is_ip_view) { ?>
@@ -270,7 +270,7 @@ if ($gr_id=='review') {
 	                <li class="pr-2">
 	                    <span class="sr-only">작성자</span>
 	                    <!-- hulan nemsen level mark -->
-	                    <?php echo na_name_photo($view['mb_id'], $view['name']); ?>
+	                    <?php if ($view['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>'; echo na_name_photo($view['mb_id'], $view['name']); ?>
 
 	                </li>
 	                <?php if ($is_ip_view) { ?>
@@ -398,7 +398,7 @@ if ($gr_id=='review') {
 	                <li class="pr-2">
 	                    <span class="sr-only">작성자</span>
 	                    <!-- hulan nemsen level mark -->
-	                    <?php echo na_name_photo($view['mb_id'], $view['name']); ?>
+	                    <?php if ($view['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>'; echo na_name_photo($view['mb_id'], $view['name']); ?>
 	                </li>
 	                <?php if ($is_ip_view) { ?>
 	                <li class="pr-2">

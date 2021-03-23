@@ -126,7 +126,8 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 								<li class="pr-2">
 									<!-- hulan nemsen mark -->
 									
-									<?php echo na_name_level($list[$i]['mb_id'], $list[$i]['name']); ?>
+									<?php   if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>';
+									echo na_name_level($list[$i]['mb_id'], $list[$i]['name']); ?>
 									<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); // SNS 
 									?>
 								</li>
