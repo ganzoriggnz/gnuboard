@@ -250,13 +250,13 @@ body::after{
                             </li>
                            
                             <li class="col p-0 me-li me-icon right_border">
-                                <a class="me-a f-md en" href="https://facebook.com" target="_blank" title="페이스 북">
+                                <a class="me-a f-md en" href="https://www.facebook.com/%EB%B0%A4%EC%9D%98%EC%A0%9C%EA%B5%AD-108544554658520" target="_blank" title="페이스 북">
                                     <!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
                                     <img src="<?php echo G5_URL?>/img/solid/facebook-logo.svg" style="height: 14px;">
                                 </a>
                             </li>
                             <li class="col p-0 me-li me-icon right_border">
-                                <a class="me-a f-md en" href="https://twitter.com" target="_blank" title="트위터">
+                                <a class="me-a f-md en" href="https://twitter.com/bamje4" target="_blank" title="트위터">
                                     <!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
                                     <img src="<?php echo G5_URL?>/img/twitter.png">
                                 </a>
