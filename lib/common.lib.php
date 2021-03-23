@@ -4314,6 +4314,22 @@ function get_board_atname($bo_table='')
     return $str;
 }
 
+function get_board_atKoreanname($bo_table)
+{
+    global $g5;
+    $list = array();
+    $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance'");
+    for($i=1; $res = sql_fetch_array($row); $i++){
+        $list[$i]['bo_table']=$res['bo_table'];
+        $list[$i]['bo_subject']=$res['bo_subject'];
+    }
+    for ($i=0; $i<count($list); $i++) {
+        if ($bo_table == $list[$i]['bo_table'])
+            $str = $list[$i]['bo_subject'];
+    }
+    return $str;
+}
+
 function get_board_category_name($bo_table_category='')
 {
     global $g5,$board;

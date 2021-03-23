@@ -253,7 +253,7 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>
         <div class="col-md-4">
                     <?php echo get_board_category_name($mb['mb_7']); ?>
 			</div>
-            <input type="text" disabled name="mb_7t" value="<?php echo $mb['mb_7']; ?>" id="mb_7t" class="frm_input" size="30" maxlength="255">
+            <input type="text" disabled name="mb_7t" value="<?php echo get_board_atKoreanname($mb['mb_6'])." - ".$mb['mb_7']; ?>" id="mb_7t" class="frm_input" size="30" maxlength="255">
 
         </td>
 <!-- ------------------------- category name  ------------------------------------->
