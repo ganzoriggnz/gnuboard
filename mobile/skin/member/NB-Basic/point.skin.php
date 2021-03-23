@@ -48,7 +48,7 @@ $frm_submit = '<div class="col-sm-4">
 <div id="bo_v" style="width: 100%;">
     <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
         <?php
-    $activedd = "actived";
+    $point = "actived";
     include 'infotab.php';?>
     </nav>
 

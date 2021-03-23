@@ -15,20 +15,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 </style>
 <div id="bo_v">
     <?php
-    $activedd = "actived";
+    $userinfo = "actived";
     include 'infotab.php';?>
     <section class="xm">
         <table cellspacing="0" class=" px-3 mr-3" cellpadding="0" width="100%" style="font-size: 12px; padding:5px;"
             id="level-up">
             <thead>
                 <tr style="font-size: 12px; ">
-                    <th class="cl_tr"><label class="col-form-label" for="reg_mb_nick">기본정보</label></th>
+                    <th class="cl_tr pr-2"  style="width:100px; text-align: right;" ><label class="col-form-label" for="reg_mb_nick">기본정보</label></th>
                     <th class="cl_tr"><?php echo $row['mb_nick']." ".$row['mb_id']?></th>
                 </tr>
             </thead>
             <tbody>
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">보유파운드</label></td>
+                    <td class="cl_tr  pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">보유파운드</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         <a href="#" target="_blank" class="win_memo" title="사진등록">
                             <div class="photo pull-left"><i class="fa fa-user"></i></div>
@@ -40,7 +40,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <?php if( $member['mb_level'] == 27 || ($member['mb_level'] == '26' && $finish_date >= $now))
         { ?>
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">출근부</label></td>
+                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">출근부</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         <?php
                         $g5['connect_db'];
@@ -67,8 +67,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     </td>
                 </tr>
                 <?php } ?>
+                <?php if($member['mb_level'] == 27)
+                    { ?>
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">쿠폰</label></td>
+                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">쿠폰</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         <a href="<?php echo G5_BBS_URL ?>/coupon_create.php">
                             <font color="blue"><b><i class="fa fa-cubes"></i> <span class="hidden-xs">쿠폰</span></b>
@@ -76,24 +78,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                         </a>
                     </td>
                 </tr>
-                <?php if( $member['mb_level'] == 27 || $member['mb_level'] == 27)
+                <?php } 
+                if( $member['mb_level'] == 26 || $member['mb_level'] == 27)
                     { ?>
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">지역-업종</label></td>
+                    <td class="cl_tr pr-2"  style="text-align: right;" ><label class="col-form-label" for="reg_mb_nick">지역-업종</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         <?php echo $str_arr[0]." - ".$type; ?> </td>
                 </tr>
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">제휴기간</label></td>
+                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">제휴기간</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         <?php echo $start_date." ~ ".$end_date.' - [';?><span
                             style="color: blue;"><?php echo $diff_days.'일 남음';?></span>] </td>
                 </tr>
-                <?php } ?>
+               
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">연락처</label></td>
+                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">연락처</label></td>
                     <td class="cl_tr" style="text-align: left;">
-                        <?php if($row['mb_hp']) {echo $row['mb_hp'].'<br>'; }?>(프로필과 배너에 출력되니 항상 최신번호로 유지해주세요)<br />
+                        <?php if($row['mb_hp']) {echo $row['mb_hp'].'<br>'; }?>(프로필과 배너에 출력되니 항상<br /> 최신번호로 유지해주세요)<br />
                         <a href="<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>"
                             target="_blank"
                             style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
@@ -101,24 +104,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                         </a> <label style='color: red;'> &nbsp ※ 전화번호는 운영자가 확인 후 변경처리됩니다.</label>
                     </td>
                 </tr>
+                <?php } ?>
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">가입일</label></td>
+                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">가입일</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         <?php echo $entity_date;?></td>
                 </tr>
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">최근 로그인</label></td>
+                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">최근 로그인</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         <?php echo $today_login;?></td>
                 </tr>
                 <!-- user 서명     -->
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"><label class="col-form-label" for="reg_mb_nick">서명</label></td>
+                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">서명</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         …</td>
                 </tr>
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr"></td>
+                    <td class="cl_tr pr-2"  style="text-align: right;"></td>
                     <td class="cl_tr" style="text-align: left;">
                         <a href="<?php echo G5_URL ?>/bbs/member_confirm.php?url=register_form.php"
                             style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">회원정보변경</a>

@@ -8,7 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
 <div id="bo_v">
     <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
         <?php
-    $activedd = "actived";
+    $couponaccept = "actived";
     include G5_THEME_MOBILE_PATH2."/skin/member/NB-Basic/infotab.php";
     ?>
     </nav>

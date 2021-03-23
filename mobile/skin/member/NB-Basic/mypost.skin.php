@@ -16,7 +16,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 <div id="bo_v">
     <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
         <?php
-    $activedd = "actived";
+    $mypost = "actived";
     include 'infotab.php';?>
     </nav>
     <!-- 스크랩 목록 시작 { -->

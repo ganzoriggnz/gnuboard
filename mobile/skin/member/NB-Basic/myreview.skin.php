@@ -15,7 +15,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 </style>
 <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
     <?php
-    $activedd = "actived";
+    $myreview = "actived";
     include 'infotab.php';?>
 </nav>
 <!-- 후기 목록 시작 { -->
