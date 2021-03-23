@@ -69,19 +69,13 @@ var g5_cookie_domain = "";
             $joinData['auth'] = $is_admin?"admin":""; // (admin, subadmin, member, guest)중 하나선택, 미선택시 자동(권장)
             $joinData['icons'] = $아이콘주소변수;
             if($is_member) {
-
                 $uicon_file = "/eyoom/core/member/".substr($member['mb_id'],0,2)."/".$member['mb_id'].".gif";
-            
                 if(file_exists((G5_PATH?G5_PATH:$g4['path']).$uicon_file))
-            
                     $joinData['icons'] = $uicon_file;
-            
             }
             //$joinData['nickcon'] = $닉콘주소변수;
             //$joinData['other'] = '';
             ?>
-            
-
             <script async src="//client.uchat.io/uchat.js"></script>
             <u-chat room='<?php echo $joinData['room']; ?>' user_data='<?php echo uchat_array2data($joinData); ?>' style="display:inline-block; width:100<?php echo isMobile() ?'vw;' :'%;' ?> height:100<?php echo isMobile() ?'vh;' :'%;' ?>"></u-chat>
       <script>
@@ -97,6 +91,27 @@ function closeButton() {
   span.appendChild(button);
   span.style.position = "absolute";
   span.style.right = "20px";
+  span.style.bottom = "10px";
+  
+  window.frames[0].document.getElementsByClassName("content nano-content")[0].appendChild(span);
+ 
+  }
+  catch(e){
+    alert(e);
+  }
+}
+
+function closeButton() {
+    try{
+  var span = document.createElement("SPAN");
+  var button = document.createElement("BUTTON");
+  var textnode = document.createTextNode("닫기");
+  button.appendChild(textnode);
+  button.onclick = function() { self.close(); };
+  button.style.padding = "0px 10px";
+  span.appendChild(button);
+  span.style.position = "absolute";
+  span.style.right = "100px";
   span.style.bottom = "10px";
   
   window.frames[0].document.getElementsByClassName("content nano-content")[0].appendChild(span);
