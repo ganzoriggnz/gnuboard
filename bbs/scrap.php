@@ -11,7 +11,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 if (!$is_member)
  alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
-$g5['title'] = get_text($member['mb_nick']).'님의 스크랩';
+/* $g5['title'] = get_text($member['mb_nick']).'님의 스크랩'; */
+$g5['title'] = '스크랩';
 include_once(G5_PATH.'/head.sub.php');
 
 $sql_common = " from {$g5['scrap_table']} where mb_id = '{$member['mb_id']}' ";
@@ -73,4 +74,3 @@ if(is_file($skin_file)) {
 
     include_once('./_tail.php');
 ?>
-
