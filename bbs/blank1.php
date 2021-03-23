@@ -1,6 +1,6 @@
 <?php
 include_once('./_common.php');
-
+$g5['title'] = '포카'; 
 include_once('./_head.php');
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
