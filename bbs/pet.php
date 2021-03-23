@@ -1,6 +1,7 @@
 <?php
 include_once('./_common.php');
 
+$g5['title'] = '펫 기르기';
 include_once('./_head.php');
 
 if ($is_guest)

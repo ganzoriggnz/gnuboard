@@ -4,6 +4,7 @@ include_once('./_common.php');
 if (!$is_member)
     alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
+$g5['title'] = '일일미션';
 include_once('./_head.php');
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가

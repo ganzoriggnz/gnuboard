@@ -1,6 +1,7 @@
 <?php
 include_once('./_common.php');
 
+$g5['title'] = '왕궁 게시판';
 include_once('./_head.php');
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
