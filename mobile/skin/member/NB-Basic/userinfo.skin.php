@@ -94,14 +94,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 </tr>
                
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">연락처</label></td>
+                    <td class="cl_tr pr-2"  valign="top" style="text-align: right; "><label class="col-form-label" for="reg_mb_nick">연락처</label></td>
                     <td class="cl_tr" style="text-align: left;">
-                        <?php if($row['mb_hp']) {echo $row['mb_hp'].'<br>'; }?>(프로필과 배너에 출력되니 항상<br /> 최신번호로 유지해주세요)<br />
-                        <a href="<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>"
-                            target="_blank"
-                            style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">
+                        <?php if($member['mb_hp']) {echo $member['mb_hp']; }?> &nbsp; <a class="btn" href="<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>"
+                            target="_blank" style="color:#000; font-size:11px; background-color:#efefef; padding:3px; border:1px solid #696969; border-radius:5px; text-decoration:none">
                             <font style="vertical-align: inherit;">전화번호 변경요청 </font>
-                        </a> <label style='color: red;'> &nbsp ※ 전화번호는 운영자가 확인 후 변경처리됩니다.</label>
+                        </a> <br /> 
+
+                         <font style='color: red;'>※ 전화번호는 운영자가 확인 후 변경처리됩니다.</font><br />                   
+                        프로필과 배너에 출력되니 항상 최신번호로 유지해주세요
+                        
                     </td>
                 </tr>
                 <?php } ?>
@@ -124,8 +126,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <tr style=" font-size: 12px">
                     <td class="cl_tr pr-2"  style="text-align: right;"></td>
                     <td class="cl_tr" style="text-align: left;">
-                        <a href="<?php echo G5_URL ?>/bbs/member_confirm.php?url=register_form.php"
-                            style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">회원정보변경</a>
+                        <a class="btn" href="<?php echo G5_URL ?>/bbs/member_confirm.php?url=register_form.php"
+                            style="color:#000;background-color:#efefef; font-size:11px; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none">회원정보변경</a>
                     </td>
                 </tr>
             </tbody>
