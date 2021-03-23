@@ -241,26 +241,21 @@ if ($gr_id=='review') {
 				<li style="display: inline;"><a href="#viewcomment"		
 	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
 	                </li>
-				<?php if ($gr_id=='attendance') { ?>
+				    <?php if ($gr_id=='attendance') { ?>
 	                <li style="display: inline;"><a href="#"
 					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 후기바로가기</a>
 	                </li>
 
-					<li class="pr-3"><a href="#" type="button"
-					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
-					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-phone" aria-hidden="true"></i>  <?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?></a>
-	                </li>
-					<li class="pr-3"><a href="#" type="button"
+					<li style="display: inline;"><a href="#"
 					onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-pencil" aria-hidden="true"></i> 업소후기작성</a>
+					style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-pencil" aria-hidden="true"></i> 업소후기작성</a>
 	                </li>
 	                <?php } ?>
 	                <?php if ($gr_id=='review') { ?>
-	                <li style="display: inline;">
-	                    <a href="#"
-						onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
-	                        class="btn  nofocus py-1" title="업소정보" style="border: 1px solid; color:black; ">
+	                <li style="display: inline;"><a href="#"
+					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
+					class="btn" title="업소정보" style="display: inline; border:1px solid #e5e5e5; font-size: 10px;">
 	                        <i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
 	                </li>
 	                <?php } ?>
@@ -384,22 +379,6 @@ if ($gr_id=='review') {
 				<li style="display: inline;"><a href="#viewcomment"		
 	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
 	                </li>
-				<?php if ($gr_id=='attendance') { ?>
-	                <li style="display: inline;"><a href="#"
-					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 후기바로가기</a>
-	                </li>
-					<li class="pr-3"><a href="#" type="button"
-					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
-					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-phone" aria-hidden="true"></i>  <?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?></a>
-	                </li>
-					<li class="pr-3"><a href="#" type="button"
-					onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-pencil" aria-hidden="true"></i> 업소후기작성</a>
-	                </li>
-
-
-	                <?php } ?>
 	                <?php if ($gr_id=='review') { ?>
 	                <li style="display: inline;">
 	                    <a href="#"						
@@ -407,8 +386,6 @@ if ($gr_id=='review') {
 						style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
 	                </li>
 	                <?php } ?>
-
-
 				 <!-- end   / -->
 	        </div>
 	    </section>
@@ -605,7 +582,11 @@ if ($gr_id=='review') {
 	            <div class="view-content">
 	                <?php echo get_view_thumbnail(na_view($view)); // 글내용 출력 ?>
 	            </div>
-
+				<?php  if($gr_id=="attendance") {?>
+				<div class="view-content text-center">
+	               <img src="<?php echo G5_IMG_URL; ?>/messagebanner.png"/>
+	            </div>
+				<?php  } ?>
 	            <?php 
 				// 하단 이미지 출력
 				if(isset($view['as_img']) && $view['as_img'] == "1") {
