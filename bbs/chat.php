@@ -78,7 +78,43 @@ var g5_cookie_domain = "";
             ?>
             <script async src="//client.uchat.io/uchat.js"></script>
             <u-chat room='<?php echo $joinData['room']; ?>' user_data='<?php echo uchat_array2data($joinData); ?>' style="display:inline-block; width:100<?php echo isMobile() ?'vw;' :'%;' ?> height:100<?php echo isMobile() ?'vh;' :'%;' ?>"></u-chat>
-      <script>
+      
+      
+       <?php }
+            else echo '<div id="noPer" style="
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        ">
+            <h2>채팅방 입장 권한 없습니다 </h2>
+        </div>' ; 
+?>
+          <!--   //////////////////////////////////////////////////////////////// -->
+
+          <script>
+
+function closeButtonz() {
+    try{
+  var span = document.createElement("SPAN");
+  var button = document.createElement("BUTTON");
+  var textnode = document.createTextNode("닫기");
+  button.appendChild(textnode);
+  button.onclick = function() { self.close(); };
+  button.style.padding = "0px 10px";
+  span.appendChild(button);
+  span.style.position = "absolute";
+  span.style.right = "20px";
+  span.style.bottom = "10px";
+  
+  document.getElementById("noPer").appendChild(span);
+ 
+  }
+  catch(e){
+    alert(e);
+  }
+}
 
 function closeButton() {
     try{
@@ -94,54 +130,27 @@ function closeButton() {
   span.style.bottom = "10px";
   
   window.frames[0].document.getElementsByClassName("content nano-content")[0].appendChild(span);
- 
   }
   catch(e){
     alert(e);
   }
 }
-
-function closeButton() {
-    try{
-  var span = document.createElement("SPAN");
-  var button = document.createElement("BUTTON");
-  var textnode = document.createTextNode("닫기");
-  button.appendChild(textnode);
-  button.onclick = function() { self.close(); };
-  button.style.padding = "0px 10px";
-  span.appendChild(button);
-  span.style.position = "absolute";
-  span.style.right = "100px";
-  span.style.bottom = "10px";
-  
-  window.frames[0].document.getElementsByClassName("content nano-content")[0].appendChild(span);
- 
-  }
-  catch(e){
-    alert(e);
-  }
-}
-<?php  if(isMobile())
-echo 'window.addEventListener("load", function() {
-    setTimeout(function(){
-       closeButton();      
-    }, 2500)
-})' ?>
+<?php  if(isMobile()){
+    if($member['mb_level'] >= 5){
+        echo 'window.addEventListener("load", function() {
+            setTimeout(function(){
+               closeButton();      
+            }, 2500)
+        })';
+    }else{
+        echo 'window.addEventListener("load", function() {
+            setTimeout(function(){
+                closeButtonz();      
+            }, 2500)
+        })';
+    }
+    }?>
 </script>
-      
-       <?php }
-            else echo '<div style="
-            width: 100%;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-        ">
-            <h2>채팅방 입장 권한 없습니다 </h2>
-        </div>' ; 
-?>
-          <!--   //////////////////////////////////////////////////////////////// -->
-
 
 </body>
           
