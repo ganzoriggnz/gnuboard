@@ -105,7 +105,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     기본정보
                 </label>
                 <div class="col-sm-3 col-form-info">
-                    <?php echo $row['mb_nick']." (".$row['mb_id'].")"?>
+                <?php 
+                            echo get_level($member['mb_id'])."&nbsp;"; echo $member['mb_nick']."(".$member['mb_id'].")"; ?>
                 </div>
             </div>
             <!-- 프로필 사진 user icon  -->
@@ -116,7 +117,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <div class="col-sm-3 col-form-info">
                     <a href="#" target="_blank" class="win_memo" title="사진등록">
                         <div class="photo pull-left">
-                            <i class="fa fa-user"></i>
+                        <?php echo "<img src='".na_member_photo($member['mb_id'])."' style='border-radius:50%;'' />" ?>
                         </div>
                     </a>
                 </div>

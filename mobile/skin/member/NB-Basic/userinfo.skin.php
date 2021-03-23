@@ -3,6 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
+
 ?>
 <style>
 .d-flex {
@@ -23,15 +24,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             <thead>
                 <tr style="font-size: 12px; ">
                     <th class="cl_tr pr-2"  style="width:100px; text-align: right;" ><label class="col-form-label" for="reg_mb_nick">기본정보</label></th>
-                    <th class="cl_tr"><?php echo $row['mb_nick']." ".$row['mb_id']?></th>
+                    <th class="cl_tr"><?php 
+                            echo get_level($member['mb_id'])."&nbsp;"; echo $member['mb_nick']."(".$member['mb_id'].")"; ?></th>
                 </tr>
             </thead>
             <tbody>
                 <tr style=" font-size: 12px">
-                    <td class="cl_tr  pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">보유파운드</label></td>
+                    <td class="cl_tr  pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">프로필 사진</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         <a href="#" target="_blank" class="win_memo" title="사진등록">
-                            <div class="photo pull-left"><i class="fa fa-user"></i></div>
+                            <div class="photo pull-left"><?php echo "<img src='".na_member_photo($member['mb_id'])."' style='border-radius:50%;'' />" ?></div>
                         </a>
                     </td>
                 </tr>
