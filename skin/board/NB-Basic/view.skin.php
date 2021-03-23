@@ -432,8 +432,8 @@ if ($gr_id=='review') {
 	                <li class="pr-3">
 	                    <span class="sr-only">조회</span>
 
-	                    <a type="button" style="border: 1px solid; color:black; " href="#viewcomment"
-	                        class="btn btn_b01 nofocus py-1" title="댓글바로가기">
+	                    <a type="button"  href="#viewcomment"
+	                        class="btn btn-basic" title="댓글바로가기">
 	                        <i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기
 	                    </a>
 	                </li>
@@ -442,25 +442,25 @@ if ($gr_id=='review') {
 	                <li class="pr-3">
 	                    <a type="button"
 	                        onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-	                        class="btn btn_b01 nofocus py-1" title="후기바로가기" style="border: 1px solid; color:black; ">
+	                        class="btn btn-basic" title="후기바로가기" >
 	                        <i class="fa fa-list-alt" aria-hidden="true"></i> 후기바로가기
 	                    </a>
 	                </li>
 
 					<li class="pr-3"><a href="#" type="button"
 					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
-					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-phone" aria-hidden="true"></i>  <?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?></a>
+					 class="btn btn-basic"><i class="fa fa-phone" aria-hidden="true"></i>  <?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?></a>
 	                </li>
 					<li class="pr-3"><a href="#" type="button"
 					onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-					style="border: 1px solid; color:black; " class="btn btn_b01 nofocus py-1"><i class="fa fa-pencil" aria-hidden="true"></i> 업소후기작성</a>
+					 class="btn btn-basic"><i class="fa fa-pencil" aria-hidden="true"></i> 업소후기작성</a>
 	                </li>
 	                <?php } ?>
 	                <?php if ($gr_id=='review') { ?>
 	                <li class="pr-3">
 	                    <a type="button"
 	                        onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
-	                        class="btn btn_b01 nofocus py-1" title="업소정보" style="border: 1px solid; color:black; ">
+	                        class="btn btn-basic" title="업소정보" >
 	                        <i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보
 	                    </a>
 	                </li>
@@ -602,10 +602,10 @@ if ($gr_id=='review') {
 			?>
 	        </div>
 	        <!-- } 본문 내용 끝 -->
-
+			<div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
 	        <?php 
 		if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
-	        <div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
+	       
 	            <div class="btn-group btn-group-lg" role="group">
 	                <?php if ($member['mb_level'] >= $board['bo_use_good'] && $gr_id!="attendance" && $bo_table!="job" && $bo_table!="greeting" && $bo_table!="notice" && $bo_table!="event") { // 추천 ?>
 	                <button type="button"
@@ -632,8 +632,8 @@ if ($gr_id=='review') {
 	                <?php if ($scrap_href) { // 스크랩 ?>
 	                <button type="button" class="btn btn-basic" onclick="win_scrap('<?php echo $scrap_href ?>');"
 	                    title="스크랩" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
-	                    <i class="fa fa-bookmark" aria-hidden="true"> 스크랩</i>
-	                    <span class=" sr-only">스크랩</span>
+	                    <i class="fa fa-bookmark" aria-hidden="true"> </i>
+	                    <span  <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?> >스크랩</span>
 	                </button>
 	                <?php } ?>
 
@@ -648,43 +648,41 @@ if ($gr_id=='review') {
 	                <?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin ||$member['mb_id'] == $board['bo_admin'] || $member['mb_id'] == $group['gr_admin'])) { // 블라인드 ?>
 	                <button type="button" class="btn btn-basic"  <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>
 	                    onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="블라인드">
-	                    <i class="fa fa-ban" aria-hidden="true"> 블라인드</i> 
-	                    <span class="sr-only">블라인드</span>
+	                    <i class="fa fa-ban" aria-hidden="true"></i> 
+	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>>블라인드</span>
 	                </button>
 	                <?php } ?>
 	            </div>
 
-				<div class="btn-group btn-group-lg" role="group" >
+				
+	        <?php } ?>
+			<div class="btn-group btn-group-lg" role="group" >
 				<button type="button" class="btn btn-basic" onclick="location.href='#bo_v'" 
 	                    title="본문상단" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
-	                    <i class="fa fa-arrow-up" aria-hidden="true"> 본문상단</i>
-	                    <span class=" sr-only">본문상단</span>
+	                    <i class="fa fa-arrow-up" aria-hidden="true"> </i>
+	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>> 본문상단</span>
 	                </button>
 					<?php if ($gr_id=="attendance") { // 스크랩 ?>
 	                
 					<button type="button" class="btn btn-basic" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 	                    title="후기바로가기" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
-	                    <i class="fa fa-list-alt" aria-hidden="true"> 후기바로가기</i>
-	                    <span class=" sr-only">후기바로가기</span>
+	                    <i class="fa fa-list-alt" aria-hidden="true"> </i>
+	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>>후기바로가기</span>
 	                </button>
 					<button type="button" class="btn btn-basic"
 					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
 	                    title="연락처 " <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
-	                    <i class="fa fa-phone" aria-hidden="true"> <?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?> </i>
-	                    <span class=" sr-only"><?php G5_IS_MOBILE ?  " 전화걸기" : $phone['mb_hp'] ?></span>
+	                    <i class="fa fa-phone" aria-hidden="true"> </i>
+	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>><?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?> </span>
 	                </button>
 					<button type="button" class="btn btn-basic" onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 	                    title="업소후기작성" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
-	                    <i class="fa fa-pencil" aria-hidden="true"> 업소후기작성</i>
-	                    <span class=" sr-only">업소후기작성</span>
+	                    <i class="fa fa-pencil" aria-hidden="true"> </i>
+	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>>업소후기작성</span>
 	                </button>
 	                <?php } ?>
 				</div>
-
-
-	        </div>
-	        <?php } ?>
-
+			</div>
 	        <?php if($view['as_tag']) { // 태그 ?>
 	        <div class="f-de p-3">
 	            <span class="sr-only">태그</span>
