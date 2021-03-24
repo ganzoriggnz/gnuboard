@@ -28,12 +28,12 @@ for ($i=0; $i<$ca_count; $i++) {
 #bo_cate ul {zoom:1}
 #bo_cate ul:after {display:block;visibility:hidden;clear:both;content:"";}
 #bo_cate li {display:inline-block;padding:0px;  }
-#bo_cate a {border-radius: 0px; font-size:12px; color:#000; width:8.105rem; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
+#bo_cate a {border-radius: 0px; font-size:12px; color:#000; width:8.105rem ; height:39px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
 #bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active { text-decoration:none; color:#000;font-weight: bold; background-color: #fff }
 #bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:7.105rem; height:39px; display:flex; align-items:center; justify-content: center;}
 
 @media only screen and (max-width: 600px) {
-#bo_cate a {border-radius: 0px; font-size:12px; color:#000; width:5.8rem; height:45px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
+#bo_cate a {border-radius: 0px; font-size:12px; color:#000; width:6.1rem; height:45px; display: flex; align-items:center; justify-content:center; margin-left: 0px;}
 #bo_cate #bo_cate_on {z-index:2; font-size:12px; font-weight: bold; color:#000; width:5.8rem; height:45px; display:flex; align-items:center; justify-content: center;}
 }
 
@@ -48,4 +48,3 @@ for ($i=0; $i<$ca_count; $i++) {
 			</div>
 		</div>
 </nav>
-
