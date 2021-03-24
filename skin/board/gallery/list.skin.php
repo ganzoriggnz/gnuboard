@@ -42,7 +42,7 @@ if ($board['bo_use_category']) {
       
          $category = trim($categories[$i]);
         if ($category=='') continue;       
-         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
+         $category_option .= '<li><a href="#" data-url="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
         $category_msg = '';
         if ($category==$sca) { // 현재 선택된 카테고리라면
             $category_option .= ' id="bo_cate_on"';
@@ -67,7 +67,7 @@ if ($board['bo_use_category'] && $sca !='') {
         
          $subcategory =  $listee[$i]['ca_name'];
         if ($subcategory=='') continue;       
-         $subcategory_option .= '<li><a href="'.(get_pretty_url($bo_table,'','&sca='.$sca.'&subsca='.urlencode($subcategory))).'"';         
+         $subcategory_option .= '<li><a href="#" data-url="'.(get_pretty_url($bo_table,'','&sca='.$sca.'&subsca='.urlencode($subcategory))).'"';         
          $subcategory_msg = '';
         if ($subcategory==$subsca) { // 현재 선택된 카테고리라면
             
@@ -474,6 +474,17 @@ jQuery(function($) {
         }
     });
 });
+
+/* $("a").click(function(){
+    $.ajax({
+      url: $(this).data("url"),
+      method: 'get',
+      success: function(data){
+         $("#bo_gall").html(data);
+      }
+    })
+  }); */
+
 </script>
 <?php } ?>
 <!-- } 게시판 목록 끝 -->
