@@ -54,7 +54,7 @@ $too = rand(0,$tood-1);
 			
 			<img src="<?php echo G5_URL?>/img/bell.png" title="">&nbsp;
 			<div class="notice" style="width: 100%;">
-				<ul class="rolling">
+				<ul class="rolling" style="top: -16px">
 				<?php for ($i=0; $i<$tood;$i++ ) {		
 				?>
 				<li><?php echo $list[$i]?></li>
@@ -106,18 +106,19 @@ $(document).ready(function(){
 	var height =  $(".notice").height();
 	var num = $(".rolling li").length;
 	var max = height * num;
-	var move = 0;
+	var move = height;
 	function noticeRolling(){
 		move += height;
 		$(".rolling").animate({"top":-move},1000,function(){
 			if( move > max ){
-				$(this).css("top",0);
-				move = 0;
+				$(this).css("top", -height);
+				move = height;
 			};
 		});
 	};
-	noticeRollingOff = setInterval(noticeRolling,2000);
-	$(".rolling").append($(".rolling li").first().clone());
+	setInterval(noticeRolling, 5000);
+	//$(".rolling").append($(".rolling li").first().clone());
+	
 
 	// $(".rolling_stop").click(function(){
 	// 	clearInterval(noticeRollingOff);
@@ -125,5 +126,5 @@ $(document).ready(function(){
 	// $(".rolling_start").click(function(){
 	// 	noticeRollingOff = setInterval(noticeRolling,9000);
 	// });
-});		
+});	
 </script>
