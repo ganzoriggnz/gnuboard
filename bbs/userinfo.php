@@ -12,7 +12,7 @@ if( !isset($g5['member_table']) ){
 //     include_once(G5_MOBILE_PATH.'/userinfo.php');
 //     return;
 // } 
-
+$g5['title'] = '회원정보';
 include_once('./_head.php');
 ?>
 <?php
@@ -24,7 +24,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 if (!$is_member)
     alert_close('회원만 조회하실 수 있습니다.');
 
-$g5['title'] = get_text($member['mb_nick']).'님의 스크랩';
+/* $g5['title'] = get_text($member['mb_nick']).'님의 스크랩'; */
 include_once(G5_PATH.'/head.sub.php');
 
 if($member['mb_id']){
