@@ -10,7 +10,7 @@ $sms_contents = '['.$board['bo_subject'].']게시판에 '.$wr_name.'님이 글�
 $receive_number = preg_replace("/[^0-9]/", "", $sms5['cf_phone']);  // 수신자번호
 $send_number = preg_replace("/[^0-9]/", "", $sms5['cf_phone']); // 발신자번호
 
-if ($w == "" && $receive_number)
+if ($bo_table == "partnership" && $w == "" && $receive_number)
 {
 	if ($config['cf_sms_use'] == 'icode')
 	{
