@@ -379,7 +379,7 @@ ul.my-table > li {
 				     $scount = strlen($bo_table)-2;      // temdegt tooloh
 					$bo_tablef =  substr($bo_table, 0, $scount); 
 				    $hwrite_table = $g5['write_prefix'] . $bo_tablef."at";
-					$sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment = 0", false  );					
+					$sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment = 0 order by mb_name ASC", false  );					
 					?>
             <?php if ($is_category) { ?>
             <li class="list-group-item">
