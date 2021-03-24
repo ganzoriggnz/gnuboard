@@ -254,7 +254,7 @@ $("a").click(function(){
       url: $(this).data("url"),
       method: 'get',
       success: function(data){
-         $(".col-md-9").html(data);
+         $(".nt-container").html(data);
       }
     })
   });
