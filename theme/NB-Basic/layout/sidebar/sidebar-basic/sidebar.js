@@ -84,6 +84,11 @@ function sidebar_open(id) {
 $(document).ready(function () {
 
 	$(document).on('click', '#nt_sidebar_menu .tree-toggle', function () {
+		$.map($(this).parent().parent().children('li.me-li'), val => {
+			if($(val).children('ul.tree').is(':visible')){ 
+				$(val).children('ul.tree').toggle(200); 
+			}
+		  });
 		$(this).parent().children('ul.tree').toggle(200);
 	});
 
