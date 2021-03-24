@@ -1345,7 +1345,7 @@ function na_board_rows($wset) {
 			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
 		}
-		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false);
+		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows ", false);
 		for ($i=0; $row=sql_fetch_array($result); $i++) {
 
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table']; 
@@ -1388,7 +1388,7 @@ function na_board_rows($wset) {
 			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
 		}
-		$result = sql_query(" select * $sql_common order by $sql_orderby $orderby limit $start_rows, $rows ", false);
+		$result = sql_query(" select * $sql_common order by  rand(), $sql_orderby $orderby limit $start_rows, $rows ", false);
 		for ($i=0; $row=sql_fetch_array($result); $i++) { 
 
 			$row['bo_table'] = $bo_table;
