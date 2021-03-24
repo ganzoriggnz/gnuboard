@@ -1,6 +1,7 @@
 <?php
 include_once('./_common.php');
 
+$g5['title'] = '파운드';
 include_once('./_head.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
@@ -10,7 +11,7 @@ if ($is_guest)
     alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
 /* $g5['title'] = get_text($member['mb_nick']).' 님의 포인트 내역'; */
-$g5['title'] = '파운드';
+
 include_once(G5_PATH.'/head.sub.php');
 
 $list = array();
