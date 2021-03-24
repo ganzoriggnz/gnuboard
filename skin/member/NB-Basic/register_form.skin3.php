@@ -328,8 +328,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						</div>
 					</div>
 				<?php } ?>
-
-
+				
 			</li>
 
 			<li class="list-group-item pt-5" style="display: none;">

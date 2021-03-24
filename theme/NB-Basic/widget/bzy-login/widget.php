@@ -75,8 +75,16 @@ function insert_nickname($wer)
 	<?php if($is_member) { //Login ?>
 
 		<div class="d-flex align-items-center mb-3" style="color: #AEAEAE;">
-			<div class="pr-3">
-				<img src="<?php echo na_member_photo($member['mb_id']) ?>" class="rounded-circle">
+			<div class="pr-3">                           
+			 <?php if ($member['mb_level'] >= $config['cf_icon_level'] && $config['cf_member_img_size'] && $config['cf_member_img_width'] && $config['cf_member_img_height']) {  ?>
+                            <a href="#" onclick="window.open('<?php echo G5_URL ?>/bbs/my_photo.php','전화번호 변경요청','width=350,height=350,scrollbars=no,padding=0, margin=0, top=300,left=800');"
+                            >
+                           	<img src="<?php echo na_member_photo($member['mb_id']) ?>" class="rounded-circle">
+                            </a>
+                            <?php } else {?>
+                           	<img src="<?php echo na_member_photo($member['mb_id']) ?>" class="rounded-circle">
+                            <?php } ?>
+			
 			</div>
 			<div class="flex-grow-1 pt-2">
 				<h5 class="hide-photo mb-2">

@@ -117,7 +117,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <div class="col-sm-3 col-form-info">
                     <a href="#" target="_blank" class="win_memo" title="사진등록">
                         <div class="photo pull-left">
-                        <?php echo "<img src='".na_member_photo($member['mb_id'])."' style='border-radius:50%;'' />" ?>
+                            <?php if ($member['mb_level'] >= $config['cf_icon_level'] && $config['cf_member_img_size'] && $config['cf_member_img_width'] && $config['cf_member_img_height']) {  ?>
+                            <a href="#" onclick="window.open('<?php echo G5_URL ?>/bbs/my_photo.php','전화번호 변경요청','width=350,height=350,scrollbars=no,padding=0, margin=0, top=300,left=800');"
+                            >
+                            <img src="<?php echo na_member_photo($member['mb_id']) ?>" class="rounded-circle">
+                            </a>
+                            <?php } else {?>
+                                <img src="<?php echo na_member_photo($member['mb_id']) ?>" class="rounded-circle">
+                            <?php } ?>
                         </div>
                     </a>
                 </div>
