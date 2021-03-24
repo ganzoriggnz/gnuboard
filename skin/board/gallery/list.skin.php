@@ -29,7 +29,7 @@ if ($board['bo_use_category']) {
     $is_category = true;
     $category_href = get_pretty_url($bo_table);
 
-    $category_option .= '<li><a href="#" data-url="'.$category_href.'"'; 
+    $category_option .= '<li><a href="'.$category_href.'"'; 
     if ($sca==''){
         $category_option .= ' id="bo_cate_on"';
         $category_option .= '>전체('.$catecount.')</a></li>';
@@ -42,7 +42,7 @@ if ($board['bo_use_category']) {
       
          $category = trim($categories[$i]);
         if ($category=='') continue;       
-         $category_option .= '<li><a href="#" data-url="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
+         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
         $category_msg = '';
         if ($category==$sca) { // 현재 선택된 카테고리라면
             $category_option .= ' id="bo_cate_on"';
@@ -67,7 +67,7 @@ if ($board['bo_use_category'] && $sca !='') {
         
          $subcategory =  $listee[$i]['ca_name'];
         if ($subcategory=='') continue;       
-         $subcategory_option .= '<li><a href="#" data-url="'.(get_pretty_url($bo_table,'','&sca='.$sca.'&subsca='.urlencode($subcategory))).'"';         
+         $subcategory_option .= '<li><a href="'.(get_pretty_url($bo_table,'','&sca='.$sca.'&subsca='.urlencode($subcategory))).'"';         
          $subcategory_msg = '';
         if ($subcategory==$subsca) { // 현재 선택된 카테고리라면
             
