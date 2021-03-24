@@ -26,7 +26,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td_r"></td>
 				<td class="cl_td">
 					<div class="<?php if($cnt_at > 0){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
-                        <a href="<?php echo G5_PLUGIN_URL ?>/attendance/attendance.php/" target="_blank">				
+                        <a href="<?php echo G5_PLUGIN_URL ?>/attendance/attendance.php" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>																
 				</td>
@@ -59,7 +59,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">
 					<div class="<?php if($row2['p_no'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && $row2['p_but2_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but3_datetime'] != '0000-00-00 00:00:00'){ echo "miss_but_3";} else {echo "miss_but_1"; } ?>">
-                        <a href="<?php echo G5_BBS_URL ?>/pet.php/" target="_blank">				
+                        <a href="<?php echo G5_BBS_URL ?>/pet.php" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>															
 				</td>

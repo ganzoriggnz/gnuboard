@@ -181,15 +181,7 @@ if($gr_id == 'attendance'){
                                         echo '<span class="na-hicon na-reply" ></span>'.PHP_EOL;
                                     echo $wr_icon;
                                 ?>
-                                <!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
-                                <!-- <?php 
-                                 if($board['gr_id'] == "review" ){?>
-                                <?php echo "[",$list[$i]['wr_7'],"-",$list[$i]['wr_5'], "] ", "&nbsp;&nbsp", $list[$i]['subject'] ;}
-                                elseif($board['gr_id'] == "attendance"){
-                                    echo "[",$mb['mb_name'],"] ", "&nbsp;&nbsp",  $list[$i]['subject'] ;} 
-                                    else{echo  $list[$i]['subject'] ;}
-                                ?> -->
-    
+                                <!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->   
                                 <?php 
                                     
                                     if($board['gr_id'] == "review" ){ ?><span style="color: #000;">

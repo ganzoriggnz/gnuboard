@@ -185,7 +185,7 @@ function insert_nickname($wer)
 			<?php } ?> -->
 
 				
-				<a href="<?php echo G5_ATTENDANCE_URL ?>/attendance.php/" class="btn btn-primary text-white" role="button">
+				<a href="<?php echo G5_ATTENDANCE_URL ?>/attendance.php" class="btn btn-primary text-white" role="button">
 					<!-- <i class="fas fa-calendar-check"></i></font></a> -->					
 					<img src="<?php echo G5_URL?>/img/solid/calendar-check.svg"  style="height:14px; " ></a>
 				
