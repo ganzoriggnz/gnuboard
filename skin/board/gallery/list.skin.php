@@ -29,7 +29,7 @@ if ($board['bo_use_category']) {
     $is_category = true;
     $category_href = get_pretty_url($bo_table);
 
-    $category_option .= '<li><a href="'.$category_href.'"'; 
+    $category_option .= '<li><a href="#" data-url="'.$category_href.'"'; 
     if ($sca==''){
         $category_option .= ' id="bo_cate_on"';
         $category_option .= '>전체('.$catecount.')</a></li>';
