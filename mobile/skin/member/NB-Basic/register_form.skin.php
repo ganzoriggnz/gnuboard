@@ -485,9 +485,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		var text = that.val();
 
 		if (hangul.test(text)) {
-			limit = 3;
+			limit = 10;
 		} else {
-			limit = 12;
+			limit = 20;
 		}
 		that.attr("maxlength", limit);
 		if (text.length > limit) that.val(text.substring(0, limit))
