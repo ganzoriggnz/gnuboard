@@ -11,7 +11,7 @@ function getlevelPoint($lv){
             return $row['lev_point'];
 }
    
-function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $reviewpost, $levpoint, $point2, $wrpost1, $reviewpost1, $wrcomment1, $point, $point2){
+function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $reviewpost, $levpoint, $wrpost1, $reviewpost1, $wrcomment1, $point, $point2){
    
     global $g5, $member;
     $strDate = date("Y-m-d"); //현재요일
@@ -293,7 +293,7 @@ else if ($member['mb_level'] == 5){
         $wrcomment1 = 4000;
         $levpoint = getlevelPoint('22'); }
     
-    check_member_period($st_date, $et_date, $member['mb_id'], $wrpost, $wrcomment, $reviewpost, $levpoint, $point2, $wrpost1, $reviewpost1, $wrcomment1, $point, $point2);
+    check_member_period($st_date, $et_date, $member['mb_id'], $wrpost, $wrcomment, $reviewpost, $levpoint, $wrpost1, $reviewpost1, $wrcomment1, $point, $point2);
 }
 
 ?>
