@@ -159,7 +159,7 @@ if ($gr_id=='review') {
 	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><img
 	                            src="<?php echo G5_IMG_URL.'/solid/phone.svg' ?>" style="height:12px;" title=""> 전화걸기</a>
 	                </li>
-	                <li style="display: inline;"><a href="sms:'.$phone['mb_hp'].'"
+	                <li style="display: inline;"><a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
 	                        style="display: inline; margin-left: 5px; border:1px solid #e5e5e5;font-size: 10px;"
 	                        class="btn"><img src="<?php echo G5_IMG_URL.'/solid/sms.svg' ?>" style="height:12px;" title="">
 	                        문자보내기</a></li>
