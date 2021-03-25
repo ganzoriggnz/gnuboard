@@ -19,13 +19,13 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost2, $wrcomment2, 
     $countpost = 0;
     $countcomment = 0;
     $countreview =0;
-    if($strDate > $st_date && $strDate > $et_date) {
         
         // 다른 게시글 , 댓글 수 구하기
         $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='community'");
         while ( $row=sql_fetch_array($result))
         {
-            $res1 = sql_query("select wr_is_comment from ".$g5['write_prefix'].$row['bo_table']." where mb_id='$mb_id'"); 
+            $res1 = sql_query("select wr_is_comment from ".$g5['write_prefix'].$row['bo_table']." where mb_id='{$mb_id}'"); 
+            
            while( $res = sql_fetch_array($res1))
            {
                 if($res['wr_is_comment'] == 0){
@@ -39,25 +39,23 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost2, $wrcomment2, 
         $resultre = sql_query("select bo_table from {$g5['board_table']} where gr_id='review'");
         while ( $row1=sql_fetch_array($resultre))
         {
-            $resre = sql_fetch("select Count(wr_is_comment) as wr_cnt from " . $g5['write_prefix'] . $row1['bo_table'] . " where wr_is_comment = '0' and mb_id='$mb_id'");
+            $resre = sql_fetch("select Count(wr_is_comment) as wr_cnt from " . $g5['write_prefix'] . $row1['bo_table'] . " where wr_is_comment = '0' and mb_id='{$mb_id}'");
             $countreview += $resre['wr_cnt'];                
         }
-        
-        echo $countpost." ".$countcomment." ".$countreview;
 
-        if ($countpost >= $wrpost2 && $countcomment >= $wrcomment2 && $countreview >= $reviewpost2 && $member['mb_point'] >= $point2)  {
+        if ($countpost >= $wrpost2 && $countcomment >= $wrcomment2 && $countreview >= $reviewpost2 && $member['mb_point'] >= $point2 && $strDate > $et_date)  {
             $mb_level = $member['mb_level'] + 1;
-            $sql = "update {$g5['member_table']} set mb_level = '{$mb_level}' where mb_id = '$mb_id'";
+            $sql = "update {$g5['member_table']} set mb_level = '{$mb_level}' where mb_id = '{$mb_id}'";
             sql_query($sql);
             insert_point($member['mb_id'], $levpoint, "등업 축하파운드",'','', "level change");
             alert("축하합니다" .$member['mb_nick']."님 등업원료되었습니다.");            
         } else if(($countpost <= $wrpost1 || $countcomment <= $wrcomment1 || $countreview <= $reviewpost1 || $member['mb_point'] < $point ) && $member['mb_level'] > 2) {
             $mb_level = $member['mb_level'] - 1;
-            $sql = "update {$g5['member_table']} set mb_level =  '{$mb_level}' where mb_id = '$mb_id'";
+            $sql = "update {$g5['member_table']} set mb_level =  '{$mb_level}' where mb_id = '{$mb_id}'";
             sql_query($sql);
             alert("Sorry, Level buurla");
         }          
-     }
+
 }
 
 if($is_member && !$is_admin && $member['mb_level'] < 22){ //회원이고 , 23레벨 이하, 관리자가 아닐경우에만 실행
