@@ -43,7 +43,7 @@ if($gr_id == "review"){
 		   }
 	}
 	else if($gr_id == "attendance"){
-		$gr_limit = "3"; // 그룹 제한 글 수
+		$gr_limit = "5"; // 그룹 제한 글 수
 		$wr_sum = comment_today_count("attendance",$member['mb_id']);
 		if ( $w != 'u' ) {
 			if ( !$is_admin && $wr_sum >= $gr_limit && $member['mb_level'] != 26 && $member['mb_level'] != 27) {
