@@ -3,6 +3,7 @@
 //include_once('../../common.php');
 // 기간에 따라 레벨이 변경
 
+include_once('./_common.php');
 $levpoint;
 function getlevelPoint($lv){
     $q = "SELECT lev_point FROM `g5_lev_point` 
@@ -40,18 +41,21 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost2, $wrcomment2, 
         {
             $resre = sql_fetch("select Count(wr_is_comment) as wr_cnt from " . $g5['write_prefix'] . $row1['bo_table'] . " where wr_is_comment = '0' and mb_id='$mb_id'");
             $countreview += $resre['wr_cnt'];                
-        }      
+        }
+        
+        echo $countpost." ".$countcomment." ".$countreview;
 
         if ($countpost >= $wrpost2 && $countcomment >= $wrcomment2 && $countreview >= $reviewpost2 && $member['mb_point'] >= $point2)  {
-            $mb_level = $member['mb_level'];
-            $sql = "update {$g5['member_table']} set mb_level = '{$mb_level}' where mb_id = '{$mb_id}'";
+            $mb_level = $member['mb_level'] + 1;
+            $sql = "update {$g5['member_table']} set mb_level = '{$mb_level}' where mb_id = '$mb_id'";
             sql_query($sql);
             insert_point($member['mb_id'], $levpoint, "등업 축하파운드",'','', "level change");
             alert("축하합니다" .$member['mb_nick']."님 등업원료되었습니다.");            
-        } else if($countpost <= $wrpost1 || $countcomment <= $wrcomment1 || $countreview <= $reviewpost1 || $member['mb_point'] < $point || $member['mb_level'] > 2) {
+        } else if(($countpost <= $wrpost1 || $countcomment <= $wrcomment1 || $countreview <= $reviewpost1 || $member['mb_point'] < $point ) && $member['mb_level'] > 2) {
             $mb_level = $member['mb_level'] - 1;
-            $sql = "update {$g5['member_table']} set mb_level =  '{$mb_level}' where mb_id = '{$mb_id}'";
+            $sql = "update {$g5['member_table']} set mb_level =  '{$mb_level}' where mb_id = '$mb_id'";
             sql_query($sql);
+            alert("Sorry, Level buurla");
         }          
      }
 }
