@@ -72,7 +72,7 @@ if ($nt_wing_path)
                 
                     $category = trim($categories[$i]);
                     if ($category=='') continue;       
-                    $category_option .= '<li><a href="" data-url="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
+                    $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
                     $category_msg = '';
                     if ($category==$sca) { // 현재 선택된 카테고리라면
                         $category_option .= ' id="bo_cate_on"';
@@ -181,7 +181,7 @@ if ($nt_wing_path)
                     $bo_table = 'gallery';
                     $category_href = get_pretty_url($bo_table);
 
-                    $category_option .= '<li><a href="#" data-url="'.$category_href.'"'; 
+                    $category_option .= '<li><a href="'.$category_href.'"'; 
                     if ($sca==''){
                         $category_option .= ' id="bo_cate_on"';
                         $category_option .= '>전체('.$catecount.')</a></li>';
@@ -194,7 +194,7 @@ if ($nt_wing_path)
                     
                         $category = trim($categories[$i]);
                         if ($category=='') continue;       
-                        $category_option .= '<li><a href="#" data-url="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
+                        $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
                         $category_msg = '';
                         if ($category==$sca) { // 현재 선택된 카테고리라면
                             $category_option .= ' id="bo_cate_on"';
@@ -248,7 +248,7 @@ if ($nt_wing_path)
 <!-- 사이드 영역 -->
 </div>
 </div>
-<script>
+<!-- <script>
 $("a").click(function(){
     $.ajax({
       url: $(this).data("url"),
@@ -258,4 +258,4 @@ $("a").click(function(){
       }
     })
   });
-</script>
+</script> -->
