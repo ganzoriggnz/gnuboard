@@ -11,18 +11,13 @@ function getlevelPoint($lv){
             return $row['lev_point'];
 }
    
-function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $reviewpost, $levpoint, $point2, $wrpost1, $reviewpost1, $wrcomment1){
+function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $reviewpost, $levpoint, $point2, $wrpost1, $reviewpost1, $wrcomment1, $point, $point2){
    
     global $g5, $member;
     $strDate = date("Y-m-d"); //현재요일
     $countpost = 0;
     $countcomment = 0;
-    $point = 0;
-    $point2 = 0;
     $countreview =0;
-    $countpost1 = 0;
-    $countcomment1 = 0;
-    $countreview1 = 0;
     if($strDate > $st_date && $strDate > $et_date) {
         
         // 다른 게시글 , 댓글 수 구하기
@@ -61,7 +56,6 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost, $wrcomment, $r
             sql_query($sql);
         }          
      }
-
 }
 
 if($is_member && !$is_admin && $member['mb_level'] < 22){ //회원이고 , 23레벨 이하, 관리자가 아닐경우에만 실행
@@ -110,7 +104,6 @@ else if ($member['mb_level'] == 5){
         $wrpost1 = 5;
         $wrcomment1 = 10;
        $levpoint = getlevelPoint('5'); 
-
     }
     else if ($member['mb_level'] == 6){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  30 days')); 
@@ -300,7 +293,7 @@ else if ($member['mb_level'] == 5){
         $wrcomment1 = 4000;
         $levpoint = getlevelPoint('22'); }
     
-    check_member_period($st_date, $et_date, $member['mb_id'], $wrpost, $wrcomment, $reviewpost, $levpoint, $point2, $wrpost1, $reviewpost1, $wrcomment1);
+    check_member_period($st_date, $et_date, $member['mb_id'], $wrpost, $wrcomment, $reviewpost, $levpoint, $point2, $wrpost1, $reviewpost1, $wrcomment1, $point, $point2);
 }
 
 ?>
