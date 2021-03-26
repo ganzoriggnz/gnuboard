@@ -289,7 +289,7 @@ function insert_nickname($wer)
 				<div class="input-group">
 					<input type="text" name="mb_id" id="outlogin_mb_id" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="아이디">
 					<div class="input-group-append">
-						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width:30px;"><img src="http://210.114.18.63/img/portrait.png" ></span>
+						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width:30px;"><img src="<?php echo "http://".G5_URL."/img/portrait.png" ?>" ></span>
 					</div>
 				</div>
 			</div>
@@ -298,7 +298,7 @@ function insert_nickname($wer)
 				<div class="input-group">
 					<input type="password" name="mb_password" id="outlogin_mb_password" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="비밀번호">
 					<div class="input-group-append">
-						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width: 30px;"><img src="http://210.114.18.63/img/combined_shape.png" ></span>
+						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width: 30px;"><img src="<?php echo "http://".G5_URL."/img/combined_shape.png" ?>"></span>
 					</div>
 				</div>
             </div>
