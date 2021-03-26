@@ -49,7 +49,7 @@ function check_member_period($st_date, $et_date, $mb_id, $wrpost2, $wrcomment2, 
             sql_query($sql);
             insert_point($member['mb_id'], $levpoint, "등업 축하파운드",'','', "level change");
             alert("축하합니다. ".$member['mb_level']."레벨로 등업이 완료 되었습니다.");            
-        } else if($countpost <= $wrpost && $countcomment <= $wrcomment && $countreview <= $reviewpost && $member['mb_point'] < $point && $member['mb_level'] > 2) {
+        } else if(($countpost < $wrpost || $countcomment < $wrcomment || $countreview < $reviewpost || $member['mb_point'] < $point) && $member['mb_level'] > 2) {
             $mb_level = $member['mb_level'] - 1;
             $sql = "update {$g5['member_table']} set mb_level =  '{$mb_level}' where mb_id = '{$mb_id}'";
             sql_query($sql);
