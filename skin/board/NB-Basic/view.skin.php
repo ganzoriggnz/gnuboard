@@ -578,7 +578,6 @@ if ($gr_id=='review') {
 					}
 				}
 			?>
-
 	            <div class="view-content">
 	                <?php echo get_view_thumbnail(na_view($view)); // 글내용 출력 ?>
 	            </div>
