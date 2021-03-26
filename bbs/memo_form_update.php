@@ -105,7 +105,7 @@ if ($member_list) {
 // SMS 문자전송 시작
 $medd = get_member($me_send_mb_id);
 //----------------------------------------------------------
-$sms_contents = $medd['mb_nick']." 님께서 쪽지를 발송되었습니다.";  // 문자 내용
+$sms_contents = $member['mb_nick']." 님께서 쪽지를 발송되었습니다.";  // 문자 내용
 
 // 핸드폰번호에서 숫자만 취한다
 $receive_number = preg_replace("/[^0-9]/", "", $sms5['cf_phone']);  // 수신자번호
