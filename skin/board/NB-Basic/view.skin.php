@@ -652,31 +652,29 @@ if ($gr_id=='review') {
 	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>>블라인드</span>
 	                </button>
 	                <?php } ?>
-	            </div>
-
-				
+	            </div>				
 	        <?php } ?>
-			<div class="btn-group btn-group-lg" role="group" >
+			<div class="btn-group btn-group-lg" role="group" <?php if(G5_IS_MOBILE) { echo 'style="padding: 0.5rem 0.5rem !important"';} ?>>
 				<button type="button" class="btn btn-basic" onclick="location.href='#bo_v'" 
-	                    title="본문상단" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
+	                    title="본문상단" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px; padding: 0.5rem 0.5rem !important"';} else { echo '';} ?>>
 	                    <i class="fa fa-arrow-up" aria-hidden="true"> </i>
 	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>> 본문상단</span>
 	                </button>
 					<?php if ($gr_id=="attendance") { // 스크랩 ?>
 	                
 					<button type="button" class="btn btn-basic" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-	                    title="후기바로가기" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
+	                    title="후기바로가기" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px; padding: 0.5rem 0.5rem !important"';} else { echo '';} ?>>
 	                    <i class="fa fa-list-alt" aria-hidden="true"> </i>
 	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>>후기바로가기</span>
 	                </button>
 					<button type="button" class="btn btn-basic"
 					onclick="location.href='<?php echo 'tel:'.$phone['mb_hp'] ?>'"
-	                    title="연락처 " <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
+	                    title="연락처 " <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px; padding: 0.5rem 0.5rem !important"';} else { echo '';} ?>>
 	                    <i class="fa fa-phone" aria-hidden="true"> </i>
 	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>><?php if(G5_IS_MOBILE) echo " 전화걸기"; else echo $phone['mb_hp']; ?> </span>
 	                </button>
 					<button type="button" class="btn btn-basic" onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-	                    title="업소후기작성" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>>
+	                    title="업소후기작성" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px; padding: 0.5rem 0.5rem !important"';} else { echo '';} ?>>
 	                    <i class="fa fa-pencil" aria-hidden="true"> </i>
 	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>>업소후기작성</span>
 	                </button>
