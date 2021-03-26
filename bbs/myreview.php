@@ -1,6 +1,7 @@
 <?php
 include_once('./_common.php');
 
+$g5['title'] = '후기보기';
 include_once('./_head.php');
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
@@ -11,7 +12,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 if (!$is_member)
     alert_close('회원만 조회하실 수 있습니다.');
 
-$g5['title'] = get_text($member['mb_nick']).'님의 스크랩';
+/* $g5['title'] = get_text($member['mb_nick']).'님의 스크랩'; */
 include_once(G5_PATH.'/head.sub.php');
 
 //  if($member['mb_id']){

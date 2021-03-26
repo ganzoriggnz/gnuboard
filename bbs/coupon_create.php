@@ -142,7 +142,7 @@ if (!$is_member)
     include_once(G5_MOBILE_PATH.'/coupon_create.php');
     return;
 } */
-
+$g5['title'] = '쿠폰지원';
 include_once('./_head.php');
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
