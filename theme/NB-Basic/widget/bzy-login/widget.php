@@ -289,7 +289,7 @@ function insert_nickname($wer)
 				<div class="input-group">
 					<input type="text" name="mb_id" id="outlogin_mb_id" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="아이디">
 					<div class="input-group-append">
-						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width:30px;"><img src="<?php if($_SERVER['HTTP_HOST'] === "210.114.18.63" || $_SERVER['HTTP_HOST'] === "localhost" || $_SERVER['HTTP_HOST'] === "localhost:8080") { echo "http://".G5_URL."/img/portrait.png";} else { echo G5_URL."/img/portrait.png";}?>"></span>
+						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width:30px;"><img src="<?php echo G5_URL."/img/portrait.png" ?>" ></span>
 					</div>
 				</div>
 			</div>
