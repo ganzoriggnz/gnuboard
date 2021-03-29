@@ -32,7 +32,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 		<!-- <input type="hidden" name="mb_nick" value="<?php echo get_text($member['mb_nick']) ?>"> -->
 		<!-- ///////////eneiig nemsen ////////////////-->
 		<?php
-		if ($member['mb_level'] < 13)   {
+		if ($member['mb_level'] < 19)   {
 			
 		?>
 			<input type="hidden" name="mb_nick_default" value="<?php echo get_text($member['mb_nick']) ?>">
@@ -63,7 +63,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					</div>
 				</div>
 					<!-- if ($req_nick) ene muriig solison hulan -->
-					<?php if ($member['mb_level'] >= 13) { ?>
+					<?php if ($member['mb_level'] >= 19) { ?>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label" for="reg_mb_nick">닉네임<strong class="sr-only">필수</strong></label>
 						<div class="col-sm-4">
