@@ -75,9 +75,9 @@ function get_cate_pic($catename,$pic=0){
         $zurag = "lib";
     else if($catename == "패티쉬" )
         $zurag = "petish";
-    else if($catename == "핸플")
+    else if($catename == "핸플 패티쉬")
         $zurag = "hand";
-    else if($catename == "키스방" )
+    else if($catename == "키스방")
         $zurag = "kiss";
     else if($catename == "기타" || $catename == "프로필 여행사" || $catename == "선불폰")
         $zurag = "";
