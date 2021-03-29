@@ -11,7 +11,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             <h1>펫기르기</h1>
         </div>
         <div>
-            <p class="pet_p1">고양이에게 사료 1회, 청소 1회, 스담스담 1회 30분 간격으로 완료시 파운드 100 지급</p>
+            <p class="pet_p1">고양이에게 사료 1회, 청소 1회, 놀아주기 1회 30분 간격으로 완료시 파운드 100 지급</p>
         </div>
     </div>
     <div class="pet_img_div">
@@ -25,7 +25,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     </div>      
     <div class="row_btn mt_24 panel2">   
         <input type="hidden" id="but2" value="<?php if ($row['p_but2_datetime'] && $row['p_but2_datetime'] != '0000-00-00 00:00:00') echo $row['p_but2_datetime']; ?>">     
-        <button type="button" id="cat2" <?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>쓰담쓰담 하기</button>
+        <button type="button" id="cat2" <?php echo ($row['p_but2_datetime'] != '0000-00-00 00:00:00' && $row['p_but2_datetime']) ? 'class="btn_pet_third" disabled="disabled"'  : 'class="btn_pet_first"' ?>>놀아주기</button>
     </div>
     <div class="row_btn mt_24 panel3">
         <input type="hidden" id="but3" value="<?php if ($row['p_but3_datetime'] && $row['p_but3_datetime'] != '0000-00-00 00:00:00') echo $row['p_but3_datetime']; ?>">

@@ -7,8 +7,8 @@
 .row_btn {display: flex; justify-content: center; margin-top:54px;}
 .row_btn.mt_54 {margin-top:54px;}
 .row_btn.mt_24 {margin-top:24.5px;}
-.btn_pet_first {width:221px; height:33.5px;background:#D5BD79; color:#fff; font-size:14px;}
-.btn_pet_second {width:221px; height:33.5px;background:#D5BD79; margin-left:172.9px; color:#fff; font-size:14px;}
+.btn_pet_first {width:221px; height:33.5px;background:#D5BD79; color:#fff; font-size:14px;border-radius: 5px;}
+.btn_pet_second {width:221px; height:33.5px;background:#D5BD79; margin-left:172.9px; color:#fff; font-size:14px;border-radius: 5px;}
 .pet_bottom {margin-top: 30px; margin-right: 10px; text-align: right; padding-bottom: 20px;}
 
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
