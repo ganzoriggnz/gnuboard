@@ -106,13 +106,15 @@ if ($member_list) {
 $medd = get_member($me_send_mb_id);
 //----------------------------------------------------------
 
-$text_cnt = strlen($_POST['me_memo']);
+/* $text_cnt = strlen($_POST['me_memo']);
     if($text_cnt > 50) {
         $sms_content = $member['mb_nick']." 님께서 쪽지를 발송했습니다. ".substr_replace($_POST['me_memo'], "...", 50);
     }
     else {
         $sms_content = $member['mb_nick']." 님께서 쪽지를 발송했습니다. ".$_POST['me_memo'];
-    }
+    } */
+
+    $sms_content = $member['mb_nick']." 님께서 쪽지를 발송했습니다. ".$_POST['me_memo'];
 
 // 핸드폰번호에서 숫자만 취한다
 $receive_number = preg_replace("/[^0-9]/", "", $sms5['cf_phone']);  // 수신자번호
