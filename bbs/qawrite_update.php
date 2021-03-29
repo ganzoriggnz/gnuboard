@@ -331,12 +331,12 @@ if($config['cf_sms_use'] == 'icode' && $qaconfig['qa_use_sms']) {
         if($port_setting !== false) {
             // 답변글은 질문 등록자에게 전송
             if($w == 'a' && $write['qa_sms_recv'] && trim($write['qa_hp'])) {
-                $text_cnt = strlen($qa_content);
-                if($text_cnt > 40) {
-                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.substr_replace($qa_content, "...", 40);
+                $text_cnt = strlen(strip_tags($qa_content));
+                if($text_cnt > 50) {
+                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.substr_replace(strip_tags($qa_content), "...", 50);
                 }
                 else {
-                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.$qa_content;
+                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.strip_tags($qa_content);
                 }
                 $send_number = preg_replace('/[^0-9]/', '', $qaconfig['qa_send_number']);
                 $recv_number = preg_replace('/[^0-9]/', '', $write['qa_hp']);
@@ -366,12 +366,11 @@ if($config['cf_sms_use'] == 'icode' && $qaconfig['qa_use_sms']) {
 
             // 문의글 등록시 관리자에게 전송
             if(($w == '' || $w == 'r') && trim($qaconfig['qa_admin_hp'])) {
-                $text_cnt = strlen($qa_content);
-                if($text_cnt > 40) {
-                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.substr_replace($qa_content, "...", 40);
-                }
-                else {
-                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.$qa_content;
+                $text_cnt = strlen(strip_tags($qa_content));
+                if($text_cnt > 50) {
+                    $sms_content = $qaconfig['qa_title'].'에 문의글이 등록되었습니다. '.substr_replace(strip_tags($qa_content), "...", 50);
+                } else {
+                    $sms_content = $qaconfig['qa_title'].'에 문의글이 등록되었습니다. '.strip_tags($qa_content);
                 }
                 $send_number = preg_replace('/[^0-9]/', '', $qaconfig['qa_send_number']);
                 $recv_number = preg_replace('/[^0-9]/', '', $qaconfig['qa_admin_hp']);
@@ -404,13 +403,13 @@ if($config['cf_sms_use'] == 'icode' && $qaconfig['qa_use_sms']) {
 
         // 답변글은 질문 등록자에게 전송
         if($w == 'a' && $write['qa_sms_recv'] && trim($write['qa_hp'])) {
-            $text_cnt = strlen($qa_content);
-                if($text_cnt > 40) {
-                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.substr_replace($qa_content, "...", 40);
-                }
-                else {
-                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.$qa_content;
-                }
+            $text_cnt = strlen(strip_tags($qa_content));
+            if($text_cnt > 50) {
+                $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.substr_replace(strip_tags($qa_content), "...", 50);
+            }
+            else {
+                $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.strip_tags($qa_content);
+            }
             $send_number = preg_replace('/[^0-9]/', '', $qaconfig['qa_send_number']);
             $recv_number = preg_replace('/[^0-9]/', '', $write['qa_hp']);
 
@@ -424,12 +423,11 @@ if($config['cf_sms_use'] == 'icode' && $qaconfig['qa_use_sms']) {
 
         // 문의글 등록시 관리자에게 전송
         if(($w == '' || $w == 'r') && trim($qaconfig['qa_admin_hp'])) {
-            $text_cnt = strlen($qa_content);
-                if($text_cnt > 40) {
-                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.substr_replace($qa_content, "...", 40);
-                }
-                else {
-                    $sms_content = $qaconfig['qa_title'].'에 답변이 등록되었습니다. '.$qa_content;
+            $text_cnt = strlen(strip_tags($qa_content));
+                if($text_cnt > 50) {
+                    $sms_content = $qaconfig['qa_title'].'에 문의글이 등록되었습니다. '.substr_replace(strip_tags($qa_content), "...", 50);
+                } else {
+                    $sms_content = $qaconfig['qa_title'].'에 문의글이 등록되었습니다. '.strip_tags($qa_content);
                 }
             $send_number = preg_replace('/[^0-9]/', '', $qaconfig['qa_send_number']);
             $recv_number = preg_replace('/[^0-9]/', '', $qaconfig['qa_admin_hp']);

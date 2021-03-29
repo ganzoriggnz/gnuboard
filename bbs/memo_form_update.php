@@ -105,11 +105,10 @@ if ($member_list) {
 // SMS 문자전송 시작
 $medd = get_member($me_send_mb_id);
 //----------------------------------------------------------
-$sms_contents = $member['mb_nick']." 님께서 쪽지를 발송했습니다. ".substr_replace($_POST['me_memo'], "...", 40);  // 문자 내용
 
 $text_cnt = strlen($_POST['me_memo']);
-    if($text_cnt > 40) {
-        $sms_content = $member['mb_nick']." 님께서 쪽지를 발송했습니다. ".substr_replace($_POST['me_memo'], "...", 40);
+    if($text_cnt > 50) {
+        $sms_content = $member['mb_nick']." 님께서 쪽지를 발송했습니다. ".substr_replace($_POST['me_memo'], "...", 50);
     }
     else {
         $sms_content = $member['mb_nick']." 님께서 쪽지를 발송했습니다. ".$_POST['me_memo'];
