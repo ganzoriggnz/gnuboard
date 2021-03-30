@@ -27,49 +27,44 @@
 #bo_list .txt_expired {color:#ccc}
 #bo_list tbody tr:hover {border-left:2px solid #e6dcc1}
 
-
-
-
-#bo_cate {background:#fff;padding:7px;margin:10px 0;border:1px solid #fff}
-#bo_cate h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#bo_cate ul {zoom:1}
-#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
-#bo_cate li {display:inline-block;
-	border-top: -1px solid #BABABA;
-	border-left: -1px solid #fff;
-	border-right: -1px solid #BABABA;
-	padding:5px 0px -1px 0px;    
-
+#bo_cate .category-list {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-gap: 0.2rem;
 }
-#bo_cate a {display:block;
-    line-height:26px;
-	padding:2px 15px 2px 15px;	
-	color:#333;
-	background:#fafafa;
-	border-left: -1px solid #fff;
-	border-right: -1px solid #BABABA;
-	border-bottom: -1px ridge #BABABA;
-	border-top: -1px solid #BABABA;
 
+#bo_cate .category-list div {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
-#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {
-    font-weight:bold; 
-    background:#fff; 
-    text-decoration:none;    
+
+#bo_cate .category-list div a {
+	padding: 0.5rem 0;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	width: 100%;
 }
-#bo_cate .d-flex {
-    border-left: 1px solid #e5e5e5;
+
+.category-list .active, .category-list div a:focus, .category-list div a:hover {
+	font-weight: bold;
 }
-#bo_cate #bo_cate_on {z-index:2;
-    color:#000;
-    font-weight:bold;
-    border-bottom-color:#BABABA;
-	border-bottom:1px solid #fff; 
-	border-top: 1px solid #BABABA;
-	border-left: 1px solid #BABABA;
-	border-right: 1px solid #BABABA;
-    text-decoration:none;
+@media only screen and (max-width: 600px) {
+	#bo_cate .category-list {
+		padding: 0 0.6rem 1rem 0.4rem;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+	}
+	#bo_cate .category-list div a {
+		font-size: 10px;
+	}
 }
+
 .td_subject img {margin-left:5px; width: 100; }
 
 #bo_list .bo_tit {padding:10px;}
