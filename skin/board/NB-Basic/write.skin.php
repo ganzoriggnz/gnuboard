@@ -90,7 +90,7 @@ if ($bo_table == "woman") {
 
 if ($bo_table == "greeting") {
 	if ($member['mb_id'] && !$is_admin) {
-		$res = sql_fetch("select mb_id from " . $g5['write_prefix'] . $bo_table . " where mb_id = '" . $member['mb_id'] . "' ");
+		$res = sql_fetch("select mb_id from " . $g5['write_prefix'] . $bo_table . " where mb_id = '" . $member['mb_id'] . "' and wr_is_comment = '0'");
 		if ($res['mb_id'] != '') {
 			alert("가입인사를 한번만 할 수 있습니다!");
 		}
