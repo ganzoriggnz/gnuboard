@@ -107,7 +107,23 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						<input type="password" name="mb_password_re" id="reg_mb_password_re" <?php echo $required ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
 					</div>
 				</div>
-				
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label" for="reg_mb_email">E-mail<strong class="sr-only">필수</strong></label>
+					<div class="col-sm-4">
+						<input type="hidden" name="old_email" value="<?php echo $member['mb_email'] ?>">
+						<input type="text" name="mb_email" value="<?php echo isset($member['mb_email'])? $member['mb_email']:''; ?>" id="reg_mb_email"  class="form-control email " size="70" maxlength="100">
+						<?php if ($config['cf_use_email_certify']) { ?>
+							<p class="form-control-plaintext f-de pb-0">
+								<?php if ($w == '') {
+									echo "E-mail 로 발송된 내용을 확인한 후 인증하셔야 회원가입이 완료됩니다.";
+								}  ?>
+								<?php if ($w == 'u') {
+									echo "E-mail 주소를 변경하시면 다시 인증하셔야 합니다.";
+								}  ?>
+							</p>
+						<?php } ?>
+					</div>
+				</div>
 
 				<?php if ($member['mb_level'] >= $config['cf_icon_level'] && $config['cf_member_img_size'] && $config['cf_member_img_width'] && $config['cf_member_img_height']) {
 					na_script('fileinput');	// 첨부파일
