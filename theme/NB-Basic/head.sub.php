@@ -100,8 +100,8 @@ if (G5_IS_MOBILE) {
     echo '<meta http-equiv="imagetoolbar" content="no">'.PHP_EOL;
     echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">'.PHP_EOL;
     echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">'.PHP_EOL;
-    echo '<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">'.PHP_EOL;
-    echo '<link rel="icon" href="./favicon.ico" type="image/x-icon">'.PHP_EOL;
+    echo '<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">'.PHP_EOL;
+    echo '<link rel="icon" href="/favicon.ico" type="image/x-icon">'.PHP_EOL;
 
 }
 
