@@ -45,7 +45,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <input type="hidden" name="sw" value="">
 
         <!-- 게시판 페이지 정보 및 버튼 시작 { -->
-        <div id="bo_btn_top">
+        <div id="bo_btn_top" <?php if(G5_IS_MOBILE) { echo 'class="px-3"';} else {echo 'class=""';} ?>>
             <div id="bo_list_total">
                 <span>Total <?php echo number_format($total_count) ?>건</span>
                 <?php echo $page ?> 페이지
@@ -91,7 +91,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <?php } ?>
         </div>
         <!-- } 게시판 페이지 정보 및 버튼 끝 -->
-        <div class="">
+        <div <?php if(G5_IS_MOBILE) { echo 'class="px-3"';} else {echo 'class=""';} ?>>
             <table style="font-size:12px; width:100%;">
                 <caption><?php echo $board['bo_subject'] ?> 목록</caption>
                 <thead>
