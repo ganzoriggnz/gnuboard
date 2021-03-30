@@ -159,7 +159,7 @@ if (G5_IS_MOBILE) {
                 <?php if ($rss_href) { ?><li><a href="<?php echo $rss_href ?>" class="btn_b01 btn" title="RSS"><i
                             class="fa fa-rss" aria-hidden="true"></i><span class="sound_only">RSS</span></a></li>
                 <?php } ?>
-                <?php if ($is_admin == 'super' || $is_auth) {  ?>
+                <!-- <?php if ($is_admin == 'super' || $is_auth) {  ?>
                 <li>
                     <button type="button" class="btn_more_opt is_list_btn btn_b01 btn" title="게시판 리스트 옵션"><i
                             class="fa fa-ellipsis-v" aria-hidden="true"></i><span class="sound_only">게시판 리스트
@@ -178,7 +178,7 @@ if (G5_IS_MOBILE) {
                     </ul>
                     <?php } ?>
                 </li>
-                <?php }  ?>
+                <?php }  ?> -->
             </ul>
         </div>
         <!-- <?php if ($is_checkbox) { ?>
