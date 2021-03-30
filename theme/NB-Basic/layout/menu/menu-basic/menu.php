@@ -49,13 +49,6 @@ body::after{
                 <!-- <?php echo $tset['logo_text'] ?>  -->
                 <img src="<?php echo G5_URL?>/img/group_305.png">
             </a>
-            <div class="me-icon order-3 me-li on" style="width:43px;">
-                    <a href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" class="me-a f-md"
-                        title="마이메뉴">
-                        <!-- <i class="fa fa-toggle-on" aria-hidden="true"></i> -->
-                        <img src="<?php echo G5_URL?>/img/menu.png">
-                    </a>
-                </div>
             <div style="display: flex;">
                 <img style="margin-top: 5px; margin-right: auto; margin-left: auto;" id="logo_img3"
                     src="<?php echo $tset['logo_img3'] ?>" alt="<?php echo get_text($config['cf_title']) ?>">
