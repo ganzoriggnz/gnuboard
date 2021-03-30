@@ -250,8 +250,7 @@ body::after{
                         <div
                             style="display: flex; flex-direction: row; justify-content: space-between; width: <?php echo $is_member ? '27.3691%;' : '9.12103' ?>">
                             <li class="col p-0 me-li me-icon right_border">
-                                <a class="me-a f-md en" title="채팅방"
-                                    onclick="window.open('<?php echo G5_URL?>/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
+                                <a class="me-a f-md en win_memo" href="<?php echo G5_URL?>/bbs/chat.php" target="_self" title="채팅방참여">
                                     <img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;"> 
                                 </a>
                             </li>
