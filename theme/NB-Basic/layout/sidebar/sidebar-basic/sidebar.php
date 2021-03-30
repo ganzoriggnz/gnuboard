@@ -59,7 +59,7 @@ $menu_cnt = count($menu);
 		</div>
 		<div class="sidebar-wing-icon1">
 			
-			<a class="sidebar-wing-btn" href="<?php echo G5_URL?>/bbs/chat.php" target="_blank" title="채팅방" >
+			<a class="sidebar-wing-btn win_memo" href="<?php echo G5_URL?>/bbs/chat.php" target="_blank" title="채팅방" >
 				<img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;">
 			</a>
 			<a class="sidebar-wing-btn" href="https://facebook.com" target="_blank" title="페이스 북">
@@ -71,7 +71,7 @@ $menu_cnt = count($menu);
 			<?php if($is_member) { ?>
 				<a class="sidebar-wing-btn win_memo" href="<?php echo G5_BBS_URL?>/memo_friend.php?kind=friends" target="_blank" title="">
 				<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" ></a>
-			<a class="sidebar-wing-btn" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
+			<a class="sidebar-wing-btn win_memo" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
 				<img src="<?php echo G5_URL?>/img/icon_search.png" >
 			</a>
 			<?php } ?>

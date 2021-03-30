@@ -45,10 +45,17 @@ body::after{
                 <img src="<?php echo G5_URL?>/img/group_306.png">
                 <span class="sr-only">메뉴</span>
             </a>
-            <a href="javascript:;" onclick="sidebar_open('sidebar-menu');" class="float-right">
+            <a href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" class="float-right">
                 <!-- <?php echo $tset['logo_text'] ?>  -->
                 <img src="<?php echo G5_URL?>/img/group_305.png">
             </a>
+            <div class="me-icon order-3 me-li on" style="width:43px;">
+                    <a href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" class="me-a f-md"
+                        title="마이메뉴">
+                        <!-- <i class="fa fa-toggle-on" aria-hidden="true"></i> -->
+                        <img src="<?php echo G5_URL?>/img/menu.png">
+                    </a>
+                </div>
             <div style="display: flex;">
                 <img style="margin-top: 5px; margin-right: auto; margin-left: auto;" id="logo_img3"
                     src="<?php echo $tset['logo_img3'] ?>" alt="<?php echo get_text($config['cf_title']) ?>">
@@ -244,7 +251,7 @@ body::after{
                             style="display: flex; flex-direction: row; justify-content: space-between; width: <?php echo $is_member ? '27.3691%;' : '9.12103' ?>">
                             <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en" title="채팅방"
-                                    onclick="window.open('/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
+                                    onclick="window.open('<?php echo G5_URL?>/bbs/chat.php','채팅방참여','width=520,height=520,scrollbars=yes,top=10,left=100'); ">
                                     <img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;"> 
                                 </a>
                             </li>
@@ -272,15 +279,13 @@ body::after{
                                 </a>
                             </li> -->
                             <li class="col p-0 me-li me-icon right_border">
-                                <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self"
-                                    title="회원검색">
+                                <a class="me-a f-md en win_memo" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
                                     <!--<i class="fa fa-search" aria-hidden="true"></i>-->
                                     <img src="<?php echo G5_URL?>/img/icon_search.png">
                                 </a>
                             </li>
                             <li class="col p-0 me-li me-icon right_border">
-                                <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/noti.php" target="_self"
-                                    title="알림확인">
+                                <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/noti.php" target="_self" title="알림확인">
                                     <!--<i class="fa fa-bell" aria-hidden="true"></i>-->
                                     <img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png">
                                     <?php if(IS_NA_NOTI) { // 알림 ?>
