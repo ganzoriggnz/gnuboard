@@ -8,10 +8,27 @@ add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">
 $wsetss=$sca;
 $subcat=$subsca;
 $searchd=$searchd;
-$list = na_post_rows($wsetss,$subcat,$searchd); //
+$total_page=1;
+$page=1;
+$row_limit=50;
+if($_GET['page']){
+    $page =  $_GET['page'];
+}
+$list = na_post_rows($wsetss,$subcat,$searchd,$page); //
 
 $catecount = count(na_post_rows($wsetss));
 $list_cnt = count($list);
+
+if ($page > 1){
+    $total_count = count($list);
+    $total_page  = ceil($total_count / $row_limit);  // 전체 페이지 계산
+    $start_rows = ($page - 1) * $row_limit;			
+}
+if(count($list) > $row_limit){ 
+    $total_count = count($list);
+    $total_page  = ceil($total_count / $row_limit);}
+
+$list= array_slice($list, $start_rows,$row_limit);
 
 
 $wsetrr=$sca;
@@ -214,7 +231,7 @@ if (G5_IS_MOBILE) {
         </style>
         <ul id="gall_ul" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 mx-n2">
             <?php
-            for ($i = 0; $i < $list_cnt; $i++) {
+            for ($i = 0; $i < count($list); $i++) {
                 $classes = array();
                 $classes[] = 'col px-2 pb-4';
                 $classes[] = 'col-gn-' . $bo_gallery_cols;
@@ -363,7 +380,7 @@ if (G5_IS_MOBILE) {
 					<?php } ?>
 					<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . '&amp;page=')); ?>
 					<?php if ($next_part_href) { ?>
-						<li class="page-item"><a class="page-link" href="<?php echo $next_part_href; ?>">Next</a></li>
+						<li class="page-item"><a class="page-link" href="<?php echo $next_part_href.$total_page; ?>">Next</a></li>
 					<?php } ?>
 				</ul>
 			</div>

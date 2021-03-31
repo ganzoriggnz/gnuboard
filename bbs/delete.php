@@ -120,7 +120,7 @@ sql_query(" delete from {$g5['board_new_table']} where bo_table = '$bo_table' an
 sql_query(" delete from {$g5['scrap_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}' ");
 
 // Update member table when delete post
-sql_query(" update {$g5['member_table']} set mb_3 = '',mb_4 = '' and  mb_5 = '' where mb_id = '{$write['mb_id']}'");
+sql_query(" update {$g5['member_table']} set mb_3 = '', mb_4 = '', mb_5 = '' where mb_id = '{$write['mb_id']}'");
 
 /*
 // 공지사항 삭제
