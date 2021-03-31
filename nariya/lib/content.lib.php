@@ -417,12 +417,12 @@ function get_level($mb_id)
 		$f="";
 		if($mb_id){
 			$result = sql_fetch(" SELECT `mb_level`,`mb_1`  FROM `{$g5['member_table']}` WHERE `mb_id` = '{$mb_id}' ");
-			if ($result['mb_1']=="남" || ($result['mb_1']=="" && $result['mb_level'] < 24 )) $f = "M"; 
+			/* if ($result['mb_1']=="남" || ($result['mb_1']=="" && $result['mb_level'] < 24 )) $f = "M"; 
 			if ($result['mb_1']=="여") $f = "F";
-			if ($result['mb_level']==27 || $result['mb_level']==26 || $result['mb_level']==24 || $result['mb_level']==25) $f = "";
+			if ($result['mb_level']==27 || $result['mb_level']==26 || $result['mb_level']==24 || $result['mb_level']==25) $f = ""; */
 			// if ($result['mb_level'] > 17)
 			
-			return '<img src=' . G5_URL . '/img/'.$f. $result['mb_level'] . '.png>';
+			return '<img src=' . G5_URL . '/img/'.$result['mb_level'] . '.png>';
 		}
 		else
 			return '';
