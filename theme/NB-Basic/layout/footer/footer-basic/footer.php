@@ -19,7 +19,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_footer_url.'/footer.css">', 0
 		<?php } ?>			
 	</div>	
 <?php } ?>
-<footer id="nt_footer" class="f-de font-weight-normal" style="background-image: url('<?php echo G5_URL."/img/footer_bg_image.png"?>')">
+<footer id="nt_footer" class="f-de font-weight-normal" style="background-image: url('<?php echo G5_URL."/img/footer_bg_image.png"?>'); ">
 	<div class="nt-container">
 		<!-- <div class="item-text">
 			본 사이트에서는 회원들간 자료공유에 따른 중계역할만 하며, 저작권에 대한 책임은 업로드를 한 회원에게 있습니다. 또한 해당 자료에 대한 원본파일은 서버에 보관하지 않습니다. <br>
