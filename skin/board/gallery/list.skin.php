@@ -14,7 +14,7 @@ $row_limit=50;
 if($_GET['page']){
     $page =  $_GET['page'];
 }
-$list = na_post_rows($wsetss,$subcat,$searchd,$page); //
+$list = na_post_rows($wsetss,$subcat,$searchd,$page); 
 
 $catecount = count(na_post_rows($wsetss));
 $list_cnt = count($list);
