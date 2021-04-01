@@ -350,11 +350,11 @@ function dateGo(day)
 </form>
 <script type="text/javascript">
 value=new Array();
-value[0]="출석문구0"
-value[1]="출석문구1"
-value[2]="출석문구2"
-value[3]="출석문구3"
-value[4]="출석문구4"
+value[0]="밤의제국 트위터 twitter.com/bamje4 "
+value[1]="밤의제국 바로가기 bamje.com 검색"
+value[2]="밤의제국 접속주소 bamje1.com 다음접속 주소는 bamje2.com 입니다."
+value[3]="밤의제국 접속 안될 시 bamje.com 에서 뒷부분 .com 앞에 숫자를 하나씩 늘려가며 접속해보시면 됩니다."
+value[4]="밤의제국 페이스북 facebook.com/밤의제국-108544554658520"
 rand = Math.floor( value.length * Math.random());
 randText = value[rand];
 document.getElementById("subject").value = randText;//$('#wr_text').html(randText);    
