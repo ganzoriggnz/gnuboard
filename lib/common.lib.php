@@ -4391,4 +4391,25 @@ function get_board_atname2($bo_table='',$too)
     $str .= "</select>\n";
     return $str;
 }
+
+function get_category_opt($cat = '')
+{
+    global $g5, $is_admin;
+
+    $sql = " select bo_category_list from {$g5['board_table']} where bo_table = 'gallery'";   
+    $row = sql_fetch($sql);
+    $categories = explode("|", $row['bo_category_list']); // 구분자가 | 로 되어 있음
+    $str = '<select class="category" id="mb_2" name="mb_2"><option value="">분류를 선택하세요</option>';
+    for ($i=0; $i<count($categories); $i++) {
+        $category = trim($categories[$i]);
+        if (!$category) continue;
+        $str .= "<option value=\"$categories[$i]\"";
+        if ($cat == $category) {
+            $str .= ' selected="selected"';
+        }
+        $str .= ">".$categories[$i]."</option>\n";
+    }
+    $str .= "</select>\n";
+    return $str;
+}
 ?>
