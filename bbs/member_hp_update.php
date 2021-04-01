@@ -3,11 +3,11 @@ include_once('./_common.php');
 include_once(G5_LIB_PATH."/register.lib.php");
 
 $mb_hp = hyphen_hp_number($_POST['new_hp']);
-if($mb_hp) {
+/* if($mb_hp) {
     $result = exist_mb_hp($mb_hp, $mb_id);
     if ($result)
         alert($result);
-}
+} */
 
 if($_POST['new_hp']!='')
 {

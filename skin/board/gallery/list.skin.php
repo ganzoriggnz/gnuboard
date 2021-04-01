@@ -30,7 +30,6 @@ if(count($list) > $row_limit){
 
 $list= array_slice($list, $start_rows,$row_limit);
 
-
 $wsetrr=$sca;
 $listee = na_post_subcat($wsetrr); //
 sort($listee);
