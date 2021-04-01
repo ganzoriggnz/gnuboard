@@ -201,16 +201,33 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>
     </tr>
     <tr>
         <th scope="row">본인확인방법</th>
-        <td>
-            <input type="radio" name="mb_certify_case" value="ipin" id="mb_certify_ipin" <?php if($mb['mb_certify'] == 'ipin') echo 'checked="checked"'; ?>>
-            <label for="mb_certify_ipin">아이핀</label>
-            <input type="radio" name="mb_certify_case" value="hp" id="mb_certify_hp" <?php if($mb['mb_certify'] == 'hp') echo 'checked="checked"'; ?>>
-            <label for="mb_certify_hp">휴대폰</label>
+            <td>
+                <input type="radio" name="mb_certify_case" value="ipin" id="mb_certify_ipin" <?php if($mb['mb_certify'] == 'ipin') echo 'checked="checked"'; ?>>
+                <label for="mb_certify_ipin">아이핀</label>
+                <input type="radio" name="mb_certify_case" value="hp" id="mb_certify_hp" <?php if($mb['mb_certify'] == 'hp') echo 'checked="checked"'; ?>>
+                <label for="mb_certify_hp">휴대폰</label>
+            </td>
+        <th  scope="row">업종</th>
+        <td class="panel1" >
+            <?php echo get_category_opt($mb['mb_2']); ?>
         </td>
+       
+    </tr>
+    <tr>
         <th  scope="row">해당 게시판</th>
         <td class="panel1" >
              <?php echo get_board_atname($mb['mb_6']); ?>
         </td>
+        <!-- ------------------------- category name  ---------------------------------------------->
+        <th scope="row"><label for="mb_7">분류</label></th>
+        <td>
+        <div class="col-md-4">
+                    <?php echo get_board_category_name($mb['mb_7']); ?>
+			</div>
+            <input type="text" disabled name="mb_7t" value="<?php echo get_board_atKoreanname($mb['mb_6'])." - ".$mb['mb_7']; ?>" id="mb_7t" class="frm_input" size="30" maxlength="255">
+
+        </td>
+<!-- ------------------------- category name  ------------------------------------->
         <script>
         $(document).ready(function(){
             var count = 0;
@@ -247,16 +264,6 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>
             <input type="radio" name="mb_certify" value="" id="mb_certify_no" <?php echo $mb_certify_no; ?>>
             <label for="mb_certify_no">아니오</label>
         </td>
-<!-- ------------------------- category name  ---------------------------------------------->
-        <th scope="row"><label for="mb_7">분류</label></th>
-        <td>
-        <div class="col-md-4">
-                    <?php echo get_board_category_name($mb['mb_7']); ?>
-			</div>
-            <input type="text" disabled name="mb_7t" value="<?php echo get_board_atKoreanname($mb['mb_6'])." - ".$mb['mb_7']; ?>" id="mb_7t" class="frm_input" size="30" maxlength="255">
-
-        </td>
-<!-- ------------------------- category name  ------------------------------------->
     </tr>
     <tr>
         <th scope="row">주소</th>
@@ -495,10 +502,10 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
         <th scope="row"><label for="mb_1">성별</label></th>
         <td colspan="3"><input type="text" name="mb_1" value="<?php echo $mb['mb_1']; ?>" id="mb_1" class="frm_input" size="30" maxlength="255"></td>
     </tr>
-    <tr>
+    <!-- <tr>
         <th scope="row"><label for="mb_2">업종</label></th>
         <td colspan="3"><input type="text" name="mb_2" value="<?php echo $mb['mb_2']; ?>" id="mb_2" class="frm_input" size="30" maxlength="255"></td>
-    </tr>
+    </tr> -->
     <tr>
         <th scope="row"><label for="mb_3">제휴시작날짜</label></th>
         <td colspan="3"><input type="text" name="mb_3" value="<?php echo $mb['mb_3']; ?>" id="mb_3" class="frm_input" size="30" maxlength="255"></td>
