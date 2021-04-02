@@ -75,6 +75,10 @@ if($is_member && !$is_admin && $member['mb_level'] < 22){ //회원이고 , 23레
         $reviewpost = 0;
         $wrpost = 1;
         $wrcomment = 3;
+        $point2 = 300;
+        $reviewpost2 = 0; 
+        $wrpost2 = 3;
+        $wrcomment2 = 5;
         $levpoint = getlevelPoint('2');
     }
     else if ($member['mb_level'] == 3){
