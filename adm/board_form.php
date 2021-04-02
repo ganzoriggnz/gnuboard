@@ -938,7 +938,7 @@ $pg_anchor = '<ul class="anchor">
                         </td>
                     </tr>
 
-                    <tr>
+                    <!-- <tr>
                         <th scope="row"><label for="bo_use_captcha">비회원 사용</label></th>
                         <td colspan="2">
                             <?php echo help("체크하면 비회원도 신고가 가능합니다.") ?>
@@ -955,7 +955,7 @@ $pg_anchor = '<ul class="anchor">
                                 id="bo_singo_overlap">
                             중복신고 가능
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -1467,7 +1467,10 @@ $pg_anchor = '<ul class="anchor">
                     <col class="grid_3">
                 </colgroup>
                 <tbody>
-                    <?php for ($i=1; $i<=10; $i++) { ?>
+                    <?php for ($i=1; $i<=10; $i++) { 
+                       if($i == '2'){
+                           continue;} 
+                        ?>                       
                     <tr>
                         <th scope="row">여분필드<?php echo $i ?></th>
                         <td class="td_extra">
