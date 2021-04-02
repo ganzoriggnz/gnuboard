@@ -373,7 +373,7 @@ if (G5_IS_MOBILE) {
         <?php } ?> -->
 
         <div>
-				<ul class="pagination justify-content-center en mb-0 mb-3">
+				<ul class="pagination justify-content-center en mb-0">
 					<?php if ($prev_part_href) { ?>
 						<li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
 					<?php } ?>
