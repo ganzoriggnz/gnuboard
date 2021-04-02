@@ -760,7 +760,7 @@ ul.my-table > li {
                     </div>
                 </div>
             </li>
-            <?php if ($is_name) { ?>
+           <!--  <?php if ($is_name) { ?>
             <li class="list-group-item">
                 <div class="form-group row mb-0">
                     <label class="col-md-2 col-form-label" for="wr_name">이름<strong class="sr-only">필수</strong></label>
@@ -783,7 +783,7 @@ ul.my-table > li {
                     </div>
                 </div>
             </li>
-            <?php } ?>
+            <?php } ?> -->
             <!-- hulan nemsen bichver zasah hesegt utasnii dugaar oruulah  level26 hesegt -->
 
             <?php if ($gr_id == 'attendance' && $w == 'u' && !$is_admin) {
@@ -844,7 +844,7 @@ ul.my-table > li {
             <?php }
 			?>
             <!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
-            <?php if ($is_email) { ?>
+            <!-- <?php if ($is_email) { ?>
             <li class="list-group-item">
                 <div class="form-group row mb-0">
                     <label class="col-md-2 col-form-label" for="wr_email">E-mail</label>
@@ -866,7 +866,7 @@ ul.my-table > li {
                     </div>
                 </div>
             </li>
-            <?php } ?>
+            <?php } ?> -->
 
             <?php if ($is_admin || 
 							(
