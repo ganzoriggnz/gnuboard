@@ -1114,46 +1114,48 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
 function get_level_name($level){
     $levelname="";
     if($level == 2){
+        $levelname =  "해골";
+    if($level == 3){
         $levelname =  "노예";
-        } else if($level == 3){
-        $levelname =  "농노";
         } else if($level == 4){
-        $levelname =  "시민";
+        $levelname =  "농노";
         } else if($level == 5){
-        $levelname =  "기사";
+        $levelname =  "시민";
         } else if($level == 6){
-        $levelname =  "남반";
+        $levelname =  "기사";
         } else if($level == 7){
-        $levelname =  "장교";
+        $levelname =  "남반";
         } else if($level == 8){
-        $levelname =  "향리";
+        $levelname =  "장교";
         } else if($level == 9){
-        $levelname =  "서리";
+        $levelname =  "향리";
         } else if($level == 10){
-        $levelname =  "성주";
+        $levelname =  "서리";
         } else if($level == 11){
-        $levelname =  "작사";
+        $levelname =  "성주";
         } else if($level == 12){
-        $levelname =  "남작";
+        $levelname =  "작사";
         } else if($level == 13){
-        $levelname =  "자작";
+        $levelname =  "남작";
         } else if($level == 14){
-        $levelname =  "백작";
+        $levelname =  "자작";
         } else if($level == 15){
-        $levelname =  "후작";
+        $levelname =  "백작";
         } else if($level == 16){
-        $levelname =  "공작";
+        $levelname =  "후작";
         } else if($level == 17){
-        $levelname =  "대공";
+        $levelname =  "공작";
         } else if($level == 18){
-        $levelname =  "왕자";
+        $levelname =  "대공";
         } else if($level == 19){
-        $levelname =  "왕";
+        $levelname =  "왕자";
         } else if($level == 20){
-        $levelname =  "국왕";
+        $levelname =  "왕";
         } else if($level == 21){
-        $levelname =  "태자";
+        $levelname =  "국왕";
         } else if($level == 22){
+        $levelname =  "태자";
+        } else if($level == 23){
         $levelname =  "황제";
         } else if($level == 24){
         $levelname =  "추기경";
