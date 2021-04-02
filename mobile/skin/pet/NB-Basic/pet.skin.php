@@ -11,7 +11,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
             <h1>펫기르기</h1>
         </div>
         <div>
-            <p class="pet_p1">고양이에게 청소 1회, 놀아주기 1회, 사료주기 1회 30분 간격으로 완료시 파운드 100 지급</p>
+            <p class="pet_p1">고양이에게 청소 1회, 놀아주기 1회, 사료주기 1회 30분 간격으로 완료시 파운드 50 지급</p>
         </div>
     </div>
     <div class="pet_img_div">
@@ -46,7 +46,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$pet_skin_url.'/style.css">', 0);
     <div class="popup_box1">
       <h1>펫기르기</h1>
       <label><span id="pet"></span>펫기르기 미션 완료 </br>
-      100파운드를 지급합니다</label>
+      50파운드를 지급합니다</label>
       <div class="btns1">
         <a href="#" class="btn1">확인</a>
       </div>

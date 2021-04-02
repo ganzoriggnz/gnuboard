@@ -29,7 +29,7 @@ else if($row['p_no']){
                     SET p_but3_datetime = '{$now}'
                     WHERE p_no = '{$row['p_no']}'";
         sql_query($sql3);  
-       insert_point($member['mb_id'], 100, "펫 기르기 파운드", "@pet", $member['mb_nick'], G5_TIME_YMD); 
+       insert_point($member['mb_id'], 50, "펫 기르기 파운드", "@pet", $member['mb_nick'], G5_TIME_YMD); 
     }
  } 
      
