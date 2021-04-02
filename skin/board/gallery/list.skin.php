@@ -356,7 +356,7 @@ if (G5_IS_MOBILE) {
             } ?>
         </ul>
 
-        <?php echo $write_pages; ?>
+        <!-- <?php echo $write_pages; ?>
 
         <?php if ($list_href || $is_checkbox || $write_href) { ?>
         <div class="bo_fx">
@@ -370,14 +370,19 @@ if (G5_IS_MOBILE) {
             </ul>
             <?php } ?>
         </div>
-        <?php } ?>
+        <?php } ?> -->
 
         <div>
-				<ul class="pagination justify-content-center en mb-0">
+				<ul class="pagination justify-content-center en mb-0 mb-3">
 					<?php if ($prev_part_href) { ?>
 						<li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
 					<?php } ?>
-					<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . '&amp;page=')); ?>
+					<?php 
+                    $scss='';
+                    if($subsca){
+                        $scss = '&amp;subsca='.$subsca;
+                    } 
+                    echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . $scss.'&amp;page=')); ?>
 					<?php if ($next_part_href) { ?>
 						<li class="page-item"><a class="page-link" href="<?php echo $next_part_href.$total_page; ?>">Next</a></li>
 					<?php } ?>
