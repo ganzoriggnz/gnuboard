@@ -1114,8 +1114,8 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
 function get_level_name($level){
     $levelname="";
     if($level == 2){
-        $levelname =  "해골";}
-    if($level == 3){
+        $levelname =  "해골";
+        }else if($level == 3){
         $levelname =  "노예";
         } else if($level == 4){
         $levelname =  "농노";
