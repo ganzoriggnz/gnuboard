@@ -35,7 +35,8 @@ function sidebar_mask(opt) {
 function sidebar_open(id) {
 
 	var div = $("#nt_sidebar");
-	var side = is_sidebar();
+	/* var side = is_sidebar(); */
+	var side = "right";
 	var is_div = div.css(side);
 	var is_size;
 	var is_open;
@@ -96,7 +97,8 @@ $(document).ready(function () {
 	// Sidebar Close
 	$(document).on('click', '.sidebar-close', function () {
 		var div = $("#nt_sidebar");
-		var side = is_sidebar();
+		/* var side = is_sidebar(); */
+		var side = "right";
 		ani_sidebar(div, side, sidebar_size); 
 		sidebar_mask('hide');
 		return false;
@@ -118,7 +120,8 @@ function sidebar_login(f) {
 }
 	// Sidebar Change
 	$(window).resize(function() {
-		var side = is_sidebar(); 
+		/* var side = is_sidebar(); */ 
+		var side = "right";
 		if(side == 'left') {
 			side = 'right';
 		} else {
