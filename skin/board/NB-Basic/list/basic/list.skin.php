@@ -208,7 +208,7 @@ if($gr_id == 'attendance'){
                     </div>
                 </div>
                 <div class="float-right float-md-none d-md-table-cell nw-15 nw-md-auto text-left f-sm">
-                    <div style=" text-align:left;">
+                    <div style=" text-align:left; width: 180px;">
                         <span class="sr-only">등록자</span>
                         <?php
                             $mbid= get_member($list[$i]['mb_id']);
