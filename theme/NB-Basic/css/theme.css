@@ -559,12 +559,5 @@ hr.hr::after {
 	text-align: left !important;
 }
 
-.m-auto-head {
-	margin-top: auto !important;
-	margin-right: auto !important;
-	margin-bottom: 30px !important;
-	margin-left: auto !important;
-}
-
 .overflow-hidden-x {overflow-x: hidden !important;}
 .overflow-hidden-y {overflow-y: auto !important;}
