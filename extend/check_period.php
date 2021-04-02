@@ -61,23 +61,27 @@ if($is_member && !$is_admin && $member['mb_level'] < 22){ //회원이고 , 23레
     
     $st_date = date('Y-m-d', strtotime($member['mb_datetime']));   // 가입한 날짜 시간 배고
 
-    if ($member['mb_level'] == 2){
+    if ($member['mb_level'] == 1){
         $et_date = date('Y-m-d', strtotime($st_date. ' + 0 days'));   // 가입한 후 3 일 뒤
         $point = 0;
         $reviewpost = 0;
         $wrpost = 0;
         $wrcomment = 0;
-        $point2 = 300;
-        $reviewpost2 = 0; 
-        $wrpost2 = 1;
-        $wrcomment2 = 5;
+        $levpoint = getlevelPoint('1');
+    }
+    if ($member['mb_level'] == 2){
+        $et_date = date('Y-m-d', strtotime($st_date. ' + 0 days'));   // 가입한 후 3 일 뒤
+        $point = 100;
+        $reviewpost = 0;
+        $wrpost = 1;
+        $wrcomment = 3;
         $levpoint = getlevelPoint('2');
     }
     else if ($member['mb_level'] == 3){
-        $et_date = date('Y-m-d', strtotime($st_date. ' +  3 days')); 
+        $et_date = date('Y-m-d', strtotime($st_date. ' +  1 days')); 
         $point = 300;
         $reviewpost = 0; 
-        $wrpost = 1;
+        $wrpost = 3;
         $wrcomment = 5;
         $point2 = 1000;
         $reviewpost2 = 0;
