@@ -180,15 +180,19 @@ background-image:url('http://210.114.18.63/img/cat_btn_clicked1.png');
     #bo_subcate a {height:25px;}
     #bo_subcate li:nth-child(8) a{margin-left: 0px;}
     #bo_subcate li:nth-child(15) a{margin-left: 0px;}
+    #bo_subcate li:nth-child(21) a{margin-left: 2px;}
     #bo_subcate li:nth-child(22) a{margin-left: 0px;}
     #bo_subcate li:nth-child(29) a{margin-left: 0px;}
     #bo_subcate li:nth-child(36) a{margin-left: 0px;}
+    #bo_subcate li:nth-child(41) a{margin-left: 2px;}
     #bo_subcate li:nth-child(43) a{margin-left: 0px;}
     #bo_subcate li:nth-child(50) a{margin-left: 0px;}
     #bo_subcate li:nth-child(57) a{margin-left: 0px;}
+    #bo_subcate li:nth-child(61) a{margin-left: 2px;}
     #bo_subcate li:nth-child(64) a{margin-left: 0px;}
     #bo_subcate li:nth-child(71) a{margin-left: 0px;}
     #bo_subcate li:nth-child(78) a{margin-left: 0px;}
+    #bo_subcate li:nth-child(81) a{margin-left: 2px;}
     #bo_subcate li:nth-child(85) a{margin-left: 0px;}
 }
 
