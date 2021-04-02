@@ -13,7 +13,7 @@ if ($is_admin != 'super')
 
 if (!isset($config['lev_cf_1'])) {
     sql_query(" ALTER TABLE `{$g5['config_table']}`
-                    ADD `lev_cf_1` VARCHAR(255) NOT NULL DEFAULT '비회원' AFTER `cf_30`,
+                    ADD `lev_cf_1` VARCHAR(255) NOT NULL DEFAULT '해골' AFTER `cf_30`,
                     ADD `lev_cf_2` VARCHAR(255) NOT NULL AFTER `lev_cf_1`,
                     ADD `lev_cf_3` VARCHAR(255) NOT NULL AFTER `lev_cf_2`,
                     ADD `lev_cf_4` VARCHAR(255) NOT NULL AFTER `lev_cf_3`,
