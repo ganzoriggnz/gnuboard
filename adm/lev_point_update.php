@@ -21,7 +21,8 @@ if ($_POST['act_button'] == "선택수정" && $w == "u") {
         $k = $_POST['chk'][$i];
 
         $sql = "UPDATE {$g5['lev_point_table']}
-                SET lev_point = '{$_POST['lev_point'][$k]}',
+                SET lev_name = '{$_POST['lev_name'][$k]}',
+                    lev_point = '{$_POST['lev_point'][$k]}',
                     lev_updated_datetime = '{$_POST['lev_point'][$k]}'
                 WHERE lev_name  = '{$_POST['lev_name'][$k]}'";
         //echo $sql;     
