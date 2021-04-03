@@ -131,7 +131,7 @@ if($is_index) {
 if($nt_top_path)
 	@include_once ($nt_top_path.'/top.php');
 ?>
-<div class="wrapper m-auto overflow-hidden" style="padding-bottom: 110px; margin-bottom: 110px;">
+<div class="wrapper m-auto overflow-hidden bottom-dist">
     <div id="nt_header">
         <div id="nt_sticky">
             <?php

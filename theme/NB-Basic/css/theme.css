@@ -561,3 +561,15 @@ hr.hr::after {
 
 .overflow-hidden-x {overflow-x: hidden !important;}
 .overflow-hidden-y {overflow-y: auto !important;}
+
+.bottom-dist {
+	padding-bottom: 110px; 
+	margin-bottom: 110px;
+}
+
+@media (max-width: 767px) {
+    .bottom-dist {
+		padding-bottom: 80px; 
+		margin-bottom: 80px;
+	}
+}
