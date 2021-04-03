@@ -62,11 +62,11 @@ include_once('./admin.head.php');
             for ($i=0; $row=sql_fetch_array($result); $i++) { ?>
             <tr>
                 <td class="td_chk">
-                    <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['lev_name']) ?></label>
+                    <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['lev_no']) ?></label>
                     <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
                 </td>
                 <td class="td_category">
-                    <?php echo $row['lev_no'];?>
+                    <input type='text' name="lev_no[<?php echo $i;?>]" value="<?php echo $row['lev_no'];?>" class='frm_input text-center' readonly>
                 </td>
                 <td>
                     <input type='text' name="lev_name[<?php echo $i;?>]" value="<?php echo $row['lev_name'];?>" class='frm_input'>

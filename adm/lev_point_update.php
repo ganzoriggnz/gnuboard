@@ -12,7 +12,7 @@ check_admin_token();
 
 $act_button = isset($_POST['act_button']) ? strip_tags($_POST['act_button']) : '';
 $chk = (isset($_POST['chk']) && is_array($_POST['chk'])) ? $_POST['chk'] : array();
-$lev_name = (isset($_POST['lev_name']) && is_array($_POST['lev_name'])) ? $_POST['lev_name'] : array();
+$lev_no = (isset($_POST['lev_no']) && is_array($_POST['lev_no'])) ? $_POST['lev_no'] : array();
 
 if ($_POST['act_button'] == "선택수정" && $w == "u") {
 
@@ -24,7 +24,7 @@ if ($_POST['act_button'] == "선택수정" && $w == "u") {
                 SET lev_name = '{$_POST['lev_name'][$k]}',
                     lev_point = '{$_POST['lev_point'][$k]}',
                     lev_updated_datetime = '{$_POST['lev_point'][$k]}'
-                WHERE lev_name  = '{$_POST['lev_name'][$k]}'";
+                WHERE lev_no  = '{$_POST['lev_no'][$k]}'";
         //echo $sql;     
         sql_query($sql);
     }
