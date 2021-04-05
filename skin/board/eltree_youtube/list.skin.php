@@ -139,15 +139,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         <td class="td_subject ">
                             <div class="">
                                 <?php
-                    $tmp_wr_link1 = explode("https://youtu.be/", $list[$i]['wr_link1']);
+                    $tmp_wr_link1 = explode("/", $list[$i]['wr_link1']);
                   ?>
-
                                 <div class="video_wrap listImgA d-md-block d-none" style="margin-right:4%;">
-                                    <div class="video_container">
-                                        <iframe width="220" height="120"
-                                            src="https://www.youtube.com/embed/<?=trim($tmp_wr_link1[1]);?>"
-                                            frameborder="0" webkitAllowFullScreen mozallowfullscreen
-                                            allowFullScreen></iframe>
+                                    <div class="video_container">      
+                                        <?php if($tmp_wr_link1[2] =='youtu.be'){
+                                        echo '<iframe width="220" height="120" src="https://www.youtube.com/embed/'.$tmp_wr_link1[1].'" frameborder="0" webkitAllowFullScreen mozallowfullscreen
+                                            allowFullScreen></iframe>';
+                                        } else if($tmp_wr_link1[2] =='www.pornhits.com')
+                                        { echo '<iframe width="220" height="120" src="https://www.pornhits.com/embed.php?id='.$tmp_wr_link1[4].'" frameborder="0" webkitAllowFullScreen mozallowfullscreen
+                                            allowFullScreen></iframe>';
+                                        } else {
+                                        echo '<iframe width="220" height="120" src="https://'.$tmp_wr_link1[2].'\/embed\/'.$tmp_wr_link1[4].'" frameborder="0" webkitAllowFullScreen mozallowfullscreen
+                                            allowFullScreen></iframe>';
+                                        } ?>
                                     </div>
                                 </div>
                                 <?php echo $list[$i]['icon_reply'] ?>
