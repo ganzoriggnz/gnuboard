@@ -85,16 +85,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">5</td>
 				<td class="cl_td_l">댓글작성 </br>후기</td>	
 				<td class="cl_td_l">자유게시판에 댓글 5회 작성하기(<?php 
-				if($cnt1 < 2) { echo '0';} 
-				else if($cnt1 == 2) { echo '1';}
-				else if($cnt1 == 3) { echo '2';}
-				else if($cnt1 == 4) { echo '3';} 
-				else if($cnt1 == 5 ) { echo '4';}
-				else if($cnt1 >= 6) { echo '5';} ?>/5)				
+				if($cnt1 == 0) { echo '0';} 
+				else if($cnt1 == 1) { echo '1';}
+				else if($cnt1 == 2) { echo '2';}
+				else if($cnt1 == 3) { echo '3';} 
+				else if($cnt1 == 4 ) { echo '4';}
+				else if($cnt1 >= 5) { echo '5';} ?>/5)				
 				</td>
 				<td class="cl_td_r"></td>
 				<td class="cl_td">
-					<div class="<?php if($cnt1 >= 6){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
+					<div class="<?php if($cnt1 >= 5){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank" >				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>																
@@ -105,21 +105,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">6</td>
 				<td class="cl_td_l">댓글작성 </br>후기</td>	
 				<td class="cl_td_l">자유게시판에 댓글 10회 작성하기(<?php 
-				if($cnt1 < 6) { echo '0';} 
-				else if($cnt1 == 6) { echo '1';}
-				else if($cnt1 == 7) { echo '2';}
-				else if($cnt1 == 8) { echo '3';}
-				else if($cnt1 == 9) { echo '4';}
-				else if($cnt1 == 10) { echo '5';}
-				else if($cnt1 == 11) { echo '6';}
-				else if($cnt1 == 12) { echo '7';}
-				else if($cnt1 == 13) { echo '8';}
-				else if($cnt1 == 14) { echo '9';}
-				else if($cnt1 >= 15) { echo '10';} ?>/10)				
+				if($cnt1 == 0) { echo '0';} 
+				else if($cnt1 == 1) { echo '1';}
+				else if($cnt1 == 2) { echo '2';}
+				else if($cnt1 == 3) { echo '3';}
+				else if($cnt1 == 4) { echo '4';}
+				else if($cnt1 == 5) { echo '5';}
+				else if($cnt1 == 6) { echo '6';}
+				else if($cnt1 == 7) { echo '7';}
+				else if($cnt1 == 8) { echo '8';}
+				else if($cnt1 == 9) { echo '9';}
+				else if($cnt1 >= 10) { echo '10';} ?>/10)				
 				</td>
 				<td class="cl_td_r"></td>
 				<td class="cl_td">
-					<div class="<?php if($cnt1 >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
+					<div class="<?php if($cnt1 >= 10){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=free" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>													
@@ -150,21 +150,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">8</td>
 				<td class="cl_td_l">출근부</td>	
 				<td class="cl_td_l">출근부 10회 읽기(<?php 
-				if($cnt_att < 6) { echo '0';} 
-				else if($cnt_att == 6) { echo '1';}
-				else if($cnt_att == 7) { echo '2';}
-				else if($cnt_att == 8) { echo '3';}
-				else if($cnt_att == 9) { echo '4';}
-				else if($cnt_att == 10) { echo '5';}
-				else if($cnt_att == 11) { echo '6';}
-				else if($cnt_att == 12) { echo '7';}
-				else if($cnt_att == 13) { echo '8';}
-				else if($cnt_att == 14) { echo '9';}
-				else if($cnt_att >= 15) { echo '10';} ?>/10)				
+				if($cnt_att == 0) { echo '0';} 
+				else if($cnt_att == 1) { echo '1';}
+				else if($cnt_att == 2) { echo '2';}
+				else if($cnt_att == 3) { echo '3';}
+				else if($cnt_att == 4) { echo '4';}
+				else if($cnt_att == 5) { echo '5';}
+				else if($cnt_att == 6) { echo '6';}
+				else if($cnt_att == 7) { echo '7';}
+				else if($cnt_att == 8) { echo '8';}
+				else if($cnt_att == 9) { echo '9';}
+				else if($cnt_att >= 10) { echo '10';} ?>/10)				
 				</td>
 				<td class="cl_td_r"></td>
 				<td class="cl_td">
-					<div class="<?php if($cnt_att >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
+					<div class="<?php if($cnt_att >= 10){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_at" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>												
@@ -195,21 +195,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">10</td>
 				<td class="cl_td_l">후기</td>	
 				<td class="cl_td_l">후기 10회 읽기(<?php 
-				if($cnt_rev < 6) { echo '0';} 
-				else if($cnt_rev == 6) { echo '1';}
-				else if($cnt_rev == 7) { echo '2';}
-				else if($cnt_rev == 8) { echo '3';}
-				else if($cnt_rev == 9) { echo '4';}
-				else if($cnt_rev == 10) { echo '5';}
-				else if($cnt_rev == 11) { echo '6';}
-				else if($cnt_rev == 12) { echo '7';}
-				else if($cnt_rev == 13) { echo '8';}
-				else if($cnt_rev == 14) { echo '9';}
-				else if($cnt_rev >= 15) { echo '10';} ?>/10)				
+				if($cnt_rev == 0) { echo '0';} 
+				else if($cnt_rev == 1) { echo '1';}
+				else if($cnt_rev == 2) { echo '2';}
+				else if($cnt_rev == 3) { echo '3';}
+				else if($cnt_rev == 4) { echo '4';}
+				else if($cnt_rev == 5) { echo '5';}
+				else if($cnt_rev == 6) { echo '6';}
+				else if($cnt_rev == 7) { echo '7';}
+				else if($cnt_rev == 8) { echo '8';}
+				else if($cnt_rev == 9) { echo '9';}
+				else if($cnt_rev >= 10) { echo '10';} ?>/10)				
 				</td>
 				<td class="cl_td_r"></td>
 				<td class="cl_td">
-                    <div class="<?php if($cnt_rev >= 15){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
+                    <div class="<?php if($cnt_rev >= 10){ echo "miss_but_3";} else { echo "miss_but_1"; } ?>">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=opigangnam_re" target="_blank">				
                         <i class="fa fa-gift"></i><br>수행<br>진행</a>
                     </div>							
@@ -223,7 +223,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td_r">150P</td>
 				<td class="cl_td">
 					<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?>">
-					<div id="give" <?php if($cnt_rev >= 15 && $cnt_att >= 15 && $cnt1 >= 14 && $cnt_at > 0 && $cnt > 0 &&
+					<div id="give" <?php if($cnt_rev >= 10 && $cnt_att >= 10 && $cnt1 >= 10 && $cnt_at > 0 && $cnt > 0 &&
 					$row2['p_but1_datetime'] && $row2['p_but1_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but2_datetime'] != '0000-00-00 00:00:00' && 
 					$row2['p_but3_datetime'] != '0000-00-00 00:00:00') 
