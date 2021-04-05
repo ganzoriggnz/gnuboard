@@ -100,7 +100,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
   ?>
   <div style="padding-bottom:12px; text-align:center;">
   <?php if($tmp_wr_link1[2] =='youtu.be'){
-      echo '<iframe width="100%" height="509" src="https://www.youtube.com/embed/'.$tmp_wr_link1[1].'" frameborder="0" allowfullscreen></iframe>';
+      echo '<iframe width="100%" height="509" src="https://www.youtube.com/embed/'.$tmp_wr_link1[3].'" frameborder="0" allowfullscreen></iframe>';
     } else if($tmp_wr_link1[2] =='www.pornhits.com')
     { echo '<iframe width="100%" height="509" src="https://www.pornhits.com/embed.php?id='.$tmp_wr_link1[4].'" frameborder="0" allowfullscreen></iframe>';
     } else {
