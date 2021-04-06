@@ -134,13 +134,11 @@ if ($d) {
             <img src="<?php echo G5_ATTENDANCE_URL?>/img/exclamation.gif" align="absmiddle"> 출석부 이용안내 <br>
                 출석시간 : <?php echo date("A H시 i분 s초", strtotime($attendance['start_time']))?> ~ <?php echo date("A H시 i분 s초", strtotime($attendance['end_time']))?><br/>
                 출석파운드 : <?php echo number_format($attendance['today_point'])?> 파운드<br />
-                등수 파운드 : 1등 <?php echo number_format($attendance['first_point'])?> 파운드, 2등 <?php echo number_format($attendance['second_point'])?> 파운드, 3등 <?php echo number_format($attendance['third_point'])?> 파운드<br />
                 개근 파운드 : 
                 <?php echo $attendance['day']?>일 파운드 : <?php echo number_format($attendance['day_point'])?> 파운드, 
                 <?php echo $attendance['monthly']?>일 파운드 : <?php echo number_format($attendance['monthly_point'])?> 파운드, 
                 <?php echo $attendance['year1']?>일 파운드 : <?php echo number_format($attendance['year1_point'])?> 파운드, 
                 <?php echo $attendance['year2']?>일 파운드 : <?php echo number_format($attendance['year2_point'])?> 파운드, 
-                <?php echo $attendance['year3']?>일 파운드 : <?php echo number_format($attendance['year3_point'])?> 파운드, 
                 <?php echo $attendance['year']?>일 파운드 : <?php echo number_format($attendance['year_point'])?>파운드
             </td>
         </tr>
@@ -366,12 +364,6 @@ function dateGo(day)
 <tr>
     <td style="height:32px; border:0px solid">
 <form id="fattendance" name="fattendance" action = "<?php echo G5_PLUGIN_URL ?>/attendance/attendance_write_update.php" method="post" enctype="multipart/form-data" style="margin:0px;">
-<!-- <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td> 
-    <div class=" alert bg-light border form-row" style="height:40px; text-align: center; align-items: center; justify-content: center; margin:0px;">
-            <input type="text" id="subject" name="subject" size="50" style="width:50%;" class="form-control input" value="출석인사를 입력해 주세요." onmouseover="if(!this.value || this.value == '출석인사를 입력해 주세요.')this.value='';" > 
-            <input type="image" src= "<?php echo G5_IMG_URL ?>/attendance_ok.gif" border="0"  align="absmiddle">
-    </div> 
-    </td></tr></table> -->
     <div id="msg_content" class="msg-content">
         <div class="msg-cell">
             <textarea id="subject" name="subject" class="form-attendance input-sm" rows="4" required="" maxlength="65536"></textarea>
@@ -395,20 +387,6 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
 </script>   
 
 <script type="text/javascript"> 
-/* function fattendance_submit(f) 
-{ 
-
-    var ChkSubject = document.getElementById("subject").value; 
-
-    if (!ChkSubject || ChkSubject == '출석인사를 입력해 주세요.') { 
-
-        alert("출석인사를 입력하세요."); 
-        return false; 
-
-    } 
-   f.action = "<?php echo G5_PLUGIN_URL ?>/attendance/m_attendance_write_update.php"; 
-    f.action = "./m_attendance_write_update.php"; 
-}  */
 
     function att_submit()
     { 
