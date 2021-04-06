@@ -42,39 +42,39 @@ $attendance['year1'] = "365"; // 지정한 년도마다
 $attendance['year2'] = "500"; // 지정한 년도마다
 
 // 개근
-/* $attendance['year3'] = "700"; */ // 지정한 년도마다
+$attendance['year3'] = "700"; // 지정한 년도마다
 
 // 개근
 $attendance['year'] = "1000"; // 지정한 년도마다
 
 
 // 개근시 포인트
-$attendance['day_point'] = "50"; // 지정한 날짜마다 포인트 지급
+$attendance['day_point'] = "100"; // 지정한 날짜마다 포인트 지급
 
 // 개근시 포인트
-$attendance['monthly_point'] = "500"; // 지정한 매월마다 포인트 지급
+$attendance['monthly_point'] = "1000"; // 지정한 매월마다 포인트 지급
 
 // 개근시 포인트
-$attendance['year1_point'] = "10000"; // 지정한 년도마다 포인트 지급
+$attendance['year1_point'] = "30000"; // 지정한 년도마다 포인트 지급
 
 // 개근시 포인트
-$attendance['year2_point'] = "20000"; // 지정한 년도마다 포인트 지급
+$attendance['year2_point'] = "50000"; // 지정한 년도마다 포인트 지급
 
 // 개근시 포인트
-/* $attendance['year3_point'] = "70000"; */ // 지정한 년도마다 포인트 지급
+$attendance['year3_point'] = "70000"; // 지정한 년도마다 포인트 지급
 
 // 개근시 포인트
-$attendance['year_point'] = "50000"; // 지정한 년도마다 포인트 지급
+$attendance['year_point'] = "100000"; // 지정한 년도마다 포인트 지급
 
 
 // 일일 출석 포인트
-$attendance['today_point'] = "10"; //하루 출석 포인트 지급
+$attendance['today_point'] = "30"; //하루 출석 포인트 지급
 
 
 // 1등 포인트
-$attendance['first_point'] = "0";
-$attendance['second_point'] = "0";
-$attendance['third_point'] = "0";
+$attendance['first_point'] = "200";
+$attendance['second_point'] = "150";
+$attendance['third_point'] = "100";
 
 
 /*------------------------------------------
