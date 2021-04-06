@@ -107,7 +107,7 @@ cursor:pointer;
 	font-weight:bold;
 }
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
 	#nt_sidebar { 
 		right: -320px; 
 		margin-left:40px; 
@@ -118,11 +118,7 @@ cursor:pointer;
 		left: -320px; 
 		margin-right:40px; 
 	}
-} */
-
-#nt_sidebar { 
-right: -320px; 
-margin-left:40px; }
+}
 
 /* Mask */
 #nt_sidebar_mask { 
@@ -219,7 +215,8 @@ margin-left:40px; }
 	border:1px solid #ddd; 
 	cursor:pointer; 
 	}
-/* @media (min-width: 481px) {
+
+@media (min-width: 481px) {
 	#nt_sidebar { right: -320px; border-left:1px solid #ddd; margin-left:40px; }
 	#nt_sidebar .sidebar-wing { left:0; margin-left:-35px; }
 	#nt_sidebar .sidebar-wing-close { border-right:0px; }
@@ -239,15 +236,7 @@ margin-left:40px; }
 	#nt_sidebar { padding-bottom:0px; }
 	#nt_sidebar .sidebar-wing { top:35%; }
 	#nt_sidebar .sidebar-wing-icon { display:none; }
-} */
-
-#nt_sidebar { right: -320px; border-left:1px solid #ddd; margin-left:40px; }
-#nt_sidebar .sidebar-wing { left:0; margin-left:-35px; }
-#nt_sidebar .sidebar-wing-close { border-right:0px; }
-#nt_sidebar { padding-bottom:0px; }
-#nt_sidebar .sidebar-wing { top:20%; }
-#nt_sidebar .sidebar-wing-icon { border-right:0px; display:block; }
-
+}
 
 /********************************************************
 ■ Flower Image : 
