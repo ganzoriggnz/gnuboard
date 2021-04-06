@@ -358,7 +358,7 @@ ul.my-table > li {
 											$w != 'u'
 									) 
 								)
-							) || ($bo_table == "free" || $bo_table == "event" || $board['gr_id'] == "review" || $bo_table == "woman" || $bo_table == "job" || $bo_table == "work_board")
+							) || ($bo_table == "free" || $bo_table == "event" || $bo_table == "ucc" || $board['gr_id'] == "review" || $bo_table == "woman" || $bo_table == "work_board")
 					 ) { ?>
             <?php if ($is_category) { ?>
             <li class="list-group-item">
@@ -888,7 +888,7 @@ ul.my-table > li {
 											$w != 'u'
 									) 
 								)
-							) || ($bo_table == "free" || $bo_table == "event" || $bo_table == "ucc" || $bo_table == "woman" || $bo_table == "job" || $board['gr_id'] == "review")
+							) || ($bo_table == "free" || $bo_table == "event" || $bo_table == "ucc" || $bo_table == "woman" || $bo_table == "job" || $bo_table == "work_board" || $board['gr_id'] == "review")
 					 ) { ?>
             <?php if ($is_category) { ?>
             <li class="list-group-item">
