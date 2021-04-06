@@ -97,6 +97,15 @@ if ($bo_table == "greeting") {
 	}
 }
 
+if ($bo_table == "twitter") {
+	if ($member['mb_id'] && !$is_admin) {
+		$res = sql_fetch("select mb_id from " . $g5['write_prefix'] . $bo_table . " where mb_id = '" . $member['mb_id'] . "' and wr_is_comment = '0'");
+		if ($res['mb_id'] != '') {
+			alert("You can write only one post a day!");
+		}
+	}
+}
+
 // Clip Modal
 na_script('clip');
 
