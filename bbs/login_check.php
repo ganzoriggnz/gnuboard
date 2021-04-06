@@ -64,6 +64,7 @@ set_session('ss_mb_id', $mb['mb_id']);
 set_session('ss_mb_key', md5($mb['mb_datetime'] . get_real_client_ip() . $_SERVER['HTTP_USER_AGENT']));
 
 // 포인트 체크
+$now = G5_TIME_YMDHIS;
 if($config['cf_use_point']) {
     $sum_point = get_point_sum($mb['mb_id']);
 
@@ -71,8 +72,7 @@ if($config['cf_use_point']) {
     sql_query($sql);
 
     $sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$mb['mb_id']}' AND mb_level IN ('26', '27')";
-    $res_date = sql_fetch($sql_date);
-    $now = G5_TIME_YMDHIS;
+    $res_date = sql_fetch($sql_date);   
     if($res_date['mb_4'] != ''){
         $end_time = strtotime($res_date['mb_4']);
         $now_time = strtotime($now);
@@ -87,6 +87,43 @@ if($config['cf_use_point']) {
                             WHERE mb_id = '{$mb['mb_id']}' AND mb_level='27'";
             sql_query($sql_d);
         }
+    }
+}
+
+$now = G5_TIME_YMDHIS;
+$first_day_pre = date('Y-m-d 00:00:00', strtotime("first day of -1 month")); 
+$last_day_pre = date('Y-m-d 23:59:59', strtotime("last day of -1 month"));
+
+$currentyear = substr($now, 0, 4);
+$currentmonth = substr($now, 5, 2);
+$co_start = date_create($now);
+$co_insert_date1 = date_format($co_start, 'Y-m-01 00:00:00');
+$co_insert_date2 = date_format($co_start, 'Y-m-06 23:59:59');
+$co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
+
+$co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
+
+$sql_cou1 = " SELECT COUNT(*) as cou_cnt FROM {$g5['coupon_table']} WHERE co_begin_datetime = '{$co_begin_datetime}' AND co_end_datetime='{$co_end_datetime}'";
+$row_cou1 = sql_fetch($sql_cou1);
+$cou_cnt = $row_cou1['cou_cnt'];
+if($cou_cnt == 0 && $now > $co_insert_date1 && $now < $co_insert_date2){
+    $sql_cou = " SELECT * FROM {$g5['coupon_table']} WHERE co_begin_datetime = '{$first_day_pre}' AND co_end_datetime='{$last_day_pre}'";
+    $result=sql_query($sql_cou);
+	while ($row = sql_fetch_array($result)) {
+    $sql_ins = " INSERT INTO {$g5['coupon_table']} 
+                        SET wr_id = '{$row['wr_id']}', 
+                            mb_id = '{$row['mb_id']}', 
+                            bo_table = '{$row['bo_table']}', 
+                            co_entity = '{$row['co_entity']}',
+                            co_sale_num = '{$row['co_sale_num']}',
+                            co_free_num = '{$row['co_free_num']}',
+                            co_sent_snum = '{$row['co_sent_snum']}',
+                            co_sent_fnum = '{$row['co_sent_fnum']}',
+                            co_created_datetime = '{$now}',                          
+                            co_begin_datetime = '{$co_begin_datetime}',
+                            co_end_datetime = '{$co_end_datetime}'";
+
+                sql_query($sql_ins);
     }
 }
 

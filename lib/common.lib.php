@@ -89,8 +89,6 @@ function get_cate_pic($catename,$pic=0){
     return $str;
 }
 
-
-
 // 한페이지에 보여줄 행, 현재페이지, 총페이지수, URL
 function get_paging($write_pages, $cur_page, $total_page, $url, $add="")
 {
@@ -4413,5 +4411,39 @@ function get_category_opt($cat = '')
     }
     $str .= "</select>\n";
     return $str;
+}
+
+function get_end_datetime($co_start,$currentyear,$currentmonth) {
+
+    if($currentmonth == '01')
+    $co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
+    else if($currentmonth == '02')
+    $co_end_datetime = 
+        ($currentyear % 4 ? date_format($co_start, 'Y-m-28 23:59:59') : 
+        ($currentyear % 100 ? date_format($co_start, 'Y-m-29 23:59:59') : 
+        ($currentyear % 400 ? date_format($co_start, 'Y-m-28 23:59:59') : 
+        date_format($co_start, 'Y-m-29 23:59:59'))));
+    else if($currentmonth == '03')
+    $co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
+    else if($currentmonth == '04')
+    $co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
+    else if($currentmonth == '05')
+    $co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
+    else if($currentmonth == '06')
+    $co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
+    else if($currentmonth == '07')
+    $co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
+    else if($currentmonth == '08')
+    $co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
+    else if($currentmonth == '09')
+    $co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
+    else if($currentmonth == '10')
+    $co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
+    else if($currentmonth == '11')
+    $co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
+    else if($currentmonth == '12')
+    $co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
+
+    return $co_end_datetime;
 }
 ?>
