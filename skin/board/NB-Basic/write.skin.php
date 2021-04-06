@@ -358,7 +358,7 @@ ul.my-table > li {
 											$w != 'u'
 									) 
 								)
-							) || ($bo_table == "free" || $bo_table == "event" || $board['gr_id'] == "review" || $bo_table == "woman" || $bo_table == "job")
+							) || ($bo_table == "free" || $bo_table == "event" || $board['gr_id'] == "review" || $bo_table == "woman" || $bo_table == "job" || $bo_table == "work_board")
 					 ) { ?>
             <?php if ($is_category) { ?>
             <li class="list-group-item">
