@@ -16,7 +16,7 @@ if(isset($_POST['id']))
                     m_datetime = '{$now}'";
     sql_query($sql1);
 
-    insert_point($mb_id, 150, "일일미션 파운드", "@mission", $member['mb_nick'], G5_TIME_YMD);
+    insert_point($mb_id, 50, "일일미션 파운드", "@mission", $member['mb_nick'], G5_TIME_YMD);
 
 }
 

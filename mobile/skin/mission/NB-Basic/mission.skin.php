@@ -220,7 +220,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 				<td class="cl_td">+</td>
 				<td class="cl_td">지급파운드</td>				
 				<td class="cl_td_l"><font color="#f3bd49"><b>일일 미션 10개 모두 완료시 </br>지급 파운드</b></font></td>	
-				<td class="cl_td_r">200P</td>
+				<td class="cl_td_r">50P</td>
 				<td class="cl_td">
 					<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $member['mb_id'];?>">
 					<div id="give" <?php if($cnt_rev >= 10 && $cnt_att >= 10 && $cnt1 >= 10 && $cnt_at > 0 && $cnt > 0 &&
