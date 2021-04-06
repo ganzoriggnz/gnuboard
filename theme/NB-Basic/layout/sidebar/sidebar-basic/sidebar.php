@@ -107,7 +107,7 @@ $menu_cnt = count($menu);
 
 					<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"> 
 				<!-- <i class="fas fa-clipboard-list"></i></font></a> -->
-				<img src="<?php echo G5_URL?>/img/solid/clipboard-list.svg" class="svg-img" style="height :14px;" ></a> 
+					<img src="<?php echo G5_URL?>/img/solid/clipboard-list.svg" class="svg-img" style="height :14px;" ></a> 
 
 					<!-- <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
