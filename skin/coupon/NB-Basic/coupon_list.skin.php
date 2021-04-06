@@ -78,6 +78,7 @@ $delcnt=0;
 							data-type ='.$row1['cos_type']." 
                             data-code = ".$row1['cos_code']." 
                             data-entity = ".$row1['cos_entity']."
+							data-mb-id = ".$row1['mb_id']." 
                             data-nick = ".$row1['cos_nick']."  
                             data-no = ".$row1['cos_no']." 
                             data-co-no = ".$row1['co_no']." 
@@ -103,6 +104,7 @@ $delcnt=0;
                                                 <input type="hidden" name="cos_type" id="cos_type_d" value="<?php echo $row1['cos_type']; ?>">
                                                 <input type="hidden" name="cos_link" id="cos_link_d" value="<?php echo $bo_table; ?>">                           
                                                 <input type="hidden" name="cos_entity" id="cos_entity_d" value="<?php echo $row1['cos_entity']; ?>">
+												<input type="hidden" name="mb_id" id="mb_id_d" value="<?php echo $row1['mb_id']; ?>">
                                                 <input type="hidden" name="cos_nick" id="cos_nick_d" value="<?php echo $row1['cos_nick']; ?>">
                                                 <input type="hidden" name="cos_code" id="cos_code_d" value="<?php echo $row1['cos_code']; ?>">
                                                 <div style="text-align: center; line-height: 2;"><?php echo "[".$row1['cos_entity']."]"." ".$row1['cos_nick']." 회원 </br> 쿠폰을 회수하시겠습니까?" ?></div>					
@@ -128,7 +130,7 @@ $delcnt=0;
 						else if($row1['cos_alt_quantity'] > 0) { 
 							echo '<li><a data-toggle="modal" data-target="#couponAlert'.$altcnt.'" href="#couponAlert'.$altcnt.'" 
 							data-class="coupon-alert" style="color:red;" data-link = '.$bo_table.'>';
-							$sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row1['cos_nick']}'"; 
+							$sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE mb_id = '{$row1['mb_id']}'"; 
 							$row4 = sql_fetch($sql4);  
 							$res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE alt_created_datetime = '{$row4['maxdate']}' ";
 							$res1 = sql_fetch($res);
@@ -146,7 +148,7 @@ $delcnt=0;
 										</div> 	
 										<div class="modal-body" style="padding: 5px 0px;">
 											<?php 
-												$sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row1['cos_nick']}'"; 
+												$sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE mb_id = '{$row1['mb_id']}'"; 
 												$row4 = sql_fetch($sql4);  
 												$res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE alt_created_datetime = '{$row4['maxdate']}' ";
 												$res1 = sql_fetch($res);
@@ -154,6 +156,7 @@ $delcnt=0;
 											<div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
 											<div style="margin-left: 30px; margin-top: 5px;"><?php echo "현재 경고횟수 : ".$res1['cos_alt_quantity'];?>
 											<form id="fcouponalert<?php echo $altcnt; ?>" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+												<input type="hidden" name="mb_id" id="mb_id" value="<?php echo $row1['mb_id'];?>">
 												<input type="hidden" name="cos_nick" id="cos_nick" value="<?php echo $row1['cos_nick'];?>">
 												<input type="hidden" name="cos_entity" id="cos_entity" value="<?php echo $row1['cos_entity'];?>">
 												<input type="hidden" name="cos_link" id="cos_link" value="<?php echo $bo_table; ?>">

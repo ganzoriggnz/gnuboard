@@ -49,13 +49,13 @@ $sql_day_point = $attendance['day_point'];
 $sql_monthly_point = $attendance['monthly_point'];	
 $sql_year1_point = $attendance['year1_point'];	
 $sql_year2_point = $attendance['year2_point'];	
-$sql_year3_point = $attendance['year3_point'];	
+/* $sql_year3_point = $attendance['year3_point']; */	
 $sql_year_point = $attendance['year_point'];	
 $sql_day_cnt = $attendance['day'];	
 $sql_monthly_cnt = $attendance['monthly'];	
 $sql_year1_cnt = $attendance['year1'];	
 $sql_year2_cnt = $attendance['year2'];	
-$sql_year3_cnt = $attendance['year3'];	
+/* $sql_year3_cnt = $attendance['year3']; */	
 $sql_year_cnt = $attendance['year'];
 
 // 일일 포인트
@@ -71,7 +71,7 @@ if ($row['mb_id']) {
     $sql_reset2 = $row['reset2'] + 1;
     $sql_reset3 = $row['reset3'] + 1;
     $sql_reset4 = $row['reset4'] + 1;	
-    $sql_reset5 = $row['reset5'] + 1;	
+    /* $sql_reset5 = $row['reset5'] + 1; */	
     $sql_reset6 = $row['reset6'] + 1;
     
     if ($row['reset'] == $sql_day_cnt) { // 7일 개근	
@@ -91,10 +91,10 @@ if ($row['mb_id']) {
         $sql_reset4 = "0"; 	
         $sql_point  = $sql_point + $sql_year2_point;	
     }	
-    if ($row['reset5'] == $sql_year3_cnt) {  // 700일 개근	
+    /* if ($row['reset5'] == $sql_year3_cnt) {  // 700일 개근	
         $sql_reset5 = "0"; 	
         $sql_point  = $sql_point + $sql_year3_point;	
-    }	
+    } */	
     if ($row['reset6'] == $sql_year_cnt) {  // 1000일 개근	
         $sql_reset6 = "0"; 	
         $sql_day = "1";	
@@ -124,7 +124,7 @@ if ($row['mb_id']) {
     $sql_reset2 = "1";
     $sql_reset3 = "1";
     $sql_reset4 = "1";	
-    $sql_reset5 = "1";	
+    /* $sql_reset5 = "1"; */	
     $sql_reset6 = "1";
 }
 
@@ -158,8 +158,7 @@ $sql = " insert into $g5[attendance_table]
                 reset = '$sql_reset',
                 reset2 = '$sql_reset2',
                 reset3 = '$sql_reset3',
-                reset4 = '$sql_reset4',	
-                reset5 = '$sql_reset5',	
+                reset4 = '$sql_reset4',		
                 reset6 = '$sql_reset6',
                 point = '$sql_point',
 				rank = '$rank',			
@@ -169,7 +168,6 @@ sql_query($sql);
 
 // 출석 포인트 지급
 insert_point($member['mb_id'], (int)($sql_point * 1), "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
-
 
 // 완료
 alert("출석 체크 완료", "./m_attendance.php");

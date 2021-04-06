@@ -384,11 +384,11 @@ function dateGo(day)
 
 <script type="text/javascript">
 value=new Array();
-value[0]="밤의제국 트위터 https://twitter.com/bamje4 즐겨찾기"
-value[1]="밤의제국 바로가기 bamje.com 검색"
-value[2]="밤의제국 접속주소 bamje1.com 다음접속 주소는 bamje2.com 입니다."
-value[3]="밤의제국 접속 안될 시 bamje.com 에서 뒷부분 .com 앞에 숫자를 하나씩 늘려가며 접속해보시면 됩니다."
-value[4]="밤의제국 페이스북 facebook.com/밤의제국-108544554658520"
+value[0]="불타는 하루를 밤의제국(밤제)과 함께~"
+value[1]="달림정보 포탈 사이트 밤의제국(밤제) bamje1.com"
+value[2]="밤의제국 트위터 https://twitter.com/bamje4"
+value[3]="밤의제국 바로가기 bamje.com 검색"
+value[4]="밤의제국 접속주소 bamje1.com 다음접속 주소는 bamje2.com 입니다."
 rand = Math.floor( value.length * Math.random());
 randText = value[rand];
 document.getElementById("subject").value = randText;//$('#wr_text').html(randText);    
