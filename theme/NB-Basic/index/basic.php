@@ -93,21 +93,21 @@ if ($nt_wing_path)
                 <div class="px-3">
                     <?php include_once($search_skin_path . '/search2.skin.php'); ?>
                 </div>
-                <h3 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
+                <h1 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
                     쿠폰 지원업소
                     <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
                         <span class="float-right">
                             <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 쿠폰 지원업소 전체보기 -->
                         </span>
                     </a>
-                </h3>
+                </h1>
                 <hr class="hr px-3" style="margin-left: 1rem;margin-right: 1rem;"/>
                 <div class="px-3 px-sm-0 my-3">
                     <?php echo na_widget('basic-wr-coupon', 'coupon', 'bo_list=video ca_list=게임 rows=8'); ?>
                 </div>
 
                 <br>
-                <h3 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
+                <h1 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
 
                     신규 제휴 업소
                     <a href="<?php echo G5_URL?>/bbs/new_gallery.php">
