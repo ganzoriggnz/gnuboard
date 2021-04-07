@@ -58,7 +58,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_title_url.'/title.css">', 0);
 					<?php if($tset['page_icon']) { ?>
 						<i class="fa <?php echo $tset['page_icon'] ?>" aria-hidden="true"></i>
 					<?php } ?>
-					<strong><?php echo $page_title;?></strong>
+					<h1 style="font-size: 1.75rem;"><strong><?php echo $page_title;?></strong></h1>
 				</div>
 				<div class="align-self-end ml-auto d-sm-block">
 					<nav aria-label="breadcrumb" class="f-sm">
