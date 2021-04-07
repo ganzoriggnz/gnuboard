@@ -112,6 +112,13 @@ if($config['cf_add_meta'])
     echo $config['cf_add_meta'].PHP_EOL;
 ?>
 <meta name="google-site-verification" content="google84c593a17dec3cae">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="밤의제국 사이트 - ..">
+<meta property="og:description" 
+content="..나이트 엠파이어 사이트-나이트 엠파이어 사이트">
+<meta property="og:site_name" content="밤의제국 사이트">
+<meta property="og:url" content="https://bamje1.com/">
 <title><?php echo $g5_head_title; ?></title>
 <link rel="stylesheet" href="<?php echo NA_URL ?>/app/bs4/css/bootstrap<?php echo $default_css ?>.min.css" type="text/css">
 <link rel="stylesheet" href="<?php echo G5_JS_URL ?>/font-awesome/css/font-awesome.min.css" type="text/css">
