@@ -93,7 +93,7 @@ body::after{
     </header>
 
     <nav id="nt_menu" class="d-none d-md-block font-weight-normal">
-        <h3 class="sr-only">메인 메뉴</h3>
+        <h1 class="sr-only">메인 메뉴</h1>
         <div class="nt-container">
             <div class="d-flex" style="min-width: 1500px;">
                 <div class="flex-grow-1 order-2 me-list">
