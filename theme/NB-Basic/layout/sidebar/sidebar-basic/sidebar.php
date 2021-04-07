@@ -60,19 +60,19 @@ $menu_cnt = count($menu);
 		<div class="sidebar-wing-icon1">
 			
 			<a class="sidebar-wing-btn win_memo" href="<?php echo G5_URL?>/bbs/chat.php" target="_blank" title="채팅방" >
-				<img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;">
+				<img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;" alt="comment">
 			</a>
 			<a class="sidebar-wing-btn" href="https://www.facebook.com/%EB%B0%A4%EC%9D%98%EC%A0%9C%EA%B5%AD-108544554658520" target="_blank" title="페이스 북">
-				<img src="<?php echo G5_URL?>/img/solid/facebook-logo.svg" style="height: 14px;">
+				<img src="<?php echo G5_URL?>/img/solid/facebook-logo.svg" style="height: 14px;" alt="facebook-logo"/>
 			</a>
 			<a class="sidebar-wing-btn" href="https://twitter.com/bamje4" target="_blank" title="트위터">
-				<img src="<?php echo G5_URL?>/img/twitter.png">
+				<img src="<?php echo G5_URL?>/img/twitter.png" alt="twitter"/>
 			</a>
 			<?php if($is_member) { ?>
 				<a class="sidebar-wing-btn win_memo" href="<?php echo G5_BBS_URL?>/memo_friend.php?kind=friends" target="_blank" title="">
-				<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" ></a>
+				<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" alt="person-add"/></a>
 			<a class="sidebar-wing-btn win_memo" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
-				<img src="<?php echo G5_URL?>/img/icon_search.png" >
+				<img src="<?php echo G5_URL?>/img/icon_search.png" alt="icon_search"/>
 			</a>
 			<?php } ?>
 		</div>
@@ -103,11 +103,11 @@ $menu_cnt = count($menu);
 					<?php } ?> -->
 					<a href="<?php echo G5_ATTENDANCE_URL ?>/<?php echo  G5_IS_MOBILE ? "m_" : "" ?>attendance.php" class="btn btn-primary text-white" role="button">
 					<!-- <i class="fas fa-calendar-check"></i></font></a> -->					
-					<img src="<?php echo G5_URL?>/img/solid/calendar-check.svg"  style="height:14px; " ></a>
+					<img src="<?php echo G5_URL?>/img/solid/calendar-check.svg"  style="height:14px;" alt="calendar-check"/></a>
 
 					<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"> 
 				<!-- <i class="fas fa-clipboard-list"></i></font></a> -->
-					<img src="<?php echo G5_URL?>/img/solid/clipboard-list.svg" class="svg-img" style="height :14px;" ></a> 
+					<img src="<?php echo G5_URL?>/img/solid/clipboard-list.svg" class="svg-img" style="height :14px;" alt="clipboard-list"/></a> 
 
 					<!-- <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -248,7 +248,7 @@ $menu_cnt = count($menu);
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/content.php?co_id=company">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-						<img src="<?php echo G5_URL?>/img/solid/atlas.svg" style="height: 25px;">
+						<img src="<?php echo G5_URL?>/img/solid/atlas.svg" style="height: 25px;" alt="atlas"/>
 						</i>
 						
 						<span class="d-block mt-2">사이트안내</span>
@@ -257,14 +257,14 @@ $menu_cnt = count($menu);
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=event">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-						<img src="<?php echo G5_URL?>/img/solid/glass-cheers.svg" style="height: 25px;"></i>
+						<img src="<?php echo G5_URL?>/img/solid/glass-cheers.svg" style="height: 25px;" alt="glass-cheers"/></i>
 						<span class="d-block mt-2">이벤트</span>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/qalist.php">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-						<img src="<?php echo G5_URL?>/img/solid/handshake.svg" style="height: 25px;"></i>
+						<img src="<?php echo G5_URL?>/img/solid/handshake.svg" style="height: 25px;" alt="handshake"/></i>
 						<span class="d-block mt-2">1:1 문의</span>
 					</a>
 				</li>
@@ -278,7 +278,7 @@ $menu_cnt = count($menu);
 						<ul class="me-ul1 tree off">
 							<li class="me-li1 ">
 							<a href= "<?php echo G5_URL?>/bbs/board.php?bo_table=notice">
-							<img src="<?php echo G5_URL?>/img/solid/microphone.svg" style="height: 13px;">&nbsp;공지사항</a>
+							<img src="<?php echo G5_URL?>/img/solid/microphone.svg" style="height: 13px;" alt="microphone"/>&nbsp;공지사항</a>
 							</li>
 							<li class="me-li1 ">
 							<a href="<?php echo G5_URL?>/bbs/content.php?co_id=company"><img src="<?php echo G5_URL?>/img/solid/baseline-import_contacts-24px.png">&nbsp;사이트안내</a>

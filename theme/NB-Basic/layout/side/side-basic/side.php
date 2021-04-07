@@ -167,7 +167,7 @@ if($res_date['mb_4'] != ''){
     <!------------ 업체정보-start------------------------------ -->
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png">업체정보
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on"/>업체정보
     </li>
     <?php 
         for ($i=22; $i < 25; $i++) {            
@@ -192,7 +192,7 @@ if($res_date['mb_4'] != ''){
     <!------------ 기타 업체정보-start------------------------------ -->
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png">기타 업체정보
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on"/>기타 업체정보
     </li>
     <?php 
         for ($i=25; $i < 26; $i++) {            
@@ -225,7 +225,7 @@ if($res_date['mb_4'] != ''){
 ?>
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"> <?php echo $menu[$k]['text']?>
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on"/> <?php echo $menu[$k]['text']?>
     </li>
     <?php for ($i=0; $i < count($menu[$k]['s']); $i++) {
             $me = $menu[$k]['s'][$i];
@@ -240,7 +240,7 @@ if($res_date['mb_4'] != ''){
                 style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                 href="<?php echo $me['href']; ?>" target="_self"><img
                     src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
-                    style="height :14px;"><?php echo $me['text'];?>
+                    style="height :14px;" alt="<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>"/><?php echo $me['text'];?>
             </a>
         </div>
         <?php if ($i%2==1) { ?>
@@ -252,7 +252,7 @@ if($res_date['mb_4'] != ''){
                 { ?>
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png">밤의제국
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on"/>밤의제국
     </li>
     <li class="row mx-0 me-li<?php echo ($me['on']) ? ' active' : ''; ?>"> 
         <div class="col-6 m-0 px-0">
@@ -260,7 +260,7 @@ if($res_date['mb_4'] != ''){
                 style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : ''?>"
                 href="<?php if($member['mb_level']==27 || $is_admin) echo G5_BBS_URL.'/board.php?bo_table=work_board' ?>" target="_self" <?php if($member['mb_level']==26)  echo 'onclick=levelalert();'?>><img
                     src="<?php echo G5_URL?>/img/solid/headphones.svg"
-                    style="height :14px;"><?php echo $me_text; ?>
+                    style="height :14px;" alt="headphones"/><?php echo $me_text; ?>
             </a>
             <?php if($member['mb_level']==26) { ?>
             <script>

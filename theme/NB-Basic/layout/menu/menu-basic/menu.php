@@ -42,16 +42,16 @@ body::after{
             <!-- <h3 class="clearfix text-center f-mo font-weight-bold en"> -->
             <a href="<?php echo NT_HOME_URL ?>" class="float-left">
                 <!-- <i class="fa fa-home text-white" aria-hidden="true"></i> -->
-                <img src="<?php echo G5_URL?>/img/group_306.png">
+                <img src="<?php echo G5_URL?>/img/group_306.png" alt="home"/>
                 <span class="sr-only">메뉴</span>
             </a>
             <a href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" class="float-right">
                 <!-- <?php echo $tset['logo_text'] ?>  -->
-                <img src="<?php echo G5_URL?>/img/group_305.png">
+                <img src="<?php echo G5_URL?>/img/group_305.png" alt="list"/>
             </a>
             <div style="display: flex;">
                 <img style="margin-top: 5px; margin-right: auto; margin-left: auto;" id="logo_img3"
-                    src="<?php echo $tset['logo_img3'] ?>" alt="<?php echo get_text($config['cf_title']) ?>">
+                    src="<?php echo $tset['logo_img3'] ?>" alt="<?php echo get_text($config['cf_title']) ?>"/>
             </div>
             <!-- <a data-toggle="collapse" href="#search_mo" aria-expanded="false" aria-controls="search_mo" class="float-right">
 						<i class="fa fa-search text-white" aria-hidden="true"></i>
@@ -106,7 +106,7 @@ body::after{
                                 class="me-a f-md en nav-link <?php echo count($me['s'])>1 ? ' dropdown-toggle' : ''; ?>"
                                 href="<?php echo $me['href'];?>" target="<?php echo $me['target'];?>">
                                 <img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg"
-                                    style="height :14px; margin-left: 3.3px;">
+                                    style="height :14px; margin-left: 3.3px;" alt="<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>"/>
                                 <?php echo $me['text'];?>
                             </a>
                             <?php if(isset($me['s'])) { //Is Sub Menu ?>
@@ -131,7 +131,7 @@ body::after{
                                         class="dropdown-item <?php echo count($me1['s'])>1 ? ' dropdown-toggle' : ''?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : '';?>"
                                         target="<?php echo $me1['target'];?>">
                                         <img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>.svg"
-                                            style="height :14px;">
+                                            style="height:14px;" alt="<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>"/>
                                         <?php echo $me1['text'];?>
                                     </a>
                                     <?php if($member['mb_level']==26) { ?>
@@ -165,7 +165,7 @@ body::after{
                                                 target="<?php echo $me2['target'] ?>">
                                                 <!-- <i class="fa <?php echo $me2['icon'] ?> fa-fw" aria-hidden="true"></i> -->
                                                 <img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me2['icon'], 3, strlen($me2['icon'])) ?>.svg"
-                                                    style="height :14px;">
+                                                    style="height :14px;" alt="<?php echo substr($me2['icon'], 3, strlen($me2['icon'])) ?>"/>
                                                 <?php echo $me2['text'];?>
                                             </a>
                                         </li>
@@ -184,7 +184,7 @@ body::after{
                                         class="dropdown-item <?php echo count($me1['s'])>1 ? ' dropdown-toggle' : ''?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : '';?>"
                                         target="<?php echo $me1['target'];?>">
                                         <img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>.svg"
-                                            style="height :14px;">
+                                            style="height :14px;" alt="<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>"/>
                                         <?php echo $me1['text'];?>
                                     </a>
 
@@ -212,7 +212,7 @@ body::after{
                                                 target="<?php echo $me2['target'] ?>">
                                                 <!-- <i class="fa <?php echo $me2['icon'] ?> fa-fw" aria-hidden="true"></i> -->
                                                 <img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me2['icon'], 3, strlen($me2['icon'])) ?>.svg"
-                                                    style="height :14px;">
+                                                    style="height :14px;" alt="<?php echo substr($me2['icon'], 3, strlen($me2['icon'])) ?>"/>
                                                 <?php echo $me2['text'];?>
                                             </a>
                                         </li>
@@ -244,20 +244,20 @@ body::after{
                             style="display: flex; flex-direction: row; justify-content: space-between; width: <?php echo $is_member ? '27.3691%;' : '9.12103' ?>">
                             <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en win_memo" href="<?php echo G5_URL?>/bbs/chat.php" target="_self" title="채팅방참여">
-                                    <img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;"> 
+                                    <img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;" alt="comment"/> 
                                 </a>
                             </li>
                            
                             <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en" href="https://www.facebook.com/%EB%B0%A4%EC%9D%98%EC%A0%9C%EA%B5%AD-108544554658520" target="_blank" title="페이스 북">
                                     <!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
-                                    <img src="<?php echo G5_URL?>/img/solid/facebook-logo.svg" style="height: 14px;">
+                                    <img src="<?php echo G5_URL?>/img/solid/facebook-logo.svg" style="height: 14px;" alt="facebook-logo"/>
                                 </a>
                             </li>
                             <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en" href="https://twitter.com/bamje4" target="_blank" title="트위터">
                                     <!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
-                                    <img src="<?php echo G5_URL?>/img/twitter.png">
+                                    <img src="<?php echo G5_URL?>/img/twitter.png" alt="twitter"/>
                                 </a>
                             </li>
 
@@ -273,13 +273,13 @@ body::after{
                             <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en win_memo" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
                                     <!--<i class="fa fa-search" aria-hidden="true"></i>-->
-                                    <img src="<?php echo G5_URL?>/img/icon_search.png">
+                                    <img src="<?php echo G5_URL?>/img/icon_search.png" alt="icon_search"/>
                                 </a>
                             </li>
                             <li class="col p-0 me-li me-icon right_border">
                                 <a class="me-a f-md en" href="<?php echo G5_URL?>/bbs/noti.php" target="_self" title="알림확인">
                                     <!--<i class="fa fa-bell" aria-hidden="true"></i>-->
-                                    <img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png">
+                                    <img src="<?php echo G5_URL?>/img/baseline-notifications-24px.png" alt="baseline-notifications"/>
                                     <?php if(IS_NA_NOTI) { // 알림 ?>
                                     <?php if ($member['as_noti']) { ?><b
                                         style="color: red"><?php echo number_format($member['as_noti']) ?></b><?php } ?>
@@ -291,7 +291,7 @@ body::after{
                                 <a class="me-a f-md en win_memo" href="<?php echo G5_BBS_URL?>/memo.php" target="_blank"
                                     role="button" title="쪽지">
                                     <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-                                    <img src="<?php echo G5_URL?>/img/baseline-email-24px.png">
+                                    <img src="<?php echo G5_URL?>/img/baseline-email-24px.png" alt="baseline-email"/>
                                     <!-- maild irsen too -------------------------------------------------------sadf as df -->
                                     <?php if ($member['mb_memo_cnt']) { ?><b
                                         style="color: red"><?php echo number_format($member['mb_memo_cnt']);?></b><?php } ?>
@@ -304,7 +304,7 @@ body::after{
                                     href="<?php echo G5_BBS_URL?>/memo_friend.php?kind=friends" target="_blank"
                                     title="친구추가">
                                     <i class="fa fa-app-store" aria-hidden="true"></i>
-                                    <img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png">
+                                    <img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" alt="person-add"/>
                                 </a>
                             </li>
                            
@@ -315,14 +315,14 @@ body::after{
                 <div class="me-icon order-1 me-li<?php echo ($is_index) ? ' on' : ' on'; ?>" style="width:43px;">
                     <a href="<?php echo NT_HOME_URL ?>" class="me-a f-md" title="메인화면">
                         <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
-                        <img src="<?php echo G5_URL?>/img/house.png">
+                        <img src="<?php echo G5_URL?>/img/house.png" alt="house"/>
                     </a>
                 </div>
                 <div class="me-icon order-3 me-li on" style="width:43px;">
                     <a href="javascript:;" onclick="sidebar_open('sidebar-menu'); return false;" class="me-a f-md"
                         title="마이메뉴">
                         <!-- <i class="fa fa-toggle-on" aria-hidden="true"></i> -->
-                        <img src="<?php echo G5_URL?>/img/menu.png">
+                        <img src="<?php echo G5_URL?>/img/menu.png" alt="menu"/>
                     </a>
                 </div>
             </div>
@@ -369,7 +369,7 @@ body::after{
                                     class="sub-a<?php echo ($me1['on']) ? ' on text-primary' : '';?>"
                                     target="<?php echo $me1['target'];?>">
                                     <img src="<?php echo G5_URL?>/img/solid/<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>.svg"
-                                        style="height :14px;" aria-hidden="true">
+                                        style="height :14px;" aria-hidden="true" alt="<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>"/>
                                     <!-- <i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i> -->
                                     <?php echo $me1['text'];?>
                                 </a>
