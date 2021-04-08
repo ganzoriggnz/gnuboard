@@ -5,7 +5,8 @@ global $config, $g5_head_title, $bo_table, $view, $it, $co, $pset, $tset;
 
 // SEO 설정
 $author = na_get_text($config['cf_title']);
-$image = na_url($tset['seo_img']);
+/* $image = na_url($tset['seo_img']); */
+$image = "";
 $desc = $tset['seo_desc'];
 $keys = $tset['seo_keys'];
 
