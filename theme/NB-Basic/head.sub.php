@@ -41,7 +41,7 @@ $body_class .= ($tset['line']) ? ' is-line' : '';
 if(G5_IS_MOBILE) {
 	$fontset = ($tset['font']) ? 'mobile/'.$tset['font'] : 'mobile/Default-15px';
 } else {
-	$fontset = ($tset['font']) ? $tset['font'] : 'theme.css';
+	$fontset = ($tset['font']) ? $tset['font'] : '';
 }
 
 // 컬러셋

@@ -82,22 +82,22 @@ if($desc) {
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="website">
 <meta property="og:rich_attachment" content="true">
-<meta property="og:site_name" content="<?php echo $config['cf_title'] ?>">
+<!-- <meta property="og:site_name" content="<?php echo $config['cf_title'] ?>"> -->
 <meta property="og:title" content="<?php echo $g5_head_title ?>">
 <meta property="og:description" content="<?php echo $desc ?>">
 <meta property="og:keywords" content="<?php echo $keys ?>">
-<meta property="og:image" content="<?php echo $image ?>">
-<meta property="og:url" content="<?php echo $pset['href'] ?>">
+<!-- <meta property="og:image" content="<?php echo $image ?>"> -->
+<!-- <meta property="og:url" content="<?php echo $pset['href'] ?>"> -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="<?php echo $config['cf_title'] ?>">
 <meta name="twitter:title" content="<?php echo $g5_head_title ?>">
 <meta name="twitter:description" content="<?php echo $desc ?>">
 <meta name="twitter:keywords" content="<?php echo $keys ?>">
-<meta name="twitter:image" content="<?php echo $image ?>">
+<!-- <meta name="twitter:image" content="<?php echo $image ?>"> -->
 <meta name="twitter:creator" content="<?php echo $author ?>">
 <meta itemprop="name" content="<?php echo $g5_head_title ?>">
 <meta itemprop="description" content="<?php echo $desc ?>">
 <meta itemprop="keywords" content="<?php echo $keys ?>">
-<meta itemprop="image" content="<?php echo $image ?>">
+<!-- <meta itemprop="image" content="<?php echo $image ?>"> -->
 <meta name="apple-mobile-web-app-title" content="<?php echo $config['cf_title'] ?>">
 <link rel="canonical" href="<?php echo $pset['href'] ?>">
