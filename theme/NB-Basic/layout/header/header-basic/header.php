@@ -28,8 +28,9 @@ NT_HOME_URL = 'https://bamje1.com'; */
 				<!-- PC Logo -->
 				<div class="header-logo">
 					<a href="<?php echo NT_HOME_URL ?>">
-					<div class="top"><img id="logo_img1" src="<?php echo $tset['logo_img1'] ?>" alt="<?php echo get_text($config['cf_title']) ?>"></div>
-					<div class="bottom"><img id="logo_img2" src="<?php echo $tset['logo_img2'] ?>" alt="<?php echo get_text($config['cf_title']) ?>"></div>
+					<?php if (NT_HOME_URL != 'https://dkswjs-tjdrhd.com'){ echo 
+					'<div class="top"><img id="logo_img1" src="'.$tset['logo_img1'].'" alt="'.get_text($config['cf_title']).'"></div>
+					<div class="bottom"><img id="logo_img2" src="'.$tset['logo_img2'].'" alt="'.get_text($config['cf_title']).'"></div>'; } ?>
 					</a>
 				</div>
 			</div>
