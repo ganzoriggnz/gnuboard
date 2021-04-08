@@ -108,8 +108,8 @@ if (G5_IS_MOBILE) {
 
 }
 
-if($config['cf_add_meta'])
-    echo $config['cf_add_meta'].PHP_EOL;
+/* if($config['cf_add_meta'])
+    echo $config['cf_add_meta'].PHP_EOL; */
 ?>
 <!-- <meta name="google-site-verification" content="google84c593a17dec3cae"> -->
 <!-- <meta property="og:locale" content="ko_KR">
