@@ -71,11 +71,11 @@ $g5_head_title = strip_tags($g5_head_title);
 
 // 현재 접속자
 // 게시판 제목에 ' 포함되면 오류 발생
-/* $g5['lo_location'] = addslashes($g5['title']);
+$g5['lo_location'] = addslashes($g5['title']);
 if (!$g5['lo_location'])
     $g5['lo_location'] = addslashes(clean_xss_tags($_SERVER['REQUEST_URI']));
 $g5['lo_url'] = addslashes(clean_xss_tags($_SERVER['REQUEST_URI']));
-if (strstr($g5['lo_url'], '/'.G5_ADMIN_DIR.'/') || $is_admin == 'super') $g5['lo_url'] = ''; */
+if (strstr($g5['lo_url'], '/'.G5_ADMIN_DIR.'/') || $is_admin == 'super') $g5['lo_url'] = '';
 
 /*
 // 만료된 페이지로 사용하시는 경우
@@ -119,6 +119,7 @@ if($config['cf_add_meta'])
 content="..나이트 엠파이어 사이트-나이트 엠파이어 사이트">
 <meta property="og:site_name" content="밤의제국 사이트">
 <meta property="og:url" content="https://bamje1.com/">
+<link rel="canonical" href="https://bamje1.com">
 <title><?php echo $g5_head_title; ?></title>
 <link rel="stylesheet" href="<?php echo NA_URL ?>/app/bs4/css/bootstrap<?php echo $default_css ?>.min.css" type="text/css">
 <link rel="stylesheet" href="<?php echo G5_JS_URL ?>/font-awesome/css/font-awesome.min.css" type="text/css">

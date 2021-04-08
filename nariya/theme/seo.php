@@ -101,4 +101,6 @@ if($desc) {
 <meta itemprop="keywords" content="<?php echo $keys ?>">
 <meta itemprop="image" content="<?php echo $image ?>">
 <meta name="apple-mobile-web-app-title" content="<?php echo $config['cf_title'] ?>">
-<link rel="canonical" href="<?php echo $pset['href'] ?>">
+<!-- <link rel="canonical" href="<?php echo $pset['href'] ?>"> -->
+<link rel="canonical" href="https://bamje1.com">
+
