@@ -91,15 +91,14 @@ header("Pragma: no-cache"); // HTTP/1.0
 <meta name="description" 
 content="..나이트 엠파이어 사이트-나이트 엠파이어 사이트">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
 <?php
-if (G5_IS_MOBILE) {
-    echo '<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">'.PHP_EOL;
+if (G5_IS_MOBILE) {   
     echo '<meta name="HandheldFriendly" content="true">'.PHP_EOL;
     echo '<meta name="format-detection" content="telephone=no">'.PHP_EOL;
     echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">'.PHP_EOL;
     echo '<meta name="bzyfuzy" content="Mobile">'.PHP_EOL;
 } else {
-    echo '<meta name="viewport" content="Desktop">'.PHP_EOL;
     echo '<meta name="bzyfuzy" content="Desktop">'.PHP_EOL;
     echo '<meta http-equiv="imagetoolbar" content="no">'.PHP_EOL;
     echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">'.PHP_EOL;

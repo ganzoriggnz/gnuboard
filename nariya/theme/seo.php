@@ -73,7 +73,7 @@ if($desc) {
 }
 
 ?>
-<!-- <meta http-equiv="content-language" content="kr">
+<meta http-equiv="content-language" content="kr">
 <meta name="robots" content="index,follow">
 <meta name="title" content="<?php echo $g5_head_title ?>">
 <meta name="author" content="<?php echo $author ?>">
@@ -100,4 +100,4 @@ if($desc) {
 <meta itemprop="keywords" content="<?php echo $keys ?>">
 <meta itemprop="image" content="<?php echo $image ?>">
 <meta name="apple-mobile-web-app-title" content="<?php echo $config['cf_title'] ?>">
-<link rel="canonical" href="<?php echo $pset['href'] ?>"> -->
+<link rel="canonical" href="<?php echo $pset['href'] ?>">
