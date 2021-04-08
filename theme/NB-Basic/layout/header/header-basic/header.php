@@ -16,8 +16,8 @@ body::after{
 </style>";
 }
 
-G5_URL = 'https://bamje1.com';
-NT_HOME_URL = 'https://bamje1.com';
+/* G5_URL = 'https://bamje1.com';
+NT_HOME_URL = 'https://bamje1.com'; */
 ?>
 
 <!-- PC Header -->
