@@ -90,7 +90,6 @@ header("Pragma: no-cache"); // HTTP/1.0
 <meta charset="utf-8">
 <meta name="description" 
 content="..나이트 엠파이어 사이트-나이트 엠파이어 사이트">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <?php
 if (G5_IS_MOBILE) {
     echo '<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">'.PHP_EOL;
@@ -100,6 +99,7 @@ if (G5_IS_MOBILE) {
     echo '<meta name="bzyfuzy" content="Mobile">'.PHP_EOL;
 } else {
     echo '<meta name="viewport" content="Desktop">'.PHP_EOL;
+    echo '<meta name="bzyfuzy" content="Desktop">'.PHP_EOL;
     echo '<meta http-equiv="imagetoolbar" content="no">'.PHP_EOL;
     echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">'.PHP_EOL;
     echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">'.PHP_EOL;
@@ -114,10 +114,10 @@ if($config['cf_add_meta'])
 <meta name="google-site-verification" content="google84c593a17dec3cae">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="website">
-<meta property="og:title" content="bamje1.com 사이트 - ..">
+<meta property="og:title" content="밤의제국 사이트 - ..">
 <meta property="og:description" 
 content="..나이트 엠파이어 사이트-나이트 엠파이어 사이트">
-<meta property="og:site_name" content="bamje1.com 사이트">
+<meta property="og:site_name" content="밤의제국 사이트">
 <meta property="og:url" content="https://bamje1.com/">
 <title><?php echo $g5_head_title; ?></title>
 <link rel="stylesheet" href="<?php echo NA_URL ?>/app/bs4/css/bootstrap<?php echo $default_css ?>.min.css" type="text/css">
