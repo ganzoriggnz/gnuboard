@@ -42,7 +42,7 @@ header("Pragma: no-cache"); // HTTP/1.0
 <head>
 <meta charset="utf-8">
 <?php
-if (G5_IS_MOBILE) {
+/* if (G5_IS_MOBILE) {
     echo '<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">'.PHP_EOL;
     echo '<meta name="HandheldFriendly" content="true">'.PHP_EOL;
     echo '<meta name="format-detection" content="telephone=no">'.PHP_EOL;
@@ -57,7 +57,7 @@ if (G5_IS_MOBILE) {
 
 }
 
-/* if($config['cf_add_meta'])
+if($config['cf_add_meta'])
     echo $config['cf_add_meta'].PHP_EOL; */
 ?>
 <title><?php echo $g5_head_title; ?></title>
