@@ -26,7 +26,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="<?php echo G5_URL?>/img/baseline-portrait-24px.png" alt="portrait" style="margin-right: 5px; border-color: #707070;" >
+                <img src="<?php echo G5_URL?>/img/baseline-portrait-24px.png" alt="portrait1" style="margin-right: 5px; border-color: #707070;" >
                 <a href="<?php echo G5_URL?>/bbs/member_list.php" style="color: #BFAF88;">회원검색</a>
             </div>
         </div>
@@ -38,7 +38,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="<?php echo G5_URL?>/img/baseline-wc-24px.png" alt="wc" style="margin-right: 5px; border-color: #707070;" >
+                <img src="<?php echo G5_URL?>/img/baseline-wc-24px.png" alt="이벤트1" style="margin-right: 5px; border-color: #707070;" >
                 <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=event" style="color: #BFAF88;">이벤트</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
@@ -50,7 +50,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
         <div style="padding: 0px 14px;">
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
-                <img src="<?php echo G5_URL?>/img/baseline-adb-24px.png" alt="adb" style="margin-right: 5px; border-color: #707070;" >
+                <img src="<?php echo G5_URL?>/img/baseline-adb-24px.png" alt="펫" style="margin-right: 5px; border-color: #707070;" >
                 <a href="<?php echo G5_BBS_URL ?>/pet.php" style="color: #BFAF88;">펫 기르기</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">

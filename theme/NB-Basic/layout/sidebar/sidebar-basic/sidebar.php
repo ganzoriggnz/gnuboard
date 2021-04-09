@@ -248,23 +248,22 @@ $menu_cnt = count($menu);
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/content.php?co_id=company">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-						<img src="<?php echo G5_URL?>/img/solid/atlas.svg" style="height: 25px;" alt="atlas"/>
-						</i>
-						
+						<img src="<?php echo G5_URL?>/img/solid/atlas.svg" style="height: 25px;" alt="사이트안내"/>
+						</i>		
 						<span class="d-block mt-2">사이트안내</span>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=event">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-						<img src="<?php echo G5_URL?>/img/solid/glass-cheers.svg" style="height: 25px;" alt="glass-cheers"/></i>
+						<img src="<?php echo G5_URL?>/img/solid/glass-cheers.svg" style="height: 25px;" alt="이벤트1"/></i>
 						<span class="d-block mt-2">이벤트</span>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/qalist.php">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-						<img src="<?php echo G5_URL?>/img/solid/handshake.svg" style="height: 25px;" alt="handshake"/></i>
+						<img src="<?php echo G5_URL?>/img/solid/handshake.svg" style="height: 25px;" alt="문의"/></i>
 						<span class="d-block mt-2">1:1 문의</span>
 					</a>
 				</li>
@@ -281,28 +280,28 @@ $menu_cnt = count($menu);
 							<img src="<?php echo G5_URL?>/img/solid/microphone.svg" style="height: 13px;" alt="microphone"/>&nbsp;공지사항</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/content.php?co_id=company"><img src="<?php echo G5_URL?>/img/solid/baseline-import_contacts-24px.png">&nbsp;사이트안내</a>
+							<a href="<?php echo G5_URL?>/bbs/content.php?co_id=company"><img src="<?php echo G5_URL?>/img/solid/baseline-import_contacts-24px.png" alt="사이트안내">&nbsp;사이트안내</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/member_list.php" ><img src="<?php echo G5_URL?>/img/solid/portrait.svg"  style="height: 13px; width: ">&nbsp;회원검색</a>
+							<a href="<?php echo G5_URL?>/bbs/member_list.php" ><img src="<?php echo G5_URL?>/img/solid/portrait.svg" alt="회원검색" style="height: 13px; width: ">&nbsp;회원검색</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=shop" ><img src="<?php echo G5_URL?>/img/solid/gift.svg"  style="height: 13px;">&nbsp;아이템 샵</a>
+							<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=shop" ><img src="<?php echo G5_URL?>/img/solid/gift.svg" alt="아이템 샵" style="height: 13px;">&nbsp;아이템 샵</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=event" ><img src="<?php echo G5_URL?>/img/solid/baseline-wc-24px.png">&nbsp;이벤트</a>
+							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=event" ><img src="<?php echo G5_URL?>/img/solid/baseline-wc-24px.png" alt="이벤트">&nbsp;이벤트</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=partnership" ><img src="<?php echo G5_URL?>/img/solid/comment-alt.svg"  style="height: 13px;">&nbsp;제휴문의</a>
+							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=partnership" ><img src="<?php echo G5_URL?>/img/solid/comment-alt.svg" alt="제휴문의" style="height: 13px;">&nbsp;제휴문의</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_BBS_URL ?>/pet.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-adb-24px.png"  style="height: 13px;">&nbsp;펫 기르기</a>
+							<a href="<?php echo G5_BBS_URL ?>/pet.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-adb-24px.png" alt="펫" style="height: 13px;">&nbsp;펫 기르기</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_BBS_URL ?>/mission.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-ballot-24px.png" style="height: 13px;" >&nbsp;일일미션</a>
+							<a href="<?php echo G5_BBS_URL ?>/mission.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-ballot-24px.png" alt="일일미션" style="height: 13px;" >&nbsp;일일미션</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=free" ><img src="<?php echo G5_URL?>/img/solid/clone.svg"  style="height: 13px;">&nbsp;자유게시판</a>
+							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=free" ><img src="<?php echo G5_URL?>/img/solid/clone.svg" alt="자유게시판" style="height: 13px;">&nbsp;자유게시판</a>
 							</li>
 							<!-- <li class="me-li1 ">
 							<a href="<?php echo G5_BBS_URL?>/point.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-swap_horizontal_circle-24px.png"  >&nbsp;파운드페니로전환</a>
