@@ -211,7 +211,7 @@ if ($nt_wing_path)
                     <h4 style="display: none;">당신의 즐거운 밤을 책임지는 밤의제국의 블로그4</h4>
                     <h5 style="display: none;">당신의 즐거운 밤을 책임지는 밤의제국의 블로그5</h5>
                     <h6 style="display: none;">당신의 즐거운 밤을 책임지는 밤의제국의 블로그6</h6>
-                    <p style="display: none;">그렇지만 난 어머니를 못 울려도, 딸의 마음을 느끼기만 한다면 계속 해서 노력 할 거다. </p>
+                    <p style="display: none;">밤의제국 bamje1 그렇지만 난 어머니를 못 울려도, 딸의 마음을 느끼기만 한다면 계속 해서 노력 할 거다. </p>
                     <p style="display: none;">그 이후로 매년 나는 더 비싼 선물로 어머니를 기쁘게 하려고 노력 했지만. 울지 않았습니다.</p>
                     <nav id="bo_cate_index" style="margin-bottom: 20px;">
                         <ul id="bo_cate_ul">
