@@ -206,7 +206,7 @@ if ($nt_wing_path)
                     }    
                 
                     ?>    
-
+                    <h1 style="display: none;">Heading 1</h1>
                     <nav id="bo_cate_index" style="margin-bottom: 20px;">
                         <ul id="bo_cate_ul">
                             <?php echo $category_option ?>
