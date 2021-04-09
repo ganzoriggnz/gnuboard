@@ -217,21 +217,21 @@ if ($nt_wing_path)
                         </ul>
                     </nav>
                     <?php include_once($search_skin_path . '/search2.skin.php'); ?>
-                    <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
+                    <h1 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
                         쿠폰 지원업소
                         <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
                             <span class="float-right">
                                 <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 쿠폰 지원업소 전체보기 -->
                             </span>
                         </a>
-                    </h3>
+                    </h1>
                     <hr class="hr" />
                     <div class="px-3 px-sm-0 my-3">
                         <?php echo na_widget('basic-wr-coupon', 'coupon', 'bo_list=video ca_list=게임 rows=8'); ?>
                     </div>
 
                     <br>
-                    <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
+                    <h1 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
 
                         신규 제휴 업소
                         <a href="<?php echo G5_URL?>/bbs/new_gallery.php">
@@ -239,7 +239,7 @@ if ($nt_wing_path)
                                 <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 신규제휴업소 전체보기 -->
                             </span>
                         </a>
-                    </h3>
+                    </h1>
                     <hr class="hr" />
                     <div class="px-3 px-sm-0 my-3">
                         <?php echo na_widget('basic-wr-gallery', 'gallery-1', 'bo_list=video ca_list=게임 rows=8'); ?>
