@@ -93,13 +93,13 @@ if ($nt_wing_path)
                 <div class="px-3">
                     <?php include_once($search_skin_path . '/search2.skin.php'); ?>
                 </div>
-                <h3 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
+                <h3 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
                     쿠폰 지원업소
-                    <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
+                    <!-- <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
                         <span class="float-right">
-                            <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 쿠폰 지원업소 전체보기 -->
+                            <i class="fa fa-heartbeat" style="color:#FF007F"></i> 쿠폰 지원업소 전체보기
                         </span>
-                    </a>
+                    </a> -->
                 </h3>
                 <hr class="hr px-3" style="margin-left: 1rem;margin-right: 1rem;"/>
                 <div class="px-3 px-sm-0 my-3">
@@ -107,14 +107,13 @@ if ($nt_wing_path)
                 </div>
 
                 <br>
-                <h3 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
-
+                <h3 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
                     신규 제휴 업소
-                    <a href="<?php echo G5_URL?>/bbs/new_gallery.php">
+                    <!-- <a href="<?php echo G5_URL?>/bbs/new_gallery.php">
                         <span class="float-right">
-                            <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 신규제휴업소 전체보기 -->
+                            <i class="fa fa-heartbeat" style="color:#FF007F"></i> 신규제휴업소 전체보기
                         </span>
-                    </a>
+                    </a> -->
                 </h3>
                 <hr class="hr" style="margin-left: 1rem;margin-right: 1rem;" />
                 <div class="px-3 px-sm-0 my-3">
@@ -221,11 +220,11 @@ if ($nt_wing_path)
                     <?php include_once($search_skin_path . '/search2.skin.php'); ?>
                     <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
                         쿠폰 지원업소
-                        <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
+                        <!-- <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
                             <span class="float-right">
-                                <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 쿠폰 지원업소 전체보기 -->
-                            </span>
-                        </a>
+                                <i class="fa fa-heartbeat" style="color:#FF007F"></i> 쿠폰 지원업소 전체보기
+                            </span>                           
+                        </a> -->
                     </h3>
                     <hr class="hr" />
                     <div class="px-3 px-sm-0 my-3">
@@ -234,13 +233,12 @@ if ($nt_wing_path)
 
                     <br>
                     <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
-
                         신규 제휴 업소
-                        <a href="<?php echo G5_URL?>/bbs/new_gallery.php">
+                        <!-- <a href="<?php echo G5_URL?>/bbs/new_gallery.php">
                             <span class="float-right">
-                                <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 신규제휴업소 전체보기 -->
+                                <i class="fa fa-heartbeat" style="color:#FF007F"></i>
                             </span>
-                        </a>
+                        </a> -->
                     </h3>
                     <hr class="hr" />
                     <div class="px-3 px-sm-0 my-3">
