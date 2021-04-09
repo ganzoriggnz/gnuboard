@@ -98,6 +98,8 @@ if (G5_IS_MOBILE) {
     echo '<meta name="format-detection" content="telephone=no">'.PHP_EOL;
     echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">'.PHP_EOL;
     echo '<meta name="bzyfuzy" content="Mobile">'.PHP_EOL;
+    echo '<link rel="apple-touch-icon" href="/apple-touch-icon.png" />'.PHP_EOL;
+    echo '<link rel="icon" sizes="192x192" href="/icon.png">'.PHP_EOL;
 } else {
     echo '<meta name="bzyfuzy" content="Desktop">'.PHP_EOL;
     echo '<meta http-equiv="imagetoolbar" content="no">'.PHP_EOL;

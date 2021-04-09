@@ -4,7 +4,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 global $config, $g5_head_title, $bo_table, $view, $it, $co, $pset, $tset;
 
 // 대표이미지
-$image = na_url($tset['seo_img']);
+/* $image = na_url($tset['seo_img']);
 $desc = $tset['seo_desc'];
 $keys = $tset['seo_key'];
 
@@ -77,10 +77,10 @@ if($desc) {
 
 } else {
 	return;
-}
+} */
 
 ?>
-<meta http-equiv="content-language" content="kr">
+<!-- <meta http-equiv="content-language" content="kr">
 <meta name="robots" content="index,follow">
 <meta name="title" content="<?php echo $g5_head_title ?>">
 <meta name="author" content="<?php echo $config['cf_title'];?>">
@@ -107,4 +107,4 @@ if($desc) {
 <meta itemprop="keyowrds" content="<?php echo $keys ?>">
 <meta itemprop="image" content="<?php echo $image ?>">
 <meta name="apple-mobile-web-app-title" content="<?php echo $config['cf_title'] ?>">
-<link rel="canonical" href="<?php echo $pset['href'] ?>">
+<link rel="canonical" href="<?php echo $pset['href'] ?>"> -->
