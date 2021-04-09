@@ -195,13 +195,12 @@ function insert_nickname($wer)
 				
 				<a href="<?php echo G5_ATTENDANCE_URL ?>/attendance.php" class="btn btn-primary text-white" role="button">
 					<!-- <i class="fas fa-calendar-check"></i></font></a> -->					
-					<img src="<?php echo G5_URL?>/img/solid/calendar-check.svg"  style="height:14px; " ></a>
+					<img src="<?php echo G5_URL?>/img/solid/calendar-check.svg" alt="calendar-check" style="height:14px;"/></a>
 				
 				<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"> 
 				<!-- <i class="fas fa-clipboard-list"></i></font></a> -->
-				<img src="<?php echo G5_URL?>/img/solid/clipboard-list.svg" class="svg-img" style="height :14px;  " ></a> 
+				<img src="<?php echo G5_URL?>/img/solid/clipboard-list.svg" alt="clipboard-list" class="svg-img" style="height :14px;"/></a> 
 					
-
 			<!-- <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
 				<i class="fa fa-envelope" aria-hidden="true"></i>
 				<?php if ($member['mb_memo_cnt']) { ?><b><?php echo number_format($member['mb_memo_cnt']);?></b><?php } ?>
@@ -289,16 +288,16 @@ function insert_nickname($wer)
 				<div class="input-group">
 					<input type="text" name="mb_id" id="outlogin_mb_id" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="아이디">
 					<div class="input-group-append">
-						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width:30px;"><img src="<?php echo G5_URL."/img/portrait.png" ?>" ></span>
+						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width:30px;"><img src="<?php echo G5_URL."/img/portrait.png" ?>" alt="portrait"></span>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="outlogin_mb_password" class="sr-only">비밀번호<strong class="sr-only"> 필수</strong></label>
 				<div class="input-group">
-					<input type="password" name="mb_password" id="outlogin_mb_password" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="비밀번호">
+					<input type="password" name="mb_password" id="outlogin_mb_password" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="비밀번호">``	
 					<div class="input-group-append">
-						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width: 30px;"><img src="<?php echo G5_URL."/img/combined_shape.png" ?>"></span>
+						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width: 30px;"><img src="<?php echo G5_URL."/img/combined_shape.png" ?>" alt="combined-shape"></span>
 					</div>
 				</div>
             </div>
