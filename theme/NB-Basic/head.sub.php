@@ -88,12 +88,12 @@ header("Pragma: no-cache"); // HTTP/1.0
 <html lang="ko" class="<?php echo (G5_IS_MOBILE) ? 'is-mobile' : 'is-pc'; ?>">
 <head>
 <meta charset="utf-8">
-<meta name="description" 
+<!-- <meta name="description" 
 content="#밤의제국 #밤제 #오피 #건마 #휴게텔 #안마 #풀싸롱 #룸싸롱 #키스방 #립카페 #핸플 #패티쉬 #출장마사지 #파워볼 #홀덤 #오피쓰 #오피가이드 #오피스타">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes"> -->
 <?php
-if (G5_IS_MOBILE) {   
+/* if (G5_IS_MOBILE) {   
     echo '<meta name="HandheldFriendly" content="true">'.PHP_EOL;
     echo '<meta name="format-detection" content="telephone=no">'.PHP_EOL;
     echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">'.PHP_EOL;
@@ -108,10 +108,10 @@ if (G5_IS_MOBILE) {
 
 }
 
-/* if($config['cf_add_meta'])
+if($config['cf_add_meta'])
     echo $config['cf_add_meta'].PHP_EOL; */
 ?>
-<meta name="google-site-verification" content="google84c593a17dec3cae">
+<!-- <meta name="google-site-verification" content="google84c593a17dec3cae">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="website">
 <meta property="og:title" content="밤의제국 사이트 - ..">
@@ -119,7 +119,7 @@ if (G5_IS_MOBILE) {
 content="..나이트 엠파이어 사이트-나이트 엠파이어 사이트">
 <meta property="og:site_name" content="밤의제국 사이트">
 <meta property="og:url" content="https://bamje1.com/">
-<link rel="canonical" href="https://bamje1.com">
+<link rel="canonical" href="https://bamje1.com"> -->
 <title><?php echo $g5_head_title; ?></title>
 <link rel="stylesheet" href="<?php echo NA_URL ?>/app/bs4/css/bootstrap<?php echo $default_css ?>.min.css" type="text/css">
 <link rel="stylesheet" href="<?php echo G5_JS_URL ?>/font-awesome/css/font-awesome.min.css" type="text/css">
