@@ -129,7 +129,7 @@ if($res_date['mb_4'] != ''){
 ?>
     <li class="me-li"
         style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
-        <img src="<?php echo G5_URL?>/img/img-flag5-on.png"><?php echo $listd[$k]['name']; ?> 업체정보
+        <img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on"><?php echo $listd[$k]['name']; ?> 업체정보
     </li>
     <?php 
         for ($i=0; $i < 22; $i++) {
