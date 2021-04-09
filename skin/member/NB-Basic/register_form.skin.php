@@ -58,7 +58,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				</div>
 				<?php if ($req_nick) { ?>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_nick">닉네임<strong class="sr-only">필수</strong></label>
+						<label class="col-sm-2 col-form-label" for="reg_mb_nick">닉네임<!-- <strong class="sr-only">필수</strong> --></label>
 						<div class="col-sm-4">
 							<input type="hidden" name="mb_nick_default" value="<?php echo isset($member['mb_nick']) ? get_text($member['mb_nick']) : ''; ?>">
 							<input type="text" name="mb_nick" value="<?php echo isset($member['mb_nick']) ? get_text($member['mb_nick']) : ''; ?>" id="reg_mb_nick" required class="form-control nospace required">
@@ -82,7 +82,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					</div>
 				<?php } ?>
 				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" for="reg_mb_id">아이디<strong class="sr-only">필수</strong></label>
+					<label class="col-sm-2 col-form-label" for="reg_mb_id">아이디<!-- <strong class="sr-only">필수</strong> --></label>
 					<div class="col-sm-4">
 						<input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" <?php echo $required ?> <?php echo $readonly ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
 					</div>
@@ -95,20 +95,20 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				</div>
 
 				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" for="reg_mb_password">비밀번호<strong class="sr-only">필수</strong></label>
+					<label class="col-sm-2 col-form-label" for="reg_mb_password">비밀번호<!-- <strong class="sr-only">필수</strong> --></label>
 					<div class="col-sm-4">
 						<input type="password" name="mb_password" id="reg_mb_password" <?php echo $required ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
 					</div>
 					
 				</div>
 				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" for="reg_mb_password_re">비밀번호 확인<strong class="sr-only">필수</strong></label>
+					<label class="col-sm-2 col-form-label" for="reg_mb_password_re">비밀번호 확인<!-- <strong class="sr-only">필수</strong> --></label>
 					<div class="col-sm-4">
 						<input type="password" name="mb_password_re" id="reg_mb_password_re" <?php echo $required ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" for="reg_mb_email">E-mail<strong class="sr-only">필수</strong></label>
+					<label class="col-sm-2 col-form-label" for="reg_mb_email">E-mail<!-- <strong class="sr-only">필수</strong> --></label>
 					<div class="col-sm-4">
 						<input type="hidden" name="old_email" value="<?php echo $member['mb_email'] ?>">
 						<input type="text" name="mb_email" value="<?php echo isset($member['mb_email'])? $member['mb_email']:''; ?>" id="reg_mb_email"  class="form-control email " size="70" maxlength="100">
@@ -170,7 +170,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				
 
 				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" for="reg_mb_name">이름<strong class="sr-only">필수</strong></label>
+					<label class="col-sm-2 col-form-label" for="reg_mb_name">이름<!-- <strong class="sr-only">필수</strong> --></label>
 					<div class="col-sm-4">
 						<input type="hidden" id="reg_mb_name" name="mb_name" value="공백"  <?php echo $required ?> <?php echo $readonly ?> class="form-control <?php echo $required ?>">
 					</div>
@@ -205,7 +205,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<?php } ?>
 
 				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" for="reg_mb_email">E-mail<strong class="sr-only">필수</strong></label>
+					<label class="col-sm-2 col-form-label" for="reg_mb_email">E-mail<!-- <strong class="sr-only">필수</strong> --></label>
 					<div class="col-sm-10">
 						<input type="hidden" name="old_email" value="<?php echo $member['mb_email'] ?>">
 						<input type="hidden" name="mb_email" value="<?php echo isset($member['mb_email'])?$member['mb_email']:''; ?>" id="reg_mb_email"  class="form-control email " size="70" maxlength="100">
@@ -224,7 +224,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 				<?php if ($config['cf_use_homepage']) { ?>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_homepage">홈페이지<?php if ($config['cf_req_homepage']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
+						<label class="col-sm-2 col-form-label" for="reg_mb_homepage">홈페이지<?php if ($config['cf_req_homepage']) { ?><!-- <strong class="sr-only">필수</strong> --><?php } ?></label>
 						<div class="col-sm-10">
 							<input type="text" name="mb_homepage" value="<?php echo get_text($member['mb_homepage']) ?>" id="reg_mb_homepage" <?php echo $config['cf_req_homepage'] ? "required" : ""; ?> class="form-control <?php echo $config['cf_req_homepage'] ? "required" : ""; ?>" maxlength="255">
 						</div>
@@ -233,7 +233,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 				<?php if ($config['cf_use_tel']) { ?>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_tel">전화번호<?php if ($config['cf_req_tel']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
+						<label class="col-sm-2 col-form-label" for="reg_mb_tel">전화번호<?php if ($config['cf_req_tel']) { ?><!-- <strong class="sr-only">필수</strong> --><?php } ?></label>
 						<div class="col-sm-4">
 							<input type="text" name="mb_tel" value="<?php echo get_text($member['mb_tel']) ?>" id="reg_mb_tel" <?php echo $config['cf_req_tel'] ? "required" : ""; ?> class="form-control <?php echo $config['cf_req_tel'] ? "required" : ""; ?>" maxlength="20">
 						</div>
@@ -242,7 +242,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 				<?php if ($config['cf_use_hp'] || $config['cf_cert_hp']) { ?>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_hp">휴대폰번호<?php if ($config['cf_req_hp']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
+						<label class="col-sm-2 col-form-label" for="reg_mb_hp">휴대폰번호<?php if ($config['cf_req_hp']) { ?><!-- <strong class="sr-only">필수</strong> --><?php } ?></label>
 						<div class="col-sm-4">
 							<input type="text" name="mb_hp" value="<?php echo get_text($member['mb_hp']) ?>" id="reg_mb_hp" <?php echo ($config['cf_req_hp']) ? "required" : ""; ?> class="form-control <?php echo ($config['cf_req_hp']) ? "required" : ""; ?>" maxlength="20">
 							<?php if ($config['cf_cert_use'] && $config['cf_cert_hp']) { ?>
@@ -254,7 +254,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 				<?php if ($config['cf_use_addr']) { ?>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">주소<?php if ($config['cf_req_addr']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
+						<label class="col-sm-2 col-form-label">주소<?php if ($config['cf_req_addr']) { ?><!-- <strong class="sr-only">필수</strong> --><?php } ?></label>
 						<div class="col-sm-4">
 							<div class="input-group mb-2">
 								<div class="input-group-prepend">
@@ -322,7 +322,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 			<li class="list-group-item pt-3 pt-sm-4" style="display: none;">
 				<?php if ($config['cf_use_signature']) { ?>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_signature">서명<?php if ($config['cf_req_signature']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
+						<label class="col-sm-2 col-form-label" for="reg_mb_signature">서명<?php if ($config['cf_req_signature']) { ?><!-- <strong class="sr-only">필수</strong> --><?php } ?></label>
 						<div class="col-sm-10">
 							<textarea name="mb_signature" rows="5" id="reg_mb_signature" <?php echo $config['cf_req_signature'] ? "required" : ""; ?> class="form-control <?php echo $config['cf_req_signature'] ? "required" : ""; ?>"><?php echo $member['mb_signature'] ?></textarea>
 						</div>
@@ -331,7 +331,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 				<?php if ($config['cf_use_profile']) { ?>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label" for="reg_mb_profile">자기소개<?php if ($config['cf_req_profile']) { ?><strong class="sr-only">필수</strong><?php } ?></label>
+						<label class="col-sm-2 col-form-label" for="reg_mb_profile">자기소개<?php if ($config['cf_req_profile']) { ?><!-- <strong class="sr-only">필수</strong> --><?php } ?></label>
 						<div class="col-sm-10">
 							<textarea name="mb_profile" rows="5" id="reg_mb_profile" <?php echo $config['cf_req_profile'] ? "required" : ""; ?> class="form-control <?php echo $config['cf_req_profile'] ? "required" : ""; ?>"><?php echo $member['mb_profile'] ?></textarea>
 						</div>

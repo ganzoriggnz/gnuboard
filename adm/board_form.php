@@ -93,7 +93,7 @@ if ($w == '') {
     $html_title .= ' 생성';
     $required = 'required';
     $required_valid = 'alnum_';
-    $sound_only = '<strong class="sound_only">필수</strong>';
+    $sound_only = '<!-- <strong class="sound_only">필수</strong> -->';
     $board['bo_count_delete'] = 1;
     $board['bo_count_modify'] = 1;
     $board['bo_read_point'] = $config['cf_read_point'];
@@ -231,7 +231,7 @@ $pg_anchor = '<ul class="anchor">
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><label for="gr_id">그룹<strong class="sound_only">필수</strong></label></th>
+                        <th scope="row"><label for="gr_id">그룹<!-- <strong class="sound_only">필수</strong> --></label></th>
                         <td colspan="2">
                             <?php echo get_group_select('gr_id', $board['gr_id'], 'required'); ?>
                             <?php if ($w=='u') { ?><a
@@ -240,7 +240,7 @@ $pg_anchor = '<ul class="anchor">
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><label for="bo_subject">게시판 제목<strong class="sound_only">필수</strong></label>
+                        <th scope="row"><label for="bo_subject">게시판 제목<!-- <strong class="sound_only">필수</strong> --></label>
                         </th>
                         <td colspan="2">
                             <input type="text" name="bo_subject" value="<?php echo get_text($board['bo_subject']) ?>"
@@ -976,7 +976,7 @@ $pg_anchor = '<ul class="anchor">
                 </colgroup>
                 <tbody>
                     <tr>
-                        <th scope="row"><label for="bo_skin">스킨 디렉토리<strong class="sound_only">필수</strong></label></th>
+                        <th scope="row"><label for="bo_skin">스킨 디렉토리<!-- <strong class="sound_only">필수</strong> --></label></th>
                         <td>
                             <?php echo get_skin_select('board', 'bo_skin', 'bo_skin', $board['bo_skin'], 'required'); ?>
                         </td>
@@ -1114,7 +1114,7 @@ $pg_anchor = '<ul class="anchor">
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><label for="bo_subject_len">제목 길이<strong class="sound_only">필수</strong></label>
+                        <th scope="row"><label for="bo_subject_len">제목 길이<!-- <strong class="sound_only">필수</strong> --></label>
                         </th>
                         <td>
                             <?php echo help('목록에서의 제목 글자수. 잘리는 글은 … 로 표시') ?>
@@ -1259,7 +1259,7 @@ $pg_anchor = '<ul class="anchor">
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><label for="bo_table_width">게시판 폭<strong class="sound_only">필수</strong></label>
+                        <th scope="row"><label for="bo_table_width">게시판 폭<!-- <strong class="sound_only">필수</strong> --></label>
                         </th>
                         <td>
                             <?php echo help('100 이하는 %') ?>
@@ -1289,7 +1289,7 @@ $pg_anchor = '<ul class="anchor">
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><label for="bo_new">새글 아이콘<strong class="sound_only">필수</strong></label></th>
+                        <th scope="row"><label for="bo_new">새글 아이콘<!-- <strong class="sound_only">필수</strong> --></label></th>
                         <td>
                             <?php echo help('글 입력후 new 이미지를 출력하는 시간. 0을 입력하시면 아이콘을 출력하지 않습니다.') ?>
                             <input type="text" name="bo_new" value="<?php echo $board['bo_new'] ?>" id="bo_new" required
@@ -1303,7 +1303,7 @@ $pg_anchor = '<ul class="anchor">
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><label for="bo_hot">인기글 아이콘<strong class="sound_only">필수</strong></label></th>
+                        <th scope="row"><label for="bo_hot">인기글 아이콘<!-- <strong class="sound_only">필수</strong> --></label></th>
                         <td>
                             <?php echo help('조회수가 설정값 이상이면 hot 이미지 출력. 0을 입력하시면 아이콘을 출력하지 않습니다.') ?>
                             <input type="text" name="bo_hot" value="<?php echo $board['bo_hot'] ?>" id="bo_hot" required
@@ -1393,7 +1393,7 @@ $pg_anchor = '<ul class="anchor">
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><label for="bo_read_point">글읽기 포인트<strong class="sound_only">필수</strong></label>
+                        <th scope="row"><label for="bo_read_point">글읽기 포인트<!-- <strong class="sound_only">필수</strong> --></label>
                         </th>
                         <td>
                             <input type="text" name="bo_read_point" value="<?php echo $board['bo_read_point'] ?>"

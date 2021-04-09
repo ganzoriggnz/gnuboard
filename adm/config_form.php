@@ -327,22 +327,22 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
         </colgroup>
         <tbody>
         <tr>
-            <th scope="row"><label for="cf_title">홈페이지 제목<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_title">홈페이지 제목<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td colspan="3"><input type="text" name="cf_title" value="<?php echo get_sanitize_input($config['cf_title']); ?>" id="cf_title" required class="required frm_input" size="40"></td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_admin">최고관리자<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_admin">최고관리자<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td colspan="3"><?php echo get_member_id_select('cf_admin', 10, $config['cf_admin'], 'required') ?></td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_admin_email">관리자 메일 주소<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_admin_email">관리자 메일 주소<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td colspan="3">
                 <?php echo help('관리자가 보내고 받는 용도로 사용하는 메일 주소를 입력합니다. (회원가입, 인증메일, 테스트, 회원메일발송 등에서 사용)') ?>
                 <input type="text" name="cf_admin_email" value="<?php echo $config['cf_admin_email'] ?>" id="cf_admin_email" required class="required email frm_input" size="40">
             </td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_admin_email_name">관리자 메일 발송이름<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_admin_email_name">관리자 메일 발송이름<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td colspan="3">
                 <?php echo help('관리자가 보내고 받는 용도로 사용하는 메일의 발송이름을 입력합니다. (회원가입, 인증메일, 테스트, 회원메일발송 등에서 사용)') ?>
                 <input type="text" name="cf_admin_email_name" value="<?php echo $config['cf_admin_email_name'] ?>" id="cf_admin_email_name" required class="required frm_input" size="40">
@@ -353,12 +353,12 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
             <td colspan="3"><input type="checkbox" name="cf_use_point" value="1" id="cf_use_point" <?php echo $config['cf_use_point']?'checked':''; ?>> 사용</td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_login_point">로그인시 포인트<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_login_point">로그인시 포인트<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo help('회원이 로그인시 하루에 한번만 적립') ?>
                 <input type="text" name="cf_login_point" value="<?php echo $config['cf_login_point'] ?>" id="cf_login_point" required class="required frm_input" size="5"> 점
             </td>
-            <th scope="row"><label for="cf_memo_send_point">쪽지보낼시 차감 포인트<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_memo_send_point">쪽지보낼시 차감 포인트<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                  <?php echo help('양수로 입력하십시오. 0점은 쪽지 보낼시 포인트를 차감하지 않습니다.') ?>
                 <input type="text" name="cf_memo_send_point" value="<?php echo $config['cf_memo_send_point'] ?>" id="cf_memo_send_point" required class="required frm_input" size="5"> 점
@@ -425,47 +425,47 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
             </td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_write_pages">페이지 표시 수<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_write_pages">페이지 표시 수<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td><input type="text" name="cf_write_pages" value="<?php echo $config['cf_write_pages'] ?>" id="cf_write_pages" required class="required numeric frm_input" size="3"> 페이지씩 표시</td>
-            <th scope="row"><label for="cf_mobile_pages">모바일 페이지 표시 수<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_mobile_pages">모바일 페이지 표시 수<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td><input type="text" name="cf_mobile_pages" value="<?php echo $config['cf_mobile_pages'] ?>" id="cf_mobile_pages" required class="required numeric frm_input" size="3"> 페이지씩 표시</td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_new_skin">최근게시물 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_new_skin">최근게시물 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_skin_select('new', 'cf_new_skin', 'cf_new_skin', $config['cf_new_skin'], 'required'); ?>
             </td>
-            <th scope="row"><label for="cf_mobile_new_skin">모바일<br>최근게시물 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_mobile_new_skin">모바일<br>최근게시물 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_mobile_skin_select('new', 'cf_mobile_new_skin', 'cf_mobile_new_skin', $config['cf_mobile_new_skin'], 'required'); ?>
             </td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_search_skin">검색 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_search_skin">검색 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_skin_select('search', 'cf_search_skin', 'cf_search_skin', $config['cf_search_skin'], 'required'); ?>
             </td>
-            <th scope="row"><label for="cf_mobile_search_skin">모바일 검색 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_mobile_search_skin">모바일 검색 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_mobile_skin_select('search', 'cf_mobile_search_skin', 'cf_mobile_search_skin', $config['cf_mobile_search_skin'], 'required'); ?>
             </td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_connect_skin">접속자 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_connect_skin">접속자 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_skin_select('connect', 'cf_connect_skin', 'cf_connect_skin', $config['cf_connect_skin'], 'required'); ?>
             </td>
-            <th scope="row"><label for="cf_mobile_connect_skin">모바일 접속자 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_mobile_connect_skin">모바일 접속자 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_mobile_skin_select('connect', 'cf_mobile_connect_skin', 'cf_mobile_connect_skin', $config['cf_mobile_connect_skin'], 'required'); ?>
             </td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_faq_skin">FAQ 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_faq_skin">FAQ 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_skin_select('faq', 'cf_faq_skin', 'cf_faq_skin', $config['cf_faq_skin'], 'required'); ?>
             </td>
-            <th scope="row"><label for="cf_mobile_faq_skin">모바일 FAQ 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_mobile_faq_skin">모바일 FAQ 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_mobile_skin_select('faq', 'cf_mobile_faq_skin', 'cf_mobile_faq_skin', $config['cf_mobile_faq_skin'], 'required'); ?>
             </td>
@@ -486,7 +486,7 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
             </td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_captcha">캡챠 선택<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_captcha">캡챠 선택<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td colspan="3">
                 <?php echo help('사용할 캡챠를 선택합니다.<br>1) Kcaptcha 는 그누보드5의 기본캡챠입니다. ( 문자입력 )<br>2) reCAPTCHA V2 는 구글에서 서비스하는 원클릭 형식의 간편한 캡챠입니다. ( 모바일 친화적 UI )<br>3) Invisible reCAPTCHA 는 구글에서 서비스하는 안보이는 형식의 캡챠입니다. ( 간혹 퀴즈를 풀어야 합니다. )<br>') ?>
                 <select name="cf_captcha" id="cf_captcha" required class="required">
@@ -497,7 +497,7 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
             </td>
         </tr>
         <tr class="kcaptcha_mp3">
-            <th scope="row"><label for="cf_captcha_mp3">음성캡챠 선택<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_captcha_mp3">음성캡챠 선택<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td colspan="3">
                 <?php echo help('kcaptcha 사용시 '.str_replace(array('recaptcha_inv', 'recaptcha'), 'kcaptcha', G5_CAPTCHA_URL).'/mp3 밑의 음성 폴더를 선택합니다.') ?>
                 <select name="cf_captcha_mp3" id="cf_captcha_mp3" required class="required">
@@ -603,7 +603,7 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
         </colgroup>
         <tbody>
         <tr>
-            <th scope="row"><label for="cf_delay_sec">글쓰기 간격<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_delay_sec">글쓰기 간격<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td><input type="text" name="cf_delay_sec" value="<?php echo $config['cf_delay_sec'] ?>" id="cf_delay_sec" required class="required numeric frm_input" size="3"> 초 지난후 가능</td>
             <th scope="row"><label for="cf_link_target">새창 링크</label></th>
             <td>
@@ -617,7 +617,7 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
             </td>
         </tr>
         <tr>
-            <th scope="row"><label for="cf_read_point">글읽기 포인트<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_read_point">글읽기 포인트<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td><input type="text" name="cf_read_point" value="<?php echo $config['cf_read_point'] ?>" id="cf_read_point" required class="required frm_input" size="3"> 점</td>
             <th scope="row"><label for="cf_write_point">글쓰기 포인트</label></th>
             <td><input type="text" name="cf_write_point" value="<?php echo $config['cf_write_point'] ?>" id="cf_write_point" required class="required frm_input" size="3"> 점</td>
@@ -683,11 +683,11 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
         </colgroup>
         <tbody>
         <tr>
-            <th scope="row"><label for="cf_member_skin">회원 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_member_skin">회원 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_skin_select('member', 'cf_member_skin', 'cf_member_skin', $config['cf_member_skin'], 'required'); ?>
             </td>
-            <th scope="row"><label for="cf_mobile_member_skin">모바일<br>회원 스킨<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="cf_mobile_member_skin">모바일<br>회원 스킨<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td>
                 <?php echo get_mobile_skin_select('member', 'cf_mobile_member_skin', 'cf_mobile_member_skin', $config['cf_mobile_member_skin'], 'required'); ?>
             </td>

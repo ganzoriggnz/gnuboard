@@ -34,7 +34,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					</li>
 					<div class="form-group has-feedback text-gap">
 
-						<label class="col-sm-2 control-label" for="reg_mb_1"><b>성별</b><strong class="sound_only">필수</strong></label>
+						<label class="col-sm-2 control-label" for="reg_mb_1"><b>성별</b><!-- <strong class="sound-only">필수</strong> --></label>
 
 						<div class="col-sm-3">
 
@@ -51,7 +51,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 						<li>
 							<label for="reg_mb_nick">
-								닉네임<strong class="sound_only">필수</strong>
+								닉네임<!-- <strong class="sound-only">필수</strong> -->
 								<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
 								<span class="tooltip">공백없이 한글,영문,숫자만 입력 가능 (한글2자, 영문4자 이상)<br> 닉네임을 바꾸시면 앞으로 <?php echo (int)$config['cf_nick_modify'] ?>일 이내에는 변경 할 수 없습니다.</span>
 							</label>
@@ -64,7 +64,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					<?php }  ?>
 					<li>
 						<label for="reg_mb_id">
-							아이디<strong class="sound_only">필수</strong>
+							아이디<!-- <strong class="sound-only">필수</strong> -->
 							<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
 							<span class="tooltip">영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력하세요.</span>
 						</label>
@@ -72,7 +72,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 						<span id="msg_mb_id"></span>
 					</li>
 					<li>
-						<label for="reg_mb_email">E-mail<strong class="sound_only">필수</strong>
+						<label for="reg_mb_email">E-mail<!-- <strong class="sound-only">필수</strong> -->
 
 							<?php if ($config['cf_use_email_certify']) {  ?>
 								<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
@@ -92,11 +92,11 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 					</li>
 					<li class="half_input left_input margin_input">
-						<label for="reg_mb_password">비밀번호<strong class="sound_only">필수</strong></label>
+						<label for="reg_mb_password">비밀번호<!-- <strong class="sound-only">필수</strong> --></label>
 						<input type="password" name="mb_password" id="reg_mb_password" <?php echo $required ?> class="frm_input full_input <?php echo $required ?>" minlength="3" maxlength="20" placeholder="비밀번호">
 					</li>
 					<li class="half_input left_input">
-						<label for="reg_mb_password_re">비밀번호 확인<strong class="sound_only">필수</strong></label>
+						<label for="reg_mb_password_re">비밀번호 확인<!-- <strong class="sound-only">필수</strong> --></label>
 						<input type="password" name="mb_password_re" id="reg_mb_password_re" <?php echo $required ?> class="frm_input full_input <?php echo $required ?>" minlength="3" maxlength="20" placeholder="비밀번호 확인">
 					</li>
 					<li class="is_captcha_use">
@@ -110,7 +110,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<h2>개인정보 입력</h2>
 				<ul>
 					<li>
-						<label for="reg_mb_name">이름<strong class="sound_only">필수</strong></label>
+						<label for="reg_mb_name">이름<!-- <strong class="sound-only">필수</strong> --></label>
 						<input type="hidden" id="reg_mb_name" name="mb_name" value="공백" <?php echo $required ?> <?php echo $readonly; ?> class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?>" size="10" placeholder="이름">
 						<?php
 						if ($config['cf_cert_use']) {
@@ -144,7 +144,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 						<?php if ($config['cf_use_homepage']) {  ?>
 					<li>
-						<label for="reg_mb_homepage">홈페이지<?php if ($config['cf_req_homepage']) { ?><strong class="sound_only">필수</strong><?php } ?></label>
+						<label for="reg_mb_homepage">홈페이지<?php if ($config['cf_req_homepage']) { ?><!-- <strong class="sound-only">필수</strong> --><?php } ?></label>
 						<input type="text" name="mb_homepage" value="<?php echo get_text($member['mb_homepage']) ?>" id="reg_mb_homepage" <?php echo $config['cf_req_homepage'] ? "required" : ""; ?> class="frm_input full_input <?php echo $config['cf_req_homepage'] ? "required" : ""; ?>" size="70" maxlength="255" placeholder="홈페이지">
 					</li>
 				<?php }  ?>
@@ -152,13 +152,13 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<li>
 					<?php if ($config['cf_use_tel']) {  ?>
 
-						<label for="reg_mb_tel">전화번호<?php if ($config['cf_req_tel']) { ?><strong class="sound_only">필수</strong><?php } ?></label>
+						<label for="reg_mb_tel">전화번호<?php if ($config['cf_req_tel']) { ?><!-- <strong class="sound-only">필수</strong> --><?php } ?></label>
 						<input type="text" name="mb_tel" value="<?php echo get_text($member['mb_tel']) ?>" id="reg_mb_tel" <?php echo $config['cf_req_tel'] ? "required" : ""; ?> class="frm_input full_input <?php echo $config['cf_req_tel'] ? "required" : ""; ?>" maxlength="20" placeholder="전화번호">
 					<?php }  ?>
 				</li>
 				<li>
 					<?php if ($config['cf_use_hp'] || $config['cf_cert_hp']) {  ?>
-						<label for="reg_mb_hp">휴대폰번호<?php if ($config['cf_req_hp']) { ?><strong class="sound_only">필수</strong><?php } ?></label>
+						<label for="reg_mb_hp">휴대폰번호<?php if ($config['cf_req_hp']) { ?><!-- <strong class="sound-only">필수</strong> --><?php } ?></label>
 
 						<input type="text" name="mb_hp" value="<?php echo get_text($member['mb_hp']) ?>" id="reg_mb_hp" <?php echo ($config['cf_req_hp']) ? "required" : ""; ?> class="frm_input full_input <?php echo ($config['cf_req_hp']) ? "required" : ""; ?>" maxlength="20" placeholder="휴대폰번호">
 						<?php if ($config['cf_cert_use'] && $config['cf_cert_hp']) { ?>
@@ -170,7 +170,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<?php if ($config['cf_use_addr']) { ?>
 					<li>
 						<label>주소</label>
-						<?php if ($config['cf_req_addr']) { ?><strong class="sound_only">필수</strong><?php }  ?>
+						<?php if ($config['cf_req_addr']) { ?><!-- <strong class="sound-only">필수</strong> --><?php }  ?>
 						<label for="reg_mb_zip" class="sound_only">우편번호<?php echo $config['cf_req_addr'] ? '<strong class="sound_only"> 필수</strong>' : ''; ?></label>
 						<input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'] . $member['mb_zip2']; ?>" id="reg_mb_zip" <?php echo $config['cf_req_addr'] ? "required" : ""; ?> class="frm_input twopart_input <?php echo $config['cf_req_addr'] ? "required" : ""; ?>" size="5" maxlength="6" placeholder="우편번호">
 						<button type="button" class="btn_frmline" onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소 검색</button><br>
@@ -192,7 +192,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<ul>
 					<?php if ($config['cf_use_signature']) {  ?>
 						<li>
-							<label for="reg_mb_signature">서명<?php if ($config['cf_req_signature']) { ?><strong class="sound_only">필수</strong><?php } ?></label>
+							<label for="reg_mb_signature">서명<?php if ($config['cf_req_signature']) { ?><!-- <strong class="sound-only">필수</strong> --><?php } ?></label>
 							<textarea name="mb_signature" id="reg_mb_signature" <?php echo $config['cf_req_signature'] ? "required" : ""; ?> class="<?php echo $config['cf_req_signature'] ? "required" : ""; ?>" placeholder="서명"><?php echo $member['mb_signature'] ?></textarea>
 						</li>
 					<?php }  ?>

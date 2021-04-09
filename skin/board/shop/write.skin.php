@@ -53,14 +53,14 @@ $write_max = 100;
         <tbody>
         <?php if ($is_name) { ?>
         <tr>
-            <th scope="row"><label for="wr_name">이름<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="wr_name">이름<!-- <strong class="sound-only">필수</strong> --></label></th>
             <td><input type="text" name="wr_name" value="<?php echo $name ?>" id="wr_name" required class="frm_input required" size="10" maxlength="20"></td>
         </tr>
         <?php } ?>
 
         <?php if ($is_password) { ?>
         <tr>
-            <th scope="row"><label for="wr_password">패스워드<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="wr_password">패스워드<!-- <strong class="sound-only">필수</strong> --></label></th>
             <td><input type="password" name="wr_password" id="wr_password" <?php echo $password_required ?> class="frm_input <?php echo $password_required ?>" maxlength="20"></td>
         </tr>
         <?php } ?>
@@ -81,7 +81,7 @@ $write_max = 100;
 
         <?php if ($is_category) { ?>
         <tr>
-            <th scope="row"><label for="ca_name">분류<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="ca_name">분류<!-- <strong class="sound-only">필수</strong> --></label></th>
             <td>
                 <select name="ca_name" id="ca_name" required class="required" >
                     <option value="">선택하세요</option>
@@ -95,7 +95,7 @@ $write_max = 100;
 		<?php if($w == "u") { ?>
 		<input type="hidden" name="wr_9" value="<?php echo $write['wr_9'] ?>"> <?php } ?>
         <tr>
-            <th scope="row"><label for="wr_subject">상품명<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="wr_subject">상품명<!-- <strong class="sound-only">필수</strong> --></label></th>
             <td>
                 <div id="autosave_wrapper">
                     <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input required" size="50" maxlength="255">
@@ -114,7 +114,7 @@ $write_max = 100;
         </tr>
 
         <tr>
-            <th scope="row"><label for="wr_1">가격<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="wr_1">가격<!-- <strong class="sound-only">필수</strong> --></label></th>
             <td>
                 <div id="autosave_wrapper">
                     <input type="text" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required   onkeydown="this.value=this.value.replace(/[^0-9]/g,'')" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onblur="this.value=this.value.replace(/[^0-9]/g,'')" class="frm_input required" size="10" maxlength="255">원 
@@ -123,7 +123,7 @@ $write_max = 100;
         </tr>
 
         <tr>
-            <th scope="row"><label for="wr_2">배송료<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="wr_2">배송료<!-- <strong class="sound-only">필수</strong> --></label></th>
             <td>
                 <div id="autosave_wrapper">
                     <input type="text" name="wr_2" value="<?php echo $write['wr_2'] ?>" id="wr_2" required   onkeydown="this.value=this.value.replace(/[^0-9]/g,'')" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onblur="this.value=this.value.replace(/[^0-9]/g,'')" class="frm_input required" size="10" maxlength="255">원
@@ -131,7 +131,7 @@ $write_max = 100;
             </td>
         </tr>
         <tr>
-            <th scope="row"><label for="wr_3">too <strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="wr_3">too <!-- <strong class="sound-only">필수</strong> --></label></th>
             <td>
                 <div id="autosave_wrapper">
                     <input type="text" name="wr_3" value="<?php echo $write['wr_3'] ?>" id="wr_3" required   onkeydown="this.value=this.value.replace(/[^0-9]/g,'')" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onblur="this.value=this.value.replace(/[^0-9]/g,'')" class="frm_input required" size="10" maxlength="255">원
@@ -140,7 +140,7 @@ $write_max = 100;
         </tr>
 
         <tr>
-            <th scope="row"><label for="wr_8">배송료 계산<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="wr_8">배송료 계산<!-- <strong class="sound-only">필수</strong> --></label></th>
             <td>
                 <div id="autosave_wrapper">
 					<input type="radio" name="wr_8" value="1"   class="frm_input required"  <?php  if($write['wr_8'] == 1)  echo "checked"; else "";?>> 묶음 배송 불가(개별 계산) <input type="radio" name="wr_8" value="2"  class="frm_input required"  <?php  if($write['wr_8'] == 2 || $write['wr_8'] ==  "")  echo "checked"; else "";?>> 묶음 배송(낮은 가격 한번) 
@@ -150,7 +150,7 @@ $write_max = 100;
 
 
         <tr>
-            <th scope="row"><label for="wr_10">상태<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="wr_10">상태<!-- <strong class="sound-only">필수</strong> --></label></th>
             <td>
                 <div id="autosave_wrapper">
 				<?php  if($write['wr_10'] == "Open" || $write['wr_10'] == "") $e = "checked"; else $f = "checked"; ?>
@@ -160,7 +160,7 @@ $write_max = 100;
         </tr>
 
         <tr>
-            <th scope="row"><label for="wr_content">소개<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="wr_content">소개<!-- <strong class="sound-only">필수</strong> --></label></th>
             <td class="wr_content">
                 <?php if($write_min || $write_max) { ?>
                 <!-- 최소/최대 글자 수 사용 시 -->

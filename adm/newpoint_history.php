@@ -208,15 +208,15 @@ function point_clear()
         </colgroup>
         <tbody>
         <tr>
-            <th scope="row"><label for="mb_id">회원아이디<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="mb_id">회원아이디<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td><input type="text" name="mb_id" value="<?php echo $mb_id ?>" id="mb_id" class="required frm_input" required></td>
         </tr>
         <tr>
-            <th scope="row"><label for="po_content">포인트 내용<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="po_content">포인트 내용<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td><input type="text" name="po_content" id="po_content" required class="required frm_input" size="80"></td>
         </tr>
         <tr>
-            <th scope="row"><label for="po_point">포인트<strong class="sound_only">필수</strong></label></th>
+            <th scope="row"><label for="po_point">포인트<!-- <strong class="sound_only">필수</strong> --></label></th>
             <td><input type="text" name="po_point" id="po_point" required class="required frm_input"></td>
         </tr>
         <?php if($config['cf_point_term'] > 0) { ?>
