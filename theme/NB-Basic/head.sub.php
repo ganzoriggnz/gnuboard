@@ -90,8 +90,7 @@ header("Pragma: no-cache"); // HTTP/1.0
 <meta charset="utf-8">
 <meta name="description" 
 content="#밤의제국 #밤제 #오피 #건마 #휴게텔 #안마 #풀싸롱 #룸싸롱 #키스방 #립카페 #핸플 #패티쉬 #출장마사지 #파워볼 #홀덤 #오피쓰 #오피가이드 #오피스타">
-<!-- <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"> -->
-<meta name="robots" content="noindex">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
 <?php
 if (G5_IS_MOBILE) {   
