@@ -119,7 +119,7 @@ if($config['cf_add_meta'])
 content="..나이트 엠파이어 사이트-나이트 엠파이어 사이트">
 <meta property="og:site_name" content="밤의제국 사이트">
 <meta property="og:url" content="https://bamje1.com/">
-<link rel="canonical" href="https://bamje1.com">
+<link rel="canonical" href="<?php echo G5?>/bbs/board.php">
 <title><?php echo $g5_head_title; ?></title>
 <link rel="stylesheet" href="<?php echo NA_URL ?>/app/bs4/css/bootstrap<?php echo $default_css ?>.min.css" type="text/css">
 <link rel="stylesheet" href="<?php echo G5_JS_URL ?>/font-awesome/css/font-awesome.min.css" type="text/css">
