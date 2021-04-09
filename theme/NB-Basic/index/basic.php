@@ -93,21 +93,21 @@ if ($nt_wing_path)
                 <div class="px-3">
                     <?php include_once($search_skin_path . '/search2.skin.php'); ?>
                 </div>
-                <h1 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
+                <h3 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
                     쿠폰 지원업소
                     <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
                         <span class="float-right">
                             <!-- <i class="fa fa-heartbeat" style="color:#FF007F"></i> 쿠폰 지원업소 전체보기 -->
                         </span>
                     </a>
-                </h1>
+                </h3>
                 <hr class="hr px-3" style="margin-left: 1rem;margin-right: 1rem;"/>
                 <div class="px-3 px-sm-0 my-3">
                     <?php echo na_widget('basic-wr-coupon', 'coupon', 'bo_list=video ca_list=게임 rows=8'); ?>
                 </div>
 
                 <br>
-                <h1 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
+                <h3 class="h3 f-lg en px-3"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
 
                     신규 제휴 업소
                     <a href="<?php echo G5_URL?>/bbs/new_gallery.php">
@@ -206,7 +206,11 @@ if ($nt_wing_path)
                     }    
                 
                     ?>    
-                    <h1 style="display: none;">Heading 1</h1>
+                    <h1 style="display: none;">당신의 즐거운 밤을 책임지는 밤의제국의 사이트</h1>
+                    <p style="display: none;">세상에 혼자만 선물 안 받은 사람 처럼 느끼시겠을 것이다. 어머니 마음에는 너무나 많은 기쁨과 슬픔이 있었음이 틀림 없다.</p>
+                    <p style="display: none;">그 때 나는 어머니를 도울 방법을 찾지 못했던 것을 생생하게 기억합니다. 사람을 달릴 줄 몰랐거든. 지금도 마찬가지지만.</p>
+                    <p style="display: none;">그렇지만 난 어머니를 못 울려도, 딸의 마음을 느끼기만 한다면 계속 해서 노력 할 거다.</p>
+                    <p style="display: none;">그 이후로 매년 나는 더 비싼 선물로 어머니를 기쁘게 하려고 노력 했지만. 울지 않았습니다.</p>
                     <nav id="bo_cate_index" style="margin-bottom: 20px;">
                         <ul id="bo_cate_ul">
                             <?php echo $category_option ?>
