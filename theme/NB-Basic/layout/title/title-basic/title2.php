@@ -52,7 +52,7 @@ $too = rand(0,$tood-1);
 	<div class="nt-container px-3 px-sm-4 px-xl-0">	
 		<div class="d-flex pb-2" style="justify-content: left;" >
 			
-			<img src="<?php echo G5_URL?>/img/bell.png" title="">&nbsp;
+			<img src="<?php echo G5_URL?>/img/bell.png" alt="bell" title="">&nbsp;
 			<div class="notice" style="width: 100%;">
 				<ul class="rolling" style="top: -16px">
 				<?php for ($i=0; $i<$tood;$i++ ) {		

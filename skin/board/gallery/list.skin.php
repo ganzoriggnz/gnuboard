@@ -280,8 +280,7 @@ if (G5_IS_MOBILE) {
                                     $row_pe = sql_fetch($result_period);
                                     $finish_period = $row_pe['mb_4'];
                                     if($co_cnt > '0' && $finish_period >= $now){ ?>
-                                <img src="<?php echo G5_IMG_URL ?>/coupon.png"
-                                    style="width: 80px; height: 80px; margin-top: 30px; margin-right: 140px;">
+                                <img src="<?php echo G5_IMG_URL ?>/coupon.png" alt="coupon" style="width: 80px; height: 80px; margin-top: 30px; margin-right: 140px;">
                                 <?php } ?>
                                 <!-- <?php
                                     if ($list[$i]['is_notice']) {  
@@ -341,11 +340,11 @@ if (G5_IS_MOBILE) {
                         style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL ?>/main_780.png'); width: 100%; height: 52px;">
                         <a type="button" class="gal_btns" href="#"
                             onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"><img
-                                src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
+                                src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png" alt="ballot-main">
                             <!-- <i class="fa fa-calendar"></i> --> 정보</a>
                         <a type="button" class="gal_btns" href="#"
                             onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>&nameid=<?php echo $list[$i]['mb_id'];?>'"><img
-                                src="<?php echo G5_IMG_URL?>/chat_icon_main.png">
+                                src="<?php echo G5_IMG_URL?>/chat_icon_main.png" alt="icon-main">
                             <!-- <i class="fa fa-comments"></i> --> 후기</a>
                     </div>
                 </div>

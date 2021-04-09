@@ -149,11 +149,11 @@ a[type="button"] {
             style="display: flex; align-items: center; justify-content: space-evenly; text-align:center; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
             <a type="button" class="gal_btns" href="#"
                 onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"
-                style=""><img src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
+                style=""><img src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png" alt="ballot-main">
                 정보</a>
             <a type="button" class="gal_btns" href="#"
                 onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>&nameid=<?php echo $list[$i]['mb_id'];?>'">
-                <img src="<?php echo G5_IMG_URL?>/chat_icon_main.png"> 후기</a>
+                <img src="<?php echo G5_IMG_URL?>/chat_icon_main.png" alt="icon-main"> 후기</a>
         </div>
     </div>
     <div class="clearfix f-sm font-weight-normal">

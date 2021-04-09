@@ -213,7 +213,7 @@ if ($nt_wing_path)
                         </ul>
                     </nav>
                     <?php include_once($search_skin_path . '/search2.skin.php'); ?>
-                    <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
+                    <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
                         쿠폰 지원업소
                         <a href="<?php echo G5_URL?>/bbs/coupon_gallery.php">
                             <span class="float-right">
@@ -227,7 +227,7 @@ if ($nt_wing_path)
                     </div>
 
                     <br>
-                    <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
+                    <h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on">
 
                         신규 제휴 업소
                         <a href="<?php echo G5_URL?>/bbs/new_gallery.php">

@@ -116,8 +116,7 @@ a[type="button"] {
                     <a href="<?php echo $list[$i]['href'] ?>" <?php echo $target ?>>
                         <?php echo $wr_tack ?>
                         <?php echo $wr_cap ?>
-                        <img src="<?php echo G5_IMG_URL ?>/coupon.png"
-                            style="width: 80px; height: 80px; margin-top: 30px; margin-left: 0px;">
+                        <img src="<?php echo G5_IMG_URL ?>/coupon.png" alt="coupon" style="width: 80px; height: 80px; margin-top: 30px; margin-left: 0px;"/>
                         <!-- <?php if($thumb) { ?>
                         <img src="<?php echo $thumb ?>" alt="Image <?php echo $list[$i]['wr_id'] ?>" class="na-round">
                         <?php }  ?> -->
@@ -145,11 +144,11 @@ a[type="button"] {
             style="display: flex; align-items: center; text-align:center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL?>/main_780.png'); width: 100%; height: 52px;">
             <a type="button" class="gal_btns" href="#"
                 onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"><img
-                    src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png">
+                    src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png" alt="ballot-main">
                 정보</a>
             <a type="button" class="gal_btns" href="#"
                 onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $list[$i]['mb_id'];?>'">
-                <img src="<?php echo G5_IMG_URL?>/chat_icon_main.png">
+                <img src="<?php echo G5_IMG_URL?>/chat_icon_main.png" alt="icon-main">
                 후기</a>
         </div>
     </div>

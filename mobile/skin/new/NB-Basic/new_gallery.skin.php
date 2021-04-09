@@ -18,7 +18,7 @@ $xl = ($wset['xl']) ? $wset['xl'] : 5;
     right: 0 !important
 } */
 </style>
-<h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png">
+<h3 class="h3 f-lg en"><img src="<?php echo G5_URL?>/img/img-flag5-on.png" alt="flag5-on"/>
     신규제휴
     <a href="<?php echo G5_URL?>/bbs/board.php?bo_table=gallery">
         <span class="float-right">
