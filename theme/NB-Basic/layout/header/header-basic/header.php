@@ -5,7 +5,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 add_stylesheet('<link rel="stylesheet" href="'.$nt_header_url.'/header.css">', 0);
 
-
 if (G5_IS_MOBILE) {
     echo
 "
@@ -30,6 +29,7 @@ body::after{
 					</a>
 				</div>
 			</div>
+
 			<!-- <div class="align-self-center">
 
 				<div class="header-search">

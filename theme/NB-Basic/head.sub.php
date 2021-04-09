@@ -41,17 +41,17 @@ $body_class .= ($tset['line']) ? ' is-line' : '';
 if(G5_IS_MOBILE) {
 	$fontset = ($tset['font']) ? 'mobile/'.$tset['font'] : 'mobile/Default-15px';
 } else {
-	$fontset = ($tset['font']) ? $tset['font'] : '';
+	$fontset = ($tset['font']) ? $tset['font'] : 'Dotum-12px';
 }
 
 // 컬러셋
-$colorset = ($tset['color']) ? $tset['color'] : '';
+$colorset = ($tset['color']) ? $tset['color'] : 'Basic';
 
 // CSS
 $default_stylesheet = '<link rel="stylesheet" href="'.NA_URL.'/css/nariya.css" type="text/css">'.PHP_EOL;
 $default_stylesheet .= '<link rel="stylesheet" href="'.G5_THEME_URL.'/css/theme.css" type="text/css">'.PHP_EOL;
-/* $default_stylesheet .= '<link rel="stylesheet" href="'.G5_THEME_URL.'/css/font/'.$fontset.'.css" type="text/css">'.PHP_EOL;
-$default_stylesheet .= '<link rel="stylesheet" href="'.G5_THEME_URL.'/css/color/'.$colorset.'.css" type="text/css">'; */
+$default_stylesheet .= '<link rel="stylesheet" href="'.G5_THEME_URL.'/css/font/'.$fontset.'.css" type="text/css">'.PHP_EOL;
+$default_stylesheet .= '<link rel="stylesheet" href="'.G5_THEME_URL.'/css/color/'.$colorset.'.css" type="text/css">';
 add_stylesheet($default_stylesheet, -100);
 unset($default_stylesheet);
 
@@ -108,8 +108,8 @@ if (G5_IS_MOBILE) {
 
 }
 
-if($config['cf_add_meta'])
-    echo $config['cf_add_meta'].PHP_EOL;
+/* if($config['cf_add_meta'])
+    echo $config['cf_add_meta'].PHP_EOL; */
 ?>
 <meta name="google-site-verification" content="google84c593a17dec3cae">
 <meta property="og:locale" content="ko_KR">
