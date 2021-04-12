@@ -17,11 +17,12 @@ alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".u
     return;
 } */
 
+$g5['title'] = '쿠폰지원 목록';
 include_once('./_head.php');
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
-$g5['title'] = '쿠폰지원 목록';
+
 
 $co_created_datetime = G5_TIME_YMDHIS;
 $currentmonth = substr($co_created_datetime, 5, 2);
@@ -60,7 +61,7 @@ while($row_acc = sql_fetch_array($res_acc)){
     $date = date($row_acc['cos_created_datetime']);
     $finish_date = date('Y-m-d H:i:s', strtotime('+7 days', strtotime($date)));
     if($now >= $finish_date){
-        $sql_ac = "DELETE FROM {$g5['coupon_sent_table']} WHERE cos_nick = '{$row_acc['cos_nick']}' AND cos_no = '{$row_acc['cos_no']}'";
+        $sql_ac = "DELETE FROM {$g5['coupon_sent_table']} WHERE mb_id = '{$row_acc['mb_id']}' AND cos_no = '{$row_acc['cos_no']}'";
         sql_query($sql_ac);
 
         if($row_acc['cos_type'] == 'S'){
@@ -89,7 +90,7 @@ if(is_file($skin_file)) {
     echo '<p>'.str_replace(G5_PATH.'/', '', $skin_file).'이 존재하지 않습니다.</p>';
 }
 
-$sql_customer = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_nick='{$member['mb_nick']}'";
+$sql_customer = "SELECT * FROM {$g5['coupon_sent_table']} WHERE mb_id='{$member['mb_id']}'";
 
     include_once('./_tail.php');
 ?>
