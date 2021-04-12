@@ -17,7 +17,7 @@ alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".u
     return;
 } */
 
-$g5['title'] = '쿠폰지원 목록';
+$g5['title'] = '쿠폰관리';
 include_once('./_head.php');
 
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
