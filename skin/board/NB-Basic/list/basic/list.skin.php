@@ -213,7 +213,7 @@ if($gr_id == 'attendance'){
                         <?php
                             $mbid= get_member($list[$i]['mb_id']);
                             $name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);
-                            echo $list[$i]['wr_2'];
+                            /* echo $list[$i]['wr_2']; */
                             echo na_name_photo($list[$i]['mb_id'], $name)
                         ?>
                     </div>
