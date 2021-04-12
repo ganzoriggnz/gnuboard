@@ -198,7 +198,7 @@ if ($gr_id=='review') {
 	                                </a>
 	                                <?php } } ?>
 	                                <!-- hulan nemsen level 24.25 can not delete post  -->
-	                                <?php if ($delete_href && $member['mb_level'] != 24 && $member['mb_level'] != 25) {if($is_admin ||  $member['mb_6']!=$bo_table ) {  ?>
+	                                <?php if ($delete_href && $member['mb_level'] != 24 && $member['mb_level'] != 25 && $member['mb_level'] != 26 && $member['mb_level'] != 27) {if($is_admin ||  $member['mb_6']!=$bo_table ) {  ?>
 	                                <a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
 	                                    class="btn btn-primary py-2" role="button">
 	                                    <i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
@@ -501,7 +501,7 @@ if ($gr_id=='review') {
 	                                </a>
 	                                <?php } } ?>
 	                                <!-- hulan nemsen level 24.25 can not delete post  -->
-	                                <?php if($member['mb_level'] != '24' && $member['mb_level'] != '25') { 
+	                                <?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review')) { 
 								if ($delete_href) {  ?>
 	                                <a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
 	                                    class="btn btn-primary py-2" role="button">
