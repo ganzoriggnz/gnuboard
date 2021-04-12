@@ -165,7 +165,7 @@ if($gr_id == 'attendance'){
                     <div class="na-title float-md-left">
                         <div class="na-item">
                         
-                            <?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; '; echo $list[$i]['num2'] ?>
+                            <!-- <?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; '; echo $list[$i]['num2'] ?> -->
                             <?php if ($is_checkbox) { ?>
                             <input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]"
                                 value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
