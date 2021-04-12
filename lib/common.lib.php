@@ -80,7 +80,7 @@ function get_cate_pic($catename,$pic=0){
     else if($catename == "키스방")
         $zurag = "kiss";
     else if($catename == "기타" || $catename == "프로필 여행사" || $catename == "선불폰")
-        $zurag = "";
+        $zurag = "other";
     if ($pic==0)
         $str = "background-image:url('".G5_IMG_URL."/main_".$zurag.".jpg');";
     else if ($pic==1)
