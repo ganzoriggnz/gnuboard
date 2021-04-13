@@ -119,6 +119,21 @@ sql_query(" delete from {$g5['board_new_table']} where bo_table = '$bo_table' an
 // 스크랩 삭제
 sql_query(" delete from {$g5['scrap_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}' ");
 
+$q_cou = " select count(*) as cnt_cou from {$g5['coupon_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}'";
+$row_cou = sql_fetch($q_cou);
+$cnt_cou = $row_cou['cnt_cou'];
+
+if($cnt_cou > 0){
+    $cou1 = " select co_no, co_entity from {$g5['coupon_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}'";
+    $res_cou1 = sql_query($cou1);
+    while($row1 = sql_fetch_array($res_cou1))
+    {
+       sql_query("delete from {$g5['coupon_sent_table']} where co_no = '{$row1['co_no']}'");
+       sql_query("delete from {$g5['coupon_alert_table']} where cos_entity = '{$row1['co_entity']}'");    
+    }
+    sql_query(" delete from {$g5['coupon_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}'");
+}
+ 
 // Update member table when delete post
 sql_query(" update {$g5['member_table']} set mb_3 = '', mb_4 = '', mb_5 = '' where mb_id = '{$write['mb_id']}'");
 
