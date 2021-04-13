@@ -68,20 +68,20 @@ else if ($w == 'u')
         <!-- 목록 헤드 -->
         <div class="d-block d-md-none w-100 mb-10 bg-<?php echo $head_color ?>" style="height:4px;"></div>
 
-        <div class="na-table d-none d-md-table w-100 mb-0 text-md-center bg-light">
-            <div class="na-table-head border-primary d-md-table-row bg-light">
-                <div class="d-md-table-cell nw-2 px-md-1 text-md-center">계급</div>
-                <div class="d-md-table-cell nw-6 pl-2 px-md-1 pr-md-1 text-md-center">아이디</div>
-                <div class="d-md-table-cell nw-6 pr-md-1 text-md-center">닉네임</div>
-                <div class="d-md-table-cell nw-6 pr-md-1 text-md-center">파운드</div>
+        <div class="na-table d-none d-md-table d-sm-table w-100 mb-0 text-md-center bg-light">
+            <div class="na-table-head border-primary d-md-table-row d-sm-table-row bg-light">
+                <div class="d-md-table-cell d-sm-table-cell nw-2 px-md-1 text-md-center">계급</div>
+                <div class="d-md-table-cell d-sm-table-cell nw-6 pl-2 px-md-1 pr-md-1 text-md-center">아이디</div>
+                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center">닉네임</div>
+                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center">파운드</div>
                 <!-- <div class="d-md-table-cell nw-6 pr-md-1 text-md-center">파편조각</div> -->
-                <div class="d-md-table-cell nw-6 pr-md-1 text-md-center">회원가입일</div>
-                <div class="d-md-table-cell nw-6 pr-md-1 text-md-center">최종접속일</div>
+                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center">회원가입일</div>
+                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center">최종접속일</div>
 
             </div>
         </div>
 
-        <ul class="na-table d-md-table w-100">
+        <ul class="na-table d-md-table d-sm-table w-100">
             <?php
 			$sum_point1 = $sum_point2 = $sum_point3 = 0;
 
@@ -90,22 +90,22 @@ else if ($w == 'u')
 			$name = get_sideview_user($row['mb_id'], $row['mb_nick'], $row['mb_homepage']);
 			$row['name'] = $name;
 			?>
-            <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
-                <div class="d-md-table-cell nw-2 px-md-1 text-md-center"><?php 
+            <li class="d-md-table-row d-sm-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom">
+                <div class="d-md-table-cell d-sm-table-cell nw-2 px-md-1 text-md-center"><?php 
 				if (get_level($row['mb_id'])) 
 					echo get_level($row['mb_id']);
 				else 
 					echo get_level_name($row['mb_level']); 
 				?></div>
-                <div class="d-md-table-cell nw-6 px-3 pt-1 pb-1 text-md-left">
+                <div class="d-md-table-cell d-sm-table-cell nw-6 px-3 pt-1 pb-1 text-md-left">
                     <?php 
 					echo na_name_photo_only($row['mb_id'], $row['name']); ?>
                 </div>
-                <div class="d-md-table-cell nw-6 px-3 pt-1 pb-1 text-md-left"><?php echo $row['mb_nick']; ?></div>
-                <div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_point']; ?></div>
+                <div class="d-md-table-cell d-sm-table-cell nw-6 px-3 pt-1 pb-1 text-md-left"><?php echo $row['mb_nick']; ?></div>
+                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_point']; ?></div>
                 <!-- <div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_point2']; ?></div> -->
-                <div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_datetime']; ?></div>
-                <div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_today_login']; ?></div>
+                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_datetime']; ?></div>
+                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_today_login']; ?></div>
             </li>
             <?php
 			}
