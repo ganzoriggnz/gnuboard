@@ -72,8 +72,8 @@ else if ($w == 'u')
             <div class="na-table-head border-primary d-md-table-row d-sm-table-row bg-light">
                 <div class="d-md-table-cell d-sm-table-cell nw-2 px-md-1 text-md-center">계급</div>
                 <div class="d-md-table-cell d-sm-table-cell nw-6 pl-2 px-md-1 pr-md-1 text-md-center">아이디</div>
-                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center">닉네임</div>
-                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center">파운드</div>
+                <div class="d-md-table-cell d-sm-table-cell nw-8 pr-md-1 text-md-center">닉네임</div>
+                <div class="d-md-table-cell d-sm-table-cell nw-4 pr-md-1 text-md-center">파운드</div>
                 <!-- <div class="d-md-table-cell nw-6 pr-md-1 text-md-center">파편조각</div> -->
                 <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center">회원가입일</div>
                 <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center">최종접속일</div>
@@ -101,8 +101,8 @@ else if ($w == 'u')
                     <?php 
 					echo na_name_photo_only($row['mb_id'], $row['name']); ?>
                 </div>
-                <div class="d-md-table-cell d-sm-table-cell nw-6 px-3 pt-1 pb-1 text-md-left"><?php echo $row['mb_nick']; ?></div>
-                <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_point']; ?></div>
+                <div class="d-md-table-cell d-sm-table-cell nw-8 px-3 pt-1 pb-1 text-md-left"><?php echo $row['mb_nick']; ?></div>
+                <div class="d-md-table-cell d-sm-table-cell nw-4 pr-md-1 text-md-center"><?php echo $row['mb_point']; ?></div>
                 <!-- <div class="d-md-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_point2']; ?></div> -->
                 <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_datetime']; ?></div>
                 <div class="d-md-table-cell d-sm-table-cell nw-6 pr-md-1 text-md-center"><?php echo $row['mb_today_login']; ?></div>
