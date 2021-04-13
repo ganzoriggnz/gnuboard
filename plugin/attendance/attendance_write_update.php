@@ -76,22 +76,22 @@ if ($row['mb_id']) {
     $sql_reset6 = $row['reset6'] + 1;
    
     
-    if ($row['reset'] == $sql_day_cnt) { // 7일 개근
+    if ($sql_reset == $sql_day_cnt) { // 7일 개근
         $sql_reset  = "0"; 
         $sql_point  = $sql_point + $sql_day_point;
     }
 	
-	if ($row['reset2'] == $sql_monthly_cnt) { // 30일 개근
+	if ($sql_reset2 == $sql_monthly_cnt) { // 30일 개근
         $sql_reset2 = "0"; 
         $sql_point  = $sql_point + $sql_monthly_point;
     }
 
-    if ($row['reset3'] == $sql_year1_cnt) {  // 365일 개근
+    if ($sql_reset3 == $sql_year1_cnt) {  // 365일 개근
         $sql_reset3 = "0"; 
         $sql_point  = $sql_point + $sql_year1_point;
     }
 
-    if ($row['reset4'] == $sql_year2_cnt) {  // 500일 개근
+    if ($sql_reset4 == $sql_year2_cnt) {  // 500일 개근
         $sql_reset4 = "0"; 
         $sql_point  = $sql_point + $sql_year2_point;
     }
@@ -101,7 +101,7 @@ if ($row['mb_id']) {
         $sql_point  = $sql_point + $sql_year3_point;
     } */
 
-    if ($row['reset6'] == $sql_year_cnt) {  // 1000일 개근
+    if ($sql_reset6 == $sql_year_cnt) {  // 1000일 개근
         $sql_reset6 = "0"; 
         $sql_day = "1";
         $sql_point  = $sql_point + $sql_year_point;
@@ -163,5 +163,5 @@ insert_point($member['mb_id'], (int)($sql_point * 1), "출석 파운드", "@atte
 
 
 // 완료
-alert("출석 체크 완료", "./attendance.php");
+//alert("출석 체크 완료", "./attendance.php");
 ?>
