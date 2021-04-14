@@ -5,7 +5,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // SMS 문자전송 시작
 //----------------------------------------------------------
 $text_ntags = strip_tags($wr_content);
-$not_regex = str_replace("&nbsp;", " ", $text_ntags)
+$not_regex = str_replace("&nbsp;", " ", $text_ntags);
 /* $text_cnt = strlen($not_regex);
     if($text_cnt > 50) {
         $sms1 = substr_replace($not_regex, "...", 50);
