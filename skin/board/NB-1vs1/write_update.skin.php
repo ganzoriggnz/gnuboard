@@ -13,7 +13,7 @@ $text_cnt = strlen($not_regex);
     else {
         $sms1 = $not_regex;
     }  */
-$sms_contents = '['.$ca_name.']게시판에 '.$wr_name.'님이 글을 등록하셨습니다. '.str_replace("&nbsp;", " ", $text_ntags);  // 문자 내용
+$sms_contents = '['.$ca_name.']게시판에 '.$wr_name.'님이 글을 등록하셨습니다. '.$text_ntags;  // 문자 내용
 
 // 핸드폰번호에서 숫자만 취한다
 $receive_number = preg_replace("/[^0-9]/", "", $sms5['cf_phone']);  // 수신자번호
