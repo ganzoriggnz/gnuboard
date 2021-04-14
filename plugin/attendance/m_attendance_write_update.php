@@ -95,10 +95,12 @@ if ($row['mb_id']) {
         $sql_reset5 = "0"; 	
         $sql_point  = $sql_point + $sql_year3_point;	
     } */	
-    if ($sql_reset6 == $sql_year_cnt) {  // 1000일 개근	
-        $sql_reset6 = "0"; 	
-        $sql_day = "1";	
-        $sql_point  = $sql_point + $sql_year_point;	
+    if ($sql_reset6 == $sql_year_cnt) {  // 1000일 개근
+        $sql_reset6 = "0"; 
+        $sql_point  = $sql_point + $sql_year_point;
+    }
+    if ($sql_day > $sql_year_cnt) {  // 1000일 개근
+        $sql_day = "1";
     }
 
     // if ($sql_reset3 == $sql_year1_cnt) {  // 500일 개근
