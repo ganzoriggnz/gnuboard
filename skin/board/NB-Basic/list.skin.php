@@ -159,7 +159,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 					<?php if ($is_admin 
 					|| ($gr_id == "attendance")
 					|| ($gr_id == "service")
-					|| ($gr_id == "community" && $bo_table == "free" && $member['mb_level'] != 26 || $member['mb_level'] != 27) 						
+					|| ($gr_id == "community")						
 					|| (($gr_id == "review") && ($member['mb_level'] != 26 && $member['mb_level'] != 27 )) 
 					) { ?>	
 					<?php if ($write_href) { ?>						
