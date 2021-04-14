@@ -184,3 +184,13 @@
 		margin-top: 1rem;
 	}
 }
+
+.na_member_pho {
+	text-align:left; width: 180px;
+}
+
+@media (max-width: 766px) {
+	.na_member_pho {
+		width: 150px;
+	}
+}
