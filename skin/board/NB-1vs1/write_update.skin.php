@@ -4,15 +4,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 //----------------------------------------------------------
 // SMS 문자전송 시작
 //----------------------------------------------------------
-$text_ntags = strip_tags($wr_content);
-$text_cnt = strlen($text_ntags);
-    if($text_cnt > 50) {
-        $sms1 = substr_replace($text_ntags, "...", 50);
-    }
-    else {
-        $sms1 = $text_ntags;
-    } 
-$sms_contents = '['.$ca_name.']게시판에 '.$wr_name.'님이 글을 등록하셨습니다.</br>'.$text_ntags;  // 문자 내용
+$sms_contents = '['.$ca_name.']게시판에 '.$wr_name.'님이 글을 등록하셨습니다.';  // 문자 내용
 
 // 핸드폰번호에서 숫자만 취한다
 $receive_number = preg_replace("/[^0-9]/", "", $sms5['cf_phone']);  // 수신자번호
