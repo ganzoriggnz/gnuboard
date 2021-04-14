@@ -163,5 +163,5 @@ insert_point($member['mb_id'], (int)($sql_point * 1), "출석 파운드", "@atte
 
 
 // 완료
-//alert("출석 체크 완료", "./attendance.php");
+alert("출석 체크 완료", "./attendance.php");
 ?>
