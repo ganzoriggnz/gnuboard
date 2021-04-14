@@ -30,7 +30,7 @@ if ($bo_table == "partnership" && $w == "" && $receive_number)
                 $strCaller   = iconv_euckr(trim($config['cf_title']));
                 $strSubject  = '';
                 $strURL      = '';
-                $strData     = iconv_euckr(strip_tags($sms_contents));
+                $strData     = iconv_euckr($sms_contents);
                 $strDate     = '';
                 $nCount      = count($strDest);
 
@@ -44,7 +44,7 @@ if ($bo_table == "partnership" && $w == "" && $receive_number)
 
             $SMS = new SMS; // SMS 연결
             $SMS->SMS_con($config['cf_icode_server_ip'], $config['cf_icode_id'], $config['cf_icode_pw'], $config['cf_icode_server_port']);
-            $SMS->Add($receive_number, $send_number, $config['cf_icode_id'], iconv_euckr(stripslashes(strip_tags($sms_contents))), "");
+            $SMS->Add($receive_number, $send_number, $config['cf_icode_id'], iconv_euckr(stripslashes($sms_contents)), "");
             $SMS->Send();
             $SMS->Init(); // 보관하고 있던 결과값을 지웁니다.
         }
