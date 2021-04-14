@@ -193,6 +193,11 @@ $menu_cnt = count($menu);
 									마이페이지
 								</a>
 							</li>
+							<li class="col-6 px-1">
+								<a href="<?php echo G5_BBS_URL ?>/userinfo.php" target="_blank" class="btn btn-block btn-basic <?php if(G5_IS_MOBILE) echo "win_scrap" ?>  f-sm mb-2">
+									마이페이지
+								</a>
+							</li>
 							<li class="col-6 px-1" >
 								<a style="color:red !important;" href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=member_leave.php" class="btn btn-block btn-basic f-sm mb-2">
 									회원탈퇴
