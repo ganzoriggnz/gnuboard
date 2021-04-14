@@ -188,6 +188,9 @@ $menu_cnt = count($menu);
 									정보수정
 								</a>
 							</li>
+							<li class="col-6 px-1">
+								<a href="<?php echo G5_BBS_URL ?>/userinfo.php" class="btn btn-block btn-basic f-sm mb-2">마이페이지</a>
+							</li>
 							<li class="col-6 px-1" >
 								<a style="color:red !important;" href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=member_leave.php" class="btn btn-block btn-basic f-sm mb-2">
 									회원탈퇴
