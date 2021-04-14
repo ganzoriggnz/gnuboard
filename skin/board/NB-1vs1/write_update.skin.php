@@ -4,7 +4,12 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 //----------------------------------------------------------
 // SMS 문자전송 시작
 //----------------------------------------------------------
-$sms_contents = '['.$board['bo_subject'].']게시판에 '.$wr_name.'님이 글을 등록하셨습니다.';  // 문자 내용
+//$sms_contents = '['.$board['bo_subject'].']게시판에 '.$wr_name.'님이 글을 등록하셨습니다.';  // 문자 내용
+
+$text_ntags = strip_tags($wr_content);
+$not_regex = str_replace("&nbsp;", " ", $text_ntags);
+
+$sms_contents = '['.$ca_name.']게시판에 '.$wr_name.'님이 글을 등록하셨습니다. '.$not_regex;
 
 // 핸드폰번호에서 숫자만 취한다
 $receive_number = preg_replace("/[^0-9]/", "", $sms5['cf_phone']);  // 수신자번호
