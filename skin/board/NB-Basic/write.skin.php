@@ -43,7 +43,7 @@ $is_select = "selected";
 /////////////////////////////hulan///////////////////////
 // hulan nemsen 게시판 하루 글등록수 제한하기 
 // 하루 글제한수 $post_limit = 1;
-if ($board['bo_9'] && $w != 'u' && !$is_admin && $member['mb_level'] != 26 && $member['mb_level'] != 27 && $bo_table != "greeting") { //글수정이 아니면 작동
+if ($board['bo_9'] && $w != 'u' && !$is_admin && $member['mb_level'] != 26 && $member['mb_level'] != 27 && $bo_table != "greeting" && $bo_table != "twitter") { //글수정이 아니면 작동
 	// 오늘 체크
 	$sql_today = na_sql_term('today', 'wr_datetime'); // 기간(일수,today,yesterday,month,prev)
 	if ($is_member) { // 회원이면 mb_id로 체크
@@ -101,7 +101,7 @@ if ($bo_table == "twitter") {
 	if ($member['mb_id'] && !$is_admin) {
 		$res = sql_fetch("select mb_id from " . $g5['write_prefix'] . $bo_table . " where mb_id = '" . $member['mb_id'] . "' and wr_is_comment = '0'");
 		if ($res['mb_id'] != '') {
-			alert("You can write only one post a day!");
+			alert("트위터인사를 한번만 할 수 있습니다!");
 		}
 	}
 }
