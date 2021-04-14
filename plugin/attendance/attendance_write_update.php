@@ -103,8 +103,10 @@ if ($row['mb_id']) {
 
     if ($sql_reset6 == $sql_year_cnt) {  // 1000일 개근
         $sql_reset6 = "0"; 
-        $sql_day = "1";
         $sql_point  = $sql_point + $sql_year_point;
+    }
+    if ($sql_day > $sql_year_cnt) {  // 1000일 개근
+        $sql_day = "1";
     }
 } else { // 출석하지 않았다면
     // 전체 개근 설정
