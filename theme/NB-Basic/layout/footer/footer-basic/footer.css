@@ -4,7 +4,7 @@
 ■ Footer 
 ********************************************************/
 #nt_footer {
-	height: 51px;
+	height: 60px;
 }
 #nt_footer .nt-links { 
 	background:#fafafa; 
@@ -50,32 +50,33 @@
 #nt_footer .nt-container {
 	display: flex;
 	align-items: center;
-	height: 51px;
+	justify-content: center;
+	height: 60px;
 }
 
 #nt_footer .nt-container .item-text {
-	width:1040px; 
-	height:32px; 
-	color:#7B7B7B; 
-	font-size:12px;
-	line-height: 1.5;
+	color:#FFF; 
+	font-family: "Roboto", sans-serif !important;
+	align-items: center;
 }
+#nt_footer .nt-container .item-text p {
+	font-size: 24px; font-weight: bold;
+}
+
+#nt_footer .nt-container .item-text p span {
+	font-size: 14px; font-weight: normal; margin-left:20px;
+}
+
 
 @media only screen and (max-width : 767px) {
 	#nt_footer {
-		height: 30px;
+		height: 50px;
 	}
 	
 	#nt_footer .nt-container {
 		display: flex;
-		height: 30px;
+		height: 50px;
 		width:343px;
-	}
-
-	#nt_footer .nt-container .item-text {
-		font-size:8px;
-		align-self: start;
-		margin: 7px 10px 7px 7px;
 	}
 }
 
