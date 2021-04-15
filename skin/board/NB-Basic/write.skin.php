@@ -951,7 +951,7 @@ ul.my-table > li {
             </li>
             <?php } ?>
 
-
+            <?php if ($board['gr_id'] != "review") { ?>
             <li class="list-group-item">
                 <div class="form-group row mb-0">
                     <label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
@@ -961,14 +961,10 @@ ul.my-table > li {
                     </div>
                 </div>
             </li>
-
-
+            <?php } ?>
 
             <?php } ?>
             <!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-
-
 
             <?php if ($option) { ?>
             <li class="list-group-item">
@@ -982,13 +978,12 @@ ul.my-table > li {
                 </div>
             </li>
             <?php } ?>
-
-
-
+            
+            <?php if ($member['mb_level'] >= 13) { ?>
             <li class="list-group-item">
 
                 <div class="form-group row mb-0">
-                    <?php if ($member['mb_level'] >= 13) { ?>
+                    
                     <label class="col-md-2 col-form-label" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
                     <div class="col-md-10">
                         <input id="color1" class="iColorPicker" type="text" name="wr_1"
@@ -997,9 +992,10 @@ ul.my-table > li {
                             value="<?php if($write['wr_1']){echo $write['wr_1'];} else { echo "#222";} ?>" />
                     </div>
                     <!-- <input type="hidden" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required class="frm_input required" size="30" maxlength="255"> -->
-                    <?php } ?>
+                    
                 </div>
             </li>
+            <?php } ?>
             <li class="list-group-item">
                 <div class="form-group row mb-0">
                     <label class="col-md-2 col-form-label" for="wr_subject">제목<strong
