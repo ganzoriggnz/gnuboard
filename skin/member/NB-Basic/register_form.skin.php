@@ -112,6 +112,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					<div class="col-sm-4">
 						<input type="hidden" name="old_email" value="<?php echo $member['mb_email'] ?>">
 						<input type="text" name="mb_email" value="<?php echo isset($member['mb_email'])? $member['mb_email']:''; ?>" id="reg_mb_email"  class="form-control email " size="70" maxlength="100">
+						<p class="form-control-plaintext f-de email_custom pb-0">비밀번호 분실 시 확인 이메일입니다.</p>
 						<?php if ($config['cf_use_email_certify']) { ?>
 							<p class="form-control-plaintext f-de pb-0">
 								<?php if ($w == '') {
