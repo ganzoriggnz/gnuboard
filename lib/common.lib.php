@@ -1563,9 +1563,17 @@ function get_sideview($mb_id, $name='', $email='', $homepage='')
     $tmp_name = "";
     $en_mb_id = $mb_id;
 
+    $sql_mem = " select `mb_level`, `mb_1` from {$g5['member_table']} where mb_id = '$mb_id'";
+    $row_mem = sql_fetch($sql_mem);
+
     if ($mb_id) {
         //$tmp_name = "<a href=\"".G5_BBS_URL."/profile.php?mb_id=".$mb_id."\" class=\"sv_member\" title=\"$name 자기소개\" rel="nofollow" target=\"_blank\" onclick=\"return false;\">$name</a>";
-        $tmp_name = '<a href="'.G5_BBS_URL.'/profile.php?mb_id='.$mb_id.'" class="sv_member" title="'.$name.' 자기소개" target="_blank" rel="nofollow" onclick="return false;">';
+        if($row_mem['mb_level']!='26' && $row_mem['mb_level']!='27' && $row_mem['mb_1']== '여'){
+            $tmp_name = '<a href="'.G5_BBS_URL.'/profile.php?mb_id='.$mb_id.'" class="sv_member" title="'.$name.' 자기소개" target="_blank" rel="nofollow" onclick="return false;" style="color: #f0f;">';
+        } else {
+            $tmp_name = '<a href="'.G5_BBS_URL.'/profile.php?mb_id='.$mb_id.'" class="sv_member" title="'.$name.' 자기소개" target="_blank" rel="nofollow" onclick="return false;">';
+        }
+        
 
         if ($config['cf_use_member_icon']) {
             $mb_dir = substr($mb_id,0,2);
