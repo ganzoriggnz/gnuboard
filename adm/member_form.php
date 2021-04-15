@@ -177,7 +177,7 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>
     </tr>
     <tr>
         <th scope="row"><label for="mb_name">지역-업소명<strong class="sound_only">필수</strong></label></th>
-        <td><input type="text" name="mb_name" value="<?php echo $mb['mb_name'] ?>" id="mb_name" required class="required frm_input" size="15"  maxlength="20"></td>
+        <td><input type="text" name="mb_name" value="<?php echo $mb['mb_name'] ?>" id="mb_name" size="15"  maxlength="20" <?php if($member['mb_level']!='26' && $member['mb_level']!='27'){ echo 'class="frm_input"';} else { echo 'required class="required frm_input"';} ?>></td>
         <th scope="row"><label for="mb_nick">닉네임<strong class="sound_only">필수</strong></label></th>
         <td><input type="text" name="mb_nick" value="<?php echo $mb['mb_nick'] ?>" id="mb_nick" required class="required frm_input" size="15"></td>
     </tr>
