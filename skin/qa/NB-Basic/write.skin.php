@@ -36,12 +36,12 @@ $wset = na_skin_config('qa');
 				<div class="col-md-4">
 	                <input type="text" name="qa_email" value="<?php echo get_text($write['qa_email']) ?>" id="qa_email" <?php echo $req_email ?> class="form-control email <?php echo $req_email ?>" maxlength="100">
 				</div>
-				<div class="col-sm-6">
+				<!-- <div class="col-sm-6">
 					<div class="custom-control custom-checkbox mb-2 mt-0 mt-sm-1 ">
 						<input type="checkbox" name="qa_email_recv" value="1" id="qa_email_recv" class="custom-control-input"<?php if($write['qa_email_recv']) echo ' checked="checked"'; ?>>
 						<label class="custom-control-label" for="qa_email_recv"><span>답변 받기</span></label>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</li>
 	<?php } ?>
@@ -53,14 +53,14 @@ $wset = na_skin_config('qa');
 				<div class="col-md-4">
 	                <input type="text" name="qa_hp" value="<?php echo get_text($write['qa_hp']); ?>" id="qa_hp" <?php echo $req_hp; ?> class="form-control <?php echo $req_hp; ?>">
 				</div>
-				<?php if($qaconfig['qa_use_sms']) { ?>
+				<!-- <?php if($qaconfig['qa_use_sms']) { ?>
 					<div class="col-sm-6">
 						<div class="custom-control custom-checkbox mb-2 mt-0 mt-sm-1 ">
 							<input type="checkbox" name="qa_sms_recv" value="1" id="qa_sms_recv" class="custom-control-input"<?php if($write['qa_sms_recv']) echo ' checked="checked"'; ?>>
 							<label class="custom-control-label" for="qa_sms_recv"><span>답변등록 SMS알림 수신</span></label>
 						</div>
 					</div>
-				<?php } ?>
+				<?php } ?> -->
 			</div>
 		</li>
 	<?php } ?>
