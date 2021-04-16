@@ -257,7 +257,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 	</div><!-- #viewcomment 닫기 -->
 	<!-- } 댓글 끝 -->
 	
-	<?php if ($is_comment_write) {
+	<?php if ($is_comment_write && ($bo_table != 'event' || ($bo_table == 'event' && $member['mb_level'] != 26 && $member['mb_level'] != 27))) { 
     if($w == '')
         $w = 'c';
     ?>

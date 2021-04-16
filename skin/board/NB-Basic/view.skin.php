@@ -315,7 +315,7 @@ if ($gr_id=='review') {
 	                            <span class="sr-only">답변</span>
 	                        </a>
 	                        <?php } ?>
-	                        <?php if ($write_href) { ?>
+	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
 	                        <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">글쓰기</span>
@@ -480,7 +480,7 @@ if ($gr_id=='review') {
 	                            <span class="sr-only">답변</span>
 	                        </a>
 	                        <?php } ?>
-	                        <?php if ($write_href) { ?>
+	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
 	                        <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">글쓰기</span>
