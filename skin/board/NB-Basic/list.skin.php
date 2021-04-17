@@ -161,6 +161,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 					|| ($gr_id == "service")
 					|| ($gr_id == "community" && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) 					
 					|| (($gr_id == "review") && ($member['mb_level'] != 26 && $member['mb_level'] != 27 )) 
+					|| ($gr_id == "library")
 					) { ?>	
 					<?php if ($write_href) { ?>						
 						<div>
