@@ -88,37 +88,44 @@ header("Pragma: no-cache"); // HTTP/1.0
 <html lang="ko" class="<?php echo (G5_IS_MOBILE) ? 'is-mobile' : 'is-pc'; ?>">
 <head>
 <meta charset="utf-8">
+<meta name="publisher" content="밤의제국-달림정보커뮤니티 밤의제국"/>
+<meta name="author" content="밤의제국-달림정보커뮤니티 밤의제국"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="keywords" content="밤의제국, 밤제, 오피, 건마, 휴게텔, 안마, 풀싸롱, 룸싸롱, 키스방, 립카페, 핸플, 패티쉬, 출장마사지, 파워볼, 홀덤, 오피쓰, 오피가이드, 오피스타" />
 <meta name="description" 
-content="#밤의제국 #밤제 #오피 #건마 #휴게텔 #안마 #풀싸롱 #룸싸롱 #키스방 #립카페 #핸플 #패티쉬 #출장마사지 #파워볼 #홀덤 #오피쓰 #오피가이드 #오피스타">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
+content="#밤의제국 #밤제 #오피 #건마 #휴게텔 #안마 #풀싸롱 #룸싸롱 #키스방 #립카페 #핸플 #패티쉬 #출장마사지 #파워볼 #홀덤 #오피쓰 #오피가이드 #오피스타"/>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes"/>
 <?php
 if (G5_IS_MOBILE) {   
-    echo '<meta name="HandheldFriendly" content="true">'.PHP_EOL;
-    echo '<meta name="format-detection" content="telephone=no">'.PHP_EOL;
-    echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">'.PHP_EOL;
-    echo '<meta name="bzyfuzy" content="Mobile">'.PHP_EOL;
+    echo '<meta name="HandheldFriendly" content="true"/>'.PHP_EOL;
+    echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled"/>'.PHP_EOL;
+    echo '<meta name="bzyfuzy" content="Mobile"/>'.PHP_EOL;
 } else {
-    echo '<meta name="bzyfuzy" content="Desktop">'.PHP_EOL;
-    echo '<meta http-equiv="imagetoolbar" content="no">'.PHP_EOL;
-    echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">'.PHP_EOL;
-    echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">'.PHP_EOL;
-    echo '<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">'.PHP_EOL;
-    echo '<link rel="icon" href="/favicon.ico" type="image/x-icon">'.PHP_EOL;
+    echo '<meta name="format-detection" content="telephone=no"/>'.PHP_EOL;
+    echo '<meta name="bzyfuzy" content="Desktop"/>'.PHP_EOL;
+    echo '<meta http-equiv="imagetoolbar" content="no"/>'.PHP_EOL;
+    echo '<meta http-equiv="X-UA-Compatible" content="IE=edge"/>'.PHP_EOL;
+    echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled"/>'.PHP_EOL;
+    echo '<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>'.PHP_EOL;
+    echo '<link rel="icon" href="/favicon.ico" type="image/x-icon"/>'.PHP_EOL;
 
 }
 
 if($config['cf_add_meta'])
     echo $config['cf_add_meta'].PHP_EOL;
 ?>
-<meta name="google-site-verification" content="google84c593a17dec3cae">
+<meta name="google-site-verification" content="google84c593a17dec3cae"/>
 <meta property="og:locale" content="ko_KR">
-<meta property="og:type" content="website">
-<meta property="og:title" content="밤의제국 사이트 - ..">
+<meta property="og:title" content="밤의제국 사이트 - .."/>
+<meta property="og:site_name" content="밤의제국 사이트"/>
+<meta property="og:author" content="밤의제국-달림정보커뮤니티 밤의제국"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="/theme/NB-Basic/img/logo2.png"/>
 <meta property="og:description" 
-content="..나이트 엠파이어 사이트-나이트 엠파이어 사이트">
-<meta property="og:site_name" content="밤의제국 사이트">
-<meta property="og:url" content="<?php echo G5_URL?>">
+content="밤의제국bamje.com-국내최다 업소정보 사이트" />
+<meta property="og:url" content="<?php echo G5_URL?>" />
+<link rel="image_src" href="/theme/NB-Basic/img/logo2.png">
 <link rel="canonical" href="<?php echo G5_URL?>">
 <title><?php echo $g5_head_title; ?></title>
 <link rel="stylesheet" href="<?php echo NA_URL ?>/app/bs4/css/bootstrap<?php echo $default_css ?>.min.css" type="text/css">
