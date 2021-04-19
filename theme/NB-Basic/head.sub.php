@@ -88,12 +88,17 @@ header("Pragma: no-cache"); // HTTP/1.0
 <html lang="ko" class="<?php echo (G5_IS_MOBILE) ? 'is-mobile' : 'is-pc'; ?>">
 <head>
 <meta charset="utf-8">
+<meta name="title" content="밤의제국 사이트 - .."/>
 <meta name="publisher" content="밤의제국-달림정보커뮤니티 밤의제국"/>
 <meta name="author" content="밤의제국-달림정보커뮤니티 밤의제국"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
-<meta name="keywords" content="밤의제국, 밤제, 오피, 건마, 휴게텔, 안마, 풀싸롱, 룸싸롱, 키스방, 립카페, 핸플, 패티쉬, 출장마사지, 파워볼, 홀덤, 오피쓰, 오피가이드, 오피스타" />
+<meta name="keywords" content="밤의제국-업소정보 | bamje.com, 오피, 강남오피, 선릉오피, 강북오피, 강동오피, 강서오피, 분당오피, 송탄오피, 수원오피, 의정부오피, 안산오피, 일산오피, 
+부천오피, 서산오피, 대전오피, 천안오피, 청주오피, 구미오피, 대구오피, 부산오피, 광주오피, 울산오피, 창원오피, 포항오피, 군산오피, 익산오피, 제주오피, 강원오피, 전주오피, 
+오피 · 건마 · 유흥업소 · 립카페 · 핸플 · 패티쉬 · 휴게텔 · 키스방 · 안마 /추천 최신정보, bamje 밤의제국-달림정보포탈 밤의제국오피" />
 <meta name="description" 
-content="#밤의제국 #밤제 #오피 #건마 #휴게텔 #안마 #풀싸롱 #룸싸롱 #키스방 #립카페 #핸플 #패티쉬 #출장마사지 #파워볼 #홀덤 #오피쓰 #오피가이드 #오피스타"/>
+content="밤의제국,달림정보포탈 밤제, 밤의제국커뮤니티, 오피, bamje, 유흥주점(풀싸롱,퍼블릭룸,룸싸롱,노래주점), 휴게텔, 건마, 안마, 핸플, 키스방, 립카페, 패티쉬, 유흥업소, 출장오피, 
+출장안마, 출장건마,강남오피, 선릉오피, 강북오피, 강동오피, 강서오피, 분당오피, 송탄오피, 수원오피, 의정부오피, 안산오피, 일산오피, 부천오피, 서산오피, 대전오피, 천안오피, 
+청주오피, 구미오피, 대구오피, 부산오피, 광주오피, 울산오피, 창원오피, 포항오피, 군산오피, 익산오피, 제주오피, 강원오피, 전주오피 · bamje-달림정보포탈 밤의제국오피"/>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes"/>
 <?php
@@ -123,7 +128,7 @@ if($config['cf_add_meta'])
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="/theme/NB-Basic/img/logo2.png"/>
 <meta property="og:description" 
-content="밤의제국bamje.com-국내최다 업소정보 사이트" />
+content="..밤의제국bamje.com-국내최다 업소정보 사이트" />
 <meta property="og:url" content="<?php echo G5_URL?>" />
 <link rel="image_src" href="/theme/NB-Basic/img/logo2.png">
 <link rel="canonical" href="<?php echo G5_URL?>">
