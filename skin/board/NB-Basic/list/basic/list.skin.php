@@ -86,9 +86,11 @@ if($gr_id == 'attendance'){
                 제목
             </div>
             <div class="d-md-table-cell nw-14 pl-2 pr-md-1 text-center">이름</div>
+            <?php if($gr_id != 'attendance'){ ?>
             <div class="d-md-table-cell nw-6 pr-md-1"><?php echo subject_sort_link('wr_datetime', $qstr2, 1) ?>날짜</a>
             </div>
             <div class="d-md-table-cell nw-4 pr-md-1"><?php echo subject_sort_link('wr_hit', $qstr2, 1) ?>조회</a></div>
+            <?php } ?>
         </div>
     </div>
 
@@ -218,6 +220,7 @@ if($gr_id == 'attendance'){
                         ?>
                     </div>
                 </div>
+                <?php if($gr_id != 'attendance'){ ?>
                 <div class="float-left float-md-none d-md-table-cell nw-6 nw-md-auto f-sm">
                     <span class="sr-only">등록일</span>
                     <p class="datetime"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d', 'Y.m.d') ?>
@@ -230,6 +233,7 @@ if($gr_id == 'attendance'){
                         <?php echo "<p>".$list[$i]['wr_hit']."</p>" ?>
                     </div>
                 </div>
+                <?php } ?>
                 <!-- <?php if($is_good) { ?>
                     <div class="float-left float-md-none d-md-table-cell nw-3 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
                         <i class="fa fa-thumbs-o-up d-md-none" aria-hidden="true"></i>
