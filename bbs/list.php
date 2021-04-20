@@ -309,7 +309,7 @@ if ($is_search_bbs) {
 
 
 $write_href = '';
-if ($member['mb_level'] >= $board['bo_write_level']) {
+if (($bo_table != 'suggestions' && $member['mb_level'] >= $board['bo_write_level']) || ($bo_table == 'suggestions' && $member['mb_level'] > 1)) {
     $write_href = short_url_clean(G5_BBS_URL.'/write.php?bo_table='.$bo_table);
 }
 
