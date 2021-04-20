@@ -284,24 +284,24 @@ function insert_nickname($wer)
         <div style="display: flex; align-items: stretch; height: 100%;">
             <div>
 			    <div class="form-group">
-				<label for="outlogin_mb_id" class="sr-only">아이디<strong class="sr-only"> 필수</strong></label>
-				<div class="input-group">
-					<input type="text" name="mb_id" id="outlogin_mb_id" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="아이디">
-					<div class="input-group-append">
-						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width:30px;"><img src="<?php echo G5_URL."/img/portrait.png" ?>" alt="portrait"></span>
+					<label for="outlogin_mb_id" class="sr-only">아이디<strong class="sr-only"> 필수</strong></label>
+					<div class="input-group">
+						<input type="text" name="mb_id" id="outlogin_mb_id" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="아이디">
+						<div class="input-group-append">
+							<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width:30px;"><img src="<?php echo G5_URL."/img/portrait.png" ?>" alt="portrait"></span>
+						</div>
 					</div>
+				</div>
+				<div class="form-group">
+						<label for="outlogin_mb_password" class="sr-only">비밀번호<strong class="sr-only"> 필수</strong></label>
+						<div class="input-group">
+							<input type="password" name="mb_password" id="outlogin_mb_password" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="비밀번호">	
+							<div class="input-group-append">
+								<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width: 30px;"><img src="<?php echo G5_URL."/img/combined_shape.png" ?>" alt="combined-shape"></span>
+							</div>
+						</div>
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="outlogin_mb_password" class="sr-only">비밀번호<strong class="sr-only"> 필수</strong></label>
-				<div class="input-group">
-					<input type="password" name="mb_password" id="outlogin_mb_password" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="비밀번호">``	
-					<div class="input-group-append">
-						<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width: 30px;"><img src="<?php echo G5_URL."/img/combined_shape.png" ?>" alt="combined-shape"></span>
-					</div>
-				</div>
-            </div>
-            </div>
 			<div class="form-group" style="margin-left: 9px;">
 				<button type="submit" class="btn btn-block p-3 en" style="background-color: #4B4B4D; height: 100%;padding: 0px 0px 0px 5px !important;text-align: center;width: 62px !important;color: #fff;">
                     <!-- <i class="fa fa-sign-in" aria-hidden="true" style="margin-bottom: 5px;"></i> -->
