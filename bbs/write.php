@@ -50,7 +50,8 @@ if ($w == '') {
 
     if ($member['mb_level'] < $board['bo_write_level']) {
         if ($member['mb_id']) {
-            alert('글을 쓸 권한이 없습니다.');
+            //alert('글을 쓸 권한이 없습니다.');
+            alert('글쓰기는 장교레벨부터 가능합니다.');
         } else {
             alert("글을 쓸 권한이 없습니다.\\n회원이시라면 로그인 후 이용해 보십시오.", G5_BBS_URL.'/login.php?'.$qstr.'&amp;url='.urlencode($_SERVER['SCRIPT_NAME'].'?bo_table='.$bo_table));
         }
