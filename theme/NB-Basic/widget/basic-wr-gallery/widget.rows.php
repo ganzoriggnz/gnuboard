@@ -15,7 +15,7 @@ if($wset['thumb_w'] && $wset['thumb_h']) {
 $wset['sideview'] = 1; // 이름 레이어 출력
 
 
-$list = na_board_rows($wset);
+$list = na_board_rows_new($wset);
 
 shuffle($list);
 $list_cnt = count($list)<=15 ? count($list) : 15;

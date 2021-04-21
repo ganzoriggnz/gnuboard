@@ -1400,6 +1400,109 @@ function na_board_rows($wset) {
 	return $list;
 }
 
+function na_board_rows_new($wset) {
+	global $g5, $member;
+
+	$list = array();
+
+	$rows = (int)$wset['rows'];
+	$rows = ($rows > 0) ? $rows : 7;
+	$page = (int)$wset['page'];
+	$page = ($page > 1) ? $page : 1;
+
+	$bo_table = $wset['bo_list'];
+	$term = ($wset['term'] == 'day' && (int)$wset['dayterm'] > 0) ? $wset['dayterm'] : $wset['term'];
+	$sql_where = ($wset['where']) ? 'and '.$wset['where'] : '';
+	$sql_orderby = ($wset['orderby']) ? $wset['orderby'].',' : '';
+
+	$start_rows = 0;
+	$board_cnt = array_map('trim', explode(",", $bo_table));
+	if(!$bo_table || count($board_cnt) > 1 || $wset['bo_except']) {
+
+		// 메인글
+		$sql_main = (IS_NA_BBS && $wset['main']) ? "and a.as_type = '".(int)$wset['main']."'" : "";
+
+		// 회원글
+		$sql_mb = na_sql_find('a.mb_id', $wset['mb_list'], $wset['mb_except']);
+
+		// 정렬
+		$orderby = na_sql_sort('new', $wset['sort']);
+		$orderby = ($orderby) ? $orderby : 'a.bn_id desc';
+
+		// 추출게시판 정리
+		list($plus, $minus) = na_bo_list($wset['gr_list'], $wset['gr_except'], $wset['bo_list'], $wset['bo_except']);
+		$sql_plus = na_sql_find('a.bo_table', $plus, 0);
+		$sql_minus = na_sql_find('a.bo_table', $minus, 1);
+
+		//글, 댓글
+		$sql_wr = ($wset['comment']) ? "and a.wr_parent <> a.wr_id" : "and a.wr_parent = a.wr_id";
+
+		// 기간(일수,today,yesterday,month,prev)
+		$sql_term = na_sql_term($term, 'a.bn_datetime');
+		
+		// 공통쿼리
+		$sql_common = " from {$g5['board_new_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and b.bo_use_search = 1 $sql_plus $sql_minus $sql_wr $sql_term $sql_mb $sql_main $sql_where ";
+		if($page > 1) {
+			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
+			$total_count = $total['cnt'];
+			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
+			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
+		}
+		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by a.bn_datetime DESC limit $start_rows, 10 ", false);
+		for ($i=0; $row=sql_fetch_array($result); $i++) {
+
+			$tmp_write_table = $g5['write_prefix'] . $row['bo_table']; 
+
+			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id ", false);
+			
+			$wr['bo_table'] = $row['bo_table'];
+			$wr['bo_subject'] = $row['bo_subject'];
+			$wr['wr_id'] = $row['wr_id'];
+
+			$list[$i] = na_wr_row($wr, $wset);
+		}
+	} else { //단수
+
+		// 메인글
+		$sql_main = (IS_NA_BBS && $wset['main']) ? "and as_type = '".(int)$wset['main']."'" : "";
+
+		// 회원글
+		$sql_mb = na_sql_find('mb_id', $wset['mb_list'], $wset['mb_except']);
+
+		// 정렬
+		$orderby = na_sql_sort('bo', $wset['sort']);
+		$orderby = ($orderby) ? $orderby : 'wr_id desc';
+
+		// 기간(일수,today,yesterday,month,prev)
+		$sql_term = na_sql_term($term, 'wr_datetime');
+
+		// 분류
+		$sql_ca = na_sql_find('ca_name', $wset['ca_list'], $wset['ca_except']);
+
+		//글, 댓글
+		$sql_wr = ($wset['comment']) ? 1 : 0;
+
+		$tmp_write_table = $g5['write_prefix'] . $bo_table;
+
+		$sql_common = "from $tmp_write_table where wr_is_comment = '{$sql_wr}' $sql_ca $sql_term $sql_mb $sql_main $sql_where";
+		if($page > 1) {
+			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
+			$total_count = $total['cnt'];
+			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
+			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
+		}
+		$result = sql_query(" select * $sql_common order by wr_datetime DESC limit $start_rows, 10 ", false);
+		for ($i=0; $row=sql_fetch_array($result); $i++) { 
+
+			$row['bo_table'] = $bo_table;
+
+			$list[$i] = na_wr_row($row, $wset);
+		}
+	}
+
+	return $list;
+}
+
 // 게시물 추출
 function na_board_rows_coupon($wset) {
 	global $g5, $member;
