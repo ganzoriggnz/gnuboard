@@ -186,7 +186,7 @@ if($gr_id == 'attendance'){
                                 <!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->   
                                 <?php 
                                     if($board['gr_id'] == "review" ){ ?><span style="color: #000;">
-                                    <?php echo "[".$list[$i]['wr_7']." ".$list[$i]['wr_5']. "]" ?></span><?php echo $list[$i]['subject'];}
+                                    <?php echo "[".$list[$i]['wr_7']."]" ?></span><?php echo $list[$i]['subject'];}
                                    elseif($board['gr_id'] == "attendance"){ ?>
                                 <span style="color: #000;">
                                     <?php echo "[".$mb['mb_name']."]" ?> </span><?php echo $list[$i]['subject'] ;} 
