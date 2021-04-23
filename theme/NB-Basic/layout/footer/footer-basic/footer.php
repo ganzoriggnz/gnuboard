@@ -19,7 +19,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_footer_url.'/footer.css">', 0
 		<?php } ?>			
 	</div>	
 <?php } ?>
-<footer id="nt_footer" style="background-image: url('<?php echo G5_URL."/img/footer_bg_image.png"?>'); ">
+
+<footer id="nt_footer">
 	<div class="nt-container">
 		<div class="item-text">
 			<p>밤의제국 <span>오피커뮤니티 - bamje.com</span></p>
