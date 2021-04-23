@@ -156,7 +156,7 @@ if($gr_id == 'attendance'){
     
     
             ?>
-            <?php if (!strstr($list[$i]['wr_option'], "secret") || $is_admin)  {?>
+            <?php if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter'))  {?>
             <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css;?>">
                 <?php if ($gr_id !='attendance'){ ?>
                 <div class="d-none d-md-table-cell nw-5 f-sm font-weight-normal py-md-2 px-md-1">
