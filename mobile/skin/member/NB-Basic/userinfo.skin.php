@@ -108,7 +108,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     <td class="cl_tr pr-2"  valign="top" style="text-align: right; "><label class="col-form-label" for="reg_mb_nick">연락처</label></td>
                     <td class="cl_tr" style="text-align: left;">
                         <?php if($member['mb_hp']) {echo $member['mb_hp']; }?> &nbsp; <a class="btn" href="<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>"
-                            target="_blank" style="color:#000; font-size:11px; background-color:#efefef; padding:3px; border:1px solid #696969; border-radius:5px; text-decoration:none">
+                            target="_blank" style="color:#000; font-size:11px; background-color:#efefef; padding:3px; border:1px solid #696969; border-radius:5px; text-decoration:none; cursor: pointer;">
                             <font style="vertical-align: inherit;">전화번호 변경요청 </font>
                         </a> <br /> 
 
