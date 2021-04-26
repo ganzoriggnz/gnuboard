@@ -143,7 +143,7 @@ if($res_date['mb_4'] != ''){
         <?php } ?>
         <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
             <p><?php echo $me['text'];?></p>
-            <a class="<?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?> cat_2_bg" title="<?php echo $me['text'];?> 정보" style="<?php if( strstr($me['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
+            <a class="<?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?> cat_2_bg" title="<?php echo $me['text'].' 정보 | 밤의제국 bamje.com';?>" style="<?php if( strstr($me['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
                 href="<?php echo $me['href']; ?>" target="_self">정보
             </a>
             <a class="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?> cat_1_bg" title="<?php echo $me['text'];?> 후기" style="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
@@ -178,7 +178,7 @@ if($res_date['mb_4'] != ''){
         <?php } ?>
         <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
             <p><?php echo $me['text'];?></p>
-            <a class="  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?> cat_2_bg" title="<?php echo $me['text'];?> 정보" style="<?php if( strstr($me['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
+            <a class="  <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?> cat_2_bg" title="<?php echo $me['text'].' 정보 | 밤의제국 bamje.com';?>" style="<?php if( strstr($me['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
                 href="<?php echo $me['href']; ?>" target="_self">정보
             </a>
             <a class=" <?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?> cat_1_bg " title="<?php echo $me['text'];?> 후기" style="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
@@ -203,7 +203,7 @@ if($res_date['mb_4'] != ''){
         <?php } ?>
         <div style="<?php if( strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
             <p><?php echo $me['text'];?></p>
-            <a class=" <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?> cat_2_bg " title="<?php echo $me['text'];?> 정보" style="<?php if( strstr($me['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
+            <a class=" <?php if( strstr($me['href'], $bo_table)) echo"activesubs" ?> cat_2_bg " title="<?php echo $me['text'].' 정보 | 밤의제국 bamje.com';?>" style="<?php if( strstr($me['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
                 href="<?php echo $me['href']; ?>" target="_self">정보
             </a>
             <a class="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"activesubs" ?> cat_1_bg "  title="<?php echo $me['text'];?> 후기" style="<?php if( strstr($menu[1]['s'][$i]['href'], $bo_table)) echo"background-color: #ffd345" ?>;"
