@@ -129,7 +129,6 @@ content="..밤의제국bamje.com-국내최다 업소정보 사이트" />
 <meta property="og:url" content="<?php echo G5_URL?>" />
 <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon"/>
 <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-<!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"> -->
 <link rel="image_src" href="/theme/NB-Basic/img/logo2.png">
 <link rel="canonical" href="<?php echo G5_URL?>">
 <title><?php echo $g5_head_title; ?></title>
