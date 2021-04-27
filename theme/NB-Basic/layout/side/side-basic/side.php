@@ -247,7 +247,7 @@ if($res_date['mb_4'] != ''){
     </li>
     <?php }}}} ?>
     <?php $me_text="실장님 정보공유";
-    if($me_text=="실장님 정보공유")
+    /* if($me_text=="실장님 정보공유")
             {if($member['mb_level']==26 || $member['mb_level']==27 || $is_admin)
                 { ?>
     <li class="me-li"
@@ -271,7 +271,7 @@ if($res_date['mb_4'] != ''){
             <?php } ?>
         </div>
     </li>
-    <?php } } ?>
+    <?php } } ?> */
     
 </ul>
 <script>
