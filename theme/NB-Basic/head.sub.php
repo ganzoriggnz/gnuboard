@@ -112,13 +112,10 @@ if (G5_IS_MOBILE) {
     echo '<meta http-equiv="imagetoolbar" content="no"/>'.PHP_EOL;
     echo '<meta http-equiv="X-UA-Compatible" content="IE=edge"/>'.PHP_EOL;
     echo '<meta http-equiv="ScreenOrientation" content="autoRotate:disabled"/>'.PHP_EOL;
-    echo '<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>'.PHP_EOL;
-    echo '<link rel="icon" href="/favicon.ico" type="image/x-icon"/>'.PHP_EOL;
-
 }
 
-if($config['cf_add_meta'])
-    echo $config['cf_add_meta'].PHP_EOL;
+/* if($config['cf_add_meta'])
+    echo $config['cf_add_meta'].PHP_EOL; */
 ?>
 <meta name="google-site-verification" content="google84c593a17dec3cae"/>
 <meta property="og:locale" content="ko_KR">
@@ -130,13 +127,16 @@ if($config['cf_add_meta'])
 <meta property="og:description" 
 content="..밤의제국bamje.com-국내최다 업소정보 사이트" />
 <meta property="og:url" content="<?php echo G5_URL?>" />
+<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+<!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"> -->
 <link rel="image_src" href="/theme/NB-Basic/img/logo2.png">
 <link rel="canonical" href="<?php echo G5_URL?>">
 <title><?php echo $g5_head_title; ?></title>
 <link rel="stylesheet" href="<?php echo NA_URL ?>/app/bs4/css/bootstrap<?php echo $default_css ?>.min.css" type="text/css">
 <link rel="stylesheet" href="<?php echo G5_JS_URL ?>/font-awesome/css/font-awesome.min.css" type="text/css">
 <link rel="icon" sizes="192x192" href="/icon.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="apple-touch-icon" href="/icon.png" />
 <script>
 // 자바스크립트에서 사용하는 전역변수 선언
 var g5_url       = "<?php echo G5_URL ?>";
