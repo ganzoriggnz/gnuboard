@@ -1,7 +1,7 @@
 <?php
 include_once('./_common.php');
 
-if (($stx || $searchd) && $member['mb_level'] < 8) {
+if (($stx || $searchd) && $member['mb_level'] < 9) {
     alert('검색은 향리 레벨 이상 회원만 이용 가능합니다.');
 }
 

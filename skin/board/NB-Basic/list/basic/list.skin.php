@@ -120,7 +120,7 @@ if($gr_id == 'attendance'){
                 // 전체 보기에서 분류 출력하기 //hulan nemsen 후기, 출근부에 분류 안 보이게
                 if($board['gr_id'] !== "review" && $board['gr_id'] !== "attendance"){
                 if(!$sca && $is_category && $list[$i]['ca_name']) {
-                    $list[$i]['subject'] = "<span style='color: #000;'>[".$list[$i]['ca_name'].'] </span>'.$list[$i]['subject'];
+                    $list[$i]['subject'] = "<span style='color: #000;'></span>".$list[$i]['subject'];
                 }
                 }
     
