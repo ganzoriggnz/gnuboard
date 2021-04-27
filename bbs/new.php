@@ -4,6 +4,10 @@ include_once('./_common.php');
 $g5['title'] = '새글';
 include_once('./_head.php');
 
+if ($member['mb_level'] < 8) {
+    alert('검색은 향리 레벨 이상 회원만 이용 가능합니다.');
+}
+
 $sql_common = " from {$g5['board_new_table']} a, {$g5['board_table']} b, {$g5['group_table']} c where a.bo_table = b.bo_table and b.gr_id = c.gr_id and b.bo_use_search = 1 ";
 
 $gr_id = isset($_GET['gr_id']) ? substr(preg_replace('#[^a-z0-9_]#i', '', $_GET['gr_id']), 0, 10) : '';
