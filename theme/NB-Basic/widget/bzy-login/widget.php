@@ -279,7 +279,7 @@ function insert_nickname($wer)
 		</div>
 
 	<?php } else { //Logout ?>
-		<form id="basic_outlogin" name="basic_outlogin" method="post" action="<?php echo G5_HTTPS_BBS_URL ?>/login_check.php" autocomplete="off" style="display: flex; flex-direction: column;">
+		<form id="basic_outlogin" name="basic_outlogin" method="post" action="<?php echo G5_HTTPS_BBS_URL ?>/login_check.php" style="display: flex; flex-direction: column;">
         <input type="hidden" name="url" value="<?php echo $urlencode; ?>">
         <div style="display: flex; align-items: stretch; height: 100%;">
             <div>
@@ -295,7 +295,7 @@ function insert_nickname($wer)
 				<div class="form-group">
 						<label for="outlogin_mb_password" class="sr-only">비밀번호<strong class="sr-only"> 필수</strong></label>
 						<div class="input-group">
-							<input type="password" name="mb_password" id="outlogin_mb_password" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="비밀번호">	
+							<input type="password" name="mb_password" id="outlogin_mb_password" class="form-control" style="background-color: #3B3B45; border-color: #505059; width: 143px;" placeholder="비밀번호" autocomplete="off">	
 							<div class="input-group-append">
 								<span class="input-group-text" style="background-color: #1C1C26; border-color: #505059; width: 30px;"><img src="<?php echo G5_URL."/img/combined_shape.png" ?>" alt="combined-shape"></span>
 							</div>
