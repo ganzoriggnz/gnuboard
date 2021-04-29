@@ -379,11 +379,11 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
     <td width="100%">
 <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" valign="top" class="board_list" style="font-size:10px;">
 <tr height="34">
-    <td width="50" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>등수</td>
-    <td width="100" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>출석시간</td>
-    <td width="110" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>닉네임</td>
-    <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>접속중</td>
-    <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>파운드</td>
+    <td width="40" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>등수</td>
+    <td width="80" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>출석시간</td>
+    <td width="120" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>닉네임</td>
+    <td width="50" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>접속중</td>
+    <td width="90" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>파운드</td>
     <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>개근</td>
 </tr>
 <?php
@@ -424,9 +424,9 @@ for ($i=0; $data=sql_fetch_array($result); $i++) {
     <td align="center"><?php echo substr($data['datetime'],10,16);?></td>
     <td align="left"><?php echo $name?></td>
     <td align="center"><?php echo $on?></td>
-    <td align="right" style="padding:0 5 0 0px;"><?php if(number_format($data['point']) > 10) { echo '<br> 10 파운드 <br>'.(number_format($data['point'])-10).' 파운드'; } 
-        else { echo '<br>'.number_format($data['point']).'파운드'; } ?></td>
-    <td align="center"><?php if(number_format($data['point']) > 10){ echo '<br><br>'.$data['day'].'일째'; } else { echo $data['day'].'일째'; } ?></td>
+    <td align="right" style="padding:0 5 0 0px;"><?php if(number_format($data['point']) > 10) { echo '10 + '.(number_format($data['point'])-10).' 파운드'; } 
+        else { echo number_format($data['point']).'파운드'; } ?></td>
+    <td align="center"><?php echo $data['day'].'일째'; ?> </td>
 </tr>
 <tr><td bgcolor="#EEEEEE" colspan="<?php echo $colspan?>" height="1"></td></tr>
 <?php } ?>

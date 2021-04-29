@@ -11,7 +11,7 @@ $daylimit=10;
 $check=0;
 
 //  zuwshuurugdsun levels
-$nolimit_levels = array('1'=>'24','2'=>'25','3'=>'27','4'=>'30');
+/* $nolimit_levels = array('1'=>'24','2'=>'25','3'=>'27','4'=>'30'); */
 //  2-22 and 26 level tai bh ym bol  day  = 10
 // 24,25,27, admin,  no limit
 /* for($i=0; $i<count($nolimit_levels);$i++){
