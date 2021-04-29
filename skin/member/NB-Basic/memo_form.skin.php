@@ -10,17 +10,6 @@ $daylimit=10;
 // check 0
 $check=0;
 
-//  zuwshuurugdsun levels
-/* $nolimit_levels = array('1'=>'24','2'=>'25','3'=>'27','4'=>'30'); */
-//  2-22 and 26 level tai bh ym bol  day  = 10
-// 24,25,27, admin,  no limit
-/* for($i=0; $i<count($nolimit_levels);$i++){
-	if ($nolimit_levels[$i] == $member['mb_level'])
-		{
-			$daylimit=99999999;
-		}
-} */
-
 if($member['mb_level'] > 23) 
 $daylimit=99999999;
 // member day count limit select
@@ -90,7 +79,7 @@ if($daylimit > $total_count){
 			<div class="form-group row mx-n2">
 				<label class="col-sm-2 col-form-label px-2" for="me_recv_mb_id">받는 회원<strong class="sr-only"> 필수</strong></label>
 				<div class="col-sm-10 px-2">
-					<input type="text" name="me_recv_mb_id" value="<?php echo $me_recv_mb_id ?>" <?php  if ($check==0){echo "disabled";} ?> id="me_recv_mb_id" required class="form-control">
+					<input type="text" name="me_recv_mb_id" <?php if($member['mb_level'] < 24){ echo 'onkeyup="commaDown('.$total_count.')"';} else { echo ''; } ?> value="<?php echo $me_recv_mb_id ?>" <?php  if ($check==0){echo "disabled";} ?> id="me_recv_mb_id" required class="form-control">
 					<p class="form-text f-de text-muted mb-0 pb-0">
 						여러 회원에게 보낼때는 회원아이디를 컴마(,)로 구분해 주세요.
 					</p>
@@ -122,12 +111,33 @@ if($daylimit > $total_count){
 </div>
 
 <script>
+
+function commaDown(count){
+	var max = 0;
+	if(count <= 10)
+	max = 10- count;
+	var area = document.getElementById('me_recv_mb_id');	
+	var txt = area.value;
+	var commas = txt.split(",").length;
+
+	if(commas > max) {
+	var lastComma = txt.lastIndexOf(",");
+	area.value = txt.substring(0, lastComma);
+	commas--;
+	alert("레벨 회원이 하루에 쪽지 보내기 10개 이상 불가능합니다.");
+	}
+	if (txt == '') {
+	commas = 0;
+	}
+}
+
 function fmemoform_submit(f) {
 
     <?php echo chk_captcha_js();  ?>
 
     return true;
 }
+
 $(window).on('load', function () {
 	na_nav('topNav', 'topHeight', 'fixed-top');
 });
