@@ -75,20 +75,20 @@ if ($row['mb_id']) {
     $sql_reset6 = $row['reset6'] + 1;
     
     if ($sql_reset == $sql_day_cnt) { // 7일 개근	
-        $sql_reset  = "0"; 	
+       /*  $sql_reset  = "0"; */ 	
         $sql_point  = $sql_point + $sql_day_point;	
     }	
 		
 	if ($sql_reset2 == $sql_monthly_cnt) { // 30일 개근	
-        $sql_reset2 = "0"; 	
+        /* $sql_reset2 = "0"; */ 	
         $sql_point  = $sql_point + $sql_monthly_point;	
     }	
     if ($sql_reset3 == $sql_year1_cnt) {  // 365일 개근	
-        $sql_reset3 = "0"; 	
+       /*  $sql_reset3 = "0"; */ 	
         $sql_point  = $sql_point + $sql_year1_point;	
     }	
     if ($sql_reset4 == $sql_year2_cnt) {  // 500일 개근	
-        $sql_reset4 = "0"; 	
+        /* $sql_reset4 = "0"; */ 	
         $sql_point  = $sql_point + $sql_year2_point;	
     }	
     /* if ($row['reset5'] == $sql_year3_cnt) {  // 700일 개근	
@@ -96,6 +96,10 @@ if ($row['mb_id']) {
         $sql_point  = $sql_point + $sql_year3_point;	
     } */	
     if ($sql_reset6 == $sql_year_cnt) {  // 1000일 개근
+        $sql_reset  = "0";
+        $sql_reset2 = "0";
+        $sql_reset3 = "0";
+        $sql_reset4 = "0";
         $sql_reset6 = "0"; 
         $sql_point  = $sql_point + $sql_year_point;
     }
