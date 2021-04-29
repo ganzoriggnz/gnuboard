@@ -124,7 +124,7 @@ function commaDown(count){
 	var lastComma = txt.lastIndexOf(",");
 	area.value = txt.substring(0, lastComma);
 	commas--;
-	alert("레벨 회원이 하루에 쪽지 보내기 10개 이상 불가능합니다.");
+	alert("하루에 쪽지 보내기 10개 이상 불가능합니다.");
 	}
 	if (txt == '') {
 	commas = 0;
