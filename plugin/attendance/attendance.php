@@ -515,10 +515,13 @@ for ($i=0; $data=sql_fetch_array($result); $i++) {
     <td align="center"><?php echo $rank?> 등</td>
     <td align="center"><?php echo substr($data['datetime'],10,16);?></td>
     <td align="left"><?php echo na_name_photo($check['mb_id'], $name) ?></td>
-    <td class="show_at" style="padding:0 0 0 20px;"><?php echo get_text($data['subject'])?></td>
+    <td class="show_at" style="padding:0 0 0 20px;"><?php if(number_format($data['point']) > 10) { echo get_text($data['subject']).' <br> 출석파운드 <br> 연속출석파운드'; } 
+        else { echo get_text($data['subject']).' <br> 출석파운드';} ?></td>
     <td align="center"><?php echo $on?></td>
-    <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']);?> 파운드</td>
-    <td align="center"><?php echo $data['day']?> 일째</td>
+    <!-- <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']);?> 파운드</td> -->
+    <td align="right" style="padding:0 5 0 0px;"><?php if(number_format($data['point']) > 10) { echo '<br> 10 파운드 <br>'.(number_format($data['point'])-10).' 파운드'; } 
+        else { echo '<br>'.number_format($data['point']).'파운드'; } ?></td>
+    <td align="center"><?php if(number_format($data['point']) > 10){ echo '<br><br>'.$data['day'].'일째'; } else { echo $data['day'].'일째'; } ?> </td>
 </tr>
 <tr><td bgcolor="#EEEEEE" colspan="<?php echo $colspan?>" height="1"></td></tr>
 <?php } ?>

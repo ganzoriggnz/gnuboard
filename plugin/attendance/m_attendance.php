@@ -424,8 +424,9 @@ for ($i=0; $data=sql_fetch_array($result); $i++) {
     <td align="center"><?php echo substr($data['datetime'],10,16);?></td>
     <td align="left"><?php echo $name?></td>
     <td align="center"><?php echo $on?></td>
-    <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']);?> 파운드</td>
-    <td align="center"><?php echo $data['day']?> 일째</td>
+    <td align="right" style="padding:0 5 0 0px;"><?php if(number_format($data['point']) > 10) { echo '<br> 10 파운드 <br>'.(number_format($data['point'])-10).' 파운드'; } 
+        else { echo '<br>'.number_format($data['point']).'파운드'; } ?></td>
+    <td align="center"><?php if(number_format($data['point']) > 10){ echo '<br><br>'.$data['day'].'일째'; } else { echo $data['day'].'일째'; } ?></td>
 </tr>
 <tr><td bgcolor="#EEEEEE" colspan="<?php echo $colspan?>" height="1"></td></tr>
 <?php } ?>

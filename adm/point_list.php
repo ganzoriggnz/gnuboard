@@ -152,8 +152,8 @@ else
         <td class="td_left"><a href="?sfl=mb_id&amp;stx=<?php echo $row['mb_id'] ?>"><?php echo $row['mb_id'] ?></a></td>
         <td class="td_left"><?php echo get_text($row2['mb_name']); ?></td>
         <td class="td_left sv_use"><div><?php echo $mb_nick ?></div></td>
-        <td class="td_left"><?php echo $link1 ?><?php echo $row['po_content'] ?><?php echo $link2 ?></td>
-        <td class="td_num td_pt"><?php echo number_format($row['po_point']) ?></td>
+        <td class="td_left"><?php echo $link1 ?><?php if($row['po_content'] == '출석 파운드' && number_format($row['po_point']) > 10) { echo $row['po_content'].'<br> 연속출석파운드';} else { echo $row['po_content'];} ?><?php echo $link2 ?></td>
+        <td class="td_num td_pt"><?php if($row['po_content'] == '출석 파운드' && number_format($row['po_point']) > 10) { echo '10 <br>'.(number_format($row['po_point'])-10);} else { echo number_format($row['po_point']); } ?></td>
         <td class="td_datetime"><?php echo $row['po_datetime'] ?></td>
         <td class="td_datetime2<?php echo $expr; ?>">
             <?php if ($row['po_expired'] == 1) { ?>
