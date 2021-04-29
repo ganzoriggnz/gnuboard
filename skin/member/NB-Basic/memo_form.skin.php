@@ -14,12 +14,15 @@ $check=0;
 $nolimit_levels = array('1'=>'24','2'=>'25','3'=>'27','4'=>'30');
 //  2-22 and 26 level tai bh ym bol  day  = 10
 // 24,25,27, admin,  no limit
-for($i=0; $i<count($nolimit_levels);$i++){
+/* for($i=0; $i<count($nolimit_levels);$i++){
 	if ($nolimit_levels[$i] == $member['mb_level'])
 		{
 			$daylimit=99999999;
 		}
-}
+} */
+
+if($member['mb_level'] > 23) 
+$daylimit=99999999;
 // member day count limit select
 $sql = "select count(*) as cnt from {$g5['memo_table']} where me_send_mb_id = '{$member['mb_id']}' and me_type = 'send' and DATE(me_send_datetime) = '".G5_TIME_YMD."'";
 $row = sql_fetch($sql);
