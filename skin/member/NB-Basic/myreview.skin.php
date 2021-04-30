@@ -64,7 +64,6 @@ $i=0;
                             </a>
                         </li>
                         <?php } ?>
-                        <?php if ($member['mb_level'] < 23) { ?>
                         <li>
                             <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/coupon_accept.php">
                                 <span>
@@ -73,7 +72,6 @@ $i=0;
                                 </span>
                             </a>
                         </li>
-                        <?php } ?>
                         <!-- if nuhtsul hulan nemsen 후기는 업소레벨에만 있으면 된다 -->
                         <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
                         <li class="active"> 
