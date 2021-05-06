@@ -25,7 +25,7 @@ $row = sql_fetch($sql);
 $sumday = $row['sumday'] + 1;
 
 // 오늘 출석했나?
-$sql = " select * from $g5[attendance_table] where mb_id = '$member[mb_id]' and substring(datetime,1,10) = '".G5_TIME_YMD."' ";
+$sql = " select * from {$g5['attendance_table']} where mb_id = '$member[mb_id]' and substring(datetime,1,10) = '".G5_TIME_YMD."' ";
 $check = sql_fetch($sql);
 
 // 출석했다면.
@@ -40,7 +40,7 @@ if ($check['mb_id']) {
 $day = date("Y-m-d", $G5_SERVER_TIME - (1 * 86400));
 
 // 어제 출석했나?
-$sql = " select * from $g5[attendance_table] where mb_id = '$member[mb_id]' and substring(datetime,1,10) = '$day' ";
+$sql = " select * from {$g5['attendance_table']} where mb_id = '$member[mb_id]' and substring(datetime,1,10) = '$day' ";
 $row = sql_fetch($sql);
 
 	
@@ -136,7 +136,7 @@ if ($row['mb_id']) {
 
 
 // 첫출근
-$sql = " select count(*) as cnt, rank from $g5[attendance_table] where substring(datetime,1,10) = '".G5_TIME_YMD."' ";
+$sql = " select count(*) as cnt, rank from {$g5['attendance_table']} where substring(datetime,1,10) = '".G5_TIME_YMD."' ";
 $first = sql_fetch($sql);
 
 // 아무도 없다면..
@@ -156,7 +156,7 @@ if (!$first['cnt']) { // 1등 포인트
 
 
 // 기록
-$sql = " insert into $g5[attendance_table]
+$sql = " insert into {$g5['attendance_table']}
             set mb_id = '$member[mb_id]',
                 subject = '".$_POST['subject']."',
                 day = '$sql_day',

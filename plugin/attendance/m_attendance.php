@@ -5,8 +5,8 @@ include_once("./_setup.php");
 $G5_TIME_YMD = G5_TIME_YMD;
 $g5['title'] = "출석체크";
 
-    if (!sql_query("select count(*) as cnt from $g5[attendance_table]",false)) { // attendance 테이블이 없다면 생성
-        $sql_table = "create table $g5[attendance_table] (            
+    if (!sql_query("select count(*) as cnt from {$g5['attendance_table']}",false)) { // attendance 테이블이 없다면 생성
+        $sql_table = "create table {$g5['attendance_table']} (            
 		    id int(11) NOT NULL auto_increment,
 		    mb_id varchar(50) NOT NULL default '',
             rank varchar(2) NOT NULL default '',
@@ -182,7 +182,7 @@ for ($i=0; $i<($DateN4 + $DateT2 + $DateN5); $i++) {
 
     }
 	//출석 했을때 이미지 출력
-        $sql = " select id from $g5[attendance_table] where mb_id = '$member[mb_id]' and substring(datetime,1,10) = '$DateT4' ";
+        $sql = " select id from {$g5['attendance_table']} where mb_id = '$member[mb_id]' and substring(datetime,1,10) = '$DateT4' ";
         $check = sql_fetch($sql);
 
         // 출석
@@ -388,12 +388,12 @@ document.getElementById("subject").value = randText;//$('#wr_text').html(randTex
 </tr>
 <?php
 // 출석 테이블 연결
-$sql = " select * from $g5[attendance_table] where $sql_common order by datetime asc, day desc ";
+$sql = " select * from {$g5['attendance_table']} where $sql_common order by datetime asc, day desc ";
 $result = sql_query($sql);
 for ($i=0; $data=sql_fetch_array($result); $i++) {
 
     // 접속자테이블 연결
-    $sql = " select mb_id from $g5[login_table] where mb_id = '$data[mb_id]' ";
+    $sql = " select mb_id from {$g5['login_table']} where mb_id = '$data[mb_id]' ";
     $ing = sql_fetch($sql);
 
     // 접속상태
