@@ -16,7 +16,7 @@ if ($_GET['mb_id']){
 
     $sql1 = " insert into {$g5['memo_table']} 
     ( me_recv_mb_id, me_send_mb_id, me_send_datetime, me_memo, me_read_datetime, me_type, me_send_ip ) values 
-    ( '$mb_id', 'admin', '".G5_TIME_YMDHIS."', '{$mb['mb_nick']} ({$mb['mb_id']}) 오피업 $oldphone 실장 전화번호를 $newphone 변경처리되었습니다. 전화번호 변경 요청을 성공적으로 처리되었습니다.', '0000-00-00 00:00:00' , 'recv', '{$_SERVER['REMOTE_ADDR']}' ) ";
+    ( '$mb_id', 'admin', '".G5_TIME_YMDHIS."', '{$mb['mb_nick']} ({$mb['mb_id']}) $oldphone 실장 전화번호를 $newphone 변경처리되었습니다. 전화번호 변경 요청을 성공적으로 처리되었습니다.', '0000-00-00 00:00:00' , 'recv', '{$_SERVER['REMOTE_ADDR']}' ) ";
 
     sql_query($sql1);
     if( $me_id1 = sql_insert_id() ){
