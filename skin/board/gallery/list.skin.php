@@ -15,7 +15,7 @@ if($_GET['page']){
     $page =  $_GET['page'];
 }
 $list = na_post_rows($wsetss,$subcat,$searchd,$page); 
-
+shuffle($list);
 $catecount = count(na_post_rows($wsetss));
 $list_cnt = count($list);
 
@@ -32,6 +32,7 @@ $list= array_slice($list, $start_rows,$row_limit);
 
 $wsetrr=$sca;
 $listee = na_post_subcat($wsetrr); //
+shuffle($listee);
 sort($listee);
 $list_cnteee = count($listee);
 
