@@ -159,8 +159,8 @@ $sql = " insert into {$g5['attendance_table']}
                 reset5 = '$sql_reset5',
                 reset6 = '$sql_reset6',
                 point = '$sql_point',
-				rank = '$rank',			
-                datetime = '".G5_TIME_YMDHIS."' ";
+				`rank` = '$rank',			
+                `datetime` = '".G5_TIME_YMDHIS."' ";
 sql_query($sql);
 
 
@@ -170,4 +170,3 @@ insert_point($member['mb_id'], (int)($sql_point * 1), "출석 파운드", "@atte
 
 // 완료
 alert("출석 체크 완료", "./attendance.php");
-?>
