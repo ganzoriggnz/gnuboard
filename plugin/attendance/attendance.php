@@ -404,11 +404,6 @@ if ($d) {
             value[49] = "무엇을 잘 하는 것은 시간낭비일 때가 많다. - 로버트 바이른"
             value[50] = "지속적인 긍정적 사고는 능력을 배가시킨다. - 콜린 파월"
             value[51] = "낭비한 시간에 대한 후회는 더 큰 시간 낭비이다. - 메이슨 쿨리"
-            value[52] = "불타는 하루를 밤의제국(밤제)과 함께~"
-            value[53] = "달림정보 포탈 사이트 밤의제국(밤제) bamje1.com"
-            value[54] = "밤의제국 트위터 https://twitter.com/bamje4"
-            value[55] = "밤의제국 바로가기 bamje.com 검색"
-            value[56] = "밤의제국 접속주소 bamje1.com 다음접속 주소는 bamje2.com 입니다."
 
             rand = Math.floor(value.length * Math.random());
             randText = value[rand];
