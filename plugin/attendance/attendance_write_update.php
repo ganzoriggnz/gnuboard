@@ -7,8 +7,7 @@ include_once("./_setup.php");
 if (!$is_member) {
 
     /* alert("로그인 후 이용하세요."); */
-    alert("로그인 후 이용하세요.", G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
-
+    alert("로그인 후 이용하세요.", G5_BBS_URL . "/login.php?url=" . urlencode("{$_SERVER['REQUEST_URI']}"));
 }
 
 
@@ -16,24 +15,22 @@ if (!$is_member) {
 if (date("H:i:s") < $attendance['start_time'] || date("H:i:s") > $attendance['end_time']) {
 
     alert("출석 시간이 아닙니다.");
-
 }
 
 // 총출석일수
-$sql = " select sumday from {$g5['attendance_table']} where mb_id = '{$member['mb_id']}' order by datetime desc ";
+$sql = " select sumday from {$g5['attendance_table']} where mb_id = '{$member['mb_id']}' order by `datetime` desc ";
 $row = sql_fetch($sql);
 // 총출석일
 $sumday = $row['sumday'] + 1;
 
 // 오늘 출석했나?
-$sql = " select * from {$g5['attendance_table']} where mb_id = '$member[mb_id]' and substring(datetime,1,10) = '".G5_TIME_YMD."' ";
+$sql = " select * from {$g5['attendance_table']} where mb_id = '$member[mb_id]' and substring(`datetime`,1,10) = '" . G5_TIME_YMD . "' ";
 $check = sql_fetch($sql);
 
 // 출석했다면.
 if ($check['mb_id']) {
 
     alert("이미 출석 하였습니다.");
-
 }
 
 
@@ -41,7 +38,7 @@ if ($check['mb_id']) {
 $day = date("Y-m-d", $G5_SERVER_TIME - (1 * 86400));
 
 // 어제 출석했나?
-$sql = " select * from {$g5['attendance_table']} where mb_id = '$member[mb_id]' and substring(datetime,1,10) = '$day' ";
+$sql = " select * from {$g5['attendance_table']} where mb_id = '$member[mb_id]' and substring(`datetime`,1,10) = '$day' ";
 $row = sql_fetch($sql);
 
 $sql_point = $attendance['today_point'];
@@ -74,25 +71,25 @@ if ($row['mb_id']) {
     $sql_reset4 = $row['reset4'] + 1;
     /* $sql_reset5 = $row['reset5'] + 1; */
     $sql_reset6 = $row['reset6'] + 1;
-   
-    
+
+
     if ($sql_reset == $sql_day_cnt) { // 7일 개근
-        /* $sql_reset  = "0"; */ 
+        /* $sql_reset  = "0"; */
         $sql_point  = $sql_point + $sql_day_point;
     }
-	
-	if ($sql_reset2 == $sql_monthly_cnt) { // 30일 개근
-        /* $sql_reset2 = "0"; */ 
+
+    if ($sql_reset2 == $sql_monthly_cnt) { // 30일 개근
+        /* $sql_reset2 = "0"; */
         $sql_point  = $sql_point + $sql_monthly_point;
     }
 
     if ($sql_reset3 == $sql_year1_cnt) {  // 365일 개근
-       /*  $sql_reset3 = "0"; */ 
+        /*  $sql_reset3 = "0"; */
         $sql_point  = $sql_point + $sql_year1_point;
     }
 
     if ($sql_reset4 == $sql_year2_cnt) {  // 500일 개근
-        /* $sql_reset4 = "0"; */ 
+        /* $sql_reset4 = "0"; */
         $sql_point  = $sql_point + $sql_year2_point;
     }
 
@@ -106,7 +103,7 @@ if ($row['mb_id']) {
         $sql_reset2 = "0";
         $sql_reset3 = "0";
         $sql_reset4 = "0";
-        $sql_reset6 = "0"; 
+        $sql_reset6 = "0";
         $sql_point  = $sql_point + $sql_year_point;
     }
     if ($sql_day > $sql_year_cnt) {  // 1000일 개근
@@ -127,7 +124,7 @@ if ($row['mb_id']) {
 
 
 // 첫출근
-$sql = " select count(*) as cnt, rank from {$g5['attendance_table']} where substring(datetime,1,10) = '".G5_TIME_YMD."' ";
+$sql = " select count(*) as cnt, `rank` from {$g5['attendance_table']} where substring(`datetime`,1,10) = '" . G5_TIME_YMD . "' ";
 $first = sql_fetch($sql);
 
 // 아무도 없다면..
@@ -149,7 +146,7 @@ if (!$first['cnt']) { // 1등 포인트
 // 기록
 $sql = " insert into {$g5['attendance_table']}
             set mb_id = '$member[mb_id]',
-                subject = '".$_POST['subject']."',
+                subject = '" . $_POST['subject'] . "',
                 day = '$sql_day',
                 sumday = '$sumday',
                 reset = '$sql_reset',
@@ -160,7 +157,7 @@ $sql = " insert into {$g5['attendance_table']}
                 reset6 = '$sql_reset6',
                 point = '$sql_point',
 				`rank` = '$rank',			
-                `datetime` = '".G5_TIME_YMDHIS."' ";
+                `datetime` = '" . G5_TIME_YMDHIS . "' ";
 sql_query($sql);
 
 
