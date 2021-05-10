@@ -105,8 +105,8 @@ if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin || ($list[$i]['mb_id'] !
 			<div class="d-md-table-cell text-left py-md-2 pr-md-1">
 				<div class="na-title float-md-left">
 					<div class="na-item">
-						<?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>'; if ($is_checkbox) { ?>
-							<input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
+						<?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile mr-2" aria-hidden="true"></i>'; if ($is_checkbox) { ?>
+							<input type="checkbox" class="mb-0 ml-2 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
 						<?php } ?>
 						<a href="<?php echo $list[$i]['href'] ?>" class="na-subject"<?php echo $target ?>>
 							<?php
