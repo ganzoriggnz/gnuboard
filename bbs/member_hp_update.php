@@ -28,8 +28,12 @@ if($_POST['new_hp']!='')
         // 보내는 회원 쪽지 INSERT
         $sql1 = " insert into {$g5['memo_table']} 
         ( me_recv_mb_id, me_send_mb_id, me_send_datetime, me_memo, me_read_datetime, me_send_id, me_type , me_send_ip ) values 
-        ( 'admin', '{$member['mb_id']}', '".G5_TIME_YMDHIS."',  '{$member['mb_nick']} 님 {$member['mb_hp']} 전화 번호를 {$new_hp} 전화번호로 성공적으로 변경되었습니다', '0000-00-00 00:00:00', '$me_id1', 'send', '{$_SERVER['REMOTE_ADDR']}' ) ";
+        ( 'admin', '{$member['mb_id']}', '".G5_TIME_YMDHIS."',  '{$member['mb_nick']} 님 {$member['mb_hp']} 전화 번호를 {$new_hp} 전화번호로 변경요청하였습니다.', '0000-00-00 00:00:00', '$me_id1', 'send', '{$_SERVER['REMOTE_ADDR']}' ) ";
         sql_query($sql1);		
+        // $sql1 = " insert into {$g5['memo_table']} 
+        // ( me_recv_mb_id, me_send_mb_id, me_send_datetime, me_memo, me_read_datetime, me_send_id, me_type , me_send_ip ) values 
+        // ( 'admin', '{$member['mb_id']}', '".G5_TIME_YMDHIS."',  '{$member['mb_nick']} 님 {$member['mb_hp']} 전화 번호를 {$new_hp} 전화번호로 성공적으로 변경되었습니다', '0000-00-00 00:00:00', '$me_id1', 'send', '{$_SERVER['REMOTE_ADDR']}' ) ";
+        // sql_query($sql1);		
     }
 
     $sql = " update {$g5['member_table']} set mb_memo_call = '{$member['mb_id']}', mb_memo_cnt = '".get_memo_not_read("admin")."' where mb_id = 'admin' ";
@@ -38,4 +42,3 @@ if($_POST['new_hp']!='')
 }
 
 goto_url(G5_HTTP_BBS_URL.'/member_hp_change.php');
-?>
