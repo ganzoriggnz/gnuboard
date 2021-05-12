@@ -13,7 +13,8 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 
 <div class="f-de font-weight-normal">
 
-	<?php if($is_member) { //Login ?>
+	<?php if ($is_member) { //Login 
+	?>
 
 		<div class="d-flex align-items-center mb-3">
 			<div class="pr-3">
@@ -23,7 +24,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 				<h5 class="hide-photo mb-2">
 					<b style="letter-spacing:-1px;"><?php echo str_replace('sv_member', 'sv_member en', $member['sideview']); ?></b>
 				</h5>
-				<?php echo ($member['mb_grade']) ? $member['mb_grade'] : $member['mb_level'].'등급'; ?>
+				<?php echo ($member['mb_grade']) ? $member['mb_grade'] : $member['mb_level'] . '등급'; ?>
 				<?php if ($is_admin == 'super' || $member['is_auth']) { ?>
 					<span class="na-bar"></span>
 					<a href="<?php echo correct_goto_url(G5_ADMIN_URL); ?>">
@@ -37,7 +38,8 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 			<a class="btn btn-primary text-white" data-toggle="collapse" href="#mymenu_outlogin" role="button" aria-expanded="false" aria-controls="mymenu_outlogin">
 				마이메뉴
 			</a>
-			<?php if(IS_NA_NOTI) { // 알림 ?>
+			<?php if (IS_NA_NOTI) { // 알림 
+			?>
 				<a href="<?php echo G5_BBS_URL ?>/noti.php" class="btn btn-primary text-white" role="button">
 					<i class="fa fa-bell" aria-hidden="true"></i>
 					<?php if ($member['as_noti']) { ?><b><?php echo number_format($member['as_noti']) ?></b><?php } ?>
@@ -45,7 +47,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 			<?php } ?>
 			<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
 				<i class="fa fa-envelope" aria-hidden="true"></i>
-				<?php if ($member['mb_memo_cnt']) { ?><b><?php echo number_format($member['mb_memo_cnt']);?></b><?php } ?>
+				<?php if ($member['mb_memo_cnt']) { ?><b><?php echo number_format($member['mb_memo_cnt']); ?></b><?php } ?>
 			</a>
 			<a href="<?php echo G5_BBS_URL ?>/logout.php" class="btn btn-primary text-white" role="button">
 				로그아웃
@@ -54,9 +56,9 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 
 		<div class="collapse" id="mymenu_outlogin">
 			<div class="clearfix bg-light border px-3 pt-3 pb-1">
-				<?php 
+				<?php
 				// 멤버쉽 플러그인	
-				if(IS_NA_XP) { 
+				if (IS_NA_XP) {
 					$per = (int)(($member['as_exp'] / $member['as_max']) * 100);
 				?>
 					<div class="clearfix">
@@ -67,7 +69,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 							</a>
 						</span>
 					</div>
-					<div class="progress mb-2" title="레벨업까지 <?php echo number_format($member['as_max'] - $member['as_exp']);?> 경험치 필요">
+					<div class="progress mb-2" title="레벨업까지 <?php echo number_format($member['as_max'] - $member['as_exp']); ?> 경험치 필요">
 						<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="<?php echo $per ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $per ?>%">
 							<span class="sr-only"><?php echo $per ?>%</span>
 						</div>
@@ -75,14 +77,15 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 				<?php } ?>
 
 				<ul class="row mx-n1">
-					<?php if($config['cf_use_point']) { ?>
+					<?php if ($config['cf_use_point']) { ?>
 						<li class="col-12 px-1">
 							<a href="<?php echo G5_BBS_URL ?>/point.php" target="_blank" class="btn btn-block btn-basic win_point f-sm mb-2">
-								포인트 <b class="orangered"><?php echo number_format($member['mb_point']);?></b>
+								포인트 <b class="orangered"><?php echo number_format($member['mb_point']); ?></b>
 							</a>
 						</li>
 					<?php } ?>
-					<?php if(IS_NA_NOTI) { // 알림 ?>
+					<?php if (IS_NA_NOTI) { // 알림 
+					?>
 						<li class="col-6 px-1">
 							<a href="<?php echo G5_BBS_URL ?>/noti.php" class="btn btn-block btn-basic f-sm mb-2">
 								알림<?php if ($member['as_noti']) { ?> <b class="orangered"><?php echo number_format($member['as_noti']) ?></b><?php } ?>
@@ -91,7 +94,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 					<?php } ?>
 					<li class="col-6 px-1">
 						<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-block btn-basic win_memo f-sm mb-2">
-							쪽지<?php if ($member['mb_memo_cnt']) { ?> <span class="orangered"><?php echo number_format($member['mb_memo_cnt']);?></span><?php } ?>
+							쪽지<?php if ($member['mb_memo_cnt']) { ?> <span class="orangered"><?php echo number_format($member['mb_memo_cnt']); ?></span><?php } ?>
 						</a>
 					</li>
 					<li class="col-6 px-1">
@@ -120,12 +123,13 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 			</div>
 		</div>
 
-	<?php } else { //Logout ?>
+	<?php } else { //Logout 
+	?>
 
-		<form id="basic_outlogin" name="basic_outlogin" method="post" action="<?php echo G5_HTTPS_BBS_URL ?>/login_check.php" autocomplete="off">
-		<input type="hidden" name="url" value="<?php echo $urlencode; ?>">
+		<form id="basic_outlogin" name="basic_outlogin" method="post" action="<?php echo G5_HTTPS_BBS_URL ?>/login_check.php">
+			<input type="hidden" name="url" value="<?php echo $urlencode; ?>">
 			<div class="form-group">
-				<label for="outlogin_mb_id" class="sr-only">아이디<strong class="sr-only"> 필수</strong></label>						
+				<label for="outlogin_mb_id" class="sr-only">아이디<strong class="sr-only"> 필수</strong></label>
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fa fa-user text-muted"></i></span>
@@ -134,7 +138,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="outlogin_mb_password" class="sr-only">비밀번호<strong class="sr-only"> 필수</strong></label>									
+				<label for="outlogin_mb_password" class="sr-only">비밀번호<strong class="sr-only"> 필수</strong></label>
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fa fa-lock text-muted"></i></span>
@@ -145,15 +149,15 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary btn-block p-3 en">
 					<h5>로그인</h5>
-				</button>    
-			</div>	
+				</button>
+			</div>
 
 			<div class="clearfix">
 				<div class="float-left">
 					<div class="form-group mb-0">
 						<div class="custom-control custom-switch">
-						  <input type="checkbox" name="auto_login" class="custom-control-input remember-me" id="outlogin_remember_me">
-						  <label class="custom-control-label float-left" for="outlogin_remember_me">자동로그인</label>
+							<input type="checkbox" name="auto_login" class="custom-control-input remember-me" id="outlogin_remember_me">
+							<label class="custom-control-label float-left" for="outlogin_remember_me">자동로그인</label>
 						</div>
 					</div>
 				</div>
@@ -169,10 +173,11 @@ global $config, $member, $is_member, $urlencode, $is_admin;
 			</div>
 		</form>
 
-        <?php
-        // 소셜로그인 사용시 소셜로그인 버튼
-        @include(get_social_skin_path().'/social_outlogin.skin.1.php');
-        ?>
+		<?php
+		// 소셜로그인 사용시 소셜로그인 버튼
+		@include(get_social_skin_path() . '/social_outlogin.skin.1.php');
+		?>
 
-	<?php } //End ?>
+	<?php } //End 
+	?>
 </div>

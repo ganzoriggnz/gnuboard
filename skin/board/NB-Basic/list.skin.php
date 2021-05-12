@@ -1,11 +1,10 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
 
-if($gr_id == 'attendance'){
-	if( $member['mb_6'] != $bo_table){
+if ($gr_id == 'attendance') {
+	if ($member['mb_6'] != $bo_table) {
 		$write_href = '';
-	} 
-	else{
+	} else {
 		$wr_cnt = sql_fetch(" select count(wr_id) as cnt from {$write_table} where wr_is_comment=0 and mb_id = '{$member['mb_id']}' ");
 		if ($wr_cnt['cnt']) {
 			$write_href = '';
@@ -31,7 +30,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
 @include_once($list_skin_path . '/list.head.skin.php');
 
 // 인기글
-add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
+add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0);
 // 인기글
 ?>
 
@@ -42,10 +41,12 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		justify-content: space-between;
 		padding: 0.5rem 0;
 	}
+
 	@media only screen and (max-width: 600px) {
 		#bo_search {
 			padding: 0 0.6rem 1rem 0.4rem;
 		}
+
 		.adminbtn {
 			padding: 0 0.1rem;
 		}
@@ -54,16 +55,18 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list_wrap">
-<!-- 인기글 -->
-	<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" 
-	&& $bo_table != "mypage" && $gr_id!="attendance" && $bo_table != "greeting" && $bo_table != "notice" && $bo_table != "twitter"
-	&& $bo_table != "facebook" && $bo_table != "ucc" && $bo_table != "work_abroad" && $bo_table != "work_board" && $bo_table != "woman" && $bo_table != "event" && $bo_table != "job") 
-	if(!G5_IS_MOBILE )
-	include_once('hit_latest.php'); ?>
+	<!-- 인기글 -->
+	<?php if (
+		$bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist"
+		&& $bo_table != "mypage" && $gr_id != "attendance" && $bo_table != "greeting" && $bo_table != "notice" && $bo_table != "twitter"
+		&& $bo_table != "facebook" && $bo_table != "ucc" && $bo_table != "work_abroad" && $bo_table != "work_board" && $bo_table != "woman" && $bo_table != "event" && $bo_table != "job"
+	)
+		if (!G5_IS_MOBILE)
+			include_once('hit_latest.php'); ?>
 	<br>
 	<?php
 	// 게시판 카테고리
-		if ($is_category)
+	if ($is_category)
 		include_once($board_skin_path . '/category.skin.php');
 	?>
 	<!-- 검색창 시작 { -->
@@ -99,7 +102,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 			</div>
 		</form>
 	</div>
-	
+
 	<!-- } 검색창 끝 -->
 
 	<form name="fboardlist" id="fboardlist" action="./board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
@@ -112,24 +115,27 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		<input type="hidden" name="sod" value="<?php echo $sod ?>">
 		<input type="hidden" name="page" value="<?php echo $page ?>">
 		<input type="hidden" name="sw" value="">
-		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")
-		{ ?>
+		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
 			<div id="bo_btn_top">
 				<div id="bo_list_total">
-					<?php if(!G5_IS_MOBILE) {?>
-					<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
-					<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
-					<?php
-						$mbid1= get_member($board['bo_admin']);
+					<?php if (!G5_IS_MOBILE) { ?>
+						<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
+						<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
+						<?php
+						$mbid1 = get_member($board['bo_admin']);
 						$name1 = get_sideview($mbid1['mb_id'], $mbid1['mb_nick'], $mbid1['mb_homepage']);
-						$mbid2= get_member($group['gr_admin']);
+						$mbid2 = get_member($group['gr_admin']);
 						$name2 = get_sideview($mbid2['mb_id'], $mbid2['mb_nick'], $mbid2['mb_homepage']);
-					?>
-					<?php if($board['bo_admin']!='' && $gr_id != 'attendance') { echo $board['bo_subject']." 관리자 : "?> <?php echo na_name_photo($board['bo_admin'], "<p class='username' style='display: inline-block;'>".$name1."</p>");}?> 
-					<?php if($group['gr_admin']!='' && $gr_id != 'attendance'){ echo "&nbsp;&nbsp;".$group['gr_subject']." 관리자 : ".na_name_photo($group['gr_admin'], "<p class='username' style='display: inline-block;'>".$name2."</p>");} ?> <?php echo "&nbsp;&nbsp;" ,"" ,"&nbsp;&nbsp;"?>
-					<?php echo "[글 작성 ".$board['bo_write_point']." 파운드 /  댓글 작성 ".$board['bo_comment_point']." 파운드 획득]" ?>
+						?>
+						<?php if ($board['bo_admin'] != '' && $gr_id != 'attendance') {
+							echo $board['bo_subject'] . " 관리자 : " ?> <?php echo na_name_photo($board['bo_admin'], "<p class='username' style='display: inline-block;'>" . $name1 . "</p>");
+																											} ?>
+						<?php if ($group['gr_admin'] != '' && $gr_id != 'attendance') {
+							echo "&nbsp;&nbsp;" . $group['gr_subject'] . " 관리자 : " . na_name_photo($group['gr_admin'], "<p class='username' style='display: inline-block;'>" . $name2 . "</p>");
+						} ?> <?php echo "&nbsp;&nbsp;", "", "&nbsp;&nbsp;" ?>
+						<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]" ?>
 					<?php } ?>
 				</div>
 				<div role="group">
@@ -150,26 +156,28 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 						<span class="sr-only">게시판 검색</span>
 					</button>
 					<div class="btn-group ">
-					<?php if($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?> 
-						<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table'];?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
-						쿠폰지원내역 
-						</a>	</div>
-						&nbsp;&nbsp;
-					<?php } ?>	
-					<?php if ($is_admin 
-					|| ($gr_id == "attendance")
-					|| ($gr_id == "service")
-					|| ($gr_id == "community" && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) 					
-					|| (($gr_id == "review") && ($member['mb_level'] != 26 && $member['mb_level'] != 27 )) 
-					|| ($gr_id == "library")
-					) { ?>	
-					<?php if ($write_href) { ?>						
-						<div>
-							<button type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
-								<img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
-							</button>
-						</div>
-					<?php }} ?>
+						<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
+							<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table']; ?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
+									쿠폰지원내역
+								</a> </div>
+							&nbsp;&nbsp;
+						<?php } ?>
+						<?php if (
+							$is_admin
+							|| ($gr_id == "attendance")
+							|| ($gr_id == "service")
+							|| ($gr_id == "community" && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super'))))
+							|| (($gr_id == "review") && ($member['mb_level'] != 26 && $member['mb_level'] != 27))
+							|| ($gr_id == "library")
+						) { ?>
+							<?php if ($write_href) { ?>
+								<div>
+									<button type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
+										<img src="<?php echo G5_URL ?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
+									</button>
+								</div>
+						<?php }
+						} ?>
 					</div>
 					<div class="btn-group" role="group">
 						<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
@@ -183,14 +191,14 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 									$sst_icon = 'eye';
 									$sst_txt = '조회순 정렬';
 									break;
-								// case 'wr_good':
-								// 	$sst_icon = 'thumbs-o-up';
-								// 	$sst_txt = '추천순 정렬';
-								// 	break;
-								// case 'wr_nogood':
-								// 	$sst_icon = 'thumbs-o-down';
-								// 	$sst_txt = '비추천순 정렬';
-								// 	break;
+									// case 'wr_good':
+									// 	$sst_icon = 'thumbs-o-up';
+									// 	$sst_txt = '추천순 정렬';
+									// 	break;
+									// case 'wr_nogood':
+									// 	$sst_icon = 'thumbs-o-down';
+									// 	$sst_txt = '비추천순 정렬';
+									// 	break;
 								default:
 									$sst_icon = 'sort-numeric-desc';
 									$sst_txt = '게시물 정렬';
@@ -274,7 +282,6 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 		if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")  //  hulan nemsen 1 mur 
 			// 목록스킨
 			if (is_file($list_skin_path . '/list.skin.php')) {
-
 				include_once($list_skin_path . '/list.skin.php');
 			} else {
 				echo '<div class="alert alert-warning text-center" role="alert">' . $boset['list_skin'] . ' 목록 스킨이 존재하지 않습니다.</div>' . PHP_EOL;
@@ -305,7 +312,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 <?php if ($is_checkbox) { ?>
 	<noscript>
 		<p align="center">자바스크립트를 사용하지 않는 경우 별도의 확인 절차 없이 바로 선택삭제 처리하므로 주의하시기 바랍니다.</p>
-	</noscript>	
+	</noscript>
 
 	<script>
 		function all_checked(sw) {
@@ -385,7 +392,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.rumiTab.js"></script>', 0);
 <?php if ($bo_table == "penyrank") {
 	include_once($board_skin_path . '/penyrank.php');
 } ?>
-<!-- /////////////////////////////// --> 
+<!-- /////////////////////////////// -->
 
 <!--hulan nemsen  -->
 <?php if ($bo_table == "levelrank") {
