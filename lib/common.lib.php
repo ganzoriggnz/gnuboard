@@ -4382,7 +4382,8 @@ function get_board_category_name($bo_table_category = '')
     'kissall_at',
     'lipcafeall_at',
     'show_at',
-    'trip_at'
+    'trip_at',
+    'other_at'
     ) ");
     for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
