@@ -150,7 +150,7 @@
                     <Icon position="286" width="16" class="cheditor-tb-icon" margin="4px" />
                     <Execution method="doCmd" value="JustifyLeft" />
                 </Attribute>
-            </Button>
+            </Button>            
             <Button name="JustifyCenter" tooltip="가운데 정렬">
                 <Attribute class="cheditor-tb-bg" width="23" height="23" check="1">
                     <Icon position="302" width="16" class="cheditor-tb-icon" />
