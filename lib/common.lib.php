@@ -4318,7 +4318,7 @@ function get_board_atname($bo_table = '')
     $str;
     $row = sql_query(" select bo_table, bo_subject 
     from g5_board 
-    where gr_id = 'attendance' 
+    where gr_id = 'attendance' and bo_subject <> 'trip' 
     order by field(bo_subject, 
     '오피-강남영토',
     '오피-비강남영토',
@@ -4385,7 +4385,7 @@ function get_board_category_name($bo_table_category = '')
     $str;
     $row = sql_query(" select bo_table, bo_subject 
     from g5_board 
-    where gr_id = 'attendance' 
+    where gr_id = 'attendance' and bo_subject <> 'trip'
     order by field(bo_subject, 
     '오피-강남영토',
     '오피-비강남영토',
