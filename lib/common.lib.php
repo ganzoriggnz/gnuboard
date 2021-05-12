@@ -4353,37 +4353,7 @@ function get_board_category_name($bo_table_category = '')
     global $g5, $board;
     $list = array();
     $str;
-    $row = sql_query(" select bo_table, bo_subject 
-    from g5_board 
-    where gr_id = 'attendance' and bo_table <> 'trip_at' 
-    order by field(bo_table, 
-    'opigangnam_at', 
-    'opibigangnam_at', 
-    'opigyeonggi_at', 
-    'opiinchon_at', 
-    'opidaejeon_at', 
-    'opigyeongsang_at',
-    'opidaegu_at',
-    'opijeju_at',
-    'hyugetelseoul_at',
-    'hyugetelkyonggi_at',
-    'hyugetelinchon_at',
-    'hyugeteldaejeon_at',
-    'hyugeteljeju_at',
-    'gonmaseoul_at',
-    'gonmakyonggi_at',
-    'gonmainchonbuchon_at',
-    'gunmatechon_at',
-    'gonmajeju_at',
-    'suljibseoul_at',
-    'suljibchiban_at',
-    'anmaseoul_at',
-    'anmachiban_at',
-    'kissall_at',
-    'lipcafeall_at',
-    'show_at',
-    'other_at'
-    ) ");
+    $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance' and bo_table <> 'trip_at' order by field(bo_table, 'opigangnam_at', 'opibigangnam_at', 'opigyeonggi_at', 'opiinchon_at', 'opidaejeon_at', 'opigyeongsang_at', 'opidaegu_at', 'opijeju_at', 'hyugetelseoul_at', 'hyugetelkyonggi_at', 'hyugetelinchon_at', 'hyugeteldaejeon_at', 'hyugeteljeju_at', 'gonmaseoul_at', 'gonmakyonggi_at', 'gonmainchonbuchon_at', 'gunmatechon_at', 'gonmajeju_at', 'suljibseoul_at', 'suljibchiban_at', 'anmaseoul_at', 'anmachiban_at', 'kissall_at', 'lipcafeall_at', 'show_at', 'other_at', 'trip_at', 'other_at' ) ");
     for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
