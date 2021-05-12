@@ -4355,7 +4355,7 @@ function get_board_category_name($bo_table_category = '')
     $str;
     $row = sql_query(" select bo_table, bo_subject 
     from g5_board 
-    where gr_id = 'attendance' 
+    where gr_id = 'attendance' and bo_table <> 'trip_at' 
     order by field(bo_table, 
     'opigangnam_at', 
     'opibigangnam_at', 
@@ -4383,7 +4383,7 @@ function get_board_category_name($bo_table_category = '')
     'lipcafeall_at',
     'show_at',
     'other_at'
-    ) where bo_table <> 'trip_at'");
+    ) ");
     for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
