@@ -201,6 +201,10 @@ if ($gr_id == 'attendance') {
                                                                                             } elseif ($board['gr_id'] == "attendance") { ?>
                                         <span style="color: #000;" class="font-weight-bold">
                                             <?php echo "[" . $mb['mb_name'] . "]" ?> </span><?php echo $list[$i]['subject'];
+                                                                                            }
+                                                                                            elseif ($board['gr_id'] == "community" && $bo_table == "free") { ?>
+                                                                                                <span style="color: #000;">
+                                                                                                    <?php echo "[" . $list[$i]['ca_name'] . "]" ?> </span><?php echo $list[$i]['subject'];
                                                                                             } else {
                                                                                                 echo  $list[$i]['subject'];
                                                                                             }
