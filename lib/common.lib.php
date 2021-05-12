@@ -4345,7 +4345,7 @@ function get_board_atname($bo_table = '')
     '키스방-전국영토', 
     '립카페-전국영토', 
     '핸플/패티쉬영토',
-    '선불폰/프로필/여행사/기타영토'
+    '선불폰/프로필 여행사/기타영토'
     ) ");
     for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
@@ -4412,7 +4412,7 @@ function get_board_category_name($bo_table_category = '')
     '키스방-전국영토', 
     '립카페-전국영토', 
     '핸플/패티쉬영토',
-    '선불폰/프로필/여행사/기타영토'
+    '선불폰/프로필 여행사/기타영토'
     ) ");
     for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
