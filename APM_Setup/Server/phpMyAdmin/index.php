@@ -105,15 +105,8 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_iso_code; ?>" lang="<?php echo $lang_iso_code; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
 
 <head>
-    <?php
-    if (G5_IS_MOBILE) {
-        echo '<link rel="icon" href="./favicon.ico" type="image/x-icon" />';
-        echo '<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />';
-    } else {
-        echo '<link rel="icon" href="./favicon.png" type="image/x-icon" />';
-        echo '<link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />';
-    }
-    ?>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin <?php echo PMA_VERSION; ?> -
         <?php echo htmlspecialchars($HTTP_HOST); ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
