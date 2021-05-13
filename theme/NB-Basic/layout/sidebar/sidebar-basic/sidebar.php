@@ -58,22 +58,22 @@ $menu_cnt = count($menu);
 			<i class="fa fa-times"></i>
 		</div>
 		<div class="sidebar-wing-icon1">
-			
-			<a class="sidebar-wing-btn win_memo" href="<?php echo G5_URL?>/bbs/chat.php" target="_blank" title="채팅방" >
-				<img src="<?php echo G5_URL?>/img/solid/comment.svg" style="height: 14px;" alt="comment">
+
+			<a class="sidebar-wing-btn win_memo" href="<?php echo G5_URL ?>/bbs/chat.php" target="_blank" title="채팅방">
+				<img src="<?php echo G5_URL ?>/img/solid/comment.svg" style="height: 14px;" alt="comment">
 			</a>
 			<a class="sidebar-wing-btn" href="https://www.facebook.com/%EB%B0%A4%EC%9D%98%EC%A0%9C%EA%B5%AD-108544554658520" target="_blank" title="페이스 북">
-				<img src="<?php echo G5_URL?>/img/solid/facebook-logo.svg" style="height: 14px;" alt="facebook-logo"/>
+				<img src="<?php echo G5_URL ?>/img/solid/facebook-logo.svg" style="height: 14px;" alt="facebook-logo" />
 			</a>
 			<a class="sidebar-wing-btn" href="https://twitter.com/bamje4" target="_blank" title="트위터">
-				<img src="<?php echo G5_URL?>/img/twitter.png" alt="twitter"/>
+				<img src="<?php echo G5_URL ?>/img/twitter.png" alt="twitter" />
 			</a>
-			<?php if($is_member) { ?>
-				<a class="sidebar-wing-btn win_memo" href="<?php echo G5_BBS_URL?>/memo_friend.php?kind=friends" target="_blank" title="">
-				<img src="<?php echo G5_URL?>/img/baseline-person-add-24px.png" alt="person-add"/></a>
-			<a class="sidebar-wing-btn win_memo" href="<?php echo G5_URL?>/bbs/member_list.php" target="_self" title="회원검색">
-				<img src="<?php echo G5_URL?>/img/icon_search.png" alt="icon_search"/>
-			</a>
+			<?php if ($is_member) { ?>
+				<a class="sidebar-wing-btn win_memo" href="<?php echo G5_BBS_URL ?>/memo_friend.php?kind=friends" target="_blank" title="">
+					<img src="<?php echo G5_URL ?>/img/baseline-person-add-24px.png" alt="person-add" /></a>
+				<a class="sidebar-wing-btn win_memo" href="<?php echo G5_URL ?>/bbs/member_list.php" target="_self" title="회원검색">
+					<img src="<?php echo G5_URL ?>/img/icon_search.png" alt="icon_search" />
+				</a>
 			<?php } ?>
 		</div>
 	</div>
@@ -86,42 +86,44 @@ $menu_cnt = count($menu);
 	<div id="sidebar-content" class="sidebar-content">
 
 		<!-- sidebard login heseg nemeh hulan -->
-			
+
 		<!-- Login -->
 		<?php if ($is_member) { ?>
 			<div>
 				<div class="btn-group " role="group" aria-label="Member Menu" style="width: 100%;">
-					<a class="btn btn-primary text-white " data-toggle="collapse" href="#mymenu_sidebar" role="button" aria-controls="mymenu_sidebar">
+					<a class="text-white btn btn-primary " data-toggle="collapse" href="#mymenu_sidebar" role="button" aria-controls="mymenu_sidebar">
 						마이메뉴
 					</a>
 					<!-- <?php if (IS_NA_NOTI) { // 알림 
-					?>
-						<a href="<?php echo G5_BBS_URL ?>/noti.php" class="btn btn-primary text-white" role="button">
+								?>
+						<a href="<?php echo G5_BBS_URL ?>/noti.php" class="text-white btn btn-primary" role="button">
 							<i class="fa fa-bell" aria-hidden="true"></i>
 							<?php if ($member['as_noti']) { ?><b><?php echo number_format($member['as_noti']) ?></b><?php } ?>
 						</a>
 					<?php } ?> -->
-					<a href="<?php echo G5_ATTENDANCE_URL ?>/<?php echo  G5_IS_MOBILE ? "m_" : "" ?>attendance.php" class="btn btn-primary text-white" role="button">
-					<!-- <i class="fas fa-calendar-check"></i></font></a> -->					
-					<img src="<?php echo G5_URL?>/img/solid/calendar-check.svg"  style="height:14px;" alt="calendar-check"/></a>
+					<a href="<?php echo G5_ATTENDANCE_URL ?>/<?php echo  G5_IS_MOBILE ? "m_" : "" ?>attendance.php" class="text-white btn btn-primary" role="button">
+						<!-- <i class="fas fa-calendar-check"></i></font></a> -->
+						<img src="<?php echo G5_URL ?>/img/solid/calendar-check.svg" style="height:14px;" alt="calendar-check" />
+					</a>
 
-					<a href="<?php echo G5_BBS_URL ?>/mission.php" class="btn btn-primary text-white" role="button"> 
-				<!-- <i class="fas fa-clipboard-list"></i></font></a> -->
-					<img src="<?php echo G5_URL?>/img/solid/clipboard-list.svg" class="svg-img" style="height :14px;" alt="clipboard-list"/></a> 
+					<a href="<?php echo G5_BBS_URL ?>/mission.php" class="text-white btn btn-primary" role="button">
+						<!-- <i class="fas fa-clipboard-list"></i></font></a> -->
+						<img src="<?php echo G5_URL ?>/img/solid/clipboard-list.svg" class="svg-img" style="height :14px;" alt="clipboard-list" />
+					</a>
 
-					<!-- <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-primary text-white win_memo" role="button">
+					<!-- <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="text-white btn btn-primary win_memo" role="button">
 						<i class="fa fa-envelope" aria-hidden="true"></i>
 						<?php if ($member['mb_memo_cnt']) { ?><b><?php echo number_format($member['mb_memo_cnt']); ?></b><?php } ?>
 					</a> -->
-					<a href="<?php echo G5_BBS_URL?>/logout.php" class="btn btn-primary text-white rounded-0" role="button">
+					<a href="<?php echo G5_BBS_URL ?>/logout.php" class="text-white btn btn-primary rounded-0" role="button">
 						로그아웃
 					</a>
 				</div>
 
 				<div class="collapse" id="mymenu_sidebar">
-					<div class="clearfix f-de px-3 pt-3 mb-2">
+					<div class="clearfix px-3 pt-3 mb-2 f-de">
 
-						<div class="d-flex align-items-center mb-1">
+						<div class="mb-1 d-flex align-items-center">
 							<div class="flex-grow-1">
 								<?php echo str_replace('sv_member', 'sv_member font-weight-bold', $member['sideview']); ?>
 							</div>
@@ -143,7 +145,7 @@ $menu_cnt = count($menu);
 									</a>
 								</span>
 							</div>
-							<div class="progress mb-2" title="레벨업까지 <?php echo number_format($member['as_max'] - $member['as_exp']); ?> 경험치 필요">
+							<div class="mb-2 progress" title="레벨업까지 <?php echo number_format($member['as_max'] - $member['as_exp']); ?> 경험치 필요">
 								<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="<?php echo $per ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $per ?>%">
 									<span class="sr-only"><?php echo $per ?>%</span>
 								</div>
@@ -152,49 +154,49 @@ $menu_cnt = count($menu);
 
 						<ul class="row mx-n1">
 							<?php if ($config['cf_use_point']) { ?>
-								<li class="col-12 px-1">
-									<a href="<?php echo G5_BBS_URL ?>/point.php" target="_blank" class="btn btn-block btn-basic <?php if(G5_IS_MOBILE) echo "win_point" ?>  f-sm mb-2">
+								<li class="px-1 col-12">
+									<a href="<?php echo G5_BBS_URL ?>/point.php" target="_blank" class="btn btn-block btn-basic <?php if (G5_IS_MOBILE) echo "win_point" ?>  f-sm mb-2">
 										파운드 <b class="orangered"><?php echo number_format($member['mb_point']); ?></b>
 									</a>
 								</li>
 							<?php } ?>
 							<?php if (IS_NA_NOTI) { // 알림
 							?>
-								<li class="col-6 px-1">
-									<a href="<?php echo G5_BBS_URL ?>/noti.php" class="btn btn-block btn-basic f-sm mb-2">
+								<li class="px-1 col-6">
+									<a href="<?php echo G5_BBS_URL ?>/noti.php" class="mb-2 btn btn-block btn-basic f-sm">
 										알림<?php if ($member['as_noti']) { ?> <b class="orangered"><?php echo number_format($member['as_noti']) ?></b><?php } ?>
 									</a>
 								</li>
 							<?php } ?>
-							<li class="col-6 px-1">
-								<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="btn btn-block btn-basic win_memo f-sm mb-2">
+							<li class="px-1 col-6">
+								<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="mb-2 btn btn-block btn-basic win_memo f-sm">
 									쪽지<?php if ($member['mb_memo_cnt']) { ?> <span class="orangered"><?php echo number_format($member['mb_memo_cnt']); ?></span><?php } ?>
 								</a>
 							</li>
-							<li class="col-6 px-1">
-								<a href="<?php echo G5_BBS_URL ?>/scrap.php" target="_blank" class="btn btn-block btn-basic <?php if(G5_IS_MOBILE) echo "win_scrap" ?>  f-sm mb-2">
+							<li class="px-1 col-6">
+								<a href="<?php echo G5_BBS_URL ?>/scrap.php" target="_blank" class="btn btn-block btn-basic <?php if (G5_IS_MOBILE) echo "win_scrap" ?>  f-sm mb-2">
 									스크랩
 								</a>
 							</li>
 							<?php if ($is_admin == 'super' || $member['is_auth']) { ?>
-								<li class="col-6 px-1">
-									<a href="<?php echo correct_goto_url(G5_ADMIN_URL); ?>" class="btn btn-block btn-basic f-sm mb-2">
+								<li class="px-1 col-6">
+									<a href="<?php echo correct_goto_url(G5_ADMIN_URL); ?>" class="mb-2 btn btn-block btn-basic f-sm">
 										관리자
 									</a>
 								</li>
 							<?php } ?>
-							<li class="col-6 px-1">
-								<a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=register_form.php" class="btn btn-block btn-basic f-sm mb-2">
+							<li class="px-1 col-6">
+								<a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=register_form.php" class="mb-2 btn btn-block btn-basic f-sm">
 									정보수정
 								</a>
 							</li>
-							<li class="col-6 px-1">
-								<a href="<?php echo G5_BBS_URL ?>/userinfo.php" target="_self" class="btn btn-block btn-basic f-sm mb-2">
+							<li class="px-1 col-6">
+								<a href="<?php echo G5_BBS_URL ?>/userinfo.php" target="_self" class="mb-2 btn btn-block btn-basic f-sm">
 									마이페이지
 								</a>
 							</li>
-							<li class="col-6 px-1" >
-								<a style="color:red !important;" href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=member_leave.php" class="btn btn-block btn-basic f-sm mb-2">
+							<li class="px-1 col-6">
+								<a style="color:red !important;" href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=member_leave.php" class="mb-2 btn btn-block btn-basic f-sm">
 									회원탈퇴
 								</a>
 							</li>
@@ -205,7 +207,7 @@ $menu_cnt = count($menu);
 		<?php } else { ?>
 			<div class="clearfix py-2 f-de border-top">
 				<div class="btn-group w-100" role="group">
-					<a class="btn btn-primary text-white rounded-0" href="<?php echo G5_BBS_URL ?>/login.php?url=<?php echo $urlencode ?>">
+					<a class="text-white btn btn-primary rounded-0" href="<?php echo G5_BBS_URL ?>/login.php?url=<?php echo $urlencode ?>">
 						<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 						<b>로그인</b>
 					</a>
@@ -221,7 +223,7 @@ $menu_cnt = count($menu);
 		<?php } ?>
 
 		<?php if ($is_admin == 'super' || $member['is_auth'] || IS_DEMO) { ?>
-			<div class="border-top px-3 py-2">
+			<div class="px-3 py-2 border-top">
 				<div class="btn-group w-100">
 					<?php if ($is_admin == 'super' || $member['is_auth']) { ?>
 						<a href="<?php echo correct_goto_url(G5_ADMIN_URL); ?>" class="btn btn-basic btn-sm f-sm" role="button">
@@ -248,28 +250,28 @@ $menu_cnt = count($menu);
 
 		<!-- Icon -->
 		<div class="px-3">
-			<ul class="d-flex justify-content-between text-center f-de mt-3 mb-2">
+			<ul class="mt-3 mb-2 text-center d-flex justify-content-between f-de">
 
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/content.php?co_id=company">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-						<img src="<?php echo G5_URL?>/img/solid/atlas.svg" style="height: 25px;" alt="사이트안내"/>
-						</i>		
-						<span class="d-block mt-2">사이트안내</span>
+							<img src="<?php echo G5_URL ?>/img/solid/atlas.svg" style="height: 25px;" alt="사이트안내" />
+						</i>
+						<span class="mt-2 d-block">사이트안내</span>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=event">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-						<img src="<?php echo G5_URL?>/img/solid/glass-cheers.svg" style="height: 25px;" alt="이벤트1"/></i>
-						<span class="d-block mt-2">이벤트</span>
+							<img src="<?php echo G5_URL ?>/img/solid/glass-cheers.svg" style="height: 25px;" alt="이벤트1" /></i>
+						<span class="mt-2 d-block">이벤트</span>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo G5_BBS_URL ?>/qalist.php">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-						<img src="<?php echo G5_URL?>/img/solid/handshake.svg" style="height: 25px;" alt="문의"/></i>
-						<span class="d-block mt-2">1:1 문의</span>
+							<img src="<?php echo G5_URL ?>/img/solid/handshake.svg" style="height: 25px;" alt="문의" /></i>
+						<span class="mt-2 d-block">1:1 문의</span>
 					</a>
 				</li>
 			</ul>
@@ -278,55 +280,55 @@ $menu_cnt = count($menu);
 		<div id="nt_sidebar_menu">
 			<ul class="me-ul border-top">
 				<li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
-					<a class="fa fa-caret-down tree-toggle me-i" > &nbsp;&nbsp;퀵메뉴</a>
-						<ul class="me-ul1 tree off">
-							<li class="me-li1 ">
-							<a href= "<?php echo G5_URL?>/bbs/board.php?bo_table=notice">
-							<img src="<?php echo G5_URL?>/img/solid/microphone.svg" style="height: 13px;" alt="microphone"/>&nbsp;공지사항</a>
+					<a class="fa fa-caret-down tree-toggle me-i"> &nbsp;&nbsp;퀵메뉴</a>
+					<ul class="me-ul1 tree off">
+						<li class="me-li1 ">
+							<a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice">
+								<img src="<?php echo G5_URL ?>/img/solid/microphone.svg" style="height: 13px;" alt="microphone" />&nbsp;공지사항</a>
+						</li>
+						<li class="me-li1 ">
+							<a href="<?php echo G5_URL ?>/bbs/content.php?co_id=company"><img src="<?php echo G5_URL ?>/img/solid/baseline-import_contacts-24px.png" alt="사이트안내">&nbsp;사이트안내</a>
+						</li>
+						<li class="me-li1 ">
+							<a href="<?php echo G5_URL ?>/bbs/member_list.php"><img src="<?php echo G5_URL ?>/img/solid/portrait.svg" alt="회원검색" style="height: 13px; width: ">&nbsp;회원검색</a>
+						</li>
+						<li class="me-li1 ">
+							<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=shop"><img src="<?php echo G5_URL ?>/img/solid/gift.svg" alt="아이템 샵" style="height: 13px;">&nbsp;아이템 샵</a>
+						</li>
+						<li class="me-li1 ">
+							<a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=event"><img src="<?php echo G5_URL ?>/img/solid/baseline-wc-24px.png" alt="이벤트">&nbsp;이벤트</a>
+						</li>
+						<li class="me-li1 ">
+							<a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=partnership"><img src="<?php echo G5_URL ?>/img/solid/comment-alt.svg" alt="제휴문의" style="height: 13px;">&nbsp;제휴문의</a>
+						</li>
+						<li class="me-li1 ">
+							<a href="<?php echo G5_BBS_URL ?>/pet.php"><img src="<?php echo G5_URL ?>/img/solid/baseline-adb-24px.png" alt="펫" style="height: 13px;">&nbsp;펫 기르기</a>
+						</li>
+						<li class="me-li1 ">
+							<a href="<?php echo G5_BBS_URL ?>/mission.php"><img src="<?php echo G5_URL ?>/img/solid/baseline-ballot-24px.png" alt="일일미션" style="height: 13px;">&nbsp;일일미션</a>
+						</li>
+						<li class="me-li1 ">
+							<a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=free"><img src="<?php echo G5_URL ?>/img/solid/clone.svg" alt="자유게시판" style="height: 13px;">&nbsp;자유게시판</a>
+						</li>
+						<!-- <li class="me-li1 ">
+							<a href="<?php echo G5_BBS_URL ?>/point.php" ><img src="<?php echo G5_URL ?>/img/solid/baseline-swap_horizontal_circle-24px.png"  >&nbsp;파운드페니로전환</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/content.php?co_id=company"><img src="<?php echo G5_URL?>/img/solid/baseline-import_contacts-24px.png" alt="사이트안내">&nbsp;사이트안내</a>
+							<a href="<?php echo G5_BBS_URL ?>/point2.php" ><img src="<?php echo G5_URL ?>/img/solid/baseline-swap_horizontal_circle-24px.png"  >&nbsp;파편조각페니로전환</a>
 							</li>
 							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/member_list.php" ><img src="<?php echo G5_URL?>/img/solid/portrait.svg" alt="회원검색" style="height: 13px; width: ">&nbsp;회원검색</a>
-							</li>
-							<li class="me-li1 ">
-							<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=shop" ><img src="<?php echo G5_URL?>/img/solid/gift.svg" alt="아이템 샵" style="height: 13px;">&nbsp;아이템 샵</a>
-							</li>
-							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=event" ><img src="<?php echo G5_URL?>/img/solid/baseline-wc-24px.png" alt="이벤트">&nbsp;이벤트</a>
-							</li>
-							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=partnership" ><img src="<?php echo G5_URL?>/img/solid/comment-alt.svg" alt="제휴문의" style="height: 13px;">&nbsp;제휴문의</a>
-							</li>
-							<li class="me-li1 ">
-							<a href="<?php echo G5_BBS_URL ?>/pet.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-adb-24px.png" alt="펫" style="height: 13px;">&nbsp;펫 기르기</a>
-							</li>
-							<li class="me-li1 ">
-							<a href="<?php echo G5_BBS_URL ?>/mission.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-ballot-24px.png" alt="일일미션" style="height: 13px;" >&nbsp;일일미션</a>
-							</li>
-							<li class="me-li1 ">
-							<a href="<?php echo G5_URL?>/bbs/board.php?bo_table=free" ><img src="<?php echo G5_URL?>/img/solid/clone.svg" alt="자유게시판" style="height: 13px;">&nbsp;자유게시판</a>
-							</li>
-							<!-- <li class="me-li1 ">
-							<a href="<?php echo G5_BBS_URL?>/point.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-swap_horizontal_circle-24px.png"  >&nbsp;파운드페니로전환</a>
-							</li>
-							<li class="me-li1 ">
-							<a href="<?php echo G5_BBS_URL?>/point2.php" ><img src="<?php echo G5_URL?>/img/solid/baseline-swap_horizontal_circle-24px.png"  >&nbsp;파편조각페니로전환</a>
-							</li>
-							<li class="me-li1 ">
-							<a href="#"><img src="<?php echo G5_URL?>/img/solid/baseline-monetization_on-24.png" >&nbsp;페니구매</a>
+							<a href="#"><img src="<?php echo G5_URL ?>/img/solid/baseline-monetization_on-24.png" >&nbsp;페니구매</a>
 							</li> -->
-						</ul>
+					</ul>
 				</li>
-				
+
 
 				<?php for ($i = 0; $i < $menu_cnt; $i++) {
 					$me = $menu[$i];
 				?>
 					<li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
 						<?php if (isset($me['s'])) { //Is Sub Menu
-						?><a class="fa fa-caret-down tree-toggle me-i" > &nbsp;&nbsp;<?php echo $me['text']; ?></a>
+						?><a class="fa fa-caret-down tree-toggle me-i"> &nbsp;&nbsp;<?php echo $me['text']; ?></a>
 						<?php } ?>
 						<?php if (isset($me['s'])) { //Is Sub Menu
 						?>
@@ -334,7 +336,7 @@ $menu_cnt = count($menu);
 								<?php for ($j = 0; $j < count($me['s']); $j++) {
 									$me1 = $me['s'][$j];
 								?>
-									
+
 
 									<li class="me-li1<?php echo ($me1['on']) ? ' active' : ''; ?>">
 
@@ -343,31 +345,38 @@ $menu_cnt = count($menu);
 											<i class="fa fa-caret-right tree-toggle me-i1"></i>
 										<?php } ?>
 
-										<?php if($me1['text']=="실장님 정보공유")
-												{if($member['mb_level']==26 || $member['mb_level']==27 || $is_admin) 
-													{ ?>
-										<a class="me-a1" href="<?php if($member['mb_level']==27 || $is_admin)  echo $me1['href'];?>" <?php if($member['mb_level']==26)  echo 'onclick=levelalert();'?> target="<?php echo $me1['target']; ?>">
-											<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
-											<?php echo $me1['text']; ?>
-										</a>
-										<?php if($member['mb_level']==26) { ?>
-											<script>
-												function levelalert() {
-												alert("비제휴업소는 입장 불가능합니다.");
-												}
-												</script>
-													<?php } ?>
+										<?php if ($me1['text'] == "실장님 정보공유") {
+											if ($member['mb_level'] == 26 || $member['mb_level'] == 27 || $is_admin) { ?>
+												<a class="me-a1" href="<?php if ($member['mb_level'] == 27 || $is_admin)  echo $me1['href']; ?>" <?php if ($member['mb_level'] == 26)  echo 'onclick=levelalert();' ?> target="<?php echo $me1['target']; ?>">
+													<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
+													<?php echo $me1['text']; ?>
+												</a>
+												<?php if ($member['mb_level'] == 26) { ?>
+													<script>
+														function levelalert() {
+															alert("비제휴업소는 입장 불가능합니다.");
+														}
+													</script>
+												<?php } ?>
 
-										<?php } }else { ?>
+											<?php }
+										} else { ?>
 
 											<a class="me-a1" href="<?php echo $me1['href']; ?>" target="<?php echo $me1['target']; ?>">
-											<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
-											<?php echo $me1['text']; ?>
-										</a>
+												<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
+												<?php if ($me1['text'] == '휴게텔-서울영토' || $me1['text'] == '휴게텔-경기영토' || $me1['text'] == '휴게텔-인천/부천') {
+													echo str_replace('-', ' ', $me1['text']);
+												} else if ($me1['text'] == '건마 (강원/충청/대전)' || $me1['text'] == '건마 경상/전라/제주') {
+													$me1['text'] = str_replace('-', ' ', $me1['text']);
+													echo str_replace(array('(', ')'), '', $me1['text']);
+												} else {
+													echo $me1['text'];
+												} ?>
+											</a>
 
 
 
-	<?php }  ?>
+										<?php }  ?>
 										<?php if (isset($me1['s'])) { // Is Sub Menu
 										?>
 											<ul class="me-ul2 tree <?php echo ($me1['on']) ? 'on' : 'off'; ?>">
@@ -397,13 +406,13 @@ $menu_cnt = count($menu);
 						<?php } //is_sub
 						?>
 					</li>
-					
+
 				<?php } //for
 				?>
 				<li class="me-li">
-						<br><br>
-						<br><br><br><br>
-						<br><br>
+					<br><br>
+					<br><br><br><br>
+					<br><br>
 				</li>
 				<?php if (!$menu_cnt) { ?>
 					<li class="me-li">

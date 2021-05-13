@@ -19,15 +19,15 @@ add_stylesheet('<link rel="stylesheet" href="' . $nt_side_url . '/side.css">', 1
     // 선택메뉴가 있다면...
     if (!empty($mes)) {
     ?>
-        <div id="nt_side_menu" class="font-weight-normal mb-4" style="display: none;">
-            <div class="bg-primary text-white text-center p-4 py-sm-5 en">
+        <div id="nt_side_menu" class="mb-4 font-weight-normal" style="display: none;">
+            <div class="p-4 text-center text-white bg-primary py-sm-5 en">
                 <h4>
                     <i class="fa <?php echo $mes['icon'] ?>" aria-hidden="true"></i>
                     <?php echo $mes['text']; ?>
                 </h4>
             </div>
             <?php if (isset($mes['s'])) { ?>
-                <ul class="me-ul border border-top-0">
+                <ul class="border me-ul border-top-0">
                     <?php for ($i = 0; $i < count($mes['s']); $i++) {
                         $me = $mes['s'][$i];
                     ?>
@@ -109,7 +109,7 @@ if ($res_date['mb_4'] != '') {
 
 <!-- //////////////////////////////////////////////////// -->
 
-<ul class="sub-ul mb-3">
+<ul class="mb-3 sub-ul">
 
     <?php
     if ($member['mb_level'] == '26' || $member['mb_level'] == '27') {
@@ -235,7 +235,7 @@ if ($res_date['mb_4'] != '') {
                     <?php if (isset($me['s'])) { //Is Sub Menu 
                     ?>
                     <?php } ?>
-                    <div class="col-6 m-0 px-0">
+                    <div class="px-0 m-0 col-6">
                         <a class="border-0" style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : '' ?>" href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL ?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg" style="height :14px;" alt="<?php echo substr($me['icon'], 3, strlen($me['icon'])), "1" ?>" /><?php echo $me['text']; ?>
                         </a>
                     </div>
@@ -253,7 +253,7 @@ if ($res_date['mb_4'] != '') {
         <img src="<?php echo G5_URL ?>/img/img-flag5-on.png" alt="flag5-on"/>밤의제국
     </li>
     <li class="row mx-0 me-li<?php echo ($me['on']) ? ' active' : ''; ?>"> 
-        <div class="col-6 m-0 px-0">
+        <div class="px-0 m-0 col-6">
             <a class="border-0"
                 style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : '' ?>"
                 href="<?php if ($member['mb_level'] == 27 || $is_admin) echo G5_BBS_URL . '/board.php?bo_table=work_board' ?>" target="_self" <?php if ($member['mb_level'] == 26)  echo 'onclick=levelalert();' ?>><img
