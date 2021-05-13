@@ -4318,6 +4318,9 @@ function get_board_atname($bo_table = '')
     $str;
     $row = sql_query(" select bo_table, bo_subject 
     from g5_board 
+    where gr_id = 'attendance' order by bo_order ");
+    /* $row = sql_query(" select bo_table, bo_subject 
+    from g5_board 
     where gr_id = 'attendance' and bo_subject <> 'trip' 
     order by field(bo_subject, 
     '오피-강남영토',
@@ -4346,7 +4349,7 @@ function get_board_atname($bo_table = '')
     '립카페-전국영토', 
     '핸플/패티쉬영토',
     '선불폰/프로필 여행사/기타영토'
-    ) ");
+    ) "); */
     for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
@@ -4385,6 +4388,9 @@ function get_board_category_name($bo_table_category = '')
     $str;
     $row = sql_query(" select bo_table, bo_subject 
     from g5_board 
+    where gr_id = 'attendance' order by bo_order ");
+    /* $row = sql_query(" select bo_table, bo_subject 
+    from g5_board 
     where gr_id = 'attendance' and bo_subject <> 'trip'
     order by field(bo_subject, 
     '오피-강남영토',
@@ -4413,7 +4419,7 @@ function get_board_category_name($bo_table_category = '')
     '립카페-전국영토', 
     '핸플/패티쉬영토',
     '선불폰/프로필 여행사/기타영토'
-    ) ");
+    ) "); */
     for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
