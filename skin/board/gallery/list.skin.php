@@ -5,32 +5,33 @@ include_once(G5_LIB_PATH . '/thumbnail.lib.php');
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">', 0);
 
-$wsetss=$sca;
-$subcat=$subsca;
-$searchd=$searchd;
-$total_page=1;
-$page=1;
-$row_limit=50;
-if($_GET['page']){
+$wsetss = $sca;
+$subcat = $subsca;
+$searchd = $searchd;
+$total_page = 1;
+$page = 1;
+$row_limit = 50;
+if ($_GET['page']) {
     $page =  $_GET['page'];
 }
-$list = na_post_rows($wsetss,$subcat,$searchd,$page); 
+$list = na_post_rows($wsetss, $subcat, $searchd, $page);
 shuffle($list);
 $catecount = count(na_post_rows($wsetss));
 $list_cnt = count($list);
 
-if ($page > 1){
+if ($page > 1) {
     $total_count = count($list);
     $total_page  = ceil($total_count / $row_limit);  // 전체 페이지 계산
-    $start_rows = ($page - 1) * $row_limit;			
+    $start_rows = ($page - 1) * $row_limit;
 }
-if(count($list) > $row_limit){ 
+if (count($list) > $row_limit) {
     $total_count = count($list);
-    $total_page  = ceil($total_count / $row_limit);}
+    $total_page  = ceil($total_count / $row_limit);
+}
 
-$list= array_slice($list, $start_rows,$row_limit);
+$list = array_slice($list, $start_rows, $row_limit);
 
-$wsetrr=$sca;
+$wsetrr = $sca;
 $listee = na_post_subcat($wsetrr); //
 shuffle($listee);
 sort($listee);
@@ -46,55 +47,53 @@ if ($board['bo_use_category']) {
     $is_category = true;
     $category_href = get_pretty_url($bo_table);
 
-    $category_option .= '<li><a href="'.$category_href.'"'; 
-    if ($sca==''){
+    $category_option .= '<li><a href="' . $category_href . '"';
+    if ($sca == '') {
         $category_option .= ' id="bo_cate_on"';
-        $category_option .= '>전체('.$catecount.')</a></li>';
-    } else 
-    $category_option .= '>전체</a></li>'; 
-    
-     $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
-     
-    for ($i=0; $i<count($categories); $i++) {
-      
-         $category = trim($categories[$i]);
-        if ($category=='') continue;       
-         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';         
+        $category_option .= '>전체(' . $catecount . ')</a></li>';
+    } else
+        $category_option .= '>전체</a></li>';
+
+    $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
+
+    for ($i = 0; $i < count($categories); $i++) {
+
+        $category = trim($categories[$i]);
+        if ($category == '') continue;
+        $category_option .= '<li><a href="' . (get_pretty_url($bo_table, '', 'sca=' . urlencode($category))) . '"';
         $category_msg = '';
-        if ($category==$sca) { // 현재 선택된 카테고리라면
+        if ($category == $sca) { // 현재 선택된 카테고리라면
             $category_option .= ' id="bo_cate_on"';
             $category_msg = '<span class="sound_only">열린 분류 </span>';
-            $category_option .= '>'.$category_msg.$category.'('.$catecount.')</a></li>';
-        }
-        else
-        $category_option .= '>'.$category_msg.$category.'</a></li>';
-    }    
+            $category_option .= '>' . $category_msg . $category . '(' . $catecount . ')</a></li>';
+        } else
+            $category_option .= '>' . $category_msg . $category . '</a></li>';
+    }
 }
 
 $is_subcategory = false;
 $subcategory_option = '';
 
-if ($board['bo_use_category'] && $sca !='') {
+if ($board['bo_use_category'] && $sca != '') {
     $is_subcategory = true;
-    $subcategory_href = get_pretty_url($bo_table);  
-    
-     $subcategories = $listee[0]['ca_name']; // 구분자가 , 로 되어 있음
-   
-    for ($i=0; $i<$list_cnteee; $i++) {
-        
-         $subcategory =  $listee[$i]['ca_name'];
-        if ($subcategory=='') continue;       
-         $subcategory_option .= '<li><a href="'.(get_pretty_url($bo_table,'','&sca='.$sca.'&subsca='.urlencode($subcategory))).'"';         
-         $subcategory_msg = '';
-        if ($subcategory==$subsca) { // 현재 선택된 카테고리라면
-            
+    $subcategory_href = get_pretty_url($bo_table);
+
+    $subcategories = $listee[0]['ca_name']; // 구분자가 , 로 되어 있음
+
+    for ($i = 0; $i < $list_cnteee; $i++) {
+
+        $subcategory =  $listee[$i]['ca_name'];
+        if ($subcategory == '') continue;
+        $subcategory_option .= '<li><a href="' . (get_pretty_url($bo_table, '', '&sca=' . $sca . '&subsca=' . urlencode($subcategory))) . '"';
+        $subcategory_msg = '';
+        if ($subcategory == $subsca) { // 현재 선택된 카테고리라면
+
             $subcategory_option .= ' id="bo_subcate_on"';
             $subcategory_msg = '<span class="sound_only">열린 분류 </span>';
-            $subcategory_option .= '>'.$subcategory_msg.$subcategory.'</a></li>';
-        }
-        else
-        $subcategory_option .= '>'.$subcategory_msg.$subcategory.'</a></li>';
-    }    
+            $subcategory_option .= '>' . $subcategory_msg . $subcategory . '</a></li>';
+        } else
+            $subcategory_option .= '>' . $subcategory_msg . $subcategory . '</a></li>';
+    }
 }
 
 if (G5_IS_MOBILE) {
@@ -103,28 +102,36 @@ if (G5_IS_MOBILE) {
 ?>
 
 <!-- 게시판 목록 시작 { -->
-<div id="bo_gall" <?php if(G5_IS_MOBILE) { echo 'class="pl-1 pr-2"';} else {echo '';} ?>>
+<div id="bo_gall" <?php if (G5_IS_MOBILE) {
+                        echo 'class="pl-1 pr-2"';
+                    } else {
+                        echo '';
+                    } ?>>
 
     <?php if ($is_category) { ?>
-    <nav id="bo_cate">
-        <h2><?php echo $board['bo_subject'] ?> 카테고리</h2>
-        <ul id="bo_cate_ul">
-            <?php echo $category_option ?>
-        </ul>
-    </nav>
-    <nav id="bo_subcate" <?php if(G5_IS_MOBILE) { echo '';} else {echo 'class="pb-3"';} ?>>
-        <h2><?php echo $board['bo_subject'] ?> subcategory</h2>
-        <ul id="bo_subcate_ul">
-            <?php echo $subcategory_option ?>
-        </ul>
-    </nav>
-    <nav id="bo_subcate">
-        <h2><?php echo $board['bo_subject'] ?> search</h2>
-        <ul id="bo_subcate_ul">
-            <?php include_once($search_skin_path . '/search2.skin.php'); 
-               ?>
-        </ul>
-    </nav>
+        <nav id="bo_cate">
+            <h2><?php echo $board['bo_subject'] ?> 카테고리</h2>
+            <ul id="bo_cate_ul">
+                <?php echo $category_option ?>
+            </ul>
+        </nav>
+        <nav id="bo_subcate" <?php if (G5_IS_MOBILE) {
+                                    echo '';
+                                } else {
+                                    echo 'class="pb-3"';
+                                } ?>>
+            <h2><?php echo $board['bo_subject'] ?> subcategory</h2>
+            <ul id="bo_subcate_ul">
+                <?php echo $subcategory_option ?>
+            </ul>
+        </nav>
+        <nav id="bo_subcate">
+            <h2><?php echo $board['bo_subject'] ?> search</h2>
+            <ul id="bo_subcate_ul">
+                <?php include_once($search_skin_path . '/search2.skin.php');
+                ?>
+            </ul>
+        </nav>
     <?php }
 
     $search_table = array();
@@ -143,7 +150,7 @@ if (G5_IS_MOBILE) {
         $img_height = ($wset['thumb_d']) ? $wset['thumb_d'] : '56.25';
     }
 
-   
+
     //-------------------------------------------------------------------------
 
     $group_select = '<label for="gr_id" class="sound_only">게시판 그룹선택</label><select name="gr_id" id="gr_id" class="select"><option value="">전체 분류';
@@ -157,8 +164,7 @@ if (G5_IS_MOBILE) {
     if (!$sop) $sop = 'or';
     ?>
 
-    <form name="fboardlist" id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php"
-        onsubmit="return fboardlist_submit(this);" method="post">
+    <form name="fboardlist" id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
         <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
         <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
         <input type="hidden" name="stx" value="<?php echo $stx ?>">
@@ -208,26 +214,26 @@ if (G5_IS_MOBILE) {
             </div>
         <?php } ?> -->
         <style>
-        .gal_btns {
-            background-color: rgba(255, 255, 255, 0.5);
-            font-size: 12px;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 35px;
-            line-height: 35px;
-            /* padding-top: 6px; */
-            border: 1px solid black;
-            border-radius: 5px;
-        }
+            .gal_btns {
+                background-color: rgba(255, 255, 255, 0.5);
+                font-size: 12px;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                width: 64px;
+                height: 35px;
+                line-height: 35px;
+                /* padding-top: 6px; */
+                border: 1px solid black;
+                border-radius: 5px;
+            }
 
-        a[type="button"] {
-            -webkit-appearance: none;
-            border-radius: 5px;
-        }
+            a[type="button"] {
+                -webkit-appearance: none;
+                border-radius: 5px;
+            }
         </style>
         <ul id="gall_ul" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 mx-n2">
             <?php
@@ -242,17 +248,16 @@ if (G5_IS_MOBILE) {
                     $classes[] = 'gall_now';
                 }
             ?>
-            <li class="col px-2 pb-4">
-                <?php   
+                <li class="px-2 pb-4 col">
+                    <?php
                     $at = $list[$i]['bo_table'];
                     $linkcount = strlen($at) - 2;
-                    $str_table =substr($at, 0, $linkcount);
-                    $re = $str_table."re"; 
-                ?>
-                <div class="gall_box"
-                    style="background-image:url('<?php echo G5_IMG_URL ?>/main_bgpicture.png'); background-size: 100% 100%;">
+                    $str_table = substr($at, 0, $linkcount);
+                    $re = $str_table . "re";
+                    ?>
+                    <div class="gall_box" style="background-image:url('<?php echo G5_IMG_URL ?>/main_bgpicture.png'); background-size: 100% 100%;">
 
-                    <!-- <?php if ($is_checkbox) { ?>
+                        <!-- <?php if ($is_checkbox) { ?>
                                 <div class="gall_chk chk_box">
                                     <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>" class="selec_chk">
                                     <label for="chk_wr_id_<?php echo $i ?>">
@@ -260,69 +265,60 @@ if (G5_IS_MOBILE) {
                                     </label>
                                 </div>
                             <?php } ?> -->
-                    <span class="sound_only">
-                        <?php
-                                if ($wr_id == $list[$i]['wr_id'])
-                                    echo "<span class=\"bo_current\">열람중</span>";
-                                else
-                                    echo $list[$i]['num'];
-                                ?>
-                    </span>
-                    <div class="gall_con">
-                        <div class="gall_img"
-                            style="<?php echo get_cate_pic($list[$i]['mb_2'])?>  background-repeat: no-repeat; background-size: 100% 100%;">
-                            <a
-                                href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>">
-                                <?php $now = G5_TIME_YMDHIS;                                      
+                        <span class="sound_only">
+                            <?php
+                            if ($wr_id == $list[$i]['wr_id'])
+                                echo "<span class=\"bo_current\">열람중</span>";
+                            else
+                                echo $list[$i]['num'];
+                            ?>
+                        </span>
+                        <div class="gall_con">
+                            <div class="gall_img" style="<?php echo get_cate_pic($list[$i]['mb_2']) ?>  background-repeat: no-repeat; background-size: 100% 100%;">
+                                <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table'] ?>&wr_id=<?php echo $list[$i]['wr_id'] ?>">
+                                    <?php $now = G5_TIME_YMDHIS;
                                     $result_coupon = " select count(*) as co_cnt from {$g5['coupon_table']}  where mb_id='{$list[$i]['mb_id']}' and co_begin_datetime <= '{$now}' and co_end_datetime >= '{$now}'";
                                     $row_co = sql_fetch($result_coupon);
                                     $co_cnt = $row_co['co_cnt'];
                                     $result_period = " select mb_4 from {$g5['member_table']}  where mb_id='{$list[$i]['mb_id']}'";
                                     $row_pe = sql_fetch($result_period);
                                     $finish_period = $row_pe['mb_4'];
-                                    if($co_cnt > '0' && $finish_period >= $now){ ?>
-                                <img src="<?php echo G5_IMG_URL ?>/coupon.png" alt="coupon" style="width: 80px; height: 80px; margin-top: 30px; margin-right: 140px;">
-                                <?php } ?>
-                                <!-- <?php
-                                    if ($list[$i]['is_notice']) {  
-                                    ?>
+                                    if ($co_cnt > '0' && $finish_period >= $now) { ?>
+                                        <img src="<?php echo G5_IMG_URL ?>/coupon.png" alt="coupon" style="width: 80px; height: 80px; margin-top: 30px; margin-right: 140px;">
+                                    <?php } ?>
+                                    <!-- <?php
+                                            if ($list[$i]['is_notice']) {
+                                            ?>
                                 <span class="is_notice">공지</span>
                                 <?php } else {
-                                        echo get_cate_pic($list[$i]['mb_2'],1); 
-                            
-                                    }
-                                    ?> -->
-                            </a>
-                        </div>
+                                                echo get_cate_pic($list[$i]['mb_2'], 1);
+                                            }
+                                ?> -->
+                                </a>
+                            </div>
 
-                        <div class="gall_text_href"
-                            style="display: flex; justify-content: center; flex-direction: column; align-items: center; width: 100%; height: 80px;">
-                            <!-- <?php if ($is_category && $list[$i]['ca_name']) { ?>
+                            <div class="gall_text_href" style="display: flex; justify-content: center; flex-direction: column; align-items: center; width: 100%; height: 80px;">
+                                <!-- <?php if ($is_category && $list[$i]['ca_name']) { ?>
                         <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
                         <?php } ?> -->
-                            <a href="<?php echo $list[$i]['href'] ?>" class="bo_tit"
-                                style="font-size: 16px; color: #E73D2F; font-weight: bold; text-align:center;">
-                                <?php // echo $list[$i]['icon_reply']; 
+                                <a href="<?php echo $list[$i]['href'] ?>" class="bo_tit" style="font-size: 16px; color: #E73D2F; font-weight: bold; text-align:center;">
+                                    <?php // echo $list[$i]['icon_reply']; 
                                     ?>
-                                <!-- 갤러리 댓글기능 사용시 주석을 제거하세요. -->
+                                    <!-- 갤러리 댓글기능 사용시 주석을 제거하세요. -->
 
-                                <div class="na-title"
-                                    style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
-                                    <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>"
-                                        class="na-subject"
-                                        style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;"
-                                        <?php echo $target ?>>
-                                        <?php echo $wr_icon ?>
-                                        <?php echo $list[$i]['mb_name'] ?>
-                                    </a>
-                                    <p style="font-weight: bold; overflow: hidden;"><?php
-                                         echo $list[$i]['mb_addr2'] ?></p>
-                                    <div style="display: flex; align-items: center; line-height: 1.5;">
-                                        <p><?php echo $list[$i]['mb_hp'] ?></p>
+                                    <div class="na-title" style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
+                                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table'] ?>&wr_id=<?php echo $list[$i]['wr_id'] ?>" class="na-subject" style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;" <?php echo $target ?>>
+                                            <?php echo $wr_icon ?>
+                                            <?php echo $list[$i]['mb_name'] ?>
+                                        </a>
+                                        <p style="font-weight: bold; overflow: hidden;"><?php
+                                                                                        echo $list[$i]['mb_addr2'] ?></p>
+                                        <div style="display: flex; align-items: center; line-height: 1.5;">
+                                            <p><?php echo $list[$i]['mb_hp'] ?></p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <?php
+                                    <?php
                                     // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
                                     if ($list[$i]['icon_new']) echo "<span class=\"new_icon\">N<span class=\"sound_only\">새글</span></span>";
                                     if (isset($list[$i]['icon_hot'])) echo rtrim($list[$i]['icon_hot']);
@@ -330,26 +326,19 @@ if (G5_IS_MOBILE) {
                                     //if (isset($list[$i]['icon_link'])) echo rtrim($list[$i]['icon_link']);
                                     if (isset($list[$i]['icon_secret'])) echo rtrim($list[$i]['icon_secret']);
                                     ?>
-                                <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><span
-                                    class="cnt_cmt"><?php echo $list[$i]['wr_comment']; ?></span><span
-                                    class="sound_only">개</span><?php } ?>
-                            </a>
+                                    <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><span class="cnt_cmt"><?php echo $list[$i]['wr_comment']; ?></span><span class="sound_only">개</span><?php } ?>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL ?>/main_780.png'); width: 100%; height: 52px;">
+                            <a type="button" class="gal_btns" href="#" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table'] ?>&wr_id=<?php echo $list[$i]['wr_id'] ?>'"><img src="<?php echo G5_IMG_URL ?>/baseline-ballot_main-24px.png" alt="ballot-main">
+                                <!-- <i class="fa fa-calendar"></i> --> 정보</a>
+                            <a type="button" class="gal_btns" href="#" onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>&nameid=<?php echo $list[$i]['mb_id']; ?>'"><img src="<?php echo G5_IMG_URL ?>/chat_icon_main.png" alt="icon-main">
+                                <!-- <i class="fa fa-comments"></i> --> 후기</a>
                         </div>
                     </div>
-
-                    <div
-                        style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('<?php echo G5_IMG_URL ?>/main_780.png'); width: 100%; height: 52px;">
-                        <a type="button" class="gal_btns" href="#"
-                            onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>&wr_id=<?php echo $list[$i]['wr_id']?>'"><img
-                                src="<?php echo G5_IMG_URL?>/baseline-ballot_main-24px.png" alt="ballot-main">
-                            <!-- <i class="fa fa-calendar"></i> --> 정보</a>
-                        <a type="button" class="gal_btns" href="#"
-                            onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re; ?>&nameid=<?php echo $list[$i]['mb_id'];?>'"><img
-                                src="<?php echo G5_IMG_URL?>/chat_icon_main.png" alt="icon-main">
-                            <!-- <i class="fa fa-comments"></i> --> 후기</a>
-                    </div>
-                </div>
-            </li>
+                </li>
             <?php } ?>
             <?php if (count($list) == 0) {
                 echo "<li class=\"empty_list\">게시물이 없습니다.</li>";
@@ -373,21 +362,21 @@ if (G5_IS_MOBILE) {
         <?php } ?> -->
 
         <div>
-				<ul class="pagination justify-content-center en mb-0">
-					<?php if ($prev_part_href) { ?>
-						<li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
-					<?php } ?>
-					<?php 
-                    $scss='';
-                    if($subsca){
-                        $scss = '&amp;subsca='.$subsca;
-                    } 
-                    echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . $scss.'&amp;page=')); ?>
-					<?php if ($next_part_href) { ?>
-						<li class="page-item"><a class="page-link" href="<?php echo $next_part_href.$total_page; ?>">Next</a></li>
-					<?php } ?>
-				</ul>
-			</div>
+            <ul class="mb-0 pagination justify-content-center en">
+                <?php if ($prev_part_href) { ?>
+                    <li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
+                <?php } ?>
+                <?php
+                $scss = '';
+                if ($subsca) {
+                    $scss = '&amp;subsca=' . $subsca;
+                }
+                echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . $scss . '&amp;page=')); ?>
+                <?php if ($next_part_href) { ?>
+                    <li class="page-item"><a class="page-link" href="<?php echo $next_part_href . $total_page; ?>">Next</a></li>
+                <?php } ?>
+            </ul>
+        </div>
     </form>
 
     <!-- 게시판 검색 시작 { -->
@@ -404,120 +393,116 @@ if (G5_IS_MOBILE) {
                 </select>
                 <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
                 <div class="sch_bar">
-                    <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required id="stx"
-                        class="sch_input" size="25" maxlength="20" placeholder="검색어를 입력해주세요">
-                    <button type="submit" value="검색" class="sch_btn"><i class="fa fa-search"
-                            aria-hidden="true"></i><span class="sound_only">검색</span></button>
+                    <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required id="stx" class="sch_input" size="25" maxlength="20" placeholder="검색어를 입력해주세요">
+                    <button type="submit" value="검색" class="sch_btn"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
                 </div>
-                <button type="button" class="bo_sch_cls"><i class="fa fa-times" aria-hidden="true"></i><span
-                        class="sound_only">닫기</span></button>
+                <button type="button" class="bo_sch_cls"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">닫기</span></button>
             </form>
         </fieldset>
         <div class="bo_sch_bg"></div>
     </div>
     <script>
-    // 게시판 검색
-    $(".btn_bo_sch").on("click", function() {
-        $(".bo_sch_wrap").toggle();
-    })
-    $('.bo_sch_bg, .bo_sch_cls').click(function() {
-        $('.bo_sch_wrap').hide();
-    });
+        // 게시판 검색
+        $(".btn_bo_sch").on("click", function() {
+            $(".bo_sch_wrap").toggle();
+        })
+        $('.bo_sch_bg, .bo_sch_cls').click(function() {
+            $('.bo_sch_wrap').hide();
+        });
     </script>
     <!-- } 게시판 검색 끝 -->
 </div>
 
 <?php if ($is_checkbox) { ?>
-<noscript>
-    <p>자바스크립트를 사용하지 않는 경우<br>별도의 확인 절차 없이 바로 선택삭제 처리하므로 주의하시기 바랍니다.</p>
-</noscript>
+    <noscript>
+        <p>자바스크립트를 사용하지 않는 경우<br>별도의 확인 절차 없이 바로 선택삭제 처리하므로 주의하시기 바랍니다.</p>
+    </noscript>
 <?php } ?>
 
 <?php if ($is_checkbox) { ?>
-<script>
-function all_checked(sw) {
-    var f = document.fboardlist;
+    <script>
+        function all_checked(sw) {
+            var f = document.fboardlist;
 
-    for (var i = 0; i < f.length; i++) {
-        if (f.elements[i].name == "chk_wr_id[]")
-            f.elements[i].checked = sw;
-    }
-}
-
-function fboardlist_submit(f) {
-    var chk_count = 0;
-
-    for (var i = 0; i < f.length; i++) {
-        if (f.elements[i].name == "chk_wr_id[]" && f.elements[i].checked)
-            chk_count++;
-    }
-
-    if (!chk_count) {
-        alert(document.pressed + "할 게시물을 하나 이상 선택하세요.");
-        return false;
-    }
-
-    if (document.pressed == "선택복사") {
-        select_copy("copy");
-        return;
-    }
-
-    if (document.pressed == "선택이동") {
-        select_copy("move");
-        return;
-    }
-
-    if (document.pressed == "선택삭제") {
-        if (!confirm("선택한 게시물을 정말 삭제하시겠습니까?\n\n한번 삭제한 자료는 복구할 수 없습니다\n\n답변글이 있는 게시글을 선택하신 경우\n답변글도 선택하셔야 게시글이 삭제됩니다."))
-            return false;
-
-        f.removeAttribute("target");
-        f.action = g5_bbs_url + "/board_list_update.php";
-    }
-
-    return true;
-}
-
-// 선택한 게시물 복사 및 이동
-function select_copy(sw) {
-    var f = document.fboardlist;
-
-    if (sw == 'copy')
-        str = "복사";
-    else
-        str = "이동";
-
-    var sub_win = window.open("", "move", "left=50, top=50, width=500, height=550, scrollbars=1");
-
-    f.sw.value = sw;
-    f.target = "move";
-    f.action = g5_bbs_url + "/move.php";
-    f.submit();
-}
-
-// 게시판 리스트 관리자 옵션
-jQuery(function($) {
-    $(".btn_more_opt.is_list_btn").on("click", function(e) {
-        e.stopPropagation();
-        $(".more_opt.is_list_btn").toggle();
-    });
-    $(document).on("click", function(e) {
-        if (!$(e.target).closest('.is_list_btn').length) {
-            $(".more_opt.is_list_btn").hide();
+            for (var i = 0; i < f.length; i++) {
+                if (f.elements[i].name == "chk_wr_id[]")
+                    f.elements[i].checked = sw;
+            }
         }
-    });
-});
 
-/* $("a").click(function(){
-    $.ajax({
-      url: $(this).data("url"),
-      method: 'get',
-      success: function(data){
-         $("#bo_gall").html(data);
-      }
-    })
-  }); */
+        function fboardlist_submit(f) {
+            var chk_count = 0;
 
-</script>
+            for (var i = 0; i < f.length; i++) {
+                if (f.elements[i].name == "chk_wr_id[]" && f.elements[i].checked)
+                    chk_count++;
+            }
+
+            if (!chk_count) {
+                alert(document.pressed + "할 게시물을 하나 이상 선택하세요.");
+                return false;
+            }
+
+            if (document.pressed == "선택복사") {
+                select_copy("copy");
+                return;
+            }
+
+            if (document.pressed == "선택이동") {
+                select_copy("move");
+                return;
+            }
+
+            if (document.pressed == "선택삭제") {
+                if (!confirm("선택한 게시물을 정말 삭제하시겠습니까?\n\n한번 삭제한 자료는 복구할 수 없습니다\n\n답변글이 있는 게시글을 선택하신 경우\n답변글도 선택하셔야 게시글이 삭제됩니다."))
+                    return false;
+
+                f.removeAttribute("target");
+                f.action = g5_bbs_url + "/board_list_update.php";
+            }
+
+            return true;
+        }
+
+        // 선택한 게시물 복사 및 이동
+        function select_copy(sw) {
+            var f = document.fboardlist;
+
+            if (sw == 'copy')
+                str = "복사";
+            else
+                str = "이동";
+
+            var sub_win = window.open("", "move", "left=50, top=50, width=500, height=550, scrollbars=1");
+
+            f.sw.value = sw;
+            f.target = "move";
+            f.action = g5_bbs_url + "/move.php";
+            f.submit();
+        }
+
+        // 게시판 리스트 관리자 옵션
+        jQuery(function($) {
+            $(".btn_more_opt.is_list_btn").on("click", function(e) {
+                e.stopPropagation();
+                $(".more_opt.is_list_btn").toggle();
+            });
+            $(document).on("click", function(e) {
+                if (!$(e.target).closest('.is_list_btn').length) {
+                    $(".more_opt.is_list_btn").hide();
+                }
+            });
+        });
+
+        /* $("a").click(function(){
+            $.ajax({
+              url: $(this).data("url"),
+              method: 'get',
+              success: function(data){
+                 $("#bo_gall").html(data);
+              }
+            })
+          }); */
+    </script>
 <?php } ?>
 <!-- } 게시판 목록 끝 -->

@@ -24,11 +24,6 @@
 .imageListWrapperHtml5 {
   border: 2px #66b2ff dashed;
 }
-@media only screen and (max-width: 600px) {
-  .imageListWrapperHtml5 {
-    display: flex !important;
-  }
-}
 .imageListWrapper {
   border: 1px #aaa solid;
   box-shadow: 0 0 3px #aaa;

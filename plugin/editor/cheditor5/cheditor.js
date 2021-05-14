@@ -785,9 +785,9 @@ function setConfig() {
       imgBlockMargin: '5px 0px',
       imgCaptionFigure:
         'border: 1px #ccc solid; background-color: #f0f0f0; margin: 0',
-      imgCaptionText: 'margin: 5px 5px; text-align: left; line-height: 17px',
+      imgCaptionText: 'margin: 5px 5px; text-align: center; line-height: 17px',
       imgCaptionWrapper: '',
-      imgDefaultAlign: 'left', // [left, center, right]
+      imgDefaultAlign: 'center', // [left, center, right]
       imgJpegQuality: 0.92, // JPEG 사진의 퀄리티 값, 최대값 1
       imgMaxWidth: 800, // 사진 최대 가로 크기, 이 크기 보다 크면 리사이징 처리
       imgResizeMinLimit: 32, // 사진 리사이징의 사용자 직접 입력 값이 이 값 보다 작으면, 이 값으로 설정
@@ -1038,7 +1038,7 @@ cheditor.prototype = {
       '<head><title>' +
       this.config.docTitle +
       '</title>' +
-      '<style></style></head><body>'
+      '<style></style></head><body style="text-align: center;">'
 
     doc.open()
 
@@ -1979,7 +1979,7 @@ cheditor.prototype = {
     }
 
     alignment = {
-      JustifyLeft: 'left',
+      JustifyLeft: '',
       JustifyCenter: 'center',
       JustifyRight: 'right',
       JustifyFull: 'justify',
@@ -3093,7 +3093,7 @@ cheditor.prototype = {
             ol.style.margin = '0px'
             ol.style.listStyleType = i
             ol.style.cursor = 'default'
-            ol.style.textAlign = 'left'
+            ol.style.textAlign = 'center'
             ol.appendChild(li)
             label.appendChild(ol)
             div.appendChild(label)
@@ -7724,7 +7724,7 @@ cheditor.prototype = {
     caption = getCaptionNodes(img)
 
     div = document.createElement('div')
-    div.style.textAlign = 'left'
+    div.style.textAlign = 'center'
     ico = new Image()
     ico.src = this.config.iconPath + 'image_resize.png'
     ico.className = 'cheditor-ico'
