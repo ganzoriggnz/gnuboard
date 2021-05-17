@@ -40,7 +40,7 @@ $view_subject = get_text($view['wr_subject']);
 			<ul class="d-flex align-items-center">
 				<li class="pr-2">
 					<span class="sr-only">작성자</span>
-					<?php echo na_name_photo($view['mb_id'], $view['name']); ?>
+					<?php if ($view['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>'; echo na_name_photo($view['mb_id'], $view['name']); ?>
 				</li>
 				<?php if ($is_ip_view) { ?>
 					<li class="pr-2">

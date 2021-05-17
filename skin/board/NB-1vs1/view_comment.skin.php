@@ -103,7 +103,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 					<div class="clearfix font-weight-normal bg-light border-top text-muted f-sm px-3 py-2<?php echo $by_writer ?>">
 						<ul class="d-flex align-items-center">
 							<li class="pr-2">
-								<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']); ?>
+								<?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>'; echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']); ?>
 								<?php include(G5_SNS_PATH.'/view_comment_list.sns.skin.php'); // SNS ?>
 							</li>
 							<?php if ($is_ip_view) { ?>
