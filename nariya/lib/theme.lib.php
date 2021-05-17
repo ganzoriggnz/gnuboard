@@ -1336,7 +1336,7 @@ function na_post_rows($wset, $subcat = '', $search = '')
 
 			$bo_table = $res['bo_table'];
 			$hwrite_table = $g5['write_prefix'] . $bo_table;
-			$result1 = sql_query("select * from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%')", false);
+			$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now()) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%' order by has_coupon desc)", false);
 
 			while ($row = sql_fetch_array($result1)) {
 
