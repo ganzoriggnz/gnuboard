@@ -159,7 +159,6 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_msg_table']}",false)) {
                                 alt_reason = '후기미작성7일',
                                 alt_created_by = '-',
                                 alt_created_datetime = '{$row2['cos_post_datetime']}' ";
-                                echo $sql4;
                 sql_query($sql4);
     
                 $sql5 = "UPDATE {$g5['coupon_sent_table']} 
