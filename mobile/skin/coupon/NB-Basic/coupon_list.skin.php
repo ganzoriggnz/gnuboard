@@ -109,20 +109,13 @@ $delcnt=0;
                                             </div>
                                             <div class="modal-body" style="padding: 30px 0px; font-size: 12px;">
                                                 <input type="hidden" name="w" value="d">
-                                                <input type="hidden" name="co_no" id="co_no_d"
-                                                    value="<?php echo $row1['co_no']; ?>">
-                                                <input type="hidden" name="cos_no" id="cos_no_d"
-                                                    value="<?php echo $row1['cos_no']; ?>">
-                                                <input type="hidden" name="cos_type" id="cos_type_d"
-                                                    value="<?php echo $row1['cos_type']; ?>">
-                                                <input type="hidden" name="cos_link" id="cos_link_d"
-                                                    value="<?php echo $bo_table; ?>">
-                                                <input type="hidden" name="cos_entity" id="cos_entity_d"
-                                                    value="<?php echo $row1['cos_entity']; ?>">
-                                                <input type="hidden" name="cos_nick" id="cos_nick_d"
-                                                    value="<?php echo $row1['cos_nick']; ?>">
-                                                <input type="hidden" name="cos_code" id="cos_code_d"
-                                                    value="<?php echo $row1['cos_code']; ?>">
+                                                <input type="hidden" name="co_no" id="co_no_d" value="<?php echo $row1['co_no']; ?>">
+                                                <input type="hidden" name="cos_no" id="cos_no_d" value="<?php echo $row1['cos_no']; ?>">
+                                                <input type="hidden" name="cos_type" id="cos_type_d" value="<?php echo $row1['cos_type']; ?>">
+                                                <input type="hidden" name="cos_link" id="cos_link_d" value="<?php echo $bo_table; ?>">
+                                                <input type="hidden" name="cos_entity" id="cos_entity_d" value="<?php echo $row1['cos_entity']; ?>">
+                                                <input type="hidden" name="cos_nick" id="cos_nick_d" value="<?php echo $row1['cos_nick']; ?>">
+                                                <input type="hidden" name="cos_code" id="cos_code_d" value="<?php echo $row1['cos_code']; ?>">
                                                 <div style="text-align: center; line-height: 2;">
                                                     <?php echo "[".$row1['cos_entity']."]"." ".$row1['cos_nick']." 회원 </br> 쿠폰을 회수하시겠습니까?" ?>
                                                 </div>
@@ -149,9 +142,7 @@ $delcnt=0;
 						else if($row1['cos_alt_quantity'] > 0) { 
 							echo '<li><a data-toggle="modal" data-target="#couponAlert'.$altcnt.'" href="#couponAlert'.$altcnt.'" 
 							data-class="coupon-alert" style="color:red;" data-link = '.$bo_table.'>';
-							$sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row1['cos_nick']}'"; 
-							$row4 = sql_fetch($sql4);  
-							$res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE alt_created_datetime = '{$row4['maxdate']}' ";
+							$res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE cos_id = '{$row1['cos_id']}' ORDER BY alt_no DESC LIMIT 1";
 							$res1 = sql_fetch($res);
 							if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'].'('.$res1['cos_alt_quantity'].')';
 							if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick'].'('.$res1['cos_alt_quantity'].')'; ?></a>
@@ -167,12 +158,6 @@ $delcnt=0;
                                             </button>
                                         </div>
                                         <div class="modal-body" style="padding: 5px 0px;">
-                                            <?php 
-												$sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row1['cos_nick']}'"; 
-												$row4 = sql_fetch($sql4);  
-												$res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE alt_created_datetime = '{$row4['maxdate']}' ";
-												$res1 = sql_fetch($res);
-											?>
                                             <div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?>
                                             </div>
                                             <div style="margin-left: 30px; margin-top: 5px;">
@@ -181,12 +166,10 @@ $delcnt=0;
                                                     action="<?php echo $coupon_alert_action_url; ?>"
                                                     onsubmit="return fcouponalert_submit(this);" method="post"
                                                     enctype="multipart/form-data" autocomplete="off">
-                                                    <input type="hidden" name="cos_nick" id="cos_nick"
-                                                        value="<?php echo $row1['cos_nick'];?>">
-                                                    <input type="hidden" name="cos_entity" id="cos_entity"
-                                                        value="<?php echo $row1['cos_entity'];?>">
-                                                    <input type="hidden" name="cos_link" id="cos_link"
-                                                        value="<?php echo $bo_table; ?>">
+                                                    <input type="hidden" name="cos_id" id="cos_id" value="<?php echo $row1['cos_id'];?>">
+                                                    <input type="hidden" name="cos_nick" id="cos_nick" value="<?php echo $row1['cos_nick'];?>">
+                                                    <input type="hidden" name="cos_entity" id="cos_entity" value="<?php echo $row1['cos_entity'];?>">
+                                                    <input type="hidden" name="cos_link" id="cos_link" value="<?php echo $bo_table; ?>">
                                                     <div style="margin-left:30px; margin-top: 30px;">
                                                         <p style="text-decoration: underline; display: inline;">경고횟수 변경
                                                         </p>
@@ -297,78 +280,69 @@ $delcnt=0;
     </div>
 
     <script>
-    /* 	$(window).on('load', function () {
-	na_nav('topNav', 'topHeight', 'fixed-top');
-	}); */
+    $('#btn_send').click(function(){
+            if($('#hasNick').val() != '정상적인 닉네임입니다.'){ 
+                alert("닉네임을 입력하시고 확인후 쿠폰 지원할 수 있습니다!");
+                $('#mb_nick').focus();
+            }  
+            else if ($('#hasNick').val() == '정상적인 닉네임입니다.'){
+                $('#fcouponsend').submit(); 
+            }                  
+        });   
 
-    $('#btn_send').click(function() {
-        debugger;
-        if ($('#hasNick').val() != '정상적인 닉네임입니다.') {
-            alert("닉네임을 입력하시고 확인후 쿠폰 지원할 수 있습니다!");
-            $('#mb_nick').focus();
-        }
-        /*      if($('#hasNick').length = 0 && $('#hasNick').val() != '정상적인 닉네임입니다.'){ 
-                 alert("Please insert correct nick name!");
-                 $('#mb_nick').focus();
-             }  */
-        if ($('#hasNick').val() == '정상적인 닉네임입니다.') {
-            $('#fcouponsend').submit();
-        }
-    });
+	function fcoupondelete_submit(f) {
+		return true;                                                                 
+	}  
 
-    function fcoupondelete_submit(f) {
-        return true;
-    }
+	function fcouponalert_submit(f){
+		return true;
+	}
 
-    function fcouponalert_submit(f) {
-        return true;
-    }
+	$(document).ready(function(){
+		$('#check_id').click(function(e){
+			e.preventDefault();
+			var mb_nick = $('#mb_nick').val();
+			$.ajax({
+				type: 'POST',
+				url: 'check_id.php',
+				data: {
+					'check_id': 1,
+					'mb_nick': mb_nick,
+				},
+				dataType: 'text',
+				success: function(response) {
+					$('#result').html(response);
+				}
+			});
+		});
 
-    $(document).ready(function() {
-        $('#check_id').click(function(e) {
-            e.preventDefault();
-            var mb_nick = $('#mb_nick').val();
-            $.ajax({
-                type: 'POST',
-                url: 'check_id.php',
-                data: {
-                    'check_id': 1,
-                    'mb_nick': mb_nick,
-                },
-                dataType: 'text',
-                success: function(response) {
-                    $('#result').html(response);
-                }
-            });
-        });
+		$('body').on('click', '.coupon-modal', function() {
+			var cos_type = $(this).data('type');
+			var cos_entity = $(this).data('entity');
+			var co_no = $(this).data('no');
+			var mb_id = $(this).data('mb-id');
+			var cos_link = $(this).data('link');
+			$('.modal-body #cos_type').val(cos_type);
+			$('.modal-body #cos_entity').val(cos_entity);
+			$('.modal-body #co_no').val(co_no);
+			$('.modal-body #mb_id').val(mb_id);
+			$('.modal-body #cos_link').val(cos_link);
+		}); 
 
-        $('body').on('click', '.coupon-modal', function() {
-            var cos_type = $(this).data('type');
-            var cos_entity = $(this).data('entity');
-            var co_no = $(this).data('no');
-            var mb_id = $(this).data('mb-id');
-            var cos_link = $(this).data('link');
-            $('.modal-body #cos_type').val(cos_type);
-            $('.modal-body #cos_entity').val(cos_entity);
-            $('.modal-body #co_no').val(co_no);
-            $('.modal-body #mb_id').val(mb_id);
-            $('.modal-body #cos_link').val(cos_link);
-        });
+		$('body').on('click', '.coupon-delete', function() {
+			var co_no = $(this).data('co-no');	
+			var cos_no = $(this).data('no');
+			var cos_type = $(this).data('type');
+			var cos_code = $(this).data('code');
+			var cos_link = $(this).data('link');
+			$('.modal-body #co_no').val(co_no);
+			$('.modal-body #cos_no').val(cos_no);
+			$('.modal-body #cos_type').val(cos_type);		
+			$('.modal-body #cos_code').val(cos_code);
+			$('.modal-body #cos_link').val(cos_link);
+		}); 
 
-        $('body').on('click', '.coupon-delete', function() {
-            var co_no = $(this).data('co-no');
-            var cos_no = $(this).data('no');
-            var cos_type = $(this).data('type');
-            var cos_code = $(this).data('code');
-            var cos_link = $(this).data('link');
-            $('.modal-body #co_no').val(co_no);
-            $('.modal-body #cos_no').val(cos_no);
-            $('.modal-body #cos_type').val(cos_type);
-            $('.modal-body #cos_code').val(cos_code);
-            $('.modal-body #cos_link').val(cos_link);
-        });
-
-    });
+	});
     </script>
 
 </div>

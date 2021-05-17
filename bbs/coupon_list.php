@@ -15,35 +15,7 @@ $currentmonth = substr($now, 5, 2);
 $co_start = date_create($now);
 $co_send_date = date_format($co_start, 'Y-m-06 00:00:00');
 $co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
-
-if($currentmonth == '01')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '02')
-$co_end_datetime = 
-    ($currentyear % 4 ? date_format($co_start, 'Y-m-28 23:59:59') : 
-    ($currentyear % 100 ? date_format($co_start, 'Y-m-29 23:59:59') : 
-    ($currentyear % 400 ? date_format($co_start, 'Y-m-28 23:59:59') : 
-    date_format($co_start, 'Y-m-29 23:59:59'))));
-else if($currentmonth == '03')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '04')
-$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '05')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '06')
-$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '07')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '08')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '09')
-$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '10')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '11')
-$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '12')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
 
 $result1 = "SELECT co_begin_datetime FROM {$g5['coupon_table']} WHERE co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime'";
 $sql = sql_fetch($result1);
@@ -77,43 +49,38 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $num = $total_count - ($page - 1) * $rows - $i;
 }
 
-$sql1 = "SELECT a.cos_nick FROM {$g5['coupon_sent_table']} a INNER JOIN $at_table b ON a.cos_entity = b.wr_7 WHERE cos_accept = 'Y'";
-$res1 = sql_query($sql1);
-$nicks = array();
-while($row = sql_fetch_array($res1)){
-    $nicks[] = $row['cos_nick'];
-}
-$sep_nicks = '"' . implode('", "', $nicks) . '"';
-
-$rs = "SELECT wr_name FROM $re_table WHERE wr_comment = 0";
-
-$sql2 = "Select a.*, b.wr_id, b.wr_7, b.wr_is_comment, b.wr_datetime from {$g5['coupon_sent_table']} a LEFT JOIN $re_table b ON a.cos_nick = b.wr_name WHERE a.cos_accept = 'Y'";
+$sql2 = "Select * from {$g5['coupon_sent_table']} WHERE cos_accept = 'Y' ORDER BY cos_post_datetime";
 $res2 = sql_query($sql2);
+
 while($row2 = sql_fetch_array($res2)){
-    $sql3 = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}'";
+    $sql3 = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_accept='Y' AND cos_id = '{$row2['cos_id']}' AND cos_entity = '{$row2['cos_entity']}'";
     $res3 = sql_fetch($sql3);
-    $sql4 = "SELECT COUNT(alt_no) as alt_cnt FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}' AND cos_no = '{$row2['cos_no']}'";
+    $sql8 = "SELECT cos_alt_quantity FROM {$g5['coupon_alert_table']} WHERE cos_id = '{$row2['cos_id']}' ORDER BY alt_no DESC LIMIT 1";
+    $res8 = sql_fetch($sql8); 
+    $sql4 = "SELECT COUNT(alt_no) as alt_cnt FROM {$g5['coupon_alert_table']} WHERE cos_id = '{$row2['cos_id']}' AND cos_entity = '{$row2['cos_entity']}' AND cos_no = '{$row2['cos_no']}'";
     $res4 = sql_fetch($sql4); 
-    $sql7 = "SELECT * FROM $re_table WHERE wr_name = '{$row2['cos_nick']}' AND wr_7 = '{$row2['cos_entity']}'";
-    $res7 = sql_fetch($sql7);
+    $sql7 = "SELECT * FROM $re_table WHERE mb_id = '{$row2['cus_id']}' AND wr_7 = '{$row2['cos_entity']}' AND wr_is_comment = '0'";
+    $res7 = sql_fetch($sql7);    
     if($row2['cos_entity'] !== $res7['wr_7'] && $res4['alt_cnt'] == '0' && ($now > $row2['cos_post_datetime'])){
         $sql4 = "INSERT INTO {$g5['coupon_alert_table']} 
                         SET cos_no = '{$row2['cos_no']}',
+                            cos_id = '{$row2['cos_id']}',
                             cos_nick = '{$row2['cos_nick']}',
+                            mb_id = '{$row2['mb_id']}',
                             cos_entity = '{$row2['cos_entity']}',
-                            cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1,
+                            cos_alt_quantity = '{$res8['cos_alt_quantity']}' + 1,
                             alt_reason = '후기미작성7일',
                             alt_created_by = '-',
                             alt_created_datetime = '{$row2['cos_post_datetime']}' ";
-
+                            echo $sql4;
             sql_query($sql4);
 
             $sql5 = "UPDATE {$g5['coupon_sent_table']} 
                         SET cos_alt_quantity = '{$res3['cos_alt_quantity']}' + 1
-                        WHERE cos_accept='Y' AND cos_nick = '{$row2['cos_nick']}' AND cos_entity = '{$row2['cos_entity']}' AND cos_no = '{$row2['cos_no']}'";
+                        WHERE cos_accept='Y' AND cos_id = '{$row2['cos_id']}' AND cos_entity = '{$row2['cos_entity']}' AND cos_no = '{$row2['cos_no']}'";
             sql_query($sql5);          
     } 
-} 
+}
 
 $sql_acc = "SELECT * FROM {$g5['coupon_sent_table']} WHERE cos_accept='N'";
 $res_acc = sql_query($sql_acc);

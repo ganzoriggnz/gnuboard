@@ -4319,37 +4319,6 @@ function get_board_atname($bo_table = '')
     $row = sql_query(" select bo_table, bo_subject 
     from g5_board 
     where gr_id = 'attendance' order by bo_order ");
-    /* $row = sql_query(" select bo_table, bo_subject 
-    from g5_board 
-    where gr_id = 'attendance' and bo_subject <> 'trip' 
-    order by field(bo_subject, 
-    '오피-강남영토',
-    '오피-비강남영토',
-    '오피-경기영토',
-    '오피-인천/부천영토',
-    '오피-강원/충청/대전영토',
-    '오피-경상영토',
-    '오피-대구영토',
-    '오피-전라/제주영토',
-    '휴게텔-서울영토', 
-    '휴게텔-경기영토', 
-    '휴게텔-인천/부천영토', 
-    '휴게텔 강원/충청/대전영토', 
-    '휴게텔 경상/전라/제주영토', 
-    '건마-서울영토',
-    '건마-경기영토', 
-    '건마-인천/부천영토', 
-    '건마-강원/충청/대전영토', 
-    '건마-경상/전라/제주영토',
-    '술집-서울영토',
-    '술집-지방영토',
-    '안마-서울영토', 
-    '안마-지방영토', 
-    '키스방-전국영토', 
-    '립카페-전국영토', 
-    '핸플/패티쉬영토',
-    '선불폰/프로필 여행사/기타영토'
-    ) "); */
     for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
@@ -4389,37 +4358,6 @@ function get_board_category_name($bo_table_category = '')
     $row = sql_query(" select bo_table, bo_subject 
     from g5_board 
     where gr_id = 'attendance' order by bo_order ");
-    /* $row = sql_query(" select bo_table, bo_subject 
-    from g5_board 
-    where gr_id = 'attendance' and bo_subject <> 'trip'
-    order by field(bo_subject, 
-    '오피-강남영토',
-    '오피-비강남영토',
-    '오피-경기영토',
-    '오피-인천/부천영토',
-    '오피-강원/충청/대전영토',
-    '오피-경상영토',
-    '오피-대구영토',
-    '오피-전라/제주영토',
-    '휴게텔-서울영토', 
-    '휴게텔-경기영토', 
-    '휴게텔-인천/부천영토', 
-    '휴게텔 강원/충청/대전영토', 
-    '휴게텔 경상/전라/제주영토', 
-    '건마-서울영토',
-    '건마-경기영토', 
-    '건마-인천/부천영토', 
-    '건마-강원/충청/대전영토', 
-    '건마-경상/전라/제주영토',
-    '술집-서울영토',
-    '술집-지방영토',
-    '안마-서울영토', 
-    '안마-지방영토', 
-    '키스방-전국영토', 
-    '립카페-전국영토', 
-    '핸플/패티쉬영토',
-    '선불폰/프로필 여행사/기타영토'
-    ) "); */
     for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];

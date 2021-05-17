@@ -3,6 +3,7 @@ $sub_menu = "700100";
 include_once('./_common.php');
 auth_check($auth[$sub_menu], 'r');
 
+$cos_id = $_POST['cos_id'];
 $cos_nick = $_POST['cos_nick'];
 $cos_entity = $_POST['cos_entity'];
 $cos_link = $_POST['cos_link'];
@@ -11,7 +12,9 @@ $alt_created_datetime = G5_TIME_YMDHIS;
 
 $sql = "INSERT INTO {$g5['coupon_alert_table']} 
             SET cos_no = '0',
+                cos_id = '{$cos_id}',
                 cos_nick = '{$cos_nick}',
+                mb_id = '-',
                 cos_entity = '-',
                 cos_alt_quantity = '{$cos_alt_quantity}',
                 alt_reason = '경고횟수 변경',
@@ -20,11 +23,11 @@ $sql = "INSERT INTO {$g5['coupon_alert_table']}
 
 sql_query($sql);
 
-$sql1 = "UPDATE {$g5['coupon_sent_table']} 
+/* $sql1 = "UPDATE {$g5['coupon_sent_table']} 
             SET cos_alt_quantity = '{$cos_alt_quantity}'
-            WHERE cos_accept='Y' AND cos_nick = '{$cos_nick}' AND cos_entity = '{$cos_entity}'";
+            WHERE cos_accept='Y' AND cos_id = '{$cos_id}' AND cos_entity = '{$cos_entity}'";
 
-sql_query($sql1);
+sql_query($sql1); */
 
 echo $cos_link;
 goto_url(G5_ADMIN_URL.'/coupon_list.php?bo_table='.$cos_link); 

@@ -128,9 +128,7 @@ $delcnt=0;
 						else if($row1['cos_alt_quantity'] > 0) { 
 							echo '<li><a data-toggle="modal" data-target="#couponAlert'.$altcnt.'" href="#couponAlert'.$altcnt.'" 
 							data-class="coupon-alert" style="color:red;" data-link = '.$bo_table.'>';
-							$sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row1['cos_nick']}'"; 
-							$row4 = sql_fetch($sql4);  
-							$res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE alt_created_datetime = '{$row4['maxdate']}' ";
+							$res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE cos_id = '{$row1['cos_id']}' ORDER BY alt_no DESC LIMIT 1";
 							$res1 = sql_fetch($res);
 							if($row1['cos_type'] == 'F') echo " (무료권) ".$row1['cos_nick'].'('.$res1['cos_alt_quantity'].')';
 							if($row1['cos_type'] == 'S') echo " (원가권) ".$row1['cos_nick'].'('.$res1['cos_alt_quantity'].')'; ?></a>
@@ -145,15 +143,10 @@ $delcnt=0;
 											</button>
 										</div> 	
 										<div class="modal-body" style="padding: 5px 0px;">
-											<?php 
-												$sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$row1['cos_nick']}'"; 
-												$row4 = sql_fetch($sql4);  
-												$res = "SELECT * FROM {$g5['coupon_alert_table']} WHERE alt_created_datetime = '{$row4['maxdate']}' ";
-												$res1 = sql_fetch($res);
-											?> 
 											<div style="margin-left: 30px;"><?php echo "사용자 : ".$row1['cos_nick'];?></div>
 											<div style="margin-left: 30px; margin-top: 5px;"><?php echo "현재 경고횟수 : ".$res1['cos_alt_quantity'];?>
 											<form id="fcouponalert<?php echo $altcnt; ?>" name="fcouponalert" action="<?php echo $coupon_alert_action_url; ?>" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
+												<input type="hidden" name="cos_id" id="cos_id" value="<?php echo $row1['cos_id'];?>">	
 												<input type="hidden" name="cos_nick" id="cos_nick" value="<?php echo $row1['cos_nick'];?>">
 												<input type="hidden" name="cos_entity" id="cos_entity" value="<?php echo $row1['cos_entity'];?>">
 												<input type="hidden" name="cos_link" id="cos_link" value="<?php echo $bo_table; ?>">
@@ -251,9 +244,6 @@ $delcnt=0;
 	</div>
 	
 	<script>
-/* 	$(window).on('load', function () {
-	na_nav('topNav', 'topHeight', 'fixed-top');
-	}); */
 
 	$('#btn_send').click(function(){
             if($('#hasNick').val() != '정상적인 닉네임입니다.'){ 

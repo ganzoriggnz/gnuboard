@@ -129,7 +129,9 @@ else if($w == 'u'){
 
 	$sql = "INSERT INTO {$g5['coupon_alert_table']} 
 				SET cos_no = '0',
+					cos_id = '{$cos_id}',
 					cos_nick = '{$cos_nick}',
+					mb_id = '-',
 					cos_entity = '-',
 					cos_alt_quantity = '{$cos_alt_quantity}',
 					alt_reason = '경고횟수 변경',
@@ -140,7 +142,7 @@ else if($w == 'u'){
 
 	$sql1 = "UPDATE {$g5['coupon_sent_table']} 
 				SET cos_alt_quantity = '{$cos_alt_quantity}'
-				WHERE cos_accept='Y' AND cos_nick = '{$cos_nick}' AND cos_entity = '{$cos_entity}'";
+				WHERE cos_accept='Y' AND cos_id = '{$cos_id}' AND cos_entity = '{$cos_entity}'";
 
 	sql_query($sql1);
 	goto_url($PHP_SELF, false);

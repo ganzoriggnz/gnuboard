@@ -16,7 +16,9 @@ $row2 = sql_fetch($sql2);
 					<div style="margin-left: 30px;">현재 경고횟수 : '.$row2['cos_alt_quantity'].
 					'<form id="fcouponalert" name="fcouponalert" action="'.G5_ADMIN_URL.'/coupon_list_calendar.php" onsubmit="return fcouponalert_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 						<input type="hidden" name="w" id="w" value="u">
+						<input type="hidden" name="cos_id" id="cos_id" value="'.$row2['cos_id'].'">
 						<input type="hidden" name="cos_nick" id="cos_nick" value="'.$row2['cos_nick'].'">
+						<input type="hidden" name="mb_id" id="mb_id" value="'.$row2['mb_id'].'">
 						<input type="hidden" name="cos_entity" id="cos_entity" value="'.$row2['cos_entity'].'">
 						<div style="margin-left:30px; margin-top: 30px;">
 							<p style="text-decoration: underline; display: inline;">경고횟수 변경</p>
@@ -37,7 +39,7 @@ $row2 = sql_fetch($sql2);
 								</tr>
 							</thead>
 							<tbody class="alert-tbody">';
-							$sql = "SELECT * FROM {$g5['coupon_alert_table']} WHERE cos_nick = '{$cos_nick}' ORDER BY alt_created_datetime";
+							$sql = "SELECT * FROM {$g5['coupon_alert_table']} WHERE cos_id = '{$cos_id}' ORDER BY alt_created_datetime";
                             $result = sql_query($sql);
                             for($i=0; $row = sql_fetch_array($result); $i++) { 
                                 $response .= '<tr class="alert-tr">

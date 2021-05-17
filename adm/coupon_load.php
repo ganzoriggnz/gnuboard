@@ -51,10 +51,8 @@ $result2 = sql_query($query2);
 
 while($row2 = sql_fetch_array($result2))
 {
-    $sql4 = "SELECT MAX(alt_created_datetime) as maxdate FROM `g5_coupon_alert` WHERE cos_nick = '{$row2['cos_nick']}'"; 
-    $row4 = sql_fetch($sql4);  
-    $res = "SELECT * FROM `g5_coupon_alert` WHERE alt_created_datetime = '{$row4['maxdate']}' ";
-    $res1 = sql_fetch($res);
+    $res = "SELECT * FROM `g5_coupon_alert` WHERE cos_id = '{$row2['cos_id']}' ORDER BY alt_no DESC LIMIT 1";
+	$res1 = sql_fetch($res);
 
  $data[] = array(
   'id'   => '300',
