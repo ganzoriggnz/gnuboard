@@ -3,8 +3,6 @@ include_once('./_common.php');
 if (!$is_member)
 alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
-
-
 $cos_no = $_POST['cos_no'];
 $co_no = $_POST['co_no'];
 $cos_code = $_POST['cos_code'];

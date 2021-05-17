@@ -13,35 +13,7 @@ $currentyear = substr($now, 0, 4);
 $currentmonth = substr($now, 5, 2);
 $co_start = date_create($now);
 $co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
-
-if($currentmonth == '01')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '02')
-$co_end_datetime = 
-    ($currentyear % 4 ? date_format($co_start, 'Y-m-28 23:59:59') : 
-    ($currentyear % 100 ? date_format($co_start, 'Y-m-29 23:59:59') : 
-    ($currentyear % 400 ? date_format($co_start, 'Y-m-28 23:59:59') : 
-    date_format($co_start, 'Y-m-29 23:59:59'))));
-else if($currentmonth == '03')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '04')
-$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '05')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '06')
-$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '07')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '08')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '09')
-$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '10')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
-else if($currentmonth == '11')
-$co_end_datetime = date_format($co_start, 'Y-m-30 23:59:59');
-else if($currentmonth == '12')
-$co_end_datetime = date_format($co_start, 'Y-m-31 23:59:59');
+$co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
 
 $at_table = $g5['write_prefix'].$bo_table;
 
