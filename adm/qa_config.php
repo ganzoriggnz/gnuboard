@@ -184,14 +184,14 @@ if(!isset($qaconfig['qa_include_head'])) {
             <th scope="row"><label for="qa_send_number">SMS 발신번호</label></th>
             <td>
                 <?php echo help('SMS 알림 전송시 발신번호로 사용됩니다.'); ?>
-                <input type="text" name="qa_send_number" value="<?php echo get_sanitize_input($qaconfig['qa_send_number']); ?>" id="qa_send_number" class="frm_input"  size="30">
+                <input type="password" name="qa_send_number" value="<?php echo get_sanitize_input($qaconfig['qa_send_number']); ?>" id="qa_send_number" class="frm_input"  size="30">
             </td>
         </tr>
         <tr>
             <th scope="row"><label for="qa_admin_hp">관리자 휴대폰번호</label></th>
             <td>
                 <?php echo help('관리자 휴대폰번호를 입력하시면 문의글 등록시 등록하신 번호로 SMS 알림이 전송됩니다.<br>SMS 알림을 사용하지 않으시면 알림이 전송되지 않습니다.'); ?>
-                <input type="text" name="qa_admin_hp" value="<?php echo get_sanitize_input($qaconfig['qa_admin_hp']); ?>" id="qa_admin_hp" class="frm_input"  size="30">
+                <input type="password" name="qa_admin_hp" value="<?php echo get_sanitize_input($qaconfig['qa_admin_hp']); ?>" id="qa_admin_hp" class="frm_input"  size="30">
             </td>
         </tr>
         <tr>
