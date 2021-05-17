@@ -4853,7 +4853,7 @@ cheditor.prototype = {
       content = content.substr(content.indexOf('>') + 1)
       content = '<html>' + content
       this.doc.open()
-      this.doc.write('<body>' + content + '</body>')
+      this.doc.write('<body style="text-align: center;">' + content + '</body>')
       this.doc.close()
     } else {
       content = '<span>remove_this</span>' + content
@@ -5219,7 +5219,7 @@ cheditor.prototype = {
       this.config.docTitle +
       '</title>\n' +
       '  </head>\n' +
-      '  <body>\n' +
+      '  <body style="text-align: center;">\n' +
       this.returnContents(this.getOutputContents()) +
       '  </body>\n' +
       '</html>'
