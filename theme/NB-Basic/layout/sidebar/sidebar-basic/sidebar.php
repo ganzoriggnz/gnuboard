@@ -364,10 +364,7 @@ $menu_cnt = count($menu);
 
 											<a class="me-a1" href="<?php echo $me1['href']; ?>" target="<?php echo $me1['target']; ?>">
 												<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
-												<?php if ($me1['text'] == '휴게텔-서울영토' || $me1['text'] == '휴게텔-경기영토' || $me1['text'] == '휴게텔-인천/부천') {
-													echo str_replace('-', ' ', $me1['text']);
-												} else if ($me1['text'] == '건마 (강원/충청/대전)' || $me1['text'] == '건마 경상/전라/제주') {
-													$me1['text'] = str_replace('-', ' ', $me1['text']);
+												<?php if ($me1['text'] == '건마 (강원/충청/대전)' || $me1['text'] == '건마 경상/전라/제주') {
 													echo str_replace(array('(', ')'), '', $me1['text']);
 												} else {
 													echo $me1['text'];
