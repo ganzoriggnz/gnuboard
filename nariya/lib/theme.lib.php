@@ -1347,15 +1347,26 @@ function na_post_rows($wset, $subcat = '', $search = '')
 		}
 	}
 
-	shuffle($list);
-
 	$sortBy = array();
 	foreach ($list as $key => $item) {
 		$sortBy[$key] = $item['has_coupon'];
 	}
 	array_multisort($sortBy, SORT_DESC, $list);
 
-	return $list;
+	$listWithCoupon = array();
+	$listWithoutCoupen = array();
+	foreach ($list as $key => $item) {
+		if ($item['has_coupon']) {
+			array_push($listWithCoupon, $item);
+		} else {
+			array_push($listWithoutCoupen, $item);
+		}
+	}
+
+	shuffle($listWithCoupon);
+	shuffle($listWithoutCoupen);
+
+	return array_merge($listWithCoupon, $listWithoutCoupen);
 }
 
 
