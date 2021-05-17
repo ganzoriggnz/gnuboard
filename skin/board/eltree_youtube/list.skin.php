@@ -10,6 +10,9 @@ if ($is_nogood) $colspan++;
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
+
+// 스킨설정
+$is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path . '/setup.skin.php')) ? true : false;
 ?>
 <style>
 
@@ -74,6 +77,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                             옵션</span></button>
                     <?php if ($is_checkbox) { ?>
                     <ul class="more_opt is_list_btn">
+                        <?php if (($is_admin == 'super' || $is_auth || IS_DEMO) && $is_skin_setup) { ?>
+                            <li><a type="button" href="<?php echo na_setup_href('board', $bo_table) ?>" class="btn btn-setup py-2 px-2 ml-1" role="button">
+                            스킨설정<i class="fa fa-cogs fa-fw" aria-hidden="true"></i> 
+                            </a></li>
+                        <?php } ?>
                         <li><button type="submit" name="btn_submit" value="선택삭제"
                                 onclick="document.pressed=this.value"><i class="fa fa-trash-o" aria-hidden="true"></i>
                                 선택삭제</button></li>

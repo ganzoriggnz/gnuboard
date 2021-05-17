@@ -145,6 +145,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                   <b id="bo_v_act_nogood"></b>
               </span>
               <?php } ?> -->
+              <?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin ||$member['mb_id'] == $board['bo_admin'] || $member['mb_id'] == $group['gr_admin'])) { // 블라인드 ?>
+                <span class="bo_v_act_gng">
+                    <a class="bo_v_blind"  <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>
+                    href='javascript:;' onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="블라인드">
+	                    <i class="fa fa-ban" aria-hidden="true"></i> 
+	                    <span <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo 'style="font-size: 12px;"';} ?>>블라인드</span>
+	                </a>
+                    </span>
+	          <?php } ?>
           </div>
           <?php } else {
               if($board['bo_use_good'] || $board['bo_use_nogood']) {
