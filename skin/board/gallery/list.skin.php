@@ -15,7 +15,7 @@ if ($_GET['page']) {
     $page =  $_GET['page'];
 }
 $list = na_post_rows($wsetss, $subcat, $searchd, $page);
-shuffle($list);
+// shuffle($list);
 $catecount = count(na_post_rows($wsetss));
 $list_cnt = count($list);
 
@@ -277,13 +277,16 @@ if (G5_IS_MOBILE) {
                             <div class="gall_img" style="<?php echo get_cate_pic($list[$i]['mb_2']) ?>  background-repeat: no-repeat; background-size: 100% 100%;">
                                 <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table'] ?>&wr_id=<?php echo $list[$i]['wr_id'] ?>">
                                     <?php $now = G5_TIME_YMDHIS;
-                                    $result_coupon = " select count(*) as co_cnt from {$g5['coupon_table']}  where mb_id='{$list[$i]['mb_id']}' and co_begin_datetime <= '{$now}' and co_end_datetime >= '{$now}'";
-                                    $row_co = sql_fetch($result_coupon);
-                                    $co_cnt = $row_co['co_cnt'];
-                                    $result_period = " select mb_4 from {$g5['member_table']}  where mb_id='{$list[$i]['mb_id']}'";
-                                    $row_pe = sql_fetch($result_period);
-                                    $finish_period = $row_pe['mb_4'];
-                                    if ($co_cnt > '0' && $finish_period >= $now) { ?>
+                                    // $result_coupon = " select count(*) as co_cnt from {$g5['coupon_table']}  where mb_id='{$list[$i]['mb_id']}' and co_begin_datetime <= '{$now}' and co_end_datetime >= '{$now}'";
+                                    // $row_co = sql_fetch($result_coupon);
+                                    // echo '<pre>', var_dump($row_co), '</pre>';
+                                    // $co_cnt = $row_co['co_cnt'];
+                                    // $result_period = " select mb_4 from {$g5['member_table']}  where mb_id='{$list[$i]['mb_id']}'";
+                                    // $row_pe = sql_fetch($result_period);
+                                    // $finish_period = $row_pe['mb_4'];
+                                    // if ($co_cnt > '0' && $finish_period >= $now) { 
+                                    ?>
+                                    <?php if ($list[$i]['has_coupon']) { ?>
                                         <img src="<?php echo G5_IMG_URL ?>/coupon.png" alt="coupon" style="width: 80px; height: 80px; margin-top: 30px; margin-right: 140px;">
                                     <?php } ?>
                                     <!-- <?php
