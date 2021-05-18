@@ -8,8 +8,6 @@ if ($sop != 'and' && $sop != 'or')
 // 분류 선택 또는 검색어가 있다면
 $stx = trim($stx);
 
-
-
 //검색인지 아닌지 구분하는 변수 초기화
 $is_search_bbs = false;
 $sql;
@@ -29,6 +27,7 @@ if ($sca || $stx || $stx === '0') {     //검색이면
     // 원글만 얻는다. (코멘트의 내용도 검색하기 위함)
     // 라엘님 제안 코드로 대체 http://sir.kr/g5_bug/2922
     $sql = " SELECT COUNT(DISTINCT `wr_parent`) AS `cnt` FROM {$write_table} WHERE {$sql_search} ";
+    var_dump($sql);
     $row = sql_fetch($sql);
     $total_count = $row['cnt'];
     /*

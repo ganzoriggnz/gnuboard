@@ -448,8 +448,8 @@ function get_board_sfl_select_options($sfl){
         $str .= '<option value="mb_id,1" '.get_selected($sfl, 'mb_id,1').'>회원아이디</option>';
         $str .= '<option value="mb_id,0" '.get_selected($sfl, 'mb_id,0').'>회원아이디(코)</option>';
     }
-    $str .= '<option value="wr_name,1" '.get_selected($sfl, 'wr_name,1').'>글쓴이</option>';
-    $str .= '<option value="wr_name,0" '.get_selected($sfl, 'wr_name,0').'>글쓴이(코)</option>';
+    $str .= '<option value="wr_7,1" '.get_selected($sfl, 'wr_7,1').'>글쓴이</option>';
+    $str .= '<option value="wr_7,0" '.get_selected($sfl, 'wr_7,0').'>글쓴이(코)</option>';
 
     return run_replace('get_board_sfl_select_options', $str, $sfl);
 }
@@ -475,4 +475,3 @@ function get_scrap_totals($mb_id=''){
 
     return $row['cnt'];
 }
-?>
