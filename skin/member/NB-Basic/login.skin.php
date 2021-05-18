@@ -10,7 +10,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 ?>
 
 <section id="mb_login" class="f-de py-4 m-auto" style="max-width:260px;">
-	<form name="flogin" action="<?php echo $login_action_url ?>" onsubmit="return flogin_submit(this);" method="post" autocomplete="off">
+	<form name="flogin" action="<?php echo $login_action_url ?>" onsubmit="return flogin_submit(this);" method="post">
 	<input type="hidden" name="url" value="<?php echo $login_url ?>">
 
 		<h1 class="text-primary text-center text-uppercase mb-1">
@@ -41,7 +41,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 				<div class="input-group-prepend">
 					<span class="input-group-text"><i class="fa fa-lock text-muted"></i></span>
 				</div>
-				<input type="password" name="mb_password" id="login_pw" class="form-control required" placeholder="비밀번호">
+				<input type="password" name="mb_password" id="login_pw" class="form-control required" placeholder="비밀번호" autocomplete="off">
 			</div>
 		</div>
 

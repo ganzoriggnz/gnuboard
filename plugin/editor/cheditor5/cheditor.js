@@ -775,7 +775,7 @@ function setConfig() {
       editorBgColor: '#fff',
       editorFontColor: '#000',
       editorFontName: '"맑은 고딕", "Malgun Gothic", gulim',
-      editorFontSize: '12px',
+      editorFontSize: '14px',
       editorHeight: '300px',
       editorPath: null,
       editorWidth: '100%',
