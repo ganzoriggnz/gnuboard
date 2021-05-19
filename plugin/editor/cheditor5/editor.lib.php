@@ -1,7 +1,7 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
-function editor_html($id, $content, $is_dhtml_editor = true, $centered = false)
+function editor_html($id, $content, $is_dhtml_editor = true)
 {
     global $config, $w, $board, $write;
     global $editor_width, $editor_height;
@@ -31,7 +31,6 @@ function editor_html($id, $content, $is_dhtml_editor = true, $centered = false)
         if ($js) {
             $html .= "<script src=\"{$editor_url}/cheditor.js\"></script>";
         }
-        $class = $centered ? 'centered' : '';
         $html .= "<script>\n";
         $html .= "var ed_nonce = \"" . ft_nonce_create('cheditor') . "\";\n";
         $html .= "var ed_{$id} = new cheditor('ed_{$id}');\n";
@@ -43,7 +42,7 @@ function editor_html($id, $content, $is_dhtml_editor = true, $centered = false)
         $html .= "ed_{$id}.inputForm = \"tx_{$id}\";\n";
         $html .= "</script>\n";
         $html .= "<span class=\"sound_only\">웹에디터 시작</span>";
-        $html .= "<textarea class=\"{$class}\" name=\"{$id}\" id=\"tx_{$id}\" style=\"display:none;\">{$content}</textarea>\n";
+        $html .= "<textarea name=\"{$id}\" id=\"tx_{$id}\" style=\"display:none;\">{$content}</textarea>\n";
         $html .= "\n<span class=\"sound_only\">웹 에디터 끝</span>";
         $html .= "<script>ed_{$id}.run();</script>\n";
     } else {

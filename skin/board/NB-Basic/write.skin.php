@@ -116,6 +116,7 @@ if ($is_member)
     na_script('autosave');
 
 ?>
+
 <!-- <style>
 	ul.my-table {
   display: table;
@@ -1219,6 +1220,14 @@ ul.my-table > li {
 </section>
 
 <script>
+    <?php if ($gr_id == 'attendance') { ?>
+        $(document).ready(function() {
+            $('iframe.cheditor-editarea').on('load', function() {
+                $('iframe.cheditor-editarea').contents().find('body').css('text-align', 'center').click();
+            })
+        });
+    <?php } ?>
+
     <?php if ($write_min || $write_max) { ?>
         // 글자수 제한
         var char_min = parseInt(<?php echo $write_min; ?>); // 최소
