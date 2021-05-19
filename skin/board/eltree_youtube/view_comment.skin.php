@@ -120,11 +120,110 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
     <input type="hidden" name="page" value="<?php echo $page ?>">
     <input type="hidden" name="is_good" value="">
 
-    <span class="sound_only">내용</span>
-    <?php if ($comment_min || $comment_max) { ?><strong id="char_cnt"><span id="char_count"></span>글자</strong><?php } ?>
-    <textarea id="wr_content" name="wr_content" maxlength="10000" required class="required" title="내용" placeholder="댓글내용을 입력해주세요"
-    <?php if ($comment_min || $comment_max) { ?>onkeyup="check_byte('wr_content', 'char_count');"<?php } ?>><?php echo $c_wr_content; ?></textarea>
-    <?php if ($comment_min || $comment_max) { ?><script> check_byte('wr_content', 'char_count'); </script><?php } ?>
+    <div class="cmt-box p-3 bg-light border na-round">
+        <?php if ($is_guest) { ?>
+            <div class="row mx-n1">
+                <div class="col-6 px-1">
+                    <div class="form-group mb-2">
+                        <label for="wr_name" class="sr-only">이름<strong class="sr-only"> 필수</strong></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-user text-muted" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" name="wr_name" value="<?php echo get_cookie("ck_sns_name"); ?>" id="wr_name" class="form-control" maxLength="20" placeholder="이름">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 px-1">
+                    <div class="form-group mb-2">
+                        <label for="wr_password" class="sr-only">비밀번호<strong class="sr-only"> 필수</strong></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-lock text-muted" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="password" name="wr_password" id="wr_password" class="form-control" maxLength="20" placeholder="비밀번호">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <?php if ($comment_min || $comment_max) { ?>
+            <div class="text-muted f-sm mb-2" id="char_cnt">
+                <i class="fa fa-commenting-o fa-lg"></i>
+                현재 <b class="orangered"><span id="char_count">0</span></b>글자
+                /
+                <?php if ($comment_min) { ?>
+                    <?php echo number_format($comment_min); ?>글자 이상
+                <?php } ?>
+                <?php if ($comment_max) { ?>
+                    <?php echo number_format($comment_max); ?>글자 이하
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <div class="input-group mb-3">
+            <textarea id="wr_content" name="wr_content" maxlength="10000" rows="4" required class="form-control required" title="내용" placeholder="댓글내용을 입력해주세요"
+            <?php if ($comment_min || $comment_max) { ?>onkeyup="check_byte('wr_content', 'char_count');"<?php } ?>><?php echo $c_wr_content; ?></textarea>
+            <?php if ($comment_min || $comment_max) { ?><script> check_byte('wr_content', 'char_count'); </script><?php } ?>
+            <div class="input-group-append">
+                <button <?php echo ($is_paging) ? 'type="button" onclick="na_comment(\'viewcomment\');"' : 'type="submit"'; ?> class="btn btn-primary px-4" onKeyDown="na_comment_onKeyDown(<?php echo $is_paging ?>);" id="btn_submit">등록</button>
+            </div>
+        </div>
+        <ul class="d-flex align-items-center f-sm">
+            <li class="flex-grow-1 text-nowrap pr-2">
+                <?php if ($board['bo_use_sns'] && ($config['cf_facebook_appid'] || $config['cf_twitter_key'])) {	?>
+                    <div id="bo_vc_opt">
+                        <ol class="float-left">
+                            <li id="bo_vc_send_sns"></li>
+                        </ol>
+                    </div>
+                <?php } ?>
+            </li>
+            <li class="text-nowrap pr-2">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" name="wr_secret" value="secret" id="wr_secret" class="custom-control-input">
+                    <label class="custom-control-label" for="wr_secret"><span>비밀</span></label>
+                </div>
+            </li>
+            <li class="text-nowrap">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn nofocus p-0 mx-2" title="이모티콘" onclick="na_clip('emo');">
+                        <i class="fa fa-smile-o fa-md text-black-50" aria-hidden="true"></i>
+                        <span class="sr-only">이모티콘</span>
+                    </button>
+                    <button type="button" class="btn nofocus p-0 mx-2" title="폰트어썸 아이콘" onclick="na_clip('fa');">
+                        <i class="fa fa-font-awesome fa-md text-black-50" aria-hidden="true"></i>
+                        <span class="sr-only">폰트어썸 아이콘</span>
+                    </button>
+                    <button type="button" class="btn nofocus p-0 mx-2" title="동영상" onclick="na_clip('video');">
+                        <i class="fa fa-youtube-play fa-md text-black-50" aria-hidden="true"></i>
+                        <span class="sr-only">동영상</span>
+                    </button>
+                    <button type="button" class="btn nofocus p-0 mx-2" title="지도" onclick="na_clip('map');">
+                        <i class="fa fa-map-marker fa-md text-black-50" aria-hidden="true"></i>
+                        <span class="sr-only">지도동영상</span>
+                    </button>
+                    <button type="button" class="btn nofocus d-none d-sm-block p-0 mx-2" title="댓글창 늘이기" onclick="na_textarea('wr_content','down');">
+                        <i class="fa fa-plus-circle fa-md text-black-50" aria-hidden="true"></i>
+                        <span class="sr-only">댓글창 늘이기</span>
+                    </button>
+                    <button type="button" class="btn nofocus d-none d-sm-block p-0 mx-2" title="댓글창 줄이기" onclick="na_textarea('wr_content','up');">
+                        <i class="fa fa-minus-circle fa-md text-black-50" aria-hidden="true"></i>
+                        <span class="sr-only">댓글창 줄이기</span>
+                    </button>
+                    <button type="button" class="btn nofocus p-0 ml-2" title="새 댓글 작성" onclick="comment_box('','c');">
+                        <i class="fa fa-refresh fa-md text-black-50" aria-hidden="true"></i>
+                        <span class="sr-only">새 댓글 작성</span>
+                    </button>
+                </div>
+            </li>
+        </ul>
+        <?php if ($is_guest) { ?>
+            <div class="mt-3 text-center f-sm">
+                <?php echo $captcha_html; ?>
+            </div>
+        <?php } ?>
+    </div>
     <script>
     $(document).on("keyup change", "textarea#wr_content[maxlength]", function() {
         var str = $(this).val()
@@ -155,13 +254,13 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
                 <?php echo $captcha_html; ?>
             <?php } ?>
         </div>
-        <div class="btn_confirm">
+        <!-- <div class="btn_confirm">
         	<span class="secret_cm chk_box">
 	            <input type="checkbox" name="wr_secret" value="secret" id="wr_secret" class="selec_chk">
 	            <label for="wr_secret"><span></span>비밀글</label>
             </span>
             <button type="submit" id="btn_submit" class="btn_submit">댓글등록</button>
-        </div>
+        </div> -->
     </div>
     </form>
 </aside>
