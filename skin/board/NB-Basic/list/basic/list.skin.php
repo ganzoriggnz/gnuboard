@@ -81,7 +81,7 @@ if ($gr_id == 'attendance') {
     <!-- 목록 헤드 -->
     <div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:1px;"></div>
 
-    <div class="na-table d-none d-md-table w-100 mb-0">
+    <div class="mb-0 na-table d-none d-md-table w-100">
         <div class="<?php echo $head_class ?> d-md-table-row">
             <?php if ($gr_id != 'attendance') { ?>
                 <div class="d-md-table-cell nw-5 px-md-1">번호</div>
@@ -94,7 +94,7 @@ if ($gr_id == 'attendance') {
                 <?php } ?>
                 제목
             </div>
-            <div class="d-md-table-cell nw-14 pl-2 pr-md-1 text-center">이름</div>
+            <div class="pl-2 text-center d-md-table-cell nw-14 pr-md-1">이름</div>
             <?php if ($gr_id != 'attendance') { ?>
                 <div class="d-md-table-cell nw-6 pr-md-1"><?php echo subject_sort_link('wr_datetime', $qstr2, 1) ?>날짜</a>
                 </div>
@@ -171,7 +171,7 @@ if ($gr_id == 'attendance') {
                             <?php echo $list[$i]['num'] ?>
                         </div>
                     <?php } ?>
-                    <div class="d-md-table-cell text-left py-md-2 pr-md-1">
+                    <div class="text-left d-md-table-cell py-md-2 pr-md-1">
                         <div class="na-title float-md-left">
                             <div class="na-item">
 
@@ -201,14 +201,13 @@ if ($gr_id == 'attendance') {
                                                                                             } elseif ($board['gr_id'] == "attendance") { ?>
                                         <span style="color: #000;" class="font-weight-bold">
                                             <?php echo "[" . $mb['mb_name'] . "]" ?> </span><?php echo $list[$i]['subject'];
-                                                                                            }
-                                                                                            elseif (($board['gr_id'] == "community" && $bo_table == "free") || ($board['gr_id'] == "library" && $bo_table == "ucc")) { ?>
-                                                                                                <span style="color: #000;">
-                                                                                                    <?php echo "[" . $list[$i]['ca_name'] . "]" ?> </span><?php echo $list[$i]['subject'];
-                                                                                            } else {
-                                                                                                echo  $list[$i]['subject'];
-                                                                                            }
-                                                                                            ?>
+                                                                                            } elseif (($board['gr_id'] == "community" && $bo_table == "free") || ($board['gr_id'] == "library" && $bo_table == "ucc")) { ?>
+                                        <span style="color: #000;">
+                                            <?php echo "[" . $list[$i]['ca_name'] . "]" ?> </span><?php echo $list[$i]['subject'];
+                                                                                                } else {
+                                                                                                    echo  $list[$i]['subject'];
+                                                                                                }
+                                                                                                    ?>
 
                                 </a>
                                 <?php
@@ -226,7 +225,7 @@ if ($gr_id == 'attendance') {
                             </div>
                         </div>
                     </div>
-                    <div class="float-right float-md-none d-md-table-cell nw-15 nw-md-auto text-left f-sm">
+                    <div class="float-right text-left float-md-none d-md-table-cell nw-15 nw-md-auto f-sm">
                         <div class="na_member_pho">
                             <span class="sr-only">등록자</span>
                             <?php
@@ -271,6 +270,6 @@ if ($gr_id == 'attendance') {
         <?php } ?>
     </ul>
     <?php if (!$list_cnt) { ?>
-        <div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">게시물이 없습니다.</div>
+        <div class="px-3 py-5 text-center f-de font-weight-normal text-muted border-bottom">게시물이 없습니다.</div>
     <?php } ?>
 </section>

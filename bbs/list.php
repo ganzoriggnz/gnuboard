@@ -8,8 +8,6 @@ if ($sop != 'and' && $sop != 'or')
 // 분류 선택 또는 검색어가 있다면
 $stx = trim($stx);
 
-
-
 //검색인지 아닌지 구분하는 변수 초기화
 $is_search_bbs = false;
 $sql;

@@ -75,19 +75,19 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 			<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 			<input type="hidden" name="sca" value="<?php echo $sca ?>">
 			<div class="form-row mx-n1">
-				<div class="col-6 col-sm-3 px-1">
+				<div class="px-1 col-6 col-sm-3">
 					<label for="sfl" class="sr-only">검색대상</label>
 					<select name="sfl" class="custom-select">
 						<?php echo get_board_sfl_select_options($sfl); ?>
 					</select>
 				</div>
-				<div class="col-6 col-sm-3 px-1">
+				<div class="px-1 col-6 col-sm-3">
 					<select name="sop" class="custom-select">
 						<option value="and" <?php echo get_selected($sop, "and") ?>>그리고</option>
 						<option value="or" <?php echo get_selected($sop, "or") ?>>또는</option>
 					</select>
 				</div>
-				<div class="col-12 col-sm-6 pt-2 pt-sm-0 px-1">
+				<div class="px-1 pt-2 col-12 col-sm-6 pt-sm-0">
 					<label for="stx" class="sr-only">검색어</label>
 					<div class="input-group">
 						<input type="text" id="bo_stx" name="stx" value="<?php echo stripslashes($stx) ?>" required class="form-control" placeholder="검색어를 입력해 주세요.">
@@ -140,18 +140,18 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 				</div>
 				<div role="group">
 					<?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
-						<a href="<?php echo $admin_href ?>" class="btn btn_admin nofocus py-1" title="관리자" role="button">
+						<a href="<?php echo $admin_href ?>" class="py-1 btn btn_admin nofocus" title="관리자" role="button">
 							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
 							<span class="sr-only">관리자</span>
 						</a>
 					<?php } ?>
 					<?php if ($rss_href) { ?>
-						<a href="<?php echo $rss_href ?>" class="btn btn_b01 nofocus py-1" title="RSS">
+						<a href="<?php echo $rss_href ?>" class="py-1 btn btn_b01 nofocus" title="RSS">
 							<i class="fa fa-rss fa-md" aria-hidden="true"></i>
 							<span class="sr-only">RSS</span>
 						</a>
 					<?php } ?>
-					<button type="button" class="btn btn_b01 nofocus py-1" title="게시판 검색" data-toggle="collapse" data-target="#bo_search" aria-expanded="false" aria-controls="bo_search">
+					<button type="button" class="py-1 btn btn_b01 nofocus" title="게시판 검색" data-toggle="collapse" data-target="#bo_search" aria-expanded="false" aria-controls="bo_search">
 						<i class="fa fa-search fa-md" aria-hidden="true"></i>
 						<span class="sr-only">게시판 검색</span>
 					</button>
@@ -180,7 +180,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						} ?>
 					</div>
 					<div class="btn-group" role="group">
-						<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
+						<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
 							<?php
 							switch ($sst) {
 								case 'wr_datetime':
@@ -208,21 +208,21 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							<i class="fa fa-<?php echo $sst_icon ?> fa-md" aria-hidden="true"></i>
 							<span class="sr-only"><?php echo $sst_txt ?></span>
 						</button>
-						<div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
-							<div class="btn-group-vertical bg-white border rounded py-1">
-								<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_datetime', $qstr2, 1)) ?>
+						<div class="p-0 text-right bg-transparent border-0 dropdown-menu dropdown-menu-right">
+							<div class="py-1 bg-white border rounded btn-group-vertical">
+								<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_datetime', $qstr2, 1)) ?>
 								날짜순
 								</a>
-								<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
+								<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
 								조회순
 								</a>
 								<!-- <?php if ($is_good) { ?>
-									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
+									<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
 									추천순
 									</a>
 								<?php } ?>
 								<?php if ($is_nogood) { ?>
-									<?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
+									<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
 									비추천순
 									</a>
 								<?php } ?> -->
@@ -231,18 +231,18 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					</div>
 					<?php if ($is_admin == 'super' || $is_auth || IS_DEMO) {  ?>
 						<div class="btn-group" role="group">
-							<button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split py-1" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시판 리스트 옵션">
+							<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시판 리스트 옵션">
 								<span class="sr-only">게시판 리스트 옵션</span>
 							</button>
-							<div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
+							<div class="p-0 text-right bg-transparent border-0 dropdown-menu dropdown-menu-right">
 								<div class="btn-group-vertical">
 									<?php if ($is_skin_setup) { ?>
-										<a href="<?php echo na_setup_href('board', $bo_table) ?>" class="btn btn-primary btn-setup py-2" role="button">
+										<a href="<?php echo na_setup_href('board', $bo_table) ?>" class="py-2 btn btn-primary btn-setup" role="button">
 											<i class="fa fa-cogs fa-fw" aria-hidden="true"></i> 스킨설정
 										</a>
 									<?php } ?>
 									<?php if ($is_checkbox) { ?>
-										<a href="javascript:;" class="btn btn-primary py-2" role="button">
+										<a href="javascript:;" class="py-2 btn btn-primary" role="button">
 											<label class="p-0 m-0" for="allCheck">
 												<i class="fa fa-check-square-o fa-fw" aria-hidden="true"></i>
 												전체선택
@@ -251,15 +251,15 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 												<input type="checkbox" id="allCheck" onclick="if (this.checked) all_checked(true); else all_checked(false);">
 											</div>
 										</a>
-										<button type="submit" name="btn_submit" value="선택삭제" onclick="document.pressed=this.value" class="btn btn-primary py-2">
+										<button type="submit" name="btn_submit" value="선택삭제" onclick="document.pressed=this.value" class="py-2 btn btn-primary">
 											<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
 											선택삭제
 										</button>
-										<button type="submit" name="btn_submit" value="선택복사" onclick="document.pressed=this.value" class="btn btn-primary py-2">
+										<button type="submit" name="btn_submit" value="선택복사" onclick="document.pressed=this.value" class="py-2 btn btn-primary">
 											<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
 											선택복사
 										</button>
-										<button type="submit" name="btn_submit" value="선택이동" onclick="document.pressed=this.value" class="btn btn-primary py-2">
+										<button type="submit" name="btn_submit" value="선택이동" onclick="document.pressed=this.value" class="py-2 btn btn-primary">
 											<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
 											선택이동
 										</button>
@@ -284,7 +284,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 			if (is_file($list_skin_path . '/list.skin.php')) {
 				include_once($list_skin_path . '/list.skin.php');
 			} else {
-				echo '<div class="alert alert-warning text-center" role="alert">' . $boset['list_skin'] . ' 목록 스킨이 존재하지 않습니다.</div>' . PHP_EOL;
+				echo '<div class="text-center alert alert-warning" role="alert">' . $boset['list_skin'] . ' 목록 스킨이 존재하지 않습니다.</div>' . PHP_EOL;
 			}
 		?>
 		<!-- } 게시물 목록 끝 -->
@@ -293,7 +293,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 			<!--  hulan nemsen 1 mur -->
 			<!-- 페이지 시작 { -->
 			<div>
-				<ul class="pagination justify-content-center en mb-0">
+				<ul class="mb-0 pagination justify-content-center en">
 					<?php if ($prev_part_href) { ?>
 						<li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
 					<?php } ?>
