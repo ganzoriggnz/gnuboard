@@ -108,7 +108,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 }
 
 //  코멘트수 제한 설정값
-if ($is_admin)
+/* if ($is_admin)
 {
     $comment_min = $comment_max = 0;
 }
@@ -116,7 +116,10 @@ else
 {
     $comment_min = (int)$board['bo_comment_min'];
     $comment_max = (int)$board['bo_comment_max'];
-}
+} */
+
+$comment_min = (int)$board['bo_comment_min'];
+$comment_max = (int)$board['bo_comment_max'];
 
 $comment_action_url = https_url(G5_BBS_DIR)."/write_comment_update.php";
 $comment_common_url = short_url_clean(G5_BBS_URL.'/board.php?'.clean_query_string($_SERVER['QUERY_STRING']));
