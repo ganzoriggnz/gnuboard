@@ -1224,7 +1224,7 @@ ul.my-table > li {
         $(document).ready(function() {
             $('iframe.cheditor-editarea').on('load', function() {
                 $('iframe.cheditor-editarea').contents().find('body').css('text-align', 'center').children().css('text-align', 'center');
-                $('iframe.cheditor-editarea').contents().find('body').click();
+                $('iframe.cheditor-editarea').contents().find('body').trigger('click');
             })
         });
     <?php } ?>
