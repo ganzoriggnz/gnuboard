@@ -241,7 +241,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 </div>
 <div class="popup_box1" style="display: none;">
 	<h1>일일미션</h1>
-	<label>축하합니다. <br/>150파운드 획득하였습니다</label>
+	<label>축하합니다. <br/>50파운드 획득하였습니다</label>
 	<div class="btns1">
 		<a href="#" class="btn1">확인</a>
 	</div>
