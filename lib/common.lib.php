@@ -690,8 +690,6 @@ function html_purifier($html)
 // 검색 구문을 얻는다.
 function get_sql_search($search_ca_name, $search_field, $search_text, $search_operator = 'and')
 {
-    global $g5;
-
     $str = "";
     if ($search_ca_name)
         $str = " ca_name = '$search_ca_name' ";

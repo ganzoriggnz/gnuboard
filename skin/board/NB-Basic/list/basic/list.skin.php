@@ -196,18 +196,24 @@ if ($gr_id == 'attendance') {
                                     ?>
                                     <!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
                                     <?php
-                                    if ($board['gr_id'] == "review") { ?><span style="color: #000;" class="font-weight-bold">
-                                            <?php echo "[" . $list[$i]['wr_7'] . "]" ?></span><?php echo $list[$i]['subject'];
-                                                                                            } elseif ($board['gr_id'] == "attendance") { ?>
+                                    if ($board['gr_id'] == "review") { ?>
                                         <span style="color: #000;" class="font-weight-bold">
-                                            <?php echo "[" . $mb['mb_name'] . "]" ?> </span><?php echo $list[$i]['subject'];
-                                                                                            } elseif (($board['gr_id'] == "community" && $bo_table == "free") || ($board['gr_id'] == "library" && $bo_table == "ucc")) { ?>
+                                            <?php echo "[" . $list[$i]['wr_7'] . "]" ?>
+                                        </span>
+                                    <?php echo $list[$i]['subject'];
+                                    } elseif ($board['gr_id'] == "attendance") { ?>
+                                        <span style="color: #000;" class="font-weight-bold">
+                                            <?php echo "[" . $mb['mb_name'] . "]" ?>
+                                        </span>
+                                    <?php echo $list[$i]['subject'];
+                                    } elseif (($board['gr_id'] == "community" && $bo_table == "free") || ($board['gr_id'] == "library" && $bo_table == "ucc")) { ?>
                                         <span style="color: #000;">
-                                            <?php echo "[" . $list[$i]['ca_name'] . "]" ?> </span><?php echo $list[$i]['subject'];
-                                                                                                } else {
-                                                                                                    echo  $list[$i]['subject'];
-                                                                                                }
-                                                                                                    ?>
+                                            <?php echo "[" . $list[$i]['ca_name'] . "]" ?>
+                                        </span>
+                                    <?php echo $list[$i]['subject'];
+                                    } else {
+                                        echo  $list[$i]['subject'];
+                                    } ?>
 
                                 </a>
                                 <?php
