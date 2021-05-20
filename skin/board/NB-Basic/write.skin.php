@@ -1223,7 +1223,8 @@ ul.my-table > li {
     <?php if ($gr_id == 'attendance') { ?>
         $(document).ready(function() {
             $('iframe.cheditor-editarea').on('load', function() {
-                $('iframe.cheditor-editarea').contents().find('body').css('text-align', 'center').click();
+                $('iframe.cheditor-editarea').contents().find('body').css('text-align', 'center');
+                $('iframe.cheditor-editarea').contents().find('body').click();
             })
         });
     <?php } ?>
