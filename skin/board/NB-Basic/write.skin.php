@@ -1221,12 +1221,9 @@ ul.my-table > li {
 
 <script>
     <?php if ($gr_id == 'attendance') { ?>
-        console.log('attendance');
-    <?php } ?>
-    <?php if ($gr_id == 'attendance') { ?>
         $(document).ready(function() {
             $('iframe.cheditor-editarea').on('load', function() {
-                $('iframe.cheditor-editarea').contents().find('body').css('text-align', 'center');
+                $('iframe.cheditor-editarea').contents().find('body').css('text-align', 'center').children().css('text-align', 'center');
                 $('iframe.cheditor-editarea').contents().find('body').click();
             })
         });
