@@ -32,7 +32,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 				<div class="input-group-prepend">
 					<span class="input-group-text"><i class="fa fa-user text-muted"></i></span>
 				</div>
-				<input type="text" name="mb_id" id="login_id" class="form-control required" placeholder="아이디">
+				<input type="text" name="mb_id" id="login_id" class="form-control required" placeholder="아이디" autocomplete="mb_id">
 			</div>
 		</div>
 		<div class="form-group">	
