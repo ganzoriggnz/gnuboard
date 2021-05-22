@@ -282,8 +282,6 @@ if ($page_rows > 0) {
                 $query .= " and b.mb_name = '{$stx}' ";
             }
 
-            var_dump($query);
-
             $row = sql_fetch($query);
         }
 
