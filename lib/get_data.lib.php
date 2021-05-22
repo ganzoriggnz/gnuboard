@@ -470,8 +470,8 @@ function get_board_sfl_select_options($sfl)
     }
 
     if ($gr_id == 'attendance') {
-        $str .= '<option value="wr_mb,1" ' . get_selected($sfl, 'wr_mb,1') . '>글쓴이</option>';
-        $str .= '<option value="wr_mb,0" ' . get_selected($sfl, 'wr_mb,0') . '>글쓴이(코)</option>';
+        $str .= '<option value="mb_name,1" ' . get_selected($sfl, 'mb_name,1') . '>글쓴이</option>';
+        $str .= '<option value="mb_name,0" ' . get_selected($sfl, 'mb_name,0') . '>글쓴이(코)</option>';
     } else {
         $str .= '<option value="wr_7,1" ' . get_selected($sfl, 'wr_7,1') . '>글쓴이</option>';
         $str .= '<option value="wr_7,0" ' . get_selected($sfl, 'wr_7,0') . '>글쓴이(코)</option>';

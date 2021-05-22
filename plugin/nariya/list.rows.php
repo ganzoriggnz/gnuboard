@@ -2,7 +2,7 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 if (!$board['bo_table']) {
-   exit;
+    exit;
 }
 
 check_device($board['bo_device']);
@@ -12,46 +12,45 @@ if (isset($write['wr_is_comment']) && $write['wr_is_comment']) {
 }
 
 if (!$bo_table) {
-	exit;
+    exit;
 }
 
 // wr_id 값이 있으면 글읽기
 if (isset($wr_id) && $wr_id) {
-	exit;
+    exit;
 }
 
 if ($member['mb_level'] < $board['bo_list_level']) {
-	exit;
+    exit;
 }
 
 // 본인확인을 사용한다면
 if ($config['cf_cert_use'] && !$is_admin) {
-	// 인증된 회원만 가능
-	if ($board['bo_use_cert'] != '' && $is_guest) {
-		exit;
-	}
+    // 인증된 회원만 가능
+    if ($board['bo_use_cert'] != '' && $is_guest) {
+        exit;
+    }
 
-	if ($board['bo_use_cert'] == 'cert' && !$member['mb_certify']) {
-		exit;
-	}
+    if ($board['bo_use_cert'] == 'cert' && !$member['mb_certify']) {
+        exit;
+    }
 
-	if ($board['bo_use_cert'] == 'adult' && !$member['mb_adult']) {
-		exit;
-	}
+    if ($board['bo_use_cert'] == 'adult' && !$member['mb_adult']) {
+        exit;
+    }
 
-	if ($board['bo_use_cert'] == 'hp-cert' && $member['mb_certify'] != 'hp') {
-		exit;
-	}
+    if ($board['bo_use_cert'] == 'hp-cert' && $member['mb_certify'] != 'hp') {
+        exit;
+    }
 
-	if ($board['bo_use_cert'] == 'hp-adult' && (!$member['mb_adult'] || $member['mb_certify'] != 'hp')) {
-		exit;
-	}
+    if ($board['bo_use_cert'] == 'hp-adult' && (!$member['mb_adult'] || $member['mb_certify'] != 'hp')) {
+        exit;
+    }
 }
 
-if ($member['mb_level'] >= $board['bo_list_level'] && $board['bo_use_list_view']) {
-	;
+if ($member['mb_level'] >= $board['bo_list_level'] && $board['bo_use_list_view']) {;
 } else {
-	exit;
+    exit;
 }
 
 // 분류 사용
@@ -96,9 +95,9 @@ if ($sca || $stx || $stx === '0') {     //검색이면
 
     $sql_search .= " and (wr_num between {$spt} and ({$spt} + {$config['cf_search_part']})) ";
 
-	// 나리야
-	if($na_sql_where) 
-		$sql_search .= $na_sql_where;
+    // 나리야
+    if ($na_sql_where)
+        $sql_search .= $na_sql_where;
 
     // 원글만 얻는다. (코멘트의 내용도 검색하기 위함)
     // 라엘님 제안 코드로 대체 http://sir.kr/g5_bug/2922
@@ -115,7 +114,7 @@ if ($sca || $stx || $stx === '0') {     //검색이면
     $total_count = $board['bo_count_write'];
 }
 
-if(G5_IS_MOBILE) {
+if (G5_IS_MOBILE) {
     $page_rows = $board['bo_mobile_page_rows'];
     $list_page_rows = $board['bo_mobile_page_rows'];
 } else {
@@ -131,17 +130,19 @@ $list = array();
 $total_page  = ceil($total_count / $page_rows);  // 전체 페이지 계산
 
 $page = (int)$page;
-if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
+if ($page < 1) {
+    $page = 1;
+} // 페이지가 없으면 첫 페이지 (1 페이지)
 
 $npg = (int)$npg;
 $page = $page + $npg;
 $page = ($page > 1) ? $page : 2;
 
-if($page > $total_page)
-	exit;
+if ($page > $total_page)
+    exit;
 
-if($qstr) 
-	$qstr .= '&amp;page='.$page;
+if ($qstr)
+    $qstr .= '&amp;page=' . $page;
 
 $from_record = ($page - 1) * $page_rows; // 시작 열을 구함
 
@@ -151,7 +152,7 @@ if ($is_member && ($is_admin == 'super' || $group['gr_admin'] == $member['mb_id'
     $is_checkbox = true;
 
 // 정렬에 사용하는 QUERY_STRING
-$qstr2 = 'bo_table='.$bo_table.'&amp;sop='.$sop;
+$qstr2 = 'bo_table=' . $bo_table . '&amp;sop=' . $sop;
 
 // 0 으로 나눌시 오류를 방지하기 위하여 값이 없으면 1 로 설정
 $bo_gallery_cols = $board['bo_gallery_cols'] ? $board['bo_gallery_cols'] : 1;
@@ -179,7 +180,7 @@ if (!$sst) {
     }
 }
 
-if(!$sst)
+if (!$sst)
     $sst  = "wr_num, wr_reply";
 
 if ($sst) {
@@ -195,20 +196,18 @@ if ($is_search_bbs) {
 $k = 0;
 $result = sql_query($sql);
 while ($row = sql_fetch_array($result)) {
-	// 검색일 경우 wr_id만 얻었으므로 다시 한행을 얻는다
-	if ($is_search_bbs)
-		$row = sql_fetch(" select * from {$write_table} where wr_id = '{$row['wr_parent']}' ");
+    // 검색일 경우 wr_id만 얻었으므로 다시 한행을 얻는다
+    if ($is_search_bbs)
+        $row = sql_fetch(" select * from {$write_table} where wr_id = '{$row['wr_parent']}' ");
 
-	$list[$i] = get_list($row, $board, $board_skin_url, G5_IS_MOBILE ? $board['bo_mobile_subject_len'] : $board['bo_subject_len']);
-	if (strstr($sfl, 'subject')) {
-		$list[$i]['subject'] = search_font($stx, $list[$i]['subject']);
-	}
-	$list[$i]['is_notice'] = false;
-	$list_num = $total_count - ($page - 1) * $list_page_rows;
-	$list[$i]['num'] = $list_num - $k;
+    $list[$i] = get_list($row, $board, $board_skin_url, G5_IS_MOBILE ? $board['bo_mobile_subject_len'] : $board['bo_subject_len']);
+    if (strstr($sfl, 'subject')) {
+        $list[$i]['subject'] = search_font($stx, $list[$i]['subject']);
+    }
+    $list[$i]['is_notice'] = false;
+    $list_num = $total_count - ($page - 1) * $list_page_rows;
+    $list[$i]['num'] = $list_num - $k;
 
-	$i++;
-	$k++;
+    $i++;
+    $k++;
 }
-
-?>

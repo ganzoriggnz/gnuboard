@@ -744,6 +744,9 @@ function get_sql_search($search_ca_name, $search_field, $search_text, $search_op
 
             $str .= $op2;
             switch ($field[$k]) {
+                case "mb_name":
+                    $str .= " b.$field[$k] = '$s[$i]' ";
+                    break;
                 case "mb_id":
                 case "wr_name":
                     $str .= " $field[$k] = '$s[$i]' ";
