@@ -362,7 +362,7 @@ $menu_cnt = count($menu);
 											<?php }
 										} else { ?>
 
-											<a class="me-a1" href="<?php echo $me1['href']; ?>" target="<?php echo $me1['target']; ?>">
+											<a class="me-a1" href="<?php echo $me1['href']; ?>" style="<?php echo strpos($me1['text'], '오피-전라/제주') === false && strpos($me1['text'], '휴게텔-경상/전라/제주') === false && strpos($me1['text'], '건마-경상/전라/제주') === false && strpos($me1['text'], '술집-지방영토') === false && strpos($me1['text'], '안마-지방영토') === false && strpos($me1['text'], '핸플/패티쉬영토') === false && strpos($me1['text'], '휴게텔 경상/전라/제주') === false && strpos($me1['text'], '건마 경상/전라/제주') === false ? '' : 'border-bottom-color: #707070;' ?>" target="<?php echo $me1['target']; ?>">
 												<i class="fa <?php echo $me1['icon'] ?> fa-fw" aria-hidden="true"></i>
 												<?php if ($me1['text'] == '휴게텔 강원/충청/대전' || $me1['text'] == '휴게텔 경상/전라/제주') {
 													echo str_replace(' ', '-', $me1['text']);
