@@ -95,6 +95,94 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             </div>
         </div>
     </nav>
+    <div>
+        <style>
+    table > tbody tr > th {
+		text-align:center !important;
+    }
+    table > tbody> tr > td {
+		text-align:center !important;
+    }
+    table > tbody> tr > td {
+		text-align:center !important;
+    }
+    .nextlevel > td {
+		vertical-align:middle !important;
+    }
+    .nextlevel > th {
+		vertical-align:middle !important;
+    }
+	@-webkit-keyframes invalid2 {
+  from { background-color: #3cbf62; }
+  to { background-color: #579a6a; }
+}
+@-moz-keyframes invalid2 {
+  from { background-color: #3cbf62; }
+  to { background-color: #579a6a; }
+}
+@-o-keyframes invalid2 {
+  from { background-color: #3cbf62; }
+  to { background-color: #579a6a; }
+}
+@keyframes invalid2 {
+  from { background-color: #3cbf62; }
+  to { background-color: #579a6a; }
+}
+.invalid2 {
+  -webkit-animation: invalid2 1s infinite; /* Safari 4+ */
+  -moz-animation:    invalid2 1s infinite; /* Fx 5+ */
+  -o-animation:      invalid2 1s infinite; /* Opera 12+ */
+  animation:         invalid2 1s infinite; /* IE 10+ */
+}
+
+	@-webkit-keyframes invalid3 {
+  from { background-color: #9a5757; }
+  to { background-color: #af1717; }
+}
+@-moz-keyframes invalid3 {
+  from { background-color: #9a5757; }
+  to { background-color: #af1717; }
+}
+@-o-keyframes invalid3 {
+  from { background-color: #9a5757; }
+  to { background-color: #af1717; }
+}
+@keyframes invalid3 {
+  from { background-color: #9a5757; }
+  to { background-color: #af1717; }
+}
+.invalid3 {
+  -webkit-animation: invalid3 1s infinite; /* Safari 4+ */
+  -moz-animation:    invalid3 1s infinite; /* Fx 5+ */
+  -o-animation:      invalid3 1s infinite; /* Opera 12+ */
+  animation:         invalid3 1s infinite; /* IE 10+ */
+}
+
+</style>
+
+        <table class="table" style="width:80%;margin-top:25px;">
+            <tbody>
+                <tr class="active" style="border-top: 10px solid #676767;background: #F5F5F5;">
+                    <th>현재레벨</th>
+                    <th>가입일</th>
+                    <th>보유 포인트</th>
+                    <th>후기 작성개수</th>
+                    <th>게시글 작성개수</th>
+                    <th>댓글 작성개수</th>
+                </tr>
+                <tr>
+                    <th><p style="font-weight: normal; height:20px;" ><?php 
+                            echo get_level($member['mb_id']).' '.get_level_name($member['mb_level']).' Lv.'.$member['mb_level']; ?> </th>
+                    <td><?php echo floor((time() - strtotime($member['mb_datetime']))/86400).' 일'; ?></td>
+                    <td><?php echo $member['mb_point'].'P';?></td>
+                    <td><?php echo $cnt_other.'개'?></td>
+                    <td><?php echo $cnt_review.'개'?></td>
+                    <td><?php echo $cnt_comment.'개'?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <section class="xm">
         <dl class="dl-horizontal text-left">
             <!-- user  기본정보   mb_nick  -->

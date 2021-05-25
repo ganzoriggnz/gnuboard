@@ -54,6 +54,52 @@ if($member['mb_id']){
     $entity_date =$row['mb_datetime'];
 
     $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='attendance'");
+
+    $total_count;
+    $page=1;
+    $list = Array();
+    $cnt_post=0;
+    $cnt_review=0;
+    $cnt_other=0;
+    $cnt_revcomment=0;
+    $cnt_otcomment=0;
+    $cnt_comment=0;
+
+            $result1 = sql_query("select bo_table, bo_subject from {$g5['board_table']} WHERE gr_id = 'review'");        
+            
+            while ($row = sql_fetch_array($result1)) {
+                $bo_table = $row['bo_table'];
+
+                    $sql1 = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0' order by wr_datetime");                    
+                    while($resee = sql_fetch_array($sql1)){                       
+                        $list[$cnt]['bo_table'] = $bo_table; 
+                        $cnt_review++;
+                        $sql_rev = sql_query("select * from " .$g5['write_prefix'].$bo_table." where wr_is_comment = '1' order by wr_datetime");                 
+                        while($res = sql_fetch_array($sql)){                    
+                            $list[$cnt]['bo_table'] = $bo_table; 
+                            $cnt_revcomment++;
+                        }                                     
+                    }                    
+            }
+
+            $result2 = sql_query("select bo_table, bo_subject from {$g5['board_table']} WHERE gr_id != 'review'");        
+            
+            while ($row = sql_fetch_array($result2)) {
+                $bo_table = $row['bo_table'];
+
+                    $sql2 = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0' order by wr_datetime");                    
+                    while($resee = sql_fetch_array($sql2)){                       
+                        $list[$cnt]['bo_table'] = $bo_table; 
+                        $cnt_other++;
+                        $sql_ot = sql_query("select * from " .$g5['write_prefix'].$bo_table." where wr_is_comment = '1' order by wr_datetime");                 
+                        while($res = sql_fetch_array($sql_ot)){                    
+                            $list[$cnt]['bo_table'] = $bo_table; 
+                            $cnt_otcomment++;
+                        }                                     
+                    }                    
+            }
+
+$cnt_comment = $cnt_revcomment+$cnt_otcomment;
     
 }
 
