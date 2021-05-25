@@ -1046,6 +1046,21 @@ $data = array(
         'wr_id' => NULL,
         'sca' => NULL,
       ),
+      4 =>
+      array(
+        'text' => '제휴문의',
+        'href' => 'http://localhost/gnuboard/bbs/board.php?bo_table=partnership',
+        'icon' => 'fa-headphones',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'bbs-board-partnership',
+        'bo_table' => 'partnership',
+        'wr_id' => NULL,
+        'sca' => NULL,
+      ),
     ),
   ),
   4 =>
