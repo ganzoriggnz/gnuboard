@@ -97,72 +97,38 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     </nav>
     <div>
         <style>
-    table > tbody tr > th {
-		text-align:center !important;
-    }
-    table > tbody> tr > td {
-		text-align:center !important;
-    }
-    table > tbody> tr > td {
-		text-align:center !important;
-    }
-    .nextlevel > td {
-		vertical-align:middle !important;
-    }
-    .nextlevel > th {
-		vertical-align:middle !important;
-    }
-	@-webkit-keyframes invalid2 {
-  from { background-color: #3cbf62; }
-  to { background-color: #579a6a; }
-}
-@-moz-keyframes invalid2 {
-  from { background-color: #3cbf62; }
-  to { background-color: #579a6a; }
-}
-@-o-keyframes invalid2 {
-  from { background-color: #3cbf62; }
-  to { background-color: #579a6a; }
-}
-@keyframes invalid2 {
-  from { background-color: #3cbf62; }
-  to { background-color: #579a6a; }
-}
-.invalid2 {
-  -webkit-animation: invalid2 1s infinite; /* Safari 4+ */
-  -moz-animation:    invalid2 1s infinite; /* Fx 5+ */
-  -o-animation:      invalid2 1s infinite; /* Opera 12+ */
-  animation:         invalid2 1s infinite; /* IE 10+ */
-}
+            table > tbody tr > th {
+                text-align:center !important;
+            }
+            table > tbody> tr > td {
+                text-align:center !important;
+            }
+            table > tbody> tr > td {
+                text-align:center !important;
+            }
+            .tbl {
+                width:80%;
+                margin-top:25px;
+                border: 1px solid #dee2e6;
+            }
+            .tbl tr {
+                border: 1px solid #dee2e6;
+            }
+            .tbl th {
+                    padding: .75rem;
+                    vertical-align: top;
+                }
+            .nextlevel > td {
+                vertical-align:middle !important;
+            }
+            .nextlevel > th {
+                vertical-align:middle !important;
+            }
+        </style>
 
-	@-webkit-keyframes invalid3 {
-  from { background-color: #9a5757; }
-  to { background-color: #af1717; }
-}
-@-moz-keyframes invalid3 {
-  from { background-color: #9a5757; }
-  to { background-color: #af1717; }
-}
-@-o-keyframes invalid3 {
-  from { background-color: #9a5757; }
-  to { background-color: #af1717; }
-}
-@keyframes invalid3 {
-  from { background-color: #9a5757; }
-  to { background-color: #af1717; }
-}
-.invalid3 {
-  -webkit-animation: invalid3 1s infinite; /* Safari 4+ */
-  -moz-animation:    invalid3 1s infinite; /* Fx 5+ */
-  -o-animation:      invalid3 1s infinite; /* Opera 12+ */
-  animation:         invalid3 1s infinite; /* IE 10+ */
-}
-
-</style>
-
-        <table class="table" style="width:80%;margin-top:25px;">
+        <table class="tbl">
             <tbody>
-                <tr class="active" style="border-top: 10px solid #676767;background: #F5F5F5;">
+                <tr class="active" style="background: #F5F5F5;">
                     <th>현재레벨</th>
                     <th>가입일</th>
                     <th>보유 포인트</th>
@@ -170,7 +136,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     <th>게시글 작성개수</th>
                     <th>댓글 작성개수</th>
                 </tr>
-                <tr>
+                <tr class="active">
                     <th><p style="font-weight: normal; height:20px;" ><?php 
                             echo get_level($member['mb_id']).' '.get_level_name($member['mb_level']).' Lv.'.$member['mb_level']; ?> </th>
                     <td><?php echo floor((time() - strtotime($member['mb_datetime']))/86400).' 일'; ?></td>
