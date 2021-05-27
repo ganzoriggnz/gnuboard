@@ -75,7 +75,7 @@ if($member['mb_id']){
                         $cnt_review++;
                     }
                     $sql_rev = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '1'");                 
-                    while($res = sql_fetch_array($sql)){                    
+                    while($res = sql_fetch_array($sql_rev)){                    
                         $cnt_revcomment++;
                     }                                     
                                        
