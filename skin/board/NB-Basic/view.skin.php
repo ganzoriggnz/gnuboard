@@ -167,6 +167,7 @@ if ($gr_id=='review') {
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
 	                    <div class="btn-group" role="group" style="float:right;">
+							
 	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">목록</span>
@@ -183,51 +184,6 @@ if ($gr_id=='review') {
 	                            <span class="sr-only">글쓰기</span>
 	                        </a>
 	                        <?php } ?>
-	                        <?php if($update_href || $delete_href || $copy_href || $move_href || $search_href) { ?>
-	                        <button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split py-1"
-	                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
-	                            title="게시물 옵션">
-	                            <span class="sr-only">게시물 옵션</span>
-	                        </button>
-	                        <div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
-	                            <div class="btn-group-vertical">
-								<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id =="community") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-	                                <a href="<?php echo $update_href ?>" class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
-	                                    글수정
-	                                </a>
-	                                <?php } } ?>
-	                                <!-- hulan nemsen level 24.25 can not delete post  -->
-	                                <?php if ($delete_href && $member['mb_level'] != 24 && $member['mb_level'] != 25 && $member['mb_level'] != 26 && $member['mb_level'] != 27) {if($is_admin ||  $member['mb_6']!=$bo_table ) {  ?>
-	                                <a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-	                                    class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
-	                                    글삭제
-	                                </a>
-	                                <?php }} ?>
-	                                <?php if ($copy_href) { ?>
-	                                <a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
-	                                    class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
-	                                    글복사
-	                                </a>
-	                                <?php } ?>
-	                                <?php if ($move_href) { ?>
-	                                <a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-	                                    class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
-	                                    글이동허하
-	                                </a>
-	                                <?php } ?>
-	                                <?php if ($search_href) { ?>
-	                                <a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-search fa-fw" aria-hidden="true"></i>
-	                                    글검색
-	                                </a>
-	                                <?php } ?>
-	                            </div>
-	                        </div>
-	                        <?php } ?>
 	                    </div>
 	                    <?php
 					$link_buttons = ob_get_contents();
@@ -238,7 +194,7 @@ if ($gr_id=='review') {
 	            </ul>
 				<!-- start    mobile   -->
 				<ul class="d-flex-start align-items-center pt-2">
-				<li style="display: inline;"><a href="#viewcomment"		
+					<li style="display: inline;"><a href="#viewcomment"		
 	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
 	                </li>
 				    <?php if ($gr_id=='attendance') { ?>
@@ -259,6 +215,37 @@ if ($gr_id=='review') {
 	                        <i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
 	                </li>
 	                <?php } ?>
+					<li style="margin-top:15px; margin-bottom:5px; font-size:10px; margin-left: -3px;">
+					<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
+						<a href="<?php echo $update_href ?>" class="btn-vw py-2" role="button">
+							<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+							글수정
+						</a>
+						<?php } } ?>
+						<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
+						if ($delete_href) {  ?>
+						<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
+							class="btn-vw py-2" role="button">
+							<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+							글삭제
+						</a>
+						<?php } ?>
+						<?php if ($copy_href) { ?>
+						<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
+							class="btn-vw py-2" role="button">
+							<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
+							글복사
+						</a>
+						<?php } ?>
+						<?php if ($move_href) { ?>
+						<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
+							class="btn-vw py-2" role="button">
+							<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
+							글이동
+						</a>
+						<?php } }?>	
+						</li>
+					</ul>
 				 <!-- end   / -->
 	        </div>
 	    </section>
@@ -305,67 +292,22 @@ if ($gr_id=='review') {
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
 	                    <div class="btn-group" role="group">
-	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1" title="목록" role="button">
+	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">목록</span>
 	                        </a>
 	                        <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn btn_b01 nofocus py-1" title="답변" role="button">
+	                        <a href="<?php echo $reply_href ?>" class="btn btn_b01 nofocus" title="답변" role="button">
 	                            <i class="fa fa-reply fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">답변</span>
 	                        </a>
 	                        <?php } ?>
 	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
-	                        <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
+	                        <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">글쓰기</span>
 	                        </a>
-	                        <?php } ?>
-	                        <?php if($update_href || $delete_href || $copy_href || $move_href || $search_href) { ?>
-	                        <button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split py-1"
-	                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
-	                            title="게시물 옵션">
-	                            <span class="sr-only">게시물 옵션</span>
-	                        </button>
-	                        <div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
-	                            <div class="btn-group-vertical">
-	                                <?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id !="attendance")){?>
-	                                <a href="<?php echo $update_href ?>" class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
-	                                    글수정
-	                                </a>
-	                                <?php } } ?>
-	                                <!-- hulan nemsen level 24.25 can not delete post  -->
-	                                <?php if ($delete_href && $member['mb_level'] != 24 && $member['mb_level'] != 25) {if($is_admin ||  $member['mb_6']!=$bo_table ) {  ?>
-	                                <a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-	                                    class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
-	                                    글삭제
-	                                </a>
-	                                <?php }} ?>
-	                                <?php if ($copy_href) { ?>
-	                                <a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
-	                                    class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
-	                                    글복사
-	                                </a>
-	                                <?php } ?>
-	                                <?php if ($move_href) { ?>
-	                                <a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-	                                    class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
-	                                    글이동 </a>
-	                                    <?php } ?>
-
-	                                    <?php if ($search_href) { ?>
-	                                    <a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
-	                                        <i class="fa fa-search fa-fw" aria-hidden="true"></i>
-	                                        글검색
-	                                    </a>
-	                                    <?php } ?>
-	                            </div>
-	                        </div>
-	                        <?php } ?>
+	                        <?php } ?>	                      
 	                    </div>
 	                    <?php
 					$link_buttons = ob_get_contents();
@@ -378,14 +320,45 @@ if ($gr_id=='review') {
 								<ul class="d-flex-start align-items-center pt-2">
 				<li style="display: inline;"><a href="#viewcomment"		
 	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
-	                </li>
-	                <?php if ($gr_id=='review') { ?>
-	                <li style="display: inline;">
-	                    <a href="#"						
-						onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
-						style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
-	                </li>
-	                <?php } ?>
+				</li>
+				<?php if ($gr_id=='review') { ?>
+				<li style="display: inline;">
+					<a href="#"						
+					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
+					style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
+				</li>
+				<?php } ?>
+				<li style="margin-top:15px; margin-bottom:5px; font-size:10px; margin-left: -3px;">
+						<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
+							<a href="<?php echo $update_href ?>" class="btn-vw py-2" role="button">
+								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+								글수정
+							</a>
+							<?php } } ?>
+							<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
+							if ($delete_href) {  ?>
+							<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
+								class="btn-vw py-2" role="button">
+								<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+								글삭제
+							</a>
+							<?php } ?>
+							<?php if ($copy_href) { ?>
+							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
+								class="btn-vw py-2" role="button">
+								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
+								글복사
+							</a>
+							<?php } ?>
+							<?php if ($move_href) { ?>
+							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
+								class="btn-vw py-2" role="button">
+								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
+								글이동
+							</a>
+							<?php } }?>	
+					</li>
+							</ul>
 				 <!-- end   / -->
 	        </div>
 	    </section>
@@ -470,7 +443,43 @@ if ($gr_id=='review') {
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
 	                    <div class="btn-group" role="group">
-	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1" title="목록" role="button">
+							<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
+							<a href="<?php echo $update_href ?>" class="btn-vw py-2" role="button">
+								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+								글수정
+							</a>
+							<?php } } ?>
+							<!-- hulan nemsen level 24.25 can not delete post  -->
+							<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
+							if ($delete_href) {  ?>
+							<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
+								class="btn-vw py-2" role="button">
+								<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+								글삭제
+							</a>
+							<?php } ?>
+							<?php if ($copy_href) { ?>
+							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
+								class="btn-vw py-2" role="button">
+								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
+								글복사
+							</a>
+							<?php } ?>
+							<?php if ($move_href) { ?>
+							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
+								class="btn-vw py-2" role="button">
+								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
+								글이동
+							</a>
+							<?php } }?>
+							<?php if ($search_href) { ?>
+							<a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
+								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
+								글검색
+							</a>
+							<?php } ?>
+
+	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1 border-rad" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">목록</span>
 	                        </a>
@@ -486,52 +495,6 @@ if ($gr_id=='review') {
 	                            <span class="sr-only">글쓰기</span>
 	                        </a>
 	                        <?php } ?>
-	                        <?php if($update_href || $delete_href || $copy_href || $move_href || $search_href) { ?>
-	                        <button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split py-1"
-	                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
-	                            title="게시물 옵션">
-	                            <span class="sr-only">게시물 옵션</span>
-	                        </button>
-	                        <div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
-	                            <div class="btn-group-vertical">
-	                                <?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-	                                <a href="<?php echo $update_href ?>" class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
-	                                    글수정
-	                                </a>
-	                                <?php } } ?>
-	                                <!-- hulan nemsen level 24.25 can not delete post  -->
-	                                <?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
-								if ($delete_href) {  ?>
-	                                <a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-	                                    class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
-	                                    글삭제
-	                                </a>
-	                                <?php } ?>
-	                                <?php if ($copy_href) { ?>
-	                                <a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
-	                                    class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
-	                                    글복사
-	                                </a>
-	                                <?php } ?>
-	                                <?php if ($move_href) { ?>
-	                                <a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-	                                    class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
-	                                    글이동
-	                                </a>
-	                                <?php } }?>
-	                                <?php if ($search_href) { ?>
-	                                <a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
-	                                    <i class="fa fa-search fa-fw" aria-hidden="true"></i>
-	                                    글검색
-	                                </a>
-	                                <?php } ?>
-	                            </div>
-	                        </div>
-	                        <?php  } ?>
 	                    </div>
 	                    <?php
 					$link_buttons = ob_get_contents();
