@@ -377,37 +377,7 @@ ul.my-table > li {
                     $hwrite_table = $g5['write_prefix'] . $bo_tablef . "at";
                     $sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment = 0 order by mb_name ASC", false);
                 ?>
-                    <?php if ($is_category) { ?>
-                        <li class="list-group-item">
-                            <div class="mb-0 form-group row">
-                                <label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
-                                <div class="col-md-4">
-                                    <select name="wr_7" id="wr_7" class="custom-select" <?php if ($is_admin || $board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id']) {
-                                                                                            echo '';
-                                                                                        } else {
-                                                                                            echo 'required';
-                                                                                        } ?>>
-                                        <option value="">선택하세요</option>
-                                        <?php while ($res = sql_fetch_array($sql)) { ?>
-                                            <!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name']; ?></option>  -->
-                                            <option value=<?php echo $res['mb_name'];
-                                                            if ($write['wr_4'] == $res['mb_name'] || $nameddd == $res['mb_name']) echo " selected "; ?>>
-                                                <?php echo $res['mb_name']; ?></option>
-                                        <?php }
-                                        if ($is_admin) {
-                                            echo "
-                                <option value='공지' $is_select>공지</option>
-                                <option value='이벤트진행' $is_select>이벤트진행</option>
-                                <option value='이벤트결과' $is_select>이벤트결과</option>
-                                ";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </li>
-                    <?php } ?>
-
+                    
                     <li class="list-group-item">
                         <div class="mb-0 form-group row">
                             <label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
@@ -873,7 +843,7 @@ ul.my-table > li {
                 <?php } ?>
 
                 <!-- hulan nemsen review board write post 출근부 게시판에 글 있는 업소명 후기 선택에 보이기 -->
-                <?php if ($board['gr_id'] == "review" && ($w == '' || $w == 'u')) {
+                <?php if ($board['gr_id'] == "review") {
                     $scount = strlen($bo_table) - 2;      // temdegt tooloh
                     $bo_tablef =  substr($bo_table, 0, $scount);
                     $hwrite_table = $g5['write_prefix'] . $bo_tablef . "at";
@@ -884,7 +854,8 @@ ul.my-table > li {
                             <div class="mb-0 form-group row">
                                 <label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
                                 <div class="col-md-4">
-                                    <select name="wr_7" id="wr_7" required class="custom-select">
+                                <?php if($w == '') { ?> 
+                                <select name="wr_7" id="wr_7" required class="custom-select">
                                         <option value="">선택하세요</option>
                                         <?php while ($res = sql_fetch_array($sql)) { ?>
                                             <!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name']; ?></option>  -->
@@ -901,12 +872,16 @@ ul.my-table > li {
                                         }
                                         ?>
                                     </select>
+                                <?php } else { ?>
+                                        <input type="text" name="wr_7" value="<?php echo $write['wr_7'] ?>" disabled required class="form-control required">
+                                <?php } ?>
+                                    
                                 </div>
                             </div>
                         </li>
                     <?php } ?>
 
-                    <?php if ($board['gr_id'] != "review") { ?>
+                    <!-- <?php if ($board['gr_id'] != "review") { ?>
                         <li class="list-group-item">
                             <div class="mb-0 form-group row">
                                 <label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
@@ -915,7 +890,7 @@ ul.my-table > li {
                                 </div>
                             </div>
                         </li>
-                    <?php } ?>
+                    <?php } ?> -->
 
                 <?php } ?>
                 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
