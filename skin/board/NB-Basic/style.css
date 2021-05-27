@@ -198,12 +198,12 @@
 .btn-vw {
 	color: #fff;
 	background-color:  #000 !important;
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
 	margin-right: 3px;
 	margin-left: 3px;
 	border-color:  #000;
-	border-radius: 5px;
+	border-radius: 8px;
 }
 
 .btn-vw:hover {
