@@ -131,7 +131,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <tr class="active" style="background: #F5F5F5;">
                     <th>현재레벨</th>
                     <th>가입일</th>
-                    <th>보유 포인트</th>
                     <th>후기 작성개수</th>
                     <th>게시글 작성개수</th>
                     <th>댓글 작성개수</th>
@@ -140,7 +139,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     <th><p style="font-weight: normal; height:20px;" ><?php 
                             echo get_level($member['mb_id']).' '.get_level_name($member['mb_level']).' Lv.'.$member['mb_level']; ?> </th>
                     <td><?php echo floor((time() - strtotime($member['mb_datetime']))/86400).' 일'; ?></td>
-                    <td><?php echo $member['mb_point'].'P';?></td>
                     <td><?php echo $cnt_other.'개'?></td>
                     <td><?php echo $cnt_review.'개'?></td>
                     <td><?php echo $cnt_comment.'개'?></td>
