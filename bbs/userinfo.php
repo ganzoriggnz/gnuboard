@@ -70,16 +70,15 @@ if($member['mb_id']){
             while ($row = sql_fetch_array($result1)) {
                 $bo_table = $row['bo_table'];
 
-                    $sql1 = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0' order by wr_datetime");                    
+                    $sql1 = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0'");                    
                     while($resee = sql_fetch_array($sql1)){                       
-                        $list[$cnt]['bo_table'] = $bo_table; 
                         $cnt_review++;
-                        $sql_rev = sql_query("select * from " .$g5['write_prefix'].$bo_table." where wr_is_comment = '1' order by wr_datetime");                 
-                        while($res = sql_fetch_array($sql)){                    
-                            $list[$cnt]['bo_table'] = $bo_table; 
-                            $cnt_revcomment++;
-                        }                                     
-                    }                    
+                    }
+                    $sql_rev = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '1'");                 
+                    while($res = sql_fetch_array($sql)){                    
+                        $cnt_revcomment++;
+                    }                                     
+                                       
             }
 
             $result2 = sql_query("select bo_table, bo_subject from {$g5['board_table']} WHERE gr_id != 'review'");        
@@ -87,16 +86,15 @@ if($member['mb_id']){
             while ($row = sql_fetch_array($result2)) {
                 $bo_table = $row['bo_table'];
 
-                    $sql2 = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0' order by wr_datetime");                    
+                    $sql2 = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0'");                    
                     while($resee = sql_fetch_array($sql2)){                       
-                        $list[$cnt]['bo_table'] = $bo_table; 
                         $cnt_other++;
-                        $sql_ot = sql_query("select * from " .$g5['write_prefix'].$bo_table." where wr_is_comment = '1' order by wr_datetime");                 
-                        while($res = sql_fetch_array($sql_ot)){                    
-                            $list[$cnt]['bo_table'] = $bo_table; 
-                            $cnt_otcomment++;
-                        }                                     
-                    }                    
+                    }
+                    $sql_ot = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '1'");                 
+                    while($res = sql_fetch_array($sql_ot)){                    
+                        $cnt_otcomment++;
+                    }                                     
+                                        
             }
 
 $cnt_comment = $cnt_revcomment+$cnt_otcomment;
