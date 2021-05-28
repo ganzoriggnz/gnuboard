@@ -106,19 +106,19 @@ if($is_member && !$is_admin && $member['mb_level'] < 23){ //회원이고 , 23레
         $wrpost = 5;
         $wrcomment = 10;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' +  15 days'));
-        $point2 = 3000;
+        $point2 = 2000;
         $reviewpost2 = 1; 
         $wrpost2 = 10;
         $wrcomment2 = 30;
         $levpoint = getlevelPoint('5');}
-else if ($member['mb_level'] == 6){
+    else if ($member['mb_level'] == 6){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  15 days'));
-        $point = 3000;
+        $point = 2000;
         $reviewpost = 1; 
         $wrpost = 10;
         $wrcomment = 30;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' +  30 days'));
-        $point2 = 5000;
+        $point2 = 3000;
         $reviewpost2 = 3;
         $wrpost2 = 15;
         $wrcomment2 = 50;
@@ -126,43 +126,43 @@ else if ($member['mb_level'] == 6){
     }
     else if ($member['mb_level'] == 7){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  30 days')); 
-        $point = 5000;
+        $point = 3000;
         $reviewpost = 3;
         $wrpost = 15;
         $wrcomment = 50;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' +  50 days'));
-        $point2 = 7000;
+        $point2 = 5000;
         $reviewpost2 = 5;
         $wrpost2 = 20;
         $wrcomment2 = 100;
         $levpoint = getlevelPoint('7'); }
     else if ($member['mb_level'] == 8){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  50 days'));  
-        $point = 7000;
+        $point = 5000;
         $reviewpost = 5;
         $wrpost = 20;
         $wrcomment = 100;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' +  70 days'));
-        $point2 = 10000;
+        $point2 = 7000;
         $reviewpost2 = 7;
         $wrpost2 = 30;
         $wrcomment2 = 200;
         $levpoint = getlevelPoint('8'); }
     else if ($member['mb_level'] == 9){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  70 days')); 
-        $point = 10000;
+        $point = 7000;
         $reviewpost = 7;
         $wrpost = 30;
         $wrcomment = 200;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' +  100 days'));
-        $point2 = 15000;
+        $point2 = 10000;
         $reviewpost2 = 10;
         $wrpost2 = 50;
         $wrcomment2 = 300;
         $levpoint = getlevelPoint('9'); }
     else if ($member['mb_level'] == 10){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  100 days')); 
-        $point = 15000;
+        $point = 10000;
         $reviewpost = 10;
         $wrpost = 50;
         $wrcomment = 300;
@@ -252,78 +252,78 @@ else if ($member['mb_level'] == 6){
         $wrpost = 400;
         $wrcomment = 1500;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' +  500 days'));
-        $point2 = 500000;
+        $point2 = 400000;
         $reviewpost2 = 150;
         $wrpost2 = 450;
         $wrcomment2 = 2000;
         $levpoint = getlevelPoint('17'); }
     else if ($member['mb_level'] == 18){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  500 days')); 
-        $point = 500000;
+        $point = 400000;
         $reviewpost = 150;
         $wrpost = 450;
         $wrcomment = 2000;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' +  600 days'));
-        $point2 = 700000;
+        $point2 = 600000;
         $reviewpost2 = 200;
         $wrpost2 = 500;
         $wrcomment2 = 2500;
         $levpoint = getlevelPoint('18'); }
     else if ($member['mb_level'] == 19){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  600 days')); 
-        $point = 700000;
+        $point = 600000;
         $reviewpost = 200;
         $wrpost = 500;
         $wrcomment = 2500;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' + 700days'));
-        $point2 = 1000000;
+        $point2 = 800000;
         $reviewpost2 =250;
         $wrpost2 = 600;
         $wrcomment2 =3000;
         $levpoint = getlevelPoint('19'); }
     else if ($member['mb_level'] == 20){
         $et_date = date('Y-m-d', strtotime($st_date. ' + 700days'));  
-        $point = 1000000;
+        $point = 800000;
         $reviewpost =250;
         $wrpost = 600;
         $wrcomment =3000;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' + 800days')); 
-        $point2 = 1500000;
+        $point2 = 1000000;
         $reviewpost2 =300;
         $wrpost2 = 700;
         $wrcomment2 =3500;
         $levpoint = getlevelPoint('20'); }
     else if ($member['mb_level'] == 21){
         $et_date = date('Y-m-d', strtotime($st_date. ' + 800days'));  
-        $point = 1500000;
+        $point = 1000000;
         $reviewpost =300;
         $wrpost = 700;
         $wrcomment =3500;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' +  900 days'));
-        $point2 = 2000000;
+        $point2 = 1500000;
         $reviewpost2 = 400;
         $wrpost2 = 800;
         $wrcomment2 = 4000;
         $levpoint = getlevelPoint('21'); }
     else if ($member['mb_level'] == 22){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  900 days')); 
-        $point = 2000000;
+        $point = 1500000;
         $reviewpost = 400;
         $wrpost = 800;
         $wrcomment = 4000;
         $et_date2 = date('Y-m-d', strtotime($st_date. ' +  1000 days'));
-        $point2 = 3000000;
+        $point2 = 2000000;
         $reviewpost2 = 500;
         $wrpost2 = 1000;
         $wrcomment2 = 5000;
         $levpoint = getlevelPoint('22'); }
     else if ($member['mb_level'] == 23){
         $et_date = date('Y-m-d', strtotime($st_date. ' +  1000 days')); 
-        $point = 3000000;
+        $point = 2000000;
         $reviewpost = 500;
         $wrpost = 1000;
         $wrcomment = 5000;
-        $point2 = 3000000;
+        $point2 = 2000000;
         $levpoint = getlevelPoint('23'); }
     
     check_member_period($st_date, $et_date, $et_date2, $member['mb_id'], $wrpost2, $wrcomment2, $reviewpost2, $levpoint, $wrpost, $reviewpost, $wrcomment, $point, $point2);

@@ -292,18 +292,18 @@ if ($gr_id=='review') {
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
 	                    <div class="btn-group" role="group">
-	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus" title="목록" role="button">
+	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">목록</span>
 	                        </a>
 	                        <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn btn_b01 nofocus" title="답변" role="button">
+	                        <a href="<?php echo $reply_href ?>" class="btn btn_b01 nofocus py-1" title="답변" role="button">
 	                            <i class="fa fa-reply fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">답변</span>
 	                        </a>
 	                        <?php } ?>
 	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
-	                        <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus" title="글쓰기" role="button">
+	                        <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">글쓰기</span>
 	                        </a>

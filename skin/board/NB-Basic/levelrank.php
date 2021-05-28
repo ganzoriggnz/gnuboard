@@ -60,6 +60,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 $rank = number_format($i + 1);
 //$name = get_sideview($row['mb_id'], $row['mb_nick'], $row['mb_email'], $row['mb_homepage']);
 $name = $row['mb_nick'];
+$mb_id = $row['mb_id'];
 $level = $row['mb_level'];
 $joindate = date("y.m.d", strtotime($row['mb_datetime']));
 // $point = number_format($row['mb_level']);
@@ -77,9 +78,9 @@ $bg = '#b3b8c0';
 <tr>
     <td class="td_prank"><div class="rank_num"><span class="rank_bg" style="background:<?php echo $bg ?>"><?php echo $rank; ?></span></div></td>
     <td class="td_pname"><?php echo $name; ?></td>
-    <td class="td_joindate"><?php echo $joindate; ?></td>
-    <td class="td_plevel"><?php  echo get_level_name($level);
-    ?></td>
+    <!-- <td class="td_joindate"><?php echo $joindate; ?></td> -->
+    <td class="td_joindate"><?php echo get_level($mb_id); ?></td>
+    <td class="td_plevel"><?php  echo get_level_name($level);?></td>
     <!-- <td class="td_point"><?php echo $point; ?></td> -->
 </tr>
 <?php } ?>

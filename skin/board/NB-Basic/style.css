@@ -195,15 +195,26 @@
 	}
 }
 
-.btn-vw {
+.btn-vw {	
+	background:#353134;
+	border-color:#353134;
 	color: #fff;
-	background-color:  #000 !important;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-right: 3px;
-	margin-left: 3px;
-	border-color:  #000;
-	border-radius: 8px;
+	width:70px;
+	height:29px;
+	display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0.5px solid #c7bfc5;
+    /* padding: .375rem .75rem; */ 
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .btn-vw:hover {
