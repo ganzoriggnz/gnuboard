@@ -45,7 +45,8 @@ if ($member['mb_level'] < 23 && $member['mb_id']) {
 <tr>
     <th>순위</th>
     <th>닉네임</th>
-    <th>가입일</th>
+    <!-- <th>가입일</th> -->
+    <th>계급 마크</th>
     <th class = "th_plevel">계급</th>
     <!-- <th class="th_point">포인트</th>    hulan tailbar bolgoson-->
 </tr>
