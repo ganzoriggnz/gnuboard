@@ -30,8 +30,8 @@ include_once(G5_THEME_PATH.'/head.php');
 <h2>회원 파운드 랭킹 TOP-100</h2>
 <div class="my_rank">
 <?php
-$sql_common = "and mb_level < 23 and mb_id != '{$config['cf_admin']}' ";
-if ($member['mb_level'] < 23 && $member['mb_id']) {
+$sql_common = "and mb_level < 23 and mb_level > 1 and mb_id != '{$config['cf_admin']}' ";
+if ($member['mb_level'] < 23 && $member['mb_level'] > 1 && $member['mb_id']) {
     $sql = " select count(mb_id) as cnt from {$g5['member_table']} where mb_point > '{$member['mb_point']}' {$sql_common} order by mb_point desc ";
     $row = sql_fetch($sql);
     echo "{$member['mb_nick']} 님의 포인트는 <strong>".number_format($member['mb_point'])."점</strong>, 순위는 <strong>".number_format($row['cnt'] + 1)."등</strong> 입니다";
