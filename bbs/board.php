@@ -115,9 +115,18 @@ if ((isset($wr_id) && $wr_id) || (isset($wr_seo_title) && $wr_seo_title)) {
     }
 
     // 한번 읽은글은 브라우저를 닫기전까지는 카운트를 증가시키지 않음
+    if($gr_id=='attendance' || $gr_id=='review' || $gr_id=='library' || ($gr_id=='community' && ($bo_table=='free' || $bo_table=='notice' || $bo_table=='event' || $bo_table=='wowan')) || ($gr_id=='service' && $bo_table=='job'))
+        sql_query(" update {$write_table} set wr_hit = wr_hit + 3 where wr_id = '{$wr_id}' ");
+    else {
+        sql_query(" update {$write_table} set wr_hit = wr_hit + 1 where wr_id = '{$wr_id}' ");
+    }
+    
+     $now = G5_TIME_YMDHIS;
+     sql_query(" insert into {$g5['read_table']} set r_hit = 1, mb_id= '{$member['mb_id']}', gr_id = '{$board['gr_id']}', r_board = '{$write_table}', r_datetime = '{$now}'");
+
     $ss_name = 'ss_view_' . $bo_table . '_' . $wr_id;
     if (!get_session($ss_name)) {
-        sql_query(" update {$write_table} set wr_hit = wr_hit + 1 where wr_id = '{$wr_id}' ");
+        //sql_query(" update {$write_table} set wr_hit = wr_hit + 1 where wr_id = '{$wr_id}' ");
 
         // 자신의 글이면 통과
         if ($write['mb_id'] && $write['mb_id'] === $member['mb_id']) {;
@@ -131,9 +140,6 @@ if ((isset($wr_id) && $wr_id) || (isset($wr_seo_title) && $wr_seo_title)) {
 
             insert_point($member['mb_id'], $board['bo_read_point'], ((G5_IS_MOBILE && $board['bo_mobile_subject']) ? $board['bo_mobile_subject'] : $board['bo_subject']) . ' ' . $wr_id . ' 글읽기', $bo_table, $wr_id, '읽기');
         }
-        $now = G5_TIME_YMDHIS;
-        sql_query(" insert into {$g5['read_table']} set r_hit = 1, mb_id= '{$member['mb_id']}', gr_id = '{$board['gr_id']}', r_board = '{$write_table}', r_datetime = '{$now}'");
-
         set_session($ss_name, TRUE);
     }
 
