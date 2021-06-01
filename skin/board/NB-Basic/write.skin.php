@@ -371,8 +371,8 @@ ul.my-table > li {
                 <?php } ?>
 
                 <!-- hulan nemsen review board write post 출근부 게시판에 글 있는 업소명 후기 선택에 보이기 -->
-                <?php if ($board['gr_id'] == "review" && ($w == '' || $w == 'u')) {
-                    $scount = strlen($bo_table) - 2;      // temdegt tooloh
+               <!--  <?php if ($board['gr_id'] == "review" && ($w == '' || $w == 'u')) {
+                    $scount = strlen($bo_table) - 2;     
                     $bo_tablef =  substr($bo_table, 0, $scount);
                     $hwrite_table = $g5['write_prefix'] . $bo_tablef . "at";
                     $sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment = 0 order by mb_name ASC", false);
@@ -388,7 +388,7 @@ ul.my-table > li {
                     </li>
 
 
-                <?php } ?>
+                <?php } ?> -->
                 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 
@@ -915,14 +915,14 @@ ul.my-table > li {
 
                             <label class="col-md-2 col-form-label" for="wr_1">제목컬러<strong class="sound_only">필수</strong></label>
                             <div class="col-md-10">
-                                <input id="color1" class="iColorPicker" type="text" name="wr_1" style="width:55px;color:#fff; text-align:center;" onChange="wr_subject.style.color=this.style.backgroundColor;" value="<?php if ($write['wr_1']) {
-                                                                                                                                                                                                                            echo $write['wr_1'];
-                                                                                                                                                                                                                        } else {
-                                                                                                                                                                                                                            echo "#222";
-                                                                                                                                                                                                                        } ?>" />
+                                <input id="color1" class="iColorPicker" type="text" name="wr_1" style="width:55px;color:#fff; text-align:center;" 
+                                onChange="wr_subject.style.color=this.style.backgroundColor;" value="<?php if ($write['wr_1']) {
+                                        echo $write['wr_1'];
+                                    } else {
+                                        echo "#222";
+                                    } ?>" />
                             </div>
                             <!-- <input type="hidden" name="wr_1" value="<?php echo $write['wr_1'] ?>" id="wr_1" required class="frm_input required" size="30" maxlength="255"> -->
-
                         </div>
                     </li>
                 <?php } ?>
