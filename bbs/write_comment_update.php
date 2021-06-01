@@ -149,7 +149,7 @@ if ($w == 'c') // 댓글 입력
         $tmp_comment_reply = '';
     }
 
-    $wr_subject = get_text(stripslashes($wr['wr_subject']));
+    $wr_subject = addslashes(get_text(stripslashes($wr['wr_subject'])));
 
     $sql = " insert into $write_table
                 set ca_name = '{$wr['ca_name']}',
@@ -180,8 +180,9 @@ if ($w == 'c') // 댓글 입력
                      wr_8 = '$wr_8',
                      wr_9 = '$wr_9',
                      wr_10 = '$wr_10' ";
+                     echo $sql;
     sql_query($sql);
-
+   
     $comment_id = sql_insert_id();
 
     // 원글에 댓글수 증가 & 마지막 시간 반영
@@ -349,5 +350,5 @@ $redirect_url = short_url_clean(G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table
 
 run_event('comment_update_after', $board, $wr_id, $w, $qstr, $redirect_url, $comment_id, $reply_array);
 
-goto_url($redirect_url);
+//goto_url($redirect_url);
 ?>
