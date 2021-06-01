@@ -873,7 +873,7 @@ ul.my-table > li {
                                         ?>
                                     </select>
                                 <?php } else { ?>
-                                        <input type="text" name="wr_7" value="<?php echo $write['wr_7'] ?>" disabled required class="form-control required">
+                                        <input type="text" name="wr_7" value="<?php echo $write['wr_7'] ?>" readonly required class="form-control required">
                                 <?php } ?>
                                     
                                 </div>
