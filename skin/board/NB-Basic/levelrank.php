@@ -30,7 +30,7 @@ include_once(G5_THEME_PATH.'/head.php');
 <h2>회원 계급 랭킹 TOP-100</h2>
 <div class="my_rank">
 <?php
-$sql_common = "and mb_level < 23 and mb_id != '{$config['cf_admin']}' ";   // end hasah level nemsen 
+$sql_common = "and mb_level < 24 and mb_id != '{$config['cf_admin']}' ";   // end hasah level nemsen 
 if ($member['mb_level'] < 23 && $member['mb_id']) {
     $sql = " select count(mb_id) as cnt from {$g5['member_table']} where mb_level > '{$member['mb_level']}' {$sql_common} order by mb_level desc ";
     $row = sql_fetch($sql);
@@ -45,7 +45,7 @@ if ($member['mb_level'] < 23 && $member['mb_id']) {
 <tr>
     <th>순위</th>
     <th>닉네임</th>
-    <!-- <th>가입일</th> -->
+    <th>가입일</th>
     <th>계급 마크</th>
     <th class = "th_plevel">계급</th>
     <!-- <th class="th_point">포인트</th>    hulan tailbar bolgoson-->
@@ -54,7 +54,7 @@ if ($member['mb_level'] < 23 && $member['mb_id']) {
 <tbody>
 <?php
 $level_rows = 100; //출력 수
-$sql = " select * from {$g5['member_table']} where mb_level> '{$row['mb_level']}' {$sql_common} order by mb_level desc, mb_today_login desc limit {$level_rows} ";
+$sql = " select * from {$g5['member_table']} where mb_level> '{$row['mb_level']}' {$sql_common} order by mb_datetime asc limit {$level_rows} ";
 $result = sql_query($sql);
 
 for ($i=0; $row=sql_fetch_array($result); $i++) {
@@ -79,7 +79,7 @@ $bg = '#b3b8c0';
 <tr>
     <td class="td_prank"><div class="rank_num"><span class="rank_bg" style="background:<?php echo $bg ?>"><?php echo $rank; ?></span></div></td>
     <td class="td_pname"><?php echo $name; ?></td>
-    <!-- <td class="td_joindate"><?php echo $joindate; ?></td> -->
+    <td class="td_joindate"><?php echo $joindate; ?></td>
     <td class="td_joindate"><?php echo get_level($mb_id); ?></td>
     <td class="td_plevel"><?php  echo get_level_name($level);?></td>
     <!-- <td class="td_point"><?php echo $point; ?></td> -->
