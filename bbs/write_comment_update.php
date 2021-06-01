@@ -180,7 +180,6 @@ if ($w == 'c') // 댓글 입력
                      wr_8 = '$wr_8',
                      wr_9 = '$wr_9',
                      wr_10 = '$wr_10' ";
-                     echo $sql;
     sql_query($sql);
    
     $comment_id = sql_insert_id();
