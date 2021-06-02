@@ -1317,3 +1317,9 @@ hr.hr::after {
     text-shadow: 0 0 1px #fff, 0 0 2px #e5cb86, 0 0 3px #e5cb86;
   }
 }
+
+.login_level {
+  font-size:14px; 
+  color:#e4c980; 
+  margin-top:5px;
+}
