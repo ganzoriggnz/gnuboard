@@ -30,7 +30,7 @@ include_once(G5_THEME_PATH.'/head.php');
 <h2>회원 계급 랭킹 TOP-100</h2>
 <div class="my_rank">
 <?php
-$sql_common = "and mb_level < 24 and mb_id != '{$config['cf_admin']}' ";   // end hasah level nemsen 
+$sql_common = "and mb_level < 24 and mb_level > 1 and mb_id != '{$config['cf_admin']}' ";   // end hasah level nemsen 
 if ($member['mb_level'] < 23 && $member['mb_level'] > 1 && $member['mb_id']) {
     $sql = " select count(mb_id) as cnt from {$g5['member_table']} where mb_level > '{$member['mb_level']}' {$sql_common} order by mb_level desc ";
     $row = sql_fetch($sql);
