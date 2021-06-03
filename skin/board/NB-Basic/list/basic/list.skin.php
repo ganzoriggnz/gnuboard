@@ -180,7 +180,7 @@ if ($gr_id == 'attendance') {
                                 <?php if ($is_checkbox) { ?>
                                     <input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
                                 <?php } ?>
-                                <a href="<?php echo $list[$i]['href'] ?>" class="na-subject" <?php echo $target ?> title="<?php $title; ?>" 
+                                <a href="<?php echo $list[$i]['href'] ?>" class="na-subject" <?php echo $target ?> title="<?php echo strip_tags($title); ?>" 
                                 <?php if (strstr($list[$i]['wr_option'], "secret") && $is_admin) { echo "style='color:#bababa;text-decoration: line-through' ". PHP_EOL;}
                                        if ($list[$i]['wr_1']) { echo " style='color:" . $list[$i]['wr_1'] . "' ". PHP_EOL;} ?> >
                                     <?php
