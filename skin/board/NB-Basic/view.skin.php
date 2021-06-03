@@ -116,7 +116,7 @@ if ($gr_id=='review') {
 
 	    </header>
 	    <?php if (G5_IS_MOBILE && $gr_id == "attendance") { ?>
-	    <section id="bo_v_info" class="f-sm font-weight-normal mb-4 px-3">
+	    <section id="bo_v_info" class="f-sm font-weight-normal px-3" style="margin-bottom: 0px !important;">
 	        <div class="clearfix bg-light border-top text-muted py-2">
 	            <h3 class="sr-only">작성자 정보</h3>
 	            <ul class="d-flex-start align-items-center">
