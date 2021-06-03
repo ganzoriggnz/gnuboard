@@ -54,7 +54,7 @@ if ($member['mb_level'] < 23 && $member['mb_level'] > 1 && $member['mb_id']) {
 <tbody>
 <?php
 $level_rows = 100; //출력 수
-$sql = " select * from {$g5['member_table']} where mb_level> '{$row['mb_level']}' {$sql_common} order by mb_datetime asc limit {$level_rows} ";
+$sql = " select * from {$g5['member_table']} where mb_level> '{$row['mb_level']}' {$sql_common} order by mb_level desc, mb_datetime asc limit {$level_rows} ";
 $result = sql_query($sql);
 
 for ($i=0; $row=sql_fetch_array($result); $i++) {
