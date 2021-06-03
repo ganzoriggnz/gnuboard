@@ -298,7 +298,7 @@ if ($gr_id=='review') {
 						style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
 					</li>
 					<?php } ?>
-	                <li id="bo_v_btn" class="flex-grow-1 text-right" style="display: inline;">
+	                <li id="bo_v_btn" class="flex-grow-1" style="display: inline;">
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
 	                    <div class="btn-group" role="group" style="float-right;">
