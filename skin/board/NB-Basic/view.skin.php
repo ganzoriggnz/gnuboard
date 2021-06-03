@@ -215,7 +215,7 @@ if ($gr_id=='review') {
 	                        <i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
 	                </li>
 	                <?php } ?>
-					<li style="font-size:10px; margin-left: -3px;">
+					<li style="margin-top: 10px; font-size:10px; margin-left: -3px;">
 					<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
 						<a href="<?php echo $update_href ?>" class="btn-vw" role="button">
 							<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
