@@ -288,6 +288,16 @@ if ($gr_id=='review') {
 	        <div class="clearfix f-sm text-muted pt-2 pr-2">
 	            <h3 class="sr-only">컨텐츠 정보</h3>
 	            <ul class="d-flex-start align-items-center">
+					<li style="display: inline;"><a href="#viewcomment"		
+								style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
+					</li>
+					<?php if ($gr_id=='review') { ?>
+					<li style="display: inline;">
+						<a href="#"						
+						onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
+						style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
+					</li>
+					<?php } ?>
 	                <li id="bo_v_btn" class="flex-grow-1 text-right">
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
@@ -317,17 +327,8 @@ if ($gr_id=='review') {
 	                </li>
 	            </ul>
 								<!-- start    mobile   -->
-								<ul class="d-flex-start align-items-center pt-2">
-				<li style="display: inline;"><a href="#viewcomment"		
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
-				</li>
-				<?php if ($gr_id=='review') { ?>
-				<li style="display: inline;">
-					<a href="#"						
-					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
-					style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
-				</li>
-				<?php } ?>
+				<ul class="d-flex-start align-items-center pt-2">
+				
 				<li style="margin-top:15px; margin-bottom:5px; font-size:10px; margin-left: -3px;">
 						<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
 							<a href="<?php echo $update_href ?>" class="btn-vw py-2" role="button">
@@ -473,7 +474,7 @@ if ($gr_id=='review') {
 							</a>
 							<?php } }?>
 							<?php if ($search_href) { ?>
-							<a href="<?php echo $search_href ?>" class="btn btn-primary py-2" role="button">
+							<a href="<?php echo $search_href ?>" class="btn-vw py-2" role="button">
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
 								글검색
 							</a>
