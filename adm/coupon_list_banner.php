@@ -87,7 +87,7 @@ $colspan = 8;
         
         <td class="td_center"><?php echo $row['mb_level']; ?></td>
         <td class="td_left"><?php echo $row['bo_subject'].'-'.$row['mb_7'];?></td>
-        <td class="td_center"><?php echo '원가권 '.$row['co_sale_num'].' 원가권 '.$row['co_free_num']; ?></td>
+        <td class="td_center"><?php echo '원가권 '.$row['co_sale_num'].' 무료권 '.$row['co_free_num']; ?></td>
         <td class="td_center"><?php echo $link1; ?><?php echo '바로가기'; ?><?php echo $link2; ?></td>
     </tr>
 
