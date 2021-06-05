@@ -91,21 +91,34 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	    </div>
 
   <?php
-  /* $tmp_wr_link1 = explode("https://youtu.be/", $view['wr_link1']);
-  ?>
-  <div style="padding-bottom:12px; text-align:center;">
-      <iframe width="100%" height="509" src="https://www.youtube.com/embed/<?=$tmp_wr_link1[1];?>" frameborder="0" allowfullscreen></iframe>
-  </div> */
+
   $tmp_wr_link1 = explode("/", $view['wr_link1']);
+  $tmp_wr_content = strip_tags($view['wr_content'],'<iframe>');
+  $newWidth = '100%';
+  $newHeight = 509;
+  $tmp_wr_cont = preg_replace(
+    array('/width="\d+"/i', '/height="\d+"/i'),
+    array(sprintf('width="%d"', $newWidth), sprintf('height="%d"', $newHeight)),
+    $tmp_wr_content);
   ?>
   <div style="padding-bottom:12px; text-align:center;">
-  <?php if($tmp_wr_link1[2] =='youtu.be'){
-      echo '<iframe width="100%" height="509" src="https://www.youtube.com/embed/'.$tmp_wr_link1[3].'" frameborder="0" allowfullscreen></iframe>';
-    } else if($tmp_wr_link1[2] =='www.pornhits.com')
-    { echo '<iframe width="100%" height="509" src="https://www.pornhits.com/embed.php?id='.$tmp_wr_link1[4].'" frameborder="0" allowfullscreen></iframe>';
-    } else {
-      echo '<iframe width="100%" height="509" src="https://'.$tmp_wr_link1[2].'\/embed\/'.$tmp_wr_link1[4].'" frameborder="0" allowfullscreen></iframe>';
-    } ?>
+  <?php 
+    if($tmp_wr_link1[2] =='youtu.be'){
+        echo '<iframe width="100%" height="509" src="https://www.youtube.com/embed/'.$tmp_wr_link1[3].'" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>';
+    } 
+    else if($tmp_wr_link1[3] =='video'){ 
+        echo '<iframe width="100%" height="509" src="https://'.$tmp_wr_link1[2].'\/video\/'.$tmp_wr_link1[4].'\/'.$tmp_wr_link1[5].'" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>';
+    } 
+    else if($tmp_wr_link1[3] =='embed'){
+        echo '<iframe width="100%" height="509" src="https://'.$tmp_wr_link1[2].'\/embed\/'.$tmp_wr_link1[4].'" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>';
+    } 
+    else if(substr($tmp_wr_content,1,6) =='iframe'){
+        echo $tmp_wr_content;
+    }
+    else {
+        echo '<iframe width="100%" height="509" src="https:/'.$tmp_wr_link1[2].'\/'.$tmp_wr_link1[3].'" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>';
+    }
+    ?>
   </div>
 
           <?php

@@ -147,20 +147,34 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
                         <td class="td_subject ">
                             <div class="">
                                 <?php
-                    $tmp_wr_link1 = explode("/", $list[$i]['wr_link1']);
-                  ?>
+                                    $tmp_wr_link1 = explode("/", $list[$i]['wr_link1']);
+                                    $tmp_wr_content = strip_tags($list[$i]['wr_content'],'<iframe>');
+                                    $newWidth = 220;
+                                    $newHeight = 120;    
+                                    $tmp_wr_cont = preg_replace(
+                                    array('/width="\d+"/i', '/height="\d+"/i'),
+                                    array(sprintf('width="%d"', $newWidth), sprintf('height="%d"', $newHeight)),
+                                    $tmp_wr_content);
+                                ?>
                                 <div class="video_wrap listImgA d-md-block d-none" style="margin-right:4%;">
                                     <div class="video_container" style="overflow-x: hidden;">      
-                                        <?php if($tmp_wr_link1[2] =='youtu.be'){
-                                        echo '<iframe width="220" height="120" src="https://www.youtube.com/embed/'.$tmp_wr_link1[3].'" frameborder="0" webkitAllowFullScreen mozallowfullscreen
-                                            allowFullScreen></iframe>';
-                                        } else if($tmp_wr_link1[2] =='www.pornhits.com')
-                                        { echo '<iframe width="220" height="120" src="https://www.pornhits.com/embed.php?id='.$tmp_wr_link1[4].'" frameborder="0" scrolling="no" style="overflow-x: hidden;" webkitAllowFullScreen mozallowfullscreen
-                                            allowFullScreen></iframe>';
-                                        } else {
-                                        echo '<iframe width="220" height="120" src="https://'.$tmp_wr_link1[2].'\/embed\/'.$tmp_wr_link1[4].'" frameborder="0" webkitAllowFullScreen mozallowfullscreen
-                                            allowFullScreen></iframe>';
-                                        } ?>
+                                        <?php                                        
+                                        if($tmp_wr_link1[2] =='youtu.be'){
+                                            echo '<iframe width="220" height="120" src="https://www.youtube.com/embed/'.$tmp_wr_link1[3].'/" frameborder="0" allowfullscreen ></iframe>';
+                                        } 
+                                        else if($tmp_wr_link1[3] =='video'){ 
+                                            echo '<iframe width="220" height="120" src="https://'.$tmp_wr_link1[2].'\/video\/'.$tmp_wr_link1[4].'\/'.$tmp_wr_link1[5].'/" frameborder="0" allowfullscreen></iframe>';
+                                        } 
+                                        else if($tmp_wr_link1[3] =='embed'){
+                                            echo '<iframe width="220" height="120" src="https://'.$tmp_wr_link1[2].'\/embed\/'.$tmp_wr_link1[4].'/" frameborder="0" allowfullscreen></iframe>';
+                                        } else if(substr($tmp_wr_cont,1,6) =='iframe'){
+                                            echo $tmp_wr_cont;
+                                        }
+                                        else {
+                                            echo '<iframe width="220" height="120" src="https:/'.$tmp_wr_link1[2].'\/'.$tmp_wr_link1[3].'/" frameborder="0" allowfullscreen></iframe>';
+                                        }
+                                        ?>
+                                        
                                     </div>
                                 </div>
                                 <?php echo $list[$i]['icon_reply'] ?>
