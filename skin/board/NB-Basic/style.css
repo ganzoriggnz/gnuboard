@@ -231,11 +231,6 @@
 	box-shadow: 0 0 0 0.2rem rgba(228, 201, 128, 0.5);
 }
 
-.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
 .btn-vw.disabled, .btn-vw:disabled {
 	color: #fff;
 	background-color: #cfb56ed0;
@@ -247,6 +242,15 @@
 	color: #fff;
 	background-color: #cfb56ed0;
     border-color: #e4c980;
+}
+
+.btn-group>.btn-group:not(:last-child)>.btn-vw, .btn-group>.btn-vw:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-group>.btn-group:not(:first-child), .btn-group>.btn-vw:not(:first-child) {
+    margin-left: -1px;
 }
 
 @media (max-width: 576px) {
