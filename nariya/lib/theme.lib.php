@@ -1336,7 +1336,7 @@ function na_post_rows($wset, $subcat = '', $search = '')
 
 			$bo_table = $res['bo_table'];
 			$hwrite_table = $g5['write_prefix'] . $bo_table;
-			$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now()) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%')", false);
+			$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%')", false);
 
 			while ($row = sql_fetch_array($result1)) {
 
@@ -1667,7 +1667,7 @@ function na_board_rows_coupon($wset)
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
 
 			//$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and b.mb_level = '27' and b.mb_4 >= '{$now}' ", false);
-			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and (b.mb_level = '26' or b.mb_level = '27') ", false);
+			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id", false);
 
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];
