@@ -194,6 +194,7 @@ if ($gr_id=='review') {
 								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
 								글이동
 							</a>
+							<br/>
 							<?php } }?>							
 	                        <a href="<?php echo $list_href ?>" class="btn-vw py-1" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
@@ -220,7 +221,7 @@ if ($gr_id=='review') {
 	                </li>
 	            </ul>
 				<!-- start    mobile   -->
-				<ul class="d-flex-start align-items-center pt-2">
+				<ul class="d-flex-start align-items-center pb-3 pt-2">
 					<li style="display: inline;"><a href="#viewcomment"		
 	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
 	                </li>
@@ -356,6 +357,7 @@ if ($gr_id=='review') {
 								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
 								글이동
 							</a>
+							<br/>
 							<?php } }?>	
 	                        <a href="<?php echo $list_href ?>" class="btn-vw py-1" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
