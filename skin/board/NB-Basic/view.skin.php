@@ -183,31 +183,31 @@ if ($gr_id=='review') {
 							<?php } ?>
 							<?php if ($copy_href) { ?>
 							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
-								class="btn-vw py-1" role="button">
+								class="btn-vw py-1 my-1" role="button">
 								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
 								글복사
 							</a>
 							<?php } ?>
 							<?php if ($move_href) { ?>
 							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-								class="btn-vw py-1" role="button">
+								class="btn-vw py-1 my-1" role="button">
 								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
 								글이동
 							</a>
 							<br/>
 							<?php } }?>							
-	                        <a href="<?php echo $list_href ?>" class="btn-vw py-1" title="목록" role="button">
+	                        <a href="<?php echo $list_href ?>" class="btn-vw py-1 my-1" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
 	                            목록
 	                        </a>
 	                        <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn-vw py-1" title="답변" role="button">
+	                        <a href="<?php echo $reply_href ?>" class="btn-vw py-1 my-1" title="답변" role="button">
 	                            <i class="fa fa-reply fa-md" aria-hidden="true"></i>
 	                            답변
 	                        </a>
 	                        <?php } ?>
 	                        <?php if ($write_href) { ?>
-	                        <a href="<?php echo $write_href ?>" class="btn-vw py-1" title="글쓰기" role="button">
+	                        <a href="<?php echo $write_href ?>" class="btn-vw py-1 my-1" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 	                            글쓰기
 	                        </a>
@@ -331,7 +331,7 @@ if ($gr_id=='review') {
 	                    <?php ob_start(); ?>
 	                    <div class="btn-group" role="group" style="float-right;">
 							<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-							<a href="<?php echo $update_href ?>" class="btn-vw py-1" role="button">
+							<a href="<?php echo $update_href ?>" class="btn-vw py-1 my-1" role="button">
 								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
 								글수정
 							</a>
@@ -339,38 +339,38 @@ if ($gr_id=='review') {
 							<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
 							if ($delete_href) {  ?>
 							<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-								class="btn-vw py-1" role="button">
+								class="btn-vw py-1 my-1" role="button">
 								<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
 								글삭제
 							</a>
 							<?php } ?>
 							<?php if ($copy_href) { ?>
 							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
-								class="btn-vw py-1" role="button">
+								class="btn-vw py-1 my-1" role="button">
 								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
 								글복사
 							</a>
 							<?php } ?>
 							<?php if ($move_href) { ?>
 							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-								class="btn-vw py-1" role="button">
+								class="btn-vw py-1 my-1" role="button">
 								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
 								글이동
 							</a>
 							<br/>
 							<?php } }?>	
-	                        <a href="<?php echo $list_href ?>" class="btn-vw py-1" title="목록" role="button">
+	                        <a href="<?php echo $list_href ?>" class="btn-vw py-1 my-1" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
 	                            목록
 	                        </a>
 	                        <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn-vw py-1" title="답변" role="button">
+	                        <a href="<?php echo $reply_href ?>" class="btn-vw py-1 my-1" title="답변" role="button">
 	                            <i class="fa fa-reply fa-md" aria-hidden="true"></i>
 	                            답변
 	                        </a>
 	                        <?php } ?>
 	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
-	                        <a href="<?php echo $write_href ?>" class="btn-vw py-1" title="글쓰기" role="button">
+	                        <a href="<?php echo $write_href ?>" class="btn-vw py-1 my-1" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 	                            글쓰기
 	                        </a>
