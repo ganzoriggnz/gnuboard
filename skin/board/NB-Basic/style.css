@@ -204,12 +204,14 @@
 	display: inline-block;
     font-weight: 400;
     text-align: center;
+	display:inline-block;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     border: 0.5px solid #c7bfc5;
+	position:relative;
     /* padding: .375rem .5rem; */ 
     font-size: 1rem;
     line-height: 1.5;
