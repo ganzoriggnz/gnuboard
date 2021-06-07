@@ -248,7 +248,7 @@
     border-color: #e4c980;
 }
 
-@media (min-width: 576px) {
+@media (max-width: 576px) {
 	.btn-vw {
 	height:24px;
 	}
