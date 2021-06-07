@@ -167,19 +167,46 @@ if ($gr_id=='review') {
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
 	                    <div class="btn-group" role="group" style="float:right;">
-							
-	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1" title="목록" role="button">
+							<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
+							<a href="<?php echo $update_href ?>" class="btn-vw py-1" role="button">
+								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+								글수정
+							</a>
+							<?php } } ?>
+							<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
+							if ($delete_href) {  ?>
+							<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
+								class="btn-vw py-1" role="button">
+								<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+								글삭제
+							</a>
+							<?php } ?>
+							<?php if ($copy_href) { ?>
+							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
+								class="btn-vw py-1" role="button">
+								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
+								글복사
+							</a>
+							<?php } ?>
+							<?php if ($move_href) { ?>
+							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
+								class="btn-vw py-1" role="button">
+								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
+								글이동
+							</a>
+							<?php } }?>							
+	                        <a href="<?php echo $list_href ?>" class="btn-vw py-1" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">목록</span>
 	                        </a>
 	                        <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn btn_b01 nofocus py-1" title="답변" role="button">
+	                        <a href="<?php echo $reply_href ?>" class="btn-vw py-1" title="답변" role="button">
 	                            <i class="fa fa-reply fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">답변</span>
 	                        </a>
 	                        <?php } ?>
 	                        <?php if ($write_href) { ?>
-	                        <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
+	                        <a href="<?php echo $write_href ?>" class="btn-vw py-1" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
 	                            <span class="sr-only">글쓰기</span>
 	                        </a>
@@ -215,7 +242,7 @@ if ($gr_id=='review') {
 	                        <i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
 	                </li>
 	                <?php } ?>
-					<li style="margin-top: 10px; font-size:10px; margin-left: -3px;">
+					<!-- <li style="margin-top: 10px; font-size:10px; margin-left: -3px;">
 					<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
 						<a href="<?php echo $update_href ?>" class="btn-vw py-1" role="button">
 							<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
@@ -244,7 +271,7 @@ if ($gr_id=='review') {
 							글이동
 						</a>
 						<?php } }?>	
-						</li>
+						</li> -->
 					</ul>
 				 <!-- end   / -->
 	        </div>
@@ -302,20 +329,48 @@ if ($gr_id=='review') {
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
 	                    <div class="btn-group" role="group" style="float-right;">
-	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1" title="목록" role="button">
+							<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
+							<a href="<?php echo $update_href ?>" class="btn-vw py-1" role="button">
+								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+								글수정
+							</a>
+							<?php } } ?>
+							<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
+							if ($delete_href) {  ?>
+							<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
+								class="btn-vw py-1" role="button">
+								<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+								글삭제
+							</a>
+							<?php } ?>
+							<?php if ($copy_href) { ?>
+							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
+								class="btn-vw py-1" role="button">
+								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
+								글복사
+							</a>
+							<?php } ?>
+							<?php if ($move_href) { ?>
+							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
+								class="btn-vw py-1" role="button">
+								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
+								글이동
+							</a>
+							<?php } }?>	
+	                        <a href="<?php echo $list_href ?>" class="btn-vw py-1" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
-	                            <span class="sr-only">목록</span>
+	                            목록
 	                        </a>
 	                        <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn btn_b01 nofocus py-1" title="답변" role="button">
+	                        <a href="<?php echo $reply_href ?>" class="btn-vw py-1" title="답변" role="button">
 	                            <i class="fa fa-reply fa-md" aria-hidden="true"></i>
-	                            <span class="sr-only">답변</span>
+	                            답변
 	                        </a>
 	                        <?php } ?>
 	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
-	                        <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
+	                        <a href="<?php echo $write_href ?>" class="btn-vw py-1" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
-	                            <span class="sr-only">글쓰기</span>
+	                            글쓰기
 	                        </a>
 	                        <?php } ?>	                      
 	                    </div>
@@ -327,7 +382,7 @@ if ($gr_id=='review') {
 	                </li>
 	            </ul>
 								<!-- start    mobile   -->
-				<ul class="d-flex-start align-items-center pt-2">
+			<!-- 	<ul class="d-flex-start align-items-center pt-2">
 				
 				<li style="font-size:10px; margin-left: -3px;">
 						<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
@@ -359,7 +414,7 @@ if ($gr_id=='review') {
 							</a>
 							<?php } }?>	
 					</li>
-							</ul>
+							</ul> -->
 				 <!-- end   / -->
 	        </div>
 	    </section>
