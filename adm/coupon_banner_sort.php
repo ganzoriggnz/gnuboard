@@ -16,7 +16,7 @@ $sql_common = " from {$g5['coupon_table']} a INNER JOIN {$g5['member_table']} b 
 $sql_search = " where (b.mb_level='26' or b.mb_level='27') and (a.co_sale_num >='1' and a.co_free_num >='1' and  a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}')";
 
 $output = ''; 
-$k=1; 
+$k=0; 
 $order = $_POST["order"];  
 if($order == 'desc')  
 {  
