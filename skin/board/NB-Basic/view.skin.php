@@ -198,18 +198,18 @@ if ($gr_id=='review') {
 							<?php } }?>							
 	                        <a href="<?php echo $list_href ?>" class="btn-vw py-1" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
-	                            <span class="sr-only">목록</span>
+	                            목록
 	                        </a>
 	                        <?php if ($reply_href) { ?>
 	                        <a href="<?php echo $reply_href ?>" class="btn-vw py-1" title="답변" role="button">
 	                            <i class="fa fa-reply fa-md" aria-hidden="true"></i>
-	                            <span class="sr-only">답변</span>
+	                            답변
 	                        </a>
 	                        <?php } ?>
 	                        <?php if ($write_href) { ?>
 	                        <a href="<?php echo $write_href ?>" class="btn-vw py-1" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
-	                            <span class="sr-only">글쓰기</span>
+	                            글쓰기
 	                        </a>
 	                        <?php } ?>
 	                    </div>
