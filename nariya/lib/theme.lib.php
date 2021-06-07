@@ -1319,11 +1319,11 @@ function na_post_rows($wset, $subcat = '', $search = '')
 			$bo_table = $res['bo_table'];
 			$hwrite_table = $g5['write_prefix'] . $bo_table;
 			if ($wset == '') {
-				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now()) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id", false);
+				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id", false);
 			} else if ($subcat == '') {
-				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now()) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false);
+				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false);
 			} else {
-				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now()) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false);
+				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false);
 			}
 			while ($row = sql_fetch_array($result1)) {
 				$list[$cnt] = $row;
