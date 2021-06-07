@@ -140,7 +140,7 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 								</li>
 								<li class="flex-grow-1 text-right">
 									<span class="sr-only">작성일</span>
-									<time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($list[$i]['wr_datetime'])) ?>"><?php echo na_date($list[$i]['wr_datetime'], 'orangered', 'H:i', 'm.d H:i', 'Y.m.d H:i'); ?></time>
+									<time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($list[$i]['wr_last'])) ?>"><?php echo na_date($list[$i]['wr_last'], 'orangered', 'H:i', 'm.d H:i', 'Y.m.d H:i'); ?></time>
 								</li>
 							</ul>
 						</div>

@@ -442,6 +442,7 @@ if ($w == '' || $w == 'r') {
                      wr_name = '{$wr_name}',
                      wr_email = '{$wr_email}',
                      wr_homepage = '{$wr_homepage}',
+                     wr_last = '".G5_TIME_YMDHIS."',
                      wr_1 = '{$wr_1}',
                      wr_2 = '{$wr_2}',
                      wr_3 = '{$wr_3}',

@@ -168,7 +168,7 @@ if ($w == 'c') // 댓글 입력
                      wr_email = '$wr_email',
                      wr_homepage = '$wr_homepage',
                      wr_datetime = '".G5_TIME_YMDHIS."',
-                     wr_last = '',
+                     wr_last = '".G5_TIME_YMDHIS."',
                      wr_ip = '{$_SERVER['REMOTE_ADDR']}',
                      wr_1 = '$wr_1',
                      wr_2 = '$wr_2',
@@ -322,6 +322,7 @@ else if ($w == 'cu') // 댓글 수정
     $sql = " update $write_table
                 set wr_subject = '$wr_subject',
                      wr_content = '$wr_content',
+                     wr_last = '".G5_TIME_YMDHIS."',
                      wr_1 = '$wr_1',
                      wr_2 = '$wr_2',
                      wr_3 = '$wr_3',

@@ -196,10 +196,10 @@
 }
 
 .btn-vw {	
-	background:#353134;
-	border-color:#353134;
+	background-color:  #e4c980;
+	border-color:  #e4c980;
 	color: #fff;
-	width:70px;
+	width:72px; 
 	height:29px;
 	display: inline-block;
     font-weight: 400;
@@ -210,7 +210,7 @@
     -ms-user-select: none;
     user-select: none;
     border: 0.5px solid #c7bfc5;
-    /* padding: .375rem .75rem; */ 
+    /* padding: .375rem .5rem; */ 
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .25rem;
@@ -219,26 +219,31 @@
 
 .btn-vw:hover {
 	color: #fff;
-	background-color: #000;
-	border-color: #000;
+	background-color: #cfb56ed0;
+    border-color: #e4c980;
 }
 
 .btn-vw:focus, .btn-vw.focus {
 	color: #fff;
-	background-color: #000;
-	border-color:#000;
-	box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+	background-color: #cfb56ed0;
+    border-color: #e4c980;
+	box-shadow: 0 0 0 0.2rem rgba(228, 201, 128, 0.5);
+}
+
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .btn-vw.disabled, .btn-vw:disabled {
 	color: #fff;
-	background-color: #000;
-	border-color: #000;
+	background-color: #cfb56ed0;
+    border-color: #e4c980;
 }
 
 .btn-vw:not(:disabled):not(.disabled):active, .btn-vw:not(:disabled):not(.disabled).active,
 .show > .btn-vw.dropdown-toggle {
 	color: #fff;
-	background-color: #000;
-	border-color: #000;
+	background-color: #cfb56ed0;
+    border-color: #e4c980;
 }

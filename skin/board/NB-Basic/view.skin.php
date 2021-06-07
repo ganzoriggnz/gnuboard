@@ -135,7 +135,7 @@ if ($gr_id=='review') {
 	                <li class="flex-grow-1" style="float:left; display:inline;">
 	                    <span class="sr-only">작성일</span>
 	                    <time
-	                        datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_datetime'])) ?>"><?php echo date("Y.m.d H:i", strtotime($view['wr_datetime'])) ?></time>
+	                        datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_last'])) ?>"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo ' 수정일: '.date("Y.m.d H:i", strtotime($view['wr_last'])) ?></time>
 	                </li>
 	                <li style="float:left; margin-left: 10px; display:inline;">
 	                    <span class="sr-only">조회</span>
@@ -269,7 +269,7 @@ if ($gr_id=='review') {
 	                <li class="flex-grow-1 text-right" style="float: left; display:inline;">
 	                    <span class="sr-only">작성일</span>
 	                    <time
-	                        datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_datetime'])) ?>"><?php echo date("Y.m.d H:i", strtotime($view['wr_datetime'])) ?></time>
+	                        datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_last'])) ?>"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo ' 수정일: '.date("Y.m.d H:i", strtotime($view['wr_last'])) ?></time>
 	                </li>
 	                <li style="float:left; margin-left: 10px; display:inline;">
 	                    <span class="sr-only">조회</span>
@@ -383,7 +383,7 @@ if ($gr_id=='review') {
 	                <li class="flex-grow-1 text-right">
 	                    <span class="sr-only">작성일</span>
 	                    <time
-	                        datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_datetime'])) ?>"><?php echo date("Y.m.d H:i", strtotime($view['wr_datetime'])) ?></time>
+	                        datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_last'])) ?>"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo ' 수정일: '.date("Y.m.d H:i", strtotime($view['wr_last'])) ?></time>
 	                </li>
 	            </ul>
 	        </div>
@@ -480,20 +480,20 @@ if ($gr_id=='review') {
 							</a>
 							<?php } ?>
 
-	                        <a href="<?php echo $list_href ?>" class="btn btn_b01 nofocus py-1 border-rad" title="목록" role="button">
+	                        <a href="<?php echo $list_href ?>" class="btn-vw py-2" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
-	                            <span class="sr-only">목록</span>
+	                            목록
 	                        </a>
 	                        <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn btn_b01 nofocus py-1" title="답변" role="button">
+	                        <a href="<?php echo $reply_href ?>" class="btn-vw py-2" title="답변" role="button">
 	                            <i class="fa fa-reply fa-md" aria-hidden="true"></i>
-	                            <span class="sr-only">답변</span>
+	                            답변
 	                        </a>
 	                        <?php } ?>
 	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
-	                        <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
+	                        <a href="<?php echo $write_href ?>" class="btn-vw py-2" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
-	                            <span class="sr-only">글쓰기</span>
+	                            글쓰기
 	                        </a>
 	                        <?php } ?>
 	                    </div>
