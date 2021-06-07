@@ -15,7 +15,7 @@ $sql_common = " from {$g5['coupon_table']} a INNER JOIN {$g5['member_table']} b 
 
 $sql_search = " where (b.mb_level='26' or b.mb_level='27') and (a.co_sale_num >='1' and a.co_free_num >='1' and  a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}')";
 
-$sql_order = " order by a.mb_id asc";
+$sql_order = " order by c.bo_order asc";
 
 $sql = " select count(*) as cnt
             {$sql_common}
@@ -30,7 +30,7 @@ $total_page  = ceil($total_count / $rows);
 if ($page < 1) $page = 1; 
 $from_record = ($page - 1) * $rows; 
 
-$sql = " select a.mb_id, a.co_entity, a.co_sale_num, a.co_free_num, a.wr_id, a.bo_table, b.mb_nick, b.mb_level, b.mb_homepage, b.mb_point, b.mb_7, c.bo_subject
+$sql = " select a.mb_id, a.co_entity, a.co_sale_num, a.co_free_num, a.wr_id, a.bo_table, b.mb_nick, b.mb_level, b.mb_homepage, b.mb_point, b.mb_7, c.bo_subject, c.bo_order
             {$sql_common}
             {$sql_search}
             {$sql_order}
@@ -51,11 +51,11 @@ $colspan = 8;
         <thead>
             <tr>
                 <th scope="col">no</th>
-                <th scope="col"><a class="column_sort" id="mb_id" data-order="desc" href="#" style="text-decoration: none;">아이디 &#9660</a></th>
+                <th scope="col"><a class="column_sort" id="mb_id" data-order="desc" href="#" style="text-decoration: none;">아이디</a></th>
                 <th scope="col"><a class="column_sort" id="mb_nick" data-order="desc" href="#" style="text-decoration: none;">닉네임</a></th>
                 <th scope="col"><a class="column_sort" id="co_entity" data-order="desc" href="#" style="text-decoration: none;">업소명</a></th>
                 <th scope="col"><a class="column_sort" id="mb_level" data-order="desc" href="#" style="text-decoration: none;">레벨</a></th>
-                <th scope="col"><a class="column_sort" id="bo_subject" data-order="desc" href="#" style="text-decoration: none;">분류</a></th>
+                <th scope="col"><a class="column_sort" id="bo_order" data-order="desc" href="#" style="text-decoration: none;">분류 &#9660</a></th>
                 <th scope="col"><a class="column_sort" id="co_sale_num" data-order="desc" href="#" style="text-decoration: none;">쿠폰</a></th>
                 <th scope="col">출근부 글</th>
             </tr>

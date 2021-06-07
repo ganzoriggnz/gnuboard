@@ -42,7 +42,7 @@ $total_page  = ceil($total_count / $rows);
 if ($page < 1) $page = 1; 
 $from_record = ($page - 1) * $rows; 
 
-$sql = " select a.mb_id, a.co_entity, a.co_sale_num, a.co_free_num, a.wr_id, a.bo_table, b.mb_nick, b.mb_level, b.mb_homepage, b.mb_point, b.mb_7, c.bo_subject
+$sql = " select a.mb_id, a.co_entity, a.co_sale_num, a.co_free_num, a.wr_id, a.bo_table, b.mb_nick, b.mb_level, b.mb_homepage, b.mb_point, b.mb_7, c.bo_subject, c.bo_order
             {$sql_common}
             {$sql_search}
             {$sql_order}
@@ -58,7 +58,7 @@ $output .= '
             <th><a class="column_sort" id="mb_nick" data-order="'.$order.'" href="#" style="text-decoration: none;">닉네임</a></th> 
             <th><a class="column_sort" id="co_entity" data-order="'.$order.'" href="#" style="text-decoration: none;">업소명</a></th>  
             <th><a class="column_sort" id="mb_level" data-order="'.$order.'" href="#" style="text-decoration: none;">레벨</a></th>  
-            <th><a class="column_sort" id="bo_subject" data-order="'.$order.'" href="#" style="text-decoration: none;">분류</a></th>  
+            <th><a class="column_sort" id="bo_order" data-order="'.$order.'" href="#" style="text-decoration: none;">분류</a></th>  
             <th><a class="column_sort" id="co_sale_num" data-order="'.$order.'" href="#" style="text-decoration: none;">쿠폰</a></th>  
             <th>출근부 글</th>  
         </tr> 
