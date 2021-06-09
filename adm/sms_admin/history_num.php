@@ -52,7 +52,7 @@ include_once(G5_ADMIN_PATH.'/admin.head.php');
         <th scope="col">그룹</th>
         <th scope="col">이름</th>
         <th scope="col">회원ID</th>
-        <th scope="col">전화번호</th>
+        <th scope="col" style="display:none;">전화번호</th>
         <th scope="col">전송일시</th>
         <th scope="col">예약</th>
         <th scope="col">전송</th>
@@ -90,7 +90,7 @@ include_once(G5_ADMIN_PATH.'/admin.head.php');
         <td class="td_mbname"><?php echo $bg_name; ?></td>
         <td class="td_mbname"><a href="./num_book_write.php?w=u&amp;bk_no=<?php echo $res['bk_no']; ?>"><?php echo $res['hs_name']; ?></a></td>
         <td class="td_mbid"><?php echo $mb_id; ?></td>
-        <td class="td_numbig"><?php echo $res['hs_hp']; ?></td>
+        <td class="td_numbig" style="display:none;"><?php echo $res['hs_hp']; ?></td>
         <td class="td_datetime"><?php echo date('Y-m-d H:i', strtotime($write['wr_datetime']))?></td>
         <td class="td_boolean"><?php echo $write['wr_booking']!='0000-00-00 00:00:00'?"<span title='{$write['wr_booking']}'>예약</span>":'';?></td>
         <td class="td_boolean"><?php echo $res['hs_flag']?'성공':'실패'?></td>
