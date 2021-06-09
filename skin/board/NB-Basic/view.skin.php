@@ -185,7 +185,13 @@ if ($gr_id=='review') {
 								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
 								글이동
 							</a>
-							<?php } }?>							
+							<?php } }?>
+							<?php if ($search_href) { ?>
+							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button">
+								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
+								검색목록
+							</a>
+							<?php } ?>							
 	                        <a href="<?php echo $list_href ?>" class="btn-vw mb-2" title="목록" role="button">
 	                            <i class="fa fa-list fa-fw" aria-hidden="true"></i>
 	                            목록
@@ -321,7 +327,13 @@ if ($gr_id=='review') {
 								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
 								글이동
 							</a>
-							<?php } }?>	
+							<?php } }?>
+							<?php if ($search_href) { ?>
+							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button">
+								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
+								검색목록
+							</a>
+							<?php } ?>	
 	                        <a href="<?php echo $list_href ?>" class="btn-vw mb-2" title="목록" role="button">
 	                            <i class="fa fa-list fa-fw" aria-hidden="true"></i>
 	                            목록
@@ -706,9 +718,9 @@ if ($gr_id=='review') {
 	                </div>
 	            </li>
 	            <!-- } 관련링크 끝 -->
-	            <?php } ?>
+	    <?php } ?>
 
-	            <?php
+	    <?php
 		$cnt = 0;
 		if ($view['file']['count']) {
 			for ($i=0; $i<count($view['file']); $i++) {
@@ -717,7 +729,6 @@ if ($gr_id=='review') {
 			}
 		}
 		?>
-
 	            <?php if($cnt) { ?>
 	            <!-- 첨부파일 시작 { -->
 	            <li class="d-table-row border-top border-bottom">
