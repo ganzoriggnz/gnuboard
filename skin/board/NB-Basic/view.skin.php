@@ -339,7 +339,7 @@ if ($gr_id=='review') {
 	                            목록
 	                        </a>
 	                        <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn-vw mb-2" title="답변" role="button">
+	                        <a href="<?php echo $reply_href ?>" class="btn-vw mb-2" title="답변" role="button" style="width:65px;">
 	                            <i class="fa fa-reply fa-fw" aria-hidden="true"></i>
 	                            답변
 	                        </a>

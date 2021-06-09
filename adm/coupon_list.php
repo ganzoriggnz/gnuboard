@@ -13,7 +13,7 @@ include_once('./admin.head.php');
 
     a:active  { background-color: yellow;  }
 </style>
-<div style="height: 740px;">
+<div style="height: 800px;">
     <div style="float: left; width: 18%;">
         <div>
             <button class="btn btn_02" id="coupon" onclick="load_coupon_page('<?php echo $bo_table ?>')">쿠폰제휴업소</button>
@@ -21,7 +21,7 @@ include_once('./admin.head.php');
         </div>
         <ul class="coupon" style="margin-top: 20px;">
             <?php 
-                $q = "SELECT bo_table, bo_subject FROM ".$g5['board_table']." WHERE gr_id = 'review' ORDER BY bo_subject ASC ";
+                $q = "SELECT bo_table, bo_subject FROM ".$g5['board_table']." WHERE gr_id = 'review' ORDER BY bo_order ASC ";
                 $q_result = sql_query($q);
                 while($row = sql_fetch_array($q_result)) { ?>
                     <li style="padding: 5px 0px;"><a id = "<?php echo $row['bo_table']; ?>" href="<?php echo G5_ADMIN_URL.'/coupon_list.php?bo_table='.$row['bo_table'];?>"><img src="<?php echo G5_URL ?>/img/solid/commenting-o.svg" style="height: 14px; margin-right: 3.5px;"><?php echo $row['bo_subject']; ?></a></li>
