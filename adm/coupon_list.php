@@ -21,7 +21,7 @@ include_once('./admin.head.php');
         </div>
         <ul class="coupon" style="margin-top: 20px;">
             <?php 
-                $q = "SELECT bo_table, bo_subject FROM ".$g5['board_table']." WHERE gr_id = 'review' ORDER BY bo_order ASC ";
+                $q = "SELECT bo_table, bo_subject FROM ".$g5['board_table']." WHERE gr_id = 'review' and bo_table !='trip_re' ORDER BY bo_order ASC ";
                 $q_result = sql_query($q);
                 while($row = sql_fetch_array($q_result)) { ?>
                     <li style="padding: 5px 0px;"><a id = "<?php echo $row['bo_table']; ?>" href="<?php echo G5_ADMIN_URL.'/coupon_list.php?bo_table='.$row['bo_table'];?>"><img src="<?php echo G5_URL ?>/img/solid/commenting-o.svg" style="height: 14px; margin-right: 3.5px;"><?php echo $row['bo_subject']; ?></a></li>
