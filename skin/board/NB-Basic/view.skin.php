@@ -187,7 +187,7 @@ if ($gr_id=='review') {
 							</a>
 							<?php } }?>
 							<?php if ($search_href) { ?>
-							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button">
+							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button" style="width:80px;">
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
 								검색목록
 							</a>
@@ -329,7 +329,7 @@ if ($gr_id=='review') {
 							</a>
 							<?php } }?>
 							<?php if ($search_href) { ?>
-							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button">
+							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button" style="width:80px;">
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
 								검색목록
 							</a>
