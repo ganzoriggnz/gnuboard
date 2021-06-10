@@ -78,6 +78,8 @@ function get_cate_pic($catename, $pic = 0)
         $zurag = "petish";
     else if ($catename == "핸플 패티쉬")
         $zurag = "hand";
+    else if ($catename == "출장")
+        $zurag = "chuljang";
     else if ($catename == "키스방")
         $zurag = "kiss";
     else if ($catename == "기타" || $catename == "프로필 여행사" || $catename == "선불폰")
@@ -1080,19 +1082,22 @@ function insert_point($mb_id, $point, $content = '', $rel_table = '', $rel_id = 
     }
     $po_mb_point = $mb_point + $point;
 
-    $sql = " insert into {$g5['point_table']}
-                set mb_id = '$mb_id',
+    if($mb_id != ''){
+        $sql = " insert into {$g5['point_table']}
+                 set mb_id = '".sql_real_escape_string(strip_tags($mb_id))."',               
                     po_datetime = '" . G5_TIME_YMDHIS . "',
-                    po_content = '" . addslashes($content) . "',
-                    po_point = '$point',
+                    po_content = '".sql_real_escape_string(strip_tags(addslashes($content)))."',
+                    po_point = '".sql_real_escape_string(strip_tags($point))."',
                     po_use_point = '0',
-                    po_mb_point = '$po_mb_point',
+                    po_mb_point = '".sql_real_escape_string(strip_tags($po_mb_point))."',
                     po_expired = '$po_expired',
                     po_expire_date = '$po_expire_date',
-                    po_rel_table = '$rel_table',
-                    po_rel_id = '$rel_id',
-                    po_rel_action = '$rel_action' ";
+                    po_rel_table = '".sql_real_escape_string(strip_tags($rel_table))."',
+                    po_rel_id = '".sql_real_escape_string(strip_tags($rel_id))."',
+                    po_rel_action = '".sql_real_escape_string(strip_tags($rel_action))."' ";
     sql_query($sql);
+    }
+    
 
     // 포인트를 사용한 경우 포인트 내역에 사용금액 기록
     if ($point < 0) {

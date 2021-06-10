@@ -165,13 +165,35 @@ if ($res_date['mb_4'] != '') {
             $listd[$k]['name'] = substr($menu[0]['s'][$ii]['text'], 0, strrpos($menu[0]['s'][$ii]['text'], "-"));
         }
     } ?>
+     <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
+        <img src="<?php echo G5_URL ?>/img/img-flag5-on.png" alt="flag5-on" />출장 업체정보
+    </li>
+    <?php
+    for ($i = 22; $i < 23; $i++) {
+        $me = $menu[0]['s'][$i];
+    ?>
+        <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
+            <?php if (isset($me['s'])) { //Is Sub Menu 
+            ?>
+            <?php } ?>
+            <div style="<?php if (strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
+                <p><?php echo $me['text']; ?></p>
+                <a class=" <?php if (strstr($me['href'], $bo_table)) echo "activesubs" ?> cat_2_bg " title="<?php echo $me['text'] . ' 정보 | 밤의제국 bamje.com'; ?>" style="<?php if (strstr($me['href'], $bo_table)) echo "background-color: #ffd345" ?>;" href="<?php echo $me['href']; ?>" target="_self">정보
+                </a>
+                <a class="<?php if (strstr($menu[1]['s'][$i]['href'], $bo_table)) echo "activesubs" ?> cat_1_bg " title="<?php echo $me['text']; ?> 후기" style="<?php if (strstr($menu[1]['s'][$i]['href'], $bo_table)) echo "background-color: #ffd345" ?>;" href="<?php echo $menu[1]['s'][$i]['href']; ?>" target="_self">
+                    후기
+                </a>
+            </div>
+        </li>
+    <?php } //for  
+    ?>
 
     <!------------ 업체정보-start------------------------------ -->
     <li class="me-li" style="border-bottom: 2px solid #aaa; font-size: 16px; color: #252525; padding-top: 14px; padding-bottom: 12px; height: 54px;">
         <img src="<?php echo G5_URL ?>/img/img-flag5-on.png" alt="flag5-on" />키스방/립카페/핸플 업체정보
     </li>
     <?php
-    for ($i = 22; $i < 25; $i++) {
+    for ($i = 23; $i < 25; $i++) {
         $me = $menu[0]['s'][$i];
     ?>
         <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
