@@ -13,7 +13,7 @@ $co_end_datetime = get_end_datetime($co_start, $currentyear, $currentmonth);
 
 $sql_common = " from {$g5['coupon_table']} a INNER JOIN {$g5['member_table']} b ON a.mb_id=b.mb_id INNER JOIN {$g5['board_table']} c ON a.bo_table=c.bo_table";
 
-$sql_search = " where (b.mb_level='26' or b.mb_level='27') and (a.co_sale_num >='1' and a.co_free_num >='1' and  a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}')";
+$sql_search = " where (b.mb_level='26' or b.mb_level='27') and ((a.co_sale_num-a.co_sent_snum)>='1' and (a.co_free_num-a.co_sent_fnum)>='1' and  a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}')";
 
 $sql_order = " order by c.bo_order asc";
 
@@ -30,11 +30,12 @@ $total_page  = ceil($total_count / $rows);
 if ($page < 1) $page = 1; 
 $from_record = ($page - 1) * $rows; 
 
-$sql = " select a.mb_id, a.co_entity, a.co_sale_num, a.co_free_num, a.wr_id, a.bo_table, b.mb_nick, b.mb_level, b.mb_homepage, b.mb_point, b.mb_7, c.bo_subject, c.bo_order
+$sql = " select a.mb_id, a.co_entity, (a.co_sale_num - a.co_sent_snum) as sale, (a.co_free_num-a.co_sent_fnum) as free, a.wr_id, a.bo_table, b.mb_nick, b.mb_level, b.mb_homepage, b.mb_point, b.mb_7, c.bo_subject, c.bo_order
             {$sql_common}
             {$sql_search}
             {$sql_order}
             limit {$from_record}, {$rows}";
+            echo $sql;
 $result = sql_query($sql);
 
 $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목록</a>';
@@ -80,7 +81,7 @@ $colspan = 8;
                 <td class="td_left"><?php echo get_text($row['co_entity']); ?></td>      
                 <td class="td_center"><?php echo $row['mb_level']; ?></td>
                 <td class="td_left"><?php echo $row['bo_subject'].'-'.$row['mb_7'];?></td>
-                <td class="td_center"><?php echo '원가권 '.$row['co_sale_num'].' 무료권 '.$row['co_free_num']; ?></td>
+                <td class="td_center"><?php echo '원가권 '.$row['sale'].' 무료권 '.$row['free']; ?></td>
                 <td class="td_center"><?php echo $link1; ?><?php echo '바로가기'; ?><?php echo $link2; ?></td>
             </tr>    
         <?php    
