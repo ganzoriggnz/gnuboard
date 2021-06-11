@@ -193,7 +193,7 @@ if ($res_date['mb_4'] != '') {
         <img src="<?php echo G5_URL ?>/img/img-flag5-on.png" alt="flag5-on" />키스방/립카페/핸플 업체정보
     </li>
     <?php
-    for ($i = 23; $i < 25; $i++) {
+    for ($i = 23; $i < 26; $i++) {
         $me = $menu[0]['s'][$i];
     ?>
         <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
@@ -217,7 +217,7 @@ if ($res_date['mb_4'] != '') {
         <img src="<?php echo G5_URL ?>/img/img-flag5-on.png" alt="flag5-on" />기타 업체정보
     </li>
     <?php
-    for ($i = 25; $i < 26; $i++) {
+    for ($i = 26; $i < 27; $i++) {
         $me = $menu[0]['s'][$i];
     ?>
         <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
