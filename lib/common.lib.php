@@ -4325,7 +4325,7 @@ function get_board_atname($bo_table = '')
     $row = sql_query(" select bo_table, bo_subject 
     from g5_board 
     where gr_id = 'attendance' order by bo_order ");
-    for ($i = 1; $res = sql_fetch_array($row); $i++) {
+    for ($i = 0; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
     }
@@ -4345,7 +4345,7 @@ function get_board_atKoreanname($bo_table)
     global $g5;
     $list = array();
     $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance'");
-    for ($i = 1; $res = sql_fetch_array($row); $i++) {
+    for ($i = 0; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
     }
@@ -4364,12 +4364,12 @@ function get_board_category_name($bo_table_category = '')
     $row = sql_query(" select bo_table, bo_subject 
     from g5_board 
     where gr_id = 'attendance' order by bo_order");
-    for ($i = 1; $res = sql_fetch_array($row); $i++) {
+    for ($i = 0; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
     }
     $str = '<select class="slct_category" id="mb_7" name="mb_7"><option>분류를 선택하세요</option>';
-    for ($i = 1; $i < count($list); $i++) {
+    for ($i = 0; $i < count($list); $i++) {
         $str .= "<optgroup label= " . $list[$i]['bo_subject'] . ">\n";
         $str .= get_category_option4($list[$i]['bo_subject'], $bo_table_category);
         $str .= ">" . $list[$i]['bo_subject'] . "</option>\n";
@@ -4407,7 +4407,7 @@ function get_board_atname2($bo_table = '', $too)
     $list = array();
     $str;
     $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance' ");
-    for ($i = 1; $res = sql_fetch_array($row); $i++) {
+    for ($i = 0; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
     }
