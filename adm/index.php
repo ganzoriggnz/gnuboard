@@ -1,4 +1,4 @@
-<?php if($_SERVER['HTTP_HOST'] === "dkswjs-tjdrhd.com"|| $_SERVER['HTTP_HOST'] === "210.114.18.63" || $_SERVER['HTTP_HOST'] === "localhost" || $_SERVER['HTTP_HOST'] === "localhost:8080"){ ?>
+<?php if($_SERVER['HTTP_HOST'] === "dkswjs-tjdrhd.com"|| $_SERVER['HTTP_HOST'] === "210.114.22.148" || $_SERVER['HTTP_HOST'] === "localhost" || $_SERVER['HTTP_HOST'] === "localhost:8080"){ ?>
 <?php
 
 $sub_menu = '100000';

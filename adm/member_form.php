@@ -221,39 +221,26 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>
         <!-- ------------------------- category name  ---------------------------------------------->
         <th scope="row"><label for="mb_7">분류</label></th>
         <td>
-        <div class="col-md-4">
-                    <?php echo get_board_category_name($mb['mb_7']); ?>
+            <div class="col-md-4">
+                   <?php echo get_category_option4($mb['mb_6'],$mb['mb_7']); ?>
 			</div>
-            <input type="text" disabled name="mb_7t" value="<?php echo get_board_atKoreanname($mb['mb_6'])." - ".$mb['mb_7']; ?>" id="mb_7t" class="frm_input" size="30" maxlength="255">
-
         </td>
 <!-- ------------------------- category name  ------------------------------------->
         <script>
-        $(document).ready(function(){
-            var count = 0;
-            var e = document.getElementById("mb_6");
-            var strUser = e.options[e.selectedIndex].text;
-            $(".panel1 slct_category").click(function(){
-                var id = this.id;
-                count = 1;
-                $("#cat1").css("background","#4D4D4D");
+        $(document).ready(function() {           
+            $('#cat_select').on('change', function() {
+                var mb_6 = $('#cat_select').val();
                 $.ajax({
-                        type: 'POST',
-                        url: 'category.select.php',
-                        data: {
-                            'ca_name': strUser,
-                        },
-                        dataType: 'text',
-                        success: function(response) {
-                            $('#mb_7').val();
-                            /* $(".panel2 button").prop('disabled', false);  
-                            $(".panel2 button").removeProp('disabled'); */
-                            // $('#but1').val(lastClickedTime);
-                    }
+                type: 'POST',
+                url: "select_category.php",
+                data: {'mb_6': mb_6},
+                dataType: 'text',
+                success: function(response){
+                $("#cat_angilal").html(response);
+                }
                 });
-                
+            });
         });
-    });
         </script>
     </tr>
     <tr>
