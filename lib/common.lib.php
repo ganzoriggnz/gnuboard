@@ -1082,21 +1082,20 @@ function insert_point($mb_id, $point, $content = '', $rel_table = '', $rel_id = 
     }
     $po_mb_point = $mb_point + $point;
 
-    if($mb_id != ''){
-        $sql = " insert into {$g5['point_table']}
-                 set mb_id = '".sql_real_escape_string(strip_tags($mb_id))."',               
-                    po_datetime = '" . G5_TIME_YMDHIS . "',
-                    po_content = '".sql_real_escape_string(strip_tags(addslashes($content)))."',
-                    po_point = '".sql_real_escape_string(strip_tags($point))."',
-                    po_use_point = '0',
-                    po_mb_point = '".sql_real_escape_string(strip_tags($po_mb_point))."',
-                    po_expired = '$po_expired',
-                    po_expire_date = '$po_expire_date',
-                    po_rel_table = '".sql_real_escape_string(strip_tags($rel_table))."',
-                    po_rel_id = '".sql_real_escape_string(strip_tags($rel_id))."',
-                    po_rel_action = '".sql_real_escape_string(strip_tags($rel_action))."' ";
+    $sql = " insert into {$g5['point_table']}
+                set mb_id = '".sql_real_escape_string(strip_tags($mb_id))."',               
+                po_datetime = '" . G5_TIME_YMDHIS . "',
+                po_content = '".sql_real_escape_string(strip_tags(addslashes($content)))."',
+                po_point = '".sql_real_escape_string(strip_tags($point))."',
+                po_use_point = '0',
+                po_mb_point = '".sql_real_escape_string(strip_tags($po_mb_point))."',
+                po_expired = '$po_expired',
+                po_expire_date = '$po_expire_date',
+                po_rel_table = '".sql_real_escape_string(strip_tags($rel_table))."',
+                po_rel_id = '".sql_real_escape_string(strip_tags($rel_id))."',
+                po_rel_action = '".sql_real_escape_string(strip_tags($rel_action))."' ";
     sql_query($sql);
-    }
+
     
 
     // 포인트를 사용한 경우 포인트 내역에 사용금액 기록
