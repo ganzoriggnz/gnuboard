@@ -4406,7 +4406,7 @@ function get_board_atname2($bo_table = '', $too)
     $list = array();
     $str;
     $row = sql_query(" select bo_table, bo_subject from g5_board where gr_id = 'attendance' ");
-    for ($i = 0; $res = sql_fetch_array($row); $i++) {
+    for ($i = 1; $res = sql_fetch_array($row); $i++) {
         $list[$i]['bo_table'] = $res['bo_table'];
         $list[$i]['bo_subject'] = $res['bo_subject'];
     }
