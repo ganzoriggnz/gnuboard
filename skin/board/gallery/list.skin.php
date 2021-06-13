@@ -54,7 +54,7 @@ if ($board['bo_use_category']) {
     } else
         $category_option .= '>전체</a></li>';
 
-    $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
+    $categories = explode('|', $board['bo_category_list'], -1); // 구분자가 , 로 되어 있음
 
     for ($i = 0; $i < count($categories); $i++) {
 
