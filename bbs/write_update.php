@@ -319,14 +319,17 @@ if ($w == '' || $w == 'r') {
     sql_query($sql);
     $wr_id = sql_insert_id();
 
-    $date = G5_TIME_YMDHIS;
-    $newdate = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($date)));
-    $sql1 = " UPDATE {$g5['member_table']}
-                SET 
-                mb_3 = '{$date}',
-                mb_4 = '{$newdate}'
-               WHERE  mb_id = '{$member['mb_id']}'";
-    sql_query($sql1);
+    if($gr_id=='attendance'){
+        $date = G5_TIME_YMDHIS;
+        $newdate = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($date)));
+        $sql1 = " UPDATE {$g5['member_table']}
+                    SET 
+                    mb_3 = '{$date}',
+                    mb_4 = '{$newdate}'
+                WHERE  mb_id = '{$member['mb_id']}'";
+        sql_query($sql1);
+    }
+    
 
     // 부모 아이디에 UPDATE
     sql_query(" update $write_table set wr_parent = '$wr_id' where wr_id = '$wr_id' ");

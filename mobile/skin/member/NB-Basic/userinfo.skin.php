@@ -13,13 +13,66 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 #user_cate_ul li a {
     padding: 2px 5px 2px 5px;
 }
+
+.tbl > thead tr > th {
+    text-align:center !important;
+}
+.tbl > tbody> tr > td {
+    text-align:center !important;
+}
+.tbl > tbody> tr > td {
+    text-align:center !important;
+    padding: 5px 0;
+}
+.tbl {
+    width:95%;
+    margin-top:25px 5px 10px 15px !important;
+    border: 1px solid #dee2e6;
+}
+.tbl tr {
+    border: 1px solid #dee2e6;
+}
+.tbl th {
+        padding: .75rem;
+        vertical-align: top;
+}
+.tbl td:first-child {
+    background: #F5F5F5 !important;
+}
 </style>
 <div id="bo_v">
     <?php
     $userinfo = "actived";
     include 'infotab.php';?>
+    <div>
+        <table class="tbl px-3 ml-2 mr-2 mb-3">
+            <tbody>
+                <tr>
+                    <td>현재레벨</td>
+                    <td><p style="font-weight: normal; height:20px;" ><?php 
+                            echo get_level($member['mb_id']).' '.get_level_name($member['mb_level']).' Lv.'.$member['mb_level']; ?> </td>
+                </tr>
+                <tr>
+                    <td>가입일</td>
+                    <td><?php echo floor((time() - strtotime($member['mb_datetime']))/86400).' 일'; ?></td>
+                </tr>
+                <tr>
+                    <td>후기 작성개수</td>
+                    <td><?php echo $cnt_review.'개'?></td>
+                </tr>
+                <tr>
+                    <td>게시글 작성개수</td>
+                    <td><?php echo $cnt_other.'개'?></td>
+                </tr>
+                <tr>
+                    <td>댓글 작성개수</td>
+                    <td><?php echo $cnt_comment.'개'?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <section class="xm">
-        <table cellspacing="0" class=" px-3 mr-3" cellpadding="0" width="100%" style="font-size: 12px; padding:5px;"
+        <table cellspacing="0" class="px-3 mr-3" cellpadding="0" width="100%" style="font-size: 12px; padding:5px;"
             id="level-up">
             <thead>
                 <tr style="font-size: 12px; ">

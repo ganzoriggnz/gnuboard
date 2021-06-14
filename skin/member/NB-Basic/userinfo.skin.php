@@ -97,7 +97,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     </nav>
     <div>
         <style>
-            table > tbody tr > th {
+            table > thead tr > th {
                 text-align:center !important;
             }
             table > tbody> tr > td {
@@ -105,6 +105,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             }
             table > tbody> tr > td {
                 text-align:center !important;
+                padding: 5px 0;
             }
             .tbl {
                 width:80%;
@@ -118,26 +119,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     padding: .75rem;
                     vertical-align: top;
                 }
-            .nextlevel > td {
-                vertical-align:middle !important;
-            }
-            .nextlevel > th {
-                vertical-align:middle !important;
+            .tbl thead tr {
+                background: #F5F5F5;
             }
         </style>
 
         <table class="tbl">
-            <tbody>
-                <tr class="active" style="background: #F5F5F5;">
+            <thead>
+                <tr class="active">
                     <th>현재레벨</th>
                     <th>가입일</th>
                     <th>후기 작성개수</th>
                     <th>게시글 작성개수</th>
                     <th>댓글 작성개수</th>
                 </tr>
+            </thead>
+            <tbody>
                 <tr class="active">
-                    <th><p style="font-weight: normal; height:20px;" ><?php 
-                            echo get_level($member['mb_id']).' '.get_level_name($member['mb_level']).' Lv.'.$member['mb_level']; ?> </th>
+                    <td><p style="font-weight: normal; height:20px;" ><?php 
+                            echo get_level($member['mb_id']).' '.get_level_name($member['mb_level']).' Lv.'.$member['mb_level']; ?> </td>
                     <td><?php echo floor((time() - strtotime($member['mb_datetime']))/86400).' 일'; ?></td>
                     <td><?php echo $cnt_review.'개'?></td>
                     <td><?php echo $cnt_other.'개'?></td>

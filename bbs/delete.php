@@ -135,6 +135,7 @@ if($cnt_cou > 0){
 }
  
 // Update member table when delete post
+if($gr_id=='attendance')
 sql_query(" update {$g5['member_table']} set mb_3 = '', mb_4 = '', mb_5 = '' where mb_id = '{$write['mb_id']}'");
 
 /*

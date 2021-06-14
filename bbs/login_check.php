@@ -117,12 +117,11 @@ if($cou_cnt == 0 && $now > $co_insert_date1 && $now < $co_insert_date2){
                             co_entity = '{$row['co_entity']}',
                             co_sale_num = '{$row['co_sale_num']}',
                             co_free_num = '{$row['co_free_num']}',
-                            co_sent_snum = '{$row['co_sent_snum']}',
-                            co_sent_fnum = '{$row['co_sent_fnum']}',
+                            co_sent_snum = '0',
+                            co_sent_fnum = '0',
                             co_created_datetime = '{$now}',                          
                             co_begin_datetime = '{$co_begin_datetime}',
                             co_end_datetime = '{$co_end_datetime}'";
-
                 sql_query($sql_ins);
     }
 }
