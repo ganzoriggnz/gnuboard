@@ -14,9 +14,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     padding: 2px 5px 2px 5px;
 }
 
-.tbl > thead tr > th {
-    text-align:center !important;
-}
+
 .tbl > tbody> tr > td {
     text-align:center !important;
 }
@@ -31,6 +29,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 }
 .tbl tr {
     border: 1px solid #dee2e6;
+    font-size: 12px;
 }
 .tbl th {
         padding: .75rem;
