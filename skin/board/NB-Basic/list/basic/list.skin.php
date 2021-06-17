@@ -35,7 +35,27 @@ switch ($boset['target']) {
 
 // 글 수
 if ($gr_id == 'attendance') {
-    shuffle($list);
+    //shuffle($list);
+    $sortBy = array();
+	foreach ($list as $key => $item) {
+		$sortBy[$key] = $item['lvl_27'];
+	}
+	array_multisort($sortBy, SORT_DESC, $list);
+
+	$listWith27 = array();
+	$listWithout27 = array();
+	foreach ($list as $key => $item) {
+		if ($item['lvl_27']) {
+			array_push($listWith27, $item);
+		} else {
+			array_push($listWithout27, $item);
+		}
+	}
+
+	shuffle($listWith27);
+	shuffle($listWithout27);
+
+	$list = array_merge($listWith27, $listWithout27);
     $list_cnt = count($list);
 } else {
     $list_cnt = count($list);
