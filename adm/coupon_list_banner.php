@@ -29,13 +29,13 @@ $rows=100;
 $total_page  = ceil($total_count / $rows);  
 if ($page < 1) $page = 1; 
 $from_record = ($page - 1) * $rows; 
+//$list_num = $total_count - ($page - 1) * $rows;
 
 $sql = " select a.mb_id, a.co_entity, (a.co_sale_num - a.co_sent_snum) as sale, (a.co_free_num-a.co_sent_fnum) as free, a.wr_id, a.bo_table, b.mb_nick, b.mb_level, b.mb_homepage, b.mb_point, b.mb_7, c.bo_subject, c.bo_order
             {$sql_common}
             {$sql_search}
             {$sql_order}
             limit {$from_record}, {$rows}";
-            echo $sql;
 $result = sql_query($sql);
 
 $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목록</a>';
@@ -75,7 +75,7 @@ $colspan = 8;
             //$bg = 'bg'.($i%2);
         ?>
             <tr>
-                <td class="td_center"><?php echo $i+1; ?></td>
+                <td class="td_center"><?php echo number_format($i+1+($page - 1) * $rows) ?></td>
                 <td class="td_left"><?php echo $row['mb_id']; ?></td>
                 <td class="td_left sv_use"><div><?php echo $mb_nick; ?></div></td>
                 <td class="td_left"><?php echo get_text($row['co_entity']); ?></td>      

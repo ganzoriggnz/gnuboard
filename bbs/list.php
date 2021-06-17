@@ -94,7 +94,7 @@ if (!$is_search_bbs) {
     for ($k = 0; $k < $board_notice_count; $k++) {
         if (trim($arr_notice[$k]) == '') continue;
 
-        $row = sql_fetch(" select *, exists(select 1 from  {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_notice[$k]}' ");
+        $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_notice[$k]}' ");
 
         if (!$row['wr_id']) continue;
 
@@ -114,7 +114,7 @@ if (!$is_search_bbs) {
     for ($k = 0; $k < $board_event_count; $k++) {
         if (trim($arr_event[$k]) == '') continue;
 
-        $row = sql_fetch(" select *, exists(select 1 from  {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_event[$k]}' ");
+        $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_event[$k]}' ");
 
         if (!$row['wr_id']) continue;
 
@@ -131,7 +131,7 @@ if (!$is_search_bbs) {
     }
     for ($k = 0; $k < $board_best_count; $k++) {
         if (trim($arr_event[$k]) == '') continue;
-        $row = sql_fetch(" select *, exists(select 1 from  {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_best[$k]}' ");
+        $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_best[$k]}' ");
         if (!$row['wr_id']) continue;
         $best_array[] = $row['wr_id'];
         if ($k < $from_best_idx) continue;
@@ -243,7 +243,7 @@ if ($is_search_bbs) {
 
     $sql .= " where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
-    $sql = " select *, exists(select 1 from  {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27  from {$write_table} a where a.wr_is_comment = 0  " . $nameddd;
+    $sql = " select *, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27 from {$write_table} a where a.wr_is_comment = 0  " . $nameddd;
     $mddd_id = "";
     if (!empty($notice_array))
         $mddd_id .= implode(', ', $notice_array);
@@ -264,13 +264,12 @@ if ($is_search_bbs) {
 // 페이지의 공지개수가 목록수 보다 작을 때만 실행
 if ($page_rows > 0) {
     $result = sql_query($sql);
-
     $k = 0;
 
     while ($row = sql_fetch_array($result)) {
         // 검색일 경우 wr_id만 얻었으므로 다시 한행을 얻는다
         if ($is_search_bbs) {
-            $query = " select *, exists(select 1 from  {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27 from {$write_table} ";
+            $query = " select * from {$write_table} ";
 
             if ($gr_id == 'attendance' && $stx == 'mb_name') {
                 $query .= " a left join g5_member b on a.mb_id = b.mb_id ";
@@ -329,7 +328,6 @@ if ($is_search_bbs) {
         $write_pages = page_insertafter($write_pages, '<a href="' . $next_part_href . '" class="pg_page pg_end">다음검색</a>');
     }
 }
-
 
 $write_href = '';
 if (($bo_table != 'suggestions' && $member['mb_level'] >= $board['bo_write_level']) || ($bo_table == 'suggestions' && $member['mb_level'] > 1)) {
