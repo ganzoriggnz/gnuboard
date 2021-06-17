@@ -523,7 +523,7 @@ if ($d) {
                 $total_page  = ceil($total_count / $rows);  
                 if ($page < 1) $page = 1; 
                 $from_record = ($page - 1) * $rows; 
-                $list_num = $total_count - ($page - 1) * $rows;
+                //$list_num = $total_count - ($page - 1) * $rows;
                 // 출석 테이블 연결
                 $sql = " select * from {$g5['attendance_table']} where $sql_common order by datetime asc, day desc limit {$from_record}, {$rows}";
                 $result = sql_query($sql);
@@ -555,7 +555,7 @@ if ($d) {
 
                 ?>
                     <tr height="30" class="bg<?php echo $list ?>">
-                        <td align="center"><?php echo number_format($rank+($page - 1) * $list_page_rows) ?> 등</td>
+                        <td align="center"><?php echo number_format($rank+($page - 1) * $rows) ?> 등</td>
                         <td align="center"><?php echo substr($data['datetime'], 10, 16); ?></td>
                         <td align="left"><?php echo na_name_photo($check['mb_id'], $name) ?></td>
                         <td class="show_at" style="padding:0 0 0 20px;"><?php echo get_text($data['subject']) ?></td>
