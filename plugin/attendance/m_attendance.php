@@ -418,7 +418,7 @@ if ($d) {
                     $total_count = $row['cnt'];
      
                     //$rows = $config['cf_page_rows'];
-                    $rows=50;
+                    $rows=15;
                     $total_page  = ceil($total_count / $rows);  
                     if ($page < 1) $page = 1; 
                     $from_record = ($page - 1) * $rows; 

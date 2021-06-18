@@ -441,8 +441,18 @@ if ($d) {
                     <td width="60" align="center" bgcolor="#2c2c2c" style='color:#ffffff;font-weight:none;'>개근</td>
                 </tr>
                 <?php
+                $sql = " select count(*) as cnt from {$g5['attendance_table']} where $sql_common";
+                $row = sql_fetch($sql);
+                $total_count = $row['cnt'];
+
+                //$rows = $config['cf_page_rows'];
+                $rows=15;
+                $total_page  = ceil($total_count / $rows);  
+                if ($page < 1) $page = 1; 
+                $from_record = ($page - 1) * $rows; 
+                //$list_num = $total_count - ($page - 1) * $rows;
                 // 출석 테이블 연결
-                $sql = " select * from {$g5['attendance_table']} where $sql_common order by datetime asc, day desc ";
+                $sql = " select * from {$g5['attendance_table']} where $sql_common order by datetime asc, day desc limit {$from_record}, {$rows}";
                 $result = sql_query($sql);
                 for ($i = 0; $data = sql_fetch_array($result); $i++) {
 
@@ -472,7 +482,7 @@ if ($d) {
 
                 ?>
                     <tr height="30" class="bg<?php echo $list ?>">
-                        <td align="center"><?php echo $rank ?> 등</td>
+                        <td align="center"><?php echo number_format($rank+($page - 1) * $rows) ?> 등</td>
                         <td align="center"><?php echo substr($data['datetime'], 10, 16); ?></td>
                         <td align="left"><?php echo $name ?></td>
                         <td align="center"><?php echo $on ?></td>
