@@ -172,7 +172,14 @@ if ($gr_id == 'attendance') {
                 $list[$i]['num'] = '<span class="na-best" ></span><span class="sr-only"></span>';
                 $list[$i]['num2'] = '<span class="na-best d-md-none" ></span><span class="sr-only"></span>';
                 $list[$i]['subject'] = '<strong>' . $list[$i]['subject'] . '</strong>';
-            } else if ($wr_id == $list[$i]['wr_id']) {
+            } 
+            if ($list[$i]['is_coupon']) {
+                $li_css = ' bg-light';
+                $list[$i]['num'] = '<span class="na-coupon" ></span><span class="sr-only"></span>';
+                $list[$i]['num2'] = '<span class="na-coupon d-md-none" ></span><span class="sr-only"></span>';
+                $list[$i]['subject'] = '<strong>' . $list[$i]['subject'] . '</strong>';
+            }
+            else if ($wr_id == $list[$i]['wr_id']) {
                 $li_css = ' bg-light';
                 $list[$i]['num'] = '<span class="na-text text-primary">열람</span>';
                 $list[$i]['num2'] = '<span class="na-text text-primary d-md-none">열람</span>';

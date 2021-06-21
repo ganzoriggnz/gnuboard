@@ -37,16 +37,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 autocomplete="off">
                 <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
                 <input type="hidden" name="co_entity" value="<?php echo $member['mb_name'] ?>">
+                <input type="hidden" id="co_sale" value="<?php echo $row_set['bo_sale'] ?>">
+                <input type="hidden" id="co_free" value="<?php echo $row_set['bo_free'] ?>">
+                <input type="hidden" id="co_total" value="<?php echo $row_set['bo_total'] ?>">
+                <input type="hidden" id="co_cnt" value="<?php echo $row_cnt['cnt'] ?>">
 
                 <div class="p-20">
                     <div class="coupon_label col-form-label">원가권 :</div>
-                    <input type="number" name="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder=""
+                    <input type="number" name="co_sale_num" id="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder=""
                         class="form-control coupon_input"
                         <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else {echo '';}?>>
                 </div>
                 <div class="p-20">
                     <div class="coupon_label col-form-label">무료권 :</div>
-                    <input type="number" name="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder=""
+                    <input type="number" name="co_free_num" id="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder=""
                         class="form-control coupon_input"
                         <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else { echo '';}?>>
                 </div>
@@ -62,27 +66,57 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                         <a href="#" class="btn1">확인</a>
                     </div>
                 </div>
+                <div class="popup_box2">
+                    <label>관리자가 설정한 원가권, 무료권 갯수 이하이므로 등록을 하실 수 없습니다.</label>
+                    <div class="btns1">
+                        <a href="#" class="btn1">확인</a>
+                    </div>
+                </div>
+                <div class="popup_box3" style="display:none;">
+                    <label>관리자가 설정한 업소 갯수가 모두 등록이 완료되어 현재 등록을 할 수 없습니다.</label>
+                    <div class="btns1">
+                        <a href="#" class="btn1">확인</a>
+                    </div>
+                </div>
             </form>
 
             <script>
             function fcouponcreate_submit(f) {
-                if (!f.co_sale_num) {
+                var sale_cnt = $('#co_sale').val();
+                var free_cnt = $('#co_free').val();
+                var total_cnt = $('#co_total').val();
+                var sale_num_cnt = $('#co_sale_num').val();
+                var free_num_cnt = $('#co_free_num').val();
+                var co_cnt = $('#co_cnt').val();
+
+                /* if (f.co_sale_num=='') {
                     alert("Please insert quantity of sale coupon!");
                     f.co_sale_num.focus();
                     return false;
                 }
 
-                if (!f.co_free_num) {
+                if (f.co_free_num=='') {
                     alert("Please insert quantity of free coupon!");
                     f.co_free_num.focus();
                     return false;
-                }
+                } */
 
-                var agree = confirm("쿠폰 개수를 저장하시겠습니까?");
-                if (agree)
+                if(sale_cnt > sale_num_cnt  || free_cnt > free_num_cnt){
+                    $('.popup_box2').css("display", "block");
+                    $('.btn1').click(function(){
+                        $('.popup_box2').css("display", "none");
+                    });
+                }
+                if(co_cnt > total_cnt) {
+                    $('.popup_box3').css("display", "block");
+                    $('.btn1').click(function(){
+                        $('.popup_box3').css("display", "none");
+                    });
+                }            
+                if(total_cnt >= co_cnt && sale_num_cnt >= sale_cnt && free_num_cnt >= free_cnt)
                     return true;
-                else
-                    return false;
+                else 
+                    return false; 
             }
             </script>
         </div>

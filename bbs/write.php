@@ -24,6 +24,7 @@ check_device($board['bo_device']);
 $notice_array = explode(',', trim($board['bo_notice']));
 $event_array = explode(',', trim($board['bo_3']));
 $best_array = explode(',', trim($board['bo_4']));
+$coupon_array = explode(',', trim($board['bo_11']));
 
 if (!($w == '' || $w == 'u' || $w == 'r')) {
     alert('w 값이 제대로 넘어오지 않았습니다.');
@@ -121,6 +122,8 @@ if ($w == '') {
         alert('공지에는 답변 할 수 없습니다.event ');
     if (in_array((int)$wr_id, $best_array))
         alert('공지에는 답변 할 수 없습니다. best ');
+    if (in_array((int)$wr_id, $coupon_array))
+        alert('공지에는 답변 할 수 없습니다. coupon ');
 
     //----------
     // 4.06.13 : 비밀글을 타인이 열람할 수 있는 오류 수정 (헐랭이, 플록님께서 알려주셨습니다.)
@@ -272,6 +275,23 @@ if ($is_admin && $w != 'r') {
         } else {
             if (in_array((int)$wr_id, $best_array)) {
                 $best_checked = 'checked';
+            }
+        }
+    }
+}
+
+$is_coupon = false;
+$coupon_checked = '';
+if ($is_admin && $w != 'r') {
+    $is_coupon = true;
+
+    if ($w == 'u') {
+        // 답변 수정시 공지 체크 없음
+        if ($write['wr_reply']) {
+            $is_coupon = false;
+        } else {
+            if (in_array((int)$wr_id, $coupon_array)) {
+                $coupon_checked = 'checked';
             }
         }
     }
