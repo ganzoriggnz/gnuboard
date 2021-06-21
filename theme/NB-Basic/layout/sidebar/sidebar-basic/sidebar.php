@@ -65,7 +65,7 @@ $menu_cnt = count($menu);
 			<a class="sidebar-wing-btn" href="https://www.facebook.com/%EB%B0%A4%EC%9D%98%EC%A0%9C%EA%B5%AD-108544554658520" target="_blank" title="페이스 북">
 				<img src="<?php echo G5_URL ?>/img/solid/facebook-logo.svg" style="height: 14px;" alt="facebook-logo" />
 			</a>
-			<a class="sidebar-wing-btn" href="https://twitter.com/3WNUTyof4dEoij5" target="_blank" title="트위터">
+			<a class="sidebar-wing-btn" href="https://twitter.com/bamje5" target="_blank" title="트위터">
 				<img src="<?php echo G5_URL ?>/img/twitter.png" alt="twitter" />
 			</a>
 			<?php if ($is_member) { ?>

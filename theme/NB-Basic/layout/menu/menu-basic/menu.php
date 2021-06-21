@@ -244,7 +244,7 @@ body::after{
                                 </a>
                             </li>
                             <li class="p-0 col me-li me-icon right_border">
-                                <a class="me-a f-md en" href="https://twitter.com/3WNUTyof4dEoij5" target="_blank" title="트위터">
+                                <a class="me-a f-md en" href="https://twitter.com/bamje5" target="_blank" title="트위터">
                                     <!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
                                     <img src="<?php echo G5_URL ?>/img/twitter.png" alt="twitter" />
                                 </a>
