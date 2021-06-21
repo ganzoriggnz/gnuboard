@@ -117,7 +117,6 @@ $sql = " insert into {$g5['board_table']}
                 bo_8_subj = '".addslashes($board['bo_8_subj'])."',
                 bo_9_subj = '".addslashes($board['bo_9_subj'])."',
                 bo_10_subj = '".addslashes($board['bo_10_subj'])."',
-                bo_11_subj = '".addslashes($board['bo_11_subj'])."',
                 bo_1 = '".addslashes($board['bo_1'])."',
                 bo_2 = '".addslashes($board['bo_2'])."',
                 bo_3 = '".addslashes($board['bo_3'])."',
@@ -127,8 +126,7 @@ $sql = " insert into {$g5['board_table']}
                 bo_7 = '".addslashes($board['bo_7'])."',
                 bo_8 = '".addslashes($board['bo_8'])."',
                 bo_9 = '".addslashes($board['bo_9'])."',
-                bo_10 = '".addslashes($board['bo_10'])."',
-                bo_11 = '".addslashes($board['bo_11'])."' ";
+                bo_10 = '".addslashes($board['bo_10'])."' ";
 sql_query($sql, false);
 
 // 게시판 폴더 생성

@@ -69,18 +69,16 @@ $best_count = 0;
 $notice_array = array();
 $event_array = array();
 $best_array = array();
-$coupon_array = array();
+
 
 // 공지 처리
 if (!$is_search_bbs) {
     $arr_notice = explode(',', trim($board['bo_notice']));
     $arr_event = explode(',', trim($board['bo_3']));
     $arr_best = explode(',', trim($board['bo_4']));
-    $arr_coupon = explode(',', trim($board['bo_11']));
     $from_notice_idx = ($page - 1) * $page_rows;
     $from_event_idx = ($page - 1) * $page_rows;
     $from_best_idx = ($page - 1) * $page_rows;
-    $from_coupon_idx = ($page - 1) * $page_rows;
     if ($from_notice_idx < 0)
         $from_notice_idx = 0;
     $board_notice_count = count($arr_notice);
@@ -92,10 +90,6 @@ if (!$is_search_bbs) {
     if ($from_best_idx < 0)
         $from_best_idx = 0;
     $board_best_count = count($arr_best);
-
-    if ($from_coupon_idx < 0)
-        $from_coupon_idx = 0;
-    $board_coupon_count = count($arr_coupon);
 
     for ($k = 0; $k < $board_notice_count; $k++) {
         if (trim($arr_notice[$k]) == '') continue;
@@ -148,19 +142,6 @@ if (!$is_search_bbs) {
         if ($best_count >= $list_page_rows)
             break;
     }
-    for ($k = 0; $k < $board_coupon_count; $k++) {
-        if (trim($arr_event[$k]) == '') continue;
-        $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_coupon[$k]}' ");
-        if (!$row['wr_id']) continue;
-        $coupon_array[] = $row['wr_id'];
-        if ($k < $from_coupon_idx) continue;
-        $list[$i] = get_list($row, $board, $board_skin_url, G5_IS_MOBILE ? $board['bo_mobile_subject_len'] : $board['bo_subject_len']);
-        $list[$i]['is_coupon'] = true;
-        $i++;
-        $coupon_count++;
-        if ($coupon_count >= $list_page_rows)
-            break;
-    }
 }
 
 $total_page  = ceil($total_count / $page_rows);  // 전체 페이지 계산
@@ -199,18 +180,6 @@ if (!empty($best_array)) {
 
     if ($best_count > 0)
         $page_rows -= $best_count;
-
-    if ($page_rows < 0)
-        $page_rows = $list_page_rows;
-}
-if (!empty($coupon_array)) {
-    $from_record -= count($coupon_array);
-
-    if ($from_record < 0)
-        $from_record = 0;
-
-    if ($coupon_count > 0)
-        $page_rows -= $coupon_count;
 
     if ($page_rows < 0)
         $page_rows = $list_page_rows;
@@ -264,6 +233,7 @@ if ($_GET['nameid']) {
     // alert($nameddd);
 }
 
+
 if ($is_search_bbs) {
     $sql = " select distinct wr_parent from {$write_table} ";
 
@@ -281,8 +251,6 @@ if ($is_search_bbs) {
         $mddd_id .= ", " . implode(', ', $event_array);
     if (!empty($best_array))
         $mddd_id .= ", " . implode(', ', $best_array);
-    if (!empty($coupon_array))
-        $mddd_id .= ", " . implode(', ', $coupon_array);
 
     if (!$mddd_id)
         $sql .= " and a.wr_id ";
@@ -323,9 +291,8 @@ if ($page_rows > 0) {
         $list[$i]['is_notice'] = false;
         $list[$i]['is_eventcheck'] = false;
         $list[$i]['is_best'] = false;
-        $list[$i]['is_coupon'] = false;
 
-        $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count - $event_count - $best_count-$coupon_count;
+        $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count - $event_count - $best_count;
 
         $list[$i]['num'] = $list_num - $k;
 
