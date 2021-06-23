@@ -111,6 +111,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <?php
             if ($list[$i]['is_notice']) // 공지사항
                 echo '<strong class="notice_icon">공지</strong>';
+            elseif ($list[$i]['is_coupon']) // 공지사항
+                echo '<strong class="na-coupon">공지</strong>';
             else if ($wr_id == $list[$i]['wr_id'])
                 echo "<span class=\"bo_current\">열람중</span>";
             else
