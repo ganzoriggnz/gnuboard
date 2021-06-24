@@ -106,7 +106,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <input type="hidden" id="co_cnt" value="<?php echo $row_cnt['cnt']; ?>">
                 <input type="hidden" id="co_created" value="<?php echo $co_created_datetime; ?>">
                 <input type="hidden" id="co_insert" value="<?php echo $co_insert_date; ?>">
-                <input type="hidden" id="co_no" value="<?php echo $row['co_no']; ?>">
                 
             <table class="coupon-table">
                 <thead>
@@ -178,7 +177,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
         var co_cnt = $('#co_cnt').val();
         var co_created = $('#co_created').val();
         var co_insert = $('#co_insert').val();
-        var co_no = $('#co_no').val();
         
         if(co_created > co_insert){
             $('.popup_box1').css("display", "block");
@@ -203,7 +201,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             $('#co_free_num').focus();
             return false;
         }
-        else if((co_cnt+1) > total_cnt && co_no=='') {
+        else if(co_cnt > total_cnt) {
             $('.popup_box3').css("display", "block");
             $('.btn1').click(function(){
                 $('.popup_box3').css("display", "none");

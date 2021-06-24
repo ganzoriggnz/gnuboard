@@ -70,7 +70,7 @@ if($w == 'u'){
               WHERE bo_table = '{$_POST['bo_table']}'";                
     sql_query($sql);
     //goto_url($PHP_SELF, false); 
-    goto_url(G5_ADMIN_URL.'/coupon_setting.php?bo_table='.$_POST['bo_table']); 
+    goto_url(G5_ADMIN_URL.'/coupon_setting.php?bo_table='.$_POST['bo_table'], false); 
   
   }
 ?>
