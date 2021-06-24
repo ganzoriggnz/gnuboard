@@ -158,7 +158,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 </div>
             </div>
             <div class="popup_box4" style="display:none;">
-                <label>쿠폰 갯수를 성공적으로 저장하였다.</label>
+                <label>Coupon created successfully.</label>
                 <div class="btns1">
                     <a href="#" class="btn1">확인</a>
                 </div>
@@ -201,7 +201,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             $('#co_free_num').focus();
             return false;
         }
-        else if(co_cnt < total_cnt) {
+        else if(co_cnt <= total_cnt) {
             $('.popup_box3').css("display", "block");
             $('.btn1').click(function(){
                 $('.popup_box3').css("display", "none");
