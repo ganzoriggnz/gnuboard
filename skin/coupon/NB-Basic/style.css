@@ -207,9 +207,10 @@
   .popup_box1, .popup_box2, .popup_box3, .popup_box4 label{
     font-size: 12px;
     color: #000;
+    padding-bottom: 10px;
   }
   .popup_box1, .popup_box2, .popup_box3, .popup_box4.btns1{
-      margin: 20px 0 0 0;
+      margin: 30px 0 0 0;
   }
 .btns1 .btn1 {
     background: #f2f2f2;
