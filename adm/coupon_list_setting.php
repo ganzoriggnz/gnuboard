@@ -15,7 +15,7 @@ $co_start = date_create($now);
 $co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
 $co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
 
-$sql="SELECT * FROM {$g5['coupon_setting_table']} WHERE bo_table='$at_table' LIMIT 1";
+$sql="SELECT * FROM {$g5['coupon_setting_table']} WHERE bo_table='$at_table' AND bo_created_datetime BETWEEN '$co_begin_datetime' AND '$co_end_datetime' LIMIT 1";
 $row=sql_fetch($sql);
  
 $colspan = 3;
