@@ -174,7 +174,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
 
 
-.popup_box1, .popup_box2, .popup_box3 {
+.popup_box1, .popup_box2, .popup_box3, .popup_box4 {
     position: absolute;
     top: 20%;
     left: 50%;
@@ -190,25 +190,25 @@
     z-index: 9999;
     display: none;
   }
-  .popup_box1, .popup_box2, .popup_box3 i{
+ /*  .popup_box1, .popup_box2, .popup_box3, .popup_box4 i{
     font-size: 12px;
     color: #eb9447;
     border: 5px solid #eb9447;
     padding: 20px 10px;
     border-radius: 50%;
     margin: -10px 0 20px 0;
-  }
+  } */
   .popup_box1 h1{
     font-size: 14px;
     font-weight: bold;
     color: #000;
     margin-bottom: 10px;
   }
-  .popup_box1, .popup_box2, .popup_box3 label{
+  .popup_box1, .popup_box2, .popup_box3, .popup_box4 label{
     font-size: 12px;
     color: #000;
   }
-  .popup_box1, .popup_box2, .popup_box3 .btns1{
+  .popup_box1, .popup_box2, .popup_box3, .popup_box4.btns1{
       margin: 20px 0 0 0;
   }
 .btns1 .btn1 {
