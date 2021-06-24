@@ -201,14 +201,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             $('#co_free_num').focus();
             return false;
         }
-        else if(co_cnt > total_cnt) {
+        else if(co_cnt < total_cnt) {
             $('.popup_box3').css("display", "block");
             $('.btn1').click(function(){
                 $('.popup_box3').css("display", "none");
             });
             return false;
         } 
-        else if(total_cnt >=co_cnt && sale_num_cnt >= sale_cnt && free_num_cnt >= free_cnt && co_insert >= co_created){
+        else if(co_cnt >= total_cnt && sale_num_cnt >= sale_cnt && free_num_cnt >= free_cnt && co_insert >= co_created){
                 $('.popup_box4').css("display", "block");
                 $('.btn1').click(function(){
                     $('.popup_box4').css("display", "none");
