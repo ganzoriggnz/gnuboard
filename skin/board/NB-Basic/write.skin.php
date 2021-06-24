@@ -192,7 +192,7 @@ ul.my-table > li {
             if ($is_coupon) {
                 $option .= $option_start;
                 $option .= '<input type="checkbox" name="coupon" value="1" id="coupon" class="custom-control-input" ' . $coupon_checked . '>';
-                $option .= '<label class="custom-control-label" for="coupon"><span>쿠폰후기</span></label>';
+                $option .= '<label class="custom-control-label" for="coupon"><span>쿠폰</span></label>';
                 $option .= $option_end;
             }
 

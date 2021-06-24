@@ -95,7 +95,7 @@ $co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
 $sql = "SELECT * FROM {$g5['coupon_table']} WHERE mb_id = '{$member['mb_id']}' AND co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime'";
 $row = sql_fetch($sql);
 
-$sql_cnt = "SELECT count(*) as cnt FROM {$g5['coupon_table']} WHERE bo_table = '{$member['mb_6']}' AND co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime' AND co_sale_num > '0' AND co_free_num > '0'";
+$sql_cnt = "SELECT count(*) as cnt FROM {$g5['coupon_table']} WHERE mb_id = '{$member['mb_id']}' AND co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime'";
 $row_cnt = sql_fetch($sql_cnt);
 
 $diff_s = number_format($row['co_sale_num'] - $row['co_sent_snum']);
