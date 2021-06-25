@@ -24,7 +24,7 @@ check_device($board['bo_device']);
 $notice_array = explode(',', trim($board['bo_notice']));
 $event_array = explode(',', trim($board['bo_3']));
 $best_array = explode(',', trim($board['bo_4']));
-$coupon_array = explode(',', trim($board['bo_11']));
+$coupon_array = explode(',', trim($board['bo_8_subj']));
 
 if (!($w == '' || $w == 'u' || $w == 'r')) {
     alert('w 값이 제대로 넘어오지 않았습니다.');

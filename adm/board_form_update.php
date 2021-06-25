@@ -214,7 +214,6 @@ $sql_common .= "bo_insert_content   = '$bo_insert_content',
                 bo_8_subj           = '{$_POST['bo_8_subj']}',
                 bo_9_subj           = '{$_POST['bo_9_subj']}',
                 bo_10_subj          = '{$_POST['bo_10_subj']}',
-                bo_11_subj          = '{$_POST['bo_11_subj']}',
                 bo_1                = '{$_POST['bo_1']}',
                 bo_2                = '{$_POST['bo_2']}',
                 bo_3                = '{$_POST['bo_3']}',
@@ -224,8 +223,7 @@ $sql_common .= "bo_insert_content   = '$bo_insert_content',
                 bo_7                = '{$_POST['bo_7']}',
                 bo_8                = '{$_POST['bo_8']}',
                 bo_9                = '{$_POST['bo_9']}',
-                bo_10               = '{$_POST['bo_10']}',
-                bo_11               = '{$_POST['bo_11']}' ";
+                bo_10               = '{$_POST['bo_10']}' ";
 
                 // echo $sql_common;
 

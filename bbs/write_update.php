@@ -85,7 +85,7 @@ if (empty($_POST)) {
 $notice_array = explode(",", $board['bo_notice']);
 $event_array = explode(',', trim($board['bo_3']));
 $best_array = explode(',', trim($board['bo_4']));
-$coupon_array = explode(',', trim($board['bo_11']));
+$coupon_array = explode(',', trim($board['bo_8_subj']));
 
 if ($w == 'u' || $w == 'r') {
     $wr = get_write($write_table, $wr_id);
@@ -167,7 +167,7 @@ if ($w == '' || $w == 'u') {
     if($w =='u' && !$is_admin && $board['bo_4'] && in_array($wr['wr_id'], $best_array)){
         $best = 1;
     }
-    if($w =='u' && !$is_admin && $board['bo_11'] && in_array($wr['wr_id'], $coupon_array)){
+    if($w =='u' && !$is_admin && $board['bo_8_subj'] && in_array($wr['wr_id'], $coupon_array)){
         $coupon = 1;
     }
 
@@ -359,8 +359,8 @@ if ($w == '' || $w == 'r') {
             sql_query(" update {$g5['board_table']} set bo_4 = '{$bo_4}' where bo_table = '{$bo_table}' ");
         }
         if ($coupon) {
-            $bo_11 = $wr_id.($board['bo_11'] ? ",".$board['bo_11'] : '');
-            sql_query(" update {$g5['board_table']} set bo_11 = '{$bo_11}' where bo_table = '{$bo_table}' ");
+            $bo_8_subj = $wr_id.($board['bo_8_subj'] ? ",".$board['bo_8_subj'] : '');
+            sql_query(" update {$g5['board_table']} set bo_8_subj = '{$bo_8_subj}' where bo_table = '{$bo_table}' ");
         }
 
         insert_point($member['mb_id'], $board['bo_write_point'], "{$board['bo_subject']} {$wr_id} 글쓰기", $bo_table, $wr_id, '쓰기');
@@ -501,8 +501,8 @@ if ($w == '' || $w == 'r') {
     $bo_4 = board_notice($board['bo_4'], $wr_id, $best);
     sql_query(" update {$g5['board_table']} set bo_4 = '{$bo_4}' where bo_table = '{$bo_table}' ");
 
-    $bo_11 = board_notice($board['bo_11'], $wr_id, $coupon);
-    sql_query(" update {$g5['board_table']} set bo_11 = '{$bo_11}' where bo_table = '{$bo_table}' ");
+    $bo_8_subj = board_notice($board['bo_8_subj'], $wr_id, $coupon);
+    sql_query(" update {$g5['board_table']} set bo_8_subj = '{$bo_8_subj}' where bo_table = '{$bo_table}' ");
 
 
 

@@ -76,7 +76,7 @@ if (!$is_search_bbs) {
     $arr_notice = explode(',', trim($board['bo_notice']));
     $arr_event = explode(',', trim($board['bo_3']));
     $arr_best = explode(',', trim($board['bo_4']));
-    $arr_coupon = explode(',', trim($board['bo_11']));
+    $arr_coupon = explode(',', trim($board['bo_8_subj']));
     $from_notice_idx = ($page - 1) * $page_rows;
     $from_event_idx = ($page - 1) * $page_rows;
     $from_best_idx = ($page - 1) * $page_rows;
