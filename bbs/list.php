@@ -66,6 +66,7 @@ $i = 0;
 $notice_count = 0;
 $event_count = 0;
 $best_count = 0;
+$coupon_count = 0;
 $notice_array = array();
 $event_array = array();
 $best_array = array();
@@ -149,7 +150,7 @@ if (!$is_search_bbs) {
             break;
     }
     for ($k = 0; $k < $board_coupon_count; $k++) {
-        if (trim($arr_event[$k]) == '') continue;
+        if (trim($arr_coupon[$k]) == '') continue;
         $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_coupon[$k]}' ");
         if (!$row['wr_id']) continue;
         $coupon_array[] = $row['wr_id'];
@@ -323,7 +324,7 @@ if ($page_rows > 0) {
         $list[$i]['is_notice'] = false;
         $list[$i]['is_eventcheck'] = false;
         $list[$i]['is_best'] = false;
-        $list[$i]['is_coupon'] = false;
+        //$list[$i]['is_coupon'] = false;
 
         $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count - $event_count - $best_count-$coupon_count;
 
