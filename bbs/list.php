@@ -36,11 +36,11 @@ if ($sca || $stx || $stx === '0') {     //검색이면
 
     $row = sql_fetch($sql);
     $total_count = $row['cnt'];
-    /*
-    $sql = "select distinct wr_parent from {$write_table} where {$sql_search} ";
+    
+    /* $sql = "select distinct wr_parent from {$write_table} where {$sql_search} ";
     $result = sql_query($sql);
-    $total_count = sql_num_rows($result);
-    */
+    $total_count = sql_num_rows($result); */
+    
 } else {
     $sql_search = "";
     $total_count = $board['bo_count_write'];
@@ -137,7 +137,7 @@ if (!$is_search_bbs) {
             break;
     }
     for ($k = 0; $k < $board_best_count; $k++) {
-        if (trim($arr_event[$k]) == '') continue;
+        if (trim($arr_best[$k]) == '') continue;
         $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_best[$k]}' ");
         if (!$row['wr_id']) continue;
         $best_array[] = $row['wr_id'];
@@ -321,12 +321,7 @@ if ($page_rows > 0) {
         if (strstr($sfl, 'subject')) {
             $list[$i]['subject'] = search_font($stx, $list[$i]['subject']);
         }
-        $list[$i]['is_notice'] = false;
-        $list[$i]['is_eventcheck'] = false;
-        $list[$i]['is_best'] = false;
-        //$list[$i]['is_coupon'] = false;
-
-        $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count - $event_count - $best_count-$coupon_count;
+        $list_num = $total_count - ($page - 1) * $list_page_rows-$notice_count-$event_count-$best_count-$coupon_count;
 
         $list[$i]['num'] = $list_num - $k;
 

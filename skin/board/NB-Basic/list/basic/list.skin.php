@@ -60,6 +60,7 @@ if ($gr_id == 'attendance') {
 } else {
     $list_cnt = count($list);
 }
+
 ?>
 
 <style>
@@ -188,8 +189,6 @@ if ($gr_id == 'attendance') {
                 $list[$i]['num'] = '<span class="sr-only">번호</span>' . $list[$i]['num'];
             }
 
-
-
         ?>
             <?php if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
                 <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
@@ -201,7 +200,12 @@ if ($gr_id == 'attendance') {
                     <div class="text-left d-md-table-cell pr-md-1 <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
                         <div class="na-title float-md-left">
                             <div class="na-item">
-                                <?php if ($list[$i]['is_coupon']) echo '<img src="'.G5_IMG_URL.'/coupon.png" class="title_icon coupon_img" alt="쿠폰후기">'; ?>
+                            <?php if($gr_id != 'review') { ?>
+                                <?php if ($list[$i]['is_coupon']) echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
+                                <?php if ($list[$i]['is_notice']) echo '<img src="'.G5_URL.'/nariya/img/icon_notice.png" class="title_icon icon_img" alt="공지">'; ?>
+                                <?php if ($list[$i]['is_eventcheck']) echo '<img src="'.G5_URL.'/nariya/img/icon_event.png" class="title_icon icon_img" alt="이벤트">'; ?>
+                                <?php if ($list[$i]['is_best']) echo '<img src="'.G5_URL.'/nariya/img/icon_best.png" class="title_icon icon_img" alt="베스트">'; ?>
+                                <?php } ?>
                                 <!-- <?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; ';
                                         echo $list[$i]['num2'] ?> -->
                                 <?php if ($is_checkbox) { ?>

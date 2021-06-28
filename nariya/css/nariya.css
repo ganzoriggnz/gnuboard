@@ -232,7 +232,7 @@ i.orangered { color: orangered; }
     margin: 0; color:#fff; vertical-align: middle; background-repeat: no-repeat; 
     background-position: left top; width: 37px; min-width: 37px; height: 15px; line-height: 15px; font-size: 1px; background-image: url('../img/icon_event.png'); }
 .na-best { display: inline-block; padding: 0; margin: 0; color:#fff; vertical-align: middle; background-repeat: no-repeat; background-position: left top; width: 37px; min-width: 37px; height: 19px; line-height: 19px; font-size: 1px; background-image: url('../img/icon_best.png'); }
-.na-coupon { display: inline-block; padding: 0; margin: 0; color:#fff; vertical-align: middle; background-repeat: no-repeat; background-position: left top; width: 37px; min-width: 37px; height: 19px; line-height: 19px; font-size: 1px; background-image: url('../img/coupon.png'); }
+.na-coupon { display: inline-block; padding: 0; margin: 0; color:#fff; vertical-align: middle; background-repeat: no-repeat; background-position: left top; width: 33px; min-width: 33px; height: 33px; line-height: 33px; font-size: 1px; background-image: url('../img/coupon.png'); }
 .na-icon { position:relative; top:-1px; display:inline-block; padding:0; margin:0; color:#fff; overflow:hidden; vertical-align:middle; background-repeat: no-repeat; background-position: left top; width:12px;	height:12px; }
 .na-text { font-family: dotum; font-size: 11px; letter-spacing: -1px; line-height: 11px; font-weight: normal; }
 
