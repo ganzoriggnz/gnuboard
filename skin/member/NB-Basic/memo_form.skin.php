@@ -74,6 +74,7 @@ if($daylimit > $total_count){
 	<?php } ?>
 	
 	<form name="fmemoform" action="<?php echo $memo_action_url; ?>" onsubmit="return fmemoform_submit(this);" method="post" autocomplete="off">
+	<input type="hidden" id="mb_lvl" value=<?php echo $member['mb_level']; ?>> 
 	<ul class="list-group f-de mb-4">
 		<li class="list-group-item border-top-0 border-left-0 border-right-0">
 			<div class="form-group row mx-n2">
@@ -109,6 +110,13 @@ if($daylimit > $total_count){
 	</p>
 	</form>
 </div>
+<div class="popup_box">
+	<label>3레벨 이상만 쪽지 <br />보내기가 가능합니다.<br />
+(사이트안내 게시판 참고 바랍니다.)</label>
+	<div class="btns">
+		<a href="#" class="btn">확인</a>
+	</div>
+</div>
 
 <script>
 
@@ -132,10 +140,19 @@ function commaDown(count){
 }
 
 function fmemoform_submit(f) {
-
-    <?php echo chk_captcha_js();  ?>
-
-    return true;
+	<?php echo chk_captcha_js();  ?>	
+	var mb_lvl = $('#mb_lvl').val();
+	if(mb_lvl < 3){
+		$('.popup_box').css("display", "block");
+            $('.btn').click(function(){
+                $('.popup_box').css("display", "none");
+            });
+            return false;
+	} else {
+		
+    	return true;
+	}
+    
 }
 
 $(window).on('load', function () {
