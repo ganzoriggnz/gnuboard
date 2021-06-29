@@ -118,7 +118,7 @@ if (!$is_search_bbs) {
         if ($notice_count >= $list_page_rows)
             break;
     }
-    /* for ($k = 0; $k < $board_event_count; $k++) {
+    for ($k = 0; $k < $board_event_count; $k++) {
         if (trim($arr_event[$k]) == '') continue;
 
         $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_event[$k]}' ");
@@ -161,7 +161,7 @@ if (!$is_search_bbs) {
         $coupon_count++;
         if ($coupon_count >= $list_page_rows)
             break;
-    } */
+    }
 }
 
 $total_page  = ceil($total_count / $page_rows);  // 전체 페이지 계산

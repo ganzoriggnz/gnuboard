@@ -159,7 +159,7 @@ ul.my-table > li {
         <?php
         $option = '';
         $option_hidden = '';
-        /* if ($is_notice || $is_eventcheck || $is_best || $is_coupon || $is_html || $is_secret || $is_mail) { */
+        if ($is_notice || $is_eventcheck || $is_best || $is_coupon || $is_html || $is_secret || $is_mail) {
             $option_start = PHP_EOL . '<div class="custom-control custom-checkbox custom-control-inline">' . PHP_EOL;
             $option_end = PHP_EOL . '</div>' . PHP_EOL;
 
@@ -193,7 +193,7 @@ ul.my-table > li {
                 $option .= '<label class="custom-control-label" for="best"><span>베스트</span></label>';
                 $option .= $option_end;
             }
-            if ($gr_id=='review') {
+            if ($gr_id=='review' && $is_coupon) {
                 $option .= $option_start;
                 $option .= '<input type="checkbox" name="coupon" value="1" id="coupon" class="custom-control-input" ' . $coupon_checked . '>';
                 $option .= '<label class="custom-control-label" for="coupon"><span>쿠폰후기</span></label>';
@@ -226,7 +226,7 @@ ul.my-table > li {
                 $option .= '<label class="custom-control-label" for="mail"><span>답변메일받기</span></label>';
                 $option .= $option_end;
             }
-       /*  } */
+        }
 
         echo $option_hidden;
         ?>
@@ -893,8 +893,8 @@ ul.my-table > li {
                     $bo_tablef =  substr($bo_table, 0, $scount);
                     $hwrite_table = $g5['write_prefix'] . $bo_tablef . "at";
                     $sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment = 0 order by mb_name ASC", false);
-                
-                        if ($is_category) { ?>
+                ?>
+                    <?php if ($is_category) { ?>
                         <li class="list-group-item">
                             <div class="mb-0 form-group row">
                                 <label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
@@ -924,7 +924,20 @@ ul.my-table > li {
                                 </div>
                             </div>
                         </li>
-                        <?php } } ?>
+                    <?php } ?>
+
+                    <!-- <?php if ($board['gr_id'] != "review") { ?>
+                        <li class="list-group-item">
+                            <div class="mb-0 form-group row">
+                                <label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
+                                <div class="col-md-7">
+                                    <input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" required class="form-control required">
+                                </div>
+                            </div>
+                        </li>
+                    <?php } ?> -->
+
+                <?php } ?>
                 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
                 <?php if ($option) { ?>
