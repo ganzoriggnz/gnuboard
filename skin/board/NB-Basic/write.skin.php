@@ -159,7 +159,7 @@ ul.my-table > li {
         <?php
         $option = '';
         $option_hidden = '';
-        if ($is_notice || $is_eventcheck || $is_best || $is_coupon || $is_html || $is_secret || $is_mail) {
+        if ($is_notice || $is_html || $is_secret || $is_mail) {
             $option_start = PHP_EOL . '<div class="custom-control custom-checkbox custom-control-inline">' . PHP_EOL;
             $option_end = PHP_EOL . '</div>' . PHP_EOL;
 
@@ -193,7 +193,7 @@ ul.my-table > li {
                 $option .= '<label class="custom-control-label" for="best"><span>베스트</span></label>';
                 $option .= $option_end;
             }
-            if ($gr_id=='review' && $is_coupon) {
+            if ($is_coupon) {
                 $option .= $option_start;
                 $option .= '<input type="checkbox" name="coupon" value="1" id="coupon" class="custom-control-input" ' . $coupon_checked . '>';
                 $option .= '<label class="custom-control-label" for="coupon"><span>쿠폰후기</span></label>';
@@ -384,7 +384,7 @@ ul.my-table > li {
                         </li>
                     <?php } ?>
                 <?php } ?>
-
+                
                 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
                 <?php if ($board['gr_id'] == "review") {
                     $scount = strlen($bo_table) - 2;      // temdegt tooloh
@@ -1347,7 +1347,7 @@ ul.my-table > li {
         });
     });
 
-    /* $(document).ready(function() {
+    $(document).ready(function() {
         $('#notice').click(function() {
             if ($(this).is(':checked')) {
                 $("#ca_name").val("공지");
@@ -1364,20 +1364,20 @@ ul.my-table > li {
         });
         $('#best').click(function() {
             if ($(this).is(':checked')) {
-                $("#ca_name").val("베스트");
+                $("#ca_name").val("이벤트진행");
             } else {
                 $("#ca_name").val(null);
             }
         });
-        $('#coupon').click(function() {
+        $('#coupon).click(function() {
             if ($(this).is(':checked')) {
-                $("#ca_name").val("쿠폰후기");
+                $("#ca_name").val("이벤트진행");
             } else {
                 $("#ca_name").val(null);
             }
         });
 
-    }); */
+    });
 
     // $("input:checkbox").on('click', function() {
     // 	var $noticed = "input:checkbox[name='notice']";
@@ -1395,6 +1395,7 @@ ul.my-table > li {
     //   }
     // }
     // );
+
 
     $("input:checkbox").on('click', function() {
         var $box = $(this);

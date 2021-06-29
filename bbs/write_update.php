@@ -134,10 +134,6 @@ $best = '';
 if (isset($_POST['best']) && $_POST['best']) {
     $best = $_POST['best'];
 }
-$coupon = '';
-if (isset($_POST['coupon']) && $_POST['coupon']) {
-    $coupon = $_POST['coupon'];
-}
 
 for ($i=1; $i<=10; $i++) {
     $var = "wr_$i";

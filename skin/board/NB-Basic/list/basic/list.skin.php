@@ -39,15 +39,11 @@ if ($gr_id == 'attendance') {
     $sortBy = array();
 	foreach ($list as $key => $item) {
 		$sortBy[$key] = $item['lvl_27'];
-	}  
+	}
 	array_multisort($sortBy, SORT_DESC, $list);
 
-    $listWith27 = array();
+	$listWith27 = array();
 	$listWithout27 = array();
-    $listWith27_hasCoupon = array();
-	$listWith27_noCoupon = array();
-    $listWithout27_hasCoupon = array();
-	$listWithout27_noCoupon = array();
 	foreach ($list as $key => $item) {
 		if ($item['lvl_27']) {
 			array_push($listWith27, $item);
@@ -55,41 +51,11 @@ if ($gr_id == 'attendance') {
 			array_push($listWithout27, $item);
 		}
 	}
-    
-    $sortByCoupon27 = array();
-	foreach ($listWith27 as $key => $item) {
-		$sortByCoupon27[$key] = $item['has_coupon'];
-	}  
-	array_multisort($sortByCoupon27, SORT_DESC, $listWith27);
 
-    $sortByCoupon26 = array();
-	foreach ($listWithout27 as $key => $item) {
-		$sortByCoupon26[$key] = $item['has_coupon'];
-	}  
-	array_multisort($sortByCoupon26, SORT_DESC, $listWithout27);
+	shuffle($listWith27);
+	shuffle($listWithout27);
 
-    foreach ($listWith27 as $key => $item) {
-		if ($item['has_coupon']) {
-			array_push($listWith27_hasCoupon, $item);
-		} else {
-			array_push($listWith27_noCoupon, $item);
-		}
-	}
-
-    foreach ($listWithout27 as $key => $item) {
-		if ($item['has_coupon']) {
-			array_push($listWithout27_hasCoupon, $item);
-		} else {
-			array_push($listWithout27_noCoupon, $item);
-		}
-	}
-
-	shuffle($listWith27_hasCoupon);
-	shuffle($listWith27_noCoupon);
-    shuffle($listWithout27_hasCoupon);
-	shuffle($listWithout27_noCoupon);
-
-	$list = array_merge($listWith27_hasCoupon, $listWith27_noCoupon,$listWithout27_hasCoupon,$listWithout27_noCoupon);
+	$list = array_merge($listWith27, $listWithout27);
     $list_cnt = count($list);
 } else {
     $list_cnt = count($list);
@@ -231,10 +197,15 @@ if ($gr_id == 'attendance') {
                             <?php echo $list[$i]['num'] ?>
                         </div>
                     <?php } ?>
-                    <div class="text-left d-md-table-cell pr-md-1 <?php if($list[$i]['has_coupon']) echo ''; else echo 'py-md-2'; ?>">
+                    <div class="text-left d-md-table-cell pr-md-1 <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
                         <div class="na-title float-md-left">
                             <div class="na-item">
-                            <?php if($gr_id == 'attendance' && $list[$i]['has_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
+                            <?php if($gr_id != 'review') { ?>
+                                <?php if ($list[$i]['is_coupon']) echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
+                                <?php if ($list[$i]['is_notice']) echo '<img src="'.G5_URL.'/nariya/img/icon_notice.png" class="title_icon icon_img" alt="공지">'; ?>
+                                <?php if ($list[$i]['is_eventcheck']) echo '<img src="'.G5_URL.'/nariya/img/icon_event.png" class="title_icon icon_img" alt="이벤트">'; ?>
+                                <?php if ($list[$i]['is_best']) echo '<img src="'.G5_URL.'/nariya/img/icon_best.png" class="title_icon icon_img" alt="베스트">'; ?>
+                                <?php } ?>
                                 <!-- <?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; ';
                                         echo $list[$i]['num2'] ?> -->
                                 <?php if ($is_checkbox) { ?>

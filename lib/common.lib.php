@@ -449,15 +449,6 @@ function get_list($write_row, $board, $skin_url, $subject_len = 40, $BBS_PATH = 
     $board_notice = array_map('trim', explode(',', $board['bo_notice']));
     $list['is_notice'] = in_array($list['wr_id'], $board_notice);
 
-    $board_event = array_map('trim', explode(',', $board['bo_3']));
-    $list['is_eventcheck'] = in_array($list['wr_id'], $board_event);
-
-    $board_best = array_map('trim', explode(',', $board['bo_4']));
-    $list['is_best'] = in_array($list['wr_id'], $board_best);
-
-    $board_coupon = array_map('trim', explode(',', $board['bo_8_subj']));
-    $list['is_coupon'] = in_array($list['wr_id'], $board_coupon);
-
     if ($subject_len)
         $list['subject'] = conv_subject($list['wr_subject'], $subject_len, '…');
     else
