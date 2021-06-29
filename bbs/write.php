@@ -297,14 +297,6 @@ if ($is_admin && $w != 'r') {
     }
 }
 
-
-
-
-
-
-
-
-
 $is_html = false;
 if ($member['mb_level'] >= $board['bo_html_level'])
     $is_html = true;
