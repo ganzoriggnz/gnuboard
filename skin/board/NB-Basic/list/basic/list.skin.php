@@ -198,7 +198,7 @@ if ($gr_id == 'attendance') {
                             <?php echo $list[$i]['num'] ?>
                         </div>
                     <?php } ?>
-                    <div class="text-left d-md-table-cell pr-md-1 <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
+                    <div class="text-left d-md-table-cell py-md-2 pr-md-1">
                         <div class="na-title float-md-left">
                             <div class="na-item">
                                 <?php if ($list[$i]['is_coupon']) echo '<img src="'.G5_IMG_URL.'/coupon.png" class="title_icon coupon_img" alt="쿠폰후기">'; ?>
