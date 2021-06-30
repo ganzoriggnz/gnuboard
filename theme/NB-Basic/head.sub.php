@@ -161,6 +161,14 @@ header("Pragma: no-cache"); // HTTP/1.0
     if (!defined('G5_IS_ADMIN'))
         echo $config['cf_add_script'];
     ?>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGDK6RNY63%22%3E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZGDK6RNY63');
+</script>
 </head>
 <body<?php echo (isset($g5['body_script']) && $g5['body_script']) ? $g5['body_script'] . ' ' : ''; ?> class="<?php echo $body_class ?>">
     <?php
