@@ -562,7 +562,7 @@ if ($gr_id == 'attendance') {
                 //$li_css = ' bg-light';
                 $list[$i]['num'] = '<span class="na-coupon" ></span><span class="sr-only"></span>';
                 $list[$i]['num2'] = '<span class="na-coupon d-md-none" ></span><span class="sr-only"></span>';
-                $list[$i]['subject'] = '<strong>' . $list[$i]['subject'] . '</strong>';
+                $list[$i]['subject'] = $list[$i]['subject'];
             }
             else if ($wr_id == $list[$i]['wr_id']) {
                 $li_css = ' bg-light';
