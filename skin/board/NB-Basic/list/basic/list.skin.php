@@ -542,7 +542,7 @@ if ($gr_id == 'attendance') {
             $li_css = '';
             if ($list[$i]['is_notice']) { // 공지사항
                 $li_css = ' bg-light';
-                //$list[$i]['num'] = '<span class="na-notice" ></span><span class="sr-only"></span>';
+                $list[$i]['num'] = '<span class="na-notice" ></span><span class="sr-only"></span>';
                 $list[$i]['num2'] = '<span class="na-notice d-md-none" ></span><span class="sr-only"></span>';
                 $list[$i]['subject'] = '<strong>' . $list[$i]['subject'] . '</strong>';
             }
@@ -558,12 +558,12 @@ if ($gr_id == 'attendance') {
                 $list[$i]['num2'] = '<span class="na-best d-md-none" ></span><span class="sr-only"></span>';
                 $list[$i]['subject'] = '<strong>' . $list[$i]['subject'] . '</strong>';
             } 
-            /* if ($list[$i]['is_coupon']) {
+            if ($list[$i]['is_coupon']) {
                 $li_css = ' bg-light';
                 $list[$i]['num'] = '<span class="na-coupon" ></span><span class="sr-only"></span>';
                 $list[$i]['num2'] = '<span class="na-coupon d-md-none" ></span><span class="sr-only"></span>';
                 $list[$i]['subject'] = '<strong>' . $list[$i]['subject'] . '</strong>';
-            } */
+            }
             else if ($wr_id == $list[$i]['wr_id']) {
                 $li_css = ' bg-light';
                 $list[$i]['num'] = '<span class="na-text text-primary">열람</span>';
@@ -575,15 +575,15 @@ if ($gr_id == 'attendance') {
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
                 <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
-                    <!-- <?php if ($gr_id != 'attendance') { ?>
-                        <div class="d-none d-md-table-cell nw-3 f-sm font-weight-normal <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
+                    <?php if ($gr_id != 'attendance') { ?>
+                        <!-- <div class="d-none d-md-table-cell nw-3 f-sm font-weight-normal <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
                         <?php if($list[$i]['is_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
                         <?php if($list[$i]['is_notice'])  echo '<img src="'.G5_URL.'/nariya/img/icon_notice.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
-                        </div>                   
-                    <?php } ?> -->
-                    <div class="d-none d-md-table-cell nw-3 f-sm font-weight-normal <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
+                        </div> -->
+                        <div class="d-md-table-cell nw-3 f-sm font-weight-normal <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
                             <?php echo $list[$i]['num'] ?>
                         </div>
+                    <?php } ?>
                     <div class="text-left d-md-table-cell pr-md-1 <?php if($list[$i]['has_coupon']) echo ''; else echo 'py-md-2'; ?>">
                         <div class="na-title float-md-left">
                             <div class="na-item">
