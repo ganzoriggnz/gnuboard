@@ -17,7 +17,6 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['coupon_setting_table']}",false
         PRIMARY KEY (bo_no)
     )";
    sql_query($sql_table, false);
-
 }
 
 $sql_cnt = "SELECT COUNT(*) as cnt FROM {$g5['coupon_setting_table']}";
@@ -55,6 +54,13 @@ VALUES
 sql_query($sql_ins);
 }
 
+$now = G5_TIME_YMDHIS;
+$currentyear = substr($now, 0, 4);
+$currentmonth = substr($now, 5, 2);
+$co_start = date_create($now);
+$co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
+$co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
+
 if($w == 'u'){
     if($row['bo_created_datetime']=='')
     $bo_created = G5_TIME_YMDHIS;
@@ -69,6 +75,23 @@ if($w == 'u'){
                   bo_updated_datetime = '{$bo_updated}'
               WHERE bo_table = '{$_POST['bo_table']}'";                
     sql_query($sql);
+    /* $result = "SELECT * FROM {$g5['coupon_table']} WHERE bo_table = '{$_POST['bo_table']}' AND co_begin_datetime='$co_begin_datetime' ";
+    while($row = sql_fetch_array($result)){
+        if(($row['co_sale_num'] >= $_POST['bo_sale']) || ($_POST['bo_sale'] >= $row['co_sale_num'] && $_POST['bo_sale'] >= $row['co_sent_snum'])){
+            $sql1 = "UPDATE {$g5['coupon_table']}
+                SET co_sale_num = '{$_POST['bo_sale']}',
+                    co_updated_datetime = '{$bo_updated}'
+                WHERE bo_table = '{$_POST['bo_table']}' AND co_begin_datetime='$co_begin_datetime'";                
+            sql_query($sql1);
+        } 
+        if(($row['co_free_num'] >= $_POST['bo_free']) || ($_POST['bo_free'] >= $row['co_free_num'] && $_POST['bo_free'] >= $row['co_sent_fnum'])){
+            $sql2 = "UPDATE {$g5['coupon_table']}
+                SET co_free_num = '{$_POST['bo_free']}',
+                    co_updated_datetime = '{$bo_updated}'
+                WHERE bo_table = '{$_POST['bo_table']}' AND co_begin_datetime='$co_begin_datetime'";                
+                sql_query($sql2);           
+        }
+    } */
     //goto_url($PHP_SELF, false); 
     goto_url(G5_ADMIN_URL.'/coupon_setting.php?bo_table='.$_POST['bo_table']); 
   

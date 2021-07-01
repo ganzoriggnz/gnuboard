@@ -100,7 +100,7 @@ if (!$is_search_bbs) {
     for ($k = 0; $k < $board_notice_count; $k++) {
         if (trim($arr_notice[$k]) == '') continue;
 
-        $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_notice[$k]}' ");
+        $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_notice[$k]}' ");
 
         if (!$row['wr_id']) continue;
 
@@ -120,7 +120,7 @@ if (!$is_search_bbs) {
     for ($k = 0; $k < $board_event_count; $k++) {
         if (trim($arr_event[$k]) == '') continue;
 
-        $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_event[$k]}' ");
+        $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_event[$k]}' ");
 
         if (!$row['wr_id']) continue;
 
@@ -137,7 +137,7 @@ if (!$is_search_bbs) {
     }
     for ($k = 0; $k < $board_best_count; $k++) {
         if (trim($arr_event[$k]) == '') continue;
-        $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_best[$k]}' ");
+        $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_best[$k]}' ");
         if (!$row['wr_id']) continue;
         $best_array[] = $row['wr_id'];
         if ($k < $from_best_idx) continue;
@@ -148,9 +148,9 @@ if (!$is_search_bbs) {
         if ($best_count >= $list_page_rows)
             break;
     }
-    for ($k = 0; $k < $board_coupon_count; $k++) {
+    /* for ($k = 0; $k < $board_coupon_count; $k++) {
         if (trim($arr_event[$k]) == '') continue;
-        $row = sql_fetch(" select *, exists(select 1 from {$g5['member_table']} where mb_level='27') lvl_27 from {$write_table} where wr_id = '{$arr_coupon[$k]}' ");
+        $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_coupon[$k]}' ");
         if (!$row['wr_id']) continue;
         $coupon_array[] = $row['wr_id'];
         if ($k < $from_coupon_idx) continue;
@@ -160,7 +160,7 @@ if (!$is_search_bbs) {
         $coupon_count++;
         if ($coupon_count >= $list_page_rows)
             break;
-    }
+    } */
 }
 
 $total_page  = ceil($total_count / $page_rows);  // 전체 페이지 계산
@@ -265,7 +265,7 @@ if ($_GET['nameid']) {
 }
 
 if ($is_search_bbs) {
-    $sql = " select distinct wr_parent from {$write_table} ";
+    $sql = " select distinct wr_parent, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from {$g5['coupon_table']} d where d.co_free_num>'0' and d.co_sale_num>'0' and d.mb_id=a.mb_id) has_coupon from {$write_table} ";
 
     if ($gr_id) {
         $sql .= " a left join g5_member b on a.mb_id = b.mb_id ";
@@ -273,7 +273,7 @@ if ($is_search_bbs) {
 
     $sql .= " where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
-    $sql = " select *, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27 from {$write_table} a where a.wr_is_comment = 0  " . $nameddd;
+    $sql = " select *, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from {$g5['coupon_table']} d where d.co_free_num>'0' and d.co_sale_num>'0' and d.mb_id=a.mb_id) has_coupon from {$write_table} a where a.wr_is_comment = 0  " . $nameddd;
     $mddd_id = "";
     if (!empty($notice_array))
         $mddd_id .= implode(', ', $notice_array);
@@ -323,7 +323,7 @@ if ($page_rows > 0) {
         $list[$i]['is_notice'] = false;
         $list[$i]['is_eventcheck'] = false;
         $list[$i]['is_best'] = false;
-        $list[$i]['is_coupon'] = false;
+        /* $list[$i]['is_coupon'] = false; */
 
         $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count - $event_count - $best_count-$coupon_count;
 

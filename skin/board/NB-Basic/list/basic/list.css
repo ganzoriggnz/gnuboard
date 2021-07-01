@@ -9,3 +9,11 @@
 		margin-bottom:0.14rem;
 	}
 }
+
+.icon_img {
+	width: 33.3px;
+}
+
+.coupon_border {
+	border: 3px solid #ffd345;
+}

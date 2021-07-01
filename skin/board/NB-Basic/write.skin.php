@@ -122,17 +122,6 @@ if ($is_member)
 
 ?>
 
-<!-- <style>
-	ul.my-table {
-  display: table;
-  width: 100%;
-  text-align: center;
-}
-
-ul.my-table > li {
-  display: table-cell;
-}
-</style> -->
 <script src="<?php echo $board_skin_url ?>/iColorPicker.js" type="text/javascript"></script>
 <section id="bo_w" class="mb-4 f-de font-weight-normal">
     <h2 class="sr-only"><?php echo $g5['title'] ?></h2>
@@ -155,74 +144,73 @@ ul.my-table > li {
         <?php
         $option = '';
         $option_hidden = '';
-        if ($is_notice || $is_html || $is_secret || $is_mail) {
-            $option_start = PHP_EOL . '<div class="custom-control custom-checkbox custom-control-inline">' . PHP_EOL;
-            $option_end = PHP_EOL . '</div>' . PHP_EOL;
+        $option_start = PHP_EOL . '<div class="custom-control custom-checkbox custom-control-inline">' . PHP_EOL;
+        $option_end = PHP_EOL . '</div>' . PHP_EOL;
 
-            if ($is_html) {
-                if ($is_dhtml_editor) {
-                    $option_hidden .= '<input type="hidden" value="html1" name="html">';
-                } else {
-                    $option .= $option_start;
-                    $option .= '<input type="checkbox" name="html" value="' . $html_value . '" id="html" onclick="html_auto_br(this);" class="custom-control-input" ' . $html_checked . '>';
-                    $option .= '<label class="custom-control-label" for="html"><span>HTML</span></label>';
-                    $option .= $option_end;
-                }
-            }
-
-            if ($is_notice) {
+        if ($is_html) {
+            if ($is_dhtml_editor) {
+                $option_hidden .= '<input type="hidden" value="html1" name="html">';
+            } else {
                 $option .= $option_start;
-                $option .= '<input type="checkbox" name="notice" value="1" id="notice" class="custom-control-input" ' . $notice_checked . '>';
-                $option .= '<label class="custom-control-label" for="notice"><span>공지</span></label>';
-                $option .= $option_end;
-            }
-
-            if ($is_eventcheck) {
-                $option .= $option_start;
-                $option .= '<input type="checkbox" name="event" value="1" id="event" class="custom-control-input" ' . $event_checked . '>';
-                $option .= '<label class="custom-control-label" for="event"><span>이벤트</span></label>';
-                $option .= $option_end;
-            }
-            if ($is_best) {
-                $option .= $option_start;
-                $option .= '<input type="checkbox" name="best" value="1" id="best" class="custom-control-input" ' . $best_checked . '>';
-                $option .= '<label class="custom-control-label" for="best"><span>베스트</span></label>';
-                $option .= $option_end;
-            }
-            if ($is_coupon) {
-                $option .= $option_start;
-                $option .= '<input type="checkbox" name="coupon" value="1" id="coupon" class="custom-control-input" ' . $coupon_checked . '>';
-                $option .= '<label class="custom-control-label" for="coupon"><span>쿠폰후기</span></label>';
-                $option .= $option_end;
-            }
-
-            if ($is_secret) {
-                if ($is_admin || $is_secret == 1) {
-                    $option .= $option_start;
-                    $option .= '<input type="checkbox" name="secret" value="secret" id="secret" class="custom-control-input" ' . $secret_checked . '>';
-                    $option .= '<label class="custom-control-label" for="secret"><span>비밀</span></label>';
-                    $option .= $option_end;
-                } else {
-                    $option_hidden .= '<input type="hidden" name="secret" value="secret">';
-                }
-            }
-
-            // 게시판 플러그인 사용시
-            // if (IS_NA_BBS && $is_notice) {
-            // 	$as_type_checked = ($write['as_type'] == "1") ? ' checked' : '';
-            // 	$option .= $option_start;
-            // 	$option .= '<input type="checkbox" name="as_type" value="1" id="as_type" class="custom-control-input" ' . $as_type_checked . '>';
-            // 	$option .= '<label class="custom-control-label" for="as_type"><span>메인</span></label>';
-            // 	$option .= $option_end;
-            // }
-
-            if ($is_mail) {
-                $option .= $option_start;
-                $option .= '<input type="checkbox" name="mail" value="mail" id="mail" class="custom-control-input" ' . $recv_email_checked . '>';
-                $option .= '<label class="custom-control-label" for="mail"><span>답변메일받기</span></label>';
+                $option .= '<input type="checkbox" name="html" value="' . $html_value . '" id="html" onclick="html_auto_br(this);" class="custom-control-input" ' . $html_checked . '>';
+                $option .= '<label class="custom-control-label" for="html"><span>HTML</span></label>';
                 $option .= $option_end;
             }
         }
+
+        if ($is_notice) {
+            $option .= $option_start;
+            $option .= '<input type="checkbox" name="notice" value="1" id="notice" class="custom-control-input" ' . $notice_checked . '>';
+            $option .= '<label class="custom-control-label" for="notice"><span>공지</span></label>';
+            $option .= $option_end;
+        }
+
+        if ($is_eventcheck) {
+            $option .= $option_start;
+            $option .= '<input type="checkbox" name="event" value="1" id="event" class="custom-control-input" ' . $event_checked . '>';
+            $option .= '<label class="custom-control-label" for="event"><span>이벤트</span></label>';
+            $option .= $option_end;
+        }
+        if ($is_best) {
+            $option .= $option_start;
+            $option .= '<input type="checkbox" name="best" value="1" id="best" class="custom-control-input" ' . $best_checked . '>';
+            $option .= '<label class="custom-control-label" for="best"><span>베스트</span></label>';
+            $option .= $option_end;
+        }
+        if ($gr_id=='review') {
+            $option .= $option_start;
+            $option .= '<input type="checkbox" name="coupon" value="1" id="coupon" class="custom-control-input" ' . $coupon_checked . '>';
+            $option .= '<label class="custom-control-label" for="coupon"><span>쿠폰후기</span></label>';
+            $option .= $option_end;
+        }
+
+        if ($is_secret) {
+            if ($is_admin || $is_secret == 1) {
+                $option .= $option_start;
+                $option .= '<input type="checkbox" name="secret" value="secret" id="secret" class="custom-control-input" ' . $secret_checked . '>';
+                $option .= '<label class="custom-control-label" for="secret"><span>비밀</span></label>';
+                $option .= $option_end;
+            } else {
+                $option_hidden .= '<input type="hidden" name="secret" value="secret">';
+            }
+        }
+
+        // 게시판 플러그인 사용시
+        // if (IS_NA_BBS && $is_notice) {
+        // 	$as_type_checked = ($write['as_type'] == "1") ? ' checked' : '';
+        // 	$option .= $option_start;
+        // 	$option .= '<input type="checkbox" name="as_type" value="1" id="as_type" class="custom-control-input" ' . $as_type_checked . '>';
+        // 	$option .= '<label class="custom-control-label" for="as_type"><span>메인</span></label>';
+        // 	$option .= $option_end;
+        // }
+
+        if ($is_mail) {
+            $option .= $option_start;
+            $option .= '<input type="checkbox" name="mail" value="mail" id="mail" class="custom-control-input" ' . $recv_email_checked . '>';
+            $option .= '<label class="custom-control-label" for="mail"><span>답변메일받기</span></label>';
+            $option .= $option_end;
+        }
+        
 
         echo $option_hidden;
         ?>
@@ -381,27 +369,34 @@ ul.my-table > li {
                     <?php } ?>
                 <?php } ?>
 
-                <!-- hulan nemsen review board write post 출근부 게시판에 글 있는 업소명 후기 선택에 보이기 -->
-               <!--  <?php if ($board['gr_id'] == "review" && ($w == '' || $w == 'u')) {
-                    $scount = strlen($bo_table) - 2;     
-                    $bo_tablef =  substr($bo_table, 0, $scount);
-                    $hwrite_table = $g5['write_prefix'] . $bo_tablef . "at";
-                    $sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment = 0 order by mb_name ASC", false);
-                ?>
-                    
-                    <li class="list-group-item">
-                        <div class="mb-0 form-group row">
-                            <label class="col-md-2 col-form-label" for="wr_5">매니저 명</label>
-                            <div class="col-md-7">
-                                <input type="text" name="wr_5" value="<?php echo $write['wr_5'] ?>" required class="form-control required">
+                <?php if ($is_category) { ?>
+                        <li class="list-group-item">
+                            <div class="mb-0 form-group row">
+                                <label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
+                                <div class="col-md-4">
+                                <?php if($w == '') { ?> 
+                                <select name="wr_7" id="wr_7" required class="custom-select">
+                                        <option value="">선택하세요</option>
+                                        <?php while ($res = sql_fetch_array($sql)) { ?>
+                                            <!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name']; ?></option>  -->
+
+                                            <option value=<?php echo $res['mb_name']; ?> <?php if ($write['wr_4'] == $res['mb_name'] || $nameddd == $res['mb_name']) echo " selected "; ?>>
+                                                <?php echo $res['mb_name']; ?></option>
+                                        <?php }
+                                        if ($is_admin) {
+                                            echo 
+                                            "<option value='공지' $is_select>공지</option>
+                                            <option value='이벤트진행' $is_select>이벤트진행</option>
+                                            <option value='이벤트결과' $is_select>이벤트결과</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                <?php } else { ?>
+                                        <input type="text" name="wr_7" value="<?php echo $write['wr_7'] ?>" readonly required class="form-control required">
+                                <?php } ?>                                    
                             </div>
-                        </div>
-                    </li>
-
-
-                <?php } ?> -->
-                <!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
+                        </li>
+                <?php } ?>
 
                 <?php if ($option) { ?>
                     <li class="list-group-item">

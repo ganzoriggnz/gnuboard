@@ -21,7 +21,7 @@ $row=sql_fetch($sql);
 $colspan = 3;
 ?>
 
-<form name="fcouponsetting" onsubmit="" method="post" autocomplete="off">
+<form name="fcouponsetting" onsubmit="return fcouponsetting_submit('<?php echo $row['bo_no']; ?>');" method="post" autocomplete="off">
     <input type="hidden" name="w" value="u">
     <input type="hidden" name="bo_table" value="<?php echo $row['bo_table']; ?>" />
     <div class="tbl_head01 tbl_wrap grid_9">
@@ -38,9 +38,9 @@ $colspan = 3;
                 <?php
                 if ($row['bo_no']){ ?>
                 <tr>
-                    <td class="td_center"><input type="number" name="bo_sale" class="frm_input text-center" value="<?php echo $row['bo_sale']; ?>"/></td>
-                    <td class="td_center"><input type="number" name="bo_free" class="frm_input text-center" value="<?php echo $row['bo_free']; ?>"/></td>
-                    <td class="td_center"><input type="number" name="bo_total" class="frm_input text-center" value="<?php echo $row['bo_total']; ?>"/></td>
+                    <td class="td_center"><input type="number" id="<?php echo 'sale'.$row['bo_no'];?>" name="bo_sale" class="frm_input text-center" value="<?php echo $row['bo_sale']; ?>"/></td>
+                    <td class="td_center"><input type="number" id="<?php echo 'free'.$row['bo_no'];?>" name="bo_free" class="frm_input text-center" value="<?php echo $row['bo_free']; ?>"/></td>
+                    <td class="td_center"><input type="number" id="<?php echo 'total'.$row['bo_no'];?>" name="bo_total" class="frm_input text-center" value="<?php echo $row['bo_total']; ?>"/></td>
                 </tr>
 
                 <?php
@@ -58,4 +58,65 @@ $colspan = 3;
         <?php } ?>
     </div>
 </form>
+<div class="popup_box1">
+    <!-- <h1>쿠폰</h1> -->
+    <label>You can't save because your <span id="coupon_cnt"></span> coupon is equal to zero</label>
+    <div class="btns">
+        <a href="#" class="btn">확인</a>
+    </div>
+</div>
+<div class="popup_box2">
+    <!-- <h1>쿠폰</h1> -->
+    <label>Successfully saved.</label>
+    <div class="btns">
+        <a href="#" class="btn">확인</a>
+    </div>
+</div>
+
+<script>
+    function fcouponsetting_submit(f) {
+
+        var sale_cnt = $('#sale'+f).val();
+        var free_cnt = $('#free'+f).val();
+        var total_cnt = $('#total'+f).val();
+        
+        if(sale_cnt == '0'){
+            $('#coupon_cnt').html('sale');
+            $('.popup_box1').css("display", "block");
+            $('.btn').click(function(){
+                $('.popup_box1').css("display", "none");
+            });
+            $('#sale').focus();
+            return false;
+        }
+        if(free_cnt == '0'){
+            $('#coupon_cnt').html('free');
+            $('.popup_box1').css("display", "block");
+            $('.btn').click(function(){
+                $('.popup_box1').css("display", "none");
+            });
+            $('#free').focus();
+            return false;
+        }
+        if(total_cnt == '0'){
+            $('#coupon_cnt').html('total');
+            $('.popup_box1').css("display", "block");
+            $('.btn').click(function(){
+                $('.popup_box1').css("display", "none");
+            });
+            $('#total').focus();
+            return false;
+        }
+        else if(total_cnt > '0' && sale_cnt > '0' && total_cnt > '0'){
+                $('.popup_box2').css("display", "block");
+                $('.btn').click(function(){
+                    $('.popup_box4').css("display", "none");
+            });
+            return true;
+        }           
+                                              
+    }
+</script>
+
+
 
