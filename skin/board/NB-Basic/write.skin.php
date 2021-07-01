@@ -368,8 +368,13 @@ if ($is_member)
                         </li>
                     <?php } ?>
                 <?php } ?>
-
-                <?php if ($is_category) { ?>
+                <?php if ($board['gr_id'] == "review") {
+                    $scount = strlen($bo_table) - 2;      // temdegt tooloh
+                    $bo_tablef =  substr($bo_table, 0, $scount);
+                    $hwrite_table = $g5['write_prefix'] . $bo_tablef . "at";
+                    $sql = sql_query("select mb_name from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment = 0 order by mb_name ASC", false);
+                    
+                    if ($is_category) { ?>
                         <li class="list-group-item">
                             <div class="mb-0 form-group row">
                                 <label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
@@ -378,8 +383,6 @@ if ($is_member)
                                 <select name="wr_7" id="wr_7" required class="custom-select">
                                         <option value="">선택하세요</option>
                                         <?php while ($res = sql_fetch_array($sql)) { ?>
-                                            <!-- <option value="<?php echo $write['wr_4']; ?>"><?php echo $res['mb_name']; ?></option>  -->
-
                                             <option value=<?php echo $res['mb_name']; ?> <?php if ($write['wr_4'] == $res['mb_name'] || $nameddd == $res['mb_name']) echo " selected "; ?>>
                                                 <?php echo $res['mb_name']; ?></option>
                                         <?php }
@@ -396,7 +399,7 @@ if ($is_member)
                                 <?php } ?>                                    
                             </div>
                         </li>
-                <?php } ?>
+                <?php } } ?>
 
                 <?php if ($option) { ?>
                     <li class="list-group-item">
