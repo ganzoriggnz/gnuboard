@@ -834,13 +834,9 @@ if ($is_member)
                                         <?php echo $category_option;
 
                                         if ($is_admin) {
-
-
-                                            echo "
-                                <option value='공지' $is_select>공지</option>
-                                <option value='이벤트진행'  $is_select>이벤트진행</option>
-                                <option value='이벤트결과' $is_select>이벤트결과</option>
-                                ";
+                                            echo "<option value='공지' $is_select>공지</option>
+                                                  <option value='이벤트진행'  $is_select>이벤트진행</option>
+                                                  <option value='이벤트결과' $is_select>이벤트결과</option>";
                                         }
                                         ?>
 

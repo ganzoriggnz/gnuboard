@@ -58,14 +58,14 @@ $colspan = 3;
         <?php } ?>
     </div>
 </form>
-<div class="popup_box1">
+<div class="popup_box1" style="display:none;">
     <!-- <h1>쿠폰</h1> -->
     <label>You can't save because your <span id="coupon_cnt"></span> coupon is equal to zero.</label>
     <div class="btns">
         <a href="#" class="btn">확인</a>
     </div>
 </div>
-<div class="popup_box2">
+<div class="popup_box2" style="display:none;">
     <!-- <h1>쿠폰</h1> -->
     <label>성공적으로 저장하였습니다.</label>
     <div class="btns">
