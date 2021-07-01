@@ -580,18 +580,18 @@ if ($gr_id == 'attendance') {
                         <?php if($list[$i]['is_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
                         <?php if($list[$i]['is_notice'])  echo '<img src="'.G5_URL.'/nariya/img/icon_notice.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
                         </div> -->
-                        <div class="d-md-table-cell nw-3 f-sm font-weight-normal <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
+                        <!-- <div class="d-md-table-cell nw-3 f-sm font-weight-normal <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
                             <?php echo $list[$i]['num'] ?>
-                        </div>
+                        </div> -->
                     <?php } ?>
                     <div class="text-left d-md-table-cell pr-md-1 <?php if($list[$i]['has_coupon']) echo ''; else echo 'py-md-2'; ?>">
                         <div class="na-title float-md-left">
                             <div class="na-item">
                                 <?php if($gr_id == 'attendance' && $list[$i]['has_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
                                 <!-- <?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; ';
-                                        echo $list[$i]['num2'] ?> -->
+                                        echo $list[$i]['num2'] ?> --><?php echo $list[$i]['num'] ?>
                                 <?php if ($is_checkbox) { ?>
-                                    <input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
+                                    <input type="checkbox" class="mb-0 mr-2 ml-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
                                 <?php } ?>
                                 <a href="<?php echo $list[$i]['href'] ?>" class="na-subject" <?php echo $target ?> title="<?php echo strip_tags($title); ?>" 
                                 <?php if (strstr($list[$i]['wr_option'], "secret") && $is_admin) { echo "style='color:#bababa;text-decoration: line-through' ". PHP_EOL;}
