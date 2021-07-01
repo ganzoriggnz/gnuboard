@@ -24,7 +24,7 @@ if( isset($_POST['id'])){
     $currentmonth = substr($now, 5, 2);
     $co_start = date_create($now);
     $co_insert_date = date_format($co_start, 'Y-m-05 23:59:59');
-    $co_send_date = date_format($co_start, 'Y-m-06 00:00:00');
+    $co_send_date = date_format($co_start, 'Y-m-01 00:00:00');
     $co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
     $co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
     
