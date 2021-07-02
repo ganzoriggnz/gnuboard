@@ -80,9 +80,9 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 								<!-- <p class="form-control-plaintext f-de pb-0">
 								닉네임을 변경하면 앞으로 <b><?php echo (int)$config['cf_nick_modify'] ?></b>일 이내에는 재변경을 할 수 없습니다.
 							</p> -->
-								<p class="form-control-plaintext f-de pb-0">
+								<!-- <p class="form-control-plaintext f-de pb-0">
 									닉네임을 변경은 "자작" 계급 되어야 재변경을 할 수 있습니다.
-								</p>
+								</p> -->
 							</div>
 						<?php } ?>
 					</div>
