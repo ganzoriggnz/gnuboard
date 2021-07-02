@@ -1671,10 +1671,10 @@ function na_board_rows_coupon($wset)
 
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];
-			if ($wr['wr_id']) {
+			/* if ($wr['wr_id']) { */
 				$wr['wr_id'] = $row['wr_id'];
 				$list[$i] = na_wr_row($wr, $wset);
-			}
+			/* } */
 		}
 	} else { //단수
 
