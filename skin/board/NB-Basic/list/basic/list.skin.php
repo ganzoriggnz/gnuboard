@@ -588,8 +588,7 @@ if ($gr_id == 'attendance') {
                         <div class="na-title float-md-left">
                             <div class="na-item">
                             <div class="d-md-table-cell nw-3 f-sm font-weight-normal <?php if($list[$i]['is_coupon']) echo ''; else echo 'd-none py-md-2'; ?>">
-                            <!-- <?php if($list[$i]['is_coupon']) echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; else echo '<span style="margin-left:10px;">'.$list[$i]['num'].'</span>'; ?> -->
-                            <?php if($list[$i]['is_coupon']) echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
+                            <?php if($list[$i]['is_coupon']) echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; else echo '<span style="margin-left:10px;">'.$list[$i]['num'].'</span>'; ?> 
                             </div>
                                 <?php if($gr_id == 'attendance' && $list[$i]['has_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
                                 <!-- <?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; ';
