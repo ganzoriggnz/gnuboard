@@ -60,7 +60,7 @@ $colspan = 3;
 </form>
 <div class="popup_box1" style="display:none;">
     <!-- <h1>쿠폰</h1> -->
-    <label>You can't save because your <span id="coupon_cnt"></span> coupon is equal to zero.</label>
+    <label><span id="coupon_cnt"></span>쿠폰이 0일 경우 저장이 안 됩니다.</label>
     <div class="btns">
         <a href="#" class="btn">확인</a>
     </div>
@@ -68,6 +68,13 @@ $colspan = 3;
 <div class="popup_box2" style="display:none;">
     <!-- <h1>쿠폰</h1> -->
     <label>성공적으로 저장하였습니다.</label>
+    <div class="btns">
+        <a href="#" class="btn">확인</a>
+    </div>
+</div>
+<div class="popup_box3" style="display:none;">
+    <!-- <h1>쿠폰</h1> -->
+    <label>쿠폰지원 업소 갯수가 0일 경우 저장이 안됩니다.</label>
     <div class="btns">
         <a href="#" class="btn">확인</a>
     </div>
@@ -81,7 +88,7 @@ $colspan = 3;
         var total_cnt = $('#total'+f).val();
         
         if(sale_cnt == '0'){
-            $('#coupon_cnt').html('sale');
+            $('#coupon_cnt').html('원가권');
             $('.popup_box1').css("display", "block");
             $('.btn').click(function(){
                 $('.popup_box1').css("display", "none");
@@ -90,7 +97,7 @@ $colspan = 3;
             return false;
         }
         if(free_cnt == '0'){
-            $('#coupon_cnt').html('free');
+            $('#coupon_cnt').html('무료권 ');
             $('.popup_box1').css("display", "block");
             $('.btn').click(function(){
                 $('.popup_box1').css("display", "none");
@@ -99,10 +106,9 @@ $colspan = 3;
             return false;
         }
         if(total_cnt == '0'){
-            $('#coupon_cnt').html('total');
-            $('.popup_box1').css("display", "block");
+            $('.popup_box3').css("display", "block");
             $('.btn').click(function(){
-                $('.popup_box1').css("display", "none");
+                $('.popup_box3').css("display", "none");
             });
             $('#total').focus();
             return false;
