@@ -389,15 +389,6 @@ if ($gr_id == 'attendance') {
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
                 <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
-                    <!-- <?php if ($gr_id != 'attendance') { ?>
-                        <div class="d-none d-md-table-cell nw-3 f-sm font-weight-normal <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
-                        <?php if($list[$i]['is_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
-                        <?php if($list[$i]['is_notice'])  echo '<img src="'.G5_URL.'/nariya/img/icon_notice.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
-                        </div>
-                        <div class="d-none d-md-table-cell nw-3 f-sm font-weight-normal py-md-2">
-                            <?php echo $list[$i]['num'] ?>
-                        </div>
-                    <?php } ?> -->
                     <div class="text-left d-md-table-cell pr-md-1 py-md-2">
                         <div class="na-title float-md-left">
                             <div class="na-item">
@@ -566,11 +557,12 @@ if ($gr_id == 'attendance') {
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
                 <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
-                    <div class="text-left d-md-table-cell pr-md-1 <?php if($list[$i]['is_coupon']) echo ''; else echo 'py-md-2'; ?>">
+                    <div class="text-left d-md-table-cell pr-md-1 py-md-2">
                         <div class="na-title float-md-left">
                             <div class="na-item">
-                            <div class="d-md-table-cell nw-5 font-weight-normal <?php if($list[$i]['is_coupon'] && !G5_IS_MOBILE) echo 'py-md-2'; else echo 'd-none'; ?>">
-                            <?php if($list[$i]['is_coupon']) echo '<img src="'.G5_URL.'/nariya/img/coupon_review.png" class="title_icon mb-1" alt="쿠폰후기">'; else echo '<span style="margin-left:10px;">'.$list[$i]['num'].'</span>'; ?> 
+                            <div class="d-md-table-cell nw-5 font-weight-normal <?php if($list[$i]['is_coupon'] && !G5_IS_MOBILE) echo ''; else echo 'd-none'; ?>">
+                            <!-- <?php if($list[$i]['is_coupon']) echo '<img src="'.G5_URL.'/nariya/img/coupon_review.png" class="title_icon mb-1 ml-2" alt="쿠폰후기">'; else echo '<span style="margin-left:10px;">'.$list[$i]['num'].'</span>'; ?> --> 
+                            <?php  echo $list[$i]['num']; ?>
                             </div>
                                 <?php if ($is_checkbox) { ?>
                                     <input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
