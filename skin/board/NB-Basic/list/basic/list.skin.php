@@ -158,7 +158,7 @@ if ($gr_id == 'attendance') {
         </div>
     </div>
     <?php if($gr_id =='attendance') { ?>
-        <div class="coupon_border w-100">
+        <div class="w-100 <?php if($hascoupon_cnt >'0') echo 'coupon_border'; else echo ''; ?>">
         <ul class="na-table d-md-table w-100">
         <?php
         for ($i = 0; $i < $hascoupon_cnt; $i++) {
