@@ -327,7 +327,7 @@ if ($gr_id == 'attendance') {
         } ?>
         
             </ul></div><ul class="na-table d-md-table w-100">
-        <?php for ($i = $hascoupon_cnt; $i < $list_cnt; $i++) {
+        <?php for ($i = ($hascoupon_cnt >'0'?$hascoupon_cnt :'0'); $i < $list_cnt; $i++) {
             // hulan nemsen member table.회원 정보 가져오기
             $mb = get_member($list[$i]['mb_id']);
             $title = $board['bo_subject'] . '(게시판명) | 밤의제국 - bamje.com | ' . $list[$i]['subject'];
