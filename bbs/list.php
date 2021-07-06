@@ -259,13 +259,20 @@ if ($sst) {
 
 $nameddd = "";
 
+$now = G5_TIME_YMDHIS;
+$currentyear = substr($now, 0, 4);
+$currentmonth = substr($now, 5, 2);
+$co_start = date_create($now);
+$co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
+$co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
+
 if ($_GET['nameid']) {
     $nameddd = " and wr_7 = '" . get_member($_GET['nameid'])['mb_name'] . "'";
     // alert($nameddd);
 }
 
 if ($is_search_bbs) {
-    $sql = " select distinct wr_parent, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from {$g5['coupon_table']} d where d.co_free_num>'0' and d.co_sale_num>'0' and d.mb_id=a.mb_id) has_coupon from {$write_table} ";
+    $sql = " select distinct wr_parent, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from {$g5['coupon_table']} d where d.co_free_num>'0' and d.co_sale_num>'0' and d.co_begin_datetime='$co_begin_datetime' and d.mb_id=a.mb_id) has_coupon from {$write_table} ";
 
     if ($gr_id) {
         $sql .= " a left join g5_member b on a.mb_id = b.mb_id ";
@@ -273,7 +280,7 @@ if ($is_search_bbs) {
 
     $sql .= " where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
-    $sql = " select *, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from {$g5['coupon_table']} d where d.co_free_num>'0' and d.co_sale_num>'0' and d.mb_id=a.mb_id) has_coupon from {$write_table} a where a.wr_is_comment = 0  " . $nameddd;
+    $sql = " select *, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from {$g5['coupon_table']} d where d.co_free_num>'0' and d.co_sale_num>'0' and d.co_begin_datetime='$co_begin_datetime' and d.mb_id=a.mb_id) has_coupon from {$write_table} a where a.wr_is_comment = 0  " . $nameddd;
     $mddd_id = "";
     if (!empty($notice_array))
         $mddd_id .= implode(', ', $notice_array);
