@@ -272,7 +272,7 @@ if ($_GET['nameid']) {
 }
 
 if ($is_search_bbs) {
-    $sql = " select distinct wr_parent, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from {$g5['coupon_table']} d where d.co_free_num>'0' and d.co_sale_num>'0' and d.co_begin_datetime='$co_begin_datetime' and d.mb_id=a.mb_id) has_coupon from {$write_table} ";
+    $sql = " select distinct wr_parent from {$write_table} ";
 
     if ($gr_id) {
         $sql .= " a left join g5_member b on a.mb_id = b.mb_id ";
