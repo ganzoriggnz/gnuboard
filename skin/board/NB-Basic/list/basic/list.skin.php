@@ -84,13 +84,15 @@ if ($gr_id == 'attendance') {
 		}
 	}
 
-    $hascoupon_cnt=count($listWith27_hasCoupon);
+    $hascoupon_cnt1=count($listWith27_hasCoupon);
+    $hascoupon_cnt2=count($listWithout27_hasCoupon);
+    $hascoupon_cnt=intval($hascoupon_cnt1+$hascoupon_cnt2);
 	shuffle($listWith27_hasCoupon);
 	shuffle($listWith27_noCoupon);
     shuffle($listWithout27_hasCoupon);
 	shuffle($listWithout27_noCoupon);
 
-	$list = array_merge($listWith27_hasCoupon, $listWith27_noCoupon,$listWithout27_hasCoupon,$listWithout27_noCoupon);
+	$list = array_merge($listWith27_hasCoupon, $listWithout27_hasCoupon,$listWith27_noCoupon,$listWithout27_noCoupon);
     $list_cnt = count($list);
 } else {
     $list_cnt = count($list);
@@ -555,7 +557,7 @@ if ($gr_id == 'attendance') {
                 $list[$i]['num2'] = '<span class="na-text text-primary d-md-none">열람</span>';
                 $list[$i]['subject'] = '<b class="text-primary">' . $list[$i]['subject'] . '</b>';
             } else {
-                $list[$i]['num'] = '<span class="sr-only">번호</span>' . $list[$i]['num'];
+                $list[$i]['num'] = '<span class="sr-only" style="margin-left:15px;">번호</span><span>' . $list[$i]['num'].'</span>';
             }
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
