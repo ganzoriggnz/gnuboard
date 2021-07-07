@@ -88,7 +88,7 @@ $co_created_datetime = G5_TIME_YMDHIS;
 $currentyear = substr($co_created_datetime, 0, 4);
 $currentmonth = substr($co_created_datetime, 5, 2);
 $co_start = date_create($co_created_datetime);
-$co_insert_date = date_format($co_start, 'Y-m-10 23:59:59');
+$co_insert_date = date_format($co_start, 'Y-m-05 23:59:59');
 $co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
 $co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
 

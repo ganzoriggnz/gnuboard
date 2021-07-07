@@ -85,7 +85,7 @@ $colspan = 3;
 
         var sale_cnt = $('#sale'+f).val();
         var free_cnt = $('#free'+f).val();
-        var total_cnt = $('#total'+f).val();
+        //var total_cnt = $('#total'+f).val();
         
         if(sale_cnt == '0'){
             $('#coupon_cnt').html('원가권');
@@ -105,15 +105,15 @@ $colspan = 3;
             $('#free').focus();
             return false;
         }
-        if(total_cnt == '0'){
+        /* if(total_cnt == '0'){
             $('.popup_box3').css("display", "block");
             $('.btn').click(function(){
                 $('.popup_box3').css("display", "none");
             });
             $('#total').focus();
             return false;
-        }
-        else if(total_cnt > '0' && sale_cnt > '0' && total_cnt > '0'){
+        } */
+        else if(total_cnt > '0' && sale_cnt > '0'){
                 $('.popup_box2').css("display", "block");
                 $('.btn').click(function(){
                     $('.popup_box4').css("display", "none");
