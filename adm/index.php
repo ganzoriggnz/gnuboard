@@ -45,7 +45,7 @@ $row = sql_fetch($sql);
 $intercept_count = $row['cnt'];
 
 // last 245 hours member count
-$sqldate = " select count(*) as cnt, CURDATE() as cur_date FROM {$sql_common} {$sql_search} and mb_datetime > DATE_SUB(CURDATE(), INTERVAL 1 DAY);";
+$sql = " select count(*) as cnt, CURDATE() as cur_date FROM {$sql_common} {$sql_search} and mb_datetime > DATE_SUB(CURDATE(), INTERVAL 1 DAY);";
 $rowd = sql_fetch($sqldate);
 $last24_count = $rowd['cnt'];
 $current_date = $rowd['cur_date'];
@@ -59,7 +59,7 @@ $colspan = 12;
 ?>
 
 <section>
-    <h2> 신규가입회원 <?php echo number_format($last24_count); ?> 명(<?php echo $current_date; ?>) </h2>
+    <h2> 신규가입회원 <?php var_dump($rowd); ?> 명(<?php echo $current_date; ?>) </h2>
     <div class="local_desc02 local_desc">
         총회원수 <?php echo number_format($total_count) ?>명 중 차단 <?php echo number_format($intercept_count) ?>명, 탈퇴 : <?php echo number_format($leave_count) ?>명
     </div>
