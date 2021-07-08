@@ -48,7 +48,6 @@ $intercept_count = $row['cnt'];
 $between = " between curdate() AND date_add(curdate(), interval 1 day)";
 $sqld = " select count(*) as cnt, CURDATE() as cur_date FROM g5_member where mb_datetime {$between};";
 $rowd = sql_fetch($sqld);
-var_dump($rowd);
 $last24_count = $rowd['cnt'];
 $current_date = $rowd['cur_date'];
 
@@ -61,7 +60,7 @@ $colspan = 12;
 ?>
 
 <section>
-    <h2> 신규가입회원 <?php var_dump($rowd); ?> 명(<?php echo $current_date; ?>) </h2>
+    <h2> 신규가입회원 <?php echo $last24_count; ?> 명(<?php echo $current_date; ?>) </h2>
     <div class="local_desc02 local_desc">
         총회원수 <?php echo number_format($total_count) ?>명 중 차단 <?php echo number_format($intercept_count) ?>명, 탈퇴 : <?php echo number_format($leave_count) ?>명
     </div>
