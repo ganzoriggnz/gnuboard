@@ -48,10 +48,10 @@ $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$new_member_ro
 $result = sql_query($sql);
 
 // last 245 hours member count
-$sql = "SELECT count(*) AS cnt, CURDATE() AS cur_date FROM {$sql_common} where mb_datetime > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
-$row = sql_fetch($sql);
-$last24_count = $row['cnt'];
-$current_date = $row['cur_date'];
+$sqldate = "SELECT count(*) AS cnt, CURDATE() AS cur_date FROM {$sql_common} where mb_datetime > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+$rowd = sql_fetch($sqldate);
+$last24_count = $rowd['cnt'];
+$current_date = $rowd['cur_date'];
 
 $colspan = 12;
 ?>
