@@ -46,8 +46,8 @@ $intercept_count = $row['cnt'];
 
 // last 245 hours member count
 $between = " between curdate() AND date_add(curdate(), interval 1 day)";
-$sqld = " select count(*) as cnt, CURDATE() as cur_date FROM {$sql_common} {$sql_search} and mb_datetime {$between};";
-$rowd = sql_query($sqld);
+$sqld = " select count(*) as cnt, CURDATE() as cur_date FROM g5_member where mb_datetime {$between};";
+$rowd = sql_fetch($sqld);
 var_dump($rowd);
 $last24_count = $rowd['cnt'];
 $current_date = $rowd['cur_date'];
