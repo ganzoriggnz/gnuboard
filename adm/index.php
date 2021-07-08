@@ -45,7 +45,8 @@ $row = sql_fetch($sql);
 $intercept_count = $row['cnt'];
 
 // last 245 hours member count
-$sqld = " select count(*) as cnt, CURDATE() as cur_date FROM {$sql_common} {$sql_search} and mb_datetime BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 1 DAY);";
+$between = " between curdate() AND date_add(curdate(), interval 1 day)";
+$sqld = " select count(*) as cnt, CURDATE() as cur_date FROM {$sql_common} {$sql_search} and mb_datetime {$between};";
 $rowd = sql_query($sqld);
 var_dump($rowd);
 $last24_count = $rowd['cnt'];
