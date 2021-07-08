@@ -557,7 +557,7 @@ if ($gr_id == 'attendance') {
                 $list[$i]['num2'] = '<span class="na-text text-primary d-md-none">열람</span>';
                 $list[$i]['subject'] = '<b class="text-primary">' . $list[$i]['subject'] . '</b>';
             } else {
-                $list[$i]['num'] = '<span class="sr-only" style="margin-left:15px;">번호</span><span>' . $list[$i]['num'].'</span>';
+                $list[$i]['num'] = '<span class="sr-only" style="margin-left:15px;">번호</span><span>' . ($list[$i]['num'] + 1).'</span>';
             }
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
