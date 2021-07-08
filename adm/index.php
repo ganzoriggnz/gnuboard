@@ -45,7 +45,7 @@ $row = sql_fetch($sql);
 $intercept_count = $row['cnt'];
 
 // last 245 hours member count
-$sql = " select count(*) as cnt, CURDATE() as cur_date FROM {$sql_common} {$sql_search} and mb_datetime >= NOW() - INTERVAL 1 DAY;";
+$sql = " select count(*) as cnt, CURDATE() as cur_date FROM {$sql_common} {$sql_search} and mb_datetime > DATE_SUB( NOW(), INTERVAL 24 HOUR);";
 $rowd = sql_fetch($sqldate);
 $last24_count = $rowd['cnt'];
 $current_date = $rowd['cur_date'];
