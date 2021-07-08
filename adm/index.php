@@ -44,14 +44,16 @@ $sql = " select count(*) as cnt {$sql_common} {$sql_search} and mb_intercept_dat
 $row = sql_fetch($sql);
 $intercept_count = $row['cnt'];
 
-$sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$new_member_rows} ";
-$result = sql_query($sql);
-
 // last 245 hours member count
 $sqldate = "SELECT count(*) AS cnt, CURDATE() AS cur_date FROM {$sql_common} where mb_datetime > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
 $rowd = sql_fetch($sqldate);
 $last24_count = $rowd['cnt'];
 $current_date = $rowd['cur_date'];
+
+$sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$new_member_rows} ";
+$result = sql_query($sql);
+
+
 
 $colspan = 12;
 ?>
