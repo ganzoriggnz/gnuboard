@@ -355,7 +355,9 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') { ?>
     </tr>
     <tr>
         <th scope="row">IP</th>
-        <td colspan="3"><?php echo $mb['mb_ip'] ?></td>
+        <td ><?php echo $mb['mb_ip'] ?></td>
+        <th scope="row">최종접속IP</th>
+        <td ><?php echo $mb['mb_login_ip'] ?></td>
     </tr>
     <?php if ($config['cf_use_email_certify']) { ?>
     <tr>

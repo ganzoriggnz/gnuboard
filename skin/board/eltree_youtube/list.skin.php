@@ -244,7 +244,18 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
             </table>
         </div>
         <!-- 페이지 -->
-        <?php echo $write_pages; ?>
+        <div>
+            <ul class="mb-0 pagination justify-content-center en">
+                <?php if ($prev_part_href) { ?>
+                    <li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
+                <?php } ?>
+                <?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . '&amp;page=')); ?>
+                <?php if ($next_part_href) { ?>
+                    <li class="page-item"><a class="page-link" href="<?php echo $next_part_href; ?>">Next</a></li>
+                <?php } ?>
+            </ul>
+        </div>
+        <!-- <?php echo $write_pages; ?> -->
         <!-- 페이지 -->
 
         <?php if ($list_href || $is_checkbox || $write_href) { ?>

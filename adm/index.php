@@ -18,7 +18,7 @@ $new_write_rows = 5;
 
 $sql_common = " from {$g5['member_table']} ";
 
-$sql_search = " where (1) ";
+$sql_search = " where mb_datetime > DATE_SUB(CURDATE(), INTERVAL 1 DAY) ";
 
 if ($is_admin != 'super')
     $sql_search .= " and mb_level <= '{$member['mb_level']}' ";

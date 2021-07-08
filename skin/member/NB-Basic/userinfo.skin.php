@@ -264,22 +264,23 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 </div>
             </div>
             <?php } ?>
-            <!-- user  가입일   mb_datetime  -->
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="reg_mb_nick">가입일</label>
-                <div class="col-sm-3 col-form-info">
-                    <?php echo $entity_date;?>
+            <?php if($member['mb_level'] == 24 || $member['mb_level'] == 25 || $member['mb_level'] == 26 || $member['mb_level'] == 27 || $member['mb_level'] == 30): ?> 
+                <!-- user  가입일   mb_datetime  -->
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="reg_mb_nick">가입일</label>
+                    <div class="col-sm-3 col-form-info">
+                        <?php echo $entity_date;?>
+                    </div>
                 </div>
-            </div>
 
-            <!-- user  최근 로그인   mb_today_login  -->
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="reg_mb_nick">최근 로그인</label>
-                <div class="col-sm-3 col-form-info">
-                    <?php echo $today_login;?>
+                <!-- user  최근 로그인   mb_today_login  -->
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="reg_mb_nick">최근 로그인</label>
+                    <div class="col-sm-3 col-form-info">
+                        <?php echo $today_login;?>
+                    </div>
                 </div>
-            </div>
-
+            <?php endif; ?>
             <!-- user 서명     -->
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="reg_mb_nick">서명</label>
