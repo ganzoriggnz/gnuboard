@@ -57,8 +57,7 @@ $colspan = 12;
 ?>
 
 <section>
-    <h2>신규가입회원 <?php echo $new_member_rows ?>건 목록</h2>
-    <p>신규가입회원 <?php echo $last24_count;?> 명(<?php echo $current_date; ?>) </p>
+    <h2> 신규가입회원 <?php echo number_format($last24_count); ?> 명(<?php echo $current_date; ?>) </h2>
     <div class="local_desc02 local_desc">
         총회원수 <?php echo number_format($total_count) ?>명 중 차단 <?php echo number_format($intercept_count) ?>명, 탈퇴 : <?php echo number_format($leave_count) ?>명
     </div>
