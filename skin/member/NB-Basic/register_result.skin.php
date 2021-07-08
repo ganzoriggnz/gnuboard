@@ -35,7 +35,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 					<li>회원님의 비밀번호는 아무도 알 수 없는 암호화 코드로 저장되므로 안심하셔도 좋습니다.</li>
 					<li>아이디, 비밀번호 분실시에는 회원가입시 입력하신 이메일 주소를 이용하여 찾을 수 있습니다.</li>
 					<li>회원 탈퇴는 언제든지 가능하며 일정기간이 지난 후, 회원님의 정보는 삭제하고 있습니다.</li>
+					<li>회원가입후 가입인사는 (300P)필수 입니다. </li>
 				</ul>
+				<div style="text-align:center;">
+					<a class="me-a f-md en win_memo" href="<?php echo G5_URL ?>/bbs/greeting.php" target="_self" role="button">
+					<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg" style="width: auto; margin:30px">가입인사 하고 300P 받기</button>
+					</a>
+				</div>
 			</li>
 			<?php if(IS_YC && $default['de_member_reg_coupon_use'] && get_session('ss_member_reg_coupon') == 1) { ?>
 				<li id="result_coupon" class="list-group-item py-md-4">
