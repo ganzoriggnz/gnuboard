@@ -170,16 +170,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     </td>
                 </tr>
                 <?php } ?>
-                <tr style=" font-size: 12px">
-                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">가입일</label></td>
-                    <td class="cl_tr" style="text-align: left;">
-                        <?php echo $entity_date;?></td>
-                </tr>
-                <tr style=" font-size: 12px">
-                    <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">최근 로그인</label></td>
-                    <td class="cl_tr" style="text-align: left;">
-                        <?php echo $today_login;?></td>
-                </tr>
+                <?php if($member['mb_level'] == 24 || $member['mb_level'] == 25 || $member['mb_level'] == 26 || $member['mb_level'] == 27 || $member['mb_level'] == 30): ?> 
+
+                    <tr style=" font-size: 12px">
+                        <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">가입일</label></td>
+                        <td class="cl_tr" style="text-align: left;">
+                            <?php echo $entity_date;?></td>
+                    </tr>
+                    <tr style=" font-size: 12px">
+                        <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">최근 로그인</label></td>
+                        <td class="cl_tr" style="text-align: left;">
+                            <?php echo $today_login;?></td>
+                    </tr>
+                <?php endif; ?>
                 <!-- user 서명     -->
                 <tr style=" font-size: 12px">
                     <td class="cl_tr pr-2"  style="text-align: right;"><label class="col-form-label" for="reg_mb_nick">서명</label></td>

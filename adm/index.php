@@ -18,7 +18,7 @@ $new_write_rows = 5;
 
 $sql_common = " from {$g5['member_table']} ";
 
-$sql_search = " where mb_datetime > DATE_SUB(CURDATE(), INTERVAL 1 DAY) ";
+$sql_search = " where (1) ";
 
 if ($is_admin != 'super')
     $sql_search .= " and mb_level <= '{$member['mb_level']}' ";
@@ -47,11 +47,18 @@ $intercept_count = $row['cnt'];
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$new_member_rows} ";
 $result = sql_query($sql);
 
+// last 245 hours member count
+$sql = "SELECT count(*) AS cnt, CURDATE() AS cur_date FROM {$sql_common} where mb_datetime > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+$row = sql_fetch($sql);
+$last24_count = $row['cnt'];
+$current_date = $row['cur_date'];
+
 $colspan = 12;
 ?>
 
 <section>
     <h2>신규가입회원 <?php echo $new_member_rows ?>건 목록</h2>
+    <p>신규가입회원 <?php echo $last24_count?> 명(<?php echo $current_date; ?>) </p>
     <div class="local_desc02 local_desc">
         총회원수 <?php echo number_format($total_count) ?>명 중 차단 <?php echo number_format($intercept_count) ?>명, 탈퇴 : <?php echo number_format($leave_count) ?>명
     </div>

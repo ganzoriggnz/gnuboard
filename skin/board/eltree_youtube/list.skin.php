@@ -101,7 +101,6 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
         <!-- } 게시판 페이지 정보 및 버튼 끝 -->
         <div <?php if(G5_IS_MOBILE) { echo 'class="px-3"';} else {echo 'class=""';} ?>>
             <table style="font-size:12px; width:100%;">
-                <caption><?php echo $board['bo_subject'] ?> 목록</caption>
                 <thead>
                     <tr class="border-top border-bottom text-center" style="height:40px;">
                         <?php if ($is_checkbox) { ?>

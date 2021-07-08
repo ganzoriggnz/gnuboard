@@ -497,7 +497,7 @@ if ($gr_id == 'attendance') {
     <?php }     
     } else { ?>
        <ul class="na-table d-md-table w-100">
-        <?php $count = 0; for ($i = 0; $i < $list_cnt; $i++) {
+        <?php $count = $list_cnt; for ($i = 0; $i < $list_cnt; $i++) {
             // hulan nemsen member table.회원 정보 가져오기
             $mb = get_member($list[$i]['mb_id']);
             $title = $board['bo_subject'] . '(게시판명) | 밤의제국 - bamje.com | ' . $list[$i]['subject'];
@@ -567,7 +567,7 @@ if ($gr_id == 'attendance') {
                             <div class="na-item">
                             <div class="d-md-table-cell nw-5 font-weight-normal <?php if($list[$i]['is_coupon'] && !G5_IS_MOBILE) echo ''; else echo 'd-none'; ?>">
                             <!-- <?php if($list[$i]['is_coupon']) echo '<img src="'.G5_URL.'/nariya/img/coupon_review.png" class="title_icon mb-1 ml-2" alt="쿠폰후기">'; else echo '<span style="margin-left:10px;">'.$list[$i]['num'].'</span>'; ?> --> 
-                            <?php  echo $count += 1; ?>
+                            <?php echo $count -= 1; ?>
                             </div>
                                 <?php if ($is_checkbox) { ?>
                                     <input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
