@@ -244,7 +244,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path 
         </div>
         <!-- 페이지 -->
         <div>
-            <ul class="mb-0 pagination justify-content-center en">
+            <ul class="m-4 mb-0 pagination justify-content-center en">
                 <?php if ($prev_part_href) { ?>
                     <li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
                 <?php } ?>
