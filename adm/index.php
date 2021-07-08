@@ -54,13 +54,11 @@ $current_date = $rowd['cur_date'];
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$new_member_rows} ";
 $result = sql_query($sql);
 
-
-
 $colspan = 12;
 ?>
 
 <section>
-    <h2> 신규가입회원 <?php echo $last24_count; ?> 명(<?php echo $current_date; ?>) </h2>
+    <h2> 신규가입회원 <span style="color:blue;text-decoration:underline; "><?php echo $last24_count; ?></span> 명(<?php echo $current_date; ?>) </h2>
     <div class="local_desc02 local_desc">
         총회원수 <?php echo number_format($total_count) ?>명 중 차단 <?php echo number_format($intercept_count) ?>명, 탈퇴 : <?php echo number_format($leave_count) ?>명
     </div>
