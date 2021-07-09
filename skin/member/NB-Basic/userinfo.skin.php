@@ -280,8 +280,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                         <?php echo $today_login;?>
                     </div>
                 </div>
+            <?php else : ?>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="reg_mb_nick">가입일</label>
+                    <div class="col-sm-3 col-form-info"> 비공개 </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="reg_mb_nick">최근 로그인</label>
+                    <div class="col-sm-3 col-form-info"> 비공개 </div>
+                </div>
             <?php endif; ?>
-            <!-- user 서명     -->
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="reg_mb_nick">서명</label>
                 <div class="col-sm-3 col-form-info">

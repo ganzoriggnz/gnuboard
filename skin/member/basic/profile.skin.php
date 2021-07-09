@@ -23,12 +23,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             <th scope="row"><i class="fa fa-database" aria-hidden="true"></i> 포인트</th>
             <td><?php echo number_format($mb['mb_point']) ?></td>
         </tr>
+        <?php if($member['mb_level'] == 24 || $member['mb_level'] == 25 || $member['mb_level'] == 26 || $member['mb_level'] == 27 || $member['mb_level'] == 30): ?> 
         <tr>
             <th scope="row"><i class="fa fa-clock-o" aria-hidden="true"></i> 회원가입일</th>
             <td><?php echo ($member['mb_level'] >= $mb['mb_level']) ?  substr($mb['mb_datetime'],0,10) ." (".number_format($mb_reg_after)." 일)" : "알 수 없음";  ?></td>
             <th scope="row"><i class="fa fa-clock-o" aria-hidden="true"></i> 최종접속일</th>
             <td><?php echo ($member['mb_level'] >= $mb['mb_level']) ? $mb['mb_today_login'] : "알 수 없음"; ?></td>
         </tr>
+        <?php else: ?>
+            <tr>
+            <th scope="row"><i class="fa fa-clock-o" aria-hidden="true"></i> 회원가입일</th>
+            <td>비공개</td>
+            <th scope="row"><i class="fa fa-clock-o" aria-hidden="true"></i> 최종접속일</th>
+            <td>비공개</td>
+        </tr>
+        <?php endif; ?>
         <?php if ($mb_homepage) {  ?>
         <tr>
             <th scope="row"><i class="fa fa-home" aria-hidden="true"></i> 홈페이지</th>
