@@ -3,7 +3,7 @@ include_once('./_common.php');
 
 if (!$member['mb_id'])
 alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
-var_dump($member['mb_id']);
+var_dump($member['mb_id']);die;
 
 if($member['mb_id'] == 'admin'){
     alert_close('운영자의 자기소개는 이용할 수 없습니다.');
