@@ -63,8 +63,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 <script src="<?php echo NA_URL ?>/js/jquery-3.5.1.min.js"></script>
 <script>
 $('#change').click(function() {
+    var cnt=$.trim($('#new_hp').val()).length;
     if (confirm("이전 전화 번호를 변경하시겠습니까?")) {
-        $('#fmember').submit();
+        if(cnt>14 || cnt<13) alert('운영자의 자기소개는 이용할 수 없습니다.');      
+        else $('#fmember').submit();      
     }
 });
 </script>

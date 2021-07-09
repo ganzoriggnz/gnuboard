@@ -379,7 +379,6 @@ if ($is_member)
                             <div class="mb-0 form-group row">
                                 <label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
                                 <div class="col-md-4">
-                                <?php if($w == '') { ?> 
                                 <select name="wr_7" id="wr_7" required class="custom-select">
                                         <option value="">선택하세요</option>
                                         <?php while ($res = sql_fetch_array($sql)) { ?>
@@ -393,10 +392,7 @@ if ($is_member)
                                             <option value='이벤트결과' $is_select>이벤트결과</option>";
                                         }
                                         ?>
-                                    </select>
-                                <?php } else { ?>
-                                        <input type="text" name="wr_7" value="<?php echo $write['wr_7'] ?>" readonly required class="form-control required">
-                                <?php } ?>                                    
+                                    </select>                                  
                             </div>
                         </li>
                 <?php } } ?>
@@ -859,7 +855,6 @@ if ($is_member)
                             <div class="mb-0 form-group row">
                                 <label class="col-md-2 col-form-label">업소명<strong class="sr-only">필수</strong></label>
                                 <div class="col-md-4">
-                                <?php if($w == '') { ?> 
                                 <select name="wr_7" id="wr_7" required class="custom-select">
                                         <option value="">선택하세요</option>
                                         <?php while ($res = sql_fetch_array($sql)) { ?>
@@ -876,11 +871,7 @@ if ($is_member)
                                 ";
                                         }
                                         ?>
-                                    </select>
-                                <?php } else { ?>
-                                        <input type="text" name="wr_7" value="<?php echo $write['wr_7'] ?>" readonly required class="form-control required">
-                                <?php } ?>
-                                    
+                                    </select>                                   
                                 </div>
                             </div>
                         </li>
