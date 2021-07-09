@@ -9,7 +9,7 @@ if($_REQUEST['mb_id'] == 'admin' && $is_admin != 'super'){
 }
 
 if ($member['mb_level'] < 13) {
-    alert_close('운영자 자기소개 접근권한이 없습니다.');
+    alert_close('자기 소개는 작사 레벨 이상 회원만 이용가능합니다.');
 }
 
 if (!$member['mb_open'] && $is_admin != 'super' && $member['mb_id'] != $mb_id)
