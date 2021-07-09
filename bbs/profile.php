@@ -4,8 +4,8 @@ include_once('./_common.php');
 if (!$member['mb_id'])
 alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
-if($_REQUEST['mb_id'] == 'admin' && $member['mb_id'] != 'admin'){
-    alert_close('운영자의 자기소개는 이용할 수 없습니다.');
+if($_REQUEST['mb_id'] == 'admin' && $is_admin != 'super'){
+    alert_close('운영자 자기소개 접근권한이 없습니다.');
 }
 
 if ($member['mb_level'] < 13) {
