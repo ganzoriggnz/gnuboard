@@ -4,8 +4,8 @@ include_once('./_common.php');
 $g5['title'] = '새글';
 include_once('./_head.php');
 
-if ($member['mb_level'] < 9) {
-    alert('전체게시물 검색은 향리레벨 이상 회원만 이용가능합니다.');
+if ($member['mb_level'] < 13) {
+    alert('자기 소개는 남작 레벨 이상 회원만 이용가능합니다.');
 }
 
 $sql_common = " from {$g5['board_new_table']} a, {$g5['board_table']} b, {$g5['group_table']} c where a.bo_table = b.bo_table and b.gr_id = c.gr_id and b.bo_use_search = 1 ";
