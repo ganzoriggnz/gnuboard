@@ -3,13 +3,14 @@ include_once('./_common.php');
 
 if (!$member['mb_id'])
 alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
+var_dump($member['mb_id']);
 
 if($member['mb_id'] == 'admin'){
-    alert('운영자의 자기소개는 이용할 수 없습니다.');
+    alert_close('운영자의 자기소개는 이용할 수 없습니다.');
 }
 
 if ($member['mb_level'] < 13) {
-    alert('자기 소개는 작사 레벨 이상 회원만 이용가능합니다.');
+    alert_close('자기 소개는 작사 레벨 이상 회원만 이용가능합니다.');
 }
 
 if (!$member['mb_open'] && $is_admin != 'super' && $member['mb_id'] != $mb_id)
