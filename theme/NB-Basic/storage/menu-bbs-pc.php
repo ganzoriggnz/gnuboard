@@ -422,7 +422,7 @@ $data = array(
       0 =>
       array(
         'text' => '오피-강남영토',
-        'href' => '/bbs/board.php?bo_table=opigangnam_re',
+        'href' => 'http://localhost/gnuboard/bbs/board.php?bo_table=opigangnam_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '오피',
