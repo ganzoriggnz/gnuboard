@@ -4,13 +4,13 @@ include_once('./_common.php');
 $g5['title'] = '새글';
 include_once('./_head.php');
 
+if($_REQUEST['mb_id'] == 'admin' && $is_admin != 'super'){
+    alert_close('운영자 전체게시물 접근권한이 없습니다.');
+}
 if ($member['mb_level'] < 13) {
     alert('전체게시물은 작사레벨 이상 회원만 이용 가능합니다.');
 }
 
-if($_REQUEST['mb_id'] == 'admin' && $is_admin != 'super'){
-    alert_close('운영자 전체게시물 접근권한이 없습니다.');
-}
 
 $sql_common = " from {$g5['board_new_table']} a, {$g5['board_table']} b, {$g5['group_table']} c where a.bo_table = b.bo_table and b.gr_id = c.gr_id and b.bo_use_search = 1 ";
 
