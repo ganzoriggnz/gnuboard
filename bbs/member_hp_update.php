@@ -11,7 +11,8 @@ $mb_hp = hyphen_hp_number($_POST['new_hp']);
 
 if($_POST['new_hp']!='')
 {
-    $new_hp = $_POST['new_hp'];
+    //$new_hp = $_POST['new_hp'];
+    $new_hp = $_POST['new_hp'] ? clean_xss_tags(strip_tags($_POST['new_hp'])) : '';
    
     $sql= "update g5_member set mb_10 = '{$new_hp}' where mb_id ='{$member['mb_id']}'";            
     sql_query($sql);
