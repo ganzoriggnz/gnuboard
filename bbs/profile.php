@@ -4,8 +4,8 @@ include_once('./_common.php');
 if (!$member['mb_id'])
 alert('회원만 조회하실 수 있습니다.', G5_BBS_URL."/login.php?url=".urlencode("{$_SERVER['REQUEST_URI']}"));
 
-if ($member['mb_level'] < 13) {
-    alert('자기 소개는 남작 레벨 이상 회원만 이용가능합니다.');
+if ($member['mb_level'] < 9) {
+    alert('자기소개는 향리레벨 이상 회원만 이용가능합니다.');
 }
 
 if (!$member['mb_open'] && $is_admin != 'super' && $member['mb_id'] != $mb_id)
