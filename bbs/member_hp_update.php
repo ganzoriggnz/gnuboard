@@ -41,5 +41,8 @@ if($_POST['new_hp']!='')
     sql_query($sql);
 
 }
-
-goto_url(G5_HTTP_BBS_URL.'/member_hp_change.php');
+?>
+<script>
+    window.close();
+</script>
+// goto_url(G5_HTTP_BBS_URL.'/member_hp_change.php');
