@@ -501,7 +501,7 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
     </tr>
     <tr>
         <th scope="row"><label for="mb_4">제휴종료날짜</label></th>
-        <td colspan="3"><input type="text" name="mb_4" value="<?php echo $mb['mb_4']; ?>" id="mb_4" class="frm_input" size="30" maxlength="255"></td>
+        <td colspan="3"><input type="text" name="mb_4" value="<?php $d= date_create($mb['mb_4']); echo date_format($d,"Y-m-d"); ?>" id="mb_4" class="frm_input" size="30" maxlength="255"></td>
     </tr>
     <tr>
         <th scope="row"><label for="mb_5">제휴연장메모</label></th>
