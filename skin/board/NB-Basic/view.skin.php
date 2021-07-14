@@ -158,7 +158,14 @@ if ($gr_id=='review') {
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
 	                    <div style="float:left">
-							<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
+							<?php 
+							$now = G5_TIME_YMDHIS; 
+							$finish_date = date('Y-m-d', strtotime('+3 days', strtotime($member['mb_4']))); 
+							if ($update_href) { 
+								if(($member['mb_level'] == '26') 
+								|| $is_admin 
+								|| ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") 
+								|| ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
 							<a href="<?php echo $update_href ?>" class="btn-vw mb-2" role="button">
 								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
 								글수정
@@ -186,7 +193,7 @@ if ($gr_id=='review') {
 								글이동
 							</a>
 							<?php } }?>
-							<?php if ($search_href) { ?>
+							<?php if ($view['mb_id'] == $member['mb_id']) { ?>
 							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button" style="width:80px;">
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
 								검색목록
@@ -458,7 +465,6 @@ if ($gr_id=='review') {
 							<?php $now = G5_TIME_YMDHIS;
 							$finish_date = date('Y-m-d', strtotime('+3 days', strtotime($member['mb_4']))); 
 							if ($update_href) { 
-								// var_dump();die;
 								if(($member['mb_level'] == '26') 
 								|| $is_admin 
 								|| ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") 
