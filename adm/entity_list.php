@@ -47,11 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: [ 'dayGrid', 'timeGrid', 'list', 'interaction' ],
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,dayGridWeek,dayGridDay'
-        },
+
         defaultDate: '<?php echo G5_TIME_YMD?>',
         locale: initialLocaleCode,
         navLinks: true, // can click day/week names to navigate views
@@ -128,13 +124,11 @@ if($w == 'u'){
 	$mb_id = $_POST['mb_id'];
 	$mb_name = $_POST['mb_name'];
     $mb_start_date = $_POST['fr_date'];
-    $end_date = $_POST['mb_4'];
-    $curtime = date('H:i:s');
-    $mb_end_date = date("Y-m-d H:i:s", strtotime($end_date.$curtime));
+    $end_date = date("Y-m-d", strtotime($_POST['mb_4']));
     $mb_note = $_POST['mb_5'];
 
     $sql = "UPDATE {$g5['member_table']} 
-            SET mb_4 = '{$mb_end_date}',
+            SET mb_4 = '{$end_date}',
                 mb_5 = '{$mb_note}',
                 mb_level = '27'
             WHERE mb_id='{$mb_id}'";
