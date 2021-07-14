@@ -147,7 +147,7 @@ if ((isset($wr_id) && $wr_id) || (isset($wr_seo_title) && $wr_seo_title)) {
 } else {
     if ($member['mb_level'] < $board['bo_list_level']) {
         if ($member['mb_id'])
-            alert('목록을 볼 권한이 없습니다.', G5_URL);
+            alert('비제휴 업소는 입장 불가능합니다.', G5_URL);
         else
             alert('목록을 볼 권한이 없습니다.\\n\\n회원이시라면 로그인 후 이용해 보십시오.', G5_BBS_URL . '/login.php?' . $qstr . '&url=' . urlencode(G5_BBS_URL . '/board.php?bo_table=' . $bo_table . ($qstr ? '&amp;' : '')));
     }
