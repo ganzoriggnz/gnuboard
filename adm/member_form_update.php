@@ -43,7 +43,7 @@ if($_POST['mb_level']=='26' || $_POST['mb_level']=='27'){
     if ($msg = empty_mb_name($_POST['mb_name']))     alert($msg, "", true, true);
 }
 
-$date = G5_TIME_YMDHIS;
+$date = date("Y-m-d");
 $newdate = date('Y-m-d', strtotime('+1 month', strtotime($date)));
 
 $sql_common = "  mb_name = '{$_POST['mb_name']}',
