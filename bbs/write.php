@@ -70,8 +70,11 @@ if ($w == '') {
 } else if ($w == 'u') {
     // 김선용 1.00 : 글쓰기 권한과 수정은 별도로 처리되어야 함
     //if ($member['mb_level'] < $board['bo_write_level']) {
-    if ($member['mb_id'] && $write['mb_id'] === $member['mb_id']) {;
-    } else if ($member['mb_level'] < $board['bo_write_level']) {
+    if($member['mb_level'] < $board['bo_write_level'])
+        alert("제휴가 종료되어 프로필 수정을 하실수 없습니다.", $_SERVER['HTTP_REFERER']);
+    if ($member['mb_id'] && $write['mb_id'] === $member['mb_id']) {;} 
+    else if ($member['mb_level'] < $board['bo_write_level']) {
+        
         if ($member['mb_id']) {
             alert('글을 수정할 권한이 없습니다.');
         } else {
