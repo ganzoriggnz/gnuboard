@@ -8,6 +8,7 @@ set_session('ss_memo_delete_token', $token = uniqid(time()));
 
 $g5['title'] = '내 쪽지함';
 include_once(G5_PATH.'/head.sub.php');
+$list_skin_path = $board_skin_path . 'NB-Basic/list/basic';
 
 $kind = $kind ? clean_xss_tags(strip_tags($kind)) : 'recv';
 
@@ -20,39 +21,29 @@ else
 
 if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
 
-$sql = " select count(*) as cnt from {$g5['memo_table']} where me_{$kind}_mb_id = '{$member['mb_id']}' and me_type = '$kind' ";
+$sql = " select count(*) as cnt from g5_write_greeting";
 $row = sql_fetch($sql);
 $total_count = $row['cnt'];
 
-
-$total_page  = ceil($total_count / $config['cf_page_rows']);  // 전체 페이지 계산
+$total_page  = ceil((int)$total_count / $config['cf_page_rows']);  // 전체 페이지 계산
 $from_record = ((int) $page - 1) * $config['cf_page_rows']; // 시작 열을 구함
-
-if ($kind == 'recv')
-{
-    $kind_title = '받은';
-    $recv_img = 'on';
-    $send_img = 'off';
-}
-else
-{
-    $kind_title = '보낸';
-    $recv_img = 'off';
-    $send_img = 'on';
-}
 
 $list = array();
 
-$sql = " select a.*, b.mb_id, b.mb_nick, b.mb_email, b.mb_homepage
-            from {$g5['memo_table']} a
-            left join {$g5['member_table']} b on (a.me_{$unkind}_mb_id = b.mb_id)
-            where a.me_{$kind}_mb_id = '{$member['mb_id']}' and a.me_type = '$kind'
-            order by a.me_id desc limit $from_record, {$config['cf_page_rows']} ";
+
+$sql = "select *, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, 
+    exists(select 1 from g5_coupon d where d.co_free_num>'0' and d.co_sale_num>'0' and d.co_begin_datetime='2021-07-01 00:00:00' and d.mb_id=a.mb_id) has_coupon 
+    from g5_write_greeting a where a.wr_is_comment = 0 and a.wr_id order by wr_num, wr_reply desc limit $from_record, 55";
 
 $result = sql_query($sql);
-
-
-include_once($member_skin_path.'/greeting.skin.php');
-
+$i = 0;
+while($row = sql_fetch_array($result)){
+    $list[$i] = $row;
+    // if (strstr($sfl, 'subject')) {
+        $list[$i]['subject'] = search_font('mb_name', $list[$i]['subject']);
+    // }
+    $i++;
+}
+include_once($list_skin_path . '/list.skin.php');
 include_once(G5_PATH.'/tail.sub.php');
 ?>
