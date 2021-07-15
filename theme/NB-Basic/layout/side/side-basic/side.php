@@ -136,8 +136,11 @@ if ($res_date['mb_4'] != '') {
             </li>
             <?php
             for ($i = 0; $i < 22; $i++) {
-
+               
                 $me = $menu[0]['s'][$i];
+                // echo '<pre>';
+                // print_r($me);
+                // echo '</pre>';
                 if (substr($me['text'], 0, strrpos($me['text'], "-")) == $listd[$k]['name']) {
             ?>
                     <li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
@@ -146,7 +149,7 @@ if ($res_date['mb_4'] != '') {
                         <?php } ?>
                         <div style="<?php if (strstr($me['href'], $member['mb_6'])) echo "font-weight: bold; color: red; "; ?>">
                             <p><?php echo $me['text']; ?></p>
-                            <a class="<?php if (strstr($me['href'], $bo_table)) echo "activesubs" ?> cat_2_bg" title="<?php echo $me['text'] . ' 정보 | 밤의제국 bamje.com'; ?>" style="<?php if (strstr($me['href'], $bo_table)) echo "background-color: #ffd345" ?>;" href="<?php echo $me['href']; ?>" target="_self">정보
+                            <a class="<?php if (strstr($me['href'], $bo_table)) echo "activesubs" ?> cat_2_bg" title="<?php echo $me['text'] . ' 정보 | 밤의제국 bamje.com'; ?>" style="<?php if (strstr($me['href'], $bo_table) && !strstr($_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI], "userinfo")) echo "background-color: #ffd345" ?>;" href="<?php echo $me['href']; ?>" target="_self">정보
                             </a>
                             <a class="<?php if (strstr($menu[1]['s'][$i]['href'], $bo_table)) echo "activesubs" ?> cat_1_bg" title="<?php echo $me['text']; ?> 후기" style="<?php if (strstr($menu[1]['s'][$i]['href'], $bo_table)) echo "background-color: #ffd345" ?>;" href="<?php echo $menu[1]['s'][$i]['href']; ?>" target="_self">
                                 후기
