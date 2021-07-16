@@ -531,8 +531,16 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
     <input type="submit" value="확인" class="btn_submit btn" accesskey='s'>
 </div>
 </form>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
+   $('input[name="mb_3"]').datepicker({ dateFormat: 'yy-mm-dd' });
+   $('input[name="mb_4"]').datepicker({ dateFormat: 'yy-mm-dd' });
+  
 function fmember_submit(f)
 {
     if (!f.mb_icon.value.match(/\.(gif|jpe?g|png)$/i) && f.mb_icon.value) {

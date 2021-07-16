@@ -42,10 +42,8 @@ if ($msg = valid_mb_nick($mb_nick))     alert($msg, "", true, true);
 if($_POST['mb_level']=='26' || $_POST['mb_level']=='27'){
     if ($msg = empty_mb_name($_POST['mb_name']))     alert($msg, "", true, true);
 }
-
-$date = date("Y-m-d");
-$newdate = date('Y-m-d', strtotime('+1 month', strtotime($date)));
-
+$start_date = $_POST['mb_3']." 00:00";
+$end_date = $_POST['mb_4']." 23:59";
 $sql_common = "  mb_name = '{$_POST['mb_name']}',
                  mb_nick = '{$mb_nick}',
                  mb_email = '{$mb_email}',
@@ -71,8 +69,8 @@ $sql_common = "  mb_name = '{$_POST['mb_name']}',
                  mb_level = '{$_POST['mb_level']}',
                  mb_1 = '{$_POST['mb_1']}',
                  mb_2 = '{$_POST['mb_2']}',
-                 mb_3 = '{$date}',
-                 mb_4 = '{$newdate}',
+                 mb_3 = '{$start_date}',
+                 mb_4 = '{$end_date}',
                  mb_5 = '{$_POST['mb_5']}',
                  mb_6 = '{$_POST['mb_6']}',
                  mb_7 = '{$_POST['mb_7']}',
