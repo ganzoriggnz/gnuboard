@@ -497,11 +497,11 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
     </tr> -->
     <tr>
         <th scope="row"><label for="mb_3">제휴시작날짜</label></th>
-        <td colspan="3"><input type="text" name="mb_3" value="<?php isset($mb['mb_3']) && $mb['mb_3'] ? $d = date("Y-m-d", strtotime($mb['mb_3'])) : $d = ""; echo $d; ?>" id="mb_3" class="frm_input" size="30" maxlength="255" required></td>
+        <td colspan="3"><input type="text" name="mb_3" value="<?php isset($mb['mb_3']) && $mb['mb_3'] ? $d = date("Y-m-d", strtotime($mb['mb_3'])) : $d = ""; echo $d; ?>" id="mb_3" class="frm_input" size="30" maxlength="255" required autocomplete="off"></td>
     </tr>
     <tr>
         <th scope="row"><label for="mb_4">제휴종료날짜</label></th>
-        <td colspan="3"><input type="text" name="mb_4" value="<?php isset($mb['mb_4']) && $mb['mb_4'] ? $d = date("Y-m-d", strtotime($mb['mb_4'])) : $d = ""; echo $d; ?>" id="mb_4" class="frm_input" size="30" maxlength="255" required></td>
+        <td colspan="3"><input type="text" name="mb_4" value="<?php isset($mb['mb_4']) && $mb['mb_4'] ? $d = date("Y-m-d", strtotime($mb['mb_4'])) : $d = ""; echo $d; ?>" id="mb_4" class="frm_input" size="30" maxlength="255" required  autocomplete="off"></td>
     </tr>
     <tr>
         <th scope="row"><label for="mb_5">제휴연장메모</label></th>
