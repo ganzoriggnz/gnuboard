@@ -50,9 +50,6 @@ if($member['mb_id']){
         }
         $diff_days = $diff->days;
     }
-    else if($end_time < $now_time){
-        $diff_days = '0';
-    }
 
     $start_date = substr($row['mb_3'], 0, 10);
     $end_date = substr($row['mb_4'], 0, 10);
