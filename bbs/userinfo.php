@@ -37,22 +37,13 @@ if($member['mb_id']){
     $end_time = strtotime($row['mb_4']);
     $now_time = strtotime($now);
     if($end_time >= $now_time){
-        $d1=new DateTime($row['mb_4']);
-        $d2=new DateTime($now);
-        $diff=$d2->diff($d1);
-
-        if($diff->d == 0){
-            if($diff->h != 0 || $diff->i != 0){
-                $diff->d = 1;
-            }else{
-                $diff_days = '0';
-            }
-        }
-        $diff_days = $diff->days;
+        $diff = $end_time - $now_time;
+        $diff_days = ceil($diff / 86400);
     }
     else if($end_time < $now_time){
         $diff_days = '0';
     }
+
     $start_date = substr($row['mb_3'], 0, 10);
     $end_date = substr($row['mb_4'], 0, 10);
 

@@ -87,28 +87,18 @@ add_stylesheet('<link rel="stylesheet" href="' . $nt_side_url . '/side.css">', 1
 </div> -->
 
 <?php
-$sql_date = "SELECT mb_3, mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
+$sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$member['mb_id']}' AND mb_level IN ('26', '27')";
 $res_date = sql_fetch($sql_date);
 $now = G5_TIME_YMDHIS;
-$diff_days = '0';
+
 if ($res_date['mb_4'] != '') {
     $end_time = strtotime($res_date['mb_4']);
-    $start_time = strtotime($res_date['mb_3']);
     $now_time = strtotime($now);
     if ($end_time >= $now_time) {
-        $d1=new DateTime($res_date['mb_4']);
-        $d2=new DateTime($now);
-        $diff=$d2->diff($d1);
-
-        if($diff->d == 0){
-            if($diff->h != 0 || $diff->i != 0){
-                $diff->d = 1;
-            }else{
-                $diff_days = '0';
-            }
-        }
-        $diff_days = $diff->days;
-    }else{
+        $diff = $end_time - $now_time;
+        $diff_days = ceil($diff / 86400);
+    }
+    if ($end_time < $now_time) {
         $diff_days = '0';
     }
     $a = $now_time - $end_time;
@@ -121,14 +111,6 @@ if ($res_date['mb_4'] != '') {
     }
 }
 
-
-// $now = time(); // or your date as well
-// $your_date = strtotime($res_date['mb_4']);
-// echo time() ."\n";
-// echo strtotime($res_date['mb_3']) . "\n";
-// echo $your_date . "\n";
-// $datediff = $your_date - (time() - strtotime($res_date['mb_3']));
-// echo date("Y-m-d", $datediff);
 ?>
 
 <!-- //////////////////////////////////////////////////// -->
