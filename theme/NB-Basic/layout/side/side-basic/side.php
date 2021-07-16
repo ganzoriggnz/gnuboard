@@ -96,8 +96,18 @@ if ($res_date['mb_4'] != '') {
     $start_time = strtotime($res_date['mb_3']);
     $now_time = strtotime($now);
     if ($end_time >= $now_time) {
-        $diff = ($end_time - $now_time);
-        $diff_days = round($diff / 86400);
+        $d1=new DateTime($res_date['mb_4']);
+        $d2=new DateTime($now);
+        $diff=$d2->diff($d1);
+
+        if($diff->d == 0){
+            if($diff->h != 0 || $diff->i != 0){
+                $diff->d = 1;
+            }else{
+                $diff_days = '0';
+            }
+        }
+        $diff_days = $diff->days;
     }else{
         $diff_days = '0';
     }
@@ -110,6 +120,8 @@ if ($res_date['mb_4'] != '') {
         sql_query($sql_d);
     }
 }
+
+
 // $now = time(); // or your date as well
 // $your_date = strtotime($res_date['mb_4']);
 // echo time() ."\n";
