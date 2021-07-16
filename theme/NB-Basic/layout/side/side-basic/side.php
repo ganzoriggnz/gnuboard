@@ -96,14 +96,12 @@ if ($res_date['mb_4'] != '') {
     if ($end_time >= $now_time) {
         $diff = $end_time - $now_time;
         $diff_days = ceil($diff / 86400);
-    }
-    if ($end_time < $now_time) {
+    }else{
         $diff_days = '0';
     }
     $a = $now_time - $end_time;
     $b = round($a / 86400);
     if($b == 3){
-        $diff_days = '0';
         $sql_d = " UPDATE {$g5['member_table']} 
             SET mb_level = '26'
             WHERE mb_id = '{$member['mb_id']}' AND mb_level='27'";
