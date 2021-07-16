@@ -96,7 +96,8 @@ if ($res_date['mb_4'] != '') {
     if ($end_time >= $now_time) {
         $diff = $end_time - $now_time;
         $diff_days = ceil($diff / 86400);
-    } else if ($end_time < $now_time) {
+    }
+    if ($end_time < $now_time) {
         $diff_days = '0';
     }
     $a = $now_time - $end_time;
