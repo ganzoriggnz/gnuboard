@@ -37,7 +37,7 @@ if($member['mb_id']){
     $end_time = strtotime($row['mb_4']);
     $now_time = strtotime($now);
     if($end_time >= $now_time){
-        $d1=new DateTime($res_date['mb_4']);
+        $d1=new DateTime($row['mb_4']);
         $d2=new DateTime($now);
         $diff=$d2->diff($d1);
 
