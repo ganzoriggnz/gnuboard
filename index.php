@@ -1,5 +1,5 @@
 <?php
-header("Location: error.php");
+header("Location: https://bamje1.com/error.php");
 die;
 include_once('./_common.php');
 define('_INDEX_', true);
