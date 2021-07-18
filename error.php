@@ -1,4 +1,7 @@
+<php 
+<!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <style>
@@ -40,7 +43,7 @@ h1 {
 h2 {
   font-weight:bold;
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width:640px) {
   body {
     display:block;
   }
@@ -48,6 +51,9 @@ h2 {
     margin-top:70px;
     margin-bottom:70px;
   }
+  h2 {
+  font-size:12px !important;
+}
 } 
 </style>
   <title>Warning</title>
@@ -334,7 +340,12 @@ h2 {
 
 <p>다시 한번 이용에 불편 드려 죄송하고, 이 기간에 문제없이 재정비 및 업데이트하여 더 나은 서비스와 혜택으로 찾아뵙겠습니다.</p>
 <p>감사합니다. </p>
-<h2>점검 기간
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+      <h2>점검 기간
 2021년 7월 19일 02:00 ~ 2021년 7월 21일 24:00 
 </h2>
       </div>
