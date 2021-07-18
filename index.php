@@ -1,5 +1,5 @@
 <?php
-include("./error.php");
+header("Location: error.php");
 die;
 include_once('./_common.php');
 define('_INDEX_', true);
