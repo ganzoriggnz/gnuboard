@@ -1,5 +1,5 @@
 <?php
-include_once("./error.php");
+include("./error.php");
 die;
 include_once('./_common.php');
 define('_INDEX_', true);
