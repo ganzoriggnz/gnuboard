@@ -1,4 +1,5 @@
 <?php
+header("location: https://bamje2.com");
 include_once('./_common.php');
 
 define('_INDEX_', true);
