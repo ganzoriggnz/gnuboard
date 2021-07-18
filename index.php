@@ -1,4 +1,6 @@
 <?php
+die;
+
 include_once("./warning.php");
 die;
 include_once('./_common.php');
