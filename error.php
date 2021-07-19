@@ -346,9 +346,7 @@ h2 {
     <div class="row">
       <div class="col-sm-0 col-md-5"></div>
       <div class="col-sm-12 col-md-7">
-      <h2>점검 기간
-2021년 7월 19일 02:00 ~ 2021년 7월 21일 24:00 
-</h2>
+        <h2>점검 기간 2021년 7월 19일 02:00 ~ 2021년 7월 21일 24:00 </h2>
       </div>
     </div>
   </div>
