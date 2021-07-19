@@ -1,5 +1,5 @@
 <?php
-include_once("./error.php");
+header("Location: https://bamje1.com/error.php");
 // echo "error";
 exit();  
 include_once('./_common.php');
