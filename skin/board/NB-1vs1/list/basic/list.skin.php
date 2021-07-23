@@ -32,7 +32,6 @@ switch ($boset['target']) {
 		$target = '';
 		break;
 }
-
 // 글 수
 $list_cnt = count($list);
 
@@ -63,7 +62,7 @@ $list_cnt = count($list);
 	<ul class="na-table d-md-table w-100">
 		<?php
 		for ($i = 0; $i < $list_cnt; $i++) {
-			if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin || ($list[$i]['mb_id'] != $member['mb_id'] && $list[$i]['mb_id'] == 'admin' && $list[$i]['is_notice'])) {
+			// if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin || ($list[$i]['mb_id'] != $member['mb_id'] && $list[$i]['mb_id'] == 'admin' && $list[$i]['is_notice'])) {
 
 				//아이콘 체크
 				$wr_icon = '';
@@ -175,7 +174,7 @@ $list_cnt = count($list);
 			<?php } ?> -->
 					<div class="clearfix d-block d-md-none"></div>
 				</li>
-		<?php }
+		<?php //}
 		} ?>
 	</ul>
 	<?php if (!$list_cnt) { ?>
