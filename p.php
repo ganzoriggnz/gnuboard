@@ -6,7 +6,7 @@ include_once('./_common.php');
 define('_INDEX_', true);
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
-$sql = "SELECT distinct(m.mb_id) mb_id FROM g5_member m left join g5_point p on m.mb_id=p.mb_id where m.mb_level != 26 and m.mb_level != 27 and m.mb_level != 30;";
+$sql = "SELECT distinct(m.mb_id) mb_id FROM g5_member m left join g5_point p on m.mb_id=p.mb_id where m.mb_level != 26 and m.mb_level != 27 and m.mb_level != 30 and m.mb_datetime < '2021-07-22 00:00';";
 
 $now = G5_TIME_YMDHIS;
 $datas = sql_query($sql);
