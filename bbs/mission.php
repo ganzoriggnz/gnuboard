@@ -12,7 +12,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">', 0);
 
-if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['read_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['read_table']}",false)) { // 읽기 테이블이 없다면 생성
     $sql_table = "CREATE TABLE {$g5['read_table']} (   
         r_no int(11) NOT NULL AUTO_INCREMENT,
         mb_id varchar(20) NOT NULL DEFAULT '',
@@ -26,7 +26,7 @@ if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['read_table']}",false)) { // �
    sql_query($sql_table, false);
 }
 
-if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['mission_table']}",false)) { // 쿠폰 테이블이 없다면 생성
+if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['mission_table']}",false)) { // 미션 테이블이 없다면 생성
     $sql_table1 = "CREATE TABLE {$g5['mission_table']} (   
         m_no int(11) NOT NULL AUTO_INCREMENT,
         mb_id varchar(20) NOT NULL DEFAULT '',       

@@ -4,7 +4,7 @@ $data=array (
   0 => 
   array (
     'text' => '출근부',
-    'href' => '.',
+    'href' => '#',
     'icon' => 'fa-calendar',
     'target' => '_self',
     'line' => '',
@@ -24,10 +24,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opigangnam_at',
-        'bo_table' => 'opigangnam_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       1 => 
       array (
@@ -39,10 +36,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opibigangnam_at',
-        'bo_table' => 'opibigangnam_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       2 => 
       array (
@@ -54,10 +48,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opigyeonggi_at',
-        'bo_table' => 'opigyeonggi_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       3 => 
       array (
@@ -69,10 +60,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opiinchon_at',
-        'bo_table' => 'opiinchon_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       4 => 
       array (
@@ -84,10 +72,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opidaejeon_at',
-        'bo_table' => 'opidaejeon_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       5 => 
       array (
@@ -99,10 +84,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opigyeongsang_at',
-        'bo_table' => 'opigyeongsang_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       6 => 
       array (
@@ -114,10 +96,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opidaegu_at',
-        'bo_table' => 'opidaegu_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       7 => 
       array (
@@ -129,10 +108,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opijeju_at',
-        'bo_table' => 'opijeju_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       8 => 
       array (
@@ -144,10 +120,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugetelseoul_at',
-        'bo_table' => 'hyugetelseoul_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       9 => 
       array (
@@ -159,10 +132,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugetelkyonggi_at',
-        'bo_table' => 'hyugetelkyonggi_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       10 => 
       array (
@@ -174,10 +144,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugetelinchon_at',
-        'bo_table' => 'hyugetelinchon_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       11 => 
       array (
@@ -189,10 +156,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugeteldaejeon_at',
-        'bo_table' => 'hyugeteldaejeon_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       12 => 
       array (
@@ -204,10 +168,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugeteljeju_at',
-        'bo_table' => 'hyugeteljeju_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       13 => 
       array (
@@ -219,10 +180,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gonmaseoul_at',
-        'bo_table' => 'gonmaseoul_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       14 => 
       array (
@@ -234,10 +192,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gonmakyonggi_at',
-        'bo_table' => 'gonmakyonggi_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       15 => 
       array (
@@ -249,10 +204,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gonmainchonbuchon_at',
-        'bo_table' => 'gonmainchonbuchon_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       16 => 
       array (
@@ -264,10 +216,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gunmatechon_at',
-        'bo_table' => 'gunmatechon_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       17 => 
       array (
@@ -279,10 +228,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gonmajeju_at',
-        'bo_table' => 'gonmajeju_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       18 => 
       array (
@@ -294,10 +240,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-suljibseoul_at',
-        'bo_table' => 'suljibseoul_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       19 => 
       array (
@@ -309,10 +252,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-suljibchiban_at',
-        'bo_table' => 'suljibchiban_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       20 => 
       array (
@@ -324,10 +264,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-anmaseoul_at',
-        'bo_table' => 'anmaseoul_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       21 => 
       array (
@@ -339,12 +276,21 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-anmachiban_at',
-        'bo_table' => 'anmachiban_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       22 => 
+      array (
+        'text' => '출장-전국영토',
+        'href' => '/bbs/board.php?bo_table=chuljanall_at',
+        'icon' => 'fa-calendar',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'link',
+      ),
+      23 => 
       array (
         'text' => '키스방-전국영토',
         'href' => '/bbs/board.php?bo_table=kissall_at',
@@ -354,12 +300,9 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-kissall_at',
-        'bo_table' => 'kissall_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
-      23 => 
+      24 => 
       array (
         'text' => '립카페-전국영토',
         'href' => '/bbs/board.php?bo_table=lipcafeall_at',
@@ -369,12 +312,9 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-lipcafeall_at',
-        'bo_table' => 'lipcafeall_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
-      24 => 
+      25 => 
       array (
         'text' => '핸플/패티쉬영토',
         'href' => '/bbs/board.php?bo_table=show_at',
@@ -384,32 +324,26 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-show_at',
-        'bo_table' => 'show_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
-      25 => 
+      26 => 
       array (
         'text' => '선불폰/프로필 여행사/기타',
-        'href' => '/bbs/board.php?bo_table=trip_at',
+        'href' => '/bbs/board.php?bo_table=other_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
         'line' => '',
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-trip_at',
-        'bo_table' => 'trip_at',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
     ),
   ),
   1 => 
   array (
     'text' => '후기',
-    'href' => '.',
+    'href' => '#',
     'icon' => 'fa-commenting-o',
     'target' => '_self',
     'line' => '공지사항',
@@ -429,10 +363,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opigangnam_re',
-        'bo_table' => 'opigangnam_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       1 => 
       array (
@@ -444,10 +375,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opibigangnam_re',
-        'bo_table' => 'opibigangnam_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       2 => 
       array (
@@ -459,10 +387,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opigyeonggi_re',
-        'bo_table' => 'opigyeonggi_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       3 => 
       array (
@@ -474,10 +399,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opiinchon_re',
-        'bo_table' => 'opiinchon_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       4 => 
       array (
@@ -489,10 +411,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opidaejeon_re',
-        'bo_table' => 'opidaejeon_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       5 => 
       array (
@@ -504,10 +423,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opigyeongsang_re',
-        'bo_table' => 'opigyeongsang_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       6 => 
       array (
@@ -519,10 +435,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opidaegu_re',
-        'bo_table' => 'opidaegu_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       7 => 
       array (
@@ -534,10 +447,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-opijeju_re',
-        'bo_table' => 'opijeju_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       8 => 
       array (
@@ -549,10 +459,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugetelseoul_re',
-        'bo_table' => 'hyugetelseoul_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       9 => 
       array (
@@ -564,10 +471,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugetelkyonggi_re',
-        'bo_table' => 'hyugetelkyonggi_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       10 => 
       array (
@@ -579,10 +483,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugetelinchon_re',
-        'bo_table' => 'hyugetelinchon_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       11 => 
       array (
@@ -594,10 +495,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugeteldaejeon_re',
-        'bo_table' => 'hyugeteldaejeon_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       12 => 
       array (
@@ -609,10 +507,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-hyugeteljeju_re',
-        'bo_table' => 'hyugeteljeju_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       13 => 
       array (
@@ -624,10 +519,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gonmaseoul_re',
-        'bo_table' => 'gonmaseoul_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       14 => 
       array (
@@ -639,10 +531,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gonmakyonggi_re',
-        'bo_table' => 'gonmakyonggi_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       15 => 
       array (
@@ -654,10 +543,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gonmainchonbuchon_re',
-        'bo_table' => 'gonmainchonbuchon_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       16 => 
       array (
@@ -669,10 +555,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gunmatechon_re',
-        'bo_table' => 'gunmatechon_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       17 => 
       array (
@@ -684,10 +567,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-gonmajeju_re',
-        'bo_table' => 'gonmajeju_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       18 => 
       array (
@@ -699,10 +579,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-suljibseoul_re',
-        'bo_table' => 'suljibseoul_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       19 => 
       array (
@@ -714,10 +591,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-suljibchiban_re',
-        'bo_table' => 'suljibchiban_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       20 => 
       array (
@@ -729,10 +603,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-anmaseoul_re',
-        'bo_table' => 'anmaseoul_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       21 => 
       array (
@@ -744,12 +615,21 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-anmachiban_re',
-        'bo_table' => 'anmachiban_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       22 => 
+      array (
+        'text' => '출장-전국영토',
+        'href' => '/bbs/board.php?bo_table=chuljanall_re',
+        'icon' => 'fa-commenting-o',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'link',
+      ),
+      23 => 
       array (
         'text' => '키스방-전국영토',
         'href' => '/bbs/board.php?bo_table=kissall_re',
@@ -759,12 +639,9 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-kissall_re',
-        'bo_table' => 'kissall_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
-      23 => 
+      24 => 
       array (
         'text' => '립카페-전국영토',
         'href' => '/bbs/board.php?bo_table=lipcafeall_re',
@@ -774,12 +651,9 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-lipcafeall_re',
-        'bo_table' => 'lipcafeall_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
-      24 => 
+      25 => 
       array (
         'text' => '핸플/패티쉬영토',
         'href' => '/bbs/board.php?bo_table=show_re',
@@ -789,32 +663,26 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-show_re',
-        'bo_table' => 'show_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
-      25 => 
+      26 => 
       array (
         'text' => '선불폰/프로필 여행사/기타',
-        'href' => '/bbs/board.php?bo_table=trip_re',
+        'href' => '/bbs/board.php?bo_table=other_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
         'line' => '',
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-trip_re',
-        'bo_table' => 'trip_re',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
     ),
   ),
   2 => 
   array (
     'text' => '커뮤니티',
-    'href' => '.',
+    'href' => '#',
     'icon' => 'fa-comments',
     'target' => '_self',
     'line' => '공지사항',
@@ -834,7 +702,7 @@ $data=array (
         'sp' => '1',
         'limit' => '',
         'grade' => 0,
-        'id' => 'plugin-attendance-page-attendance',
+        'id' => 'link',
       ),
       1 => 
       array (
@@ -846,10 +714,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-notice',
-        'bo_table' => 'notice',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       2 => 
       array (
@@ -861,10 +726,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-greeting',
-        'bo_table' => 'greeting',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       3 => 
       array (
@@ -876,10 +738,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-free',
-        'bo_table' => 'free',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       4 => 
       array (
@@ -891,10 +750,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-woman',
-        'bo_table' => 'woman',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       5 => 
       array (
@@ -906,34 +762,31 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-event',
-        'bo_table' => 'event',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       6 => 
       array (
         'text' => '가문게시판',
-        'href' => '/bbs/blank9.php',
+        'href' => '/bbs/blank3.php',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank9',
+        'id' => 'link',
       ),
       7 => 
       array (
         'text' => '왕궁 게시판',
-        'href' => '/bbs/blank8.php',
+        'href' => '/bbs/blank2.php',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank8',
+        'id' => 'link',
       ),
       8 => 
       array (
@@ -945,7 +798,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank7',
+        'id' => 'link',
       ),
       9 => 
       array (
@@ -957,10 +810,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-suggestions',
-        'bo_table' => 'suggestions',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       10 => 
       array (
@@ -972,17 +822,14 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-twitter',
-        'bo_table' => 'twitter',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
     ),
   ),
   3 => 
   array (
     'text' => '고객센터',
-    'href' => '.bbs/blank.php',
+    'href' => 'bbs/blank.php',
     'icon' => 'fa-headphones',
     'target' => '_self',
     'line' => '',
@@ -1002,7 +849,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-qa',
+        'id' => 'link',
       ),
       1 => 
       array (
@@ -1014,7 +861,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank3',
+        'id' => 'link',
       ),
       2 => 
       array (
@@ -1026,10 +873,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-job',
-        'bo_table' => 'job',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       3 => 
       array (
@@ -1041,10 +885,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-work_board',
-        'bo_table' => 'work_board',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
     ),
   ),
@@ -1058,7 +899,7 @@ $data=array (
     'sp' => '',
     'limit' => '',
     'grade' => 0,
-    'id' => 'bbs-page-blank6',
+    'id' => 'link',
     's' => 
     array (
       0 => 
@@ -1071,10 +912,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-levelrank',
-        'bo_table' => 'levelrank',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       1 => 
       array (
@@ -1086,22 +924,19 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-pointrank',
-        'bo_table' => 'pointrank',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       2 => 
       array (
         'text' => '가문 랭킹',
-        'href' => '/bbs/blank12.php',
+        'href' => '/bbs/blank6.php',
         'icon' => 'fa-trophy',
         'target' => '_self',
         'line' => '',
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank12',
+        'id' => 'link',
       ),
     ),
   ),
@@ -1115,7 +950,7 @@ $data=array (
     'sp' => '',
     'limit' => '',
     'grade' => 0,
-    'id' => 'bbs-page-blank5',
+    'id' => 'link',
     's' => 
     array (
       0 => 
@@ -1128,19 +963,19 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank2',
+        'id' => 'link',
       ),
       1 => 
       array (
         'text' => '홀덤',
-        'href' => '/bbs/blank10.php',
+        'href' => '/bbs/blank5.php',
         'icon' => 'fa-bullseye',
         'target' => '_self',
         'line' => '',
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank10',
+        'id' => 'link',
       ),
       2 => 
       array (
@@ -1152,19 +987,19 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank4',
+        'id' => 'link',
       ),
       3 => 
       array (
         'text' => '맞고',
-        'href' => '/bbs/blank11.php',
+        'href' => '/bbs/blank5.php',
         'icon' => 'fa-bullseye',
         'target' => '_self',
         'line' => '',
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank11',
+        'id' => 'link',
       ),
       4 => 
       array (
@@ -1176,14 +1011,14 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-page-blank1',
+        'id' => 'link',
       ),
     ),
   ),
   6 => 
   array (
     'text' => ' 자료실',
-    'href' => '.',
+    'href' => '#',
     'icon' => 'fa-play-circle',
     'target' => '_self',
     'line' => '',
@@ -1203,10 +1038,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-movie',
-        'bo_table' => 'movie',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       1 => 
       array (
@@ -1218,10 +1050,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-tv',
-        'bo_table' => 'tv',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       2 => 
       array (
@@ -1233,10 +1062,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-ucc',
-        'bo_table' => 'ucc',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
       3 => 
       array (
@@ -1248,10 +1074,7 @@ $data=array (
         'sp' => '',
         'limit' => '',
         'grade' => 0,
-        'id' => 'bbs-board-request',
-        'bo_table' => 'request',
-        'wr_id' => NULL,
-        'sca' => NULL,
+        'id' => 'link',
       ),
     ),
   ),

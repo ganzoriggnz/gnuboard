@@ -89,8 +89,10 @@ function insert_nickname($wer)
 			<div class="flex-grow-1 pt-2">
 				<h5 class="hide-photo mb-2">
 					<b style="letter-spacing:-1px;"><?php echo str_replace('sv_member', 'sv_member en', $member['sideview']); ?></b>
-				</h5><span><?php echo get_level($member['mb_id']);?></span>
-				<span class="login_level"><?php echo ($member['mb_grade']) ? $member['mb_grade'] : $member['mb_level'].'등급' ;  ?></span><br>
+				</h5>
+				<span class="login_level">
+				<?php echo get_level($member['mb_id']).' '.get_level_name($member['mb_level']) ?></span><br>
+				
 				
 				<!-- hulan nemsen 출근부 수정 -->
 				<?php $now = G5_TIME_YMDHIS;

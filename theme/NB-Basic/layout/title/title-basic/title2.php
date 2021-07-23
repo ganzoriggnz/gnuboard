@@ -3,6 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 add_stylesheet('<link rel="stylesheet" href="'.$nt_title_url.'/title.css">', 0);
 
+/*
 $list = array();
 $sql = " select * from {$g5['fragment_table']}";
 $result = sql_fetch($sql);
@@ -25,23 +26,27 @@ if($result['fr_10'] !=''){
 // print($tood-1);
 $too = rand(0,$tood-1);
 // print($too);
+*/
+
+$sql = " select wr_id, wr_subject from g5_write_notice where wr_is_comment = '0' order by wr_datetime desc";
+$result = sql_query($sql);
 ?>
 <style>
 
 @media (min-width: 481px) {
 		.notice{width:48%; height:16px; overflow:hidden;}
 		.rolling{position:relative; width:100%; height:16px;}
-		.rolling li{width:100%; height:16px; line-height:50px;}
+		.rolling li{width:100%; height:16px; }
 }
 @media (max-width: 480px) {
 	.notice{width:48%; height:16px; overflow:hidden;}
 	.rolling{position:relative; width:100%; height:16px;}
-	.rolling li{width:100%; height:16px; line-height:50px;}
+	.rolling li{width:100%; height:16px;}
 }
 
 		.notice{width:48%; height:16px; overflow:hidden;}
 		.rolling{position:relative; width:100%; height:16px;}
-		.rolling li{width:100%; height:16px; line-height:50px;}
+		.rolling li{width:100%; height:16px; }
 
 		.rolling_stop{display:block; height:20px; color:#000; }
 		.rolling_start{display:block;  height:20px; color:#000;}
@@ -55,10 +60,10 @@ $too = rand(0,$tood-1);
 			<img src="<?php echo G5_URL?>/img/bell.png" alt="bell" title="">&nbsp;
 			<div class="notice" style="width: 100%;">
 				<ul class="rolling" style="top: -16px">
-				<?php for ($i=0; $i<$tood;$i++ ) {		
-				?>
-				<li><?php echo $list[$i]?></li>
-				<?php }?>
+					<?php for ($i=0; $row=sql_fetch_array($result); $i++){?>
+					<li><a href="/bbs/board.php?bo_table=notice&wr_id=<?=$row['wr_id'];?>"><?=$row['wr_subject']?></a></li>
+					<?php }?>
+				</ul>
 			</div>
 			<!-- <a href="#" class="rolling_stop">Pause</a>
 <a href="#" class="rolling_start">Play</a> -->
