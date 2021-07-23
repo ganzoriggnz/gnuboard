@@ -297,13 +297,16 @@ if ($is_search_bbs) {
     if ($mddd_id)
         $sql .= " and a.wr_id not in (" . $mddd_id . ")";
 
-    $sql .= " {$sql_order} limit {$from_record}, $page_rows ";
+    $sql .= " {$sql_order} limit {$from_record}, 44 ";
 }
 
 // 페이지의 공지개수가 목록수 보다 작을 때만 실행
 if ($page_rows > 0) {
+
     $result = sql_query($sql);
     $k = 0;
+    // var_dump($result);die;
+
 
     while ($row = sql_fetch_array($result)) {
         // 검색일 경우 wr_id만 얻었으므로 다시 한행을 얻는다
@@ -331,15 +334,21 @@ if ($page_rows > 0) {
         $list[$i]['is_eventcheck'] = false;
         $list[$i]['is_best'] = false;
         /* $list[$i]['is_coupon'] = false; */
-
-        $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count - $event_count - $best_count-$coupon_count;
-
-        $list[$i]['num'] = $list_num - $k;
+            // var_dump(  $list_page_rows , $notice_count , $event_count , intval($best_count) , intval($coupon_count));die; 2 - (1-1) * 50 - 2 - 0 - 0 - null;
+        $list_num = intval($total_count) - ($page - 1) * $list_page_rows - $notice_count - $event_count - intval($best_count) - intval($coupon_count);
+        if($list_num <= 0){
+            $list[$i]['num'] = intval($list_num - $k) * intval(-1) + 1;    
+        }else{
+            $list[$i]['num'] = $list_num - $k;
+        }
 
         $i++;
         $k++;
     }
+
 }
+// var_dump($k);
+// var_dump($list);die;
 
 g5_latest_cache_data($board['bo_table'], $list);
 
@@ -389,7 +398,6 @@ if ($board['bo_use_rss_view']) {
 // // 분류 사용 여부
 $is_category = false;
 $category_option = '';
-
 if ($board['bo_use_category']) {
     $is_category = true;
     $category_href = get_pretty_url($bo_table);
