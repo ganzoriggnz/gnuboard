@@ -296,7 +296,7 @@ if ($is_search_bbs) {
 
     if ($mddd_id)
         $sql .= " and a.wr_id not in (" . $mddd_id . ")";
-    $sql .= " limit {$from_record}, {$page_rows} ";
+    $sql .= " {$sql_order} limit {$from_record}, {$page_rows} ";
 }
 // var_dump($sql);die;
 // 페이지의 공지개수가 목록수 보다 작을 때만 실행
