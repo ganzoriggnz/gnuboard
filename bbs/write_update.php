@@ -285,7 +285,7 @@ if ($w == '' || $w == 'r') {
 
     if ($member['mb_7'] && $member['mb_6']==$bo_table) 
             $ca_name = $member['mb_7'];
-
+    var_dump($wr_id);die;
     $sql = " insert into $write_table
                 set wr_num = '$wr_num',
                      wr_reply = '$wr_reply',
@@ -308,7 +308,7 @@ if ($w == '' || $w == 'r') {
                      wr_email = '$wr_email',
                      wr_homepage = '$wr_homepage',
                      wr_datetime = '".G5_TIME_YMDHIS."',
-                     wr_last = '".G5_TIME_YMDHIS."',
+                     wr_last = '". $wr_id == 0 ? '' : G5_TIME_YMDHIS."',
                      wr_ip = '{$_SERVER['REMOTE_ADDR']}',
                      wr_1 = '$wr_1',
                      wr_2 = '$wr_2',
