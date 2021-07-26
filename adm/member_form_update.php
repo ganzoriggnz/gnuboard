@@ -42,8 +42,9 @@ if ($msg = valid_mb_nick($mb_nick))     alert($msg, "", true, true);
 if($_POST['mb_level']=='26' || $_POST['mb_level']=='27'){
     if ($msg = empty_mb_name($_POST['mb_name']))     alert($msg, "", true, true);
 }
-$start_date = $_POST['mb_3']. " " .G5_TIME_HIS;
-$end_date = $_POST['mb_4']." 23:59";
+$start_date = $_POST['mb_3'] === "" ? "" : $_POST['mb_3'] . " " . G5_TIME_HIS ;
+$end_date = $_POST['mb_4'] === "" ? "" : $_POST['mb_4'] ." 23:59";
+
 $sql_common = "  mb_name = '{$_POST['mb_name']}',
                  mb_nick = '{$mb_nick}',
                  mb_email = '{$mb_email}',

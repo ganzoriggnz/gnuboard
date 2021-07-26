@@ -497,11 +497,11 @@ this.form.mb_intercept_date.value=this.form.mb_intercept_date.defaultValue; }">
     </tr> -->
     <tr>
         <th scope="row"><label for="mb_3">제휴시작날짜</label></th>
-        <td colspan="3"><input type="text" name="mb_3" value="<?php isset($mb['mb_3']) && $mb['mb_3'] ? $d = date("Y-m-d", strtotime($mb['mb_3'])) : $d = ""; echo $d; ?>" id="mb_3" class="frm_input" size="30" maxlength="255" required autocomplete="off"></td>
+        <td colspan="3"><input type="text" name="mb_3" value="<?php isset($mb['mb_3']) && $mb['mb_3'] ? $d = date("Y-m-d", strtotime($mb['mb_3'])) : $d = ""; echo $d; ?>" id="mb_3" class="frm_input" size="30" maxlength="255" <?php echo $mb['mb_level'] == '26' || $mb['mb_level'] == '27' ? 'required': '';  ?> autocomplete="off"></td>
     </tr>
     <tr>
         <th scope="row"><label for="mb_4">제휴종료날짜</label></th>
-        <td colspan="3"><input type="text" name="mb_4" value="<?php isset($mb['mb_4']) && $mb['mb_4'] ? $d = date("Y-m-d", strtotime($mb['mb_4'])) : $d = ""; echo $d; ?>" id="mb_4" class="frm_input" size="30" maxlength="255" required  autocomplete="off"></td>
+        <td colspan="3"><input type="text" name="mb_4" value="<?php isset($mb['mb_4']) && $mb['mb_4'] ? $d = date("Y-m-d", strtotime($mb['mb_4'])) : $d = ""; echo $d; ?>" id="mb_4" class="frm_input" size="30" maxlength="255" <?php echo $mb['mb_level'] == '26' || $mb['mb_level'] == '27' ? 'required': '';  ?>   autocomplete="off"></td>
     </tr>
     <tr>
         <th scope="row"><label for="mb_5">제휴연장메모</label></th>
@@ -577,6 +577,32 @@ datepicker.setDefaults( datepicker.regional.ko );
 return datepicker.regional.ko;
 
 } );
+// var textarea = $("input[name='mb_3']");
+// var select = $("#mb_level");
+
+// var addOrRemoveRequiredAttribute = function () {
+//     console.log(select.val());
+//     if (select.val() === 27 || select.val() === 26) {
+//         console.log(select.val());
+//         textarea.prop('required', true);
+//     }else {
+//         textarea.prop('required', false);
+//     }
+// };
+
+// // Run now
+// addOrRemoveRequiredAttribute();
+
+// // And when textarea changes
+// select.on('change', addOrRemoveRequiredAttribute);
+$("#mb_level").on('change', function(){
+        console.log($(this).val());
+        if($(this).val() == 27 || $(this).val() == 26){
+            $('#mb_3').prop('required', true);
+        }else{
+            $('#mb_3').prop('required', false);
+        }
+    });
 </script>
 <script>
    $('input[name="mb_3"]').datepicker({ dateFormat: 'yy-mm-dd' });
@@ -612,6 +638,7 @@ var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7A
 		if (text.length > limit) that.val(text.substring(0, limit))
 	});
 </script>
+
 <?php
 run_event('admin_member_form_after', $mb, $w);
 
