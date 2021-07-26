@@ -285,7 +285,6 @@ if ($w == '' || $w == 'r') {
 
     if ($member['mb_7'] && $member['mb_6']==$bo_table) 
             $ca_name = $member['mb_7'];
-    var_dump($wr_id);die;
     $sql = " insert into $write_table
                 set wr_num = '$wr_num',
                      wr_reply = '$wr_reply',
