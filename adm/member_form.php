@@ -599,8 +599,11 @@ $("#mb_level").on('change', function(){
         console.log($(this).val());
         if($(this).val() == 27 || $(this).val() == 26){
             $('#mb_3').prop('required', true);
+            $('#mb_4').prop('required', true);
+
         }else{
             $('#mb_3').prop('required', false);
+            $('#mb_4').prop('required', false);
         }
     });
 </script>
