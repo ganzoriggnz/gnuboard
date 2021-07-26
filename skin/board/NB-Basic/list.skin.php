@@ -297,7 +297,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php if ($prev_part_href) { ?>
 						<li class="page-item"><a class="page-link" href="<?php echo $prev_part_href; ?>">Prev</a></li>
 					<?php } ?>
-					<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . '&amp;page=')); ?>
+					<?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr . isset($_GET['alert']) ? '&alert=true&amp;page=' : '&amp;page=')); ?>
 					<?php if ($next_part_href) { ?>
 						<li class="page-item"><a class="page-link" href="<?php echo $next_part_href; ?>">Next</a></li>
 					<?php } ?>
