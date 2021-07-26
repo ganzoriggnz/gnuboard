@@ -282,7 +282,7 @@ if ($w == '' || $w == 'r') {
         $wr_num = get_next_num($write_table);
         $wr_reply = '';
     }
-
+    $wr_last = $wr_id == 0 ? "" : G5_TIME_YMDHIS;
     if ($member['mb_7'] && $member['mb_6']==$bo_table) 
             $ca_name = $member['mb_7'];
     $sql = " insert into $write_table
@@ -307,7 +307,7 @@ if ($w == '' || $w == 'r') {
                      wr_email = '$wr_email',
                      wr_homepage = '$wr_homepage',
                      wr_datetime = '".G5_TIME_YMDHIS."',
-                     wr_last = '". $wr_id == 0 ? '' : G5_TIME_YMDHIS."',
+                     wr_last = '".$wr_last."',
                      wr_ip = '{$_SERVER['REMOTE_ADDR']}',
                      wr_1 = '$wr_1',
                      wr_2 = '$wr_2',
@@ -319,7 +319,7 @@ if ($w == '' || $w == 'r') {
                      wr_8 = '$wr_8',
                      wr_9 = '$wr_9',
                      wr_10 = '$wr_10' ";
-    sql_query($sql);
+    $da = sql_query($sql);
     $wr_id = sql_insert_id();
 
     
