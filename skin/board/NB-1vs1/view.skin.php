@@ -50,7 +50,10 @@ $view_subject = get_text($view['wr_subject']);
 				<?php } ?>
 				<li class="flex-grow-1 text-right">
 					<span class="sr-only">작성일</span>
-					<time class="f-xs" datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_last'])) ?>"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo ' 수정일: '.date("Y.m.d H:i", strtotime($view['wr_last'])) ?></time>
+					<time class="f-xs" datetime="<?php echo empty($view['wr_last']) ? date("Y.m.d H:i", strtotime($view['wr_datetime'])) : date("Y.m.d H:i", strtotime($view['wr_last'])) ?>">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+						<?php echo empty($view['wr_last']) ? ' 작성일: '.date("Y.m.d H:i", strtotime($view['wr_datetime'])) : ' 수정일: '.date("Y.m.d H:i", strtotime($view['wr_last'])) ?>
+					</time>
 				</li>
 			</ul>
 		</div>
