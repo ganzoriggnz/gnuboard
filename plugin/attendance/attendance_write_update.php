@@ -39,7 +39,7 @@ $day = date("Y-m-d", $G5_SERVER_TIME - (1 * 86400));
 // 어제 출석했나?
 $sql = " select * from {$g5['attendance_table']} where mb_id = '$member[mb_id]' and substring(`datetime`,1,10) = '$day' ";
 $row = sql_fetch($sql);
-
+// var_dump($sql);die;
 $sql_point = $attendance['today_point'];
 $sql_day_point = $attendance['day_point'];
 $sql_monthly_point = $attendance['monthly_point'];

@@ -853,7 +853,7 @@ $data=array (
       ),
       1 => 
       array (
-        'text' => '환전',
+        'text' => '충/환전',
         'href' => '/bbs/blank3.php',
         'icon' => 'fa-headphones',
         'target' => '_self',
