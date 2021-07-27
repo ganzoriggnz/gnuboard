@@ -767,7 +767,7 @@ $data=array (
       6 => 
       array (
         'text' => '가문게시판',
-        'href' => '/bbs/blank3.php',
+        'href' => '/bbs/blank8.php',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -779,7 +779,7 @@ $data=array (
       7 => 
       array (
         'text' => '왕궁 게시판',
-        'href' => '/bbs/blank2.php',
+        'href' => '/bbs/blank9.php',
         'icon' => 'fa-comments',
         'target' => '_self',
         'line' => '',
@@ -992,7 +992,7 @@ $data=array (
       3 => 
       array (
         'text' => '맞고',
-        'href' => '/bbs/blank5.php',
+        'href' => '/bbs/blank10.php',
         'icon' => 'fa-bullseye',
         'target' => '_self',
         'line' => '',
