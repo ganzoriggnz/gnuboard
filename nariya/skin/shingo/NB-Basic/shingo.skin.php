@@ -157,7 +157,7 @@ if ($wset['head_skin']) {
 							</div>
 						<?php } ?>
 					</div>
-					<div class="float-right pl-2 text-left float-md-none d-md-table-cell nw-10 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+					<div class="float-right pl-2 text-left float-md-none d-md-table-cell nw-10 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-01">
 						<span class="sr-only">작성자</span>
 						<?php echo na_name_photo($list[$i]['mb_id'], $list[$i]['name']) ?>
 					</div>

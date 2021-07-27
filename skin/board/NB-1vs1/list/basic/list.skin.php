@@ -110,7 +110,7 @@ $list_cnt = count($list);
 					<div class="d-none d-md-table-cell nw-5 f-sm font-weight-normal py-md-2 px-md-1">
 						<?php echo $list[$i]['num'] ?>
 					</div>
-					<div class="text-left d-md-table-cell py-md-2 pr-md-1">
+					<div class="text-left d-md-table-cell py-md-2 pr-md-01">
 						<div class="na-title float-md-left">
 							<div class="na-item">
 								<?php /* if ($list[$i]['wr_2']) echo '<i class="mr-2 fa fa-mobile" aria-hidden="true"></i>'; */ if ($is_checkbox) { ?>
@@ -143,7 +143,7 @@ $list_cnt = count($list);
 							</div>
 						</div>
 					</div>
-					<div class="float-right pl-2 text-left float-md-none d-md-table-cell nw-15 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-1">
+					<div class="float-right pl-2 text-left float-md-none d-md-table-cell nw-15 nw-md-auto f-sm font-weight-normal py-md-2 pr-md-01">
 						<span class="sr-only">등록자</span>
 						<?php
 						$mbid = get_member($list[$i]['mb_id']);
