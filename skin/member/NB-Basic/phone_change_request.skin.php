@@ -50,7 +50,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             </table>
             <br />
             <div style="text-align:center">
-                <input type="submit" id="change" value="전화번호 변경요청" class="btn btn-primary en">
+                <input type="button" id="change" value="전화번호 변경요청" class="btn btn-primary en">
                 <button type="cancel" class="btn btn-primary en" id="cancel-phone-change" onclick="self.close()">창닫기</button>
             </div>
             <?php if($_POST['new_hp']!='')
@@ -64,9 +64,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 <script>
 $('#change').click(function() {
     var cnt=$.trim($('#new_hp').val()).length;
-    if (confirm("이전 전화 번호를 변경하시겠습니까?")) {
-        if(cnt>14 || cnt<13) alert('운영자의 자기소개는 이용할 수 없습니다.')
-        else $('#fmember').submit();      
+    if(cnt>14 || cnt<13) 
+        alert('정상적인 전화번호를 입력해주세요.');
+    else{
+        if (confirm("이전 전화 번호를 변경하시겠습니까?")) {
+            $('#fmember').submit();      
+        }
     }
 
 });
