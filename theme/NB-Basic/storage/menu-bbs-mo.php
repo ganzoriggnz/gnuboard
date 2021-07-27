@@ -547,7 +547,7 @@ $data=array (
       ),
       16 => 
       array (
-        'text' => '건마 (강원/충청/대전)',
+        'text' => '건마-강원/충청/대전',
         'href' => '/bbs/board.php?bo_table=gunmatechon_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
@@ -559,7 +559,7 @@ $data=array (
       ),
       17 => 
       array (
-        'text' => '건마 경상/전라/제주',
+        'text' => '건마-경상/전라/제주',
         'href' => '/bbs/board.php?bo_table=gonmajeju_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
