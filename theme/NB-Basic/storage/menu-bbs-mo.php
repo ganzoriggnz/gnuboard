@@ -487,7 +487,7 @@ $data=array (
       ),
       11 => 
       array (
-        'text' => '휴게텔 강원/충청/대전',
+        'text' => '휴게텔-강원/충청/대전',
         'href' => '/bbs/board.php?bo_table=hyugeteldaejeon_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
@@ -499,7 +499,7 @@ $data=array (
       ),
       12 => 
       array (
-        'text' => '휴게텔 경상/전라/제주',
+        'text' => '휴게텔-경상/전라/제주',
         'href' => '/bbs/board.php?bo_table=hyugeteljeju_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
