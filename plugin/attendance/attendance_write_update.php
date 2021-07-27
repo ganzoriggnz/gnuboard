@@ -2,7 +2,6 @@
 
 include_once("./_setup.php");
 
-
 // 비회원
 if (!$is_member) {
 
@@ -163,7 +162,18 @@ sql_query($sql);
 
 // 출석 포인트 지급
 insert_point($member['mb_id'], (int)($sql_point * 1), "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
-
-
+// 7 хоног бол 50 пойнт
+$last_7 = " select count(*) cnt from {$g5['attendance_table']} where datetime >= DATE(NOW()) - INTERVAL 7 DAY and mb_id='{$member['mb_id']}'";
+$last7_day = sql_fetch($last_7);
+if((int)$last7_day['cnt'] == 7)
+    insert_point($member['mb_id'], 50, "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
+else if((int)$last7_day['cnt'] == 30)
+    insert_point($member['mb_id'], 500, "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
+else if((int)$last7_day['cnt'] == 365)
+    insert_point($member['mb_id'], 10000, "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
+else if((int)$last7_day['cnt'] == 500)
+    insert_point($member['mb_id'], 20000, "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
+else if((int)$last7_day['cnt'] == 1000)
+    insert_point($member['mb_id'], 50000, "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
 // 완료
 alert("출석 체크 완료", "./attendance.php");
