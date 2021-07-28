@@ -163,7 +163,6 @@ function attendanceUpdate17to21($mb_id, $getday , $attendance){
    
     }
 }
-// Нөхөж олгох хэсэг(Төгсгөл)
 function attendanceUpdate22($mb_id, $getday , $attendance){
     // тухайн өдрийн аттендайнс ороогүй байвал оруулна. 
     $daydif = "select * from g5_attendance where substring(`datetime`,1,10) = '{$getday}' and mb_id='{$mb_id}'";
@@ -567,6 +566,7 @@ function attendanceUpdate23toNow($mb_id, $getday , $attendance){
 
     $va = sql_query($sql);
 }
+// Нөхөж олгох хэсэг(Төгсгөл)
 
 // 출석 시간 체크
 // if (date("H:i:s") < $attendance['start_time'] || date("H:i:s") > $attendance['end_time']) {
