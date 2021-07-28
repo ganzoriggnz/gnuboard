@@ -1,0 +1,17 @@
+@UPDATE_ROOTDIR@/my.ini
+@UPDATE_ROOTDIR@/php.ini
+@UPDATE_ROOTDIR@/Server/Monitor/version.ini
+@UPDATE_ROOTDIR@/Server/Apache/conf/httpd.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-alias.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-autoindex.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-dav.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-default.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-info.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-languages.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-manual.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-mpm.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-multilang-errordoc.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-php5.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-ssl.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-userdir.conf
+@UPDATE_ROOTDIR@/Server/Apache/conf/extra/httpd-vhosts.conf
