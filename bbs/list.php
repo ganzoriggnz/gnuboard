@@ -280,7 +280,8 @@ if ($is_search_bbs) {
 
     $sql .= " where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
-    $sql = " select *, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from g5_coupon d where d.co_free_num>'0' and d.co_sale_num>'0' and d.co_begin_datetime='$co_begin_datetime' and d.mb_id=a.mb_id) has_coupon from {$write_table} a where a.wr_is_comment = 0  " . $nameddd;
+    //$sql = " select *, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from g5_coupon d where d.co_free_num>'0' and d.co_sale_num>'0' and d.co_begin_datetime='$co_begin_datetime' and d.mb_id=a.mb_id) has_coupon from {$write_table} a where a.wr_is_comment = 0  " . $nameddd;
+	$sql = " select *, exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27, exists(select 1 from g5_coupon d where (d.co_free_num>'0' or d.co_sale_num>'0') and d.co_begin_datetime='$co_begin_datetime' and d.mb_id=a.mb_id) has_coupon from {$write_table} a where a.wr_is_comment = 0  " . $nameddd;
     $mddd_id = "";
     if (!empty($notice_array))
         $mddd_id .= implode(', ', $notice_array);

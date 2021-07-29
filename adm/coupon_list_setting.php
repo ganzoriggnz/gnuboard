@@ -87,6 +87,7 @@ $colspan = 3;
         var free_cnt = $('#free'+f).val();
         //var total_cnt = $('#total'+f).val();
         
+		/*
         if(sale_cnt == '0'){
             $('#coupon_cnt').html('원가권');
             $('.popup_box1').css("display", "block");
@@ -105,6 +106,7 @@ $colspan = 3;
             $('#free').focus();
             return false;
         }
+		*/
         /* if(total_cnt == '0'){
             $('.popup_box3').css("display", "block");
             $('.btn').click(function(){
