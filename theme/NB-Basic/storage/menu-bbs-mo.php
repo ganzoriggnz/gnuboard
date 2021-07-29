@@ -865,6 +865,18 @@ $data=array (
       ),
       2 => 
       array (
+        'text' => '제휴문의',
+        'href' => '/bbs/board.php?bo_table=partnership',
+        'icon' => 'fa-headphones',
+        'target' => '_self',
+        'line' => '',
+        'sp' => '',
+        'limit' => '',
+        'grade' => 0,
+        'id' => 'link',
+      ),
+      3 => 
+      array (
         'text' => '구인구직 게시판',
         'href' => '/bbs/board.php?bo_table=job',
         'icon' => 'fa-headphones',
@@ -875,7 +887,7 @@ $data=array (
         'grade' => 0,
         'id' => 'link',
       ),
-      3 => 
+      4 => 
       array (
         'text' => '실장업무게시판',
         'href' => '/bbs/board.php?bo_table=work_board',
