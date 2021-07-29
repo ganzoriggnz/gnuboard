@@ -102,8 +102,7 @@ body::after{
                                     <img src="<?php echo G5_URL ?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg" style="height :14px; margin-left: 3.3px;" alt="<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>" />
                                     <?php echo $me['text']; ?>
                                 </a>
-                                <?php if (isset($me['s'])) { //Is Sub Menu 
-                                ?>
+                                <?php if (isset($me['s'])) { //Is Sub Menu ?>
                                     <!-- <div class="sub-slide sub-1div"> -->
                                     <ul class="dropdown-menu sub-1dul" style="justify-content: flex-start; position: absolute; white-space: nowrap; background-color: #fff; padding: 0px 10px; -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175)">
                                         <?php for ($j = 0; $j < count($me['s']); $j++) {
@@ -114,7 +113,7 @@ body::after{
                                                     ?>
 											<li class="dropdown-item sub-1line" ><a class="me-sh sub-1da"><?php echo $me1['line']; ?></a></li>
 										<?php } ?>										 -->
-                                            <?php if ($me1['text'] == "실장님 정보공유") {
+                                            <?php if ($me1['text'] == "실장님 정보공유") { 
                                                 if ($member['mb_level'] == 26 || $member['mb_level'] == 27 || $is_admin) { ?>
                                                     <li class="dropdown-submenu sub-1dli<?php echo ($me1['on']) ? ' on' : ''; ?>" style="flex:1;">
                                                         <a href="<?php if ($member['mb_level'] == 27 || $is_admin)  echo $me1['href']; ?>" <?php if ($member['mb_level'] == 26)  echo 'onclick=levelalert();' ?> data-toggle="dropdown" class="dropdown-item <?php echo count($me1['s']) > 1 ? ' dropdown-toggle' : '' ?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : ''; ?>" target="<?php echo $me1['target']; ?>">
@@ -169,11 +168,19 @@ body::after{
                                                 <?php }
                                             } else { ?>
                                                 <li class="dropdown-submenu sub-1dli<?php echo ($me1['on']) ? ' on' : ''; ?>" style="flex:1;">
+                                                <?php if($me1['text'] == '실장업무게시판'): ?>
+                                                    <?php if($member['mb_level'] == 26 || $member['mb_level'] == 27 || $is_admin): ?>
+                                                        <a href="<?php echo $me1['href']; ?>" data-toggle="dropdown" class="dropdown-item <?php echo count($me1['s']) > 1 ? ' dropdown-toggle' : '' ?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : ''; ?>" style="<?php echo strpos($me1['text'], '오피-전라/제주') === false && strpos($me1['text'], '휴게텔-경상/전라/제주') === false && strpos($me1['text'], '건마-경상/전라/제주') === false && strpos($me1['text'], '술집-지방영토') === false && strpos($me1['text'], '안마-지방영토') === false && strpos($me1['text'], '핸플/패티쉬영토') === false && strpos($me1['text'], '휴게텔 경상/전라/제주') === false && strpos($me1['text'], '건마 경상/전라/제주') === false && strpos($me1['text'], '출장-전국영토') === false ? '' : 'border-bottom-color: #707070;' ?>" target="<?php echo $me1['target']; ?>">
+                                                            <img src="<?php echo G5_URL ?>/img/solid/<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>.svg" style="height :14px;" alt="<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>" />
+                                                            <?php echo $me1['text']; ?>
+                                                        </a>
+                                                    <?php endif; ?>        
+                                                <?php else : ?>
                                                     <a href="<?php echo $me1['href']; ?>" data-toggle="dropdown" class="dropdown-item <?php echo count($me1['s']) > 1 ? ' dropdown-toggle' : '' ?> me-sh sub-1da<?php echo (isset($me1['s'])) ? ' sub-icon' : ''; ?>" style="<?php echo strpos($me1['text'], '오피-전라/제주') === false && strpos($me1['text'], '휴게텔-경상/전라/제주') === false && strpos($me1['text'], '건마-경상/전라/제주') === false && strpos($me1['text'], '술집-지방영토') === false && strpos($me1['text'], '안마-지방영토') === false && strpos($me1['text'], '핸플/패티쉬영토') === false && strpos($me1['text'], '휴게텔 경상/전라/제주') === false && strpos($me1['text'], '건마 경상/전라/제주') === false && strpos($me1['text'], '출장-전국영토') === false ? '' : 'border-bottom-color: #707070;' ?>" target="<?php echo $me1['target']; ?>">
                                                         <img src="<?php echo G5_URL ?>/img/solid/<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>.svg" style="height :14px;" alt="<?php echo substr($me1['icon'], 3, strlen($me1['icon'])) ?>" />
                                                         <?php echo $me1['text']; ?>
                                                     </a>
-
+                                                <?php endif; ?>        
 
                                                     <?php if (isset($me1['s'])) { // Is Sub Menu 
                                                     ?>
