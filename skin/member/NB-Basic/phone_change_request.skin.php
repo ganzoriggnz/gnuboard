@@ -42,7 +42,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 </tr>
                 <tr>
                     <td style="background-color:#f0f0f0;padding:5px">변경 전화번호</td>
-                    <td><input type="tel" name="new_hp" id="new_hp" value="<?php echo $member['mb_10']?>"
+                    <td><input type="tel" name="new_hp" id="new_hp" value=""
                             style="width:120px;height:25px; text-align:left; margin-right:25px; border:1px solid #b5b5b5"
                             placeholder="010-1234-5678" size="14" maxlength="14" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}">
                     </td>
