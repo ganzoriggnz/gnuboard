@@ -125,10 +125,9 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
                     </div>&nbsp;&nbsp;
                     <?php } }?>
                     <div>
-                        <button type="button" class="btn btn-primary" 
+                        <button type="button" class="btn btn-primary" style="<?php if(G5_IS_MOBILE) echo "padding:0.1rem 0.1rem;" ?>"
                             onclick="location.href='<?php echo $write_href ?>'">
-                            <img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg"
-                                style="height: 10px; <?php if(G5_IS_MOBILE) echo "padding:0.1rem 0.1rem;" ?>"><?php echo " 글쓰기" ?>
+                            <img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg" style="height: 10px;"><?php echo " 글쓰기" ?>
                         </button>
                     </div>
                     <?php } ?>
