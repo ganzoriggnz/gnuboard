@@ -117,7 +117,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="mb_addr2">세부 지역<!-- <strong class="sr-only">필수</strong> --></label>
 					<div class="col-sm-4">
-						<textarea name="mb_addr2" id="mb_addr2" rows="3" disabled class="form-control"><?php echo $member['mb_addr2'] ?></textarea>
+						<textarea name="mb_addr2" id="mb_addr2" rows="3" <?php echo $required ?> class="form-control"><?php echo $member['mb_addr2'] ?></textarea>
 					</div>
 					<div class="col-sm-6">
 						<p class="form-control-plaintext f-de text-muted pb-0">
