@@ -225,7 +225,7 @@ $view_subject = get_text($view['wr_subject']);
 							<span class="sr-only">SNS 공유</span>
 						</button>
 					<?php } ?>
-					<?php $boset['na_shingo'] = '1'; if (IS_NA_BBS && $boset['na_shingo']) { // 신고 ?>
+					<?php if (IS_NA_BBS && $boset['na_shingo']) { // 신고 ?>
 						<button type="button" class="btn btn-basic" onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="신고">
 							<i class="fa fa-ban" aria-hidden="true"></i>
 							<span class="sr-only">신고</span>
