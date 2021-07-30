@@ -39,7 +39,7 @@ if($_POST['new_hp']!='')
 
     $sql = " update {$g5['member_table']} set mb_memo_call = '{$member['mb_id']}', mb_memo_cnt = '".get_memo_not_read("admin")."' where mb_id = 'admin' ";
     sql_query($sql);
-
+    goto_url(G5_BBS_URL.'/userinfo.php');
 }
 ?>
 <script>
