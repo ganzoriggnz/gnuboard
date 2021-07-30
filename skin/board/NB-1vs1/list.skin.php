@@ -113,22 +113,22 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
                     <?php if ($member['mb_id']) { ?>
 
                     <div>
-                        <button type="button" class="btn btn-primary" alt="my post"
+                        <button type="button" class="btn btn-primary" alt="my post" style="<?php if(G5_IS_MOBILE) echo "padding:0.1rem 0.1rem;" ?>"
                             onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $bo_table ?>&sfl=mb_id%2C1&stx=<?php echo $member['mb_id'] ?>'"><svg
                                 xmlns="http://www.w3.org/2000/svg" style="height: 14px; fill:#fff;"
                                 viewBox="0 0 448 512">
                                 <path
                                     d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z" />
                             </svg>
-                            <?php if (!G5_IS_MOBILE) echo " 내글보기" ?>
+                            <?php echo " 내글보기" ?>
                         </button>
                     </div>&nbsp;&nbsp;
                     <?php } }?>
                     <div>
-                        <button type="button" class="btn btn-primary"
+                        <button type="button" class="btn btn-primary" 
                             onclick="location.href='<?php echo $write_href ?>'">
                             <img src="<?php echo G5_URL?>/img/solid/pencil-alt.svg"
-                                style="height: 10px;"><?php if (!G5_IS_MOBILE) echo " 글쓰기" ?>
+                                style="height: 10px; <?php if(G5_IS_MOBILE) echo "padding:0.1rem 0.1rem;" ?>"><?php echo " 글쓰기" ?>
                         </button>
                     </div>
                     <?php } ?>
