@@ -129,8 +129,7 @@ if($w == 'u'){
 
     $sql = "UPDATE {$g5['member_table']} 
             SET mb_4 = '{$end_date}',
-                mb_5 = '{$mb_note}',
-                mb_level = '27'
+                mb_5 = '{$mb_note}'
             WHERE mb_id='{$mb_id}'";
 
 	sql_query($sql);
