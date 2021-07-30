@@ -42,9 +42,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 </tr>
                 <tr>
                     <td style="background-color:#f0f0f0;padding:5px">변경 전화번호</td>
-                    <td><input type="tel" name="new_hp" id="new_hp" value=""
+                    <td><input type="text" name="new_hp" id="new_hp" value=""
                             style="width:120px;height:25px; text-align:left; margin-right:25px; border:1px solid #b5b5b5"
-                            placeholder="010-1234-5678" size="14" maxlength="14" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}">
+                            placeholder="010-1234-5678" size="14" maxlength="14">
                     </td>
                 </tr>
             </table>
@@ -59,18 +59,37 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         </div>
     </form>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<script src="<?php echo NA_URL ?>/js/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
 <script>
+$(window).load(function()
+{
+   var phones = [{ "mask": "###-####-####"}, { "mask": "###-####-####"}];
+    $('#new_hp').inputmask({ 
+        mask: phones, 
+        greedy: false, 
+        definitions: { '#': { validator: "[0-9]"}} });
+        console.log($('#new_hp'));
+});
+$('#new_hp').keypress(function(){
+    console.log($(this).val());
+})
+
 $('#change').click(function() {
-    var cnt=$.trim($('#new_hp').val()).length;
-    if(cnt>14 || cnt<13) 
+    var cnt=$('#new_hp').val();
+    var str = clean(cnt);
+    console.log(str.length);
+    if(str.length !== 11){ 
         alert('정상적인 전화번호를 입력해주세요.');
-    else{
+    }else{
         if (confirm("이전 전화 번호를 변경하시겠습니까?")) {
             $('#fmember').submit();      
         }
     }
 
 });
+function clean(str) {
+    return str.replace(/[^0-9 ]/g, "").replace(/ +/, " ")
+}
 </script>

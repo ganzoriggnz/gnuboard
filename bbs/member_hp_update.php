@@ -14,7 +14,7 @@ if($_POST['new_hp']!='')
     //$new_hp = $_POST['new_hp'];
     $new_hp = $_POST['new_hp'] ? clean_xss_tags(strip_tags($_POST['new_hp'])) : '';
    
-    $sql= "update g5_member set mb_10 = '{$new_hp}' where mb_id ='{$member['mb_id']}'";            
+    $sql= "update g5_member set mb_hp = '{$new_hp}' where mb_id ='{$member['mb_id']}'";            
     sql_query($sql);
 
     $tmp_row1 = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} ");
