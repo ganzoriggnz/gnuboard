@@ -640,18 +640,7 @@ var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7A
 		that.attr("maxlength", limit);
 		if (text.length > limit) that.val(text.substring(0, limit))
 	});
-    $("#mb_name").on("keypress keyup", function () {
-		var that = $(this);
-		var text = that.val();
 
-		if (hangul.test(text)) {
-			limit = 10;
-		} else {
-			limit = 20;
-		}
-		that.attr("maxlength", limit);
-		if (text.length > limit) that.val(text.substring(0, limit))
-	});
 </script>
 
 <?php
