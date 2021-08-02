@@ -775,7 +775,7 @@ function setConfig() {
       editorBgColor: '#fff',
       editorFontColor: '#000',
       editorFontName: '"맑은 고딕", "Malgun Gothic", gulim',
-      editorFontSize: '16px',
+      editorFontSize: '14px',
       editorHeight: '300px',
       editorPath: null,
       editorWidth: '100%',
@@ -1145,7 +1145,7 @@ cheditor.prototype = {
   initDefaultParagraphSeparator: function () {
     var p = this.doc.createElement('p'),
       br
-    p.style.fontSize  = '16px';
+    p.style.fontSize  = '14px';
     if (
       this.doc.body.firstChild &&
       this.doc.body.firstChild.nodeName.toLowerCase() === 'br'
