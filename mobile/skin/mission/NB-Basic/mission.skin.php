@@ -67,7 +67,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 					
 			<tr>
 				<td class="cl_td">4</td>
-				<td class="cl_td_l">댓글작성 </br>후기</td>	
+				<td class="cl_td_l">댓글작성</td>	
 				<td class="cl_td_l">자유게시판에 댓글 1회 작성하기(<?php 
 				if($cnt1 == 0) { echo '0';} 
 				else if($cnt1 > 0) { echo '1';} ?>/1)				
@@ -83,7 +83,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 								
 			<tr>
 				<td class="cl_td">5</td>
-				<td class="cl_td_l">댓글작성 </br>후기</td>	
+				<td class="cl_td_l">댓글작성</td>	
 				<td class="cl_td_l">자유게시판에 댓글 5회 작성하기(<?php 
 				if($cnt1 == 0) { echo '0';} 
 				else if($cnt1 == 1) { echo '1';}
@@ -103,7 +103,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$mission_skin_url.'/style.css">',
 						
 			<tr>
 				<td class="cl_td">6</td>
-				<td class="cl_td_l">댓글작성 </br>후기</td>	
+				<td class="cl_td_l">댓글작성</td>	
 				<td class="cl_td_l">자유게시판에 댓글 10회 작성하기(<?php 
 				if($cnt1 == 0) { echo '0';} 
 				else if($cnt1 == 1) { echo '1';}
