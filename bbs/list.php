@@ -304,7 +304,7 @@ if ($is_search_bbs) {
 if ($page_rows > 0) {
 
     $result = sql_query($sql);
-    $k = 1;
+    $k = 0;
     // var_dump($result);die;
 
 
