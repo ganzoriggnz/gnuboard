@@ -335,11 +335,10 @@ if ($page_rows > 0) {
         $list[$i]['is_best'] = false;
         /* $list[$i]['is_coupon'] = false; */
             // var_dump(  $list_page_rows , $notice_count , $event_count , intval($best_count) , intval($coupon_count));die; 2 - (1-1) * 50 - 2 - 0 - 0 - null;
-        $list_num = intval($total_count) - ($page - 1) * $list_page_rows - $notice_count - $event_count - intval($best_count) - intval($coupon_count);
+        $list_num = intval($total_count);// - ($page - 1) * $list_page_rows - $notice_count - $event_count - intval($best_count) - intval($coupon_count);
         $list[$i]['num'] = $list_num - $k;
 
         $k++;
-
         $i++;
     }
 
