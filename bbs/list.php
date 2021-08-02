@@ -304,7 +304,7 @@ if ($is_search_bbs) {
 if ($page_rows > 0) {
 
     $result = sql_query($sql);
-    $k = 0;
+    $k = 1;
     // var_dump($result);die;
 
 
@@ -336,9 +336,10 @@ if ($page_rows > 0) {
         /* $list[$i]['is_coupon'] = false; */
             // var_dump(  $list_page_rows , $notice_count , $event_count , intval($best_count) , intval($coupon_count));die; 2 - (1-1) * 50 - 2 - 0 - 0 - null;
         $list_num = intval($total_count) - ($page - 1) * $list_page_rows - $notice_count - $event_count - intval($best_count) - intval($coupon_count);
+        $list[$i]['num'] = $list_num - $k;
+
         $k++;
 
-        $list[$i]['num'] = $list_num - $k;
         $i++;
     }
 
