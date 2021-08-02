@@ -1145,7 +1145,7 @@ cheditor.prototype = {
   initDefaultParagraphSeparator: function () {
     var p = this.doc.createElement('p'),
       br
-
+    p.style.fontSize  = '16px';
     if (
       this.doc.body.firstChild &&
       this.doc.body.firstChild.nodeName.toLowerCase() === 'br'
