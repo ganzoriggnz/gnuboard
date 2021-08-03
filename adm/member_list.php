@@ -16,10 +16,14 @@ if ($stx) {
         case 'mb_level' :
             $sql_search .= " ({$sfl} = '{$stx}') ";
             break;
-        case 'mb_tel' :
+        case 'mb_login_ip' :
+            $sql_search .= " ({$sfl} like '{$stx}%') ";
+            break;
+        // case 'mb_tel' :
         case 'mb_hp' :
             $sql_search .= " ({$sfl} like '%{$stx}') ";
             break;
+        
         default :
             $sql_search .= " ({$sfl} like '{$stx}%') ";
             break;
@@ -88,7 +92,7 @@ $colspan = 16;
     <option value="mb_hp"<?php echo get_selected($_GET['sfl'], "mb_hp"); ?>>휴대폰번호</option>
     <option value="mb_point"<?php echo get_selected($_GET['sfl'], "mb_point"); ?>>포인트</option>
     <option value="mb_datetime"<?php echo get_selected($_GET['sfl'], "mb_datetime"); ?>>가입일시</option>
-    <option value="mb_ip"<?php echo get_selected($_GET['sfl'], "mb_ip"); ?>>IP</option>
+    <option value="mb_login_ip"<?php echo get_selected($_GET['sfl'], "mb_login_ip"); ?>>IP</option>
     <option value="mb_recommend"<?php echo get_selected($_GET['sfl'], "mb_recommend"); ?>>추천인</option>
 </select>
 <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
