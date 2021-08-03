@@ -42,7 +42,6 @@ if (!$sst) {
 $sql_order = " order by {$sst} {$sod} ";
 
 $sql = " select count(*) as cnt {$sql_common} {$sql_search} {$sql_order} ";
-var_dump($sql);die;
 $row = sql_fetch($sql);
 $total_count = $row['cnt'];
 
