@@ -33,7 +33,6 @@ if ($sca || $stx || $stx === '0') {     //검색이면
     }
 
     $sql .= " where {$sql_search} ";
-
     $row = sql_fetch($sql);
     $total_count = $row['cnt'];
     /*
@@ -42,9 +41,13 @@ if ($sca || $stx || $stx === '0') {     //검색이면
     $total_count = sql_num_rows($result);
     */
 } else {
+
     $sql_search = "";
     $total_count = $board['bo_count_write'];
+    // var_dump($board);die;
 }
+
+
 
 if (G5_IS_MOBILE) {
     $page_rows = $board['bo_mobile_page_rows'];
@@ -304,7 +307,7 @@ if ($is_search_bbs) {
 if ($page_rows > 0) {
 
     $result = sql_query($sql);
-    // var_dump($result->num_rows);die;
+    // var_dump($result);die;
     $k = 0;
     // var_dump($result);die;
 
@@ -334,9 +337,8 @@ if ($page_rows > 0) {
         $list[$i]['is_notice'] = false;
         $list[$i]['is_eventcheck'] = false;
         $list[$i]['is_best'] = false;
-        /* $list[$i]['is_coupon'] = false; */
-            // var_dump(  $list_page_rows , $notice_count , $event_count , intval($best_count) , intval($coupon_count));die; 2 - (1-1) * 50 - 2 - 0 - 0 - null;
-        $list_num = intval($result->num_rows);// - ($page - 1) * $list_page_rows - $notice_count - $event_count - intval($best_count) - intval($coupon_count);
+
+        $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count - $event_count - $best_count - $coupon_count;
         $list[$i]['num'] = $list_num - $k;
 
         $k++;
