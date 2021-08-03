@@ -16,13 +16,14 @@ if ($stx) {
         case 'mb_level' :
             $sql_search .= " ({$sfl} = '{$stx}') ";
             break;
-        case 'mb_tel' :
-        case 'mb_hp' :
-            $sql_search .= " ({$sfl} like '%{$stx}') ";
-            break;
         case 'mb_login_ip' :
             $sql_search .= " ({$sfl} = '{$stx}') ";
             break;
+        // case 'mb_tel' :
+        case 'mb_hp' :
+            $sql_search .= " ({$sfl} like '%{$stx}') ";
+            break;
+        
         default :
             $sql_search .= " ({$sfl} like '{$stx}%') ";
             break;
