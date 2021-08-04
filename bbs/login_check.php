@@ -68,7 +68,7 @@ $now = G5_TIME_YMDHIS;
 if($config['cf_use_point']) {
     $sum_point = get_point_sum($mb['mb_id']);
 
-    $sql= " update {$g5['member_table']} set mb_point = '$sum_point', mb_today_login = '$now', mb_login_ip = '{$_SERVER['HTTP_CLIENT_IP']}' where mb_id = '{$mb['mb_id']}' ";
+    $sql= " update {$g5['member_table']} set mb_point = '$sum_point', mb_today_login = '$now', mb_login_ip = '{$_SERVER['REMOTE_ADDR']}' where mb_id = '{$mb['mb_id']}' ";
     sql_query($sql);
 
     $sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$mb['mb_id']}' AND mb_level IN ('26', '27')";
