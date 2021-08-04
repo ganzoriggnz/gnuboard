@@ -99,7 +99,7 @@ header("Pragma: no-cache"); // HTTP/1.0
 출장안마, 출장건마,강남오피, 선릉오피, 강북오피, 강동오피, 강서오피, 분당오피, 송탄오피, 수원오피, 의정부오피, 안산오피, 일산오피, 부천오피, 서산오피, 대전오피, 천안오피, 
 청주오피, 구미오피, 대구오피, 부산오피, 광주오피, 울산오피, 창원오피, 포항오피, 군산오피, 익산오피, 제주오피, 강원오피, 전주오피 · bamje-달림정보포탈 밤의제국오피" />
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=1,user-scalable=yes" />
     <?php
     if (G5_IS_MOBILE) {
         echo '<meta name="HandheldFriendly" content="true"/>' . PHP_EOL;
