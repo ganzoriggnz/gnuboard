@@ -315,7 +315,7 @@ if ($page_rows > 0) {
     while ($row = sql_fetch_array($result)) {
         // 검색일 경우 wr_id만 얻었으므로 다시 한행을 얻는다
         if ($is_search_bbs) {
-            $query = " select * from {$write_table} ";
+            $query = " select *,  exists(select 1 from {$g5['member_table']} c where c.mb_level='27' and c.mb_id=a.mb_id) lvl_27 from {$write_table} a ";
 
             if ($gr_id == 'attendance' && $stx == 'mb_name') {
                 $query .= " a left join g5_member b on a.mb_id = b.mb_id ";
@@ -326,7 +326,7 @@ if ($page_rows > 0) {
             if ($gr_id == 'attendance' && $stx == 'mb_name') {
                 $query .= " and b.mb_name = '{$stx}' ";
             }
-
+            // var_dump($query);die;
             $row = sql_fetch($query);
         }
 
