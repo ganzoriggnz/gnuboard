@@ -76,7 +76,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		include_once($board_skin_path . '/category.skin.php');
 	?>
 	<!-- 검색창 시작 { -->
-	<div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?> mt-3">
+	<!-- <div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?> mt-3">
 		<form id="fsearch" name="fsearch" method="get" class="m-auto">
 			<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 			<input type="hidden" name="sca" value="<?php echo $sca ?>">
@@ -107,7 +107,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 				</div>
 			</div>
 		</form>
-	</div>
+	</div> -->
 
 	<!-- } 검색창 끝 -->
 
