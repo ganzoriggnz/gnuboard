@@ -729,7 +729,8 @@ function get_sql_search($search_ca_name, $search_field, $search_text, $search_op
     // 검색필드를 구분자로 나눈다. 여기서는 +
     $tmp = array();
     $tmp = explode(",", trim($search_field));
-    $field = explode("||", $tmp[0]);
+    $field = array(0 => '지역', 1 => '업소명', 2 => '제목', 3=>'닉네임');
+    //explode("||", $tmp[0]);
     $not_comment = "";
     if (!empty($tmp[1]))
         $not_comment = $tmp[1];

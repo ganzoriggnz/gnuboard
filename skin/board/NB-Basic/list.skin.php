@@ -52,7 +52,13 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		}
 	}
 </style>
-
+<script>
+	$(document).ready(function() {
+		$('#bo_stx_search').click(function(){
+			window.location.href = "?bo_table=<?php echo $bo_table ?>&sca=<?php echo $sca ?>&stx="+$('#bo_stxx').val()
+		})
+	})
+</script>
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list_wrap">
 	<!-- 인기글 -->
@@ -151,6 +157,21 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							<span class="sr-only">RSS</span>
 						</a>
 					<?php } ?>
+					<div class="py-1 btn btn_b01 nofocus">
+						<label for="stx" class="sr-only">검색어</label>
+						<div class="input-group">
+							<!-- <form id="fsearch" name="fsearch" method="get" onsubmit="return fsearch_submit(this);" class="m-auto"> -->
+								<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stxx" value="<?php echo $stx; ?>" required class="form-control" placeholder="업소정보검색">
+								<div class="input-group-append">
+									<!-- <a href="<?php  echo '/bbs/board.php?bo_table=other_at&stx='.$_GET['stxx']; ?>"> -->
+										<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
+											검색
+										</button>	
+									<!-- </a> -->
+								</div>
+							<!-- </form> -->
+						</div>
+					</div>
 					<button type="button" class="py-1 btn btn_b01 nofocus" title="게시판 검색" data-toggle="collapse" data-target="#bo_search" aria-expanded="false" aria-controls="bo_search">
 						<i class="fa fa-search fa-md" aria-hidden="true"></i>
 						<span class="sr-only">게시판 검색</span>
@@ -313,8 +334,11 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 	<noscript>
 		<p align="center">자바스크립트를 사용하지 않는 경우 별도의 확인 절차 없이 바로 선택삭제 처리하므로 주의하시기 바랍니다.</p>
 	</noscript>
-
 	<script>
+		function aa(){
+			console.log("ee");
+			return true;
+		}
 		function all_checked(sw) {
 			var f = document.fboardlist;
 
@@ -326,7 +350,6 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 
 		function fboardlist_submit(f) {
 			var chk_count = 0;
-
 			for (var i = 0; i < f.length; i++) {
 				if (f.elements[i].name == "chk_wr_id[]" && f.elements[i].checked)
 					chk_count++;
