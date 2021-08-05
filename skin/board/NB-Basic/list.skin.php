@@ -161,7 +161,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						<label for="stx" class="sr-only">검색어</label>
 						<div class="input-group">
 							<!-- <form id="fsearch" name="fsearch" method="get" onsubmit="return fsearch_submit(this);" class="m-auto"> -->
-								<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stxx" value="<?php echo $stx; ?>" required class="form-control" placeholder="업소정보검색">
+								<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stxx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
 								<div class="input-group-append">
 									<!-- <a href="<?php  echo '/bbs/board.php?bo_table=other_at&stx='.$_GET['stxx']; ?>"> -->
 										<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
@@ -172,10 +172,6 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							<!-- </form> -->
 						</div>
 					</div>
-					<button type="button" class="py-1 btn btn_b01 nofocus" title="게시판 검색" data-toggle="collapse" data-target="#bo_search" aria-expanded="false" aria-controls="bo_search">
-						<i class="fa fa-search fa-md" aria-hidden="true"></i>
-						<span class="sr-only">게시판 검색</span>
-					</button>
 					<div class="btn-group ">
 						<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
 							<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table']; ?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
