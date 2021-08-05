@@ -729,7 +729,7 @@ function get_sql_search($search_ca_name, $search_field, $search_text, $search_op
     // 검색필드를 구분자로 나눈다. 여기서는 +
     $tmp = array();
     $tmp = explode(",", trim($search_field));
-    $field = array(0 => '지역', 1 => '업소명', 2 => '제목', 3=>'닉네임');
+    $field = array(0 => 'ca_name', 1 => 'mb_name', 2 => 'wr_subject', 3=>'mb_nick');
     //explode("||", $tmp[0]);
     $not_comment = "";
     if (!empty($tmp[1]))
@@ -752,7 +752,7 @@ function get_sql_search($search_ca_name, $search_field, $search_text, $search_op
 
             // SQL Injection 방지
             // 필드값에 a-z A-Z 0-9 _ , | 이외의 값이 있다면 검색필드를 wr_subject 로 설정한다.
-            $field[$k] = preg_match("/^[\w\,\|]+$/", $field[$k]) ? strtolower($field[$k]) : "wr_subject";
+            // $field[$k] = preg_match("/^[\w\,\|]+$/", $field[$k]) ? strtolower($field[$k]) : "wr_subject";
 
             $str .= $op2;
             switch ($field[$k]) {

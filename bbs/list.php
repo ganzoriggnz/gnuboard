@@ -46,7 +46,7 @@ if ($sca || $stx || $stx === '0') {     //검색이면
     $total_count = $board['bo_count_write'];
     // var_dump($board);die;
 }
-
+// var_dump($sql);die;
 
 
 if (G5_IS_MOBILE) {
