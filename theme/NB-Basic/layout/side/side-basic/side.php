@@ -267,7 +267,7 @@ if ($res_date['mb_4'] != '') {
                     ?>
                     <?php } ?>
                     <div class="px-0 m-0 col-6">
-                        <a class="border-0" style="font-size: 14px; <?php echo ($me['active']) ? 'color: red; border-color: red' : '' ?>" href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL ?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg" style="height :14px;" alt="<?php echo substr($me['icon'], 3, strlen($me['icon'])), "1" ?>" /><?php echo $me['text']; ?>
+                        <a class="border-0" style="font-size: 14px; width:100%; <?php echo ($me['active']) ? 'color: red; border-color: red' : '' ?>" href="<?php echo $me['href']; ?>" target="_self"><img src="<?php echo G5_URL ?>/img/solid/<?php echo substr($me['icon'], 3, strlen($me['icon'])) ?>.svg" style="height :14px;" alt="<?php echo substr($me['icon'], 3, strlen($me['icon'])), "1" ?>" /><?php echo $me['text']; ?>
                         </a>
                     </div>
                     <?php if ($i % 2 == 1) { ?>

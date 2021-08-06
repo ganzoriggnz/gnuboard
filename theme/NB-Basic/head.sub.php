@@ -168,6 +168,7 @@ header("Pragma: no-cache"); // HTTP/1.0
   gtag('js', new Date());
 
   gtag('config', 'G-ZGDK6RNY63');
+
 </script>
 </head>
 <body<?php echo (isset($g5['body_script']) && $g5['body_script']) ? $g5['body_script'] . ' ' : ''; ?> class="<?php echo $body_class ?>">
