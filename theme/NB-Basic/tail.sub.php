@@ -18,6 +18,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
         $('#cat-row').children('div').addClass('col-sm-1 m-2');
         $('#bo_stx_search').css('background', '#e4c980');
         $('.adminbtn').css('background', '#e4c980');
+        $('.gal_btns').css('margin', '20px');
     }
 </script>
 </body>
