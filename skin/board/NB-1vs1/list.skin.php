@@ -30,7 +30,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
                     <input type="hidden" name="sca" value="<?php echo $sca ?>">
                     <input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php 
                         if($bo_table == "partnership")
-                            echo '제휴문의 게시판';
+                            echo '제휴문의 검색';
                         else if($bo_table == "suggestions")
                             echo '건의사항 검색';?>">
                     <div class="input-group-append">
@@ -126,7 +126,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 									<input type="hidden" name="sca" value="<?php echo $sca ?>">
 									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php 
 										if($bo_table == "partnership")
-											echo '제휴문의 게시판';
+											echo '제휴문의 검색';
 									 	else if($bo_table == "suggestions")
 										 	echo '건의사항 검색';?>">
 									<div class="input-group-append">
