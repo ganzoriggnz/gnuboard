@@ -80,6 +80,20 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		if (!G5_IS_MOBILE)
 			include_once('hit_latest.php'); ?>
 	<br>
+	<?php if(G5_IS_MOBILE): ?>
+		<form id="fsearch" name="fsearch" method="get" class="m-auto">
+			<div class="input-group">
+				<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+				<input type="hidden" name="sca" value="<?php echo $sca ?>">
+				<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stxx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
+				<div class="input-group-append">
+					<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
+						검색
+					</button>	
+				</div>
+			</div>
+		</form>
+	<?php endif; ?>
 	<?php
 	// 게시판 카테고리
 	if ($is_category)
@@ -176,7 +190,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
     							<input type="hidden" name="sca" value="<?php echo $sca ?>">
 								<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stxx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
 								<div class="input-group-append">
-									<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
+									<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
 										검색
 									</button>	
 								</div>
@@ -184,7 +198,8 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						</form>
 
 					</div>
-					<div class="btn-group ">
+					<?php if (!G5_IS_MOBILE) : ?>
+						<div class="btn-group ">
 						<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
 							<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table']; ?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
 									쿠폰지원내역
@@ -258,6 +273,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							</div>
 						</div>
 					</div>
+					<?php endif; ?>
 					<?php if ($is_admin == 'super' || $is_auth || IS_DEMO) {  ?>
 						<div class="btn-group" role="group">
 							<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시판 리스트 옵션">
