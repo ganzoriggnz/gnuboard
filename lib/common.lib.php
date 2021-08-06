@@ -699,7 +699,7 @@ function html_purifier($html)
 
 
 // 검색 구문을 얻는다.
-function get_sql_search($search_ca_name, $search_field, $search_text, $search_operator = 'and', $gr_id)
+function get_sql_search($search_ca_name, $search_field, $search_text, $search_operator = 'and', $gr_id = null)
 {
     $str = "";
     if ($search_ca_name)
@@ -734,6 +734,9 @@ function get_sql_search($search_ca_name, $search_field, $search_text, $search_op
         $field = array(0 => 'ca_name', 1 => 'wr_7', 2 => 'wr_subject', 3=>'mb_nick');
     }else if($gr_id == "community" || $gr_id == "library" || $gr_id == "service"){
         $field = array(0 => 'ca_name', 1 => 'ca_name', 2 => 'wr_subject', 3=>'mb_nick');
+    }else{
+        $field = array(0 => 'ca_name', 1 => 'mb_name', 2 => 'wr_subject', 3=>'mb_nick');
+
     }
     //explode("||", $tmp[0]);
     $not_comment = "";

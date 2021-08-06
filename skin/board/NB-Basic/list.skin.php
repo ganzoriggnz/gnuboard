@@ -52,7 +52,23 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		}
 	}
 </style>
+<script>
+	$(document).ready(function() {
+		$('#bo_stx_search').click(function(){
+			window.location.href = "?bo_table=<?php echo $bo_table ?>&sca=<?php echo $sca ?>&stx="+$('#bo_stxx').val()
+		})
+	})
+	// $(document).keypress(function(event){
+	// 	// if (event.which == '13') {
+	// 	// 	event.preventDefault();
+	// 	// }
+	// 	$('#fsearch').submit(function(e) {
+	// 		window.location.href = "?bo_table=<?php echo $bo_table ?>&sca=<?php echo $sca ?>&stx="+$('#bo_stxx').val()
+			
+	// 	});
 
+	// });
+</script>
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list_wrap">
 	<!-- 인기글 -->
@@ -64,30 +80,61 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		if (!G5_IS_MOBILE)
 			include_once('hit_latest.php'); ?>
 	<br>
-	<?php if(G5_IS_MOBILE): ?>
-		<div class="mb-2">
-			<form id="fsearch" name="fsearch" method="get" class="m-auto">
-				<div class="input-group">
-					<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
-					<input type="hidden" name="sca" value="<?php echo $sca ?>">
-					<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
-					<div class="input-group-append">
-						<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
-							검색
-						</button>	
-					</div>
-				</div>
-			</form>
-		</div>
-	<?PHP endif; ?>
-	<?php if ($is_category)
+	<?php
+	// 게시판 카테고리
+	if ($is_category)
 		include_once($board_skin_path . '/category.skin.php');
 	?>
+	<!-- 검색창 시작 { -->
+	<!-- <div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?> mt-3">
+		<form id="fsearch" name="fsearch" method="get" class="m-auto">
+			<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+			<input type="hidden" name="sca" value="<?php echo $sca ?>">
+			<div class="form-row mx-n1">
+				<div class="px-1 col-6 col-sm-3">
+					<label for="sfl" class="sr-only">검색대상</label>
+					<select name="sfl" class="custom-select">
+						<?php echo get_board_sfl_select_options($sfl); ?>
+					</select>
+				</div>
+				<div class="px-1 col-6 col-sm-3">
+					<select name="sop" class="custom-select">
+						<option value="and" <?php echo get_selected($sop, "and") ?>>그리고</option>
+						<option value="or" <?php echo get_selected($sop, "or") ?>>또는</option>
+					</select>
+				</div>
+				<div class="px-1 pt-2 col-12 col-sm-6 pt-sm-0">
+					<label for="stx" class="sr-only">검색어</label>
+					<div class="input-group">
+						<input type="text" id="bo_stx" name="stx" value="<?php echo stripslashes($stx) ?>" required class="form-control" placeholder="검색어를 입력해 주세요.">
+						<div class="input-group-append">
+							<button type="submit" class="btn btn-primary" title="검색하기">
+								<i class="fa fa-search" aria-hidden="true"></i>
+								<span class="sr-only">검색하기</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div> -->
+
+	<!-- } 검색창 끝 -->
+
+	<!-- <form name="fboardlist" id="fboardlist"> -->
+		<!-- <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+		<input type="hidden" name="sfl" value="<?php echo $sfl ?>">
+		<input type="hidden" name="stx" value="<?php echo $stx ?>">
+		<input type="hidden" name="spt" value="<?php echo $spt ?>">
+		<input type="hidden" name="sca" value="<?php echo $sca ?>">
+		<input type="hidden" name="sst" value="<?php echo $sst ?>">
+		<input type="hidden" name="sod" value="<?php echo $sod ?>">
+		<input type="hidden" name="page" value="<?php echo $page ?>">
+		<input type="hidden" name="sw" value=""> -->
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-			<?php if(!G5_IS_MOBILE): ?>
-				<div id="bo_btn_top">
+			<div id="bo_btn_top">
 				<div id="bo_list_total">
 					<?php if (!G5_IS_MOBILE) { ?>
 						<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
@@ -122,20 +169,20 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php } ?>
 					<div class="py-1 btn btn_b01 nofocus">
 						<label for="stx" class="sr-only">검색어</label>
-						<?php if(!G5_IS_MOBILE): ?>
-							<form id="fsearch" name="fsearch" method="get" class="m-auto">
-								<div class="input-group">
-									<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
-									<input type="hidden" name="sca" value="<?php echo $sca ?>">
-									<input style="border-radius: 0.25rem; border-top-right-radius: 0px; border-bottom-right-radius: 0px;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
-									<div class="input-group-append">
-										<button type="submut" id="bo_stx_search" class="btn btn-primary" title="검색">
-											검색
-										</button>	
-									</div>
+						<form id="fsearch" name="fsearch" method="get" class="m-auto">
+
+							<div class="input-group">
+								<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+    							<input type="hidden" name="sca" value="<?php echo $sca ?>">
+								<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stxx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
+								<div class="input-group-append">
+									<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
+										검색
+									</button>	
 								</div>
-							</form>
-						<?php endif; ?>
+							</div>
+						</form>
+
 					</div>
 					<div class="btn-group ">
 						<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
@@ -161,8 +208,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						<?php }
 						} ?>
 					</div>
-					<?php if(!G5_IS_MOBILE): ?>
-						<div class="btn-group" role="group">
+					<div class="btn-group" role="group">
 						<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
 							<?php
 							switch ($sst) {
@@ -174,6 +220,14 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 									$sst_icon = 'eye';
 									$sst_txt = '조회순 정렬';
 									break;
+									// case 'wr_good':
+									// 	$sst_icon = 'thumbs-o-up';
+									// 	$sst_txt = '추천순 정렬';
+									// 	break;
+									// case 'wr_nogood':
+									// 	$sst_icon = 'thumbs-o-down';
+									// 	$sst_txt = '비추천순 정렬';
+									// 	break;
 								default:
 									$sst_icon = 'sort-numeric-desc';
 									$sst_txt = '게시물 정렬';
@@ -204,7 +258,6 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							</div>
 						</div>
 					</div>
-					<?php endif; ?>
 					<?php if ($is_admin == 'super' || $is_auth || IS_DEMO) {  ?>
 						<div class="btn-group" role="group">
 							<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시판 리스트 옵션">
@@ -246,7 +299,6 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php }  ?>
 				</div>
 			</div>
-			<?php endif;?>
 			<!-- hulan nemsen doorh neg mur -->
 		<?php	} ?>
 
@@ -283,6 +335,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 
 			<!-- } 페이지 끝 -->
 		<?php } ?>
+	<!-- </form> -->
 </div>
 
 <?php if ($is_checkbox) { ?>
