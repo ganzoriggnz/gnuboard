@@ -82,18 +82,18 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 	<br>
 	<?php if(G5_IS_MOBILE): ?>
 		<div class="mb-2">
-		<form id="fsearch" name="fsearch" method="get" class="m-auto">
-			<div class="input-group">
-				<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
-				<input type="hidden" name="sca" value="<?php echo $sca ?>">
-				<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stxx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
-				<div class="input-group-append">
-					<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
-						검색
-					</button>	
+			<form id="fsearch" name="fsearch" method="get" class="m-auto">
+				<div class="input-group">
+					<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+					<input type="hidden" name="sca" value="<?php echo $sca ?>">
+					<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
+					<div class="input-group-append">
+						<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
+							검색
+						</button>	
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
 		</div>
 	<?php endif; ?>
 	<?php
