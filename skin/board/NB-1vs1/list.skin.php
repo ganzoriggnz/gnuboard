@@ -21,9 +21,29 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list" style="background-color:#fff;" class="mb-4">
-
+    <?php if (G5_IS_MOBILE) : ?>
+        <div class="p-0 pr-3 btn btn_b01 nofocus">
+            <label for="stx" class="sr-only">검색어</label>
+            <form id="fsearch" name="fsearch" method="get" class="m-auto">
+                <div class="input-group">
+                    <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+                    <input type="hidden" name="sca" value="<?php echo $sca ?>">
+                    <input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php 
+                        if($bo_table == "partnership")
+                            echo '제휴문의 게시판';
+                        else if($bo_table == "suggestions")
+                            echo '건의사항 검색';?>">
+                    <div class="input-group-append">
+                        <button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
+                            검색
+                        </button>	
+                    </div>
+                </div>
+            </form>
+        </div>
+    <?php endif; ?>
     <!-- 검색창 시작 { -->
-    <div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">
+    <!-- <div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">
         <div class="alert bg-light border">
             <form id="fsearch" name="fsearch" method="get" class="m-auto">
                 <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
@@ -57,7 +77,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
     <!-- } 검색창 끝 -->
 
     <?php 
@@ -66,7 +86,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 		include_once($board_skin_path.'/category.skin.php'); 
 	?>
 
-    <form name="fboardlist" id="fboardlist" action="./board_list_update.php" onsubmit="return fboardlist_submit(this);"
+    <!-- <form name="fboardlist" id="fboardlist" action="./board_list_update.php" onsubmit="return fboardlist_submit(this);"
         method="post">
         <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
         <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
@@ -76,7 +96,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
         <input type="hidden" name="sst" value="<?php echo $sst ?>">
         <input type="hidden" name="sod" value="<?php echo $sod ?>">
         <input type="hidden" name="page" value="<?php echo $page ?>">
-        <input type="hidden" name="sw" value="">
+        <input type="hidden" name="sw" value=""> -->
 
         <!-- 게시판 페이지 정보 및 버튼 시작 { -->
         <div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0">
@@ -97,12 +117,27 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
                         <span class="sr-only">RSS</span>
                     </a>
                     <?php } ?>
-
-                    <button type="button" class="btn btn_b01 nofocus py-1" title="게시판 검색" data-toggle="collapse"
-                        data-target="#bo_search" aria-expanded="false" aria-controls="bo_search">
-                        <i class="fa fa-search fa-md" aria-hidden="true"></i>
-                        <span class="sr-only">게시판 검색</span>
-                    </button>
+                        <?php if (!G5_IS_MOBILE) : ?>
+						<div class="p-0 pr-3 btn btn_b01 nofocus">
+							<label for="stx" class="sr-only">검색어</label>
+							<form id="fsearch" name="fsearch" method="get" class="m-auto">
+								<div class="input-group">
+									<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+									<input type="hidden" name="sca" value="<?php echo $sca ?>">
+									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php 
+										if($bo_table == "partnership")
+											echo '제휴문의 게시판';
+									 	else if($bo_table == "suggestions")
+										 	echo '건의사항 검색';?>">
+									<div class="input-group-append">
+										<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
+											검색
+										</button>	
+									</div>
+								</div>
+							</form>
+						</div>
+					<?php endif; ?>
                     <?php if ($write_href) { ?>
                     <!-- <a href="<?php echo $write_href ?>" class="btn btn_b01 nofocus py-1" title="글쓰기" role="button">
 							<i class="fa fa-pencil fa-md" aria-hidden="true"></i>
@@ -131,44 +166,46 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
                         </button>
                     </div>
                     <?php } ?>
-                    <div class="btn-group" role="group">
-                        <button type="button"
-                            class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
-                            title="게시물 정렬">
-                            <?php 
-								switch($sst) {
-									case 'wr_datetime'	: $sst_icon = 'history'; $sst_txt = '날짜순 정렬'; break;
-									case 'wr_hit'		: $sst_icon = 'eye'; $sst_txt = '조회순 정렬'; break;
-									// case 'wr_good'		: $sst_icon = 'thumbs-o-up'; $sst_txt = '추천순 정렬'; break;
-									// case 'wr_nogood'	: $sst_icon = 'thumbs-o-down'; $sst_txt = '비추천순 정렬'; break;
-									default				: $sst_icon = 'sort-numeric-desc'; $sst_txt = '게시물 정렬'; break;
-								}
-							?>
-                            <i class="fa fa-<?php echo $sst_icon ?> fa-md" aria-hidden="true"></i>
-                            <span class="sr-only"><?php echo $sst_txt ?></span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
-                            <div class="btn-group-vertical bg-white border rounded py-1">
-                                <?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_datetime', $qstr2, 1)) ?>
-                                날짜순
-                                </a>
-                                <?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
-                                조회순
-                                </a>
-                                <!-- <?php if($is_good && $bo_table != 'partnership') { ?>
-                                <?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
-                                추천순
-                                </a>
-                                <?php } ?>
-                                <?php if($is_nogood && $bo_table != 'partnership') { ?>
-                                <?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
-                                비추천순
-                                </a>
-                                <?php } ?> -->
+                    <?php if(!G5_IS_MOBILE): ?>
+                        <div class="btn-group" role="group">
+                            <button type="button"
+                                class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split py-1"
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
+                                title="게시물 정렬">
+                                <?php 
+                                    switch($sst) {
+                                        case 'wr_datetime'	: $sst_icon = 'history'; $sst_txt = '날짜순 정렬'; break;
+                                        case 'wr_hit'		: $sst_icon = 'eye'; $sst_txt = '조회순 정렬'; break;
+                                        // case 'wr_good'		: $sst_icon = 'thumbs-o-up'; $sst_txt = '추천순 정렬'; break;
+                                        // case 'wr_nogood'	: $sst_icon = 'thumbs-o-down'; $sst_txt = '비추천순 정렬'; break;
+                                        default				: $sst_icon = 'sort-numeric-desc'; $sst_txt = '게시물 정렬'; break;
+                                    }
+                                ?>
+                                <i class="fa fa-<?php echo $sst_icon ?> fa-md" aria-hidden="true"></i>
+                                <span class="sr-only"><?php echo $sst_txt ?></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right p-0 border-0 bg-transparent text-right">
+                                <div class="btn-group-vertical bg-white border rounded py-1">
+                                    <?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_datetime', $qstr2, 1)) ?>
+                                    날짜순
+                                    </a>
+                                    <?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
+                                    조회순
+                                    </a>
+                                    <!-- <?php if($is_good && $bo_table != 'partnership') { ?>
+                                    <?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
+                                    추천순
+                                    </a>
+                                    <?php } ?>
+                                    <?php if($is_nogood && $bo_table != 'partnership') { ?>
+                                    <?php echo str_replace('>', ' class="btn px-3 py-1 text-left" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
+                                    비추천순
+                                    </a>
+                                    <?php } ?> -->
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                     <?php if ($is_admin == 'super' || $is_auth || IS_DEMO) {  ?>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split py-1"
@@ -244,7 +281,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
             </ul>
         </div>
         <!-- } 페이지 끝 -->
-    </form>
+    <!-- </form> -->
 </div>
 
 <?php if ($is_checkbox) { ?>

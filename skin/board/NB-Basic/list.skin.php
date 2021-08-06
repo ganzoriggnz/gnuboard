@@ -103,6 +103,8 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 											echo '이벤트 검색';
 										else if($bo_table == "job")
 											echo '구인구직 검색';
+										else if($bo_table == "work_board")
+											echo '실장님 정보공유 검색';
 										?>">
 					<div class="input-group-append">
 						<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
@@ -200,10 +202,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							<span class="sr-only">RSS</span>
 						</a>
 					<?php } ?>
-					<?php 
-										// var_dump($board['gr_id']);die;
-					
-					if (!G5_IS_MOBILE) : ?>
+					<?php if (!G5_IS_MOBILE) : ?>
 						<div class="py-1 btn btn_b01 nofocus">
 							<label for="stx" class="sr-only">검색어</label>
 							<form id="fsearch" name="fsearch" method="get" class="m-auto">
@@ -227,6 +226,8 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 											echo '이벤트 검색';
 										else if($bo_table == "job")
 											echo '구인구직 검색';
+										else if($bo_table == "work_board")
+											echo '실장님 정보공유 검색';
 										?>">
 									<div class="input-group-append">
 										<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
