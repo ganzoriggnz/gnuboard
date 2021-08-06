@@ -64,9 +64,21 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		if (!G5_IS_MOBILE)
 			include_once('hit_latest.php'); ?>
 	<br>
-	<?php
-	// 게시판 카테고리
-	if ($is_category)
+	<?php if(G5_IS_MOBILE): ?>
+		<form id="fsearch" name="fsearch" method="get" class="m-auto">
+			<div class="input-group">
+				<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+				<input type="hidden" name="sca" value="<?php echo $sca ?>">
+				<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
+				<div class="input-group-append">
+					<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
+						검색
+					</button>	
+				</div>
+			</div>
+		</form>
+	<?PHP endif; ?>
+	<?php if ($is_category)
 		include_once($board_skin_path . '/category.skin.php');
 	?>
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
@@ -107,19 +119,20 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php } ?>
 					<div class="py-1 btn btn_b01 nofocus">
 						<label for="stx" class="sr-only">검색어</label>
-						<form id="fsearch" name="fsearch" method="get" class="m-auto">
-							<div class="input-group">
-								<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
-								<input type="hidden" name="sca" value="<?php echo $sca ?>">
-								<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
-								<div class="input-group-append">
-									<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
-										검색
-									</button>	
+						<?php if(!G5_IS_MOBILE): ?>
+							<form id="fsearch" name="fsearch" method="get" class="m-auto">
+								<div class="input-group">
+									<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+									<input type="hidden" name="sca" value="<?php echo $sca ?>">
+									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
+									<div class="input-group-append">
+										<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
+											검색
+										</button>	
+									</div>
 								</div>
-							</div>
-						</form>
-
+							</form>
+						<?php endif; ?>
 					</div>
 					<div class="btn-group ">
 						<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
