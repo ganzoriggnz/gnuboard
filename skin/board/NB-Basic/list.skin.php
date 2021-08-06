@@ -65,7 +65,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 			include_once('hit_latest.php'); ?>
 	<br>
 	<?php if(G5_IS_MOBILE): ?>
-		<form id="fsearch" name="fsearch" method="get" class="m-auto">
+		<form id="fsearch" name="fsearch" method="get" class="m-auto mb-5">
 			<div class="input-group">
 				<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 				<input type="hidden" name="sca" value="<?php echo $sca ?>">
