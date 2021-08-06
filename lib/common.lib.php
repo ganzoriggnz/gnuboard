@@ -699,7 +699,7 @@ function html_purifier($html)
 
 
 // 검색 구문을 얻는다.
-function get_sql_search($search_ca_name, $search_field, $search_text, $search_operator = 'and')
+function get_sql_search($search_ca_name, $search_field, $search_text, $search_operator = 'and', $gr_id)
 {
     $str = "";
     if ($search_ca_name)
@@ -725,11 +725,16 @@ function get_sql_search($search_ca_name, $search_field, $search_text, $search_op
     // 검색어를 구분자로 나눈다. 여기서는 공백
     $s = array();
     $s = explode(" ", $search_text);
-
     // 검색필드를 구분자로 나눈다. 여기서는 +
     $tmp = array();
     $tmp = explode(",", trim($search_field));
-    $field = array(0 => 'ca_name', 1 => 'mb_name', 2 => 'wr_subject', 3=>'mb_nick');
+    if ($gr_id == "attendance") {
+        $field = array(0 => 'ca_name', 1 => 'mb_name', 2 => 'wr_subject', 3=>'mb_nick');
+    }else if($gr_id == "review"){
+        $field = array(0 => 'ca_name', 1 => 'wr_7', 2 => 'wr_subject', 3=>'mb_nick');
+    }else if($gr_id == "community" || $gr_id == "library" || $gr_id == "service"){
+        $field = array(0 => 'ca_name', 1 => 'ca_name', 2 => 'wr_subject', 3=>'mb_nick');
+    }
     //explode("||", $tmp[0]);
     $not_comment = "";
     if (!empty($tmp[1]))
