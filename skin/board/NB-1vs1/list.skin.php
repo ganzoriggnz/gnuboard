@@ -22,7 +22,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 <!-- 게시판 목록 시작 { -->
 <div id="bo_list" style="background-color:#fff;" class="mb-4">
     <?php if (G5_IS_MOBILE) : ?>
-        <div class="p-0 pr-3 btn btn_b01 nofocus">
+        <div class="p-0 pr-3">
             <label for="stx" class="sr-only">검색어</label>
             <form id="fsearch" name="fsearch" method="get" class="m-auto">
                 <div class="input-group">
@@ -118,7 +118,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
                     </a>
                     <?php } ?>
                         <?php if (!G5_IS_MOBILE) : ?>
-						<div class="p-0 pr-3 btn btn_b01 nofocus">
+						<div class="p-0 pr-3">
 							<label for="stx" class="sr-only">검색어</label>
 							<form id="fsearch" name="fsearch" method="get" class="m-auto">
 								<div class="input-group">
