@@ -19,6 +19,9 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
         $('#bo_stx_search').css('background', '#e4c980');
         $('.adminbtn').css('background', '#e4c980');
         $('.gal_btns').css('margin', '20px');
+        $('.btn-primary').find('svg').remove();
+
+        $('#bo_btn_top').find('.btn-primary').css('background', '#e4c980');
     }
 </script>
 </body>
