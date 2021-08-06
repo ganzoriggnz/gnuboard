@@ -86,7 +86,8 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-			<div id="bo_btn_top">
+			<?php if(!G5_IS_MOBILE): ?>
+				<div id="bo_btn_top">
 				<div id="bo_list_total">
 					<?php if (!G5_IS_MOBILE) { ?>
 						<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
@@ -126,7 +127,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 								<div class="input-group">
 									<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 									<input type="hidden" name="sca" value="<?php echo $sca ?>">
-									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
+									<input style="border-radius: 0.25rem; border-top-right-radius: 0px; border-bottom-right-radius: 0px;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
 									<div class="input-group-append">
 										<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
 											검색
@@ -245,6 +246,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php }  ?>
 				</div>
 			</div>
+			<?php endif;?>
 			<!-- hulan nemsen doorh neg mur -->
 		<?php	} ?>
 
