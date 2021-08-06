@@ -86,7 +86,24 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 				<div class="input-group">
 					<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 					<input type="hidden" name="sca" value="<?php echo $sca ?>">
-					<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
+					<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php 
+										if($board['gr_id'] == "attendance")
+											echo '업소정보검색';
+									 	else if($board['gr_id'] == "review")
+										 	echo '업소후기검색';
+										else if($bo_table == "notice")
+											echo '공지사항 검색';
+										else if($bo_table == "greeting")
+											echo '가입인사 검색';
+										else if($bo_table == "free")
+											echo '자유게시판 검색';
+										else if($bo_table == "woman")
+											echo '미수다 검색';
+										else if($bo_table == "event")
+											echo '이벤트 검색';
+										else if($bo_table == "job")
+											echo '구인구직 검색';
+										?>">
 					<div class="input-group-append">
 						<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
 							검색
@@ -183,14 +200,34 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							<span class="sr-only">RSS</span>
 						</a>
 					<?php } ?>
-					<?php if (!G5_IS_MOBILE) : ?>
+					<?php 
+										// var_dump($board['gr_id']);die;
+					
+					if (!G5_IS_MOBILE) : ?>
 						<div class="py-1 btn btn_b01 nofocus">
 							<label for="stx" class="sr-only">검색어</label>
 							<form id="fsearch" name="fsearch" method="get" class="m-auto">
 								<div class="input-group">
 									<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 									<input type="hidden" name="sca" value="<?php echo $sca ?>">
-									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
+									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php 
+										if($board['gr_id'] == "attendance")
+											echo '업소정보검색';
+									 	else if($board['gr_id'] == "review")
+										 	echo '업소후기검색';
+										else if($bo_table == "notice")
+											echo '공지사항 검색';
+										else if($bo_table == "greeting")
+											echo '가입인사 검색';
+										else if($bo_table == "free")
+											echo '자유게시판 검색';
+										else if($bo_table == "woman")
+											echo '미수다 검색';
+										else if($bo_table == "event")
+											echo '이벤트 검색';
+										else if($bo_table == "job")
+											echo '구인구직 검색';
+										?>">
 									<div class="input-group-append">
 										<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
 											검색
