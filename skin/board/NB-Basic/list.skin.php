@@ -72,7 +72,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<input type="hidden" name="sca" value="<?php echo $sca ?>">
 					<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
 					<div class="input-group-append">
-						<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
+						<button type="submit" id="bo_stx_search" class="btn btn-primary" title="검색">
 							검색
 						</button>	
 					</div>
@@ -129,7 +129,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 									<input type="hidden" name="sca" value="<?php echo $sca ?>">
 									<input style="border-radius: 0.25rem; border-top-right-radius: 0px; border-bottom-right-radius: 0px;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php echo $board['gr_id'] == "attendance" ? '업소정보검색' : '업소후기검색' ?>">
 									<div class="input-group-append">
-										<button type="button" id="bo_stx_search" class="btn btn-primary" title="검색">
+										<button type="submut" id="bo_stx_search" class="btn btn-primary" title="검색">
 											검색
 										</button>	
 									</div>
