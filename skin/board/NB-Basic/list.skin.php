@@ -65,7 +65,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 			include_once('hit_latest.php'); ?>
 	<br>
 	<?php if(G5_IS_MOBILE): ?>
-		<div class="mb-5">
+		<div class="mb-2">
 			<form id="fsearch" name="fsearch" method="get" class="m-auto">
 				<div class="input-group">
 					<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
@@ -160,7 +160,8 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						<?php }
 						} ?>
 					</div>
-					<div class="btn-group" role="group">
+					<?php if(!G5_IS_MOBILE): ?>
+						<div class="btn-group" role="group">
 						<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
 							<?php
 							switch ($sst) {
@@ -202,6 +203,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							</div>
 						</div>
 					</div>
+					<?php endif; ?>
 					<?php if ($is_admin == 'super' || $is_auth || IS_DEMO) {  ?>
 						<div class="btn-group" role="group">
 							<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시판 리스트 옵션">
