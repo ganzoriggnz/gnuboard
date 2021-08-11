@@ -24,7 +24,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
     include G5_THEME_MOBILE_PATH2."/skin/member/NB-Basic/infotab.php";
     ?>
     </nav>
-    <div class="couponbg">
+    <div class="couponbg" style="margin-left:10px;">
         <div class="coupon_noti" style="font-size:12px;">쿠폰지원 개수는 매월 1일부터 5일까지 수정 가능합니다. <br/>그외 날짜에 수정을 원하시면 관리자에게 쪽지로 문의 바랍니다. 
         </div>
         <div class="coupon_noti" style="margin-top:20px; font-size:12px;">
