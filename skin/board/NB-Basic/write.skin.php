@@ -214,7 +214,7 @@ if ($is_member)
 
         echo $option_hidden;
         ?>
-        <?php if (G5_IS_MOBILE) { var_dump($category_option);die; ?>
+        <?php if (G5_IS_MOBILE) { ?>
             <ul class="mb-3 list-group">
                 <li class=" list-group item border-top-0">
                     <div class="na-table d-table w-100">
