@@ -152,7 +152,7 @@ sql_query(" update {$g5['board_table']} set bo_notice = '$bo_notice' where bo_ta
 
 // 글숫자 감소
 if ($count_write > 0 || $count_comment > 0)
-    sql_query(" update {$g5['board_table']} set bo_count_write = bo_count_write - '$count_write', bo_count_comment = bo_count_comment - '$count_comment' where bo_table = '$bo_table' ");
+    sql_query(" update {$g5['board_table']} set bo_count_write = bo_count_write - $count_write, bo_count_comment = bo_count_comment - '$count_comment' where bo_table = '$bo_table' ");
 
 @include_once($board_skin_path.'/delete.tail.skin.php');
 
