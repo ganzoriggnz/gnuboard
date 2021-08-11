@@ -352,11 +352,12 @@ if (($member['mb_level'] == 27 || ($member['mb_level'] == '26' && $finish_date >
 
 $is_category = false;
 $category_option = '';
-if ($member['mb_level'] !== 27) {
+if ($board['bo_use_category'] && $member['mb_level'] !== 27) {
     $ca_name = $member['mb_7'];
     if (isset($write['ca_name']))
         $ca_name = $write['ca_name'];
     $category_option = get_category_option($bo_table, $ca_name);
+    var_dump($category_option);die;
     $is_category = true;
 }
 
