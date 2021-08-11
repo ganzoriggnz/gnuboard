@@ -974,11 +974,8 @@ function is_admin($mb_id)
 function get_category_option($bo_table = '', $ca_name = '')
 {
     global $g5, $board, $is_admin;
-    $sql = "select bo_category_list from g5_board where bo_table = 'job'";
-    $row = sql_fetch($sql);
-    $categories = explode("|", $row['bo_category_list']);
 
-    // $categories = explode("|", $board['bo_category_list']); // 구분자가 | 로 되어 있음
+    $categories = explode("|", $board['bo_category_list']); // 구분자가 | 로 되어 있음
     $str = "";
     for ($i = 0; $i < count($categories); $i++) {
         $category = trim($categories[$i]);
