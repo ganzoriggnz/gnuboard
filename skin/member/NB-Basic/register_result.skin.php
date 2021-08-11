@@ -38,8 +38,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 					<li>회원가입후 가입인사는 (300P)필수 입니다. </li>
 				</ul>
 				<div style="text-align:center;">
-					<a class="me-a f-md en win_memo" href="<?php echo G5_URL ?>/bbs/board.php?bo_table=greeting" target="_self" role="button">
-					<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg" style="width: auto; margin:30px">가입인사 하고 300P 받기</button>
+					<a class="me-a f-md" href="<?php echo G5_URL ?>/bbs/board.php?bo_table=greeting" target="_self" role="button">
+						<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg" style="width: auto; margin:30px">가입인사 하고 300P 받기</button>
 					</a>
 				</div>
 			</li>
