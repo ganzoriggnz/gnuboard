@@ -214,7 +214,7 @@ if ($is_member)
 
         echo $option_hidden;
         ?>
-        <?php if (G5_IS_MOBILE) { ?>
+        <?php if (G5_IS_MOBILE) { var_dump($category_option);die; ?>
             <ul class="mb-3 list-group">
                 <li class=" list-group item border-top-0">
                     <div class="na-table d-table w-100">
@@ -811,7 +811,7 @@ if ($is_member)
             </li>
             <?php } ?> -->
 
-                <?php var_dump($category_option);die; if (
+                <?php if (
                     $is_admin ||
                     (
                         (
@@ -827,7 +827,7 @@ if ($is_member)
                                 <div class="col-md-4">
                                     <select name="ca_name" id="ca_name" required class="custom-select" <?php if ($member['mb_7'] && $member['mb_6'] == $bo_table) echo "readonly" ?>>
                                         <option value="">선택하세요</option>
-                                        <?php 
+                                        <?php echo $category_option;
 
                                         if ($is_admin) {
                                             echo "<option value='공지' $is_select>공지</option>
