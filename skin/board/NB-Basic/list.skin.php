@@ -238,7 +238,6 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							</form>
 						</div>
 					<?php endif; ?>
-					<?php if (!G5_IS_MOBILE) : ?>
 						<div class="btn-group ">
 						<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
 							<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table']; ?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
@@ -263,6 +262,8 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						<?php }
 						} ?>
 					</div>
+					<?php if (!G5_IS_MOBILE) : ?>
+
 					<div class="btn-group" role="group">
 						<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
 							<?php
