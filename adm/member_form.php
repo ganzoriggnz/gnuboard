@@ -631,11 +631,12 @@ var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7A
 	$("#mb_nick").on("keypress keyup", function () {
 		var that = $(this);
 		var text = that.val();
+        var size = new Blob([text]).size;
 
 		if (hangul.test(text)) {
-			limit = 10;
-		} else {
 			limit = 20;
+		} else {
+			limit = 10;
 		}
 		that.attr("maxlength", limit);
 		if (text.length > limit) that.val(text.substring(0, limit))
