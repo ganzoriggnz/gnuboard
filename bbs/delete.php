@@ -77,6 +77,12 @@ while ($row = sql_fetch_array($result))
         if (!delete_point($row['mb_id'], $bo_table, $row['wr_id'], '쓰기'))
             insert_point($row['mb_id'], $board['bo_write_point'] * (-1), "{$board['bo_subject']} {$row['wr_id']} 글삭제");
 
+		// 원글 레벨 보너스 포인트 삭제
+		delete_point($row['mb_id'], $bo_table, $row['wr_id'], '쓰기레벨보너스');
+
+		// 원글 럭키 포인트 삭제
+		delete_point($row['mb_id'], $bo_table, $row['wr_id'], '쓰기럭키포인트');
+
         // 업로드된 파일이 있다면 파일삭제
         $sql2 = " select * from {$g5['board_file_table']} where bo_table = '$bo_table' and wr_id = '{$row['wr_id']}' ";
         $result2 = sql_query($sql2);
@@ -105,6 +111,12 @@ while ($row = sql_fetch_array($result))
         // 코멘트 포인트 삭제
         if (!delete_point($row['mb_id'], $bo_table, $row['wr_id'], '댓글'))
             insert_point($row['mb_id'], $board['bo_comment_point'] * (-1), "{$board['bo_subject']} {$write['wr_id']}-{$row['wr_id']} 댓글삭제");
+
+		// 코멘트 레벨 보너스 포인트 삭제
+		delete_point($row['mb_id'], $bo_table, $row['wr_id'], '댓글레벨보너스');
+
+		// 코멘트 럭키 포인트 삭제
+		delete_point($row['mb_id'], $bo_table, $row['wr_id'], '댓글럭키포인트');
 
         $count_comment++;
     }
@@ -152,7 +164,7 @@ sql_query(" update {$g5['board_table']} set bo_notice = '$bo_notice' where bo_ta
 
 // 글숫자 감소
 if ($count_write > 0 || $count_comment > 0)
-    sql_query(" update {$g5['board_table']} set bo_count_write = bo_count_write - $count_write, bo_count_comment = bo_count_comment - '$count_comment' where bo_table = '$bo_table' ");
+    sql_query(" update {$g5['board_table']} set bo_count_write = bo_count_write - '$count_write', bo_count_comment = bo_count_comment - '$count_comment' where bo_table = '$bo_table' ");
 
 @include_once($board_skin_path.'/delete.tail.skin.php');
 
