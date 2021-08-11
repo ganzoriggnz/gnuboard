@@ -28,7 +28,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
         <div class="coupon_noti" style="font-size:12px;">쿠폰지원 개수는 매월 1일부터 5일까지 수정 가능합니다. <br/>그외 날짜에 수정을 원하시면 관리자에게 쪽지로 문의 바랍니다. 
         </div>
         <div class="coupon_noti" style="margin-top:20px; font-size:12px;">
-            원가권 <span style="color: blue; "><?php echo $row_set['bo_sale'];?>장</span>, 무료권 <span style="color: blue; "><?php echo $row_set['bo_free']; ?>장</span> 이상 지원시 <span style="color: blue; "><?php echo $row_set['bo_total']; ?>개</span> 업소 선착순으로 업소정보  <br /> 프로필과 배너 상단 고정랜덤에 적용됩니다.
+            원가권 <span style="color: blue; "><?php echo $row_set['bo_sale'];?>장</span>, 무료권 <span style="color: blue; "><?php echo $row_set['bo_free']; ?>장</span> 이상 지원시 <span style="color: blue; "><?php echo $row_set['bo_total']; ?>개</span> 업소 선착순으로 업소정보 프로필과  <br /> 배너 상단 고정랜덤에 적용됩니다.
             자리가 없을 시 쿠폰지원 할 수 없으며 자리가 빠지면 그때 선착순으로  <br /> 쿠폰지원을 하실 수 있습니다.
         </div>
 
