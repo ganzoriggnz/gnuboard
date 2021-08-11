@@ -81,7 +81,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 			include_once('hit_latest.php'); ?>
 	<br>
 	<?php if(G5_IS_MOBILE): ?>
-		<div class="mb-2">
+		<div class="mb-4">
 			<form id="fsearch" name="fsearch" method="get" class="m-auto">
 				<div class="input-group">
 					<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
@@ -238,7 +238,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							</form>
 						</div>
 					<?php endif; ?>
-						<div class="btn-group ">
+						<div class="btn-group">
 						<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
 							<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table']; ?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
 									쿠폰지원내역
