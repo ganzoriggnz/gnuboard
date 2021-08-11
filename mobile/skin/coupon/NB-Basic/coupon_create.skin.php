@@ -25,10 +25,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
     ?>
     </nav>
     <div class="couponbg">
-        <ul class="coupon_noti">
-            <li>이번달 쿠폰개수는 1일 -5일 까지 수정 가능합니다.</li>
-            <li>이번달 잔여 쿠폰개수는 수정할 수 없습니다.</li>
-        </ul>
+        <div class="coupon_noti">쿠폰지원 개수는 매월 1일부터 5일까지 수정 가능합니다. <br/>그외 날짜에 수정을 원하시면 관리자에게 쪽지로 문의 바랍니다. 
+        </div>
+        <div class="coupon_noti">
+            원가권 <span style="color: blue; "><?php echo $row_set['bo_sale'];?>장</span>, 무료권 <span style="color: blue; "><?php echo $row_set['bo_free']; ?>장</span> 이상 지원시 <span style="color: blue; "><?php echo $row_set['bo_total']; ?>개</span> 업소 선착순으로 업소정보 프로필과 배너 상단 고정랜덤에 적용됩니다. <br />
+            자리가 없을 시 쿠폰지원 할 수 없으며 자리가 빠지면 그때 선착순으로 쿠폰지원을 하실 수 있습니다.
+        </div>
 
         <div class="coupon_info">
             <h6>이번달 쿠폰 지원 개수</h6>
