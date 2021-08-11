@@ -977,7 +977,7 @@ function get_category_option($bo_table = '', $ca_name = '')
     $sql = "select bo_category_list from g5_board where bo_table = 'job'";
     $row = sql_fetch($sql);
     $categories = explode("|", $row['bo_category_list']);
-
+    var_dump($categories);die;
     // $categories = explode("|", $board['bo_category_list']); // 구분자가 | 로 되어 있음
     $str = "";
     for ($i = 0; $i < count($categories); $i++) {
