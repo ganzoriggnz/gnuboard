@@ -121,7 +121,11 @@ if ($is_member)
     na_script('autosave');
 
 ?>
-
+<style>
+    .text-left{
+        text-align:left !important;
+    }
+</style>
 <script src="<?php echo $board_skin_url ?>/iColorPicker.js" type="text/javascript"></script>
 <section id="bo_w" class="mb-4 f-de font-weight-normal">
     <h2 class="sr-only"><?php echo $g5['title'] ?></h2>
@@ -903,7 +907,7 @@ if ($is_member)
                         </div>
                     </li>
                 <?php } ?>
-
+                
                 <?php if ($member['mb_level'] >= 13) { ?>
                     <li class="list-group-item">
 
@@ -937,7 +941,7 @@ if ($is_member)
                         <p id="char_count_desc" class="f-sm text-muted">이 게시판은 최소 <strong><?php echo $write_min; ?></strong>글자
                             이상, 최대 <strong><?php echo $write_max; ?></strong>글자 이하까지 글을 쓰실 수 있습니다.</p>
                     <?php } ?>
-
+                    <input type="hidden" id="is_attendance" value="<?php echo $board['gr_id']; ?>">
                     <?php echo $editor_html; // 에디터 사용시는 에디터로, 아니면 textarea 로 노출
                     ?>
 
