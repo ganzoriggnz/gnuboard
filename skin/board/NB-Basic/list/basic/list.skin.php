@@ -284,7 +284,7 @@ if ($gr_id == 'attendance') {
                             </div>
                         </div>
                         <div class="float-right text-left float-md-none d-md-table-cell nw-15 nw-md-auto f-sm">
-                            <div class="na_member_pho">
+                            <div class="na_member_pho" style="width:200px !important;">
                                 <span class="sr-only">등록자</span>
                                 <?php
                                 $mbid = get_member($list[$i]['mb_id']);
@@ -451,7 +451,7 @@ if ($gr_id == 'attendance') {
                         </div>
                     </div>
                     <div class="float-right text-left float-md-none d-md-table-cell nw-15 nw-md-auto f-sm">
-                        <div class="na_member_pho">
+                        <div class="na_member_pho"  style="width:200px !important;">
                             <span class="sr-only">등록자</span>
                             <?php
                             $mbid = get_member($list[$i]['mb_id']);
@@ -621,7 +621,7 @@ if ($gr_id == 'attendance') {
                         </div>
                     </div>
                     <div class="float-right text-left float-md-none d-md-table-cell nw-15 nw-md-auto f-sm">
-                        <div class="na_member_pho">
+                        <div class="na_member_pho"  style="width:200px !important;">
                             <span class="sr-only">등록자</span>
                             <?php
                             $mbid = get_member($list[$i]['mb_id']);
