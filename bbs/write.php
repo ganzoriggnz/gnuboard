@@ -354,6 +354,7 @@ $is_category = false;
 $category_option = '';
 if ($board['bo_use_category'] && $member['mb_level'] !== 27) {
     $ca_name = $member['mb_7'];
+    var_dump($bo_table);die;
     if (isset($write['ca_name']))
         $ca_name = $write['ca_name'];
     $category_option = get_category_option($bo_table, $ca_name);
