@@ -344,7 +344,7 @@ if ($is_member)
                             ($gr_id == 'attendance'  &&  $w != 'u' && $member['mb_7'] != $bo_table) ||
                             (
                                 ($member['mb_7'] && $member['mb_6'] == $bo_table) &&
-                                $w != 'u'))) || ($bo_table == "free" || $bo_table == "event" || $bo_table == "ucc" || $board['gr_id'] == "review" || $bo_table == "woman" || $bo_table == "work_board")
+                                $w != 'u'))) || ($bo_table == "free" || $bo_table == "event" || $bo_table == "ucc" || $board['gr_id'] == "review" || $bo_table == "woman" || $bo_table == "work_board" || $bo_table == "job")
                 ) { ?>
                     <?php var_dump($category_option);die; if ($is_category) { ?>
                         <li class="list-group-item">
