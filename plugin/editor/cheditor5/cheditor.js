@@ -1168,25 +1168,24 @@ cheditor.prototype = {
       this.doc.body.removeChild(this.doc.body.firstChild)
     }
 
-    if (this.W3CRange) {
-      if (!this.doc.body.hasChildNodes()) {
-        if(is_attendance.value === "attendance")
-          p.style.textAlign = "left";
-        this.doc.body.appendChild(p);
-        if (!GB.browser.msie && !GB.browser.edge) {
-          br = this.doc.createElement('br');
-          console.log(p);
-          br.className = this.cheditor.bogusSpacerName
-          p.appendChild(br)
-          this.placeCaretAt(p, false);
-        } else {
-          this.placeCaretAt(p, false)
-        }
-      }
-    } else {
-      this.doc.body.appendChild(p)
-      this.placeCaretAt(p, false);
-    }
+    // if (this.W3CRange) {
+    //   if (!this.doc.body.hasChildNodes()) {
+    //     if(is_attendance.value === "attendance")
+    //       p.style.textAlign = "left";
+    //     this.doc.body.appendChild(p);
+    //     if (!GB.browser.msie && !GB.browser.edge) {
+    //       br = this.doc.createElement('br');
+    //       br.className = this.cheditor.bogusSpacerName
+    //       p.appendChild(br)
+    //       this.placeCaretAt(p, false);
+    //     } else {
+    //       this.placeCaretAt(p, false)
+    //     }
+    //   }
+    // } else {
+    //   this.doc.body.appendChild(p)
+    //   this.placeCaretAt(p, false);
+    // }
   },
 
   handleBeforePaste: function () {
