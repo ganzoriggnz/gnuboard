@@ -189,7 +189,7 @@
 	text-align:left; width: 180px;
 }
 
-@media (max-width: 766px) {
+@media (min-width: 500px) {
 	.na_member_pho {
 		width: 200px;
 	}
