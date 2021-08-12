@@ -313,7 +313,7 @@ var GB = {
     BackColor: 'background-color',
   },
   textAlign: {
-    JustifyLeft: 'left',
+    JustifyLeft: '',
     JustifyCenter: 'center',
     JustifyRight: 'right',
     JustifyFull: 'justify',
@@ -1096,7 +1096,7 @@ cheditor.prototype = {
     this.doc.body.setAttribute('hidefocus', '')
   },
 
-  setDocumentProp: function () {    
+  setDocumentProp: function () {
     var oSheet,
       bodyCss =
         'font-size:' +
@@ -1108,21 +1108,14 @@ cheditor.prototype = {
         '; margin:' +
         this.config.editAreaMargin +
         '; line-height:' +
-        this.config.lineHeight
-       ,
+        this.config.lineHeight,
       tableCss =
         'font-size:' +
         this.config.editorFontSize +
         '; line-height:' +
         this.config.lineHeight,
       self = this
-      var is_attendance = document.getElementById('is_attendance');
-      if (is_attendance != null) {
-        if(is_attendance.value === "attendance")
-          bodyCss += "; text-align: left !important; ";
-        else
-          bodyCss += "; text-align: center !important; ";
-      }
+
     this.setDefaultCss({ css: 'editarea.css', doc: this.doc })
 
     oSheet = this.doc.styleSheets[0]
@@ -1150,17 +1143,16 @@ cheditor.prototype = {
   },
 
   initDefaultParagraphSeparator: function () {
-    var p = this.doc.createElement('p'),br;
+    var p = this.doc.createElement('p'),
+      br
     p.style.fontSize  = '14px';
-    p.style.textAlign = "left";
-    var is_attendance = document.getElementById('is_attendance');
-    if (is_attendance != null) {
-      if(is_attendance.value === "attendance")
-        p.style.textAlign = "left";
-      else
-        p.style.textAlign = "center";
+    // console.log(p);
+    
+    console.log(document.getElementById('is_attendance').value);
+    var is_attendance = document.getElementById('is_attendance').value;
+    if (is_attendance !== "attendance") {
+      p.style.setProperty("text-align", "center", "important");
     }
-
     if (
       this.doc.body.firstChild &&
       this.doc.body.firstChild.nodeName.toLowerCase() === 'br'
@@ -1168,24 +1160,22 @@ cheditor.prototype = {
       this.doc.body.removeChild(this.doc.body.firstChild)
     }
 
-    // if (this.W3CRange) {
-    //   if (!this.doc.body.hasChildNodes()) {
-    //     if(is_attendance.value === "attendance")
-    //       p.style.textAlign = "left";
-    //     this.doc.body.appendChild(p);
-    //     if (!GB.browser.msie && !GB.browser.edge) {
-    //       br = this.doc.createElement('br');
-    //       br.className = this.cheditor.bogusSpacerName
-    //       p.appendChild(br)
-    //       this.placeCaretAt(p, false);
-    //     } else {
-    //       this.placeCaretAt(p, false)
-    //     }
-    //   }
-    // } else {
-    //   this.doc.body.appendChild(p)
-    //   this.placeCaretAt(p, false);
-    // }
+    if (this.W3CRange) {
+      if (!this.doc.body.hasChildNodes()) {
+        this.doc.body.appendChild(p)
+        if (!GB.browser.msie && !GB.browser.edge) {
+          br = this.doc.createElement('br')
+          br.className = this.cheditor.bogusSpacerName
+          p.appendChild(br)
+          this.placeCaretAt(p, false)
+        } else {
+          this.placeCaretAt(p, false)
+        }
+      }
+    } else {
+      this.doc.body.appendChild(p)
+      this.placeCaretAt(p, false)
+    }
   },
 
   handleBeforePaste: function () {
@@ -1996,7 +1986,7 @@ cheditor.prototype = {
     }
 
     alignment = {
-      JustifyLeft: 'left',
+      JustifyLeft: '',
       JustifyCenter: 'center',
       JustifyRight: 'right',
       JustifyFull: 'justify',
