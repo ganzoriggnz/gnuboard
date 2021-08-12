@@ -1146,12 +1146,10 @@ cheditor.prototype = {
     var p = this.doc.createElement('p'),
       br
     p.style.fontSize  = '14px';
-    // console.log(p);
-    
-    console.log(document.getElementById('is_attendance').value);
-    var is_attendance = document.getElementById('is_attendance').value;
-    if (is_attendance !== "attendance") {
-      p.style.setProperty("text-align", "center", "important");
+    var is_attendance = document.getElementById('is_attendance');
+    if (is_attendance !== null) {
+      if(is_attendance.value !== "attendance")
+        p.style.setProperty("text-align", "center", "important");
     }
     if (
       this.doc.body.firstChild &&
