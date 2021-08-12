@@ -1149,7 +1149,7 @@ cheditor.prototype = {
     var is_attendance = document.getElementById('is_attendance');
     if (is_attendance !== null) {
       if(is_attendance.value !== "attendance")
-        p.style.setProperty("text-align", "center", "important");
+        p.style.setProperty("text-align", "left", "important");
     }
     if (
       this.doc.body.firstChild &&
