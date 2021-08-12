@@ -346,7 +346,7 @@ if ($is_member)
                                 ($member['mb_7'] && $member['mb_6'] == $bo_table) &&
                                 $w != 'u'))) || ($bo_table == "free" || $bo_table == "event" || $bo_table == "ucc" || $board['gr_id'] == "review" || $bo_table == "woman" || $bo_table == "work_board" || $bo_table == "job")
                 ) { ?>
-                    <?php var_dump($category_option);die; if ($is_category) { ?>
+                    <?php if ($is_category) { ?>
                         <li class="list-group-item">
                             <div class="mb-0 form-group row">
                                 <label class="col-md-2 col-form-label">분류<strong class="sr-only">필수</strong></label>
