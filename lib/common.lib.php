@@ -987,7 +987,7 @@ function get_category_option($bo_table = '', $ca_name = '')
         }
         $str .= ">$categories[$i]</option>\n";
     }
-
+    var_dump($str);die;
     return $str;
 }
 
