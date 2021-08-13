@@ -767,6 +767,12 @@ function URI(uri) {
 }
 
 function setConfig() {
+  var defaultImgAlign = 'left';
+  var is_attendance = document.getElementById('is_attendance');
+  if (is_attendance !== null) {
+    if(is_attendance.value === "attendance")
+      defaultImgAlign = 'center';
+  }
   var config = {
       allowedOnEvent: true,
       colorToHex: true,
@@ -787,7 +793,7 @@ function setConfig() {
         'border: 1px #ccc solid; background-color: #f0f0f0; margin: 0',
       imgCaptionText: 'margin: 5px 5px; text-align: center; line-height: 17px',
       imgCaptionWrapper: '',
-      imgDefaultAlign: 'center', // [left, center, right]
+      imgDefaultAlign: defaultImgAlign, // [left, center, right]
       imgJpegQuality: 0.92, // JPEG 사진의 퀄리티 값, 최대값 1
       imgMaxWidth: 800, // 사진 최대 가로 크기, 이 크기 보다 크면 리사이징 처리
       imgResizeMinLimit: 32, // 사진 리사이징의 사용자 직접 입력 값이 이 값 보다 작으면, 이 값으로 설정

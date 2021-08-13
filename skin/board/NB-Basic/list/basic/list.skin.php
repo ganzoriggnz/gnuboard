@@ -396,7 +396,7 @@ if ($gr_id == 'attendance') {
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
                 <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
-                    <div class="text-center pr-md-1 py-md-2">
+                    <div class="text-center d-md-table-cell pr-md-1 py-md-2">
                         <div class="na-title float-md-left">
                             <div class="na-item">
                                 <?php if($gr_id == 'attendance' && $list[$i]['has_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
@@ -414,7 +414,7 @@ if ($gr_id == 'attendance') {
                                     <!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
                                     <?php
                                     if ($board['gr_id'] == "review") { ?>
-                                        <span style="color: #000; text-align:left; padding-left:0px; margin-left:0px;" class="font-weight-bold">
+                                        <span style="color: #000;" class="font-weight-bold">
                                             <?php echo "[" . $list[$i]['wr_7'] . "]" ?>
                                         </span>
                                     <?php echo $list[$i]['subject'];
