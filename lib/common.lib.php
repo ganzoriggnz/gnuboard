@@ -459,9 +459,9 @@ function get_list($write_row, $board, $skin_url, $subject_len = 40, $BBS_PATH = 
     $list['is_coupon'] = in_array($list['wr_id'], $board_coupon);
 
     if ($subject_len)
-        $list['subject'] = conv_subject($list['wr_subject'], $subject_len, '');
+        $list['subject'] = conv_subject($list['wr_subject'], $subject_len, '…');
     else
-        $list['subject'] = conv_subject($list['wr_subject'], $board['bo_subject_len'], '');
+        $list['subject'] = conv_subject($list['wr_subject'], $board['bo_subject_len'], '…');
 
     if (!(isset($list['wr_seo_title']) && $list['wr_seo_title']) && $list['wr_id']) {
         seo_title_update(get_write_table_name($board['bo_table']), $list['wr_id'], 'bbs');
