@@ -458,7 +458,7 @@ function get_list($write_row, $board, $skin_url, $subject_len = 40, $BBS_PATH = 
     $board_coupon = array_map('trim', explode(',', $board['bo_8_subj']));
     $list['is_coupon'] = in_array($list['wr_id'], $board_coupon);
 
-    if ($subject_len)
+    if ($subject_len && G5_IS_MOBILE)
         $list['subject'] = conv_subject($list['wr_subject'], 13, '…');
     else
         $list['subject'] = conv_subject($list['wr_subject'], $board['bo_subject_len'], '…');
