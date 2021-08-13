@@ -91,7 +91,7 @@ $page_rows = (G5_IS_MOBILE) ? $config['cf_mobile_page_rows'] : $config['cf_new_r
 						}
 				?>
 					<li<?php echo $gr_active ?>>
-						<a class="py-2 px-3" href="<?php echo G5_BBS_URL ?>/new.php?gr_id=<?php echo $row['gr_id'].$gr_qstr ?>">
+						<a class="py-2 px-3" href="<?php echo G5_BBS_URL ?>/new.php?mb_id=<?php echo $mb_id; ?>&gr_id=<?php echo $row['gr_id'].$gr_qstr ?>">
 							<?php echo $gr_msg.get_text($row['gr_subject']); ?>
 						</a>
 					</li>
