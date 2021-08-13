@@ -367,6 +367,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 
 		if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage")  //  hulan nemsen 1 mur 
 			// 목록스킨
+			// var_dump($list_skin_path);die;
 			if (is_file($list_skin_path . '/list.skin.php')) {
 				include_once($list_skin_path . '/list.skin.php');
 			} else {
