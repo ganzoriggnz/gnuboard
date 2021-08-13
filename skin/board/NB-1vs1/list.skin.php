@@ -42,43 +42,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
             </form>
         </div>
     <?php endif; ?>
-    <!-- 검색창 시작 { -->
-    <!-- <div id="bo_search" class="collapse<?php echo ($boset['search_open'] || $stx) ? ' show' : ''; ?>">
-        <div class="alert bg-light border">
-            <form id="fsearch" name="fsearch" method="get" class="m-auto">
-                <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
-                <input type="hidden" name="sca" value="<?php echo $sca ?>">
-                <div class="form-row mx-n1">
-                    <div class="col-6 col-sm-3 px-1">
-                        <label for="sfl" class="sr-only">검색대상</label>
-                        <select name="sfl" class="custom-select">
-                            <?php echo get_board_sfl_select_options($sfl); ?>
-                        </select>
-                    </div>
-                    <div class="col-6 col-sm-3 px-1">
-                        <select name="sop" class="custom-select">
-                            <option value="and" <?php echo get_selected($sop, "and") ?>>그리고</option>
-                            <option value="or" <?php echo get_selected($sop, "or") ?>>또는</option>
-                        </select>
-                    </div>
-                    <div class="col-12 col-sm-6 pt-2 pt-sm-0 px-1">
-                        <label for="stx" class="sr-only">검색어</label>
-                        <div class="input-group">
-                            <input type="text" id="bo_stx" name="stx" value="<?php echo stripslashes($stx) ?>" required
-                                class="form-control" placeholder="검색어를 입력해 주세요.">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary" title="검색하기">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <span class="sr-only">검색하기</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div> -->
-    <!-- } 검색창 끝 -->
+
 
     <?php 
 	// 게시판 카테고리
@@ -86,17 +50,21 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 		include_once($board_skin_path.'/category.skin.php'); 
 	?>
 
-    <!-- <form name="fboardlist" id="fboardlist" action="./board_list_update.php" onsubmit="return fboardlist_submit(this);"
-        method="post">
+    <form 
+        name="fboardlist" 
+        id="fboardlist" 
+        onsubmit="return fboardlist_submit(this);"
+        method="post"
+    >
         <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
         <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
-        <input type="hidden" name="stx" value="<?php echo $stx ?>">
+        <!-- <input type="hidden" name="stx" value="<?php echo $stx ?>"> -->
         <input type="hidden" name="spt" value="<?php echo $spt ?>">
         <input type="hidden" name="sca" value="<?php echo $sca ?>">
         <input type="hidden" name="sst" value="<?php echo $sst ?>">
         <input type="hidden" name="sod" value="<?php echo $sod ?>">
         <input type="hidden" name="page" value="<?php echo $page ?>">
-        <input type="hidden" name="sw" value=""> -->
+        <input type="hidden" name="sw" value="">
 
         <!-- 게시판 페이지 정보 및 버튼 시작 { -->
         <div id="bo_btn_top" class="clearfix f-de font-weight-normal mb-2 pl-3 pr-2 px-sm-0">
@@ -120,11 +88,11 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
                         <?php if (!G5_IS_MOBILE) : ?>
 						<div class="p-0 pr-3">
 							<label for="stx" class="sr-only">검색어</label>
-							<form id="fsearch" name="fsearch" method="get" class="m-auto">
+							<!-- <form id="fsearch" name="fsearch" method="get" class="m-auto"> -->
 								<div class="input-group">
 									<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 									<input type="hidden" name="sca" value="<?php echo $sca ?>">
-									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php 
+									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" class="form-control" placeholder="<?php 
 										if($bo_table == "partnership")
 											echo '제휴문의 검색';
 									 	else if($bo_table == "suggestions")
@@ -135,7 +103,7 @@ $is_skin_setup = (($is_admin == 'super' || IS_DEMO) && is_file($board_skin_path.
 										</button>	
 									</div>
 								</div>
-							</form>
+							<!-- </form> -->
 						</div>
 					<?php endif; ?>
                     <?php if ($write_href) { ?>
@@ -301,16 +269,16 @@ function all_checked(sw) {
 
 function fboardlist_submit(f) {
     var chk_count = 0;
-
+    console.log(f);
     for (var i = 0; i < f.length; i++) {
         if (f.elements[i].name == "chk_wr_id[]" && f.elements[i].checked)
             chk_count++;
     }
 
-    if (!chk_count) {
-        alert(document.pressed + "할 게시물을 하나 이상 선택하세요.");
-        return false;
-    }
+    // if (!chk_count) {
+    //     alert(document.pressed + "할 게시물을 하나 이상 선택하세요.");
+    //     return false;
+    // }
 
     if (document.pressed == "선택복사") {
         select_copy("copy");

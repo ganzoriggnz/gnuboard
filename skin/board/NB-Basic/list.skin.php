@@ -156,16 +156,18 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 
 	<!-- } 검색창 끝 -->
 
-	<!-- <form name="fboardlist" id="fboardlist"> -->
-		<!-- <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
+	<form name="fboardlist" id="fboardlist"
+        onsubmit="return fboardlist_submit(this);"
+        method="post">
+		<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 		<input type="hidden" name="sfl" value="<?php echo $sfl ?>">
-		<input type="hidden" name="stx" value="<?php echo $stx ?>">
+		<!-- <input type="hidden" name="stx" value="<?php echo $stx ?>"> -->
 		<input type="hidden" name="spt" value="<?php echo $spt ?>">
 		<input type="hidden" name="sca" value="<?php echo $sca ?>">
 		<input type="hidden" name="sst" value="<?php echo $sst ?>">
 		<input type="hidden" name="sod" value="<?php echo $sod ?>">
 		<input type="hidden" name="page" value="<?php echo $page ?>">
-		<input type="hidden" name="sw" value=""> -->
+		<input type="hidden" name="sw" value="">
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
@@ -205,11 +207,11 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php if (!G5_IS_MOBILE) : ?>
 						<div class="py-1 btn btn_b01 nofocus">
 							<label for="stx" class="sr-only">검색어</label>
-							<form id="fsearch" name="fsearch" method="get" class="m-auto">
+							<!-- <form id="fsearch" name="fsearch" method="get" class="m-auto"> -->
 								<div class="input-group">
 									<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 									<input type="hidden" name="sca" value="<?php echo $sca ?>">
-									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" required class="form-control" placeholder="<?php 
+									<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" class="form-control" placeholder="<?php 
 										if($board['gr_id'] == "attendance")
 											echo '업소정보검색';
 									 	else if($board['gr_id'] == "review")
@@ -235,7 +237,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 										</button>	
 									</div>
 								</div>
-							</form>
+							<!-- </form> -->
 						</div>
 					<?php endif; ?>
 						<div class="btn-group">
@@ -392,7 +394,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 
 			<!-- } 페이지 끝 -->
 		<?php } ?>
-	<!-- </form> -->
+	</form>
 </div>
 
 <?php if ($is_checkbox) { ?>
@@ -417,10 +419,10 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					chk_count++;
 			}
 
-			if (!chk_count) {
-				alert(document.pressed + "할 게시물을 하나 이상 선택하세요.");
-				return false;
-			}
+			// if (!chk_count) {
+			// 	alert(document.pressed + "할 게시물을 하나 이상 선택하세요.");
+			// 	return false;
+			// }
 
 			if (document.pressed == "선택복사") {
 				select_copy("copy");
