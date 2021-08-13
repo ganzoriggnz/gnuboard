@@ -432,7 +432,7 @@ function get_dirsize($dir)
 
 
 // 게시물 정보($write_row)를 출력하기 위하여 $list로 가공된 정보를 복사 및 가공
-function get_list($write_row, $board, $skin_url, $subject_len = 40, $BBS_PATH = G5_BBS_URL)
+function get_list($write_row, $board, $skin_url, $subject_len = 20, $BBS_PATH = G5_BBS_URL)
 //function get_list($write_row, $board, $skin_url, $subject_len=40)
 {
     global $g5, $config, $g5_object;
