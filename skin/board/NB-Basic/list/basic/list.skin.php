@@ -414,7 +414,7 @@ if ($gr_id == 'attendance') {
                                     <!-- hulan nemsen 후기, 출근부 업소명 출력부분 -->
                                     <?php
                                     if ($board['gr_id'] == "review") { ?>
-                                        <span style="color: #000;" class="font-weight-bold">
+                                        <span style="color: #000; text-align:left; padding-left:0px; margin-left:0px;" class="font-weight-bold">
                                             <?php echo "[" . $list[$i]['wr_7'] . "]" ?>
                                         </span>
                                     <?php echo $list[$i]['subject'];
