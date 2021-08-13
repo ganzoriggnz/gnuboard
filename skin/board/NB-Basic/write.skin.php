@@ -219,6 +219,8 @@ if ($is_member)
         echo $option_hidden;
         ?>
         <?php if (G5_IS_MOBILE) { ?>
+            <input type="hidden" id="is_attendance" value="<?php echo $board['gr_id']; ?>">
+
             <ul class="mb-3 list-group">
                 <li class=" list-group item border-top-0">
                     <div class="na-table d-table w-100">
@@ -941,7 +943,7 @@ if ($is_member)
                         <p id="char_count_desc" class="f-sm text-muted">이 게시판은 최소 <strong><?php echo $write_min; ?></strong>글자
                             이상, 최대 <strong><?php echo $write_max; ?></strong>글자 이하까지 글을 쓰실 수 있습니다.</p>
                     <?php } ?>
-                    <input type="text" id="is_attendance" value="<?php echo $board['gr_id']; ?>">
+                    <input type="hidden" id="is_attendance" value="<?php echo $board['gr_id']; ?>">
                     <?php echo $editor_html; // 에디터 사용시는 에디터로, 아니면 textarea 로 노출
                     ?>
 
