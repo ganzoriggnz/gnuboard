@@ -459,7 +459,7 @@ function get_list($write_row, $board, $skin_url, $subject_len = 40, $BBS_PATH = 
     $list['is_coupon'] = in_array($list['wr_id'], $board_coupon);
 
     if ($subject_len)
-        $list['subject'] = conv_subject($list['wr_subject'], 20, '…');
+        $list['subject'] = conv_subject($list['wr_subject'], 15, '…');
     else
         $list['subject'] = conv_subject($list['wr_subject'], $board['bo_subject_len'], '…');
 
