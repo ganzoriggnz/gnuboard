@@ -481,7 +481,7 @@ if ($gr_id=='review') {
 							</a>
 							<?php } } ?>
 							<!-- hulan nemsen level 24.25 can not delete post  -->
-							<?php if($member['mb_level'] == '30' || $member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
+							<?php if($view['mb_id'] == $member['mb_id'] || $member['mb_level'] == '30' || $member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
 							if ($delete_href) {  ?>
 							<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
 								class="btn-vw py-2" role="button">
