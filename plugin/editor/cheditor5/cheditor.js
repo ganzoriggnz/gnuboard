@@ -769,9 +769,10 @@ function URI(uri) {
 function setConfig() {
   var defaultImgAlign = 'left';
   var is_attendance = document.getElementById('is_attendance');
-  if (is_attendance != null) {
-    if(is_attendance.value == "attendance")
+  if (is_attendance !== null) {
+    if(is_attendance.value === "attendance"){
       defaultImgAlign = 'center';
+    }
   }
   var config = {
       allowedOnEvent: true,
