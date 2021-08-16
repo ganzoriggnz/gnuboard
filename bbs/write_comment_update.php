@@ -150,6 +150,7 @@ if ($w == 'c') // 댓글 입력
     }
 
     $wr_subject = addslashes(get_text(stripslashes($wr['wr_subject'])));
+    $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
 
     $sql = " insert into $write_table
                 set ca_name = '{$wr['ca_name']}',
@@ -169,7 +170,7 @@ if ($w == 'c') // 댓글 입력
                      wr_homepage = '$wr_homepage',
                      wr_datetime = '".G5_TIME_YMDHIS."',
                      wr_last = '".G5_TIME_YMDHIS."',
-                     wr_ip = '{$_SERVER['REMOTE_ADDR']}',
+                     wr_ip = '{$get_ip}',
                      wr_1 = '$wr_1',
                      wr_2 = '$wr_2',
                      wr_3 = '$wr_3',
@@ -312,8 +313,10 @@ else if ($w == 'cu') // 댓글 수정
         alert('이 댓글와 관련된 답변댓글이 존재하므로 수정 할 수 없습니다.');
 
     $sql_ip = "";
+    $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
+
     if (!$is_admin)
-        $sql_ip = " , wr_ip = '{$_SERVER['REMOTE_ADDR']}' ";
+        $sql_ip = " , wr_ip = '{$get_ip}' ";
 
     $sql_secret = "";
     if ($wr_secret)
