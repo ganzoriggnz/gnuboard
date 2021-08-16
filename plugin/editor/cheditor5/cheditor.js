@@ -774,6 +774,7 @@ function setConfig() {
       defaultImgAlign = 'center';
     }
   }
+  console.log("defaultImgAlign", defaultImgAlign);
   var config = {
       allowedOnEvent: true,
       colorToHex: true,
