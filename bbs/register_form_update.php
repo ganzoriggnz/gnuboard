@@ -228,7 +228,7 @@ if ($w == '') {
                      mb_sms = '{$mb_sms}',
                      mb_open = '{$mb_open}',
                      mb_open_date = '".G5_TIME_YMD."',
-                     mb_1 = '{$mb_1}'
+                     mb_1 = '{$mb_1}'   
                      {$sql_certify} ";
 
     // 이메일 인증을 사용하지 않는다면 이메일 인증시간을 바로 넣는다
