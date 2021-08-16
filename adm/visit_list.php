@@ -30,6 +30,7 @@ $sql = " select *
             {$sql_search}
             order by vi_id desc
             limit {$from_record}, {$rows} ";
+            var_dump($sql);die;
 $result = sql_query($sql);
 ?>
 
