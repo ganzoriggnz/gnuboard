@@ -3490,7 +3490,7 @@ cheditor.prototype = {
       href,
       css
 
-    ar = ar || { css: 'editarea.css', doc: this.doc }
+    ar = ar || { css: '', doc: this.doc }
     cssFile = this.config.cssPath + ar.css
     head = ar.doc.getElementsByTagName('head')[0]
 
