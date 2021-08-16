@@ -1154,6 +1154,7 @@ cheditor.prototype = {
     var p = this.doc.createElement('p'),
       br
     p.style.fontSize  = '14px';
+    
     var is_attendance = document.getElementById('is_attendance');
     if (is_attendance !== null) {
       if(is_attendance.value !== "attendance")
