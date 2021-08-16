@@ -201,6 +201,7 @@ if ($config['cf_cert_use'] && $cert_type && $md5_cert_no) {
 //===============================================================
 
 if ($w == '') {
+    $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
     $sql = " insert into {$g5['member_table']}
                 set mb_id = '{$mb_id}',
                      mb_password = '".get_encrypt_string($mb_password)."',
@@ -220,10 +221,10 @@ if ($w == '') {
                      mb_profile = '{$mb_profile}',
                      mb_today_login = '".G5_TIME_YMDHIS."',
                      mb_datetime = '".G5_TIME_YMDHIS."',
-                     mb_ip = '{$_SERVER['HTTP_X_FORWARDED_FOR']}',
+                     mb_ip = '{$get_ip}',
                      mb_level = '{$config['cf_register_level']}',
                      mb_recommend = '{$mb_recommend}',
-                     mb_login_ip = '{$_SERVER['HTTP_X_FORWARDED_FOR']}',
+                     mb_login_ip = '{$get_ip}',
                      mb_mailling = '{$mb_mailling}',
                      mb_sms = '{$mb_sms}',
                      mb_open = '{$mb_open}',

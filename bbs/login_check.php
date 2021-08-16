@@ -67,8 +67,9 @@ set_session('ss_mb_key', md5($mb['mb_datetime'] . get_real_client_ip() . $_SERVE
 $now = G5_TIME_YMDHIS;
 if($config['cf_use_point']) {
     $sum_point = get_point_sum($mb['mb_id']);
+    $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
 
-    $sql= " update {$g5['member_table']} set mb_point = '$sum_point', mb_today_login = '$now', mb_login_ip = '{$_SERVER['HTTP_X_FORWARDED_FOR']}' where mb_id = '{$mb['mb_id']}' ";
+    $sql= " update {$g5['member_table']} set mb_point = '$sum_point', mb_today_login = '$now', mb_login_ip = '{$get_ip}' where mb_id = '{$mb['mb_id']}' ";
     sql_query($sql);
 
     $sql_date = "SELECT mb_4 FROM {$g5['member_table']} WHERE mb_id = '{$mb['mb_id']}' AND mb_level IN ('26', '27')";
