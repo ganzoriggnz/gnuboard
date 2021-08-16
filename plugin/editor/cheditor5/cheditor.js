@@ -1124,7 +1124,7 @@ cheditor.prototype = {
         this.config.lineHeight,
       self = this
 
-    this.setDefaultCss({ css: '', doc: this.doc })
+    this.setDefaultCss({ css: 'editarea.css', doc: this.doc })
 
     oSheet = this.doc.styleSheets[0]
     if (!this.W3CRange) {
@@ -3490,7 +3490,7 @@ cheditor.prototype = {
       href,
       css
 
-    ar = ar || { css: '', doc: this.doc }
+    ar = ar || { css: 'editarea.css', doc: this.doc }
     cssFile = this.config.cssPath + ar.css
     head = ar.doc.getElementsByTagName('head')[0]
 
