@@ -1124,7 +1124,7 @@ cheditor.prototype = {
         this.config.lineHeight,
       self = this
 
-    this.setDefaultCss({ css: 'editarea.css', doc: this.doc })
+    this.setDefaultCss({ css: '', doc: this.doc })
 
     oSheet = this.doc.styleSheets[0]
     if (!this.W3CRange) {
