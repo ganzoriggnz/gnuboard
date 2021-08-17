@@ -30,7 +30,6 @@ $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_
     $sql = " insert {$g5['visit_table']} ( vi_ip, vi_date, vi_time, vi_referer, vi_agent, vi_browser, vi_os, vi_device ) values ('{$remote_addr}', '".G5_TIME_YMD."', '".G5_TIME_HIS."', '{$_SERVER['HTTP_REFERER']}', '{$user_agent}', '{$vi_browser}', '{$vi_os}', '{$vi_device}' ) ";
 
     $result = sql_query($sql, FALSE);
-    var_dump($result);die;
     // var_dump($result);die;
     // 정상으로 INSERT 되었다면 방문자 합계에 반영
     // if ($result) {
