@@ -23,7 +23,7 @@ $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_
     if(version_compare(phpversion(), '5.3.0', '>=') && defined('G5_BROWSCAP_USE') && G5_BROWSCAP_USE) {
         include_once(G5_BBS_PATH.'/visit_browscap.inc.php');
     }
-    $sql = " insert {$g5['visit_table']} (vi_ip, vi_date, vi_time, vi_referer, vi_agent, vi_browser, vi_os, vi_device ) values ( '{$remote_addr}', '".G5_TIME_YMD."', '".G5_TIME_HIS."', '{$_SERVER['HTTP_REFERER']}', '{$user_agent}', '{$vi_browser}', '{$vi_os}', '{$vi_device}' ) ";
+    $sql = " insert {$g5['visit_table']} (vi_ip, vi_date, vi_time, vi_referer, vi_agent, vi_browser, vi_os, vi_device ) values ( '{$remote_addr}', '".G5_TIME_YMD."', '".G5_TIME_HIS."', '{$referer}', '{$user_agent}', '{$vi_browser}', '{$vi_os}', '{$vi_device}' ) ";
 
     $result = sql_query($sql, FALSE);
     // 정상으로 INSERT 되었다면 방문자 합계에 반영
