@@ -4,7 +4,7 @@ $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_
 // unset($_COOKIE['ck_visit_ip']);
 // 컴퓨터의 아이피와 쿠키에 저장된 아이피가 다르다면 테이블에 반영함
 // if (get_cookie('ck_visit_ip') != $get_ip)
-{
+// {
     set_cookie('ck_visit_ip', $get_ip, 86400); // 하루동안 저장
 
     $tmp_row = sql_fetch(" select max(vi_id) as max_vi_id from {$g5['visit_table']} ");
