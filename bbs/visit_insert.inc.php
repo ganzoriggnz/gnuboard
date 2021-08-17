@@ -1,11 +1,10 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
-// unset($_COOKIE['ck_visit_ip']);
+
 // 컴퓨터의 아이피와 쿠키에 저장된 아이피가 다르다면 테이블에 반영함
-// if (get_cookie('ck_visit_ip') != $get_ip)
-// {
-    
+if (get_cookie('ck_visit_ip') != $get_ip)
+{
     set_cookie('ck_visit_ip', $get_ip, 86400); // 하루동안 저장
 
     $tmp_row = sql_fetch(" select max(vi_id) as max_vi_id from {$g5['visit_table']} ");
@@ -14,9 +13,7 @@ $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_
     // $_SERVER 배열변수 값의 변조를 이용한 SQL Injection 공격을 막는 코드입니다. 110810
     $remote_addr = escape_trim($get_ip);
     $referer = "";
-    echo '<pre>';
-    print_r($_SERVER);
-    echo '</pre>';die;
+
     if (isset($_SERVER['HTTP_REFERER']))
         $referer = escape_trim(clean_xss_tags(strip_tags($_SERVER['HTTP_REFERER'])));
     $user_agent  = escape_trim(clean_xss_tags(strip_tags($_SERVER['HTTP_USER_AGENT'])));
@@ -70,5 +67,5 @@ $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_
         // 쿼리의 수를 상당부분 줄임
         sql_query(" update {$g5['config_table']} set cf_visit = '{$visit}' ");
     }
-// }
+}
 ?>
