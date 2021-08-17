@@ -13,6 +13,9 @@ if (get_cookie('ck_visit_ip') != $get_ip)
     // $_SERVER 배열변수 값의 변조를 이용한 SQL Injection 공격을 막는 코드입니다. 110810
     $remote_addr = escape_trim($get_ip);
     $referer = "";
+    echo '<pre>';
+    print_r($_SERVER);
+    echo '</pre>';die;
     if (isset($_SERVER['HTTP_REFERER']))
         $referer = escape_trim(clean_xss_tags(strip_tags($_SERVER['HTTP_REFERER'])));
     $user_agent  = escape_trim(clean_xss_tags(strip_tags($_SERVER['HTTP_USER_AGENT'])));
