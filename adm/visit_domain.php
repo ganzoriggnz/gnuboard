@@ -52,10 +52,12 @@ while ($row=sql_fetch_array($result)) {
     $k = 0;
     $save_count = -1;
     $tot_count = 0;
+    $row_count = 1;
     if (count($arr)) {
         arsort($arr);
         foreach ($arr as $key=>$value) {
             $count = $arr[$key];
+            $row_count += 1;
             if ($save_count != $count) {
                 $i++;
                 $no = $i;
@@ -79,7 +81,7 @@ while ($row=sql_fetch_array($result)) {
             $bg = 'bg'.($i%2);
     ?>
     <tr class="<?php echo $bg; ?>">
-        <td class="td_num"><?php echo $no ?></td>
+        <td class="td_num"><?php echo $row_count; ?></td>
         <td class="td_category"><?php echo $link ?><?php echo $key ?><?php echo $link2 ?></td>
         <td>
             <div class="visit_bar">
