@@ -52,7 +52,7 @@ while ($row=sql_fetch_array($result)) {
     $k = 0;
     $save_count = -1;
     $tot_count = 0;
-    $row_count = 1;
+    $row_count = 0;
     if (count($arr)) {
         arsort($arr);
         foreach ($arr as $key=>$value) {
