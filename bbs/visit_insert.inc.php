@@ -13,7 +13,7 @@ $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_
     $remote_addr = escape_trim($get_ip);
     $referer = "";
     
-    if (array_key_exists("HTTP_X_FORWARDED_FOR", $_SERVER))
+    if (array_key_exists("HTTP_REFERER", $_SERVER))
         $referer = escape_trim(clean_xss_tags(strip_tags($_SERVER['HTTP_REFERER'])));
     $user_agent  = escape_trim(clean_xss_tags(strip_tags($_SERVER['HTTP_USER_AGENT'])));
     $vi_browser = '';
