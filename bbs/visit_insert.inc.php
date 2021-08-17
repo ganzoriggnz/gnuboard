@@ -1,5 +1,8 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+echo '<pre>';
+print_r($_SERVER);
+echo '</pre>';die;
 $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
 // 컴퓨터의 아이피와 쿠키에 저장된 아이피가 다르다면 테이블에 반영함
 // if (get_cookie('ck_visit_ip') != $get_ip)
@@ -12,7 +15,7 @@ $get_ip = array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) ? $_SERVER["HTTP_X_
     // $_SERVER 배열변수 값의 변조를 이용한 SQL Injection 공격을 막는 코드입니다. 110810
     $remote_addr = escape_trim($get_ip);
     $referer = "";
-    
+
     if (array_key_exists("HTTP_REFERER", $_SERVER))
         $referer = escape_trim(clean_xss_tags(strip_tags($_SERVER['HTTP_REFERER'])));
     $user_agent  = escape_trim(clean_xss_tags(strip_tags($_SERVER['HTTP_USER_AGENT'])));
