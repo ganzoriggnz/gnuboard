@@ -132,6 +132,7 @@ if( isset($_POST['id'])){
             <tbody>
         <?php     
         $result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}' AND a.co_free_num > '0' AND a.co_sale_num > '0' AND b.wr_is_comment = '0' AND (c.mb_level = '26' OR c.mb_level = '27')"; 
+        var_dump($result);die;
         $result1=sql_query($result);
 
         while ($row = sql_fetch_array($result1)) {     
@@ -215,7 +216,7 @@ if( isset($_POST['id'])){
                 
                 <td class="td_left"> 
                     <ul id="userlist">
-                    <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a LEFT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime ='{$co_end_datetime}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
+                    <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a RIGHT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime ='{$co_end_datetime}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
                     $sql1 = sql_query($sql);
                     while ($row1 = sql_fetch_array($sql1)){
                         $alert_nick[$altcnt]['alt_nick'] = $row1['cos_nick'];
