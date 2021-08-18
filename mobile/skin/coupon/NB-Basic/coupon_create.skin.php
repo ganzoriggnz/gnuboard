@@ -157,7 +157,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 //     return false;
                 // }
                 // else 
-                if((co_cnt+1) > total_cnt && co_no=='') {
+                if((co_cnt+1) > total_cnt) {
                     $('.popup_box3').css("display", "block");
                     $('.btn1').click(function(){
                         $('.popup_box3').css("display", "none");
