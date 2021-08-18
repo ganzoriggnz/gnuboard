@@ -20,54 +20,35 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 	fill:#fff;
 }
 
-.popup_box2{
-	position: absolute;
-	
-	transform: translate(-50%, -50%);
-	border-radius: 5px;
-	width: 320px;
-	background: #f2f2f2;
-	text-align: center;
-	align-items: center;
-	padding: 30px;
-	border: 1px solid #b3b3b3;
-	box-shadow: 0px 5px 10px rgba(0,0,0,.2);
-	z-index: 9999;
-	display: none;
+.popup_box1, .popup_box2, .popup_box3, .popup_box4 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    width: 244px;
+    background: #f2f2f2;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #b3b3b3;
+    box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+    z-index: 9999;
+    display: none;
   }
-  .popup_box2 i{
-	font-size: 12px;
-	color: #eb9447;
-	border: 5px solid #eb9447;
-	padding: 20px 10px;
-	border-radius: 50%;
-	margin: -10px 0 20px 0;
+  .popup_box1 h1{
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
   }
-  .popup_box2 h1{
-	font-size: 14px;
-	font-weight: bold;
-	color: #000;
-	margin-bottom: 30px;
+  .popup_box1 label, .popup_box2 label, .popup_box3 label, .popup_box4 label{
+    font-size: 12px;
+    color: #000;
+    padding-bottom: 10px;
   }
-  .popup_box2 label{
-	font-size: 14px;
-	color: #000;
-	line-height: 2;
-  }
-  .popup_box2 .btsnick{
-	  margin: 40px 0 0 0;
-	}
-  .btsnick .btn {
-	  background: #f2f2f2;
-	  color: #000;
-	  font-size: 12px;
-	  border-radius: 5px;
-	  border: 1px solid #808080;
-	  padding: 6px 30px;
-	}
-  .btsnick .btn:hover{
-	transition: .2s;
-	background:#fff;
+  .popup_box1.btns1, .popup_box2.btns1, .popup_box3.btns1, .popup_box4.btns1{
+      margin: 30px 0 0 0;
   }
 </style>
 <div id="bo_v">
