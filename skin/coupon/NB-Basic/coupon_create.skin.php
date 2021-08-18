@@ -201,8 +201,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 $('.btn1').click(function(){
                     $('.popup_box4').css("display", "none");
             });
+            return false;
+        }else{
             return true;
-        }           
+        }         
                   // else if(sale_cnt > sale_num_cnt){ //үнэтэй
         //     $('.popup_box2').css("display", "block");
         //     $('.btn1').click(function(){
