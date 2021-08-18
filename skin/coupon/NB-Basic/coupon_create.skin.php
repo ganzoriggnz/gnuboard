@@ -101,9 +101,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <input type="hidden" name="mb_id" value="<?php echo $member['mb_id']; ?>">
                 <input type="hidden" name="co_entity" value="<?php echo $member['mb_name']; ?>">
                 <input type="hidden" id="co_sale" value="<?php echo $row_set['bo_sale']; ?>">
-                <input type="text" id="co_free" value="<?php echo $row_set['bo_free']; ?>">
-                <input type="text" id="co_total" value="<?php echo $row_set['bo_total']; ?>"> <!-- baiguullagin too -->
-                <input type="text" id="co_cnt" value="<?php echo $row_cnt['cnt']; ?>">
+                <input type="hidden" id="co_free" value="<?php echo $row_set['bo_free']; ?>">
+                <input type="hidden" id="co_total" value="<?php echo $row_set['bo_total']; ?>"> <!-- baiguullagin too -->
+                <input type="hidden" id="co_cnt" value="<?php echo $row_cnt['cnt']; ?>">
                 <input type="hidden" id="co_created" value="<?php echo $co_created_datetime; ?>">
                 <input type="hidden" id="co_insert" value="<?php echo $co_insert_date; ?>">
                 <input type="hidden" id="co_no" value="<?php echo $row['co_no']; ?>">
