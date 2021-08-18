@@ -5,61 +5,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.css">', 0);
 
 ?>
-<style>
-.svg-img path .clipboard-list{
-	fill:#fff;
-}
 
-.popup_box2{
-	position: absolute;
-	
-	transform: translate(-50%, -50%);
-	border-radius: 5px;
-	width: 320px;
-	background: #f2f2f2;
-	text-align: center;
-	align-items: center;
-	padding: 30px;
-	border: 1px solid #b3b3b3;
-	box-shadow: 0px 5px 10px rgba(0,0,0,.2);
-	z-index: 9999;
-	display: none;
-  }
-  .popup_box2 i{
-	font-size: 12px;
-	color: #eb9447;
-	border: 5px solid #eb9447;
-	padding: 20px 10px;
-	border-radius: 50%;
-	margin: -10px 0 20px 0;
-  }
-  .popup_box2 h1{
-	font-size: 14px;
-	font-weight: bold;
-	color: #000;
-	margin-bottom: 30px;
-  }
-  .popup_box2 label{
-	font-size: 14px;
-	color: #000;
-	line-height: 2;
-  }
-  .popup_box2 .btsnick{
-	  margin: 40px 0 0 0;
-	}
-  .btsnick .btn {
-	  background: #f2f2f2;
-	  color: #000;
-	  font-size: 12px;
-	  border-radius: 5px;
-	  border: 1px solid #808080;
-	  padding: 6px 30px;
-	}
-  .btsnick .btn:hover{
-	transition: .2s;
-	background:#fff;
-  }
-</style>
 <div id="bo_v" style="backgroun-color: #fff">
     <nav id="user_cate" class="sly-tab font-weight-normal mb-2">
 		<div class="px-3 px-sm-0">
