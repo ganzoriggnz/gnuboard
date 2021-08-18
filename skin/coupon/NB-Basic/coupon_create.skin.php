@@ -188,22 +188,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             });
             return false;
         }
-        // else if(sale_cnt > sale_num_cnt){ //үнэтэй
-        //     $('.popup_box2').css("display", "block");
-        //     $('.btn1').click(function(){
-        //         $('.popup_box2').css("display", "none");
-        //     });
-        //     $('#co_sale_num').focus();
-        //     return false;
-        // }
-        // else if(free_cnt > free_num_cnt){ //үнэгүй
-        //     $('.popup_box2').css("display", "block");
-        //     $('.btn1').click(function(){
-        //         $('.popup_box2').css("display", "none");
-        //     });
-        //     $('#co_free_num').focus();
-        //     return false;
-        // }
         else if((co_cnt+1) > total_cnt && co_no=='') {
             $('.popup-company-count-full').css("display", "block");
             $('.btn1').click(function(){
@@ -218,7 +202,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             });
             return true;
         }           
-                                              
+                  // else if(sale_cnt > sale_num_cnt){ //үнэтэй
+        //     $('.popup_box2').css("display", "block");
+        //     $('.btn1').click(function(){
+        //         $('.popup_box2').css("display", "none");
+        //     });
+        //     $('#co_sale_num').focus();
+        //     return false;
+        // }
+        // else if(free_cnt > free_num_cnt){ //үнэгүй
+        //     $('.popup_box2').css("display", "block");
+        //     $('.btn1').click(function(){
+        //         $('.popup_box2').css("display", "none");
+        //     });
+        //     $('#co_free_num').focus();
+        //     return false;
+        // }                                    
     }
     </script>
     </section>
