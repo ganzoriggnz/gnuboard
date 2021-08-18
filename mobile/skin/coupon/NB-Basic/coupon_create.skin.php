@@ -22,7 +22,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 
 .popup_box1, .popup_box2, .popup_box3, .popup_box4 {
     position: absolute;
-    top: 20%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
