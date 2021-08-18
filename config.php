@@ -78,7 +78,7 @@ define('G5_CONTENT_DIR',    'content');
 
 
 function checkAdminDomain() {
-    if($_SERVER['HTTP_HOST'] === "dkswjs-tjdrhd.com" || $_SERVER['HTTP_HOST'] === "210.114.22.148" || $_SERVER['HTTP_HOST'] === "localhost" || $_SERVER['HTTP_HOST'] === "localhost:8080"){
+    if($_SERVER['HTTP_HOST'] === "dkswjs-tjdrhd.com" || $_SERVER['HTTP_HOST'] === "210.114.22.148" || $_SERVER['HTTP_HOST'] === "210.114.22.93" || $_SERVER['HTTP_HOST'] === "localhost" || $_SERVER['HTTP_HOST'] === "localhost:8080"){
         return true;
     }
     else{
