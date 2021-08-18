@@ -139,7 +139,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <div class="coupon_label"></div>
                 <button type="submit" id="btn_submit" accesskey="s" class="miss_but_1">저장</button>
             </div>
-            <div class="popup-time-coupon-count">
+            <div class="popup-time-coupon-count" style="display:none;">
                 <h1>쿠폰</h1>
                 <label>쿠폰지원은 매월 1일부터 5일까지만 수정 가능합니다. 그 외 날짜 쿠폰지원은 관리자에게 문의 바랍니다.</label>
                 <div class="btns1">
@@ -153,7 +153,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 </div>
             </div>-->
             <!-- админаас тогтоосон байгууллагын тоо дүүрсэн тул одоогоор бүртгэх боломжгүй батлах -->
-            <div class="popup-company-count-full">  
+            <div class="popup-company-count-full" style="display:none;">  
                 <label>관리자가 설정한 업소 갯수가 모두 등록이 완료되어 현재 등록을 할 수 없습니다.</label>
                 <div class="btns1">
                     <a href="#" class="btn1">확인</a>
