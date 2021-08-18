@@ -101,9 +101,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <input type="hidden" name="mb_id" value="<?php echo $member['mb_id']; ?>">
                 <input type="hidden" name="co_entity" value="<?php echo $member['mb_name']; ?>">
                 <input type="hidden" id="co_sale" value="<?php echo $row_set['bo_sale']; ?>">
-                <input type="hidden" id="co_free" value="<?php echo $row_set['bo_free']; ?>">
-                <input type="hidden" id="co_total" value="<?php echo $row_set['bo_total']; ?>">
-                <input type="hidden" id="co_cnt" value="<?php echo $row_cnt['cnt']; ?>">
+                <input type="text" id="co_free" value="<?php echo $row_set['bo_free']; ?>">
+                <input type="text" id="co_total" value="<?php echo $row_set['bo_total']; ?>"> <!-- baiguullagin too -->
+                <input type="text" id="co_cnt" value="<?php echo $row_cnt['cnt']; ?>">
                 <input type="hidden" id="co_created" value="<?php echo $co_created_datetime; ?>">
                 <input type="hidden" id="co_insert" value="<?php echo $co_insert_date; ?>">
                 <input type="hidden" id="co_no" value="<?php echo $row['co_no']; ?>">
@@ -139,27 +139,29 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <div class="coupon_label"></div>
                 <button type="submit" id="btn_submit" accesskey="s" class="miss_but_1">저장</button>
             </div>
-            <div class="popup_box1">
+            <div class="popup-time-coupon-count">
                 <h1>쿠폰</h1>
                 <label>쿠폰지원은 매월 1일부터 5일까지만 수정 가능합니다. 그 외 날짜 쿠폰지원은 관리자에게 문의 바랍니다.</label>
                 <div class="btns1">
-                    <a href="#" class="btn1">확인</a>
+                    <a href="#" class="btn1">닫기</a>
                 </div>
             </div>
-            <div class="popup_box2">
+            <!-- <div class="popup_box2">
                 <label>관리자가 설정한 원가권, 무료권 갯수 이하이므로 등록을 하실 수 없습니다.</label>
                 <div class="btns1">
                     <a href="#" class="btn1">확인</a>
                 </div>
-            </div>
-            <div class="popup_box3">
+            </div>-->
+            <!-- админаас тогтоосон байгууллагын тоо дүүрсэн тул одоогоор бүртгэх боломжгүй батлах -->
+            <div class="popup-company-count-full">  
                 <label>관리자가 설정한 업소 갯수가 모두 등록이 완료되어 현재 등록을 할 수 없습니다.</label>
                 <div class="btns1">
                     <a href="#" class="btn1">확인</a>
                 </div>
-            </div>
+            </div> 
+            <!-- админаас тогтоосон үндсэн үнийн болон үнэгүй эрхийн тоо-с доош байгаа тул бүртгэх боломжгүй батлах -->
             <div class="popup_box4" style="display:none;">
-                <label>쿠폰 갯수를 성공적으로 저장하였다.</label>
+                <label>관리자가 설정한 원가권, 무료권 갯수 이하이므로 등록을 하실 수 없습니다.</label>
                 <div class="btns1">
                     <a href="#" class="btn1">확인</a>
                 </div>
@@ -179,37 +181,37 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
         var co_insert = $('#co_insert').val();
         var co_no = $('#co_no').val();
         
-        if(co_created > co_insert){
-            $('.popup_box1').css("display", "block");
+        if(co_created > co_insert){ //огноо
+            $('.popup-time-coupon-count').css("display", "block");
             $('.btn1').click(function(){
-                $('.popup_box1').css("display", "none");
+                $('.popup-time-coupon-count').css("display", "none");
             });
             return false;
         }
-        else if(sale_cnt > sale_num_cnt){
-            $('.popup_box2').css("display", "block");
-            $('.btn1').click(function(){
-                $('.popup_box2').css("display", "none");
-            });
-            $('#co_sale_num').focus();
-            return false;
-        }
-        else if(free_cnt > free_num_cnt){
-            $('.popup_box2').css("display", "block");
-            $('.btn1').click(function(){
-                $('.popup_box2').css("display", "none");
-            });
-            $('#co_free_num').focus();
-            return false;
-        }
+        // else if(sale_cnt > sale_num_cnt){ //үнэтэй
+        //     $('.popup_box2').css("display", "block");
+        //     $('.btn1').click(function(){
+        //         $('.popup_box2').css("display", "none");
+        //     });
+        //     $('#co_sale_num').focus();
+        //     return false;
+        // }
+        // else if(free_cnt > free_num_cnt){ //үнэгүй
+        //     $('.popup_box2').css("display", "block");
+        //     $('.btn1').click(function(){
+        //         $('.popup_box2').css("display", "none");
+        //     });
+        //     $('#co_free_num').focus();
+        //     return false;
+        // }
         else if((co_cnt+1) > total_cnt && co_no=='') {
-            $('.popup_box3').css("display", "block");
+            $('.popup-company-count-full').css("display", "block");
             $('.btn1').click(function(){
-                $('.popup_box3').css("display", "none");
+                $('.popup-company-count-full').css("display", "none");
             });
             return false;
         } 
-        else if(total_cnt >=co_cnt && sale_num_cnt >= sale_cnt && free_num_cnt >= free_cnt && co_insert >= co_created){
+        else if(sale_num_cnt < sale_cnt && free_num_cnt < free_cnt){
                 $('.popup_box4').css("display", "block");
                 $('.btn1').click(function(){
                     $('.popup_box4').css("display", "none");
