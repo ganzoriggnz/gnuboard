@@ -93,7 +93,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
         <div class="coupon_noti">쿠폰지원 개수는 매월 1일부터 5일까지 수정 가능합니다. <br/>그외 날짜에 수정을 원하시면 관리자에게 쪽지로 문의 바랍니다. 
         </div>
         <div class="coupon_noti">
-            원가권 <span style="color: blue; "><?php echo $row_set['bo_sale'];?>장</span>, 무료권 <span style="color: blue; "><?php echo $row_set['bo_free']; ?>장</span> 이상 지원시 <span style="color: blue; "><?php echo $row_set['bo_total']; ?>개</span> 업소 선착순으로 업소정보 프로필과 배너 상단 고정랜덤에 적용됩니다. <br />
+            원가권 <span style="color: blue; "><?php echo $row_set['bo_sale'];?>장</span> 또는 무료권 <span style="color: blue; "><?php echo $row_set['bo_free']; ?>장</span> 이상 지원시 <span style="color: blue; "><?php echo $row_set['bo_total']; ?>개</span> 업소 선착순으로 업소정보 프로필과 배너 상단 고정랜덤에 적용됩니다. <br />
             자리가 없을 시 쿠폰지원 할 수 없으며 자리가 빠지면 그때 선착순으로 쿠폰지원을 하실 수 있습니다.
         </div>
     <div class="coupon_info">
@@ -139,21 +139,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <div class="coupon_label"></div>
                 <button type="submit" id="btn_submit" accesskey="s" class="miss_but_1">저장</button>
             </div>
-            <div class="popup-time-coupon-count" style="display:none;">
+            <div class="popup_box2" style="display:none;">
                 <h1>쿠폰</h1>
                 <label>쿠폰지원은 매월 1일부터 5일까지만 수정 가능합니다. 그 외 날짜 쿠폰지원은 관리자에게 문의 바랍니다.</label>
                 <div class="btns1">
                     <a href="#" class="btn1">닫기</a>
                 </div>
             </div>
-            <!-- <div class="popup_box2">
-                <label>관리자가 설정한 원가권, 무료권 갯수 이하이므로 등록을 하실 수 없습니다.</label>
-                <div class="btns1">
-                    <a href="#" class="btn1">확인</a>
-                </div>
-            </div>-->
             <!-- админаас тогтоосон байгууллагын тоо дүүрсэн тул одоогоор бүртгэх боломжгүй батлах -->
-            <div class="popup-company-count-full" style="display:none;">  
+            <div class="popup_box3" style="display:none;">  
                 <label>관리자가 설정한 업소 갯수가 모두 등록이 완료되어 현재 등록을 할 수 없습니다.</label>
                 <div class="btns1">
                     <a href="#" class="btn1">확인</a>
@@ -182,17 +176,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
         var co_no = $('#co_no').val();
         
         // if(co_created > co_insert){ //огноо
-        //     $('.popup-time-coupon-count').css("display", "block");
+        //     $('.popup_box2').css("display", "block");
         //     $('.btn1').click(function(){
-        //         $('.popup-time-coupon-count').css("display", "none");
+        //         $('.popup_box2').css("display", "none");
         //     });
         //     return false;
         // }
         // else 
         if((co_cnt+1) > total_cnt && co_no=='') {
-            $('.popup-company-count-full').css("display", "block");
+            $('.popup_box3').css("display", "block");
             $('.btn1').click(function(){
-                $('.popup-company-count-full').css("display", "none");
+                $('.popup_box3').css("display", "none");
             });
             return false;
         } 
