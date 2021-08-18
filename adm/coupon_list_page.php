@@ -215,7 +215,7 @@ if( isset($_POST['id'])){
                 
                 <td class="td_left"> 
                     <ul id="userlist">
-                    <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a LEFT JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime ='{$co_end_datetime}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
+                    <?php $sql = "SELECT a.*, b.* FROM {$g5['coupon_table']} a LEFT OUTER JOIN {$g5['coupon_sent_table']} b ON a.co_no = b.co_no WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime ='{$co_end_datetime}' AND b.co_no = {$row['co_no']}  ORDER BY b.co_no ASC";
                     $sql1 = sql_query($sql);
                     while ($row1 = sql_fetch_array($sql1)){
                         $alert_nick[$altcnt]['alt_nick'] = $row1['cos_nick'];
