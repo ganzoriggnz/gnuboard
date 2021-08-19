@@ -1656,7 +1656,7 @@ function na_board_rows_coupon($wset)
 		$co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
 		$co_end_datetime = get_end_datetime($co_start, $currentyear, $currentmonth);
 
-		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and a.co_sale_num > '0' and a.co_free_num > '0' and a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
+		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and (a.co_sale_num > '0' or a.co_free_num > '0') and a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
 		if ($page > 1) {
 			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
 			$total_count = $total['cnt'];
