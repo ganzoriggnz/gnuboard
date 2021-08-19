@@ -176,7 +176,7 @@ function insert_nickname($wer)
 				
 				<?php if(($is_admin == 'super' || $member['is_auth']) && G5_BZY_CHECK) { ?>
 					<span class="na-bar"></span>
-					<a href="<?php echo correct_goto_url(G5_ADMIN_URL.'/member_list.php'); ?>" style="color: #AEAEAE;">
+					<a href="<?php echo correct_goto_url(G5_ADMIN_URL); ?>" style="color: #AEAEAE;">
 						관리자
 					</a>
 				<?php } ?>
