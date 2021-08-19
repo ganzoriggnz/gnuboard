@@ -76,17 +76,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <input type="hidden" id="co_sale" value="<?php echo $row_set['bo_sale'] ?>">
                 <input type="hidden" id="co_free" value="<?php echo $row_set['bo_free'] ?>">
                 <input type="hidden" id="co_total" value="<?php echo $row_set['bo_total'] ?>">
-                <input type="hidden" id="co_cnt" value="<?php echo $row_cnt['cnt'] ?>">
+                <input type="hidden" id="co_cnt" value="<?php echo $rowd['cnt'] ?>">
 
                 <div class="p-20">
                     <div class="coupon_label col-form-label">원가권 :</div>
-                    <input type="number" name="co_sale_num" id="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder=""
+                    <input type="number" name="co_sale_num" id="co_sale_num" value="<?php echo $rowd['co_sale_num']; ?>" placeholder=""
                         class="form-control coupon_input">
                         <!-- <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else {echo '';}?> -->
                 </div>
                 <div class="p-20">
                     <div class="coupon_label col-form-label">무료권 :</div>
-                    <input type="number" name="co_free_num" id="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder=""
+                    <input type="number" name="co_free_num" id="co_free_num" value="<?php echo $rowd['co_free_num']; ?>" placeholder=""
                         class="form-control coupon_input">
                         <!-- <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else { echo '';}?> -->
                 </div>
@@ -183,11 +183,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 </thead>
                 <tbody>
                     <tr class="coupon-create-tr">
-                        <td class="coupon-create-td"><?php echo $row['co_sent_snum']; ?></td>
+                        <td class="coupon-create-td"><?php echo $rowd['co_sent_snum']; ?></td>
                         <td class="coupon-create-td"><?php echo $diff_s; ?></td>
                     </tr>
                     <tr class="coupon-create-tr-bottom">
-                        <td class="coupon-create-td"><?php echo $row['co_sent_fnum']; ?></td>
+                        <td class="coupon-create-td"><?php echo $rowd['co_sent_fnum']; ?></td>
                         <td class="coupon-create-td"><?php echo $diff_f; ?></td>
                     </tr>
                 </tbody>

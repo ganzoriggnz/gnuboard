@@ -106,7 +106,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <input type="hidden" id="co_cnt" value="<?php echo $row_cnt['cnt']; ?>">
                 <input type="hidden" id="co_created" value="<?php echo $co_created_datetime; ?>">
                 <input type="hidden" id="co_insert" value="<?php echo $co_insert_date; ?>">
-                <input type="hidden" id="co_no" value="<?php echo $row['co_no']; ?>">
+                <input type="hidden" id="co_no" value="<?php echo $rowd['co_no']; ?>">
                 
             <table class="coupon-table">
                 <thead>
@@ -120,17 +120,26 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <tbody>
                     <tr class="coupon-create-tr">
                         <td class="coupon_label col-form-label">원가권 :</td>
-                        <td class="coupon-create-td"><input type="number" name="co_sale_num" id="co_sale_num" value="<?php echo $row['co_sale_num']; ?>" placeholder="" class="form-control coupon_input text-center"></td>
-
-                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center;"><?php echo $row['co_sent_snum']; ?></td>
-                        <td class="coupon-create-td"><?php echo $diff_s; ?></td>
+                        <td class="coupon-create-td">
+                            <input type="number" name="co_sale_num" id="co_sale_num" value="<?php echo $rowd['co_sale_num']; ?>" placeholder="" class="form-control coupon_input text-center">
+                        </td>
+                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center;">
+                            <?php echo $rowd['co_sale_num']; ?>
+                        </td>
+                        <td class="coupon-create-td">
+                            <?php echo $diff_s; ?>
+                        </td>
                     </tr>
 
                     <tr class="coupon-create-tr">
                         <td class="coupon_label col-form-label">무료권 :</td>
-                        <td class="coupon-create-td" > <input type="number" name="co_free_num" id="co_free_num" value="<?php echo $row['co_free_num']; ?>" placeholder="" class="form-control coupon_input text-center"></td>
+                        <td class="coupon-create-td">
+                            <input type="number" name="co_free_num" id="co_free_num" value="<?php echo $rowd['co_free_num']; ?>" placeholder="" class="form-control coupon_input text-center">
+                        </td>
 
-                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center; padding-top: 10px;"><?php echo $row['co_sent_fnum']; ?></td>
+                        <td class="coupon-create-td" style="border-right: 1px solid #ced4da; text-align: center; padding-top: 10px;">
+                            <?php echo $rowd['co_free_num']; ?>
+                        </td>
                         <td class="coupon-create-td" style="text-align: center; padding-top: 10px;"><?php echo $diff_f; ?></td>
                     </tr>
                 </tbody>
