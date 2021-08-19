@@ -1624,7 +1624,9 @@ function na_board_rows_coupon($wset)
 	$start_rows = 0;
 	$board_cnt = array_map('trim', explode(",", $bo_table));
 	if (!$bo_table || count($board_cnt) > 1 || $wset['bo_except']) {
-
+		// echo '<pre>';
+		// print_r($list);
+		// echo '</pre>';die;
 		// 메인글
 		$sql_main = (IS_NA_BBS && $wset['main']) ? "and a.as_type = '" . (int)$wset['main'] . "'" : "";
 
@@ -1654,14 +1656,15 @@ function na_board_rows_coupon($wset)
 		$co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
 		$co_end_datetime = get_end_datetime($co_start, $currentyear, $currentmonth);
 
-		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}' and a.co_sale_num > '0' and a.co_free_num > '0' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
+		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
 		if ($page > 1) {
 			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
 			$total_count = $total['cnt'];
 			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
 		}
-		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows ", false);
+		$q = " select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows ";
+		$result = sql_query($q, false);
 		for ($i = 0; $row = sql_fetch_array($result); $i++) {
 
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
