@@ -36,7 +36,6 @@ $sql = " select a.mb_id, a.co_entity, a.co_sale_num as sale, a.co_free_num as fr
             {$sql_search}
             {$sql_order}
             limit {$from_record}, {$rows}";
-            var_dump($sql);die;
 
 $result = sql_query($sql);
 
