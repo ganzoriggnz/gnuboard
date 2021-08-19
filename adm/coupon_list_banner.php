@@ -13,7 +13,7 @@ $co_end_datetime = get_end_datetime($co_start, $currentyear, $currentmonth);
 
 $sql_common = " from {$g5['coupon_table']} a INNER JOIN {$g5['member_table']} b ON a.mb_id=b.mb_id INNER JOIN {$g5['board_table']} c ON a.bo_table=c.bo_table";
 
-$sql_search = " where (b.mb_level='26' or b.mb_level='27') and (a.co_sale_num >='1' and a.co_free_num >='1' and  a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}')";
+$sql_search = " where (b.mb_level='26' or b.mb_level='27') and (a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}')";
 
 $sql_order = " order by c.bo_order asc";
 
@@ -36,6 +36,8 @@ $sql = " select a.mb_id, a.co_entity, a.co_sale_num as sale, a.co_free_num as fr
             {$sql_search}
             {$sql_order}
             limit {$from_record}, {$rows}";
+            var_dump($sql);die;
+
 $result = sql_query($sql);
 
 $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목록</a>';
