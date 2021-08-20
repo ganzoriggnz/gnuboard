@@ -1312,18 +1312,17 @@ function na_post_rows($wset, $subcat = '', $search = '')
 	// 공통쿼리		
 	$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
 	$cnt = 0;
-
 	if ($search == '') {
 		for ($i = 0; $res = sql_fetch_array($result); $i++) {
 
 			$bo_table = $res['bo_table'];
 			$hwrite_table = $g5['write_prefix'] . $bo_table;
 			if ($wset == '') {
-				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id", false);
+				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and (c.co_free_num > '0' or c.co_sale_num > '0')) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id", false);
 			} else if ($subcat == '') {
-				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false);
+				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and (c.co_free_num > '0' or c.co_sale_num > '0')) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false);
 			} else {
-				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false);
+				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and (c.co_free_num > '0' or c.co_sale_num > '0')) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false);
 			}
 			while ($row = sql_fetch_array($result1)) {
 				$list[$cnt] = $row;
@@ -1336,7 +1335,8 @@ function na_post_rows($wset, $subcat = '', $search = '')
 
 			$bo_table = $res['bo_table'];
 			$hwrite_table = $g5['write_prefix'] . $bo_table;
-			$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%')", false);
+			$q = "select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and (c.co_free_num > '0' or c.co_sale_num > '0')) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%')";
+			$result1 = sql_query($q, false);
 
 			while ($row = sql_fetch_array($result1)) {
 
