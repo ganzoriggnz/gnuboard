@@ -81,19 +81,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <div class="p-20">
                     <div class="coupon_label col-form-label">원가권 :</div>
                     <input type="number" name="co_sale_num" id="co_sale_num" value="<?php echo $rowd['co_sale_num']; ?>" placeholder=""
-                        class="form-control coupon_input">
-                        <!-- <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else {echo '';}?> -->
+                        class="form-control coupon_input" <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else {echo '';}?>>
                 </div>
                 <div class="p-20">
                     <div class="coupon_label col-form-label">무료권 :</div>
                     <input type="number" name="co_free_num" id="co_free_num" value="<?php echo $rowd['co_free_num']; ?>" placeholder=""
-                        class="form-control coupon_input">
-                        <!-- <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else { echo '';}?> -->
+                        class="form-control coupon_input" <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else { echo '';}?>>
                 </div>
                 <div class="p-20">
                     <div class="coupon_label"></div>
-                    <!-- <?php if($co_created_datetime > $co_insert_date) { echo 'class="miss_but_3" disabled="disabled"';}  else { echo 'class="miss_but_1"';}?> -->
-                    <button type="submit" id="btn_submit" class="miss_but_1" accesskey="s">저장</button>
+                    <button type="submit" id="btn_submit" class="miss_but_1" accesskey="s" <?php if($co_created_datetime > $co_insert_date) { echo 'class="miss_but_3" disabled="disabled"';}  else { echo 'class="miss_but_1"';}?>>저장</button>
                 </div>
                 <div class="popup_box2" style="display:none;">
                     <h1>쿠폰</h1>
