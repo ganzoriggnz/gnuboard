@@ -7,7 +7,7 @@ na_script('sly');
 $cn = $ca_select = 0;
 $ca_count = (isset($categories) && is_array($categories)) ? count($categories) : 0;
 $ca_start = ($sca) ? '' : ' class="active"';
-$category_option = '<div'.$ca_start.'><a class="py-2" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'">전체</a></div>';
+$category_option = '<div'.$ca_start.'><a class="" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'">전체</a></div>';
 for ($i=0; $i<$ca_count; $i++) {
 	$category = trim($categories[$i]);
 	if ($category=='')
