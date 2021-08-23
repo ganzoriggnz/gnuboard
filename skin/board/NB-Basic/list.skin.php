@@ -187,7 +187,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php endif; ?>
 					<?php if ($group['gr_admin'] != '') : ?>
 						<?php 
-							echo  "&nbsp;&nbsp;" . $group['gr_subject'] . " 관리자 : ";
+							echo  ", ";
 							$group_admins = explode(",",$group['gr_admin']);
 							foreach ($group_admins as $key => $value) :
 								$mbid2 = get_member($value);
