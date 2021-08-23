@@ -6,7 +6,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_title_url.'/title.css">', 0);
 ?>
 
 <!-- Page Title -->
-<div id="nt_title" class="font-weight-normal" <?php if(!G5_IS_MOBILE){ echo 'style="margin-bottom: 8px;"'; } ?> >
+<div id="nt_title" class="font-weight-normal" <?php if(!G5_IS_MOBILE){ echo 'style="margin-bottom: 8px;"'; } else {echo 'style="margin-bottom: 3px;"' ;}?> >
 
 	<?php if(G5_IS_MOBILE) { ?>
 		<div class="nt-container px-xl-0">	
