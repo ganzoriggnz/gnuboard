@@ -7,7 +7,7 @@ na_script('sly');
 $cn = $ca_select = 0;
 $ca_count = (isset($categories) && is_array($categories)) ? count($categories) : 0;
 $ca_start = ($sca) ? '' : ' class="active"';
-$category_option = '<div'.$ca_start.'><a class="" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'">전체</a></div>';
+$category_option = '<div'.$ca_start.'><a class="py-2" href="'.G5_BBS_URL.'/board.php?bo_table='.$bo_table.'">전체</a></div>';
 for ($i=0; $i<$ca_count; $i++) {
 	$category = trim($categories[$i]);
 	if ($category=='')
@@ -27,7 +27,7 @@ for ($i=0; $i<$ca_count; $i++) {
 
 <nav id="bo_cate">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
-	<div class="category-list">
+	<div class="category-list <?php echo G5_IS_MOBILE ? 'p-0' : '' ?>">
 		<?php echo $category_option ?>
 	</div>
 </nav>
