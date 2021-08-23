@@ -177,7 +177,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
 					<?php if ($board['bo_admin'] != '') : ?>
 						<?php
-							echo "이벤트관리자 관리자 : ";
+							echo "이벤트관리자 : ";
 							$board_admins = explode(",",$board['bo_admin']);
 							foreach ($board_admins as $key => $value) :
 								$mbid1 = get_member($value);
@@ -187,19 +187,22 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php endif; ?>
 					<?php if ($group['gr_admin'] != '') : ?>
 						<?php 
+							echo  "&nbsp;&nbsp;" . $group['gr_subject'] . " 관리자 : ";
 							$group_admins = explode(",",$group['gr_admin']);
 							foreach ($group_admins as $key => $value) :
 								$mbid2 = get_member($value);
 								$name2 = get_sideview($mbid2['mb_id'], $mbid2['mb_nick'], $mbid2['mb_homepage']);
-								echo  "&nbsp;&nbsp;" . $group['gr_subject'] . " 관리자 : " . na_name_photo($value, "<p class='username mr-3' style='display: inline-block;'>" . $name2 . "</p>");
+								echo na_name_photo($value, "<p class='username mr-3' style='display: inline-block;'>" . $name2 . "</p>");
 							endforeach;
 						?>						
 					<?php endif; ?>
 					<?php echo "&nbsp;&nbsp;", "", "&nbsp;&nbsp;" ?>
 
-					<?php if($bo_table != "free" && $bo_table != "event"):?>
-						<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]"; ?>
-					<?php endif; ?>
+					<?php if(!G5_IS_MOBILE):?>
+						<?php if($bo_table != "free" && $bo_table != "event"):?>
+							<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]"; ?>
+						<?php endif; ?>
+					<php ?>
 				</div>
 				<div role="group">
 					<?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
