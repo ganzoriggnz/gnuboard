@@ -196,7 +196,10 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							<?php echo "&nbsp;&nbsp;" . $group['gr_subject'] . " 관리자 : " . na_name_photo($group['gr_admin'], "<p class='username' style='display: inline-block;'>" . $name2 . "</p>"); ?>
 						<?php endif; ?>
 						<?php echo "&nbsp;&nbsp;", "", "&nbsp;&nbsp;" ?>
-						<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]" ?>
+
+						<?php if($bo_table != "free" && $bo_table != "event"):?>
+							<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]"; ?>
+						<?php endif; ?>
 					<?php endif; ?>
 				</div>
 				<div role="group">
