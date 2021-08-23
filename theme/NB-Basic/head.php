@@ -161,9 +161,9 @@ if($nt_top_path)
 		?>
     </div><!-- #nt_header -->
 
-    <div id="nt_body" class="nt-body px-0">
+    <div id="nt_body" class="nt-body px-0 px-sm-4">
         <?php if($is_page_col) { ?>
-        <div class="nt-container pt-3 <?php echo !G5_IS_MOBILE ? 'pt-sm-4' : '' ?>">
+        <div class="nt-container <?php echo !G5_IS_MOBILE ? 'pt-3 pt-sm-4' : '' ?>">
             <?php if($is_page_col == "two") { ?>
             <div class="row na-row"  style="display: flex; justify-content: space-between;">
                 <div class="col-md-<?php echo $is_content_col ?>
