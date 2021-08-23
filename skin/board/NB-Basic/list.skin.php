@@ -182,12 +182,11 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							foreach ($board_admins as $key => $value) :
 								$mbid1 = get_member($value);
 								$name1 = get_sideview($mbid1['mb_id'], $mbid1['mb_nick'], $mbid1['mb_homepage']);
-								echo na_name_photo($value, "<p class='username' style='display: inline-block;'>" . $name1 . "</p>");
+								echo na_name_photo($value, "<p class='username' style='display: inline-block;'>" . $name1 . "</p>") . $group['gr_admin'] != '' ? ", " : "";
 							endforeach; ?>
 					<?php endif; ?>
 					<?php if ($group['gr_admin'] != '') : ?>
 						<?php 
-							echo  ", ";
 							$group_admins = explode(",",$group['gr_admin']);
 							foreach ($group_admins as $key => $value) :
 								$mbid2 = get_member($value);
