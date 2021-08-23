@@ -202,7 +202,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						<?php if($bo_table != "free" && $bo_table != "event"):?>
 							<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]"; ?>
 						<?php endif; ?>
-					<php ?>
+					<?php endif; ?>
 				</div>
 				<div role="group">
 					<?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
