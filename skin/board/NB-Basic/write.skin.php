@@ -410,7 +410,7 @@ if ($is_member)
                             <div class="col-sm-10">
                                 <p class="float-left pt-1 pb-0 form-control-plaintext">
                                     <?php echo $option ?>
-                                    <span class="text-danger">쿠폰으로 업소 방문할 경우만 체크<span>
+                                    <span style="color:red;">쿠폰으로 업소 방문할 경우만 체크<span>
                                 </p>
                             </div>
                         </div>
