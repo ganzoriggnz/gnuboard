@@ -27,7 +27,7 @@ for ($i=0; $i<$ca_count; $i++) {
 
 <nav id="bo_cate">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
-	<div class="category-list <?php if(G5_IS_MOBILE) { echo ' p-0 '; } ?>">
+	<div class="category-list"  <?php if(G5_IS_MOBILE) { echo ' style="padding:0px !important;" '; } ?>>
 		<?php echo $category_option ?>
 	</div>
 </nav>
