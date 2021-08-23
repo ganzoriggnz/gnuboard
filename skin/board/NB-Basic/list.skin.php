@@ -79,7 +79,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 	)
 		if (!G5_IS_MOBILE)
 			include_once('hit_latest.php'); ?>
-	<br>
+
 	<?php if(G5_IS_MOBILE): ?>
 		<div class="mb-1">
 			<form id="fsearch" name="fsearch" method="get" class="m-auto">
