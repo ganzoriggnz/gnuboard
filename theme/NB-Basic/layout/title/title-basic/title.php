@@ -9,7 +9,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_title_url.'/title.css">', 0);
 <div id="nt_title" class="font-weight-normal" <?php if(!G5_IS_MOBILE){ echo 'style="margin-bottom: 8px;"'; } ?> >
 
 	<?php if(G5_IS_MOBILE) { ?>
-		<div class="nt-container px-xl-0">	
+		<div class="nt-container px-xl-0 mb-0">	
 			<div class="d-flex pb-1">
 			<!-- <div class="align-self-center page-title en text-nowrap">
 				<?php if($tset['page_icon']) { ?>
