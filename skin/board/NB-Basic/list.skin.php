@@ -117,6 +117,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 	<?php endif; ?>
 	<?php
 	// 게시판 카테고리
+	var_dump($board_skin_path);
 	if ($is_category)
 		include_once($board_skin_path . '/category.skin.php');
 	?>
