@@ -295,7 +295,7 @@ if ($w == '') {
     set_session('ss_mb_reg', $mb_id);
 
 } else if ($w == 'u') {
-    if($member['mb_level'] < 27 || $member['mb_level'] < 28)
+    if($member['mb_level'] == 27 || $member['mb_level'] == 26)
         alert("관리자에게 문의 하시기 바랍니다.", "/bbs/userinfo.php");
 
     if (!trim($_SESSION['ss_mb_id']))
