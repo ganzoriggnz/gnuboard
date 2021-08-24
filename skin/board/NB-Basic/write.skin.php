@@ -410,7 +410,9 @@ if ($is_member)
                             <div class="col-sm-10">
                                 <p class="float-left pt-1 pb-0 form-control-plaintext">
                                     <?php echo $option ?>
-                                    <span style="color:red;">쿠폰으로 업소 방문할 경우만 체크<span>
+                                    <?php if($board['gr_id'] == "review"): ?>
+                                        <span class="text-danger">쿠폰으로 업소 방문할 경우만 체크<span>
+                                    <?php endif; ?>
                                 </p>
                             </div>
                         </div>
@@ -905,7 +907,9 @@ if ($is_member)
                             <div class="col-sm-10">
                                 <p class="float-left pt-1 pb-0 form-control-plaintext">
                                     <?php echo $option ?>
-                                    <span class="text-danger">쿠폰으로 업소 방문할 경우만 체크<span>
+                                    <?php if($board['gr_id'] == "review"): ?>
+                                        <span class="text-danger">쿠폰으로 업소 방문할 경우만 체크<span>
+                                    <?php endif; ?>
                                 </p>
                             </div>
                         </div>
