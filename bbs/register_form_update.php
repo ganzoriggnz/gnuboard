@@ -296,7 +296,7 @@ if ($w == '') {
 
 } else if ($w == 'u') {
     if($member['mb_level'] < 27 || $member['mb_level'] < 28)
-        alert("관리자에게 문의 하시기 바랍니다.", "register_form.php");
+        alert("관리자에게 문의 하시기 바랍니다.", "/register_form.php");
     
     if (!trim($_SESSION['ss_mb_id']))
         alert('로그인 되어 있지 않습니다.');
