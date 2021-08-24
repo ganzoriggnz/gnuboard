@@ -171,7 +171,8 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-			<div id="bo_btn_top">
+			<?php if ($board['bo_admin'] != '' || $group['gr_admin'] != '') : ?>
+				<div id="bo_btn_top">
 				<div id="bo_list_total">
 					<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
 					<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
@@ -371,6 +372,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php }  ?>
 				</div>
 			</div>
+			<?php endif; ?>
 			<!-- hulan nemsen doorh neg mur -->
 		<?php	} ?>
 
