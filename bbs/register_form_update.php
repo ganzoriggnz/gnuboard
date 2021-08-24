@@ -295,14 +295,14 @@ if ($w == '') {
     set_session('ss_mb_reg', $mb_id);
 
 } else if ($w == 'u') {
+    if($member['mb_level'] < 27 || $member['mb_level'] < 28)
+        alert("관리자에게 문의 하시기 바랍니다.");
+        
     if (!trim($_SESSION['ss_mb_id']))
         alert('로그인 되어 있지 않습니다.');
     
     if (trim($_POST['mb_id']) != $mb_id)
         alert("로그인된 정보와 수정하려는 정보가 틀리므로 수정할 수 없습니다.\\n만약 올바르지 않은 방법을 사용하신다면 바로 중지하여 주십시오.");
-    
-    if($member['mb_level'] < 27 || $member['mb_level'] < 28)
-        alert_close("관리자에게 문의 하시기 바랍니다.", G5_URL."/bbs/register_form.php");
         
     $sql_password = "";
     if ($mb_password)
