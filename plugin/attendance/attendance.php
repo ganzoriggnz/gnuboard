@@ -484,7 +484,7 @@ if ($d) {
                     <tr height="30" class="bg<?php echo $list ?>">
                         <td align="center"><?php echo number_format($rank+($page - 1) * $rows) ?> 등</td>
                         <td align="center"><?php echo substr($data['datetime'], 10, 16); ?></td>
-                        <td align="left"><?php echo $name ?></td>
+                        <td align="left" style="width: 170px;"><?php echo $name ?></td>
                         <td align="center"><?php echo $on ?></td>
                         <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']); ?> 파운드</td>
                         <td align="center"><?php echo $data['day'] ?> 일째</td>
