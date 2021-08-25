@@ -113,7 +113,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
         </table>
         <div class="popup_box">
             <h1>쿠폰사용</h1>
-            <label>쿠폰사용후 7일이내 후기 미 작성시 모든</br>이벤트에서 한달간 제외됩니다.</label>
+            <label>쿠폰사용후 5일이내 후기 미 작성시 모든</br>이벤트에서 한달간 제외됩니다.</label>
             <div class="btns">
                 <a href="#" class="btn">확인</a>
             </div>
