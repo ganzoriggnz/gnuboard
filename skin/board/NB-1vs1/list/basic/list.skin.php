@@ -63,7 +63,7 @@ $list_cnt = count($list);
 	<ul class="na-table d-md-table w-100">
 		<?php 
 		for ($i = 0; $i < $list_cnt; $i++) {
-			if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin) {
+			if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin || $list[$i]['mb_id'] == 'admin') {
 
 				//아이콘 체크
 				$wr_icon = '';
@@ -113,7 +113,7 @@ $list_cnt = count($list);
 					<div class="text-left d-md-table-cell py-md-2 pr-md-01">
 						<div class="na-title float-md-left">
 							<div class="na-item">
-								<?php /* if ($list[$i]['wr_2']) echo '<i class="mr-2 fa fa-mobile" aria-hidden="true"></i>'; */ if ($is_checkbox) { ?>
+								<?php if ($is_checkbox) { ?>
 									<input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
 								<?php } ?>
 								<a href="<?php echo $list[$i]['href'] ?>" class="na-subject" <?php echo $target ?>>
@@ -127,11 +127,7 @@ $list_cnt = count($list);
 								</a>
 								<?php
 								if (isset($list[$i]['icon_file']))
-									echo '<span class="na-ticon na-file"></span>' . PHP_EOL;
-
-								//if(isset($list[$i]['icon_link']) && $list[$i]['icon_link'])
-								//echo '<span class="na-ticon na-link"></span>'.PHP_EOL;
-								?>
+									echo '<span class="na-ticon na-file"></span>' . PHP_EOL;?>
 								<?php if ($list[$i]['wr_comment']) { ?>
 									<div class="na-info">
 										<span class="sr-only">댓글</span>
