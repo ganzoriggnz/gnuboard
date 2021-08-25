@@ -514,22 +514,22 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 		}
 
 		// 이름 검사
-		if (f.w.value == "") {
-			if (f.mb_name.value.length < 1) {
-				alert("이름을 입력하십시오.");
-				f.mb_name.focus();
-				return false;
-			}
+		// if (f.w.value == "") {
+		// 	if (f.mb_name.value.length < 1) {
+		// 		alert("이름을 입력하십시오.");
+		// 		f.mb_name.focus();
+		// 		return false;
+		// 	}
 
 
-			// var pattern = /([^가-힣\x20])/i;
-			// if (pattern.test(f.mb_name.value)) {
-			// 	alert("이름은 한글로 입력하십시오.");
-			// 	f.mb_name.select();
-			// 	return false;
-			// }
+		// 	// var pattern = /([^가-힣\x20])/i;
+		// 	// if (pattern.test(f.mb_name.value)) {
+		// 	// 	alert("이름은 한글로 입력하십시오.");
+		// 	// 	f.mb_name.select();
+		// 	// 	return false;
+		// 	// }
 
-		}
+		// }
 
 		<?php if ($w == '' && $config['cf_cert_use'] && $config['cf_cert_req']) { ?>
 			// 본인확인 체크
