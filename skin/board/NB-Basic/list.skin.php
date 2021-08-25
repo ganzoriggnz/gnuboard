@@ -169,35 +169,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		<input type="hidden" name="page" value="<?php echo $page ?>">
 		<input type="hidden" name="sw" value="">
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
-
-			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-			<!-- <?php if ($board['bo_admin'] != '' || $group['gr_admin'] != '') : ?> -->
-				<div id="bo_btn_top">
-				<!-- <div id="bo_list_total">
-					<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
-					<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
-
-					<?php if(!G5_IS_MOBILE):?>
-						<?php if($bo_table != "free" && $bo_table != "event"):?>
-							<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]"; ?>
-						<?php endif; ?>
-					<?php endif; ?>
-				</div> -->
-				<div role="group">
-					<!-- <?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
-						<a href="<?php echo $admin_href ?>" class="py-1 btn btn_admin nofocus" title="관리자" role="button">
-							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
-							<span class="sr-only">관리자</span>
-						</a>
-					<?php } ?>
-					<?php if ($rss_href) { ?>
-						<a href="<?php echo $rss_href ?>" class="py-1 btn btn_b01 nofocus" title="RSS">
-							<i class="fa fa-rss fa-md" aria-hidden="true"></i>
-							<span class="sr-only">RSS</span>
-						</a>
-					<?php } ?> -->
-					<?php if (!G5_IS_MOBILE) : ?>
-						<div class="py-1 btn btn_b01 nofocus">
+			<div class="py-1 btn btn_b01 nofocus">
 							<label for="stx" class="sr-only">검색어</label>
 							<!-- <form id="fsearch" name="fsearch" method="get" class="m-auto"> -->
 								<div class="input-group">
@@ -231,6 +203,34 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 								</div>
 							<!-- </form> -->
 						</div>
+			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
+			<!-- <?php if ($board['bo_admin'] != '' || $group['gr_admin'] != '') : ?> -->
+				<div id="bo_btn_top">
+				<!-- <div id="bo_list_total">
+					<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
+					<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
+
+					<?php if(!G5_IS_MOBILE):?>
+						<?php if($bo_table != "free" && $bo_table != "event"):?>
+							<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]"; ?>
+						<?php endif; ?>
+					<?php endif; ?>
+				</div> -->
+				<div role="group">
+					<!-- <?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
+						<a href="<?php echo $admin_href ?>" class="py-1 btn btn_admin nofocus" title="관리자" role="button">
+							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
+							<span class="sr-only">관리자</span>
+						</a>
+					<?php } ?>
+					<?php if ($rss_href) { ?>
+						<a href="<?php echo $rss_href ?>" class="py-1 btn btn_b01 nofocus" title="RSS">
+							<i class="fa fa-rss fa-md" aria-hidden="true"></i>
+							<span class="sr-only">RSS</span>
+						</a>
+					<?php } ?> -->
+					<?php if (!G5_IS_MOBILE) : ?>
+						
 					<?php endif; ?>
 						<div class="btn-group">
 						<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
