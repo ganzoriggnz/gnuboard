@@ -360,6 +360,11 @@ if ($board['bo_use_category'] && $member['mb_level'] !== 27) {
     $is_category = true;
 }
 
+$is_anonymous = false;
+if ($board['bo_anonymous']) {
+    $is_anonymous = true;
+}
+
 $is_link = false;
 if ($member['mb_level'] >= $board['bo_link_level']) {
     $is_link = true;
@@ -506,7 +511,7 @@ if ($config['cf_editor'] && $is_dhtml_editor_use && $board['bo_use_dhtml_editor'
 $editor_html = editor_html('wr_content', $content, $is_dhtml_editor);
 $editor_js = '';
 $editor_js .= get_editor_js('wr_content', $is_dhtml_editor);
-$editor_js .= chk_editor_js('wr_content', $is_dhtml_editor);
+$editor_js .= chk_editor_js('wr_content', $is_dhtml_editor, $board['bo_write_min'], $board['bo_write_max']);
 
 // 임시 저장된 글 수
 $autosave_count = autosave_count($member['mb_id']);

@@ -1318,8 +1318,8 @@ include_once('_rewrite_config_form.php');
                 <?php echo help("아이코드 JSON 버전의 경우 아이코드 토큰키를 입력시 실행됩니다.<br>SMS 전송유형을 LMS로 설정시 90바이트 이내는 SMS, 90 ~ 2000 바이트는 LMS 그 이상은 절삭 되어 LMS로 발송됩니다."); ?>
                 <input type="text" name="cf_icode_token_key" value="<?php echo $config['cf_icode_token_key']; ?>" id="cf_icode_token_key" class="frm_input" size="40">
                 <?php echo help("아이코드 사이트 -> 토큰키관리 메뉴에서 생성한 토큰키를 입력합니다."); ?>
-                <br>
-                서버아이피 : <?php echo $_SERVER['SERVER_ADDR']; ?>
+                <!--<br>
+                서버아이피 : <?php echo $_SERVER['SERVER_ADDR']; ?>-->
             </td>
         </tr>
         <tr>

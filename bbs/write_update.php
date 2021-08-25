@@ -355,6 +355,52 @@ if ($w == '' || $w == 'r') {
 
         insert_point($member['mb_id'], $board['bo_write_point'], "{$board['bo_subject']} {$wr_id} 글쓰기", $bo_table, $wr_id, '쓰기');
 
+		// 레벨별 랜덤 포인트 부여
+		$sql = " select * from {$g5['lev_point_config_table']} where levc_no = '{$member['mb_level']}'";
+		$levc = sql_fetch($sql);
+
+		$point = array();
+		$point_min = $levc['levc_write_min'];
+		$point_max = $levc['levc_write_max'];
+
+		for($i=$point_min; $i<=$point_max; $i++){
+			array_push($point,$i);
+		}
+
+		$point = $point[array_rand($point)];
+
+		if($point && $member['mb_level'] <= 27){
+			insert_point($member['mb_id'], $point, "{$board['bo_subject']} {$wr_id} 글쓰기 (레벨보너스)", $bo_table, $wr_id, '쓰기레벨보너스');
+		}
+
+		// 럭키포인트 부여
+		$sql = " select * from {$g5['board_lev_point_table']} where bo_table = '{$bo_table}' and level = '{$member['mb_level']}'";
+		$b_levp = sql_fetch($sql);
+
+		$point = array();
+		$point_min = $b_levp['point_min'];
+		$point_max = $b_levp['point_max'];
+		$percent = $b_levp['percent'];
+
+		$number  = array();
+
+		for($i=1; $i<=100; $i++){
+			array_push($number,$i);
+		}
+
+		$random_number = $number[array_rand($number)];
+
+		for($i=$point_min; $i<=$point_max; $i++){
+			array_push($point,$i);
+		}
+
+		$point = $point[array_rand($point)];
+
+		if($random_number <= $percent && $point && $member['mb_level'] <= 27){
+			insert_point($member['mb_id'], $point, "{$board['bo_subject']} {$wr_id} 글쓰기 (럭키포인트)", $bo_table, $wr_id, '쓰기럭키포인트');
+			sql_query(" update $write_table set wr_10 = '{$point}' where wr_id = '$wr_id' ");
+		}
+
         insert_fragment($member['mb_id'], "{$board['bo_subject']} {$wr_id} 글쓰기", $bo_table,  $wr_id, '쓰기');
     } else {
         // 답변은 코멘트 포인트를 부여함

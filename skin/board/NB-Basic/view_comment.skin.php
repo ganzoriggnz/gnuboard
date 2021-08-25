@@ -162,15 +162,15 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 						<?php } ?>
 
 						<?php echo $comment ?>
-
 					</div>
-					<?php if (!$is_lock && (int)$list[$i]['wr_10']) { // 럭키포인트 
-					?>
+
+					<?php if (!$is_lock && (int)$list[$i]['wr_10']) { // 럭키포인트 ?>
 						<div class="f-de text-muted px-3 my-2">
 							<i class="fa fa-gift" aria-hidden="true"></i>
-							<b class="orangered"><?php echo number_format($list[$i]['wr_10']) ?></b> 럭키포인트 당첨!
+							축하드립니다~ 열심히 활동한 결과 <b class="orangered"><?php echo number_format($list[$i]['wr_10']) ?>파운드</b>를 획득 하셨습니다.</b>
 						</div>
 					<?php } ?>
+
 					<?php if ($is_comment_reply_edit || $cmt_shingo || $is_cgood || $is_cnogood) {
 						if ($w == 'cu') {
 							$sql = " select wr_id, wr_content, mb_id from $write_table where wr_id = '$c_id' and wr_is_comment = '1' ";

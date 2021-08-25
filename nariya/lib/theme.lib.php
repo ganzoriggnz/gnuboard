@@ -1312,17 +1312,18 @@ function na_post_rows($wset, $subcat = '', $search = '')
 	// 공통쿼리		
 	$result = sql_query(" select bo_table from  {$g5['board_table']}  where gr_id= 'attendance'  ");
 	$cnt = 0;
+
 	if ($search == '') {
 		for ($i = 0; $res = sql_fetch_array($result); $i++) {
 
 			$bo_table = $res['bo_table'];
 			$hwrite_table = $g5['write_prefix'] . $bo_table;
 			if ($wset == '') {
-				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and (c.co_free_num > '0' or c.co_sale_num > '0')) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id", false);
+				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id", false);
 			} else if ($subcat == '') {
-				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and (c.co_free_num > '0' or c.co_sale_num > '0')) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false);
+				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%'", false);
 			} else {
-				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and (c.co_free_num > '0' or c.co_sale_num > '0')) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false);
+				$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.mb_id = b.mb_id and b.mb_2 like '%{$wset}%' and a.ca_name = '{$subcat}'", false);
 			}
 			while ($row = sql_fetch_array($result1)) {
 				$list[$cnt] = $row;
@@ -1335,8 +1336,7 @@ function na_post_rows($wset, $subcat = '', $search = '')
 
 			$bo_table = $res['bo_table'];
 			$hwrite_table = $g5['write_prefix'] . $bo_table;
-			$q = "select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and (c.co_free_num > '0' or c.co_sale_num > '0')) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%')";
-			$result1 = sql_query($q, false);
+			$result1 = sql_query("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and c.co_free_num>='1' and c.co_sale_num >='1') has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.mb_id = b.mb_id and a.wr_is_comment =0 and (b.mb_2 like '%{$search}%' or a.ca_name like '%{$search}%' or b.mb_name like '%{$search}%')", false);
 
 			while ($row = sql_fetch_array($result1)) {
 
@@ -1624,9 +1624,7 @@ function na_board_rows_coupon($wset)
 	$start_rows = 0;
 	$board_cnt = array_map('trim', explode(",", $bo_table));
 	if (!$bo_table || count($board_cnt) > 1 || $wset['bo_except']) {
-		// echo '<pre>';
-		// print_r($list);
-		// echo '</pre>';die;
+
 		// 메인글
 		$sql_main = (IS_NA_BBS && $wset['main']) ? "and a.as_type = '" . (int)$wset['main'] . "'" : "";
 
@@ -1656,15 +1654,14 @@ function na_board_rows_coupon($wset)
 		$co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
 		$co_end_datetime = get_end_datetime($co_start, $currentyear, $currentmonth);
 
-		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and (a.co_sale_num > '0' or a.co_free_num > '0') and a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}' and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
+		$sql_common = " from {$g5['coupon_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and a.co_begin_datetime = '{$co_begin_datetime}' and a.co_end_datetime = '{$co_end_datetime}' and (a.co_sale_num > '0' or a.co_free_num > '0') and b.bo_use_search = 1 $sql_plus $sql_minus $sql_term $sql_mb $sql_main $sql_where";
 		if ($page > 1) {
 			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
 			$total_count = $total['cnt'];
 			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
 		}
-		$q = " select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows ";
-		$result = sql_query($q, false);
+		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows ", false);
 		for ($i = 0; $row = sql_fetch_array($result); $i++) {
 
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];

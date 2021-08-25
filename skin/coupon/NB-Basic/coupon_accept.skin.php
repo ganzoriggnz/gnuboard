@@ -71,6 +71,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                                 </span>
                             </a>
                         </li>
+                        <li>
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/level_info.php">
+                                <span>
+                                <img src="<?php echo G5_URL?>/img/solid/medal.svg" class="svg-img" style="height :14px;" >&nbsp
+                                레벨정보
+                                </span>
+                            </a>
+                        </li>
+                        <?php if ($member['mb_level'] < 24) { ?>
+                        <li>
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/giftbox.php">
+                                <span>
+                                <img src="<?php echo G5_URL?>/img/solid/gift.svg" class="svg-img" style="height :14px;" >&nbsp
+                                선물함
+                                </span>
+                            </a>
+                        </li>
+                        <?php } ?>
                         <!-- if nuhtsul hulan nemsen 후기는 업소레벨에만 있으면 된다 -->
                         <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
                         <li > 
@@ -93,6 +111,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
             <thead>
                 <tr style="background-color: #e3e2e3;">
                     <th>발행업소</th>
+					<?php if($member['mb_level'] == '26' || $member['mb_level'] == '27') {?>
+					<th>회원</th>
+					<?php }?>
                     <th>쿠폰명</th>
                     <th>쿠폰번호</th>
                     <th>당첨시간</th>
@@ -135,6 +156,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                 for($i=0; $row = sql_fetch_array($res); $i++){ ?>
                 <tr id="<?php echo $i; ?>">
                     <td><?php echo "[".$row['cos_entity']."]";?></td>
+					<td><?php echo $row['cos_id'];?></td>
                     <td><?php 
                         if($row['cos_type'] == 'S') {echo "원가권"; }  
                         else if($row['cos_type'] == 'F') {echo "무료권"; }?>
@@ -189,15 +211,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
         </table>
         <div class="popup_box">
             <h1>쿠폰사용</h1>
-            <label>쿠폰사용후 5일이내 후기 미 작성시 모든</br>이벤트에서 한달간 제외됩니다.</label>
+            <label>쿠폰사용후 7일이내 후기 미 작성시 모든</br>이벤트에서 한달간 제외됩니다.</label>
             <div class="btns">
                 <a href="#" class="btn">확인</a>
             </div>
         </div>
         <div style="margin-top: 100px; padding-bottom: 20px; line-height: 2;">
             <ul style="list-style: disc; margin-left: 40px; font-size: 14px;">
-                <li>쿠폰을 받은 사람은 5일이내 사용하기를 누르지 않으면 <span style="color: blue">자동으로 회수됩니다.</span></li>
-                <li>사용하기 클릭 후 5일 이내에 해당 게시판에서 후기를 작성하지 않으면 경고를 받게 됩니다.</li>
+                <li>쿠폰을 받은 사람은 7일이내 사용하기를 누르지 않으면 <span style="color: blue">자동으로 회수됩니다.</span></li>
+                <li>사용하기 클릭 후 7일 이내에 해당 게시판에서 후기를 작성하지 않으면 경고를 받게 됩니다.</li>
             </ul>
         </div>
         <script>

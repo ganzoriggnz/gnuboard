@@ -85,9 +85,9 @@ include_once('./admin.head.php');
         <td>
             <?php
             if ($is_admin == 'super')
-                echo '<input type="text" id="gr_admin" name="gr_admin" style="width:50%;" class="frm_input" value="'.$gr['gr_admin'].'">';
+                echo '<input type="text" id="gr_admin" name="gr_admin" class="frm_input" value="'.$gr['gr_admin'].'" maxlength="20">';
             else
-                echo '<input type="hidden" id="gr_admin" name="gr_admin" style="width:50%;" value="'.$gr['gr_admin'].'">'.$gr['gr_admin'];
+                echo '<input type="hidden" id="gr_admin" name="gr_admin" value="'.$gr['gr_admin'].'">'.$gr['gr_admin'];
             ?>
         </td>
     </tr>

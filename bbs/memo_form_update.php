@@ -9,7 +9,35 @@ if (!chk_captcha()) {
     alert('자동등록방지 숫자가 틀렸습니다.');
 }
 
+$multi_mb_id = array();
+
+//그룹으로 선택한 회원 아이디를 추출한다.
+if($is_admin && $_POST['multi_level'] && is_array($_POST['multi_level'])){
+	foreach($_POST['multi_level'] as $val){
+		if(strpos($val,'|') !== false){
+			$exp = explode('|',$val);
+			$sql = " select mb_id from {$g5['member_table']} where mb_level='{$exp[0]}' and mb_2='{$exp[1]}' and mb_leave_date ='' ";
+		} else {
+			$sql = " select mb_id from {$g5['member_table']} where mb_level='{$val}' and mb_leave_date='' ";
+		}
+
+		$result = sql_query($sql);
+		for ($i=0; $member_row=sql_fetch_array($result); $i++) {
+			array_push($multi_mb_id, $member_row['mb_id']);
+		}
+	}
+}
+
 $recv_list = explode(',', trim($_POST['me_recv_mb_id'], " "));
+$recv_list = array_merge($recv_list, $multi_mb_id); // 그룹선택한 회원 아이디를 합친다
+$recv_list = array_filter($recv_list);
+
+if( count($recv_list) < 1){
+    $redirect_url = G5_HTTP_BBS_URL."/memo_form.php";
+    alert("받는 회원 아이디가 없습니다. 오류 같습니다.", $redirect_url, false);
+	exit;
+}
+
 $str_nick_list = '';
 $msg = '';
 $error_list  = array();

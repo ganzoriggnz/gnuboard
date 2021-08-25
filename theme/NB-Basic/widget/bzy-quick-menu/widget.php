@@ -23,7 +23,7 @@ global $config, $member, $is_member, $urlencode, $is_admin;
             <div id="link" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 9px;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->
                 <img src="<?php echo G5_URL ?>/img/baseline-import_contacts-24px.png" alt="import-contacts" style="margin-right: 5px; border-color: #707070; color: #FFF">
-                <a href="<?php echo G5_URL ?>/bbs/content.php?co_id=company" style="color: #FFF;">사이트안내</a>
+                <a href="/page/guide.php" style="color: #FFF;">사이트안내</a>
             </div>
             <div id="link" style="display: flex; flex-direction: row; align-items: center;">
                 <!-- <i class="fa fa-angle-right" style="margin-right: 3px;"></i> -->

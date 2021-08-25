@@ -84,6 +84,10 @@ if (!isset($board['bo_select_editor'])) {
     sql_query(" ALTER TABLE `{$g5['board_table']}` ADD `bo_select_editor` VARCHAR(50) NOT NULL DEFAULT '' AFTER `bo_use_dhtml_editor` ");
 }
 
+if (!isset($board['bo_anonymous'])) {
+     sql_query(" ALTER TABLE `{$g5['board_table']}` ADD `bo_anonymous` TINYINT NOT NULL DEFAULT '0' AFTER `bo_use_name` ");
+}
+
 run_event('adm_board_form_before', $board, $w);
 
 $required = "";
@@ -326,7 +330,7 @@ $pg_anchor = '<ul class="anchor">
                         <th scope="row"><label for="bo_admin">게시판 관리자</label></th>
                         <td>
                             <input type="text" name="bo_admin" value="<?php echo $board['bo_admin'] ?>" id="bo_admin"
-                                class="frm_input" style="width:50%;">
+                                class="frm_input" maxlength="20">
                         </td>
                         <td class="td_grpset">
                             <input type="checkbox" name="chk_grp_admin" value="1" id="chk_grp_admin">
@@ -654,6 +658,21 @@ $pg_anchor = '<ul class="anchor">
 
                             <input type="checkbox" name="chk_all_use_name" value="1" id="chk_all_use_name">
                             <label for="chk_all_use_name">전체적용</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="bo_anonymous">익명체크 사용</label></th>
+                        <td>
+                            <input type="checkbox" name="bo_anonymous" value="1" id="bo_anonymous"
+                                <?php echo $board['bo_anonymous']?'checked':''; ?>>
+                            사용
+                        </td>
+                        <td class="td_grpset">
+                            <input type="checkbox" name="chk_grp_anonymous" value="1" id="chk_grp_anonymous">
+                            <label for="chk_grp_anonymous">그룹적용</label>
+
+                            <input type="checkbox" name="chk_all_anonymous" value="1" id="chk_all_anonymous">
+                            <label for="chk_all_anonymous">전체적용</label>
                         </td>
                     </tr>
                     <tr>

@@ -114,15 +114,16 @@ $colspan = 3;
             });
             $('#total').focus();
             return false;
-        } */
+        }
         else if(total_cnt > '0' && sale_cnt > '0'){
                 $('.popup_box2').css("display", "block");
                 $('.btn').click(function(){
                     $('.popup_box4').css("display", "none");
             });
             return true;
-        }           
-                                              
+        }
+		 */  
+		return true;
     }
 </script>
 

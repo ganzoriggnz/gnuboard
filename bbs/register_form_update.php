@@ -31,7 +31,6 @@ else
 if(!$mb_id)
     alert('회원아이디 값이 없습니다. 올바른 방법으로 이용해 주십시오.');
 
-
 $mb_password    = trim($_POST['mb_password']);
 $mb_password_re = trim($_POST['mb_password_re']);
 $mb_name        = trim($_POST['mb_name']);
@@ -90,7 +89,7 @@ if ($w == '' || $w == 'u') {
     if($w == '' && $mb_password != $mb_password_re)
         alert('비밀번호가 일치하지 않습니다.');
 
-    // if ($msg = empty_mb_name($mb_name))       alert($msg, "", true, true);
+    if ($msg = empty_mb_name($mb_name))       alert($msg, "", true, true);
     if ($msg = empty_mb_nick($mb_nick))     alert($msg, "", true, true);
     //if ($msg = empty_mb_email($mb_email))   alert($msg, "", true, true);
     if ($msg = reserve_mb_id($mb_id))       alert($msg, "", true, true);
@@ -295,15 +294,12 @@ if ($w == '') {
     set_session('ss_mb_reg', $mb_id);
 
 } else if ($w == 'u') {
-    if($member['mb_level'] == 27 || $member['mb_level'] == 26)
-        alert("관리자에게 문의 하시기 바랍니다.", "/bbs/userinfo.php");
-
     if (!trim($_SESSION['ss_mb_id']))
         alert('로그인 되어 있지 않습니다.');
-    
+
     if (trim($_POST['mb_id']) != $mb_id)
         alert("로그인된 정보와 수정하려는 정보가 틀리므로 수정할 수 없습니다.\\n만약 올바르지 않은 방법을 사용하신다면 바로 중지하여 주십시오.");
-        
+
     $sql_password = "";
     if ($mb_password)
         $sql_password = " , mb_password = '".get_encrypt_string($mb_password)."' ";

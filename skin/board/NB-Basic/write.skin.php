@@ -310,7 +310,7 @@ if ($is_member)
                     <?php if ($is_comname) { ?>
                         <li class="list-group-item">
                             <div class="mb-0 form-group row">
-                                <label class="col-md-2 col-form-label" for="wr_4">* 업소명</label>
+                                <label class="col-md-2 col-form-label">* 업소명</label>
                                 <div class="col-md-7">
                                     <?php echo $member['mb_name'] ?>
                                 </div>
@@ -362,9 +362,9 @@ if ($is_member)
                                         <?php echo $category_option;
                                         if ($is_admin) {
                                             echo "
-                                <option value='공지'>공지</option>
-                                <option value='이벤트진행'>이벤트진행</option>
-                                <option value='이벤트결과'>이벤트결과</option>
+                                <option value='공지' $is_select>공지</option>
+                                <option value='이벤트진행' $is_select>이벤트진행</option>
+                                <option value='이벤트결과' $is_select>이벤트결과</option>
                                 ";
                                         }
                                         ?>
@@ -410,9 +410,6 @@ if ($is_member)
                             <div class="col-sm-10">
                                 <p class="float-left pt-1 pb-0 form-control-plaintext">
                                     <?php echo $option ?>
-                                    <?php if($board['gr_id'] == "review"): ?>
-                                        <span class="text-danger">쿠폰으로 업소 방문할 경우만 체크<span>
-                                    <?php endif; ?>
                                 </p>
                             </div>
                         </div>
@@ -423,7 +420,7 @@ if ($is_member)
                 </script>
 
 
-                <?php if ($member['mb_level'] >= 13) { ?>
+                <?php if ($member['mb_level'] >= 14) { ?>
                     <li class="list-group-item">
 
                         <div class="mb-0 form-group row">
@@ -839,9 +836,9 @@ if ($is_member)
                                         <?php echo $category_option;
 
                                         if ($is_admin) {
-                                            echo "<option value='공지'>공지</option>
-                                                  <option value='이벤트진행' >이벤트진행</option>
-                                                  <option value='이벤트결과'>이벤트결과</option>";
+                                            echo "<option value='공지' $is_select>공지</option>
+                                                  <option value='이벤트진행'  $is_select>이벤트진행</option>
+                                                  <option value='이벤트결과' $is_select>이벤트결과</option>";
                                         }
                                         ?>
 
@@ -907,16 +904,13 @@ if ($is_member)
                             <div class="col-sm-10">
                                 <p class="float-left pt-1 pb-0 form-control-plaintext">
                                     <?php echo $option ?>
-                                    <?php if($board['gr_id'] == "review"): ?>
-                                        <span class="text-danger">쿠폰으로 업소 방문할 경우만 체크<span>
-                                    <?php endif; ?>
                                 </p>
                             </div>
                         </div>
                     </li>
                 <?php } ?>
                 
-                <?php if ($member['mb_level'] >= 13) { ?>
+                <?php if ($member['mb_level'] >= 14) { ?>
                     <li class="list-group-item">
 
                         <div class="mb-0 form-group row">
@@ -942,6 +936,18 @@ if ($is_member)
                         </div>
                     </div>
                 </li>
+                <?php if ($board['bo_anonymous']) { ?>
+                    <li class="list-group-item">
+                        <div class="mb-0 form-group row">
+                            <label class="col-md-2 col-form-label">익명표시</label>
+							<div  class="col-md-10">
+								<div class="checkbox">
+									<label><input type="checkbox" name="wr_4" id="wr_4" value="Y" <?php echo ($wr_4=='Y') ? 'checked' : '';?>> 사용</label>
+								</div>
+							</div>
+                        </div>
+                    </li>
+                <?php } ?>
                 <li class="list-group-item">
                     <span class="sr-only">내용<strong>필수</strong></span>
                     <?php if ($write_min || $write_max) { ?>
@@ -1326,6 +1332,13 @@ if ($is_member)
             }
         });
 
+		<?php if(strpos($bo_table,'_at') === false){?>
+		/*
+		$("#wr_subject").on("keypress keyup", function () {
+			removeEmojis('#wr_subject');
+		});
+		*/
+		<?php }?>
     });
 
     // $("input:checkbox").on('click', function() {
@@ -1366,5 +1379,13 @@ if ($is_member)
         });
         
     }); */
+
+	function removeEmojis (e) {
+		const regex = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|\ud83c[\ude32-\ude3a]|\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
+		if(regex.test($(e).val())) {
+			let strVal = $(e).val().replace(regex,'');
+			$(e).val($.trim(strVal));
+		}
+	}
 </script>
 <!-- ///////////////////////////////////// -->

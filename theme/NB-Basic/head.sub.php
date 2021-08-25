@@ -49,7 +49,7 @@ $colorset = ($tset['color']) ? $tset['color'] : 'Basic';
 
 // CSS
 $default_stylesheet = '<link rel="stylesheet" href="' . NA_URL . '/css/nariya.css" type="text/css">' . PHP_EOL;
-$default_stylesheet .= '<link rel="stylesheet" href="' . G5_THEME_URL . '/css/theme.css" type="text/css">' . PHP_EOL;
+$default_stylesheet .= '<link rel="stylesheet" href="' . G5_THEME_URL . '/css/theme.css?ver='.G5_JS_VER.'" type="text/css">' . PHP_EOL;
 $default_stylesheet .= '<link rel="stylesheet" href="' . G5_THEME_URL . '/css/font/' . $fontset . '.css" type="text/css">' . PHP_EOL;
 $default_stylesheet .= '<link rel="stylesheet" href="' . G5_THEME_URL . '/css/color/' . $colorset . '.css" type="text/css">';
 add_stylesheet($default_stylesheet, -100);
@@ -153,7 +153,9 @@ header("Pragma: no-cache"); // HTTP/1.0
     <script src="<?php echo G5_JS_URL ?>/placeholders.min.js"></script>
     <script src="<?php echo NA_URL ?>/app/bs4/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo NA_URL ?>/js/nariya.js?ver=<?php echo G5_JS_VER; ?>"></script>
-    <script src="<?php echo G5_THEME_URL; ?>/js/theme.js"></script>
+    <script src="<?php echo G5_THEME_URL; ?>/js/theme.js?ver=<?php echo G5_JS_VER; ?>"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <?php
     if (G5_IS_MOBILE)
         add_javascript('<script src="' . G5_JS_URL . '/modernizr.custom.70111.js"></script>', 1); // overflow scroll 감지

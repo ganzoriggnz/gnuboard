@@ -1,6 +1,4 @@
 <?php
-
-
 include_once("./_setup.php");
 $G5_TIME_YMD = G5_TIME_YMD;
 $g5['title'] = "출석체크";
@@ -23,6 +21,26 @@ if (!sql_query("select count(*) as cnt from {$g5['attendance_table']}", false)) 
 		    datetime datetime NOT NULL default '0000-00-00 00:00:00',
 		    PRIMARY KEY  (id),
 		    KEY id (mb_id,day,datetime)
+        )";
+    sql_query($sql_table, false);
+}
+
+if (!sql_query("select count(*) as cnt from {$g5['giftbox_table']}", false)) { // 선물함 테이블이 없다면 생성
+    $sql_table = "create table {$g5['giftbox_table']} (            
+		    id int(11) NOT NULL auto_increment,
+		    mb_id varchar(50) NOT NULL default '',
+            gift_name varchar(50) NOT NULL default '',
+			co_type varchar(1) NOT NULL default '',
+            request varchar(1) NOT NULL default 'N',
+			hope_area1 varchar(20) NULL default '',
+			hope_area2 varchar(20) NULL default '',
+			hope_area3 varchar(20) NULL default '',
+            hope_type1 varchar(20) NULL default '',
+            hope_type2 varchar(20) NULL default '',
+            hope_type3 varchar(20) NULL default '',
+		    datetime datetime NOT NULL default '0000-00-00 00:00:00',
+		    PRIMARY KEY  (id),
+		    KEY id (mb_id,co_type,datetime)
         )";
     sql_query($sql_table, false);
 }
@@ -96,7 +114,7 @@ if ($d) {
     $sql_common = "substring(datetime,1,10) = '$G5_TIME_YMD'";
 }
 ?>
-<link rel="stylesheet" href="<?php echo $G5_URL ?>/plugin/attendance/attendance.css" />
+<link rel="stylesheet" href="<?php echo $G5_URL ?>/plugin/attendance/attendance.css?v=1.4" />
 
 <div id="bo_v">
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -419,7 +437,30 @@ if ($d) {
                     return false;
 
                 } else {
-                    $('#fattendance').submit();
+
+					$.ajax({
+						type: 'POST',
+						url:'<?php echo G5_PLUGIN_URL ?>/attendance/attendance_write_update.php',
+						cache:false,
+						data : {
+							subject : $('#subject').val()
+						},
+						success:function(result){
+							if(result){
+								if(result=='timeout'){
+									alert("출석 시간이 아닙니다.");
+								} else if(result=='alreay'){
+									alert("이미 출석 하였습니다.");
+								} else if(result=='giftbox'){
+									alert("출석 체크 완료");
+									$('#gift-modal').modal('show');
+								} else if(result=='success'){
+									alert("출석 체크 완료");
+									location.reload();
+								}
+							}
+						}
+					});
                 }
             }
         </script>
@@ -484,7 +525,7 @@ if ($d) {
                     <tr height="30" class="bg<?php echo $list ?>">
                         <td align="center"><?php echo number_format($rank+($page - 1) * $rows) ?> 등</td>
                         <td align="center"><?php echo substr($data['datetime'], 10, 16); ?></td>
-                        <td align="left" style="width: 175px;"><?php echo $name ?></td>
+                        <td align="left"><?php echo $name ?></td>
                         <td align="center"><?php echo $on ?></td>
                         <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']); ?> 파운드</td>
                         <td align="center"><?php echo $data['day'] ?> 일째</td>
@@ -567,7 +608,7 @@ if ($d) {
                     <tr height="30" class="bg<?php echo $list ?>">
                         <td align="center"><?php echo number_format($rank+($page - 1) * $rows) ?> 등</td>
                         <td align="center"><?php echo substr($data['datetime'], 10, 16); ?></td>
-                        <td align="left" style="width: 175px;"><?php echo na_name_photo($check['mb_id'], $name) ?></td>
+                        <td align="left"><?php echo na_name_photo($check['mb_id'], $name) ?></td>
                         <td class="show_at" style="padding:0 0 0 20px;"><?php echo get_text($data['subject']) ?></td>
                         <td align="center"><?php echo $on ?></td>
                         <!-- <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']); ?> 파운드</td> -->
@@ -601,11 +642,91 @@ if ($d) {
 <?php } ?>
 <div class="center">
 <?php
-    echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?d={$_GET['d']}&amp;page="); 
+    echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?$qstr&amp;page="); 
 ?>
 </div>
 
+<!-- 선물상자 모달 -->
+<div class="modal gift-box" id="gift-modal" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header text-center">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="text-center"><strong>선물상자</strong></h4>
+			</div>
+			<div class="modal-body">
+				<p class="msg text-center">선물상자가 도착했습니다.</p>
+				<div class="gift-img">
+					<img src="/plugin/attendance/img/close.png">
+				</div>
+			</div>
+			<div class="modal-footer text-center">
+				<button type="button" class="btn btn-primary btn-lg" onclick="giftbox_open();"><strong>선물상자 확인하기</strong></button>
+			</div>
+		</div>
+	</div>
+</div>
 
+<!-- 선물상자 결과 모달 -->
+<div class="modal gift-box" id="result-modal" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header text-center">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title"><strong>선물상자</strong></h4>
+			</div>
+			<div class="modal-body">
+				<p class="msg text-center result-text1"></p>
+				<div class="gift-img">
+					<p class="result-text3"></p>
+					<img src="/plugin/attendance/img/open.png">
+				</div>
+				<p class="text-center result-text2"></p>
+			</div>
+			<div class="modal-footer text-center">
+				<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal"><strong>닫기</strong></button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function giftbox_open(){
+	$.ajax({
+		type: 'POST',
+		url:'<?php echo G5_PLUGIN_URL ?>/attendance/gift.php',
+		cache:false,
+		success:function(result){
+
+			var text = '';
+			
+			if(result=='sale' || result=='free' || $.isNumeric(result)){
+
+				if(result=='sale') text = '원가권 쿠폰';
+				if(result=='free') text = '무료권 쿠폰';
+				if($.isNumeric(result)) text = result + '파운드';
+
+				$('.result-text1').html('축하합니다.');
+				$('.result-text2').html(text + '에 당첨되셨습니다.<span class="result-guide"></br>마이페이지 선물함에서 확인하시기 바랍니다.</span>');
+				$('.result-text3').html(text);
+				if($.isNumeric(result)) $('.result-guide').remove();
+
+			} else {
+				$('.result-text1').html('꽝 입니다.');
+				$('.result-text2').html('아쉽지만 다음 기회에..');
+				$('.result-text3').html('꽝');				
+			}
+			
+			$('#gift-modal').modal('hide');
+			$('#result-modal').modal('show');
+		}
+	});
+}
+$(document).ready(function(){
+	$('#result-modal').on('hidden.bs.modal', function () {
+		location.reload();
+	});
+});
+</script>
 
 <?php
 $strYear = date("Y", G5_SERVER_TIME);

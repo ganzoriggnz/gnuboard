@@ -253,7 +253,7 @@ $menu_cnt = count($menu);
 			<ul class="mt-3 mb-2 text-center d-flex justify-content-between f-de">
 
 				<li>
-					<a href="<?php echo G5_BBS_URL ?>/content.php?co_id=company">
+					<a href="/page/guide.php">
 						<i class="fa circle light-circle normal" aria-hidden="true">
 							<img src="<?php echo G5_URL ?>/img/solid/atlas.svg" style="height: 25px;" alt="사이트안내" />
 						</i>
@@ -261,9 +261,16 @@ $menu_cnt = count($menu);
 					</a>
 				</li>
 				<li>
+					<a href="<?php echo G5_PLUGIN_URL ?>/attendance/attendance.php">
+						<i class="fa circle light-circle normal" aria-hidden="true">
+							<img src="<?php echo G5_URL ?>/img/solid/calendar-alt.svg" style="height: 25px;" alt="출석체크" /></i>
+						<span class="mt-2 d-block">출석체크</span>
+					</a>
+				</li>
+				<li>
 					<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=event">
 						<i class="fa circle light-circle normal" aria-hidden="true">
-							<img src="<?php echo G5_URL ?>/img/solid/glass-cheers.svg" style="height: 25px;" alt="이벤트1" /></i>
+							<img src="<?php echo G5_URL ?>/img/solid/glass-cheers.svg" style="height: 25px;" alt="이벤트" /></i>
 						<span class="mt-2 d-block">이벤트</span>
 					</a>
 				</li>
@@ -287,7 +294,7 @@ $menu_cnt = count($menu);
 								<img src="<?php echo G5_URL ?>/img/solid/microphone.svg" style="height: 13px;" alt="microphone" />&nbsp;공지사항</a>
 						</li>
 						<li class="me-li1 ">
-							<a href="<?php echo G5_URL ?>/bbs/content.php?co_id=company"><img src="<?php echo G5_URL ?>/img/solid/baseline-import_contacts-24px.png" alt="사이트안내">&nbsp;사이트안내</a>
+							<a href="/page/guide.php"><img src="<?php echo G5_URL ?>/img/solid/baseline-import_contacts-24px.png" alt="사이트안내">&nbsp;사이트안내</a>
 						</li>
 						<li class="me-li1 ">
 							<a href="<?php echo G5_URL ?>/bbs/member_list.php"><img src="<?php echo G5_URL ?>/img/solid/portrait.svg" alt="회원검색" style="height: 13px; width: ">&nbsp;회원검색</a>

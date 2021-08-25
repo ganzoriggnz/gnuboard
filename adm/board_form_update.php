@@ -155,6 +155,7 @@ $sql_common = " gr_id               = '{$gr_id}',
                 bo_use_good         = '{$_POST['bo_use_good']}',
                 bo_use_nogood       = '{$_POST['bo_use_nogood']}',
                 bo_use_name         = '{$_POST['bo_use_name']}',
+                bo_anonymous         = '{$_POST['bo_anonymous']}',
                 bo_use_signature    = '{$_POST['bo_use_signature']}',
                 bo_use_ip_view      = '{$_POST['bo_use_ip_view']}',
                 bo_use_list_view    = '{$_POST['bo_use_list_view']}',
@@ -351,6 +352,7 @@ if (is_checked('chk_grp_use_rss_view'))         $grp_fields .= " , bo_use_rss_vi
 if (is_checked('chk_grp_use_good'))             $grp_fields .= " , bo_use_good = '{$bo_use_good}' ";
 if (is_checked('chk_grp_use_nogood'))           $grp_fields .= " , bo_use_nogood = '{$bo_use_nogood}' ";
 if (is_checked('chk_grp_use_name'))             $grp_fields .= " , bo_use_name = '{$bo_use_name}' ";
+if (is_checked('chk_grp_anonymous'))             $grp_fields .= " , bo_anonymous = '{$bo_anonymous}' ";
 if (is_checked('chk_grp_use_signature'))        $grp_fields .= " , bo_use_signature = '{$bo_use_signature}' ";
 if (is_checked('chk_grp_use_ip_view'))          $grp_fields .= " , bo_use_ip_view = '{$bo_use_ip_view}' ";
 if (is_checked('chk_grp_use_list_view'))        $grp_fields .= " , bo_use_list_view = '{$bo_use_list_view}' ";
@@ -443,6 +445,7 @@ if (is_checked('chk_all_use_rss_view'))         $all_fields .= " , bo_use_rss_vi
 if (is_checked('chk_all_use_good'))             $all_fields .= " , bo_use_good = '{$bo_use_good}' ";
 if (is_checked('chk_all_use_nogood'))           $all_fields .= " , bo_use_nogood = '{$bo_use_nogood}' ";
 if (is_checked('chk_all_use_name'))             $all_fields .= " , bo_use_name = '{$bo_use_name}' ";
+if (is_checked('chk_all_anonymous'))             $all_fields .= " , bo_anonymous = '{$bo_anonymous}' ";
 if (is_checked('chk_all_use_signature'))        $all_fields .= " , bo_use_signature = '{$bo_use_signature}' ";
 if (is_checked('chk_all_use_ip_view'))          $all_fields .= " , bo_use_ip_view = '{$bo_use_ip_view}' ";
 if (is_checked('chk_all_use_list_view'))        $all_fields .= " , bo_use_list_view = '{$bo_use_list_view}' ";

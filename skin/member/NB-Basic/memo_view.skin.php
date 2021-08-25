@@ -56,7 +56,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		</ul>
 	</div>
 
-	<div class="clearfix px-3 py-4">
+	<div class="clearfix px-3 py-4" style="word-break: break-all;">
 		<?php echo na_content(conv_content($memo['me_memo'], 0)) ?>
 		<!-- <?php if ($is_admin && $mb['mb_10']) { ?> -->
 		<!-- <a class="btn btn-primary float-right" href="<?php echo G5_BBS_URL.'/phone_change.php?mb_id='.$mb['mb_id']; ?>">확인</a> -->

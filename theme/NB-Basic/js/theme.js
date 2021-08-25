@@ -8,6 +8,51 @@ function tsearch_submit(f) {
 	return true;
 }
 
+
+function memoToast(id,msg) {
+	toastr.options = {
+		"closeButton": true,
+		"debug": false,
+		"newestOnTop": false,
+		"progressBar": false,
+		"positionClass": "toast-top-right",
+		"preventDuplicates": false,
+		"onclick": function () {
+			win_memo('/bbs/memo_view.php?me_id='+id+'&kind=recv');
+			return false;
+		},
+		"showDuration": "100",
+		"hideDuration": "1000",
+		"timeOut": "-1",
+		"extendedTimeOut": "0",
+		"showEasing": "swing",
+		"hideEasing": "linear",
+		"showMethod": "fadeIn",
+		"hideMethod": "fadeOut"
+	}
+	toastr["info"](msg);
+}
+function guideToast(mgs) {
+	toastr.options = {
+		"closeButton": true,
+		"debug": false,
+		"newestOnTop": false,
+		"progressBar": false,
+		"positionClass": "toast-top-right",
+		"preventDuplicates": false,
+		"onclick": function () {location.href='/page/guide.php'},
+		"showDuration": "100",
+		"hideDuration": "1000",
+		"timeOut": "-1",
+		"extendedTimeOut": "0",
+		"showEasing": "swing",
+		"hideEasing": "linear",
+		"showMethod": "fadeIn",
+		"hideMethod": "fadeOut"
+	}
+	toastr["success"](mgs);
+}
+
 $(document).ready(function() {
 
 	// Tooltip

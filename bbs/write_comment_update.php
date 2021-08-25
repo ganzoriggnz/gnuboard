@@ -197,7 +197,35 @@ if ($w == 'c') // 댓글 입력
     // 포인트 부여
     insert_point($member['mb_id'], $board['bo_comment_point'], "{$board['bo_subject']} {$wr_id}-{$comment_id} 댓글쓰기", $bo_table, $comment_id, '댓글');
 
-    insert_fragment($member['mb_id'], "{$board['bo_subject']} {$wr_id}-{$comment_id} 댓글쓰기", $bo_table,  $wr_id, '댓글');
+	// 럭키포인트 부여
+	$sql = " select * from {$g5['board_lev_point_table']} where bo_table = '{$bo_table}' and level = '{$member['mb_level']}'";
+	$b_levp = sql_fetch($sql);
+
+	$point = array();
+	$point_min = $b_levp['point_min'];
+	$point_max = $b_levp['point_max'];
+	$percent = $b_levp['percent'];
+
+	$number  = array();
+
+	for($i=1; $i<=100; $i++){
+		array_push($number,$i);
+	}
+
+	$random_number = $number[array_rand($number)];
+
+	for($i=$point_min; $i<=$point_max; $i++){
+		array_push($point,$i);
+	}
+
+	$point = $point[array_rand($point)];
+
+	if($random_number <= $percent && $point && $member['mb_level'] <= 27){
+		insert_point($member['mb_id'], $point, "{$board['bo_subject']} {$wr_id}-{$comment_id} 댓글쓰기 (럭키포인트)", $bo_table, $comment_id, '댓글럭키포인트');
+		sql_query(" update $write_table set wr_10 = '{$point}' where wr_id = '$comment_id' ");
+	}
+
+    insert_fragment($member['mb_id'], "{$board['bo_subject']} {$wr_id}-{$comment_id} 댓글쓰기", $bo_table,  $comment_id, '댓글');
 
     // 메일발송 사용
     if ($config['cf_email_use'] && $board['bo_use_email'])

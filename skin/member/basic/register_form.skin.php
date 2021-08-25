@@ -111,7 +111,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<ul>
 					<li>
 						<label for="reg_mb_name">이름<!-- <strong class="sound-only">필수</strong> --></label>
-						<input type="hidden" id="reg_mb_name" name="mb_name" value="" <?php echo $required ?> <?php echo $readonly; ?> class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?>" size="10" placeholder="이름">
+						<input type="hidden" id="reg_mb_name" name="mb_name" value="공백" <?php echo $required ?> <?php echo $readonly; ?> class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?>" size="10" placeholder="이름">
 						<?php
 						if ($config['cf_cert_use']) {
 							if ($config['cf_cert_ipin'])

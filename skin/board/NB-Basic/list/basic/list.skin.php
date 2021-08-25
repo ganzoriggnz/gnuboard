@@ -624,7 +624,11 @@ if ($gr_id == 'attendance') {
                             $mbid = get_member($list[$i]['mb_id']);
                             $name = get_sideview($mbid['mb_id'], $mbid['mb_nick'], $mbid['mb_homepage']);
                             /* echo $list[$i]['wr_2']; */
-                            echo na_name_photo($list[$i]['mb_id'], $name)
+							if($list[$i]['wr_4']=='Y'){
+								echo '<span class="profile_img"><img class="member_photo" src="/img/no_profile.gif" width="22" height="22" style="border-radius:50%;" alt="" title=""></span> 익명';
+							} else {
+	                            echo na_name_photo($list[$i]['mb_id'], $name);
+							}
                             ?>
                         </div>
                     </div>

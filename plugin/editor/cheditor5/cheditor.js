@@ -5347,7 +5347,8 @@ cheditor.prototype = {
     if (content === '') {
       return 0
     }
-    return this.strLength(content)
+    //return this.strLength(content)
+	return content.length;
   },
 
   displayWindow: function (pNode, id) {

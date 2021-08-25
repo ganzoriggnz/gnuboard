@@ -20,6 +20,12 @@ if($daylimit > $total_count){
 		$check = 1;
 	}
 ?>
+<link href="/plugin/multi-select/multiple-select.min.css" rel="stylesheet">
+<script src="/plugin/multi-select/multiple-select.min.js"></script>
+<style>
+.multiple-select{width:100%;}
+.multiple-select .multiple span{padding-left:5px;}
+</style>
 <div id="memo_write" style="background:white;" class="mb-4">  
 
 	<div id="topNav" class="bg-primary text-white">
@@ -77,10 +83,48 @@ if($daylimit > $total_count){
 	<input type="hidden" id="mb_lvl" value=<?php echo $member['mb_level']; ?>> 
 	<ul class="list-group f-de mb-4">
 		<li class="list-group-item border-top-0 border-left-0 border-right-0">
+			<?php if($is_admin){?>
+			<div class="form-group row mx-n2">
+				<label class="col-sm-2 col-form-label px-2" for="multi_level">전체 선택</label>
+				<div class="col-sm-10 px-2">
+					<select multiple="multiple" class="multiple-select" id="multi_level" name="multi_level[]">
+						<?php for($i=2; $i < 24; $i++){?>
+						<option value="<?=$i;?>">lv.<?=$i;?></option>
+						<?php }?>
+						<optgroup label="lv.26">
+							<option value="26|오피">오피</option>
+							<option value="26|휴게텔">휴게텔</option>
+							<option value="26|건마">건마</option>
+							<option value="26|술집">술집</option>
+							<option value="26|안마">안마</option>
+							<option value="26|출장">출장</option>
+							<option value="26|키스방">키스방</option>
+							<option value="26|립카페">립카페</option>
+							<option value="26|핸플 패티쉬">핸플 패티쉬</option>
+							<option value="26|패티쉬">패티쉬</option>
+							<option value="26|기타">기타</option>
+						</optgroup>
+						<optgroup label="lv.27">
+							<option value="27|오피">오피</option>
+							<option value="27|휴게텔">휴게텔</option>
+							<option value="27|건마">건마</option>
+							<option value="27|술집">술집</option>
+							<option value="27|안마">안마</option>
+							<option value="27|출장">출장</option>
+							<option value="27|키스방">키스방</option>
+							<option value="27|립카페">립카페</option>
+							<option value="27|핸플 패티쉬">핸플 패티쉬</option>
+							<option value="27|패티쉬">패티쉬</option>
+							<option value="27|기타">기타</option>
+						</optgroup>
+					</select>
+				</div>
+			</div>
+			<?php }?>
 			<div class="form-group row mx-n2">
 				<label class="col-sm-2 col-form-label px-2" for="me_recv_mb_id">받는 회원<strong class="sr-only"> 필수</strong></label>
 				<div class="col-sm-10 px-2">
-					<input type="text" name="me_recv_mb_id" <?php if($member['mb_level'] < 24){ echo 'onkeyup="commaDown('.$total_count.')"';} else { echo ''; } ?> value="<?php echo $me_recv_mb_id ?>" <?php  if ($check==0){echo "disabled";} ?> id="me_recv_mb_id" required class="form-control">
+					<input type="text" name="me_recv_mb_id" <?php if($member['mb_level'] < 24){ echo 'onkeyup="commaDown('.$total_count.')"';} else { echo ''; } ?> value="<?php echo $me_recv_mb_id ?>" <?php  if ($check==0){echo "disabled";} ?> id="me_recv_mb_id" <?php echo ( ! $is_admin) ? "required" : "";?> class="form-control">
 					<p class="form-text f-de text-muted mb-0 pb-0">
 						여러 회원에게 보낼때는 회원아이디를 컴마(,)로 구분해 주세요.
 					</p>
@@ -92,8 +136,6 @@ if($daylimit > $total_count){
 				<div class="col-sm-10 px-2">
 					<textarea name="me_memo" id="me_memo" rows="5" <?php  if ($check==0){echo "disabled";} ?> required class="form-control"><?php echo $content ?></textarea>
 				</div>
-
-				
 			</div>
 
 			<div class="form-group row mb-0 mx-n2">
@@ -157,5 +199,22 @@ function fmemoform_submit(f) {
 
 $(window).on('load', function () {
 	na_nav('topNav', 'topHeight', 'fixed-top');
+});
+
+$(function() {
+	$('.multiple-select').multipleSelect({
+      multiple: true,
+      multipleWidth: 110,
+	minimumCountSelected: 5,
+		formatSelectAll () {
+			return '전체선택'
+		},
+		formatAllSelected () {
+			return '전체선택됨'
+		},
+		formatCountSelected (count, total) {
+			return '전체 ' + total + '개중 ' + count + '개 선택됨'
+		}
+	});
 });
 </script>

@@ -6,7 +6,8 @@ include_once("./_setup.php");
 if (!$is_member) {
 
     /* alert("로그인 후 이용하세요."); */
-    alert("로그인 후 이용하세요.", G5_BBS_URL . "/login.php?url=" . urlencode("{$_SERVER['REQUEST_URI']}"));
+    //alert("로그인 후 이용하세요.", G5_BBS_URL . "/login.php?url=" . urlencode("{$_SERVER['REQUEST_URI']}"));
+	exit;
 }
 
 // Нөхөж олгох хэсэг(Эхлэл)
@@ -574,7 +575,9 @@ if (!$is_member) {
 // 출석 시간 체크
 if (date("H:i:s") < $attendance['start_time'] || date("H:i:s") > $attendance['end_time']) {
 
-    alert("출석 시간이 아닙니다.");
+    //alert("출석 시간이 아닙니다.");
+	echo "timeout";
+	exit;
 }
 
 // 총출석일수
@@ -590,7 +593,9 @@ $check = sql_fetch($sql);
 // 출석했다면.
 if ($check['mb_id']) {
 
-    alert("이미 출석 하였습니다.");
+	//alert("이미 출석 하였습니다.");
+    echo "alreay";
+	exit;
 }
 
 
@@ -735,5 +740,15 @@ else if((int)$last7_day['cnt'] == 500)
     insert_point($member['mb_id'], 20000, "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
 else if((int)$last7_day['cnt'] == 1000)
     insert_point($member['mb_id'], 50000, "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
+else 
+	insert_point($member['mb_id'], 10, "출석 파운드", "@attendance", $member['mb_nick'], G5_TIME_YMD);
 // 완료
-alert("출석 체크 완료", "./attendance.php");
+//alert("출석 체크 완료", "./attendance.php");
+
+if($member['mb_level'] <= 5){
+	echo "success";
+	exit;
+} else {
+	echo "giftbox";
+	exit;	
+}

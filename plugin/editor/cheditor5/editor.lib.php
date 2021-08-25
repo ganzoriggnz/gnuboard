@@ -64,12 +64,20 @@ function get_editor_js($id, $is_dhtml_editor = true)
 
 
 //  textarea 의 값이 비어 있는지 검사
-function chk_editor_js($id, $is_dhtml_editor = true)
+function chk_editor_js($id, $is_dhtml_editor = true, $min=0, $max=0)
 {
+	 $html = "";
+
     if ($is_dhtml_editor) {
-        return "if (document.getElementById('tx_{$id}') && jQuery.inArray(ed_{$id}.outputBodyHTML().toLowerCase().replace(/^\s*|\s*$/g, ''), ['&nbsp;','<p>&nbsp;</p>','<p><br></p>','<div><br></div>','<p></p>','<br>','']) != -1) { alert(\"내용을 입력해 주십시오.\"); ed_{$id}.returnFalse(); return false; }\n";
+        $html .= "if ( (document.getElementById('tx_{$id}') && jQuery.inArray(ed_{$id}.outputBodyHTML().toLowerCase().replace(/^\s*|\s*$/g, ''), ['&nbsp;','<p>&nbsp;</p>','<p><br></p>','<div><br></div>','<p></p>','<br>','']) != -1) || ( !ed_{$id}.inputLength() && ed_{$id}.outputBodyHTML().toString().indexOf('img') == -1) ) { alert(\"내용을 입력해 주십시오.\"); ed_{$id}.returnFalse(); return false; }\n";
+		if($min) $html .= "if ({$min} > ed_{$id}.inputLength()) { alert(\"{$min}글자 이상 입력해 주세요.\"); ed_{$id}.returnFalse(); return false;}\n";
+		if($max) $html .= "if ({$max} < ed_{$id}.inputLength()) { alert(\"최대 {$max}글자까지 입력 가능합니다.\"); ed_{$id}.returnFalse(); return false;}";
+		return $html;
     } else {
-        return "if (!{$id}_editor.value) { alert(\"내용을 입력해 주십시오.\"); {$id}_editor.focus(); return false; }\n";
+        $html .= "if (!{$id}_editor.value) { alert(\"내용을 입력해 주십시오.\"); {$id}_editor.focus(); return false; }\n";
+        if($min) $html .= "if ({$min} > {$id}_editor.value.length) { alert(\"{$min}글자 이상 입력해 주세요.\"); {$id}_editor.focus(); return false;}\n";
+		if($max) $html .= "if ({$max} < {$id}_editor.value.length) { alert(\"최대 {$max}글자까지 입력 가능합니다.\"); {$id}_editor.focus(); return false;}";
+		return $html;
     }
 }
 

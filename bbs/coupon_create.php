@@ -93,16 +93,18 @@ $co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
 $co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth);
 
 $sql = "SELECT * FROM {$g5['coupon_table']} WHERE mb_id = '{$member['mb_id']}' AND co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime'";
-// var_dump($sql);die;
-$rowd = sql_fetch($sql);
+$co_row = sql_fetch($sql);
 
 $sql_cnt = "SELECT count(*) as cnt FROM {$g5['coupon_table']} WHERE bo_table = '{$member['mb_6']}' AND co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime' AND co_sale_num > '0' AND co_free_num > '0'";
 $row_cnt = sql_fetch($sql_cnt);
-$diff_s = number_format($rowd['co_sale_num'] - $rowd['co_sent_snum']);
-$diff_f = number_format($rowd['co_free_num'] - $rowd['co_sent_fnum']);
 
-$sql_set = "SELECT * FROM {$g5['coupon_setting_table']} WHERE bo_table='{$member['mb_6']}' AND bo_created_datetime BETWEEN '$co_begin_datetime' AND '$co_end_datetime' LIMIT 1";
+$diff_s = number_format($co_row['co_sale_num'] - $co_row['co_sent_snum']);
+$diff_f = number_format($co_row['co_free_num'] - $co_row['co_sent_fnum']);
+
+//$sql_set = "SELECT * FROM {$g5['coupon_setting_table']} WHERE bo_table='{$member['mb_6']}' AND bo_created_datetime BETWEEN '$co_begin_datetime' AND '$co_end_datetime' LIMIT 1";
+$sql_set = "SELECT * FROM {$g5['coupon_setting_table']} WHERE bo_table='{$member['mb_6']}' LIMIT 1";
 $row_set = sql_fetch($sql_set);
+
 //dbconfig파일에 $g5['content_table'] 배열변수가 있는지 체크
 if( !isset($g5['member_table']) ){
     die('<meta charset="utf-8">관리자 모드에서 게시판관리->내용 관리를 먼저 확인해 주세요.');

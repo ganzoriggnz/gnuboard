@@ -394,7 +394,11 @@ if ($gr_id=='review') {
 	                <li class="pr-2">
 	                    <span class="sr-only">작성자</span>
 	                    <!-- hulan nemsen level mark -->
-	                    <?php if ($view['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>'; echo na_name_photo($view['mb_id'], $view['name']); ?>
+						<?php if($view['wr_4']=='Y'){?>
+							<span class="profile_img"><img class="member_photo" src="/img/no_profile.gif" width="22" height="22" style="border-radius:50%;" alt="" title=""></span> 익명
+						<?php } else {?>
+							<?php if ($view['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>'; echo na_name_photo($view['mb_id'], $view['name']); ?>
+						<?php }?>
 	                </li>
 	                <?php if ($is_ip_view) { ?>
 	                <li class="pr-2">
@@ -402,6 +406,12 @@ if ($gr_id=='review') {
 	                    <span class="text-muted"><?php echo $ip ?></span>
 	                </li>
 	                <?php } ?>
+					<?php if ((int)$view['wr_10']) {?>
+	                <li class="pr-2">
+	                    <span class="sr-only">럭키포인트</span>
+						<i class="fa fa-gift" aria-hidden="true"></i> 축하드립니다~ 열심히 활동한 결과 <b class="orangered"><?php echo number_format($view['wr_10']) ?>파운드</b>를 획득 하셨습니다.</b>
+	                </li>
+					<?php } ?>
 	                <li class="flex-grow-1 text-right">
 	                    <span class="sr-only">작성일</span>
 	                    <time datetime="<?php echo date('Y-m-d\TH:i:s+09:00', strtotime($view['wr_last'])) ?>">
@@ -489,7 +499,7 @@ if ($gr_id=='review') {
 								글삭제
 							</a>
 							<?php } ?>
-							<?php if ($copy_href) { ?>
+							<?php if ($copy_href && strpos($bo_table,'_at') === false) { ?>
 							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
 								class="btn-vw py-2" role="button">
 								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
@@ -865,6 +875,24 @@ if ($gr_id=='review') {
 	<!-- } 게시판 읽기 끝 -->
 
 	<script>
+<?php if(strpos($bo_table,'_at') !== false){?>
+document.oncontextmenu = function (e) {
+	return false;
+}
+document.ondragstart = function (e) {
+	return false;
+}
+document.onselectstart = function (e) {
+	return false;
+}
+$(document).bind('keydown',function(e){
+	if ( e.keyCode == 123 /* F12 */) {
+		e.preventDefault();
+		e.returnValue = false;
+	}
+});
+<?php }?>
+
 function board_move(href) {
     window.open(href, "boardmove", "left=50, top=50, width=500, height=550, scrollbars=1");
 }

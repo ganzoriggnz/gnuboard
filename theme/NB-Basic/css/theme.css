@@ -1323,3 +1323,15 @@ hr.hr::after {
   color:#e4c980; 
   margin-top:5px;
 }
+
+.toast-message {
+	font-size:14px;
+	font-weight:bold;
+
+}
+
+.toast-success,
+.toast-info{
+	border:1px solid #cfb56ed0;
+	background-color: #cfb56ed0 !important;
+}

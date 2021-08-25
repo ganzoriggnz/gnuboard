@@ -39,7 +39,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 				</ul>
 				<div style="text-align:center;">
 					<a class="me-a f-md" href="<?php echo G5_URL ?>/bbs/board.php?bo_table=greeting" target="_self" role="button">
-						<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg p-2" style="width: auto; margin-top:65px">가입인사 하고 300P 받기</button>
+						<button type="submit" id="btn_submit" accesskey="s" class="btn btn-primary btn-lg" style="width: auto; margin:30px">가입인사 하고 300P 받기</button>
 					</a>
 				</div>
 			</li>
@@ -50,5 +50,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 				</li>
 			<?php } ?>
 		</ul>
+		<p class="text-center px-3">
+			<a href="<?php echo G5_URL ?>">홈으로 돌아가기</a>
+		</p>
 	</div>
 </div>

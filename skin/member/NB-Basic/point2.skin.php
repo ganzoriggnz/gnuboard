@@ -105,6 +105,24 @@ $frm_submit = '<div class="col-sm-4">
                                 </span>
                             </a>
                         </li>
+                        <li>
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/level_info.php">
+                                <span>
+                                <img src="<?php echo G5_URL?>/img/solid/medal.svg" class="svg-img" style="height :14px;" >&nbsp
+                                레벨정보
+                                </span>
+                            </a>
+                        </li>
+                        <?php if ($member['mb_level'] < 24) { ?>
+                        <li>
+                            <a class="py2 px-3" href= "<?php echo G5_BBS_URL ?>/giftbox.php">
+                                <span>
+                                <img src="<?php echo G5_URL?>/img/solid/gift.svg" class="svg-img" style="height :14px;" >&nbsp
+                                선물함
+                                </span>
+                            </a>
+                        </li>
+                        <?php } ?>
                         <!-- if nuhtsul hulan nemsen 후기는 업소레벨에만 있으면 된다 -->
                         <?php if ($member['mb_level'] == 26 || $member['mb_level'] == 27) { ?>
                         <li>

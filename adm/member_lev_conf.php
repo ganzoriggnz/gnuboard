@@ -11,6 +11,29 @@ auth_check($auth[$sub_menu], 'r');
 if ($is_admin != 'super')
 	alert('등급수정은 최고관리자만 가능합니다.');
 
+if (!sql_query("SELECT COUNT(*) as cnt FROM {$g5['lev_point_config_table']}",false)) { // 회원 등급별 point 추가지급 설정 테이블이 없다면 생성
+	$sql_table = "CREATE TABLE {$g5['lev_point_config_table']} (   
+		levc_no int(11) NOT NULL DEFAULT '0',
+		levc_write_min int(11) NOT NULL DEFAULT '0',
+		levc_write_max int(11) NOT NULL DEFAULT '0',
+		levc_comment_min int(11) NOT NULL DEFAULT '0',
+		levc_comment_max int(11) NOT NULL DEFAULT '0'
+	)";
+	sql_query($sql_table, false);
+	
+	for($i=1; $i<=30; $i++){
+		$sql = " insert into {$g5['lev_point_config_table']} set levc_no = '{$i}' ";
+		sql_query($sql);
+	}
+}
+
+$result = sql_query(" select * from {$g5['lev_point_config_table']}");
+
+$levc_point = array();
+for ($i=1; $row=sql_fetch_array($result); $i++) {
+	$levc_point[$i] = $row;
+}
+
 if (!isset($config['lev_cf_1'])) {
     sql_query(" ALTER TABLE `{$g5['config_table']}`
                     ADD `lev_cf_1` VARCHAR(255) NOT NULL DEFAULT '비회원' AFTER `cf_30`,
@@ -85,6 +108,16 @@ else if ($w == 'u')
                 lev_cf_28 = '{$_POST['lev_cf_28']}',
                 lev_cf_29 = '{$_POST['lev_cf_29']}' ";
 	sql_query($sql);
+
+	for($i=1; $i<=30; $i++){
+		$sql = " update {$g5['lev_point_config_table']} set 
+			levc_write_min = '".$_POST['levc_write_min_'.$i]."',
+			levc_write_max = '".$_POST['levc_write_max_'.$i]."',
+			levc_comment_min = '".$_POST['levc_comment_min_'.$i]."',
+			levc_comment_max = '".$_POST['levc_comment_max_'.$i]."'
+			where levc_no = '{$i}'";
+		sql_query($sql);
+	}
 	goto_url($PHP_SELF, false);
 }
 
@@ -98,7 +131,10 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm" style="width:800px;">
 
 $colspan = 2;
 ?>
-
+<style>
+.td_numsmall{ width : 60px;}
+.frm_input.point{ width : 40% !important;}
+</style>
 <div class="local_desc01 local_desc">
     <p>
         회원권한을 한글로 표기하여 관리 할수있는 페이지입니다.
@@ -117,6 +153,8 @@ $colspan = 2;
 		<tr>
 			<th scope="col">회원등급</th>
 			<th scope="col">등급</th>
+			<th scope="col" width="120px;">쓰기P (최소~최대)</th>
+			<th scope="col" width="120px;">댓글P (최소~최대)</th>
 		</tr>
     </thead>
     <tbody>
@@ -131,11 +169,23 @@ $colspan = 2;
 				}
 			?>
 			</td>
+			<?php if($i==30 || $i==1){?>
+			<td>-</td>
+			<td>-</td>
+			<?php } else {?>
+			<td>
+				<input type='text' name='levc_write_min_<?=$i;?>' value='<?=$levc_point[$i]['levc_write_min'];?>' class='frm_input point' autocomplete="off"> ~ <input type='text' name='levc_write_max_<?=$i;?>' value='<?=$levc_point[$i]['levc_write_max'];?>' class='frm_input point' autocomplete="off">
+			</td>
+			<td>
+				<input type='text' name='levc_comment_min_<?=$i;?>' value='<?=$levc_point[$i]['levc_comment_min'];?>' class='frm_input point' autocomplete="off"> ~ <input type='text' name='levc_comment_max_<?=$i;?>' value='<?=$levc_point[$i]['levc_comment_max'];?>' class='frm_input point' autocomplete="off">
+			</td>
+			<?php }?>
 		</tr>
 		<?php } ?>
 		<tr>
             <td class="td_category"><label for="cf_register_level">회원가입시 권한</label></td>
             <td><?php echo get_member_level_select('cf_register_level', 1, 29, $config['cf_register_level']) ?></td>
+			<td colspan="4">&nbsp;</td>
         </tr>
     </tbody>
     </table>
