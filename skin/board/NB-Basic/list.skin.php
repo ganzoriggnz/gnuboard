@@ -158,7 +158,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 
 	<form name="fboardlist" id="fboardlist"
         onsubmit="return fboardlist_submit(this);"
-        method="post">
+        method="post"> 
 		<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
 		<input type="hidden" name="sfl" value="<?php echo $sfl ?>">
 		<!-- <input type="hidden" name="stx" value="<?php echo $stx ?>"> -->
