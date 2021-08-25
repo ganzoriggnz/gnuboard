@@ -171,9 +171,9 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-			<?php if ($board['bo_admin'] != '' || $group['gr_admin'] != '') : ?>
+			<!-- <?php if ($board['bo_admin'] != '' || $group['gr_admin'] != '') : ?> -->
 				<div id="bo_btn_top">
-				<div id="bo_list_total">
+				<!-- <div id="bo_list_total">
 					<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
 					<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
 
@@ -182,9 +182,9 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]"; ?>
 						<?php endif; ?>
 					<?php endif; ?>
-				</div>
+				</div> -->
 				<div role="group">
-					<?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
+					<!-- <?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
 						<a href="<?php echo $admin_href ?>" class="py-1 btn btn_admin nofocus" title="관리자" role="button">
 							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
 							<span class="sr-only">관리자</span>
@@ -195,7 +195,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							<i class="fa fa-rss fa-md" aria-hidden="true"></i>
 							<span class="sr-only">RSS</span>
 						</a>
-					<?php } ?>
+					<?php } ?> -->
 					<?php if (!G5_IS_MOBILE) : ?>
 						<div class="py-1 btn btn_b01 nofocus">
 							<label for="stx" class="sr-only">검색어</label>
@@ -350,7 +350,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php }  ?>
 				</div>
 			</div>
-			<?php endif; ?>
+			<!-- <?php endif; ?> -->
 			<!-- hulan nemsen doorh neg mur -->
 		<?php	} ?>
 
