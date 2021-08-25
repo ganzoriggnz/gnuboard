@@ -196,8 +196,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
         </div>
         <div style="margin-top: 100px; padding-bottom: 20px; line-height: 2;">
             <ul style="list-style: disc; margin-left: 40px; font-size: 14px;">
-                <li>쿠폰을 받은 사람은 7일이내 사용하기를 누르지 않으면 <span style="color: blue">자동으로 회수됩니다.</span></li>
-                <li>사용하기 클릭 후 7일 이내에 해당 게시판에서 후기를 작성하지 않으면 경고를 받게 됩니다.</li>
+                <li>쿠폰을 받은 사람은 5일이내 사용하기를 누르지 않으면 <span style="color: blue">자동으로 회수됩니다.</span></li>
+                <li>사용하기 클릭 후 5일 이내에 해당 게시판에서 후기를 작성하지 않으면 경고를 받게 됩니다.</li>
             </ul>
         </div>
         <script>
