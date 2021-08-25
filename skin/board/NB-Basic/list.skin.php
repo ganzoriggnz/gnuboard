@@ -168,27 +168,6 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		<input type="hidden" name="sod" value="<?php echo $sod ?>">
 		<input type="hidden" name="page" value="<?php echo $page ?>">
 		<input type="hidden" name="sw" value="">
-
-		<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" class="form-control" placeholder="<?php 
-										if($board['gr_id'] == "attendance")
-											echo '업소정보검색';
-									 	else if($board['gr_id'] == "review")
-										 	echo '업소후기검색';
-										else if($bo_table == "notice")
-											echo '공지사항 검색';
-										else if($bo_table == "greeting")
-											echo '가입인사 검색';
-										else if($bo_table == "free")
-											echo '자유게시판 검색';
-										else if($bo_table == "woman")
-											echo '미수다 검색';
-										else if($bo_table == "event")
-											echo '이벤트 검색';
-										else if($bo_table == "job")
-											echo '구인구직 검색';
-										else if($bo_table == "work_board")
-											echo '실장님 정보공유 검색';
-										?>">
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
@@ -197,28 +176,6 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 				<div id="bo_list_total">
 					<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
 					<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
-					<?php if ($board['bo_admin'] != '') : ?>
-						<?php
-							echo "이벤트관리자 : ";
-							$board_admins = explode(",",$board['bo_admin']);
-							foreach ($board_admins as $key => $value) :
-								$mbid1 = get_member($value);
-								$name1 = get_sideview($mbid1['mb_id'], $mbid1['mb_nick'], $mbid1['mb_homepage']);
-								echo na_name_photo($value, "<p class='username' style='display: inline-block;'>" . $name1 . "</p>");
-							endforeach; ?>
-					<?php endif; ?>
-					<?php if ($group['gr_admin'] != '') : ?>
-						<?php 
-							echo $board['bo_admin'] != '' ? ", " : "";
-							$group_admins = explode(",",$group['gr_admin']);
-							foreach ($group_admins as $key => $value) :
-								$mbid2 = get_member($value);
-								$name2 = get_sideview($mbid2['mb_id'], $mbid2['mb_nick'], $mbid2['mb_homepage']);
-								echo na_name_photo($value, "<p class='username mr-3' style='display: inline-block;'>" . $name2 . "</p>");
-							endforeach;
-						?>						
-					<?php endif; ?>
-					<?php echo "&nbsp;&nbsp;", "", "&nbsp;&nbsp;" ?>
 
 					<?php if(!G5_IS_MOBILE):?>
 						<?php if($bo_table != "free" && $bo_table != "event"):?>
