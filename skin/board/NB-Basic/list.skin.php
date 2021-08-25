@@ -168,6 +168,27 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		<input type="hidden" name="sod" value="<?php echo $sod ?>">
 		<input type="hidden" name="page" value="<?php echo $page ?>">
 		<input type="hidden" name="sw" value="">
+
+		<input style="border-radius: 0.25rem;" type="text" id="bo_stxx" name="stx" value="<?php echo $stx; ?>" class="form-control" placeholder="<?php 
+										if($board['gr_id'] == "attendance")
+											echo '업소정보검색';
+									 	else if($board['gr_id'] == "review")
+										 	echo '업소후기검색';
+										else if($bo_table == "notice")
+											echo '공지사항 검색';
+										else if($bo_table == "greeting")
+											echo '가입인사 검색';
+										else if($bo_table == "free")
+											echo '자유게시판 검색';
+										else if($bo_table == "woman")
+											echo '미수다 검색';
+										else if($bo_table == "event")
+											echo '이벤트 검색';
+										else if($bo_table == "job")
+											echo '구인구직 검색';
+										else if($bo_table == "work_board")
+											echo '실장님 정보공유 검색';
+										?>">
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
