@@ -173,7 +173,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="reg_mb_name">이름<!-- <strong class="sr-only">필수</strong> --></label>
 					<div class="col-sm-4">
-						<input type="hidden" id="reg_mb_name" name="mb_name" value=""  <?php echo $required ?> <?php echo $readonly ?> class="form-control <?php echo $required ?>">
+						<input type="hidden" id="reg_mb_name" name="mb_name" value="" <?php echo $readonly ?> class="form-control">
 					</div>
 				</div>
 
