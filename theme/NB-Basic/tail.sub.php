@@ -35,7 +35,9 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 <?php if($is_member && $member['mb_level'] < 24 && $member['mb_8']!='Y'){?>
 	/*서비스 안내 확인하면 100포인트 지급*/
-	guideToast('회원가입 후 사이트안내 게시판 읽고 <span class="text-dark">"확인"</span> 버튼 클릭 시 <span class="text-dark">"100파운드"</span>도 잊지 마세요!');
+	if( typeof guideToast == 'function' ) {
+		guideToast('회원가입 후 사이트안내 게시판 읽고 <span class="text-dark">"확인"</span> 버튼 클릭 시 <span class="text-dark">"100파운드"</span>도 잊지 마세요!');	
+	}
 <?php }?>
 
 <?php
@@ -45,7 +47,9 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 		
 		for ($i=0; $memo_row=sql_fetch_array($memo_result); $i++) {
 ?>
-	memoToast('<?php echo $memo_row['me_id'];?>','<span class="text-dark"><?php echo $memo_row['mb_nick'];?></span>님으로 부터 쪽지가 도착했습니다.<br/>"<?php echo cut_str(preg_replace('/\r\n|\r|\n/','',$memo_row['me_memo']),30);?>"');
+	if( typeof memoToast == 'function' ) {
+		memoToast('<?php echo $memo_row['me_id'];?>','<span class="text-dark"><?php echo $memo_row['mb_nick'];?></span>님으로 부터 쪽지가 도착했습니다.<br/>"<?php echo cut_str(preg_replace('/\r\n|\r|\n/','',$memo_row['me_memo']),30);?>"');
+	}
 <?php
 		$memo_count++;
 		}
