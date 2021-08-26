@@ -46,36 +46,33 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
 
                 <div class="p-20">
                     <div class="coupon_label col-form-label">원가권 :</div>
-                    <input type="number" name="co_sale_num" id="co_sale_num" value="<?php echo $co_row['co_sale_num']; ?>" placeholder=""
-                        class="form-control coupon_input"
-                        <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else {echo '';}?>>
+                    <input type="number" name="co_sale_num" id="co_sale_num" value="<?php echo $rowd['co_sale_num']; ?>" placeholder=""
+                        class="form-control coupon_input" <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else {echo '';}?>>
                 </div>
                 <div class="p-20">
                     <div class="coupon_label col-form-label">무료권 :</div>
-                    <input type="number" name="co_free_num" id="co_free_num" value="<?php echo $co_row['co_free_num']; ?>" placeholder=""
-                        class="form-control coupon_input"
-                        <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else { echo '';}?>>
+                    <input type="number" name="co_free_num" id="co_free_num" value="<?php echo $rowd['co_free_num']; ?>" placeholder=""
+                        class="form-control coupon_input" <?php if($co_created_datetime > $co_insert_date) { echo 'disabled="disabled"';}  else { echo '';}?>>
                 </div>
                 <div class="p-20">
                     <div class="coupon_label"></div>
-                    <button type="submit" id="btn_submit" accesskey="s"
-                        <?php if($co_created_datetime > $co_insert_date) { echo 'class="miss_but_3" disabled="disabled"';}  else { echo 'class="miss_but_1"';}?>>저장</button>
+                    <button type="submit" id="btn_submit" class="miss_but_1" accesskey="s" <?php if($co_created_datetime > $co_insert_date) { echo 'class="miss_but_3" disabled="disabled"';}  else { echo 'class="miss_but_1"';}?>>저장</button>
                 </div>
-                <div class="popup_box1">
+                <div class="popup_box2" style="display:none;">
                     <h1>쿠폰</h1>
-                    <label>수정은 매월 1일부터 3일까지만 가능합니다.</label>
+                    <label>쿠폰지원은 매월 1일부터 5일까지만 수정 가능합니다. 그 외 날짜 쿠폰지원은 관리자에게 문의 바랍니다.</label>
                     <div class="btns1">
-                        <a href="#" class="btn1">확인</a>
-                    </div>
-                </div>
-                <div class="popup_box2">
-                    <label>관리자가 설정한 원가권, 무료권 갯수 이하이므로 등록을 하실 수 없습니다.</label>
-                    <div class="btns1">
-                        <a href="#" class="btn1">확인</a>
+                        <a href="#" class="btn1">닫기</a>
                     </div>
                 </div>
                 <div class="popup_box3" style="display:none;">
                     <label>관리자가 설정한 업소 갯수가 모두 등록이 완료되어 현재 등록을 할 수 없습니다.</label>
+                    <div class="btns1">
+                        <a href="#" class="btn1">확인</a>
+                    </div>
+                </div>
+                <div class="popup_box4" style="display:none;">
+                    <label>관리자가 설정한 원가권, 무료권 갯수 이하이므로 등록을 하실 수 없습니다.</label>
                     <div class="btns1">
                         <a href="#" class="btn1">확인</a>
                     </div>
@@ -90,35 +87,34 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 var sale_num_cnt = $('#co_sale_num').val();
                 var free_num_cnt = $('#co_free_num').val();
                 var co_cnt = $('#co_cnt').val();
+                var co_created = $('#co_created').val();
+                var co_insert = $('#co_insert').val();
+                var co_no = $('#co_no').val();
 
-                /* if (f.co_sale_num=='') {
-                    alert("Please insert quantity of sale coupon!");
-                    f.co_sale_num.focus();
-                    return false;
-                }
-
-                if (f.co_free_num=='') {
-                    alert("Please insert quantity of free coupon!");
-                    f.co_free_num.focus();
-                    return false;
-                } */
-
-                if(sale_cnt > sale_num_cnt  || free_cnt > free_num_cnt){
-                    $('.popup_box2').css("display", "block");
-                    $('.btn1').click(function(){
-                        $('.popup_box2').css("display", "none");
-                    });
-                }
-                if(co_cnt > total_cnt) {
+                // if(co_created > co_insert){ //огноо
+                //     $('.popup_box2').css("display", "block");
+                //     $('.btn1').click(function(){
+                //         $('.popup_box2').css("display", "none");
+                //     });
+                //     return false;
+                // }
+                // else 
+                if((co_cnt+1) > total_cnt) {
                     $('.popup_box3').css("display", "block");
                     $('.btn1').click(function(){
                         $('.popup_box3').css("display", "none");
                     });
-                }            
-                if(total_cnt >= co_cnt && sale_num_cnt >= sale_cnt && free_num_cnt >= free_cnt)
+                    return false;
+                }
+                else if(sale_num_cnt < sale_cnt && free_num_cnt < free_cnt){
+                        $('.popup_box4').css("display", "block");
+                        $('.btn1').click(function(){
+                            $('.popup_box4').css("display", "none");
+                    });
+                    return false;
+                }else{
                     return true;
-                else 
-                    return false; 
+                }
             }
             </script>
         </div>
