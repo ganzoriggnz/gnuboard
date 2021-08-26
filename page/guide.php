@@ -469,7 +469,7 @@ function compareNumber($member_level, $level, $member_num, $num, $format=false){
 						<td>-</td>
 					</tr>
 					<tr>
-						<td>선불폰/프로필 여행사/기타</td>
+						<td>선불폰/프로필/여행사/기타</td>
 						<td>-</td>
 						<td>2</td>
 						<td>-</td>
@@ -626,7 +626,7 @@ function compareNumber($member_level, $level, $member_num, $num, $format=false){
 						<td>-</td>
 					</tr>
 					<tr>
-						<td>선불폰/프로필 여행사/기타</td>
+						<td>선불폰/프로필/여행사/기타</td>
 						<td>-</td>
 						<td>2</td>
 						<td>-</td>

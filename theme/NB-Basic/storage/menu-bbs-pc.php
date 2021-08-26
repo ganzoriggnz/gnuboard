@@ -328,7 +328,7 @@ $data=array (
       ),
       26 => 
       array (
-        'text' => '선불폰/프로필 여행사/기타',
+        'text' => '선불폰/프로필/여행사/기타',
         'href' => '/bbs/board.php?bo_table=other_at',
         'icon' => 'fa-calendar',
         'target' => '_self',
@@ -667,7 +667,7 @@ $data=array (
       ),
       26 => 
       array (
-        'text' => '선불폰/프로필 여행사/기타',
+        'text' => '선불폰/프로필/여행사/기타',
         'href' => '/bbs/board.php?bo_table=other_re',
         'icon' => 'fa-commenting-o',
         'target' => '_self',
