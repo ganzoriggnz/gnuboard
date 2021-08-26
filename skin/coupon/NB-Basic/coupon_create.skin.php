@@ -161,15 +161,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <h1>쿠폰</h1>
                 <label>쿠폰지원은 매월 1일부터 5일까지만 수정 가능합니다. 그 외 날짜 쿠폰지원은 관리자에게 문의 바랍니다.</label>
                 <div class="btns1">
-                    <a href="#" class="btn1">확인</a>
+                    <a href="#" class="btn1">닫기</a>
                 </div>
             </div>
-            <div class="popup_box2">
-                <label>관리자가 설정한 원가권, 무료권 갯수 이하이므로 등록을 하실 수 없습니다.</label>
-                <div class="btns1">
-                    <a href="#" class="btn1">확인</a>
-                </div>
-            </div>
+
             <div class="popup_box3">
                 <label>관리자가 설정한 업소 갯수가 모두 등록이 완료되어 현재 등록을 할 수 없습니다.</label>
                 <div class="btns1">
@@ -177,7 +172,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 </div>
             </div>
             <div class="popup_box4" style="display:none;">
-                <label>쿠폰 갯수를 성공적으로 저장하였습니다.</label>
+                <label>관리자가 설정한 원가권, 무료권 갯수 이하이므로 등록을 하실 수 없습니다.</label>
                 <div class="btns1"> 
                     <a href="#" class="btn1">확인</a>
                 </div>
@@ -204,22 +199,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             });
             return false;
         }
-        else if(sale_cnt > sale_num_cnt){
-            $('.popup_box2').css("display", "block");
-            $('.btn1').click(function(){
-                $('.popup_box2').css("display", "none");
-            });
-            $('#co_sale_num').focus();
-            return false;
-        }
-        else if(free_cnt > free_num_cnt){
-            $('.popup_box2').css("display", "block");
-            $('.btn1').click(function(){
-                $('.popup_box2').css("display", "none");
-            });
-            $('#co_free_num').focus();
-            return false;
-        }
         else if((co_cnt+1) > total_cnt && co_no=='') {
             $('.popup_box3').css("display", "block");
             $('.btn1').click(function(){
@@ -227,13 +206,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
             });
             return false;
         } 
-        else if(total_cnt >=co_cnt && sale_num_cnt >= sale_cnt && free_num_cnt >= free_cnt && co_insert >= co_created){
+        else if(sale_num_cnt < sale_cnt && free_num_cnt < free_cnt){
                 $('.popup_box4').css("display", "block");
                 $('.btn1').click(function(){
                     $('.popup_box4').css("display", "none");
             });
             return true;
-        }           
+        }                   
                                               
     }
     </script>
