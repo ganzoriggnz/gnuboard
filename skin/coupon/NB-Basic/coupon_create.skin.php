@@ -163,7 +163,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <div class="btns1">
                     <a href="#" class="btn1">확인</a>
                 </div>
-            </div>haschanged
+            </div>
             <div class="popup_box2">
                 <label>관리자가 설정한 원가권, 무료권 갯수 이하이므로 등록을 하실 수 없습니다.</label>
                 <div class="btns1">
