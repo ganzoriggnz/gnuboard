@@ -63,7 +63,7 @@ $list_cnt = count($list);
 	<ul class="na-table d-md-table w-100">
 		<?php 
 		for ($i = 0; $i < $list_cnt; $i++) {
-			if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin) {
+			if ($list[$i]['mb_id'] == $member['mb_id'] || $is_admin || $list[$i]['mb_id'] == 'admin') {
 
 				//아이콘 체크
 				$wr_icon = '';
