@@ -525,7 +525,7 @@ if ($d) {
                     <tr height="30" class="bg<?php echo $list ?>">
                         <td align="center"><?php echo number_format($rank+($page - 1) * $rows) ?> 등</td>
                         <td align="center"><?php echo substr($data['datetime'], 10, 16); ?></td>
-                        <td align="left"><?php echo $name ?></td>
+                        <td align="left" style="width: 175px;"><?php echo $name ?></td>
                         <td align="center"><?php echo $on ?></td>
                         <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']); ?> 파운드</td>
                         <td align="center"><?php echo $data['day'] ?> 일째</td>
@@ -608,7 +608,7 @@ if ($d) {
                     <tr height="30" class="bg<?php echo $list ?>">
                         <td align="center"><?php echo number_format($rank+($page - 1) * $rows) ?> 등</td>
                         <td align="center"><?php echo substr($data['datetime'], 10, 16); ?></td>
-                        <td align="left"><?php echo na_name_photo($check['mb_id'], $name) ?></td>
+                        <td align="left" style="width: 175px;"><?php echo na_name_photo($check['mb_id'], $name) ?></td>
                         <td class="show_at" style="padding:0 0 0 20px;"><?php echo get_text($data['subject']) ?></td>
                         <td align="center"><?php echo $on ?></td>
                         <!-- <td align="right" style="padding:0 5 0 0px;"><?php echo number_format($data['point']); ?> 파운드</td> -->
