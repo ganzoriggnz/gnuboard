@@ -158,7 +158,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 <button type="submit" id="btn_submit" accesskey="s" class="miss_but_1">저장</button>
             </div>
             <div class="popup_box1">
-                <h1>쿠폰</h1>dahiad 1
+                <h1>쿠폰</h1>
                 <label>쿠폰지원은 매월 1일부터 5일까지만 수정 가능합니다. 그 외 날짜 쿠폰지원은 관리자에게 문의 바랍니다.</label>
                 <div class="btns1">
                     <a href="#" class="btn1">확인</a>
