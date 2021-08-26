@@ -176,7 +176,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                     <a href="#" class="btn1">확인</a>
                 </div>
             </div>
-            <div class="popup_box4" style="display:none;">aa
+            <div class="popup_box4" style="display:none;">
                 <label>쿠폰 갯수를 성공적으로 저장하였습니다.</label>
                 <div class="btns1"> 
                     <a href="#" class="btn1">확인</a>
