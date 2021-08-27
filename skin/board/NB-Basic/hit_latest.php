@@ -68,7 +68,7 @@ function latest_popular($bo_table, $rows=10, $subject_len=40, $term='', $options
       echo  "<p style='text-overflow: ellipsis; overflow: hidden;'>" . $list[$i]['subject'] .  "</p>";
       ?>
       <!-- //  ner oruulj ireh -->
-      <div class="float-right"> ★ 익명</div>
+      <div class="ml-auto"> ★ 익명</div>
       <?php echo "</a>"; ?>
       
         </li>
