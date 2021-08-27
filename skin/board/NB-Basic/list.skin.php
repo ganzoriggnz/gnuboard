@@ -270,7 +270,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						) { ?>
 							<?php if ($write_href) { ?>
 								<div>
-									<button type="button" class="float-right btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
+									<button type="button" class="text-right btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
 										<img src="<?php echo G5_URL ?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
 									</button>
 								</div>
