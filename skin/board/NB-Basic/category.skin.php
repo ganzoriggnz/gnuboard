@@ -66,7 +66,7 @@ for ($i=0; $i<$ca_count; $i++) {
 <nav id="bo_cate">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
 
-	<div class="category-list <?php echo G5_IS_MOBILE ? ' pb-1 ' : '' ?>">
+	<div class="category-list <?php echo G5_IS_MOBILE ? ' pb-1 pl-0' : '' ?>">
 		<?php echo $category_option ?>
 	</div>
 </nav>
