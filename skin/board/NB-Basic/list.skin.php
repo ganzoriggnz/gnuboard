@@ -204,7 +204,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						<?php endif; ?>
 					<?php endif; ?>
 				</div>
-				<div role="group" style="min-width: max-content; text-align: right;">
+				<div role="group" style="min-width: max-content; justify-content:flex-end;">
 					<?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
 						<a href="<?php echo $admin_href ?>" class="py-1 btn btn_admin nofocus" title="관리자" role="button">
 							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
