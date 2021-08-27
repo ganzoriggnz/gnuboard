@@ -155,7 +155,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 
 	<!-- } 검색창 끝 -->
 
-	<form name="fboardlist" id="fboardlist"
+	<form name="fboardlist" id="fboardlist" 
         onsubmit="return fboardlist_submit(this);"
         method="post">
 		<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
@@ -170,8 +170,8 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-			<div id="bo_btn_top">
-				<div id="bo_list_total" class="<?php echo G5_IS_MOBILE ? ' p-0 ' : '' ?>">
+			<div id="bo_btn_top"  class="<?php echo G5_IS_MOBILE ? ' p-0 ' : '' ?>">
+				<div id="bo_list_total" >
 					<?php if ($board['bo_admin'] != '' || $group['gr_admin'] != '') : ?> 
 						<?php echo "<span style='font-size:12px;'>" . " 이벤트관리자 : " . "</span>"; ?>
 						<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
@@ -197,7 +197,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							?>						
 						<?php endif; ?>
 
-						<?php endif; ?>					
+					<?php endif; ?>					
 					<?php if(!G5_IS_MOBILE):?>
 						<?php if($bo_table != "free" && $bo_table != "event"):?>
 							<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]"; ?>
