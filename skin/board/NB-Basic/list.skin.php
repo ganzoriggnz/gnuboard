@@ -170,7 +170,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-			<div id="bo_btn_top"  class="<?php echo G5_IS_MOBILE ? ' p-0 ' : '' ?>">
+			<div id="bo_btn_top"  style="display:none !important;" class="<?php echo G5_IS_MOBILE ? ' p-0 ' : '' ?>">
 				<div id="bo_list_total" >
 					<?php if ($board['bo_admin'] != '' || $group['gr_admin'] != '') : ?> 
 						<?php echo "<span style='font-size:12px;'>" . " 이벤트관리자 : " . "</span>"; ?>
