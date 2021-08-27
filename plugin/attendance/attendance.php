@@ -642,7 +642,7 @@ if ($d) {
 <?php } ?>
 <div class="center">
 <?php
-    echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?$qstr&amp;page="); 
+    echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?d={$_GET['d']}&amp;page="); 
 ?>
 </div>
 
