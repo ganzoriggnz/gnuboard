@@ -204,7 +204,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						<?php endif; ?>
 					<?php endif; ?>
 				</div>
-				<div role="group" style="min-width: max-content;">
+				<div role="group" style="min-width: max-content; text-align: right;">
 					<?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
 						<a href="<?php echo $admin_href ?>" class="py-1 btn btn_admin nofocus" title="관리자" role="button">
 							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
@@ -270,7 +270,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 						) { ?>
 							<?php if ($write_href) { ?>
 								<div>
-									<button type="button" class="text-right btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
+									<button type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
 										<img src="<?php echo G5_URL ?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
 									</button>
 								</div>
