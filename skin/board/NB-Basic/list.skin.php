@@ -173,7 +173,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 			<div id="bo_btn_top">
 				<div id="bo_list_total" >
 					<?php if ($board['bo_admin'] != '' || $group['gr_admin'] != '') : ?> 
-						<?php echo "<span " . G5_IS_MOBILE ? "style='font-size:12px;'" : ""  . "> 이벤트관리자 : " . "</span>"; ?>
+						<?php echo "<span style='font-size:12px;'>" . " 이벤트관리자 : " . "</span>"; ?>
 						<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
 						<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
 						<?php if ($board['bo_admin'] != '') : ?>
