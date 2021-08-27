@@ -255,10 +255,11 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 					<?php endif; ?>
 						<div class="btn-group" >
 							<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
-								<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table']; ?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
+								<div> 
+									<a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table']; ?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
 										쿠폰지원내역
-									</a> </div>
-								&nbsp;&nbsp;
+									</a> 
+								</div>
 							<?php } ?>
 							<?php if (
 								$is_admin
@@ -267,15 +268,15 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 								|| ($gr_id == "community" && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super'))))
 								|| (($gr_id == "review") && ($member['mb_level'] != 26 && $member['mb_level'] != 27))
 								|| ($gr_id == "library")
-							) { ?>
-								<?php if ($write_href) { ?>
+							) : ?>
+								<?php if ($write_href) : ?>
 									<div>
 										<button  <?php echo G5_IS_MOBILE ? "style='min-width:max-content;'" : ""; ?> type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
 											<img src="<?php echo G5_URL ?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
 										</button>
 									</div>
-							<?php }
-							} ?>
+								<?php endif; ?>
+							<?php endif; ?>
 					</div>
 					<?php if (!G5_IS_MOBILE) : ?>
 						<div class="btn-group" role="group">
