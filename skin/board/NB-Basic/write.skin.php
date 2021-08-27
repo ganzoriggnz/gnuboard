@@ -361,11 +361,20 @@ if ($is_member)
                                         <option value="">선택하세요</option>
                                         <?php echo $category_option;
                                         if ($is_admin) {
-                                            echo "
-                                <option value='공지' $is_select>공지</option>
-                                <option value='이벤트진행' $is_select>이벤트진행</option>
-                                <option value='이벤트결과' $is_select>이벤트결과</option>
-                                ";
+                                            if($notice_checked == 'checked')
+                                                echo "<option value='공지' selected > 공지 </option>";
+                                            else 
+                                                echo "<option value='공지'> 공지 </option>";
+
+                                            if($event_checked == 'checked')
+                                                echo "<option value='이벤트진행' selected> 이벤트진행 </option>";
+                                            else
+                                                echo "<option value='이벤트진행'> 이벤트진행 </option>";
+                                            
+                                            if($coupon_checked == 'checked')
+                                                echo "<option value='이벤트결과' selected> 이벤트결과 </option>";
+                                            else
+                                                echo "<option value='이벤트결과'> 이벤트결과 </option>";;
                                         }
                                         ?>
                                     </select>
@@ -392,10 +401,20 @@ if ($is_member)
                                                 <?php echo $res['mb_name']; ?></option>
                                         <?php }
                                         if ($is_admin) {
-                                            echo 
-                                            "<option value='공지' $is_select>공지</option>
-                                            <option value='이벤트진행' $is_select>이벤트진행</option>
-                                            <option value='이벤트결과' $is_select>이벤트결과</option>";
+                                            if($notice_checked == 'checked')
+                                                echo "<option value='공지' selected > 공지 </option>";
+                                            else 
+                                                echo "<option value='공지'> 공지 </option>";
+
+                                            if($event_checked == 'checked')
+                                                echo "<option value='이벤트진행' selected> 이벤트진행 </option>";
+                                            else
+                                                echo "<option value='이벤트진행'> 이벤트진행 </option>";
+                                            
+                                            if($coupon_checked == 'checked')
+                                                echo "<option value='이벤트결과' selected> 이벤트결과 </option>";
+                                            else
+                                                echo "<option value='이벤트결과'> 이벤트결과 </option>";
                                         }
                                         ?>
                                     </select>                                  
@@ -839,9 +858,21 @@ if ($is_member)
                                         <?php echo $category_option;
 
                                         if ($is_admin) {
-                                            echo "<option value='공지' $is_select>공지</option>
-                                                  <option value='이벤트진행'  $is_select>이벤트진행</option>
-                                                  <option value='이벤트결과' $is_select>이벤트결과</option>";
+                                            if($notice_checked == 'checked')
+                                                echo "<option value='공지' selected > 공지 </option>";
+                                            else 
+                                                echo "<option value='공지'> 공지 </option>";
+
+                                            if($event_checked == 'checked')
+                                                echo "<option value='이벤트진행' selected> 이벤트진행 </option>";
+                                            else
+                                                echo "<option value='이벤트진행'> 이벤트진행 </option>";
+                                            
+                                            if($coupon_checked == 'checked')
+                                                echo "<option value='이벤트결과' selected> 이벤트결과 </option>";
+                                            else
+                                                echo "<option value='이벤트결과'> 이벤트결과 </option>";
+                                           
                                         }
                                         ?>
 
@@ -873,11 +904,20 @@ if ($is_member)
                                                 <?php echo $res['mb_name']; ?></option>
                                         <?php }
                                         if ($is_admin) {
-                                            echo "
-                                <option value='공지' $is_select>공지</option>
-                                <option value='이벤트진행' $is_select>이벤트진행</option>
-                                <option value='이벤트결과' $is_select>이벤트결과</option>
-                                ";
+                                            if($notice_checked == 'checked')
+                                                echo "<option value='공지' selected > 공지 </option>";
+                                            else 
+                                                echo "<option value='공지'> 공지 </option>";
+
+                                            if($event_checked == 'checked')
+                                                echo "<option value='이벤트진행' selected> 이벤트진행 </option>";
+                                            else
+                                                echo "<option value='이벤트진행'> 이벤트진행 </option>";
+                                            
+                                            if($coupon_checked == 'checked')
+                                                echo "<option value='이벤트결과' selected> 이벤트결과 </option>";
+                                            else
+                                                echo "<option value='이벤트결과'> 이벤트결과 </option>";
                                         }
                                         ?>
                                     </select>                                   
