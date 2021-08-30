@@ -63,7 +63,7 @@ for ($i=0; $i<$ca_count; $i++) {
 	}
 }
 </style>
-<nav id="bo_cate" class="<?php echo G5_IS_MOBILE ? ' p-0 ' : '' ?>">
+<nav id="bo_cate" class="<?php echo G5_IS_MOBILE ? 'mx-3 p-0 ' : '' ?>">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
 
 	<div class="category-list <?php echo G5_IS_MOBILE ? ' pb-0 pl-0' : '' ?>">
