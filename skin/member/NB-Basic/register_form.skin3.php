@@ -131,7 +131,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 					<div class="col-sm-4">
 						<input type="text" name="mb_hp" value="<?php echo $member['mb_hp'] ?>" id="mb_hp" <?php echo $required ?> <?php echo $readonly ?> class="form-control <?php echo $required ?>" minlength="3" maxlength="20">
 					</div>
-					<div class="col-sm-6 row mt-1" style="<?php echo G5_IS_MOBILE ? 'padding-left: 30px !important;' : ''; ?>" >
+					<div class="col-sm-6 row mt-1 mt-md-0" style="<?php echo G5_IS_MOBILE ? 'padding-left: 30px !important;' : ''; ?>" >
 					<a onclick="window.open('<?php echo G5_URL ?>/bbs/member_hp_change.php?mb_id=<?php echo $member['mb_id'] ?>','전화번호 변경요청','width=500,height=300,scrollbars=no,padding=0, margin=0, top=300,left=800');" 
 					style="color:#000;background-color:#efefef; padding:5px; border:1px solid #696969; border-radius:5px; text-decoration:none" >
 						<font style="vertical-align: inherit;">전화번호 변경요청</font></a>						
