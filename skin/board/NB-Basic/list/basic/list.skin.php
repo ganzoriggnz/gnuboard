@@ -395,7 +395,7 @@ if ($gr_id == 'attendance') {
             }
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
-                <li class="p-0 d-md-table-row <?php echo G5_IS_MOBILE ? '' : 'px-3' ;?> p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
+                <li class="p-0 d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
                     <div class="<?php echo G5_IS_MOBILE ? 'text-left' : 'text-center'; ?> d-md-table-cell pr-md-1 py-md-2">
                         <div class="na-title float-md-left">
                             <div class="na-item">
@@ -562,7 +562,7 @@ if ($gr_id == 'attendance') {
             }
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
-                <li class="p-0 d-md-table-row <?php echo G5_IS_MOBILE ? '' : 'px-3' ;?> py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
+                <li class="p-0 d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
                     <div class="<?php echo G5_IS_MOBILE ? 'text-left' : 'text-center'; ?> d-md-table-cell pr-md-1 py-md-2">
                         <div class="na-title float-md-left">
                             <div class="na-item">
