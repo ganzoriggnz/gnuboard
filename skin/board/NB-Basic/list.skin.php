@@ -80,7 +80,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		if (!G5_IS_MOBILE)
 			include_once('hit_latest.php'); ?>
 	<?php if(G5_IS_MOBILE): ?>
-		<div class="mb-1">
+		<div class="mb-1 mx-3">
 			<form id="fsearch" name="fsearch" method="get" class="m-auto">
 				<div class="input-group">
 					<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
