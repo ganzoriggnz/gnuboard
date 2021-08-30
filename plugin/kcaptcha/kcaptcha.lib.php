@@ -250,7 +250,10 @@ function captcha_html($class="captcha")
     $html .= "\n".'<img src="'.G5_CAPTCHA_URL.'/img/dot.gif" alt="" id="captcha_img">';
     $html .= '<input type="text" name="captcha_key" id="captcha_key" required class="captcha_box required" size="6" maxlength="6">';
     if (!is_mobile()) $html .= "\n".'<button type="button" id="captcha_mp3"><span></span>숫자음성듣기</button>';
-    $html .= "\n".'<button type="button" id="captcha_reload" '.G5_IS_MOBILE ? 'style="width:25px; height:25px;"' : '' .'><span></span>새로고침</button>';
+    if(is_mobile())
+        $html .= "\n".'<button type="button" id="captcha_reload" style="width:25px; height:25px;"><span></span>새로고침</button>';
+    else
+        $html .= "\n".'<button type="button" id="captcha_reload"><span></span>새로고침</button>';
     $html .= "\n".'<span id="captcha_info">자동등록방지 숫자를 순서대로 입력하세요.</span>';
     $html .= "\n".'</fieldset>';
     return $html;
