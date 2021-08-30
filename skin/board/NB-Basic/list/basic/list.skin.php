@@ -160,7 +160,7 @@ if ($gr_id == 'attendance') {
         </div>
     </div>
     <?php if($gr_id =='attendance') { ?>
-        <div class="w-100 <?php if($hascoupon_cnt >'0') echo 'coupon_border'; else echo ''; ?> <?php echo G5_IS_MOBILE ? 'mx-3' : '' ?>">
+        <div class="<?php if($hascoupon_cnt >'0') echo 'coupon_border'; else echo ''; ?> <?php echo !G5_IS_MOBILE ? 'w-100' : 'mx-3' ?>">
         <ul class="na-table d-md-table w-100">
         <?php
         if($hascoupon_cnt > '0'){
