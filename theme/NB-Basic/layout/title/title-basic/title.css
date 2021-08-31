@@ -8,14 +8,12 @@
 	border-bottom:1px solid #dfdfdf; 
 }
 #nt_title .d-flex { 
-	padding-top:0.5rem;
 	padding-bottom: 0.5rem;
 	padding-left: 1.0rem;
 	height: 50%;
 }
 
 #nt_title .d-flex-start{ 
-	padding-top:0.5rem;
 	padding-bottom: 0.5rem;
 	height: 50%;
 }

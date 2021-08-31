@@ -1,9 +1,6 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
 $data=array (
-  'list_skin' => 'basic',
-  'head_skin' => '',
-  'head_color' => '',
   'target' => '',
   'bo_admin' => '',
   'noti_mb' => '',

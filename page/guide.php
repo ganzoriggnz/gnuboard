@@ -130,6 +130,14 @@ function compareNumber($member_level, $level, $member_num, $num, $format=false){
 	border-color: #e4c980 !important;
 }
 
+.guide-wrap .ranking .border{
+	background-color:#e6dcc1;
+	border-color:#b1b1b1 !important;
+	border-top-width: 1px;
+}
+.guide-wrap .ranking .bb-n{
+	border-bottom: none;
+}
 </style>
 <div class="guide-wrap">
 	<h1 class="text-center mt-5 mb-5">BAMJE 밤의제국 커뮤니티 사이트 이용안내</h1>
@@ -151,8 +159,8 @@ function compareNumber($member_level, $level, $member_num, $num, $format=false){
 		<p>BAMJE 커뮤니티 사이트는 회원등급에 따라 이용하실 수 있는 서비스에 차이가 발생할 수 있습니다.</p>
 
 		<?php if($is_member){?>
-		<div class="table-responsive">
-			<table class="table table-bordered mt-3 mb-5" style="min-width: 600px;">
+		<div class="d-none d-sm-block">
+			<table class="table table-bordered mt-3 mb-5">
 				<thead>
 					<tr>
 						<th>현재레벨</th>
@@ -175,12 +183,42 @@ function compareNumber($member_level, $level, $member_num, $num, $format=false){
 				</tbody>
 			</table>
 		</div>
+
+		<!--모바일-->
+		<div class="d-sm-none">
+			<table class="table table-bordered mt-3 mb-5">
+				<thead>
+					<tr>
+						<th>현재레벨</th>
+						<th>가입일</th>
+						<th>보유 포인트</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="bb-n"><?php echo get_level($member['mb_id']).' '.get_level_name($member['mb_level']).' Lv.'.$member['mb_level']; ?></td>
+						<td class="bb-n"><?=$join_day;?>일</td>
+						<td class="bb-n"><?=number_format($member['mb_point']);?>P</td>
+					</tr>
+					<tr>
+						<th class="border">후기 작성개수</th>
+						<th class="border">게시글 작성개수</th>
+						<th class="border">댓글 작성개수</th>
+					</tr>
+					<tr>
+						<td><?=$cnt_review;?>개</td>
+						<td><?=$cnt_other;?>개</td>
+						<td><?=$cnt_comment;?>개</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		<?php }?>
 
-		<div class="table-responsive">
-			<table class="table table-bordered mt-3" style="min-width: 800px;">
+		<div class="d-none d-sm-block">
+			<table class="table table-bordered mt-3">
 				<colgroup>
-					<col style="width: 8%;">
+					<col style="width: 10%;">
 					<col style="width: 14%;">
 					<col span="5" style="width: 10%;">
 					<col>
@@ -226,6 +264,48 @@ function compareNumber($member_level, $level, $member_num, $num, $format=false){
 				</tbody>
 			</table>
 		</div>
+
+		<!--모바일-->
+		<div class="d-sm-none">
+			<?php foreach($ranking as $key=>$val){?>
+			<table class="table table-bordered mt-3">
+				<thead>
+					<tr>
+						<th colspan="5" class="text-left">
+							<span class="float-left">
+								<img src="/img/<?=$val['level'];?>.png"> <?php echo ($val['name']) ? $val['name'] : '-';?>
+							</span>
+							<?php if($is_member){?>
+							<span class="float-right mt-1">
+								<?php echo ($member['mb_level']==$val['level']) ? '현재레벨' : '';?>
+								<?php echo ($val['level'] < 24 && $member['mb_level']+1==$val['level']) ? '<span class="text-danger">등업조건미달</span>' : '';?>
+							</span>
+							<?php }?>
+						</th>
+					</tr>
+				</thead>	
+				<tbody>
+					<tr class="<?php echo ($member['mb_level']==$val['level']) ? 'active' : '';?><?php echo ($is_member && $val['level'] < 24 && $member['mb_level']+1==$val['level']) ? 'next' : '';?>">
+						<td>가입일</td>
+						<td>파운드</td>
+						<td>후기</td>
+						<td>게시글</td>
+						<td>코멘트</td>
+					</tr>
+					<tr class="<?php echo ($member['mb_level']==$val['level']) ? 'active' : '';?><?php echo ($is_member && $val['level'] < 24 && $member['mb_level']+1==$val['level']) ? 'next' : '';?>">
+						<td><?php echo compareNumber($member['mb_level'], $val['level'], $join_day, $val['join']);?></td>
+						<td><?php echo compareNumber($member['mb_level'], $val['level'], $member['mb_point'], $val['point'], true);?></td>
+						<td><?php echo compareNumber($member['mb_level'], $val['level'], $cnt_review, $val['review'], true);?></td>
+						<td><?php echo compareNumber($member['mb_level'], $val['level'], $cnt_other, $val['other'], true);?></td>
+						<td><?php echo compareNumber($member['mb_level'], $val['level'], $cnt_comment, $val['comment'], true);?></td>
+					</tr>
+					<tr class="<?php echo ($member['mb_level']==$val['level']) ? 'active' : '';?><?php echo ($is_member && $val['level'] < 24 && $member['mb_level']+1==$val['level']) ? 'next' : '';?>">
+						<td colspan="5" class="text-left"><?php echo $val['auth'];?></td>
+					</tr>
+				</tbody>
+			</table>
+			<?php }?>
+		</div>
 	</div>
 
 	<div class="point mt-5">
@@ -234,456 +314,458 @@ function compareNumber($member_level, $level, $member_num, $num, $format=false){
 		<p>- 사이트 내 컨텐츠 이용시 현금처럼 사용할 수 있는 파운드는 현금대비 1:1로 운영됩니다. 파운드정책은 수시로 변경될 수 있으며, 이를 별도로 통보하지 않습니다. </p>
 		<p>- 파운드획득을 위한 1인이 다수의 아이디 생성, 도배 및 어뷰징 등의 행위자는 통보없이 "파운드 몰수" 또는 "회원정지" 또는 "사이트 접근차단" 등의 조치를 받을 수 있습니다.</p>
 		<p>- 회원가입시(1회) 100파운드지급 트위터팔로우 500파운드지급, 각 쪽지발송시(매회) -10파운드 차감</p>
-		<div class="table-responsive">
-			<table class="table table-bordered mt-3" style="min-width:550px;">
-				<col span="5" style="width: 20%;">
-				<thead>
-					<tr>
-						<th class="align-middle" rowspan="2">그룹명</th>
-						<th class="align-middle" rowspan="2">게시판명</th>
-						<th colspan="3">파운드</th>
-					</tr>
-					<tr>
-						<th>쓰기</th>
-						<th>댓글</th>
-						<th>다운</th>				
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th rowspan="11">커뮤니티</th>
-						<td>출석체크</td>
-						<td>10</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>공지사항</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>가입인사</td>
-						<td>300</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>자유게시판</td>
-						<td>10</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>이벤트</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>왕궁 게시판</td>
-						<td>-</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>미수다</td>
-						<td>30</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건의사항</td>
-						<td>50</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>아이템 샾</td>
-						<td>-</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>가문게시판</td>
-						<td>30</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>구인구직</td>
-						<td>-100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<th rowspan="26">출근부</th>
-						<td>오피-강남영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-비강남영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-경기영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-인천/부천영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-강원/충청/대전영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-경상영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-대구영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-전라/제주영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>안마-서울영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>안마-지방영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-서울영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-경기영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-인천/부천영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-강원/충청/대전영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-경상/전라/제주영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>술집-서울영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>술집-지방영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-서울영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-경기영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-인천/부천영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-강원/충청/대전</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-경상/전라/제주</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>키스방-전국영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>립카페-전국영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>핸플/패티쉬영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>선불폰/프로필 여행사/기타</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<th rowspan="26">후기</th>
-						<td>오피-강남영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-비강남영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-경기영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-인천/부천영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-강원/충청/대전영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-경상영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-대구영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>오피-전라/제주영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>안마-서울영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>안마-지방영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-서울영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-경기영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-인천/부천영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-강원/충청/대전영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>건마-경상/전라/제주영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>술집-서울영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>술집-지방영토</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-서울영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-경기영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-인천/부천영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-강원/충청/대전</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>휴게텔-경상/전라/제주</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>키스방-전국영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>립카페-전국영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>핸플/패티쉬영토</td>
-						<td>100</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>선불폰/프로필 여행사/기타</td>
-						<td>-</td>
-						<td>2</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<th rowspan="4">자료실</th>
-						<td>영화</td>
-						<td>10</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>TV영상</td>
-						<td>10</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>웹툰/야설</td>
-						<td>10</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>유튜브 영상</td>
-						<td>10</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<th rowspan="4">고객센터</th>
-						<td>쪽지</td>
-						<td>-10</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>펫 기르기</td>
-						<td>50</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>일일미션</td>
-						<td>50</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>트위터 인증</td>
-						<td>500</td>
-						<td>-</td>
-						<td>-</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<table class="table table-bordered mt-3">
+			<col style="width: 20%;">
+			<col style="width: 35%;">
+			<col style="width: 15%;">
+			<col style="width: 15%;">
+			<col style="width: 15%;">
+			<thead>
+				<tr>
+					<th class="align-middle" rowspan="2">그룹명</th>
+					<th class="align-middle" rowspan="2">게시판명</th>
+					<th colspan="3">파운드</th>
+				</tr>
+				<tr>
+					<th>쓰기</th>
+					<th>댓글</th>
+					<th>다운</th>				
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th rowspan="11">커뮤니티</th>
+					<td>출석체크</td>
+					<td>10</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>공지사항</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>가입인사</td>
+					<td>300</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>자유게시판</td>
+					<td>10</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>이벤트</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>왕궁 게시판</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>미수다</td>
+					<td>30</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건의사항</td>
+					<td>50</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>아이템 샾</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>가문게시판</td>
+					<td>30</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>구인구직</td>
+					<td>-100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th rowspan="26">출근부</th>
+					<td>오피-강남영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-비강남영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-경기영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-인천/부천영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-강원/충청/대전영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-경상영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-대구영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-전라/제주영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>안마-서울영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>안마-지방영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-서울영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-경기영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-인천/부천영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-강원/충청/대전영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-경상/전라/제주영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>술집-서울영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>술집-지방영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-서울영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-경기영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-인천/부천영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-강원/충청/대전</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-경상/전라/제주</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>키스방-전국영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>립카페-전국영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>핸플/패티쉬영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>선불폰/프로필 여행사/기타</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th rowspan="26">후기</th>
+					<td>오피-강남영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-비강남영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-경기영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-인천/부천영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-강원/충청/대전영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-경상영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-대구영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>오피-전라/제주영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>안마-서울영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>안마-지방영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-서울영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-경기영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-인천/부천영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-강원/충청/대전영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>건마-경상/전라/제주영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>술집-서울영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>술집-지방영토</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-서울영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-경기영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-인천/부천영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-강원/충청/대전</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>휴게텔-경상/전라/제주</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>키스방-전국영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>립카페-전국영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>핸플/패티쉬영토</td>
+					<td>100</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>선불폰/프로필 여행사/기타</td>
+					<td>-</td>
+					<td>2</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th rowspan="4">자료실</th>
+					<td>영화</td>
+					<td>10</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>TV영상</td>
+					<td>10</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>웹툰/야설</td>
+					<td>10</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>유튜브 영상</td>
+					<td>10</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th rowspan="4">고객센터</th>
+					<td>쪽지</td>
+					<td>-10</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>펫 기르기</td>
+					<td>50</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>일일미션</td>
+					<td>50</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>트위터 인증</td>
+					<td>500</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 
 	<div class="limit mt-5" style="margin-bottom:80px;">
