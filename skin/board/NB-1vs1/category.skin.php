@@ -25,7 +25,7 @@ for ($i=0; $i<$ca_count; $i++) {
 
 ?>
 
-<nav id="bo_cate" class="sly-tab font-weight-normal mb-2 <?php echo G5_IS_MOBILE ? 'mx-3 p-0 m-0' : ''; ?>">
+<nav id="bo_cate" class="sly-tab font-weight-normal mb-2 <?php echo G5_IS_MOBILE ? 'p-0 m-0' : ''; ?>">
 	<h3 class="sr-only"><?php echo $board['bo_subject'] ?> 분류 목록</h3>
 	<div class="<?php echo G5_IS_MOBILE ? 'px-0' : 'px-3' ?>">
 		<div class="d-flex">
