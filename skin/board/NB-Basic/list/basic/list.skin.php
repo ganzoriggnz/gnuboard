@@ -134,7 +134,7 @@ if ($gr_id == 'attendance') {
     }
 </style>
 
-<section id="bo_list" class="mb-4 <?php echo G5_IS_MOBILE ? ' mt-1 ' : '' ?>">
+<section id="bo_list" class="mb-4 <?php echo G5_IS_MOBILE ? ' mt-4 ' : '' ?>">
     <!-- 목록 헤드 -->
     <div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:1px;"></div>
 
