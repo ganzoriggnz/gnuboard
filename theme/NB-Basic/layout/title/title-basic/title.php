@@ -6,11 +6,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$nt_title_url.'/title.css">', 0);
 ?>
 
 <!-- Page Title -->
-<div id="nt_title" class="font-weight-normal" style="margin-bottom: 8px;">
+<div id="nt_title" class="font-weight-normal" <?php if(!G5_IS_MOBILE){ echo 'style="margin-bottom: 8px;"'; } else {echo 'style="margin-bottom: 5px;"' ;}?> >
 
 	<?php if(G5_IS_MOBILE) { ?>
 		<div class="nt-container px-xl-0">	
-			<div class="d-flex pb-1">
+			<div class="d-flex pb-1 pl-0">
 			<!-- <div class="align-self-center page-title en text-nowrap">
 				<?php if($tset['page_icon']) { ?>
 					<i class="fa <?php echo $tset['page_icon'] ?>" aria-hidden="true"></i>

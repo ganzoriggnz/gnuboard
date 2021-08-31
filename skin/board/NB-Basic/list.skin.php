@@ -79,9 +79,8 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 	)
 		if (!G5_IS_MOBILE)
 			include_once('hit_latest.php'); ?>
-	<br>
 	<?php if(G5_IS_MOBILE): ?>
-		<div class="mb-4">
+		<div class="mb-1">
 			<form id="fsearch" name="fsearch" method="get" class="m-auto">
 				<div class="input-group">
 					<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
@@ -156,7 +155,7 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 
 	<!-- } 검색창 끝 -->
 
-	<form name="fboardlist" id="fboardlist"
+	<form name="fboardlist" id="fboardlist" 
         onsubmit="return fboardlist_submit(this);"
         method="post">
 		<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
@@ -171,27 +170,41 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 		<?php if ($bo_table != "pointrank" && $bo_table != "penyrank" && $bo_table != "levelrank" && $bo_table != "boardadmlist" && $bo_table != "mypage") { ?>
 
 			<!-- 게시판 페이지 정보 및 버튼 시작 { -->
-			<div id="bo_btn_top">
-				<div id="bo_list_total">
-					<?php if (!G5_IS_MOBILE) { ?>
+			<div id="bo_btn_top" class="<?php echo G5_IS_MOBILE ? 'p-0 ' : '' ?>">
+				<div id="bo_list_total" >
+					<?php if ($board['bo_admin'] != '' || $group['gr_admin'] != '') : ?> 
+						<?php echo "<span style='font-size:12px;'>" . " 이벤트관리자 : " . "</span>"; ?>
 						<?php $row = sql_fetch("select * from {$g5['member_table']} where mb_id='{$board['bo_admin']}'"); ?>
 						<?php $row1 = sql_fetch("select * from {$g5['member_table']} where mb_id='{$group['gr_admin']}'"); ?>
+						<?php if ($board['bo_admin'] != '') : ?>
 						<?php
-						$mbid1 = get_member($board['bo_admin']);
-						$name1 = get_sideview($mbid1['mb_id'], $mbid1['mb_nick'], $mbid1['mb_homepage']);
-						$mbid2 = get_member($group['gr_admin']);
-						$name2 = get_sideview($mbid2['mb_id'], $mbid2['mb_nick'], $mbid2['mb_homepage']);
-						?>
-						<?php if ($board['bo_admin'] != '' && $gr_id != 'attendance') {
-							echo $board['bo_subject'] . " 관리자 : " ?> <?php echo na_name_photo($board['bo_admin'], "<p class='username' style='display: inline-block;'>" . $name1 . "</p>");
-																											} ?>
-						<?php if ($group['gr_admin'] != '' && $gr_id != 'attendance') {
-							echo "&nbsp;&nbsp;" . $group['gr_subject'] . " 관리자 : " . na_name_photo($group['gr_admin'], "<p class='username' style='display: inline-block;'>" . $name2 . "</p>");
-						} ?> <?php echo "&nbsp;&nbsp;", "", "&nbsp;&nbsp;" ?>
-						<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]" ?>
-					<?php } ?>
+								$board_admins = explode(",",$board['bo_admin']);
+								foreach ($board_admins as $key => $value) :
+									$mbid1 = get_member($value);
+									$name1 = get_sideview($mbid1['mb_id'], $mbid1['mb_nick'], $mbid1['mb_homepage']);
+									echo na_name_photo($value, "<p class='username' style='display: inline-block;'>" . $name1 . "</p>");
+								endforeach; ?>
+						<?php endif; ?>
+						<?php if ($group['gr_admin'] != '') : ?>
+							<?php 
+								echo $board['bo_admin'] != '' ? "<span>" . ", " . "</span>" : "";
+								$group_admins = explode(",",$group['gr_admin']);
+								foreach ($group_admins as $key => $value) :
+									$mbid2 = get_member($value);
+									$name2 = get_sideview($mbid2['mb_id'], $mbid2['mb_nick'], $mbid2['mb_homepage']);
+									echo na_name_photo($value, "<p class='username mr-3' style='display: inline-block;'>" . $name2 . "</p>");
+								endforeach;
+							?>						
+						<?php endif; ?>
+
+					<?php endif; ?>					
+					<?php if(!G5_IS_MOBILE):?>
+						<?php if($bo_table != "free" && $bo_table != "event"):?>
+							<?php echo "[글 작성 " . $board['bo_write_point'] . " 파운드 /  댓글 작성 " . $board['bo_comment_point'] . " 파운드 획득]"; ?>
+						<?php endif; ?>
+					<?php endif; ?>
 				</div>
-				<div role="group">
+				<div role="group" style="min-width: max-content;">
 					<?php if ($admin_href && G5_BZY_CHECK && $is_admin == 'super') { ?>
 						<a href="<?php echo $admin_href ?>" class="py-1 btn btn_admin nofocus" title="관리자" role="button">
 							<i class="fa fa-cog fa-spin fa-md" aria-hidden="true"></i>
@@ -240,82 +253,84 @@ add_javascript('<script src="' . G5_JS_URL . '/jquery.rumiTab.js"></script>', 0)
 							<!-- </form> -->
 						</div>
 					<?php endif; ?>
-						<div class="btn-group">
-						<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
-							<div> <a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table']; ?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
-									쿠폰지원내역
-								</a> </div>
-							&nbsp;&nbsp;
-						<?php } ?>
-						<?php if (
-							$is_admin
-							|| ($gr_id == "attendance")
-							|| ($gr_id == "service")
-							|| ($gr_id == "community" && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super'))))
-							|| (($gr_id == "review") && ($member['mb_level'] != 26 && $member['mb_level'] != 27))
-							|| ($gr_id == "library")
-						) { ?>
-							<?php if ($write_href) { ?>
-								<div>
-									<button type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
-										<img src="<?php echo G5_URL ?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
-									</button>
+							<?php if ($board['gr_id'] == "review" && ($board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id'] || $is_admin == 'super')) { ?>
+								<div class="btn-group" >
+									<div> 
+										<a href="<?php echo G5_BBS_URL ?>/coupon_list.php?bo_table=<?php echo $board['bo_table']; ?>" target="_blank" class="btn btn-primary win_coupon adminbtn" role="button">
+											쿠폰지원내역
+										</a> 
+									</div>
 								</div>
-						<?php }
-						} ?>
-					</div>
+							<?php } ?>
+							<?php if (
+								$is_admin
+								|| ($gr_id == "attendance")
+								|| ($gr_id == "service")
+								|| ($gr_id == "community" && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super'))))
+								|| (($gr_id == "review") && ($member['mb_level'] != 26 && $member['mb_level'] != 27))
+								|| ($gr_id == "library")
+							) : ?>
+								<?php if ($write_href) : ?>
+									<div class="btn-group" >
+										<div>
+											<button  <?php echo G5_IS_MOBILE ? "style='min-width:max-content;'" : ""; ?> type="button" class="btn btn-primary adminbtn" onclick="location.href='<?php echo $write_href ?>'">
+												<img src="<?php echo G5_URL ?>/img/solid/pencil-alt.svg" style="height: 10px;">&nbsp;글쓰기
+											</button>
+										</div>
+									</div>
+								<?php endif; ?>
+							<?php endif; ?>
 					<?php if (!G5_IS_MOBILE) : ?>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
-							<?php
-							switch ($sst) {
-								case 'wr_datetime':
-									$sst_icon = 'history';
-									$sst_txt = '날짜순 정렬';
-									break;
-								case 'wr_hit':
-									$sst_icon = 'eye';
-									$sst_txt = '조회순 정렬';
-									break;
-									// case 'wr_good':
-									// 	$sst_icon = 'thumbs-o-up';
-									// 	$sst_txt = '추천순 정렬';
-									// 	break;
-									// case 'wr_nogood':
-									// 	$sst_icon = 'thumbs-o-down';
-									// 	$sst_txt = '비추천순 정렬';
-									// 	break;
-								default:
-									$sst_icon = 'sort-numeric-desc';
-									$sst_txt = '게시물 정렬';
-									break;
-							}
-							?>
-							<i class="fa fa-<?php echo $sst_icon ?> fa-md" aria-hidden="true"></i>
-							<span class="sr-only"><?php echo $sst_txt ?></span>
-						</button>
-						<div class="p-0 text-right bg-transparent border-0 dropdown-menu dropdown-menu-right">
-							<div class="py-1 bg-white border rounded btn-group-vertical">
-								<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_datetime', $qstr2, 1)) ?>
-								날짜순
-								</a>
-								<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
-								조회순
-								</a>
-								<!-- <?php if ($is_good) { ?>
-									<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
-									추천순
+						<div class="btn-group" role="group">
+							<button type="button" class="py-1 btn btn_b01 nofocus dropdown-toggle dropdown-toggle-empty dropdown-toggle-split" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="게시물 정렬">
+								<?php
+								switch ($sst) {
+									case 'wr_datetime':
+										$sst_icon = 'history';
+										$sst_txt = '날짜순 정렬';
+										break;
+									case 'wr_hit':
+										$sst_icon = 'eye';
+										$sst_txt = '조회순 정렬';
+										break;
+										// case 'wr_good':
+										// 	$sst_icon = 'thumbs-o-up';
+										// 	$sst_txt = '추천순 정렬';
+										// 	break;
+										// case 'wr_nogood':
+										// 	$sst_icon = 'thumbs-o-down';
+										// 	$sst_txt = '비추천순 정렬';
+										// 	break;
+									default:
+										$sst_icon = 'sort-numeric-desc';
+										$sst_txt = '게시물 정렬';
+										break;
+								}
+								?>
+								<i class="fa fa-<?php echo $sst_icon ?> fa-md" aria-hidden="true"></i>
+								<span class="sr-only"><?php echo $sst_txt ?></span>
+							</button>
+							<div class="p-0 text-right bg-transparent border-0 dropdown-menu dropdown-menu-right">
+								<div class="py-1 bg-white border rounded btn-group-vertical">
+									<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_datetime', $qstr2, 1)) ?>
+									날짜순
 									</a>
-								<?php } ?>
-								<?php if ($is_nogood) { ?>
-									<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
-									비추천순
+									<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_hit', $qstr2, 1)) ?>
+									조회순
 									</a>
-								<?php } ?> -->
+									<!-- <?php if ($is_good) { ?>
+										<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_good', $qstr2, 1)) ?>
+										추천순
+										</a>
+									<?php } ?>
+									<?php if ($is_nogood) { ?>
+										<?php echo str_replace('>', ' class="px-3 py-1 text-left btn" role="button">', subject_sort_link('wr_nogood', $qstr2, 1)) ?>
+										비추천순
+										</a>
+									<?php } ?> -->
+								</div>
 							</div>
 						</div>
-					</div>
 					<?php endif; ?>
 					<?php if ($is_admin == 'super' || $is_auth || IS_DEMO) {  ?>
 						<div class="btn-group" role="group">

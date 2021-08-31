@@ -89,7 +89,7 @@ if ($w == '' || $w == 'u') {
     if($w == '' && $mb_password != $mb_password_re)
         alert('비밀번호가 일치하지 않습니다.');
 
-    if ($msg = empty_mb_name($mb_name))       alert($msg, "", true, true);
+    // if ($msg = empty_mb_name($mb_name))       alert($msg, "", true, true);
     if ($msg = empty_mb_nick($mb_nick))     alert($msg, "", true, true);
     //if ($msg = empty_mb_email($mb_email))   alert($msg, "", true, true);
     if ($msg = reserve_mb_id($mb_id))       alert($msg, "", true, true);
@@ -294,6 +294,9 @@ if ($w == '') {
     set_session('ss_mb_reg', $mb_id);
 
 } else if ($w == 'u') {
+    if($member['mb_level'] == 27 || $member['mb_level'] == 26)
+        alert("관리자에게 문의 하시기 바랍니다.", "/bbs/userinfo.php");
+        
     if (!trim($_SESSION['ss_mb_id']))
         alert('로그인 되어 있지 않습니다.');
 

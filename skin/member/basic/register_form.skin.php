@@ -68,7 +68,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 							<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
 							<span class="tooltip">영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력하세요.</span>
 						</label>
-						<input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" <?php echo $required ?> <?php echo $readonly ?> class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?>" minlength="3" maxlength="20" placeholder="아이디">
+						<input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id"  <?php echo $readonly ?> class="frm_input full_input  <?php echo $readonly ?>" minlength="3" maxlength="20" placeholder="아이디">
 						<span id="msg_mb_id"></span>
 					</li>
 					<li>
@@ -111,7 +111,7 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 				<ul>
 					<li>
 						<label for="reg_mb_name">이름<!-- <strong class="sound-only">필수</strong> --></label>
-						<input type="hidden" id="reg_mb_name" name="mb_name" value="공백" <?php echo $required ?> <?php echo $readonly; ?> class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?>" size="10" placeholder="이름">
+						<input type="hidden" id="reg_mb_name" name="mb_name" value="" <?php echo $readonly; ?> class="frm_input full_input <?php echo $readonly ?>" size="10" placeholder="이름">
 						<?php
 						if ($config['cf_cert_use']) {
 							if ($config['cf_cert_ipin'])
@@ -366,14 +366,14 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 	// submit 최종 폼체크
 	function fregisterform_submit(f) {
 		// 회원아이디 검사
-		if (f.w.value == "") {
-			var msg = reg_mb_id_check();
-			if (msg) {
-				alert(msg);
-				f.mb_id.select();
-				return false;
-			}
-		}
+		// if (f.w.value == "") {
+		// 	var msg = reg_mb_id_check();
+		// 	if (msg) {
+		// 		alert(msg);
+		// 		f.mb_id.select();
+		// 		return false;
+		// 	}
+		// }
 
 		if (f.w.value == "") {
 			if (f.mb_password.value.length < 3) {
@@ -397,23 +397,23 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 			}
 		}
 
-		//이름 검사
-		if (f.w.value == "") {
-			if (f.mb_name.value.length < 1) {
-				alert("이름을 입력하십시오.");
-				f.mb_name.focus();
-				return false;
-			}
+		// //이름 검사
+		// if (f.w.value == "") {
+		// 	if (f.mb_name.value.length < 1) {
+		// 		alert("이름을 입력하십시오.");
+		// 		f.mb_name.focus();
+		// 		return false;
+		// 	}
 
-			/*
-			var pattern = /([^가-힣\x20])/i;
-			if (pattern.test(f.mb_name.value)) {
-			    alert("이름은 한글로 입력하십시오.");
-			    f.mb_name.select();
-			    return false;
-			}
-			*/
-		}
+		// 	/*
+		// 	var pattern = /([^가-힣\x20])/i;
+		// 	if (pattern.test(f.mb_name.value)) {
+		// 	    alert("이름은 한글로 입력하십시오.");
+		// 	    f.mb_name.select();
+		// 	    return false;
+		// 	}
+		// 	*/
+		// }
 
 		<?php if ($w == '' && $config['cf_cert_use'] && $config['cf_cert_req']) { ?>
 			// 본인확인 체크

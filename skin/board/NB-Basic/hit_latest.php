@@ -63,12 +63,12 @@ function latest_popular($bo_table, $rows=10, $subject_len=40, $term='', $options
       <?php for ($i=0; $i<count($list); $i++) {  ?>
       <li>
       <?php
-      echo "<a href=\"".$list[$i]['href']."\">";
+      echo "<a href=\"".$list[$i]['href']."\" class='d-flex'>";
       echo "<div class=\"num float-left\">".($i+1)."</div> ";
-      echo $list[$i]['subject'];
+      echo  "<p style='text-overflow: ellipsis; overflow: hidden;'>" . $list[$i]['subject'] .  "</p>";
       ?>
       <!-- //  ner oruulj ireh -->
-      <div class="float-right"> ★ 익명</div>
+      <div class="ml-auto"> ★ 익명</div>
       <?php echo "</a>"; ?>
       
         </li>

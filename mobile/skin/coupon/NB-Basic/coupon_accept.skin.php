@@ -48,7 +48,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                             <input type="hidden" name="cos_no" value="<?php echo $row['cos_no']; ?>"/>
                             <input type="hidden" name="co_no" value="<?php echo $row['co_no']; ?>"/>
                             <input type="hidden" name="cos_code" value="<?php echo $row['cos_code']; ?>"/>
-                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="사용완료"' : 'class="accept_btn" value="쿠폰사용하기"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰사용하기"; ?></button>
+                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="사용완료"' : 'class="accept_btn" value="쿠폰 미사용"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰 미사용"; ?></button>
                         </form> 
                     </td>
                 </tr>
@@ -66,7 +66,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                     <td id="changeText"><?php if($row['cos_accept'] == 'N') { echo "(사용하기 누를때 나옴)"; } else { echo $row['cos_code']; } ?></td>
                     <td><?php echo "당첨 ".$row['cos_created_datetime'];?></br><?php if($row['cos_accept'] == 'Y') echo "사용 ".$row['cos_accepted_datetime']; ?></td>
                     <td>
-                        <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="사용완료"' : 'class="accept_btn" value="쿠폰사용하기"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰사용하기"; ?></button>                     
+                        <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="쿠폰사용"' : 'class="accept_btn" value="쿠폰지급"'?>><?php echo ($row['cos_accept'] == 'Y') ? "쿠폰사용" : "쿠폰지급"; ?></button>                     
                     </td>
                 </tr>
             <?php } }  else if($member['mb_level'] == '24') {?>
@@ -86,7 +86,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                         <td id="changeText"><?php if($row['cos_accept'] == 'N') { echo "(사용하기 누를때 나옴)"; } else { echo $row['cos_code']; } ?></td>
                         <td><?php echo "당첨 ".$row['cos_created_datetime'];?></br><?php if($row['cos_accept'] == 'Y') echo "사용 ".$row['cos_accepted_datetime']; ?></td>
                         <td>
-                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="사용완료"' : 'class="accept_btn" value="쿠폰사용하기"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰사용하기"; ?></button>                     
+                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="쿠폰사용"' : 'class="accept_btn" value="쿠폰지급"'?>><?php echo ($row['cos_accept'] == 'Y') ? "쿠폰사용" : "쿠폰지급"; ?></button>                     
                         </td>
                     </tr>
             <?php } } } else if($member['mb_level'] == '25' || $is_admin) {?>
@@ -105,7 +105,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                         <td id="changeText"><?php if($row['cos_accept'] == 'N') { echo "(사용하기 누를때 나옴)"; } else { echo $row['cos_code']; } ?></td>
                         <td><?php echo "당첨 ".$row['cos_created_datetime'];?></br><?php if($row['cos_accept'] == 'Y') echo "사용 ".$row['cos_accepted_datetime']; ?></td>
                         <td>
-                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="사용완료"' : 'class="accept_btn" value="쿠폰사용하기"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰사용하기"; ?></button>                     
+                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="쿠폰사용"' : 'class="accept_btn" value="쿠폰지급"'?>><?php echo ($row['cos_accept'] == 'Y') ? "쿠폰사용" : "쿠폰지급"; ?></button>                     
                         </td>
                     </tr>
             <?php } } } ?>

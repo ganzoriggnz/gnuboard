@@ -379,7 +379,7 @@ function na_soundcloud($str) {
 }
 
 function na_member_photo($mb_id){
-
+	//aa
     static $no_profile_cache = '';
     static $member_cache = array();
     

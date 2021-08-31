@@ -134,7 +134,7 @@ if ($gr_id == 'attendance') {
     }
 </style>
 
-<section id="bo_list" class="mb-4">
+<section id="bo_list" class="mb-4 <?php echo G5_IS_MOBILE ? ' mt-4 ' : '' ?>">
     <!-- 목록 헤드 -->
     <div class="d-block d-md-none w-100 mb-0 bg-<?php echo $head_color ?>" style="height:1px;"></div>
 
@@ -160,7 +160,7 @@ if ($gr_id == 'attendance') {
         </div>
     </div>
     <?php if($gr_id =='attendance') { ?>
-        <div class="w-100 <?php if($hascoupon_cnt >'0') echo 'coupon_border'; else echo ''; ?>">
+        <div class="<?php if($hascoupon_cnt >'0') echo 'coupon_border'; else echo ''; ?> w-100">
         <ul class="na-table d-md-table w-100">
         <?php
         if($hascoupon_cnt > '0'){
@@ -228,11 +228,11 @@ if ($gr_id == 'attendance') {
                 }
                 
                 if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
-                    <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
+                    <li class="p-0 d-md-table-row <?php echo G5_IS_MOBILE ? '' : 'px-3' ;?> py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
                         <div class="<?php echo G5_IS_MOBILE ? 'text-left' : 'text-center'; ?> d-md-table-cell pr-md-1 py-md-2">
                             <div class="na-title float-md-left">
                                 <div class="na-item">
-                                    <?php if($gr_id == 'attendance' && $list[$i]['has_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
+                                    <?php if($gr_id == 'attendance' && $list[$i]['has_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon2.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
                                     <!-- <?php if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; ';
                                             echo $list[$i]['num2'] ?> -->
                                     <?php if ($is_checkbox) { ?>
@@ -395,11 +395,11 @@ if ($gr_id == 'attendance') {
             }
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
-                <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
+                <li class="p-0 d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
                     <div class="<?php echo G5_IS_MOBILE ? 'text-left' : 'text-center'; ?> d-md-table-cell pr-md-1 py-md-2">
                         <div class="na-title float-md-left">
                             <div class="na-item">
-                                <?php if($gr_id == 'attendance' && $list[$i]['has_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
+                                <?php if($gr_id == 'attendance' && $list[$i]['has_coupon'])  echo '<img src="'.G5_URL.'/nariya/img/coupon2.png" class="title_icon icon_img" alt="쿠폰후기">'; ?>
                                     <?php if ($is_checkbox) : ?>
                                         <input type="checkbox" class="mb-0 mr-2" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
                                     <?php endif; ?>
@@ -562,7 +562,7 @@ if ($gr_id == 'attendance') {
             }
             
             if (!strstr($list[$i]['wr_option'], "secret") || $is_admin || ($list[$i]['mb_id'] == $member['mb_id'] && strstr($list[$i]['wr_option'], "secret") && $board['bo_table'] == 'twitter')) { ?>
-                <li class="d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
+                <li class="p-0 d-md-table-row px-3 py-2 p-md-0 text-md-center text-muted border-bottom<?php echo $li_css; ?>">
                     <div class="<?php echo G5_IS_MOBILE ? 'text-left' : 'text-center'; ?> d-md-table-cell pr-md-1 py-md-2">
                         <div class="na-title float-md-left">
                             <div class="na-item">
