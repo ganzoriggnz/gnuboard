@@ -145,7 +145,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                             <input type="hidden" name="cos_no" value="<?php echo $row['cos_no']; ?>"/>
                             <input type="hidden" name="co_no" value="<?php echo $row['co_no']; ?>"/>
                             <input type="hidden" name="cos_code" value="<?php echo $row['cos_code']; ?>"/>
-                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="사용완료"' : 'class="accept_btn" value="쿠폰 미사용"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰 미사용"; ?></button>
+                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="사용완료"' : 'class="accept_btn" value="쿠폰사용하기"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰사용하기"; ?></button>
                         </form> 
                     </td>
                 </tr>
@@ -164,7 +164,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                     <td id="changeText"><?php if($row['cos_accept'] == 'N') { echo "(사용하기 누를때 나옴)"; } else { echo $row['cos_code']; } ?></td>
                     <td><?php echo "당첨 ".$row['cos_created_datetime'];?></br><?php if($row['cos_accept'] == 'Y') echo "사용 ".$row['cos_accepted_datetime']; ?></td>
                     <td>
-                        <button type="button" id="<?php echo $i; ?>" disabled="disabled" class="disabled" <?php echo ($row['cos_accept'] == 'Y') ? 'value="사용완료"' : 'class="accept_btn" value="쿠폰 미사용"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰 미사용"; ?></button>                     
+                        <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="쿠폰사용"' : 'class="accept_btn" value="쿠폰지급"'?>><?php echo ($row['cos_accept'] == 'Y') ? "쿠폰사용" : "쿠폰지급"; ?></button>                     
                     </td>
                 </tr>
             <?php } }  else if($member['mb_level'] == '24') {?>
@@ -184,7 +184,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                         <td id="changeText"><?php if($row['cos_accept'] == 'N') { echo "(사용하기 누를때 나옴)"; } else { echo $row['cos_code']; } ?></td>
                         <td><?php echo "당첨 ".$row['cos_created_datetime'];?></br><?php if($row['cos_accept'] == 'Y') echo "사용 ".$row['cos_accepted_datetime']; ?></td>
                         <td>
-                            <button type="button" id="<?php echo $i; ?>" disabled="disabled" class="disabled" <?php echo ($row['cos_accept'] == 'Y') ? 'value="사용완료"' : 'class="accept_btn" value="쿠폰 미사용"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰 미사용"; ?></button>                     
+                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="쿠폰사용"' : 'class="accept_btn" value="쿠폰지급"'?>><?php echo ($row['cos_accept'] == 'Y') ? "쿠폰사용" : "쿠폰지급"; ?></button>                     
                         </td>
                     </tr>
             <?php } } } else if($member['mb_level'] == '25' || $is_admin) {?>
@@ -203,7 +203,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                         <td id="changeText"><?php if($row['cos_accept'] == 'N') { echo "(사용하기 누를때 나옴)"; } else { echo $row['cos_code']; } ?></td>
                         <td><?php echo "당첨 ".$row['cos_created_datetime'];?></br><?php if($row['cos_accept'] == 'Y') echo "사용 ".$row['cos_accepted_datetime']; ?></td>
                         <td>
-                            <button type="button" id="<?php echo $i; ?>" disabled="disabled" class="disabled" <?php echo ($row['cos_accept'] == 'Y') ? 'value="사용완료"' : 'class="accept_btn" value="쿠폰 미사용"'?>><?php echo ($row['cos_accept'] == 'Y') ? "사용완료" : "쿠폰 미사용"; ?></button>                     
+                            <button type="button" id="<?php echo $i; ?>" <?php echo ($row['cos_accept'] == 'Y') ? ' disabled="disabled" class="disabled" value="쿠폰사용"' : 'class="accept_btn" value="쿠폰지급"'?>><?php echo ($row['cos_accept'] == 'Y') ? "쿠폰사용" : "쿠폰지급"; ?></button>                     
                         </td>
                     </tr>
             <?php } } } ?>
@@ -221,21 +221,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                 <li>쿠폰을 받은 사람은 7일이내 사용하기를 누르지 않으면 <span style="color: blue">자동으로 회수됩니다.</span></li>
                 <li>사용하기 클릭 후 5일 이내에 해당 게시판에서 후기를 작성하지 않으면 경고를 받게 됩니다.</li>
             </ul>
-        </div> 
-        <?php if($member['mb_level'] == '24' || $member['mb_level'] == '25' || $member['mb_level'] == '26' || $member['mb_level'] == '27'): ?>
-            <script>
-            $(document).ready(function(){
-                    $('button').click(function(){
-                        var formId = "#fcouponaccept" + this.id;
-                        $('.popup_box').css("display", "block");
-                        $('.btn').click(function(){
-                            $('.popup_box').css("display", "none");
-                            $(formId).submit();
-                        });
-                    });                                  
-                })            
-                                            
-            </script>
-        <?php endif; ?>
+        </div>
+        <script>
+           $(document).ready(function(){
+                $('button').click(function(){
+                    var formId = "#fcouponaccept" + this.id;
+                    $('.popup_box').css("display", "block");
+                    $('.btn').click(function(){
+                        $('.popup_box').css("display", "none");
+                        $(formId).submit();
+                    });
+                });                                  
+            })            
+                                        
+        </script>
     </div>
 </div>
