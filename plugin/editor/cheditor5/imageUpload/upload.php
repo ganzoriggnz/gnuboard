@@ -89,9 +89,9 @@ if ($found != true) {
 	exit;
 }
 
-// ÀúÀå ÆÄÀÏ ÀÌ¸§: ³â¿ùÀÏ½ÃºÐÃÊ_·»´ý¹®ÀÚ8ÀÚ
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½: ï¿½ï¿½ï¿½ï¿½Ï½Ãºï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8ï¿½ï¿½
 // 20140327125959_abcdefghi.jpg
-// ¿øº» ÆÄÀÏ ÀÌ¸§: $_POST["origname"]
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½: $_POST["origname"]
 
 $filename = che_replace_filename($filename);
 $savefile = SAVE_DIR . '/' . $filename;
@@ -122,6 +122,10 @@ $file_url = SAVE_URL.'/'.$filename;
 if( function_exists('run_replace') ){
     $file_url = run_replace('get_editor_upload_url', $file_url, $savefile, array());
 }
+echo $file_url . "\n";
+echo $savefile . "\n";
+echo $filename . "\n";
+echo $filesize . "\n";
 
 $rdata = sprintf('{"fileUrl": "%s", "filePath": "%s", "fileName": "%s", "fileSize": "%d" }',
 	$file_url,
