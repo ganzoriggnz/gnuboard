@@ -115,6 +115,7 @@ if ( CHE_UPLOAD_IMG_CHECK && ! che_reprocessImage($savefile, null) ){
 try {
     if(defined('G5_FILE_PERMISSION')) chmod($savefile, G5_FILE_PERMISSION);
 } catch (Exception $e) {
+    var_dump($e);die;
 }
 
 $file_url = SAVE_URL.'/'.$filename;
