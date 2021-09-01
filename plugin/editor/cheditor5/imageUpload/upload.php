@@ -5,7 +5,7 @@ if(!function_exists('ft_nonce_is_valid')){
     include_once('../editor.lib.php');
 }
 echo "<pre>";
-print_r($_FILES['file']);
+print_r($_FILES);
 echo "</pre>";
 if( !function_exists('che_reprocessImage') ){
     function che_reprocessImage($file_path, $callback){
