@@ -122,10 +122,14 @@ $file_url = SAVE_URL.'/'.$filename;
 if( function_exists('run_replace') ){
     $file_url = run_replace('get_editor_upload_url', $file_url, $savefile, array());
 }
-echo $file_url . "\n";
-echo $savefile . "\n";
-echo $filename . "\n";
-echo $filesize . "\n";
+
+echo "<pre>";
+print_r($_FILES['file']);
+echo "</pre>";
+// echo $file_url . "\n";
+// echo $savefile . "\n";
+// echo $filename . "\n";
+// echo $filesize . "\n";
 
 $rdata = sprintf('{"fileUrl": "%s", "filePath": "%s", "fileName": "%s", "fileSize": "%d" }',
 	$file_url,
