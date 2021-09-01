@@ -51,6 +51,7 @@ if( !function_exists('che_reprocessImage') ){
             // Freeing up memory
             imagedestroy($reprocessed_image);
         } catch (Exception $e) {
+            var_dump($e);die;
             unlink($file_path);
             return false;
         }
