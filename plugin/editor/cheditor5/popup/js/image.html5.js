@@ -1235,13 +1235,11 @@ DoUpload.prototype = {
           )
           file = self.canvasToBlob(bitmapData, filetype)
         }
-
         fileFormat = filename.substring(filename.lastIndexOf('.'))
         randomName = self.makeFilename(fileFormat)
 
         data.append('origname', filename)
         data.append(inputFileName, file, randomName) // RFC Level 2
-
         if (debug) {
           console.log('Successed: ' + filename)
         }
