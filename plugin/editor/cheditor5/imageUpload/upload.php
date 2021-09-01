@@ -4,7 +4,9 @@ require_once("config.php");
 if(!function_exists('ft_nonce_is_valid')){
     include_once('../editor.lib.php');
 }
-
+echo "<pre>";
+print_r($_FILES['file']);
+echo "</pre>";
 if( !function_exists('che_reprocessImage') ){
     function che_reprocessImage($file_path, $callback){
 
@@ -123,9 +125,7 @@ if( function_exists('run_replace') ){
     $file_url = run_replace('get_editor_upload_url', $file_url, $savefile, array());
 }
 
-echo "<pre>";
-print_r($_FILES['file']);
-echo "</pre>";
+
 // echo $file_url . "\n";
 // echo $savefile . "\n";
 // echo $filename . "\n";
