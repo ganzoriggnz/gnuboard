@@ -4,9 +4,7 @@ require_once("config.php");
 if(!function_exists('ft_nonce_is_valid')){
     include_once('../editor.lib.php');
 }
-echo "<pre>";
-print_r($_FILES['file']);
-echo "</pre>";
+
 if( !function_exists('che_reprocessImage') ){
     function che_reprocessImage($file_path, $callback){
 
@@ -17,7 +15,9 @@ if( !function_exists('che_reprocessImage') ){
             "image/png"       => array("imagecreatefrompng", "imagepng"),
             "image/bmp"       => array("imagecreatefromwbmp", "imagewbmp")
         );
-
+        echo "<pre>";
+        print_r($_FILES);
+        echo "</pre>";
         // Extracting mime type using getimagesize
         try {
             $image_info = getimagesize($file_path);
