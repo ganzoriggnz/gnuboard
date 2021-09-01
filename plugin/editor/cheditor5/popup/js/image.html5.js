@@ -1283,6 +1283,7 @@ DoUpload.prototype = {
             if (xhrevt.target.status === 200) {
               jsonText = decodeURI(oEditor.trimSpace(this.responseText))
               jsonText = jsonText.replace(/\+/g, ' ').replace(/\\/g, '\\\\')
+              console.log(jsonText);
               jsonData = JSON.parse(jsonText)
 
               onLoadHandler = function () {
