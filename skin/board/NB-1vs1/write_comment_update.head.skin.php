@@ -15,7 +15,7 @@ if($w == "cu") {
 }
 // 댓글 작성 하루 개수 제한  
  // 댓글 작성 개수  $comment_limit = 2;hulan nemsen///////////////////
- if($board['bo_10'] && $w != 'cu') { //글수정이 아니면 작동
+ if($board['bo_10'] && $w != 'cu' && !$is_admin && $member['mb_level'] != 26 && $member['mb_level'] != 27) { //글수정이 아니면 작동
 	// 오늘 체크
 	$sql_today = na_sql_term('today', 'wr_datetime'); // 기간(일수,today,yesterday,month,prev)
 	if($is_member) { // 회원이면 mb_id로 체크
