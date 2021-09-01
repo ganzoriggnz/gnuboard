@@ -15,9 +15,7 @@ if( !function_exists('che_reprocessImage') ){
             "image/png"       => array("imagecreatefrompng", "imagepng"),
             "image/bmp"       => array("imagecreatefromwbmp", "imagewbmp")
         );
-        echo "<pre>";
-        print_r($_FILES);
-        echo "</pre>";
+
         // Extracting mime type using getimagesize
         try {
             $image_info = getimagesize($file_path);
@@ -51,7 +49,6 @@ if( !function_exists('che_reprocessImage') ){
             // Freeing up memory
             imagedestroy($reprocessed_image);
         } catch (Exception $e) {
-            var_dump($e);die;
             unlink($file_path);
             return false;
         }
@@ -118,7 +115,6 @@ if ( CHE_UPLOAD_IMG_CHECK && ! che_reprocessImage($savefile, null) ){
 try {
     if(defined('G5_FILE_PERMISSION')) chmod($savefile, G5_FILE_PERMISSION);
 } catch (Exception $e) {
-    var_dump($e);die;
 }
 
 $file_url = SAVE_URL.'/'.$filename;
@@ -127,12 +123,6 @@ if( function_exists('run_replace') ){
     $file_url = run_replace('get_editor_upload_url', $file_url, $savefile, array());
 }
 
-
-// echo $file_url . "\n";
-// echo $savefile . "\n";
-// echo $filename . "\n";
-// echo $filesize . "\n";
-var_dump($rdata);die;
 $rdata = sprintf('{"fileUrl": "%s", "filePath": "%s", "fileName": "%s", "fileSize": "%d" }',
 	$file_url,
 	$savefile,
