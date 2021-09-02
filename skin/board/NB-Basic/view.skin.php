@@ -228,7 +228,7 @@ if ($gr_id=='review') {
 	        </div>
 			<div class="clearfix f-sm text-muted pr-2">
 				<!-- start    mobile   -->
-				<ul class="d-flex-start align-items-center">
+				<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
 	                <li style="display: inline;">
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
