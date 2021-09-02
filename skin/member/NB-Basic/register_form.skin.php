@@ -613,35 +613,47 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 	var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7AF|\uD7B0-\uD7FF]");
 
-	$("#reg_mb_nick").on("keypress keyup", function (e) {
+	// $("#reg_mb_nick").on("keypress keyup", function (e) {
 
+	// 	removeEmojis('#reg_mb_nick');
+	// 	console.log(e);
+	// 	var that = $(this);
+	// 	var text = that.val();
+
+	// 	console.log(char);
+	// 	var hangul_count = 0, eng_count = 0;
+	// 	for (let i = 0; i <= text.length; i++) {
+	// 		if (!hangul.test(text) && eng_count <= 20) {
+	// 			eng_count += 1;
+	// 			console.log("eng count: ", eng_count);
+	// 		} else{
+	// 			return false;
+	// 		} 
+	// 		if(hangul.test(text) &&	hangul_count <= 10){
+	// 			hangul_count += 1;
+	// 		}else{
+	// 			// console.log("else");
+	// 			// that.val(text.substring(0, text.length))
+	// 			return false;
+	// 		}
+	// 	}
+		
+	// 	// that.attr("maxlength", limit);
+	// 	// if (text.length > limit) that.val(text.substring(0, limit))
+	// });
+	var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7AF|\uD7B0-\uD7FF]");
+	$("#reg_mb_nick").on("keypress keyup", function () {
 		removeEmojis('#reg_mb_nick');
-		console.log(e);
 		var that = $(this);
 		var text = that.val();
-		var char = String.fromCharCode(e.which).toLowerCase();
-		console.log(char);
-		var hangul_count = 0, eng_count = 0;
-		for (let i = 0; i <= text.length; i++) {
-			if (!hangul.test(text) && eng_count <= 20) {
-				eng_count += 1;
-				console.log("eng count: ", eng_count);
-			} else{
-				return false;
-			} 
-			if(hangul.test(text) &&	hangul_count <= 10){
-				hangul_count += 1;
-			}else{
-				// console.log("else");
-				// that.val(text.substring(0, text.length))
-				return false;
-			}
+		if (hangul.test(text)) {
+			limit = 10;
+		} else {
+			limit = 20;
 		}
-		
-		// that.attr("maxlength", limit);
-		// if (text.length > limit) that.val(text.substring(0, limit))
+		that.attr("maxlength", limit);
+		if (text.length > limit) that.val(text.substring(0, limit))
 	});
-
 	function removeEmojis (e) {
 		const regex = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|\ud83c[\ude32-\ude3a]|\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
 		if(regex.test($(e).val())) {
