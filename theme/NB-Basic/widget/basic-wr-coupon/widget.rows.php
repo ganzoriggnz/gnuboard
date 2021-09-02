@@ -39,7 +39,7 @@ shuffle($list);
 
 // 리스트
 for ($i=0; $i < $list_cnt; $i++) {
-
+    if($list[$i]['as_type'] == '0'):
 	// 아이콘 체크
 	$wr_icon = $wr_tack = $wr_cap = '';
 	if ($list[$i]['icon_secret']) {
@@ -179,7 +179,7 @@ a[type="button"] {
     </div>
 </li>
 
-<?php } ?>
+<?php endif; } ?>
 
 <?php if(!$list_cnt) { ?>
 <li class="w-100 f-de text-muted text-center px-2 py-5">

@@ -1667,8 +1667,7 @@ function na_board_rows_coupon($wset)
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
 
 			//$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and b.mb_level = '27' and b.mb_4 >= '{$now}' ", false);
-			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and a.as_type = 0 ", false);
-
+			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id ", false);
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];
 			/* if ($wr['wr_id']) { */
