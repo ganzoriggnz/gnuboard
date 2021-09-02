@@ -247,6 +247,9 @@ if (G5_IS_MOBILE) {
                 if ($wr_id && $wr_id == $list[$i]['wr_id']) {
                     $classes[] = 'gall_now';
                 }
+                
+            
+                if($list[$i]['as_type'] == '0' || $is_admin == 'super'):
             ?>
                 <li class="px-2 pb-4 col">
                     <?php
@@ -311,7 +314,7 @@ if (G5_IS_MOBILE) {
 
                                     <div class="na-title" style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 80px;">
                                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table'] ?>&wr_id=<?php echo $list[$i]['wr_id'] ?>" class="na-subject" style="font-size: 16px; color: #E73D2F; font-weight: bold; overflow: hidden;" <?php echo $target ?>>
-                                            <?php echo $wr_icon ?>
+                                            <?php echo $list[$i]['as_type'] == '-1' ? '<span class="na-icon na-secret"></span>' : ''; ?>
                                             <?php echo $list[$i]['mb_name'] ?>
                                         </a>
                                         <p style="font-weight: bold; overflow: hidden;"><?php
@@ -342,7 +345,7 @@ if (G5_IS_MOBILE) {
                         </div>
                     </div>
                 </li>
-            <?php } ?>
+            <?php endif;} ?>
             <?php if (count($list) == 0) {
                 echo "<li class=\"empty_list\">게시물이 없습니다.</li>";
             } ?>
