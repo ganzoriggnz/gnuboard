@@ -44,7 +44,8 @@ $delcnt=0;
 			</thead>
         <tbody>
 	<?php
-	$result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}' AND b.wr_is_comment='0' AND c.mb_level = '27' and (a.co_sale_num > '0' or a.co_free_num > '0')"; 
+	$result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (a.co_sale_num > '0' or a.co_free_num > '0') and a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}' AND b.wr_is_comment='0' AND c.mb_level = '27'"; 
+	var_dump($result);die;
 	$result1=sql_query($result);
 	while ($row = sql_fetch_array($result1)) {
 	?>
