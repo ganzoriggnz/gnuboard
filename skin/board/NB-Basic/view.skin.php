@@ -241,8 +241,12 @@ if ($gr_id=='review') {
 	                
 	            </ul>
 				<ul class="d-flex-start align-items-center pb-3 pt-2" style="margin-top: 2px;">
-					<li style="display: inline;"><a href="#viewcomment"		
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
+					<li style="display: inline;">
+						<a href="#viewcomment"	
+							style="display: inline; border:1px solid #e5e5e5; font-size: 10px; background-color: #595959;" 
+							class="btn">
+								댓글바로가기
+						</a>
 	                </li>
 				    <?php if ($gr_id=='attendance') { ?>
 	                <li style="display: inline;"><a href="#"
