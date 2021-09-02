@@ -557,55 +557,53 @@ if ($gr_id=='review') {
 	            <div class="alert alert-danger text-center" role="alert">
 	                블라인드 처리된 게시물입니다.
 	            </div>
-	            <?php } ?>
+	            <?php }else{ ?>
+					<?php
+						// 첨부 동영상 출력 - 이미지출력보다 위에 있어야 함
+						if($boset['na_video_attach'])
+							echo na_video_attach();
 
-	            <?php
-				// 첨부 동영상 출력 - 이미지출력보다 위에 있어야 함
-				if($boset['na_video_attach'])
-					echo na_video_attach();
+						// 링크 동영상 출력
+						if($boset['na_video_link'])
+							echo na_video_link($view['link']);
 
-				// 링크 동영상 출력
-				if($boset['na_video_link'])
-					echo na_video_link($view['link']);
-
-				// 상단 이미지 출력
-				if(!isset($view['as_img']) || !$view['as_img']) {
-					$v_img_count = count($view['file']);
-					if($v_img_count) {
-						echo "<div id=\"bo_v_img\">\n";
-						for ($i=0; $i<=$v_img_count; $i++) {
-							echo get_file_thumbnail($view['file'][$i]);
+						// 상단 이미지 출력
+						if(!isset($view['as_img']) || !$view['as_img']) {
+							$v_img_count = count($view['file']);
+							if($v_img_count) {
+								echo "<div id=\"bo_v_img\">\n";
+								for ($i=0; $i<=$v_img_count; $i++) {
+									echo get_file_thumbnail($view['file'][$i]);
+								}
+								echo "</div>\n";
+							}
+						}?>
+					<div class="view-content">
+						<?php echo get_view_thumbnail(na_view($view)); // 글내용 출력 ?>
+					</div>
+					<?php  if($gr_id=="attendance") {?>
+					<div class="view-content text-center">
+					<img src="<?php echo G5_IMG_URL; ?>/messagebanner.png"/>
+					</div>
+					<?php  } ?>
+					<?php 
+					// 하단 이미지 출력
+					if(isset($view['as_img']) && $view['as_img'] == "1") {
+						$v_img_count = count($view['file']);
+						if($v_img_count) {
+							echo "<div id=\"bo_v_img\">\n";
+							for ($i=0; $i<=$v_img_count; $i++) {
+								echo get_file_thumbnail($view['file'][$i]);
+							}
+							echo "</div>\n";
 						}
-						echo "</div>\n";
 					}
-				}
-			?>
-	            <div class="view-content">
-	                <?php echo get_view_thumbnail(na_view($view)); // 글내용 출력 ?>
-	            </div>
-				<?php  if($gr_id=="attendance") {?>
-				<div class="view-content text-center">
-	               <img src="<?php echo G5_IMG_URL; ?>/messagebanner.png"/>
-	            </div>
-				<?php  } ?>
-	            <?php 
-				// 하단 이미지 출력
-				if(isset($view['as_img']) && $view['as_img'] == "1") {
-					$v_img_count = count($view['file']);
-					if($v_img_count) {
-						echo "<div id=\"bo_v_img\">\n";
-						for ($i=0; $i<=$v_img_count; $i++) {
-							echo get_file_thumbnail($view['file'][$i]);
-						}
-						echo "</div>\n";
-					}
-				}
-			?>
+				?>
+				<?php } ?>
 	        </div>
 	        <!-- } 본문 내용 끝 -->
 			<div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
-	        <?php 
-		if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
+	        <?php  if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
 	       
 	            <div class="btn-group btn-group-lg" role="group">
 	                <?php if ($member['mb_level'] >= $board['bo_use_good'] && $gr_id!="attendance" && $bo_table!="job" && $bo_table!="greeting" && $bo_table!="notice" && $bo_table!="event") { // 추천 ?>
