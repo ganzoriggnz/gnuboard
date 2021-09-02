@@ -19,7 +19,7 @@ $board_result = sql_query($sql);
 
 $board_all = array();
 while($board_row = sql_fetch_array($board_result)){
-	$union_query = " select *, ('{$board_row['bo_table']}') as bo_table from ".$g5['write_prefix'].$board_row['bo_table']." ";
+	$union_query = " select *, ('{$board_row['bo_table']}') as bo_table from ".$g5['write_prefix'].$board_row['bo_table']." where mb_id='{$member['mb_id']}'";
 	array_push($board_all, $union_query);
 }
 $board_all = implode(" union all ", $board_all);
@@ -33,7 +33,7 @@ $cur_page = 50;
 $total_page  = ceil($total_count / $cur_page);  // 전체 페이지 계산
 $from_record = ((int) $page - 1) * $cur_page; // 시작 열을 구함
 
-$sql = " select * from ( ".$board_all." ) a where mb_id='{$member['mb_id']}' limit $from_record, {$cur_page}";
+$sql = " select * from ( ".$board_all." ) a where mb_id='{$member['mb_id']}' order by wr_datetime desc limit $from_record, {$cur_page}";
 $result = sql_query($sql, '', null, true);
 
 /*
