@@ -1653,7 +1653,7 @@ function get_sideview($mb_id, $name = '', $email = '', $homepage = '')
     }
     if ($mb_id)
         $str2 .= "<a href=\"" . G5_BBS_URL . "/new.php?mb_id=" . $mb_id . "\" class=\"link_new_page\" onclick=\"check_goto_new(this.href, event);\">전체게시물</a>\n";
-    if ($is_admin == "super" && $mb_id && $_SERVER['HTTP_HOST'] == 'dkswjs-tjdrhd.com' || $_SERVER['HTTP_HOST'] == '210.114.22.93') {
+    if ($is_admin == "super" && $mb_id && $_SERVER['HTTP_HOST'] == 'dkswjs-tjdrhd.com') {
         $str2 .= "<a href=\"" . G5_ADMIN_URL . "/member_form.php?w=u&amp;mb_id=" . $mb_id . "\" target=\"_blank\">회원정보변경</a>\n";
         $str2 .= "<a href=\"" . G5_ADMIN_URL . "/point_list.php?sfl=mb_id&amp;stx=" . $mb_id . "\" target=\"_blank\">포인트내역</a>\n";
     }
@@ -2029,7 +2029,7 @@ function sql_data_seek($result, $offset = 0)
 
 // mysqli_query 와 mysqli_error 를 한꺼번에 처리
 // mysql connect resource 지정 - 명랑폐인님 제안
-function sql_query($sql, $error = G5_DISPLAY_SQL_ERROR, $link = null)
+function sql_query($sql, $error = G5_DISPLAY_SQL_ERROR, $link = null, $union=false)
 {
     global $g5, $g5_debug;
 
@@ -2040,7 +2040,8 @@ function sql_query($sql, $error = G5_DISPLAY_SQL_ERROR, $link = null)
     $sql = trim($sql);
     // union의 사용을 허락하지 않습니다.
     //$sql = preg_replace("#^select.*from.*union.*#i", "select 1", $sql);
-    $sql = preg_replace("#^select.*from.*[\s\(]+union[\s\)]+.*#i ", "select 1", $sql);
+	if( ! $union) $sql = preg_replace("#^select.*from.*[\s\(]+union[\s\)]+.*#i ", "select 1", $sql);
+
     // `information_schema` DB로의 접근을 허락하지 않습니다.
     $sql = preg_replace("#^select.*from.*where.*`?information_schema`?.*#i", "select 1", $sql);
 
@@ -2076,14 +2077,14 @@ function sql_query($sql, $error = G5_DISPLAY_SQL_ERROR, $link = null)
 
 
 // 쿼리를 실행한 후 결과값에서 한행을 얻는다.
-function sql_fetch($sql, $error = G5_DISPLAY_SQL_ERROR, $link = null)
+function sql_fetch($sql, $error = G5_DISPLAY_SQL_ERROR, $link = null, $union=false)
 {
     global $g5;
 
     if (!$link)
         $link = $g5['connect_db'];
 
-    $result = sql_query($sql, $error, $link);
+    $result = sql_query($sql, $error, $link, $union);
     //$row = @sql_fetch_array($result) or die("<p>$sql<p>" . mysqli_errno() . " : " .  mysqli_error() . "<p>error file : $_SERVER['SCRIPT_NAME']");
     $row = sql_fetch_array($result);
     return $row;

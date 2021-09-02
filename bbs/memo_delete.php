@@ -15,24 +15,38 @@ $me_id = (int)$_REQUEST['me_id'];
 $sql = " select * from {$g5['memo_table']} where me_id = '{$me_id}' ";
 $row = sql_fetch($sql);
 
+//쪽지 삭제
 $sql = " delete from {$g5['memo_table']}
-            where me_id = '{$me_id}'
-            and (me_recv_mb_id = '{$member['mb_id']}' or me_send_mb_id = '{$member['mb_id']}') ";
+			where me_id = '{$me_id}' ";
 sql_query($sql);
 
-if (!$row['me_read_datetime'][0]) // 메모 받기전이면
-{
-    $sql = " update {$g5['member_table']}
-                set mb_memo_call = ''
-                where mb_id = '{$row['me_recv_mb_id']}'
-                and mb_memo_call = '{$row['me_send_mb_id']}' ";
-    sql_query($sql);
+//보낸 쪽지 일 경우
+if($row['me_type']=='send'){
+	$sql = " select * from {$g5['memo_table']} where me_id = '{$row['me_send_id']}' ";
+	$recv_row = sql_fetch($sql);
 
-    $sql = " update `{$g5['member_table']}` set mb_memo_cnt = '".get_memo_not_read($member['mb_id'])."' where mb_id = '{$member['mb_id']}' ";
-    sql_query($sql);
+	// 상대 메모가 받기전이면
+	if ($recv_row['me_read_datetime']=='0000-00-00 00:00:00'){
+		/*
+		$sql = " update {$g5['member_table']}
+					set mb_memo_call = ''
+					where mb_id = '{$row['me_recv_mb_id']}'
+					and mb_memo_call = '{$row['me_send_mb_id']}' ";
+		sql_query($sql);
+		*/
+	
+		//안읽은 사람 메세지 삭제
+		$sql = " delete from {$g5['memo_table']}
+					where me_id = '{$row['me_send_id']}' ";
+		sql_query($sql);
+
+		$sql = " update `{$g5['member_table']}` set mb_memo_cnt = '".get_memo_not_read($row['me_recv_mb_id'])."' where mb_id = '{$row['me_recv_mb_id']}' ";
+		sql_query($sql);
+	}
+
 }
 
-run_event('memo_delete', $me_id, $row);
+run_event('memo_delete', $me_id, $row);	
 
 goto_url('./memo.php?kind='.$kind);
 ?>

@@ -64,10 +64,6 @@ if ($row['cnt'] && !$is_admin)
 if (!delete_point($write['mb_id'], $bo_table, $comment_id, '댓글'))
     insert_point($write['mb_id'], $board['bo_comment_point'] * (-1), "{$board['bo_subject']} {$write['wr_parent']}-{$comment_id} 댓글삭제");
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 // 코멘트 레벨 보너스 포인트 삭제
 delete_point($write['mb_id'], $bo_table, $comment_id, '댓글레벨보너스');
 

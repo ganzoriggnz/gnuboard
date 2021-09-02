@@ -27,6 +27,14 @@ add_javascript('<script src="' . $nt_sidebar_url . '/sidebar.js"></script>', 0);
 $menu_id = 'sidebar_menu';
 $menu_cnt = count($menu);
 
+// 업소 즐겨찾기
+if($is_member){
+	$sql = "select a.*, 
+		(select bo_subject from {$g5['board_table']} where bo_table=a.bo_table) as bo_subject 
+		from {$g5['scrap_table']} a 
+		where mb_id = '{$member['mb_id']}' and bo_table like '%_at%' order by ms_id desc";
+	$scrap_result = sql_query($sql);
+}
 ?>
 
 <style>
@@ -286,6 +294,31 @@ $menu_cnt = count($menu);
 
 		<div id="nt_sidebar_menu">
 			<ul class="me-ul border-top">
+				<?php if($is_member){?>
+				<li class="me-li">
+					<a class="fa fa-star tree-toggle me-i"> 업소 즐겨찾기</a>
+					<ul class="me-ul1 tree off">
+					<?php if($scrap_result->num_rows > 0){?>
+						<?php for ($i = 0; $scrap_row = sql_fetch_array($scrap_result); $i++) {
+							$sql = "select mb_id from {$g5['write_prefix']}{$scrap_row['bo_table']} where wr_id='{$scrap_row['wr_id']}'";
+							$b_result = sql_fetch($sql);
+							$sql = "select mb_name from {$g5['member_table']} where mb_id='{$b_result['mb_id']}'";
+							$m_result = sql_fetch($sql);
+						?>
+						<li class="me-li">
+							<a href="/bbs/board.php?bo_table=<?=$scrap_row['bo_table'];?>&wr_id=<?=$scrap_row['wr_id'];?>" style="padding-right:35px;text-indent:-9px;padding-left:39px;">- [<?=$scrap_row['bo_subject'];?>] <?php echo $m_result['mb_name'];?>123123</a>
+							<button type="button" class="btn btn-primary btn-sm" style="position:absolute; right:3px;top:6px;padding:0px 3px;background-color:#cfb56ed0;border-color:#e4c980;" onclick="if(confirm('삭제 하시겠습니까?')){location.href='/bbs/scrap_delete.php?ms_id=<?=$scrap_row['ms_id'];?>&reload=1'}">삭제</button>
+						</li>
+						<?php }?>
+					<?php } else {?>
+						<li class="me-li">
+							<a href="javascript:;">즐겨찾기한 업소가 없습니다.</a>
+						</li>
+					<?php }?>
+					</ul>
+				</li>
+				<?php }?>
+
 				<li class="me-li<?php echo ($me['on']) ? ' active' : ''; ?>">
 					<a class="fa fa-caret-down tree-toggle me-i"> &nbsp;&nbsp;퀵메뉴</a>
 					<ul class="me-ul1 tree off">
@@ -328,7 +361,6 @@ $menu_cnt = count($menu);
 							</li> -->
 					</ul>
 				</li>
-
 
 				<?php for ($i = 0; $i < $menu_cnt; $i++) {
 					$me = $menu[$i];

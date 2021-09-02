@@ -5,10 +5,10 @@ include_once(G5_PATH.'/head.php');
 
 $ranking = array(
 	array('level'=>2, 'name'=>'Lv.2 해골', 'join'=>0, 'point'=>0, 'review'=>0, 'other'=>0, 'comment'=>0, 'auth'=>'업소프로필 열람'),
-	array('level'=>3, 'name'=>'Lv.3 노예', 'join'=>0, 'point'=>100, 'review'=>0, 'other'=>1, 'comment'=>3, 'auth'=>'	업소후기글 열람'),
-	array('level'=>4, 'name'=>'Lv.4 농노', 'join'=>1, 'point'=>300, 'review'=>0, 'other'=>3, 'comment'=>5, 'auth'=>'	금화게임 참여가능'),
+	array('level'=>3, 'name'=>'Lv.3 노예', 'join'=>0, 'point'=>100, 'review'=>0, 'other'=>1, 'comment'=>3, 'auth'=>'	업소후기글 열람, 쪽지보내기 가능'),
+	array('level'=>4, 'name'=>'Lv.4 농노', 'join'=>1, 'point'=>300, 'review'=>0, 'other'=>3, 'comment'=>5, 'auth'=>'	파운드게임 참여가능, 채팅방 이용가능'),
 	array('level'=>5, 'name'=>'Lv.5 시민', 'join'=>7, 'point'=>1000, 'review'=>0, 'other'=>5, 'comment'=>10, 'auth'=>'추천 참여가능'),
-	array('level'=>6, 'name'=>'Lv.6 기사', 'join'=>15, 'point'=>2000, 'review'=>1, 'other'=>10, 'comment'=>30, 'auth'=>'채팅방이용가능'),
+	array('level'=>6, 'name'=>'Lv.6 기사', 'join'=>15, 'point'=>2000, 'review'=>1, 'other'=>10, 'comment'=>30, 'auth'=>'출석체크시 선물상자 생성'),
 	array('level'=>7, 'name'=>'Lv.7 남반', 'join'=>30, 'point'=>3000, 'review'=>3, 'other'=>15, 'comment'=>50, 'auth'=>'이벤트참여가능'),
 	array('level'=>8, 'name'=>'Lv.8 장교', 'join'=>50, 'point'=>5000, 'review'=>5, 'other'=>20, 'comment'=>100, 'auth'=>'글작성시 확률에따라 추가 파운드 지급'),
 	array('level'=>9, 'name'=>'Lv.9 향리', 'join'=>70, 'point'=>7000, 'review'=>7, 'other'=>30, 'comment'=>200, 'auth'=>'아이템 착용및 강화 가능, 구매/판매(거래)가능'),
@@ -807,7 +807,7 @@ function compareNumber($member_level, $level, $member_num, $num, $format=false){
 				<tr>
 					<td>자유게시판</td>
 					<td>3</td>
-					<td>15</td>
+					<td>20</td>
 				</tr>
 				<tr>
 					<td>미수다</td>

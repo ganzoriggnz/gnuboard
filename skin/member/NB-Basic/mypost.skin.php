@@ -135,44 +135,45 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
         </div>
         <!-- hulan nemsen -->
         <ul class="na-table d-md-table w-100">
-                <?php
-
-                for ($i = 0; $i < count($list);   $i++) { ?>
- 
-                    <li class="d-md-table-row px-3 py-2 p-md-0 text-md-left text-muted border-bottom">
-                        <div class="d-none d-md-table-cell w-10 f-sm font-weight-normal py-md-2 px-md-1">
-                            <?php echo $list[$i]['gr_subject']; ?>
-                        </div>
-                        <div class="d-none d-md-table-cell w-15 text-left f-sm font-weight-normal py-md-2 px-md-1">
-                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']?>" style="color: #6c757d;">
-                                <?php echo $list[$i]['bo_subject'];?>
-                        </a>
-                        </div>
-                        <div class="float-right float-md-none d-md-table-cell w-45 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-                            <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id'] ?>" style="color: #6c757d;">                                                             
-                                <?php                                
-                                echo $list[$i]['wr_subject']; ?>
-                            </a>
-                        </div>
-                        <div class="float-left float-md-none d-md-table-cell w-15 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-                            <?php echo   na_name_photo($member['mb_id'], get_sideview($member['mb_id'], $member['mb_nick'], $member['mb_homepage'])) ?>
-                        </div>
-                        <div class="float-left float-md-none d-md-table-cell w-15 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
-                            <span class="sr-only">등록일</span>
-                            <?php echo $list[$i]['wr_datetime']; ?>
-                        </div>
-                        <div class="clearfix d-block d-md-none"></div>
-                    </li>
-            <?php  }
-            ?>
-
+			<?php 
+			while ($my_row = sql_fetch_array($result)){
+				$sql = " select gr_id, bo_subject from {$g5['board_table']} where bo_table='{$my_row['bo_table']}' ";
+				$board_row = sql_fetch($sql);
+				
+				$sql = " select gr_subject from {$g5['group_table']} where gr_id='{$board_row['gr_id']}' ";
+				$group_row = sql_fetch($sql);	
+			?>
+				<li class="d-md-table-row px-3 py-2 p-md-0 text-muted border-bottom">
+					<div class="d-none d-md-table-cell w-10 f-sm font-weight-normal py-md-2 px-md-1 text-center">
+						<?=$group_row['gr_subject'];?>
+					</div>
+					<div class="d-none d-md-table-cell w-15 text-center f-sm font-weight-normal py-md-2 px-md-1">
+						<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?=$my_row['bo_table'];?>" style="color: #6c757d;">
+							<?=$board_row['bo_subject'];?>
+						</a>
+					</div>
+					<div class="float-right float-md-none d-md-table-cell w-45 nw-md-auto text-left f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+						<a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?=$my_row['bo_table']."&wr_id=".$my_row['wr_id'] ?>" style="color: #6c757d;">
+							<?=($my_row['wr_is_comment']=='1') ? '[댓글] '.$my_row['wr_content'] : $my_row['wr_subject']; ?>
+						</a>
+					</div>
+					<div class="float-left float-md-none d-md-table-cell w-15 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+						<?php echo   na_name_photo($member['mb_id'], get_sideview($member['mb_id'], $member['mb_nick'], $member['mb_homepage'])) ?>
+					</div>
+					<div class="float-left float-md-none d-md-table-cell w-15 nw-md-auto f-sm font-weight-normal pl-2 py-md-2 pr-md-1">
+						<span class="sr-only">등록일</span>
+						<?php echo $my_row['wr_datetime']; ?>
+					</div>
+					<div class="clearfix d-block d-md-none"></div>
+				</li>
+			<?php  }?>
             </ul>
-            <?php if ($i == 0) { ?>
+            <?php if ( ! $result->num_rows) { ?>
                 <div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">자료가 없습니다.</div>
             <?php } ?>
             <div class="font-weight-normal px-3 mt-4">
                 <ul class="pagination justify-content-center en mb-0">
-                    <?php echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "?$qstr&amp;page="); ?>
+                    <?php echo na_paging($cur_page, $page, $total_page, "?$qstr&amp;page="); ?>
                 </ul>
             </div>
     </section>
