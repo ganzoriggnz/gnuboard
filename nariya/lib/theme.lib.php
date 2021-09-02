@@ -1502,7 +1502,7 @@ function na_board_rows($wset)
 function na_board_rows_new($wset)
 {
 	global $g5, $member;
-
+		// var_dump($member);die;
 	$list = array();
 
 	$rows = (int)$wset['rows'];
@@ -1548,19 +1548,34 @@ function na_board_rows_new($wset)
 			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
 		}
-		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by a.bn_datetime DESC limit $start_rows, 10 ", false);
+		$resultaaa = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by a.bn_datetime DESC limit $start_rows, 10 ", false);
+		$aaaa = 0;
+		$limit_admin = 10;
+		if($member['mb_id'] != 'admin'){
+			$cnts = 0;
+			for ($i = 0; $row = sql_fetch_array($resultaaa); $i++) {
+				$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
+				$wr_count = sql_fetch(" select count(*)  cnt from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and a.as_type = '-1'", false);
+				$cnts += (int)$wr_count['cnt'];
+			}
+			$aaaa = $cnts + 10;
+			$limit_admin = $aaaa;
+		}
+		
+		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by a.bn_datetime DESC limit $start_rows, {$limit_admin} ", false);
+
 		for ($i = 0; $row = sql_fetch_array($result); $i++) {
 
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
-
 			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id ", false);
-
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];
 			$wr['wr_id'] = $row['wr_id'];
 
 			$list[$i] = na_wr_row($wr, $wset);
 		}
+		
+
 	} else { //단수
 
 		// 메인글
