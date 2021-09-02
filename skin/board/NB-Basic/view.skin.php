@@ -241,8 +241,8 @@ if ($gr_id=='review') {
 	                        class="btn">
 	                        문자보내기</a></li>
 	                
-	            </ul>
-				<ul class="d-flex-start align-items-center pb-3 pt-2" style="margin-top: 2px;">
+	            <!-- </ul>
+				<ul class="d-flex-start align-items-center pb-3 pt-2" style="margin-top: 2px;"> -->
 					<li style="display: inline;">
 						<a href="#viewcomment"	
 							style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
