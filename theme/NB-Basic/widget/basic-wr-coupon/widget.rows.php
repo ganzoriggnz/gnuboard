@@ -13,7 +13,6 @@ if($wset['thumb_w'] && $wset['thumb_h']) {
 
 // 추출하기
 $wset['sideview'] = 1; // 이름 레이어 출력
-
 $list = na_board_rows_coupon($wset);
 
 shuffle($list);
@@ -34,12 +33,13 @@ switch($wset['target']) {
 	case '3' : $target = ' target="_blank"'; $is_link = true; break;
 	default	 : $target = ''; break;
 }
+// var_dump($is_admin);die;
 
 shuffle($list);
 
 // 리스트
 for ($i=0; $i < $list_cnt; $i++) {
-    if($list[$i]['as_type'] == '0'):
+    if($list[$i]['as_type'] == '0' || $is_admin == 'super'):
 	// 아이콘 체크
 	$wr_icon = $wr_tack = $wr_cap = '';
 	if ($list[$i]['icon_secret']) {
