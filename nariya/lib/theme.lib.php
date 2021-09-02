@@ -910,7 +910,6 @@ function na_widget_cache_file($widget_file, $wset, $wcache)
 function na_widget($wname, $wid = '', $opt = '', $mopt = '', $wdir = '', $addon = '')
 {
 	global $is_admin;
-
 	// 적합성 체크
 	if (!na_check_id($wname) || !na_check_id($wid))
 		return '<p class="text-center text-muted">스킨명과 아이디는 영문자, 숫자, -, _ 만 가능함</p>';
@@ -1331,10 +1330,6 @@ function na_post_rows($wset, $subcat = '', $search = '')
 				$cnt++;
 			}
 		}
-		// echo "<pre>";
-		// print_r($list);
-		// echo "</pre>";die;
-		// var_dump("select *, exists (select 1 from g5_coupon c where c.mb_id = b.mb_id and c.co_end_datetime > now() and (c.co_free_num > '0' or c.co_sale_num > '0')) has_coupon from  {$hwrite_table} a, {$g5['member_table']} b where a.wr_is_comment = 0 and a.as_type = 0 and a.mb_id = b.mb_id");die;
 	} else {
 		for ($i = 0; $res = sql_fetch_array($result); $i++) {
 
@@ -1558,7 +1553,7 @@ function na_board_rows_new($wset)
 
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
 
-			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id ", false);
+			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and a.as_type = 0 ", false);
 
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];
@@ -1589,7 +1584,7 @@ function na_board_rows_new($wset)
 
 		$tmp_write_table = $g5['write_prefix'] . $bo_table;
 
-		$sql_common = "from $tmp_write_table where wr_is_comment = '{$sql_wr}' $sql_ca $sql_term $sql_mb $sql_main $sql_where";
+		$sql_common = "from $tmp_write_table where as_type = 0 and wr_is_comment = '{$sql_wr}' $sql_ca $sql_term $sql_mb $sql_main $sql_where";
 		if ($page > 1) {
 			$total = sql_fetch("select count(*) as cnt $sql_common ", false);
 			$total_count = $total['cnt'];
@@ -1665,13 +1660,14 @@ function na_board_rows_coupon($wset)
 			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
 		}
-		$result = sql_query(" select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows ", false);
+		$qq= " select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows ";
+		$result = sql_query($qq, false);
 		for ($i = 0; $row = sql_fetch_array($result); $i++) {
 
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
 
 			//$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and b.mb_level = '27' and b.mb_4 >= '{$now}' ", false);
-			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id", false);
+			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and a.as_type = 0 ", false);
 
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];
