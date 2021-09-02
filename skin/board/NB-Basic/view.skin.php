@@ -226,53 +226,53 @@ if ($gr_id=='review') {
 					</li>
 				</ul>
 	        </div>
-			<div class="clearfix f-sm text-muted pr-2">
+			<div class="clearfix f-sm text-muted">
 				<!-- start    mobile   -->
 				<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
-	                <li style="display: inline;" class="mr-2 p-1">
+	                <li style="display: inline;" class="mr-1 p-1">
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
-							class="btn">
+							class="btn p-1">
 								전화걸기
 						</a>
 	                </li>
-	                <li style="display: inline;" class="mr-2 p-1">
+	                <li style="display: inline;" class="mr-1 p-1">
 						<a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
 	                        style="display: inline; color:#ffffff;font-size: 10px; background-color: #595959;"
-	                        class="btn">
+	                        class="btn p-1">
 	                        	문자보내기
 						</a>
 					</li>
-					<li style="display: inline;" class="mr-2 p-1">
+					<li style="display: inline;" class="mr-1 p-1">
 						<a href="#viewcomment"	
 							style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
-							class="btn">
+							class="btn p-1">
 								댓글바로가기
 						</a>
 	                </li>
 				    <?php if ($gr_id=='attendance') { ?>
-						<li style="display: inline;" class="mr-2 p-1">
+						<li style="display: inline;" class="mr-1 p-1">
 							<a href="#" 
 								onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 								style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
-								class="btn">
+								class="btn p-1">
 									후기바로가기
 							</a>
 						</li>
-						<li style="display: inline;" class="mr-2 p-1">
+						<li style="display: inline;" class="mr-1 p-1">
 							<a href="#"
 								onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 								style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
-								class="btn"> 
+								class="btn p-1"> 
 									업소후기작성
 							</a>
 						</li>
 	                <?php } ?>
 	                <?php if ($gr_id=='review') { ?>
-						<li style="display: inline;" class="mr-2 p-1">
+						<li style="display: inline;" class="mr-1 p-1">
 							<a href="#"
 								onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
-								class="btn" 
+								class="btn p-1" 
 								title="업소정보" 
 								style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;">
 									업소정보
