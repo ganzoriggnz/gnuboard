@@ -10,5 +10,10 @@ sql_query($sql);
 $sql = " update `{$g5['member_table']}` set mb_scrap_cnt = '".get_scrap_totals($member['mb_id'])."' where mb_id = '{$member['mb_id']}' ";
 sql_query($sql);
 
-goto_url('./scrap.php?page='.$page);
+if($reload && isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']){
+	goto_url($_SERVER['HTTP_REFERER']);
+} else {
+	exit;
+	goto_url('./scrap.php?page='.$page);
+}
 ?>

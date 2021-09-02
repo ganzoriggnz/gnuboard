@@ -28,7 +28,15 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 			<?php if ($is_paging && $page) { ?>
 				/ <?php echo $page ?>페이지
 			<?php } ?>
+			<?php if($is_admin){?>
+			<label style="cursor:pointer;margin-left:10px;"><input type="checkbox" id="check_all"> 전체선택</label>
+			<?php }?>
 		</div>
+		<?php if($is_admin){?>
+		<div class="float-right">
+			<button type="button" class="btn btn-danger" onclick="delete_comment_all();">선택삭제</button>
+		</div>
+		<?php }?>
 		<?php if ($is_paging) { //페이징 
 
 			$cmt_sort_href = NA_URL . '/bbs/comment_view.php?bo_table=' . $bo_table . '&amp;wr_id=' . $wr_id;
@@ -124,8 +132,10 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 						<div class="clearfix font-weight-normal bg-light border-top text-muted f-sm px-3 py-2<?php echo $by_writer ?>">
 							<ul class="d-flex align-items-center">
 								<li class="pr-2">
+									<?php if($is_admin){?>
+									<input type="checkbox" name="check_id[]" value="<?=$comment_id;?>" style="margin-right:5px;cursor:pointer;">
+									<?php }?>
 									<!-- hulan nemsen mark -->
-									
 									<?php   if ($list[$i]['wr_2']) echo '<i class="fa fa-mobile" aria-hidden="true"></i>';
 									echo na_name_level($list[$i]['mb_id'], $list[$i]['name']); ?>
 									<?php include(G5_SNS_PATH . '/view_comment_list.sns.skin.php'); // SNS 
@@ -567,3 +577,26 @@ $is_cnogood = ($boset['na_cnogood']) ? true : false;
 		?>
 	<?php } ?>
 <?php } ?>
+
+<script>
+$(document).ready(function(){
+	$('#check_all').change(function(){
+		var check_state = $(this).prop('checked');
+		$('input[name="check_id[]"]').each(function(i){
+			$(this).prop('checked',check_state);
+		});
+	});
+});
+
+function delete_comment_all(){
+	if($('input[name="check_id[]"]:checked').length < 1){
+		alert('삭제할 댓글을 선택해주세요.');
+		return false;
+	}
+
+	if(confirm('선택된 댓글을 삭제하시겠습니까?')){
+		var co_ids = $('input[name="check_id[]"]:checked').map(function(){return $(this).val();}).get();
+		location.href='./delete_comment_all.php?bo_table=free&co_ids='+co_ids+'&page=1';		
+	}
+}
+</script>

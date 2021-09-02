@@ -14,58 +14,80 @@ if (!$is_member)
 /* $g5['title'] = get_text($member['mb_nick']).'님의 스크랩'; */
 include_once(G5_PATH.'/head.sub.php');
 
+$sql = " select bo_table from ".$g5['board_table'];
+$board_result = sql_query($sql);
+
+$board_all = array();
+while($board_row = sql_fetch_array($board_result)){
+	$union_query = " select *, ('{$board_row['bo_table']}') as bo_table from ".$g5['write_prefix'].$board_row['bo_table']." where mb_id='{$member['mb_id']}'";
+	array_push($board_all, $union_query);
+}
+$board_all = implode(" union all ", $board_all);
+
+$sql = " select count(*) as cnt from ( ".$board_all." ) a where mb_id='{$member['mb_id']}'";
+$row = sql_fetch($sql, '', null, true);
+$total_count = $row['cnt'];
+
+if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
+$cur_page = 50;
+$total_page  = ceil($total_count / $cur_page);  // 전체 페이지 계산
+$from_record = ((int) $page - 1) * $cur_page; // 시작 열을 구함
+
+$sql = " select * from ( ".$board_all." ) a where mb_id='{$member['mb_id']}' order by wr_datetime desc limit $from_record, {$cur_page}";
+$result = sql_query($sql, '', null, true);
+
+/*
 $total_count;
 $page=1;
 $list = Array();
 $cnt=0;
-            $result = sql_query("select a.bo_table, a.bo_subject, b.gr_subject  from {$g5['board_table']} a INNER JOIN {$g5['group_table']} b  on a.gr_id = b.gr_id ");        
-            
-            while ($row = sql_fetch_array($result)) {
-                // echo $row['bo_subject'];
-                $bo_table = $row['bo_table'];
-                $bo_subject = $row['bo_subject'];
-                $gr_subject = $row['gr_subject'];
+$result = sql_query("select a.bo_table, a.bo_subject, b.gr_subject  from {$g5['board_table']} a INNER JOIN {$g5['group_table']} b  on a.gr_id = b.gr_id ");        
 
-                if(($member['mb_level']==27 && substr($bo_table, -2)=="at") || ($member['mb_level']==26 && substr($bo_table, -2)=="at")){
+while ($row = sql_fetch_array($result)) {
+	// echo $row['bo_subject'];
+	$bo_table = $row['bo_table'];
+	$bo_subject = $row['bo_subject'];
+	$gr_subject = $row['gr_subject'];
 
-                    $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0' order by wr_datetime");                    
-                    while($resee = sql_fetch_array($sql)){                       
-                        $list[$cnt] = $resee;
-                        $list[$cnt]['bo_table'] = $bo_table; 
-                        $list[$cnt]['bo_subject'] = $bo_subject;
-                        $list[$cnt]['gr_subject'] = $row['gr_subject']; 
-                        $list[$cnt]['wr_subject'] = $resee['wr_subject'];
-                        $list[$cnt]['wr_datetime'] = $resee['wr_datetime'];
-                        $cnt++;
-                        $parent =$resee['wr_parent'];
-                        $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where wr_parent ='{$parent}' and wr_is_comment = '1' order by wr_datetime");                 
-                        while($res = sql_fetch_array($sql)){                    
-                            $list[$cnt] = $res;
-                            $list[$cnt]['bo_table'] = $bo_table; 
-                            $list[$cnt]['bo_subject'] = $bo_subject;
-                            $list[$cnt]['gr_subject'] = $row['gr_subject'];
-                            $list[$cnt]['wr_subject'] = "댓글 - ".$res['wr_subject'];
-                            $cnt++;
-                        }                                     
-                    }                    
-                }else if ($member['mb_level']<26 || $member['mb_level']==30) {
-                    $sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' order by wr_datetime");
-                    while($res = sql_fetch_array($sql)){
-                        $list[$cnt] = $res;
-                        $list[$cnt]['bo_table'] = $bo_table; 
-                        $list[$cnt]['bo_subject'] = $bo_subject;
-                        $list[$cnt]['wr_subject'] = $res['wr_subject'];
-                        $list[$cnt]['gr_subject'] = $gr_subject; 
-                        $cnt++;                    
-                    }
-                }                          
+	if(($member['mb_level']==27 && substr($bo_table, -2)=="at") || ($member['mb_level']==26 && substr($bo_table, -2)=="at")){
 
-               
-            }
+		$sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' and wr_is_comment = '0' order by wr_datetime");                    
+		while($resee = sql_fetch_array($sql)){                       
+			$list[$cnt] = $resee;
+			$list[$cnt]['bo_table'] = $bo_table; 
+			$list[$cnt]['bo_subject'] = $bo_subject;
+			$list[$cnt]['gr_subject'] = $row['gr_subject']; 
+			$list[$cnt]['wr_subject'] = $resee['wr_subject'];
+			$list[$cnt]['wr_datetime'] = $resee['wr_datetime'];
+			$cnt++;
+			$parent =$resee['wr_parent'];
+			$sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where wr_parent ='{$parent}' and wr_is_comment = '1' order by wr_datetime");                 
+			while($res = sql_fetch_array($sql)){                    
+				$list[$cnt] = $res;
+				$list[$cnt]['bo_table'] = $bo_table; 
+				$list[$cnt]['bo_subject'] = $bo_subject;
+				$list[$cnt]['gr_subject'] = $row['gr_subject'];
+				$list[$cnt]['wr_subject'] = "댓글 - ".$res['wr_subject'];
+				$cnt++;
+			}                                     
+		}                    
+	}else if ($member['mb_level']<26 || $member['mb_level']==30) {
+		$sql = sql_query("select * from " .$g5['write_prefix'].$bo_table." where mb_id='{$member['mb_id']}' order by wr_datetime");
+		while($res = sql_fetch_array($sql)){
+			$list[$cnt] = $res;
+			$list[$cnt]['bo_table'] = $bo_table; 
+			$list[$cnt]['bo_subject'] = $bo_subject;
+			$list[$cnt]['wr_subject'] = $res['wr_subject'];
+			$list[$cnt]['gr_subject'] = $gr_subject; 
+			$cnt++;                    
+		}
+	}
+}
 $total_count = $cnt;
 
 // datetime sort function 
 usort($list, function($a, $b) {return new DateTime($b['wr_datetime']) <=> new DateTime($a['wr_datetime']);});
+*/
 
 $mypost_skin_path = get_skin_path('member', $config['cf_member_skin']);
 $mypost_skin_url  = get_skin_url('member', $config['cf_member_skin']);
