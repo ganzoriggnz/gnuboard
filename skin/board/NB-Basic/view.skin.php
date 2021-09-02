@@ -228,7 +228,7 @@ if ($gr_id=='review') {
 	        </div>
 			<div class="clearfix f-sm text-muted pr-2">
 				<!-- start    mobile   -->
-				<ul class="d-flex-start align-items-center">
+				<ul class="d-flex-start align-items-center d-flex">
 	                <li style="display: inline;">
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
@@ -243,7 +243,7 @@ if ($gr_id=='review') {
 	                
 	            <!-- </ul>
 				<ul class="d-flex-start align-items-center pb-3 pt-2" style="margin-top: 2px;"> -->
-					<li style="display: inline;">
+					<li style="display: inline; margin-left: 5px;">
 						<a href="#viewcomment"	
 							style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
 							class="btn">
@@ -251,7 +251,7 @@ if ($gr_id=='review') {
 						</a>
 	                </li>
 				    <?php if ($gr_id=='attendance') { ?>
-	                <li style="display: inline;"><a href="#"
+	                <li style="display: inline; margin-left: 5px;"><a href="#"
 					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 	                        style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" class="btn">
 							후기바로가기</a>
