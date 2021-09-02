@@ -4,6 +4,7 @@ $data=array (
   'list_skin' => 'basic',
   'head_skin' => '',
   'head_color' => '',
+  'search_open' => '1',
   'target' => '',
   'bo_admin' => '',
   'noti_mb' => '',
@@ -13,7 +14,7 @@ $data=array (
   'na_lucky_dice' => '',
   'na_gcancel' => '',
   'na_gtimes' => '',
-  'editor_mo' => '',
-  'na_shingo' => '1',
+  'editor_mo' => 'cheditor5',
+  'na_shingo' => '',
 );
 ?>

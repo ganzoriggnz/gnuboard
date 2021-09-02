@@ -613,20 +613,33 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
 
 	var hangul = new RegExp("[\u1100-\u11FF|\u3130-\u318F|\uA960-\uA97F|\uAC00-\uD7AF|\uD7B0-\uD7FF]");
 
-	$("#reg_mb_nick").on("keypress keyup", function () {
+	$("#reg_mb_nick").on("keypress keyup", function (e) {
 
 		removeEmojis('#reg_mb_nick');
-
+		console.log(e);
 		var that = $(this);
 		var text = that.val();
-
-		if (hangul.test(text)) {
-			limit = 10;
-		} else {
-			limit = 20;
+		var char = String.fromCharCode(e.which).toLowerCase();
+		console.log(char);
+		var hangul_count = 0, eng_count = 0;
+		for (let i = 0; i <= text.length; i++) {
+			if (!hangul.test(text) && eng_count <= 20) {
+				eng_count += 1;
+				console.log("eng count: ", eng_count);
+			} else{
+				return false;
+			} 
+			if(hangul.test(text) &&	hangul_count <= 10){
+				hangul_count += 1;
+			}else{
+				// console.log("else");
+				// that.val(text.substring(0, text.length))
+				return false;
+			}
 		}
-		that.attr("maxlength", limit);
-		if (text.length > limit) that.val(text.substring(0, limit))
+		
+		// that.attr("maxlength", limit);
+		// if (text.length > limit) that.val(text.substring(0, limit))
 	});
 
 	function removeEmojis (e) {
