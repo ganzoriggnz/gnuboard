@@ -31,7 +31,7 @@ if ($page < 1) $page = 1;
 $from_record = ($page - 1) * $rows; 
 //$list_num = $total_count - ($page - 1) * $rows;
 
-$sql = " select a.mb_id, a.co_entity, a.co_sale_num as sale, a.co_free_num as free, a.wr_id, a.bo_table, b.mb_nick, b.mb_level, b.mb_homepage, b.mb_point, b.mb_7, c.bo_subject, c.bo_order
+$sql = " select a.mb_id, a.co_entity, a.co_sale_num as sale, a.co_sent_snum as sent_sale, a.co_sent_fnum as sent_free, a.co_free_num as free, a.wr_id, a.bo_table, b.mb_nick, b.mb_level, b.mb_homepage, b.mb_point, b.mb_7, c.bo_subject, c.bo_order
             {$sql_common}
             {$sql_search}
             {$sql_order}
@@ -64,14 +64,16 @@ $colspan = 8;
         <tbody>
         <?php
         for ($i=0; $row=sql_fetch_array($result); $i++) {
-    
-            $mb_nick = get_sideview($row['mb_id'], $row['mb_nick'], $row['mb_email'], $row['mb_homepage']);
 
-            $link1 = $link2 = '';
-            if (!preg_match("/^\@/", $row['bo_table']) && $row['bo_table']) {
-                $link1 = '<a href="'.get_pretty_url($row['bo_table'], $row['wr_id']).'" target="_blank" style="color: blue; text-decoration: underline;">';
-                $link2 = '</a>';
-            }
+		    if($row['free']-$row['sent_free'] != '0' || $row['sale']-$row['sent_sale'] != '0'):
+    
+                $mb_nick = get_sideview($row['mb_id'], $row['mb_nick'], $row['mb_email'], $row['mb_homepage']);
+
+                $link1 = $link2 = '';
+                if (!preg_match("/^\@/", $row['bo_table']) && $row['bo_table']) {
+                    $link1 = '<a href="'.get_pretty_url($row['bo_table'], $row['wr_id']).'" target="_blank" style="color: blue; text-decoration: underline;">';
+                    $link2 = '</a>';
+                }
             //$bg = 'bg'.($i%2);
         ?>
             <tr>
@@ -85,7 +87,8 @@ $colspan = 8;
                 <td class="td_center"><?php echo $link1; ?><?php echo '바로가기'; ?><?php echo $link2; ?></td>
             </tr>    
         <?php    
-        }
+        endif;
+     }
         if ($i == 0)
             echo '<tr><td colspan="'.$colspan.'" class="empty_table">자료가 없습니다.</td></tr>';
         ?>
