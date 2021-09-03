@@ -36,9 +36,9 @@ switch($wset['target']) {
 // var_dump($is_admin);die;
 
 shuffle($list);
-
 // 리스트
 for ($i=0; $i < $list_cnt; $i++) {
+    if($list[$i]['co_free_num'] - $list[$i]['co_sent_fnum'] != 0 || $list[$i]['co_sale_num'] - $list[$i]['co_sent_snum'] != 0):
     if($list[$i]['as_type'] == '0' || $is_admin == 'super'):
 	// 아이콘 체크
 	$wr_icon = $wr_tack = $wr_cap = '';
@@ -179,7 +179,10 @@ a[type="button"] {
     </div>
 </li>
 
-<?php endif; } ?>
+<?php 
+        endif;
+    endif; 
+} ?>
 
 <?php if(!$list_cnt) { ?>
 <li class="w-100 f-de text-muted text-center px-2 py-5">

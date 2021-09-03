@@ -1675,20 +1675,43 @@ function na_board_rows_coupon($wset)
 			$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 			$start_rows = ($page - 1) * $rows; // 시작 열을 구함
 		}
-		$qq= " select a.mb_id, a.bo_table, a.wr_id, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows ";
+
+		// $resultaaa = sql_query(" select a.*, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows", false);
+		
+		// -------------- dynamic row
+		// $qq2 = "select count(*) cnt $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows";
+		// $result2 = sql_fetch($qq2, false);
+		// // echo $result2['cnt'];
+		// $rows = $result2['cnt'];
+		// $aaaa = 0;
+		// $limit_admin = 10;
+		// if($member['mb_id'] != 'admin'){
+		// 	$cnts = 0;
+		// 	for ($i = 0; $row = sql_fetch_array($resultaaa); $i++) {
+		// 		$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
+		// 		$wr_count = sql_fetch(" select count(*)  cnt from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and a.as_type = '-1'", false);
+		// 		$cnts += (int)$wr_count['cnt'];
+		// 	}
+		// 	$aaaa = $cnts + 10;
+		// 	$limit_admin = $aaaa;
+		// }
+		// --------------
+
+		$qq= " select a.*, b.bo_subject $sql_common order by rand(), $sql_orderby $orderby limit $start_rows, $rows ";
 		$result = sql_query($qq, false);
+
 		for ($i = 0; $row = sql_fetch_array($result); $i++) {
-
 			$tmp_write_table = $g5['write_prefix'] . $row['bo_table'];
-
-			//$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id and b.mb_level = '27' and b.mb_4 >= '{$now}' ", false);
 			$wr = sql_fetch(" select * from $tmp_write_table a, {$g5['member_table']} b where a.wr_id = '{$row['wr_id']}' and  a.mb_id = b.mb_id ", false);
 			$wr['bo_table'] = $row['bo_table'];
 			$wr['bo_subject'] = $row['bo_subject'];
-			/* if ($wr['wr_id']) { */
-				$wr['wr_id'] = $row['wr_id'];
-				$list[$i] = na_wr_row($wr, $wset);
-			/* } */
+			$wr['wr_id'] = $row['wr_id'];
+			$wr['co_free_num'] = $row['co_free_num'];
+			$wr['co_sale_num'] = $row['co_sale_num'];
+			$wr['co_sent_fnum'] = $row['co_sent_fnum'];
+			$wr['co_sent_snum'] = $row['co_sent_snum'];
+
+			$list[$i] = na_wr_row($wr, $wset);
 		}
 	} else { //단수
 
