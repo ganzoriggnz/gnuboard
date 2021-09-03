@@ -57,16 +57,16 @@ $delcnt=0;
                         <a data-type="S" data-entity="<?php echo $row['co_entity'];?>"
                             data-no="<?php echo $row['co_no'];?>" data-mb-id="<?php echo $row['mb_id'];?>"
                             data-link="<?php echo $bo_table;?>"
-                            <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
-                            <?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
+                            <?php if(number_format($row['co_sale_num']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
+                            <?php echo "원가권 ".number_format($row['co_sale_num'])."개";?>
                         </a>
                     </td>
                     <td class="td_left">
                         <a data-type="F" data-entity="<?php echo $row['co_entity'];?>"
                             data-no="<?php echo $row['co_no'];?>" data-mb-id="<?php echo $row['mb_id'];?>"
                             data-link="<?php echo $bo_table;?>"
-                            <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
-                            <?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
+                            <?php if(number_format($row['co_free_num']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
+                            <?php echo "무료권 ".number_format($row['co_free_num'])."개";?>
                         </a>
                     </td>
                     <td class="td_left">
