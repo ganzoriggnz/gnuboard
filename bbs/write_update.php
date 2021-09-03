@@ -17,7 +17,8 @@ if($board['bo_use_category']) {
     if(!$ca_name) {
         $msg[] = '<strong>분류</strong>를 선택하세요.';
     } else {
-        $categories = array_map('trim', explode("|", $board['bo_category_list'].($is_admin ? '|공지|이벤트진행|이벤트결과' : '')));
+        // var_dump($board['bo_category_list']);die;
+        $categories = array_map('trim', explode("|", $board['bo_category_list'].($is_admin || $member['mb_level'] == 24 || $member['mb_level'] == 25 ? '|공지|이벤트진행|이벤트결과' : '')));
         if(!empty($categories) && !in_array($ca_name, $categories))
             $msg[] = '분류를 올바르게 입력하세요.';
 
