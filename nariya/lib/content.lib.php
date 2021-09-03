@@ -137,7 +137,6 @@ function na_ext_type($file) {
 
 // BS3 Style
 function na_paging($write_pages, $cur_page, $total_page, $url, $add='') {
-
 	$first = '<i class="fa fa-angle-double-left"></i>';
 	$prev = '<i class="fa fa-angle-left"></i>';
 	$next = '<i class="fa fa-angle-right"></i>';
@@ -152,7 +151,7 @@ function na_paging($write_pages, $cur_page, $total_page, $url, $add='') {
 	$str = '';
 	if($first) {
 		if ($cur_page < 2) {
-			$str .= '<li class="page-item disabled"><a class="page-link">'.$first.'</a></li>';
+			$str .= '<li class="page-item"><a class="page-link">'.$first.'</a></li>';
 		} else {
 			$str .= '<li class="page-item"><a class="page-link" href="'.$url.'1'.$add.'">'.$first.'</a></li>';
 		}
@@ -168,7 +167,7 @@ function na_paging($write_pages, $cur_page, $total_page, $url, $add='') {
 	if ($start_page > 1) { 
 		$str .= '<li class="page-item"><a class="page-link" href="'.$url.($start_page-1).$add.'">'.$prev.'</a></li>';
 	} else {
-		$str .= '<li class="page-item disabled"><a class="page-link">'.$prev.'</a></li>'; 
+		$str .= '<li class="page-item"><a class="page-link">'.$prev.'</a></li>'; 
 	}
 
 	if ($total_page > 0){
@@ -185,14 +184,14 @@ function na_paging($write_pages, $cur_page, $total_page, $url, $add='') {
 	if ($total_page > $end_page) {
 		$str .= '<li class="page-item"><a class="page-link" href="'.$url.($end_page+1).$add.'">'.$next.'</a></li>';
 	} else {
-		$str .= '<li class="page-item disabled"><a class="page-link">'.$next.'</a></li>';
+		$str .= '<li class="page-item"><a class="page-link">'.$next.'</a></li>';
 	}
 
 	if($last) {
 		if ($cur_page < $total_page) {
 			$str .= '<li class="page-item"><a class="page-link" href="'.$url.($total_page).$add.'">'.$last.'</a></li>';
 		} else {
-			$str .= '<li class="page-item disabled"><a class="page-link">'.$last.'</a></li>';
+			$str .= '<li class="page-item"><a class="page-link">'.$last.'</a></li>';
 		}
 	}
 

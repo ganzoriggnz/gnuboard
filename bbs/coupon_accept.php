@@ -77,6 +77,25 @@ while($row_acc = sql_fetch_array($res_acc)){
         }
     }
 }
+$length = 0;
+if($member['mb_level'] < 24){
+    $sql = "SELECT count(*) cnt FROM $g5[coupon_sent_table] WHERE cos_nick='{$member['mb_nick']}'";
+    $res = sql_fetch($sql);
+    $length = $res['cnt'];
+}else if($member['mb_level'] == '26' || $member['mb_level'] == '27'){
+    $sql = "SELECT count(*) cnt FROM $g5[coupon_sent_table] WHERE cos_entity='{$member['mb_name']}'";
+    $res = sql_fetch($sql);
+    $length = $res['cnt'];
+}else if($member['mb_level'] == '24') {
+    $sql_boadmin = " select count(*) cnt from {$g5['board_table']} a INNER JOIN $g5[coupon_table] b on a.bo_table=b.bo_table where a.bo_admin = '{$member['mb_id']}' and b.co_begin_datetime = '{$co_begin_datetime}' and b.co_end_datetime = '{$co_end_datetime}' ";
+    $res_boadmin = sql_fetch($sql_boadmin);
+    $length = $res_boadmin['cnt'];
+}else if($member['mb_level'] == '25' || $is_admin){
+    $sql_gradmin = " select count(*) cnt from $g5[coupon_table] where co_begin_datetime = '{$co_begin_datetime}' and co_end_datetime = '{$co_end_datetime}' ";
+    $res_gradmin = sql_fetch($sql_gradmin);
+    $length = $res_gradmin['cnt'];
+}
+
 
 $coupon_accept_skin_path = get_skin_path('coupon', 'NB-Basic');
 $coupon_accept_skin_url  = get_skin_url('coupon', 'NB-Basic');
