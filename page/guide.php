@@ -23,7 +23,7 @@ $ranking = array(
 	array('level'=>18, 'name'=>'Lv.18 대공', 'join'=>500, 'point'=>400000, 'review'=>150, 'other'=>450, 'comment'=>2000, 'auth'=>'추기경 또는 교황에 추대 받을수있음'),
 	array('level'=>19, 'name'=>'Lv.19 왕자', 'join'=>600, 'point'=>600000, 'review'=>200, 'other'=>500, 'comment'=>2500, 'auth'=>'제휴업소 무료쿠폰 1장 제공'),
 	array('level'=>20, 'name'=>'Lv.20 왕', 'join'=>700, 'point'=>800000, 'review'=>250, 'other'=>600, 'comment'=>3000, 'auth'=>'제휴업소 무료쿠폰 2장 제공'),
-	array('level'=>21, 'name'=>'Lv.21 국왕', 'join'=>800, 'point'=>1000000, 'review'=>300, 'other'=>700, 'comment'=>3500, 'auth'=>'진급시 일회성 10만+ 매원무료권 지급'),
+	array('level'=>21, 'name'=>'Lv.21 국왕', 'join'=>800, 'point'=>1000000, 'review'=>300, 'other'=>700, 'comment'=>3500, 'auth'=>'진급시 일회성 10만+ 매월무료권 지급'),
 	array('level'=>22, 'name'=>'Lv.22 태자', 'join'=>900, 'point'=>1500000, 'review'=>400, 'other'=>800, 'comment'=>4000, 'auth'=>'진급시 일회성 20만+ 매월무료권 지급'),
 	array('level'=>23, 'name'=>'Lv.23 황제', 'join'=>1000, 'point'=>2000000, 'review'=>500, 'other'=>1000, 'comment'=>5000, 'auth'=>'진급시 일회성 30만+ 매월무료권 지급'),
 	array('level'=>24, 'name'=>'Lv.24 추기경', 'join'=>0, 'point'=>0, 'review'=>0, 'other'=>0, 'comment'=>0, 'auth'=>'해당 게시판 쿠폰이벤트 진행 및 게시글 관리'),

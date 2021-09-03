@@ -596,7 +596,7 @@ function delete_comment_all(){
 
 	if(confirm('선택된 댓글을 삭제하시겠습니까?')){
 		var co_ids = $('input[name="check_id[]"]:checked').map(function(){return $(this).val();}).get();
-		location.href='./delete_comment_all.php?bo_table=free&co_ids='+co_ids+'&page=1';		
+		location.href='./delete_comment_all.php?bo_table=<?php echo $bo_table; ?>&co_ids='+co_ids+'&page=1';
 	}
 }
 </script>
