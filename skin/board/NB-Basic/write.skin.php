@@ -359,8 +359,8 @@ if ($is_member)
                                     <select name="ca_name" id="ca_name" required class="custom-select" <?php if ($member['mb_7'] && $member['mb_6'] == $bo_table) echo "readonly" ?>>
                                         <option value="">선택하세요</option>
                                         <?php echo $category_option;
-                                        if ($is_admin) {
-                                            if($notice_checked == 'checked')
+                                        if ($is_admin || $member['mb_level'] == 24 || $member['mb_level'] == 25) {
+                                            if($notice_checked == 'checked' )
                                                 echo "<option value='공지' selected > 공지 </option>";
                                             else 
                                                 echo "<option value='공지'> 공지 </option>";
@@ -400,7 +400,7 @@ if ($is_member)
                                                 <?php echo $res['mb_name']; ?></option>
                                         <?php }
                                         if ($is_admin) {
-                                            if($notice_checked == 'checked' || $member['mb_level'] == 24 || $member['mb_level'] == 25)
+                                            if($notice_checked == 'checked')
                                                 echo "<option value='공지' selected > 공지 </option>";
                                             else 
                                                 echo "<option value='공지'> 공지 </option>";
