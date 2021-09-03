@@ -360,7 +360,7 @@ if ($is_member)
                                         <option value="">선택하세요</option>
                                         <?php echo $category_option;
                                         if ($is_admin) {
-                                            if($notice_checked == 'checked' || $member['mb_level'] == 24 || $member['mb_level'] == 25)
+                                            if($notice_checked == 'checked')
                                                 echo "<option value='공지' selected > 공지 </option>";
                                             else 
                                                 echo "<option value='공지'> 공지 </option>";
@@ -400,7 +400,7 @@ if ($is_member)
                                                 <?php echo $res['mb_name']; ?></option>
                                         <?php }
                                         if ($is_admin) {
-                                            if($notice_checked == 'checked')
+                                            if($notice_checked == 'checked' || $member['mb_level'] == 24 || $member['mb_level'] == 25)
                                                 echo "<option value='공지' selected > 공지 </option>";
                                             else 
                                                 echo "<option value='공지'> 공지 </option>";
