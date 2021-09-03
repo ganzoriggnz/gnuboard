@@ -9,7 +9,7 @@ $page_rows = 30; // hedeer huudaslah
 $from_record = 0;
 if($page_rows <= $length){
     $is_pageing = true;
-    $total_page = $length / $page_rows;  
+    $total_page = ceil($length / $page_rows);  
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $from_record = ($page - 1) * $page_rows;     
 }
@@ -225,7 +225,7 @@ if($page_rows <= $length){
             <ul class="pagination justify-content-center en mb-0">
                 <?php 
                 if($is_pageing){
-                    echo na_paging($page_rows, $page, $total_page, "?page="); 
+                    echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "?page="); 
                 }?>
             </ul>
         </div>
