@@ -135,6 +135,7 @@ if( isset($_POST['id'])){
         $result1=sql_query($result);
 
         while ($row = sql_fetch_array($result1)) {     
+            if($row['co_free_num']-$row['co_sent_fnum'] != '0' || $row['co_sale_num']-$row['co_sent_snum'] != '0'):
         ?>
             <tr>
                 <td class="td_left" style="text-align: left; width: 10rem;">
@@ -202,28 +203,14 @@ if( isset($_POST['id'])){
                 </td>
                 
                 <td class="td_left" style="text-align: left; width: 8rem;">
-                    <a 
-                        data-type = "S" 
-                        data-entity="<?php echo $row['co_entity'];?>" 
-                        data-no = "<?php echo $row['co_no'];?>" 
-                        data-mb-id = "<?php echo $row['mb_id'];?>" 
-                        data-link="<?php echo $bo_table;?>" 
-                        <?php if(number_format($row['co_sale_num']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
-                        <?php echo "원가권 ".number_format($row['co_sale_num'])."개";?>
-                        <!-- -$row['co_sent_snum'] -->
+                    <a data-type = "S" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
+                        <?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
                     </a>
                 </td> 
                 
                 <td class="td_left" style="text-align: left; width: 8rem;">
-                    <a 
-                        data-type = "F" 
-                        data-entity="<?php echo $row['co_entity'];?>" 
-                        data-no = "<?php echo $row['co_no'];?>" 
-                        data-mb-id = "<?php echo $row['mb_id'];?>" 
-                        data-link="<?php echo $bo_table;?>" 
-                        <?php if(number_format($row['co_free_num']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
-                        <?php echo "무료권 ".number_format($row['co_free_num'])."개";?>
-                        <!-- -$row['co_sent_fnum'] -->
+                    <a data-type = "F" data-entity="<?php echo $row['co_entity'];?>" data-no = "<?php echo $row['co_no'];?>" data-mb-id = "<?php echo $row['mb_id'];?>" data-link="<?php echo $bo_table;?>" <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
+                        <?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
                     </a>
                 </td>
                 
@@ -361,7 +348,7 @@ if( isset($_POST['id'])){
                     </ul>
                 </td>               
             </tr>                        
-        <?php $cnt++; } 
+        <?php $cnt++; endif;} 
         if ($cnt == 0) { 
             echo '<tr><td colspan="4" class="empty_table">자료가 없습니다.</td></tr>';
         } ?>

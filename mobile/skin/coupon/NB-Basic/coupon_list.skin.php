@@ -47,6 +47,8 @@ $delcnt=0;
 	$result = "SELECT a.*, c.mb_level FROM {$g5['coupon_table']} a INNER JOIN $at_table b ON a.mb_id = b.mb_id INNER JOIN {$g5['member_table']} c ON a.mb_id = c.mb_id WHERE (a.co_sale_num > '0' or a.co_free_num > '0') and a.co_begin_datetime='{$co_begin_datetime}' AND a.co_end_datetime='{$co_end_datetime}' AND b.wr_is_comment='0' AND c.mb_level = '27'"; 
 	$result1=sql_query($result);
 	while ($row = sql_fetch_array($result1)) {
+		if($row['co_free_num']-$row['co_sent_fnum'] != '0' || $row['co_sale_num']-$row['co_sent_snum'] != '0'):
+
 	?>
                 <tr>
                     <td class="td_left">
@@ -57,16 +59,16 @@ $delcnt=0;
                         <a data-type="S" data-entity="<?php echo $row['co_entity'];?>"
                             data-no="<?php echo $row['co_no'];?>" data-mb-id="<?php echo $row['mb_id'];?>"
                             data-link="<?php echo $bo_table;?>"
-                            <?php if(number_format($row['co_sale_num']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
-                            <?php echo "원가권 ".number_format($row['co_sale_num'])."개";?>
+                            <?php if(number_format($row['co_sale_num']-$row['co_sent_snum']) == '0' || $co_send_date > $now) { echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';}  ?>>
+                            <?php echo "원가권 ".number_format($row['co_sale_num']-$row['co_sent_snum'])."개";?>
                         </a>
                     </td>
                     <td class="td_left">
                         <a data-type="F" data-entity="<?php echo $row['co_entity'];?>"
                             data-no="<?php echo $row['co_no'];?>" data-mb-id="<?php echo $row['mb_id'];?>"
                             data-link="<?php echo $bo_table;?>"
-                            <?php if(number_format($row['co_free_num']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
-                            <?php echo "무료권 ".number_format($row['co_free_num'])."개";?>
+                            <?php if(number_format($row['co_free_num']-$row['co_sent_fnum']) == '0' || $co_send_date > $now){ echo 'style="font-weight: bold;"'; } else { echo 'data-toggle="modal" href="#couponModal" class="coupon-modal" style="color:blue; font-weight: bold;"';} ?>>
+                            <?php echo "무료권 ".number_format($row['co_free_num']-$row['co_sent_fnum'])."개";?>
                         </a>
                     </td>
                     <td class="td_left">
@@ -228,7 +230,7 @@ $delcnt=0;
                         </ul>
                     </td>
                 </tr>
-                <?php $cnt++; } 
+                <?php $cnt++; endif;} 
         if ($cnt == 0) { 
             echo '<tr><td colspan="4" class="empty_table">자료가 없습니다.</td></tr>';
         } ?>
