@@ -225,7 +225,7 @@ if($page_rows <= $length){
             <ul class="pagination justify-content-center en mb-0">
                 <?php 
                 if($is_pageing){
-                    echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "?page="); 
+                    echo na_paging($page_rows, $page, $total_page, "?page="); 
                 }?>
             </ul>
         </div>
