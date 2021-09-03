@@ -8,7 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="' . G5_PLUGIN_URL . '/Lightweight-j
 
 // hulan nemsen 공지글 레벨 게시판에 따라 /////////////////////////////////////////
 if ($bo_table == "free" || $gr_id == "review" || $bo_table == "event") {
-    if (($is_admin || $board['bo_admin'] == $member['mb_id'] || $group['gr_admin'] == $member['mb_id']) && $w != 'r') {
+    if (($is_admin || $member['mb_level'] == 24|| $member['mb_level'] == 25) && $w != 'r') {
         $is_notice = true;
         $is_eventcheck = true;
         $is_best = true;
@@ -215,7 +215,6 @@ if ($is_member)
             $option .= $option_end;
         }
         
-
         echo $option_hidden;
         ?>
         <?php if (G5_IS_MOBILE) { ?>
@@ -360,8 +359,8 @@ if ($is_member)
                                     <select name="ca_name" id="ca_name" required class="custom-select" <?php if ($member['mb_7'] && $member['mb_6'] == $bo_table) echo "readonly" ?>>
                                         <option value="">선택하세요</option>
                                         <?php echo $category_option;
-                                        if ($is_admin) {
-                                            if($notice_checked == 'checked')
+                                        if ($is_admin || $member['mb_level'] == 24 || $member['mb_level'] == 25) {
+                                            if($notice_checked == 'checked' )
                                                 echo "<option value='공지' selected > 공지 </option>";
                                             else 
                                                 echo "<option value='공지'> 공지 </option>";
@@ -857,7 +856,7 @@ if ($is_member)
                                         <option value="">선택하세요</option>
                                         <?php echo $category_option;
 
-                                        if ($is_admin) {
+                                        if ($is_admin || $member['mb_level'] == 24 || $member['mb_level'] == 25) {
                                             if($notice_checked == 'checked')
                                                 echo "<option value='공지' selected > 공지 </option>";
                                             else 

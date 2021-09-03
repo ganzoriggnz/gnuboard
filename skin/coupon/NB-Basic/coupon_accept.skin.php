@@ -3,6 +3,17 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.css">', 0);
+
+$is_pageing = false;
+$page_rows = 30; // hedeer huudaslah
+$from_record = 0;
+if($page_rows <= $length){
+    $is_pageing = true;
+    $total_page = ceil($length / $page_rows);  
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $from_record = ($page - 1) * $page_rows;     
+}
+
 ?>
 
 <div id="bo_v">
@@ -122,6 +133,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
             </thead>
             <tbody>
             <?php  
+                $count = 0;
                 $now = G5_TIME_YMDHIS;
                 $currentyear = substr($now, 0, 4);
                 $currentmonth = substr($now, 5, 2);
@@ -129,7 +141,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                 $co_begin_datetime = date_format($co_start, 'Y-m-01 00:00:00');
                 $co_end_datetime = get_end_datetime($co_start,$currentyear,$currentmonth); ?>
             <?php if($member['mb_level'] < 24) { ?>
-                <?php $sql = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_nick='{$member['mb_nick']}'";
+                <?php $sql = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_nick='{$member['mb_nick']}' limit {$from_record}, {$page_rows}";
                 $res = sql_query($sql);
                 for($i=0; $row = sql_fetch_array($res); $i++){ ?>
                 <tr id="<?php echo $i; ?>">
@@ -151,9 +163,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                 </tr>
             <?php
                 } } else if($member['mb_level'] == '26' || $member['mb_level'] == '27') { ?>
-                <?php $sql = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_entity='{$member['mb_name']}'";
+                <?php $sql = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_entity='{$member['mb_name']}' limit {$from_record}, {$page_rows}";
                 $res = sql_query($sql);
-                for($i=0; $row = sql_fetch_array($res); $i++){ ?>
+                for($i=0; $row = sql_fetch_array($res); $i++){  ?>
                 <tr id="<?php echo $i; ?>">
                     <td><?php echo "[".$row['cos_entity']."]";?></td>
 					<td><?php echo $row['cos_id'];?></td>
@@ -169,9 +181,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                 </tr>
             <?php } }  else if($member['mb_level'] == '24') {?>
                 <?php                
-                $sql_boadmin = " select b.bo_table, b.co_entity from {$g5['board_table']} a INNER JOIN $g5[coupon_table] b on a.bo_table=b.bo_table where a.bo_admin = '{$member['mb_id']}' and b.co_begin_datetime = '{$co_begin_datetime}' and b.co_end_datetime = '{$co_end_datetime}' ";
+                $sql_boadmin = " select b.bo_table, b.co_entity from {$g5['board_table']} a INNER JOIN $g5[coupon_table] b on a.bo_table=b.bo_table where a.bo_admin = '{$member['mb_id']}' and b.co_begin_datetime = '{$co_begin_datetime}' and b.co_end_datetime = '{$co_end_datetime}'  limit {$from_record}, {$page_rows}";
                 $res_boadmin = sql_query($sql_boadmin);
-                for($j=0;$row_boadmin = sql_fetch_array($res_boadmin); $j++){               
+                for($j=0;$row_boadmin = sql_fetch_array($res_boadmin); $j++){  
                     $sql = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_entity='{$row_boadmin['co_entity']}'";
                     $res = sql_query($sql);
                     for($i=0; $row = sql_fetch_array($res); $i++){ ?>
@@ -188,9 +200,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                         </td>
                     </tr>
             <?php } } } else if($member['mb_level'] == '25' || $is_admin) {?>
-                <?php $sql_gradmin = " select co_entity from $g5[coupon_table] where co_begin_datetime = '{$co_begin_datetime}' and co_end_datetime = '{$co_end_datetime}' ";
+                <?php $sql_gradmin = " select co_entity from $g5[coupon_table] where co_begin_datetime = '{$co_begin_datetime}' and co_end_datetime = '{$co_end_datetime}' limit {$from_record}, {$page_rows}";
                 $res_gradmin = sql_query($sql_gradmin);
-                for($j=0;$row_gradmin = sql_fetch_array($res_gradmin); $j++){               
+                for($j=0;$row_gradmin = sql_fetch_array($res_gradmin); $j++){    
                     $sql = "SELECT * FROM $g5[coupon_sent_table] WHERE cos_entity='{$row_gradmin['co_entity']}'";
                     $res = sql_query($sql);
                     for($i=0; $row = sql_fetch_array($res); $i++){ ?>
@@ -209,6 +221,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
             <?php } } } ?>
             </tbody>
         </table>
+        <div class="font-weight-normal px-3 mt-4">
+            <ul class="pagination justify-content-center en mb-0">
+                <?php 
+                if($is_pageing){
+                    echo na_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "?page="); 
+                }?>
+            </ul>
+        </div>
         <div class="popup_box">
             <h1>쿠폰사용</h1>
             <label>쿠폰사용후 5일이내 후기 미 작성시 모든</br>이벤트에서 한달간 제외됩니다.</label>
@@ -216,6 +236,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                 <a href="#" class="btn">확인</a>
             </div>
         </div>
+
         <div style="margin-top: 100px; padding-bottom: 20px; line-height: 2;">
             <ul style="list-style: disc; margin-left: 40px; font-size: 14px;">
                 <li>쿠폰을 받은 사람은 7일이내 사용하기를 누르지 않으면 <span style="color: blue">자동으로 회수됩니다.</span></li>
@@ -236,4 +257,5 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_accept_skin_url.'/style.c
                                         
         </script>
     </div>
+    
 </div>

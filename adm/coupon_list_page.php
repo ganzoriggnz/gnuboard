@@ -135,6 +135,7 @@ if( isset($_POST['id'])){
         $result1=sql_query($result);
 
         while ($row = sql_fetch_array($result1)) {     
+            if($row['co_free_num']-$row['co_sent_fnum'] != '0' || $row['co_sale_num']-$row['co_sent_snum'] != '0'):
         ?>
             <tr>
                 <td class="td_left" style="text-align: left; width: 10rem;">
@@ -347,7 +348,7 @@ if( isset($_POST['id'])){
                     </ul>
                 </td>               
             </tr>                        
-        <?php $cnt++; } 
+        <?php $cnt++; endif;} 
         if ($cnt == 0) { 
             echo '<tr><td colspan="4" class="empty_table">자료가 없습니다.</td></tr>';
         } ?>

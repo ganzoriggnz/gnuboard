@@ -228,39 +228,56 @@ if ($gr_id=='review') {
 	        </div>
 			<div class="clearfix f-sm text-muted pr-2">
 				<!-- start    mobile   -->
-				<ul class="d-flex-start align-items-center">
-	                
-	                <li style="display: inline;"><a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><img
-	                            src="<?php echo G5_IMG_URL.'/solid/phone.svg' ?>" style="height:12px;" title=""> 전화걸기</a>
+				<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
+	                <li style="display: inline; margin-right:1px;">
+						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
+	                        style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
+							class="btn">
+								전화걸기
+						</a>
 	                </li>
-	                <li style="display: inline;"><a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
-	                        style="display: inline; margin-left: 5px; border:1px solid #e5e5e5;font-size: 10px;"
-	                        class="btn"><img src="<?php echo G5_IMG_URL.'/solid/sms.svg' ?>" style="height:12px;" title="">
-	                        문자보내기</a></li>
-	                
-	            </ul>
-				<ul class="d-flex-start align-items-center pb-3 pt-2" style="margin-top: 2px;">
-					<li style="display: inline;"><a href="#viewcomment"		
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
+	                <li style="display: inline; margin-right:1px;">
+						<a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
+	                        style="display: inline; color:#ffffff;font-size: 10px; background-color: #595959;"
+	                        class="btn">
+	                        	문자보내기
+						</a>
+					</li>
+					<li style="display: inline; margin-right:1px;">
+						<a href="#viewcomment"	
+							style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
+							class="btn">
+								댓글바로가기
+						</a>
 	                </li>
 				    <?php if ($gr_id=='attendance') { ?>
-	                <li style="display: inline;"><a href="#"
-					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-	                        style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 후기바로가기</a>
-	                </li>
-
-					<li style="display: inline;"><a href="#"
-					onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
-					style="display: inline; border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-pencil" aria-hidden="true"></i> 업소후기작성</a>
-	                </li>
+						<li style="display: inline; margin-right:1px;">
+							<a href="#" 
+								onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
+								style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
+								class="btn">
+									후기바로가기
+							</a>
+						</li>
+						<li style="display: inline; margin-right:1px;">
+							<a href="#"
+								onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
+								style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;" 
+								class="btn"> 
+									업소후기작성
+							</a>
+						</li>
 	                <?php } ?>
 	                <?php if ($gr_id=='review') { ?>
-	                <li style="display: inline;"><a href="#"
-					onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
-					class="btn" title="업소정보" style="display: inline; border:1px solid #e5e5e5; font-size: 10px;">
-	                        <i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
-	                </li>
+						<li style="display: inline; margin-right:1px;">
+							<a href="#"
+								onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
+								class="btn" 
+								title="업소정보" 
+								style="display: inline; color:#ffffff; font-size: 10px; background-color: #595959;">
+									업소정보
+							</a>
+						</li>
 	                <?php } ?>
 				</ul>
 				 <!-- end   / -->
@@ -646,7 +663,7 @@ if ($gr_id=='review') {
 	                </button>
 	                <?php } ?>
 	                <!--  hulan zassan level 24,25is board .group admin, and admin or group admin board admin can blind  -->
-	                <?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin ||$member['mb_id'] == $board['bo_admin'] || $member['mb_id'] == $group['gr_admin'])) { // 블라인드 ?>
+	                <?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin || in_array($member['mb_id'], explode(",", $board['bo_admin'])) || in_array($member['mb_id'], explode(",", $group['gr_admin'])))) { // 블라인드 ?>
 	                <button type="button" class="btn btn-basic"  <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>
 	                    onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="블라인드">
 	                    <i class="fa fa-ban" aria-hidden="true"></i> 
