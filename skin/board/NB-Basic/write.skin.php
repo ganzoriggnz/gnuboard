@@ -856,7 +856,7 @@ if ($is_member)
                                         <option value="">선택하세요</option>
                                         <?php echo $category_option;
 
-                                        if ($is_admin || $member['mb_level'] == 24 || $member['mb_level'] == 25) {
+                                        if ($is_admin) {
                                             if($notice_checked == 'checked')
                                                 echo "<option value='공지' selected > 공지 </option>";
                                             else 
