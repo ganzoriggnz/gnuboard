@@ -43,12 +43,15 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
             <tbody>
 
                 <?php 
-                while ($my_row = sql_fetch_array($result)) { ?>
+                while ($my_row = sql_fetch_array($result)) { 
+                    $sql = " select gr_id, bo_subject from {$g5['board_table']} where bo_table='{$my_row['bo_table']}' ";
+				    $board_row = sql_fetch($sql);
+                    ?>
                 <tr style="border:1px solid #d3d3d3;font-size: 10px; text-align: center; ">
                     <th class="cl_tr"><a
                             href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $my_row['bo_table']."&wr_id=".$my_row['wr_id']?>"
                             style="color: #6c757d;">
-                            <?php echo $my_row['bo_subject'];?>
+                            <?php echo $board_row['bo_subject'];?>
                         </a></th>
                     <th class="cl_tl" style="text-align: left;">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $my_row['bo_table']."&wr_id=".$my_row['wr_id'] ?>"
