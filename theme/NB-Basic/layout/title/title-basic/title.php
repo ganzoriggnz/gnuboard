@@ -59,11 +59,8 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 									<a href="#"><?php echo $tnav_txt ?></a>
 								</li>
 							<?php } ?>
-							<!-- <li>
-								<div class="clearfix f-sm text-muted pt-2 pr-2">
-									<h3 class="sr-only">컨텐츠 정보</h3>
-									<ul class="d-flex-start align-items-center mr-2"> -->
-										<li id="bo_v_btn" style="width:70%;display: flex;flex-wrap: wrap;justify-content: flex-end;">
+							<?php if(isset($_GET['wr_id'])): ?>
+								<li id="bo_v_btn" style="width:70%;display: flex;flex-wrap: wrap;justify-content: flex-end;">
 											<!-- 게시물 상단 버튼 시작 { -->
 											<?php ob_start(); ?>
 												<?php 
@@ -74,29 +71,29 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 													|| $is_admin 
 													|| ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") 
 													|| ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-												<a href="<?php echo $update_href ?>" class="btn-vw mb-2" style="color:#ffffff;width:60px;" role="button">
+												<a href="<?php echo $update_href ?>" class="btn-vw mb-2 ml-1" style="color:#ffffff;width:60px;" role="button">
 													글수정
 												</a>
 												<?php } } ?>
 												<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
 												if ($delete_href) {  ?>
 												<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-													class="btn-vw mb-2" style="color:#ffffff;width:60px;" role="button">
+													class="btn-vw mb-2 ml-1" style="color:#ffffff;width:60px;" role="button">
 													글삭제
 												</a>
 												<?php } ?>
 												<?php if ($move_href) { ?>
 												<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-													class="btn-vw mb-2" style="color:#ffffff;width:60px;" role="button">
+													class="btn-vw mb-2 ml-1" style="color:#ffffff;width:60px;" role="button">
 													글이동
 												</a>
 												<?php } }?>
-												<a href="<?php echo $list_href ?>" class="btn-vw mb-2" style="color:#ffffff;width:60px;" title="목록" role="button">
+												<a href="<?php echo $list_href ?>" class="btn-vw mb-2 ml-1" style="color:#ffffff;width:60px;" title="목록" role="button">
 													목록
 												</a>
 
 												<?php if ($write_href) { ?>
-												<a href="<?php echo $write_href ?>" class="btn-vw mb-2" style="color:#ffffff;width:60px;" title="글쓰기" role="button">
+												<a href="<?php echo $write_href ?>" class="btn-vw mb-2 ml-1" style="color:#ffffff;width:60px;" title="글쓰기" role="button">
 													글쓰기
 												</a>
 												<?php } ?>
@@ -106,9 +103,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 										?>
 											<!-- } 게시물 상단 버튼 끝 -->
 										</li>
-									<!-- </ul>
-								</div>
-							</li> -->
+							<?php endif?>
 							<!-- <?php if($tnav_cnt) { ?>
 								<li class="breadcrumb-item mb-0">
 									<a href="<?php echo NT_HOME_URL ?>"><i class="fa fa-home"></i></a>
