@@ -43,27 +43,27 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
             <tbody>
 
                 <?php 
-                for ($i = 0; $i < count($result);   $i++) { echo $i;?>
+                while ($my_row = sql_fetch_array($result)) { ?>
                 <tr style="border:1px solid #d3d3d3;font-size: 10px; text-align: center; ">
                     <th class="cl_tr"><a
-                            href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id']?>"
+                            href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $my_row['bo_table']."&wr_id=".$my_row['wr_id']?>"
                             style="color: #6c757d;">
-                            <?php echo $list[$i]['bo_subject'];?>
+                            <?php echo $my_row['bo_subject'];?>
                         </a></th>
                     <th class="cl_tl" style="text-align: left;">
-                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id'] ?>"
+                        <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $my_row['bo_table']."&wr_id=".$my_row['wr_id'] ?>"
                             style="color: #6c757d;">
                             <?php                                
-                                echo substr($list[$i]['wr_subject'],0,35) ; ?>
+                                echo substr($my_row['wr_subject'],0,35) ; ?>
                         </a>
                     </th>
-                    <th class="cl_tr" style="color: #6c757d;"> <?php echo $list[$i]['wr_datetime']; ?></th>
+                    <th class="cl_tr" style="color: #6c757d;"> <?php echo $my_row['wr_datetime']; ?></th>
                 </tr>
                 <?php  }
             ?>
                 </body>
         </table>
-        <?php if ($i == 0) { ?>
+        <?php if (!$result->num_rows) { ?>
         <div class="f-de font-weight-normal px-3 py-5 text-muted text-center border-bottom">자료가 없습니다.</div>
         <?php } ?>
         <div class="font-weight-normal px-3 mt-4">
