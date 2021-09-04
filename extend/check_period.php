@@ -21,7 +21,7 @@ function check_member_period($st_date, $et_date, $et_date2, $mb_id, $wrpost2, $w
     $countreview =0;
         
         // 다른 게시글 , 댓글 수 구하기
-        $result = sql_query("select bo_table from {$g5['board_table']} where gr_id='community'");
+        $result = sql_query("select bo_table from {$g5['board_table']} ");
         while ( $row=sql_fetch_array($result))
         {
             $res1 = sql_query("select wr_is_comment from ".$g5['write_prefix'].$row['bo_table']." where mb_id='{$mb_id}'"); 
