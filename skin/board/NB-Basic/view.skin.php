@@ -687,7 +687,7 @@ if ($gr_id=='review') {
 	                <?php } ?>
 	            </div>				
 	        <?php } ?>
-			<?php if(G5_IS_MOBILE) :?>
+			<?php if(G5_IS_MOBILE &&  $gr_id == "attendance") :?>
 				<div class="clearfix f-sm text-muted pr-2 mt-3">
 				<!-- start    mobile   -->
 					<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
