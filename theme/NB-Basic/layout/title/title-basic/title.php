@@ -42,7 +42,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 			<div class="d-flex pb-1 pl-0">
 				<div class="align-self-start d-sm-block">
 					<nav aria-label="breadcrumb" class="f-sm">
-						<ol class="breadcrumb bg-transparent p-0 m-0">
+						<ol class="" style="display:flex;">
 							<?php
 								// 페이지 설명글 없으면 현재 위치 출력
 								$tnav_cnt = 0;
