@@ -233,14 +233,14 @@ if ($gr_id=='review') {
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 12px; padding:5px 15px; background-color: #595959;" 
 							class="btn">
-							전화
+							전화하기
 						</a>
 	                </li>
 	                <li style="display: inline; margin-right:1px;" class="mb-1">
 						<a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
 	                        style="display: inline; color:#ffffff;font-size: 12px; padding:5px 15px; background-color: #595959;"
 	                        class="btn">
-							문자
+							문자하기
 						</a>
 					</li>
 					<li style="display: inline; margin-right:1px;" class="mb-1">
@@ -633,7 +633,7 @@ if ($gr_id=='review') {
 	        <!-- } 본문 내용 끝 -->
 			<div id="bo_v_btn_group" class="clearfix text-center py-4 px-3 en">
 	        <?php 
-		if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
+				if($board['bo_use_good'] || $board['bo_use_nogood'] || $scrap_href || $board['bo_use_sns']) { ?>
 	       
 	            <div class="btn-group btn-group-lg" role="group">
 	                <?php if ($member['mb_level'] >= $board['bo_use_good'] && $gr_id!="attendance" && $bo_table!="job" && $bo_table!="greeting" && $bo_table!="notice" && $bo_table!="event") { // 추천 ?>
@@ -683,6 +683,64 @@ if ($gr_id=='review') {
 	                <?php } ?>
 	            </div>				
 	        <?php } ?>
+			<?php if(G5_IS_MOBILE) :?>
+				<div class="clearfix f-sm text-muted pr-2">
+				<!-- start    mobile   -->
+					<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
+						<li style="display: inline; margin-right:1px;" class="mb-1">
+							<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
+								style="display: inline; color:#ffffff; font-size: 12px; padding:5px 15px; background-color: #595959;" 
+								class="btn">
+								전화하기
+							</a>
+						</li>
+						<li style="display: inline; margin-right:1px;" class="mb-1">
+							<a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
+								style="display: inline; color:#ffffff;font-size: 12px; padding:5px 15px; background-color: #595959;"
+								class="btn">
+								문자하기
+							</a>
+						</li>
+						<li style="display: inline; margin-right:1px;" class="mb-1">
+							<a href="#viewcomment"	
+								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
+								class="btn">
+								댓글가기
+							</a>
+						</li>
+						<?php if ($gr_id=='attendance') { ?>
+							<li style="display: inline; margin-right:1px;" class="mb-1">
+								<a href="#" 
+									onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
+									style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
+									class="btn">
+									후기가기
+								</a>
+							</li>
+							<li style="display: inline; margin-right:1px;" class="mb-1">
+								<a href="#"
+									onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
+									style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
+									class="btn"> 
+									후기작성
+								</a>
+							</li>
+						<?php } ?>
+						<?php if ($gr_id=='review') { ?>
+							<li style="display: inline; margin-right:1px;" class="mb-1">
+								<a href="#"
+									onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
+									class="btn" 
+									title="업소정보" 
+									style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;">
+										업소정보
+								</a>
+							</li>
+						<?php } ?>
+					</ul>
+				 <!-- end   / -->
+				</div>
+			<?php else: ?>
 			<div class="btn-group btn-group-lg" role="group" <?php if(G5_IS_MOBILE) { echo 'style="padding: 0.5rem 0.5rem !important"';} ?>>
 				<button type="button" class="btn btn-basic" onclick="location.href='#bo_v'" 
 	                    title="본문상단" <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px; padding: 0.5rem 0.5rem !important"';} else { echo '';} ?>>
@@ -710,6 +768,7 @@ if ($gr_id=='review') {
 	                <?php } ?>
 				</div>
 			</div>
+			<?php endif;?>
 	        <?php if($view['as_tag']) { // 태그 ?>
 	        <div class="f-de p-3">
 	            <span class="sr-only">태그</span>
