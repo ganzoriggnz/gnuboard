@@ -63,7 +63,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 								<div class="clearfix f-sm text-muted pt-2 pr-2">
 									<h3 class="sr-only">컨텐츠 정보</h3>
 									<ul class="d-flex-start align-items-center mr-2"> -->
-										<li id="bo_v_btn" style="width:80%; display:flex; flex-direction: row-reverse;">
+										<li id="bo_v_btn" style="width:80%; display:flex; flex-wrap: wrap; justify-content:end;">
 											<!-- 게시물 상단 버튼 시작 { -->
 											<?php ob_start(); ?>
 											<div style="float:left">
