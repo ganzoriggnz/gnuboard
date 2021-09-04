@@ -75,29 +75,29 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 													|| $is_admin 
 													|| ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") 
 													|| ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-												<a href="<?php echo $update_href ?>" class="btn-vw mb-2" style="color:#ffffff;" role="button">
+												<a href="<?php echo $update_href ?>" class="btn-vw p-1 mb-2" style="color:#ffffff;" role="button">
 													글수정
 												</a>
 												<?php } } ?>
 												<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
 												if ($delete_href) {  ?>
 												<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-													class="btn-vw mb-2" style="color:#ffffff;" role="button">
+													class="btn-vw p-1 mb-2" style="color:#ffffff;" role="button">
 													글삭제
 												</a>
 												<?php } ?>
 												<?php if ($move_href) { ?>
 												<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-													class="btn-vw mb-2" style="color:#ffffff;" role="button">
+													class="btn-vw p-1 mb-2" style="color:#ffffff;" role="button">
 													글이동
 												</a>
 												<?php } }?>
-												<a href="<?php echo $list_href ?>" class="btn-vw mb-2" style="color:#ffffff;" title="목록" role="button">
+												<a href="<?php echo $list_href ?>" class="btn-vw p-1 mb-2" style="color:#ffffff;" title="목록" role="button">
 													목록
 												</a>
 
 												<?php if ($write_href) { ?>
-												<a href="<?php echo $write_href ?>" class="btn-vw mb-2" style="color:#ffffff;" title="글쓰기" role="button">
+												<a href="<?php echo $write_href ?>" class="btn-vw p-1 mb-2" style="color:#ffffff;" title="글쓰기" role="button">
 													글쓰기
 												</a>
 												<?php } ?>
