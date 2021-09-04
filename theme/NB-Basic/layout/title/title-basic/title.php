@@ -59,10 +59,10 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 									<a href="#"><?php echo $tnav_txt ?></a>
 								</li>
 							<?php } ?>
-							<li>
-								<div class="clearfix f-sm text-muted pt-2">
+							<!-- <li>
+								<div class="clearfix f-sm text-muted pt-2 pr-2">
 									<h3 class="sr-only">컨텐츠 정보</h3>
-									<ul class="d-flex-start align-items-end">
+									<ul class="d-flex-start align-items-center mr-2"> -->
 										<li id="bo_v_btn" class="flex-grow-1">
 											<!-- 게시물 상단 버튼 시작 { -->
 											<?php ob_start(); ?>
@@ -112,10 +112,10 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 										ob_end_flush();
 										?>
 											<!-- } 게시물 상단 버튼 끝 -->
-										</li>
+										<!-- </li>
 									</ul>
 								</div>
-							</li>
+							</li> -->
 							<!-- <?php if($tnav_cnt) { ?>
 								<li class="breadcrumb-item mb-0">
 									<a href="<?php echo NT_HOME_URL ?>"><i class="fa fa-home"></i></a>
