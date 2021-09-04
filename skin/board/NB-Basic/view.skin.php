@@ -88,7 +88,7 @@ if ($gr_id=='review') {
 	<!-- 게시물 읽기 시작 { -->
 	<article id="bo_v" class="mb-4">
 
-	    <header class="font-weight-normal mb-2 px-3 px-sm-0">
+	    <header class="font-weight-normal mb-2 px-sm-0">
 	        <?php if ($category_name) { ?>
 	        <div class="f-sm text-muted">
 	            <span class="sr-only">분류</span>
