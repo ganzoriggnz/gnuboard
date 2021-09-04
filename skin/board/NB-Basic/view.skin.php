@@ -323,7 +323,7 @@ if ($gr_id=='review') {
 	        </div>
 	        <div class="clearfix f-sm text-muted pt-2 pr-2">
 	            <h3 class="sr-only">컨텐츠 정보</h3>
-				<ul class="d-flex-start align-items-center">
+				<ul class="d-flex-start align-items-end">
 					<li id="bo_v_btn" class="flex-grow-1">
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
