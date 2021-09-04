@@ -744,6 +744,41 @@ if ($gr_id=='review') {
 					</ul>
 				 <!-- end   / -->
 				</div>
+			<?php elseif(G5_IS_MOBILE && $gr_id != "attendance"): ?>
+				<div class="clearfix f-sm text-muted pr-2">
+					<ul class="d-flex-start align-items-center">
+						<!-- <li style="display: inline;"><a href="#viewcomment"		
+									style="border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
+						</li> -->
+						<?php if ($bo_table !='free') { ?>
+						<li style="display: inline; margin-right:1px;" class="mb-1">
+							<a href="#viewcomment"	
+								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
+								class="btn">
+								<i class="fa fa-arrow-down" aria-hidden="true"></i>
+								댓글가기
+							</a>
+						</li>
+						<?php } ?>
+						<?php if ($gr_id=='review') { ?>
+						<!-- <li style="display: inline;">
+							<a href="#"						
+							onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
+							style="border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
+						</li> -->
+						<li style="display: inline; margin-right:1px;" class="mb-1">
+								<a href="#"
+									onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
+									class="btn" 
+									title="업소정보" 
+									style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;">
+									<i class="fa fa-list-alt" aria-hidden="true"></i>
+									업소정보
+								</a>
+							</li>
+						<?php } ?> 
+					</ul>
+				</div>
 			<?php else: ?>
 			<div class="btn-group btn-group-lg" role="group" <?php if(G5_IS_MOBILE) { echo 'style="padding: 0.5rem 0.5rem !important"';} ?>>
 				<button type="button" class="btn btn-basic" onclick="location.href='#bo_v'" 
