@@ -156,7 +156,7 @@ if ($gr_id=='review') {
 	       
 			<div class="clearfix f-sm text-muted">
 				<!-- start    mobile   -->
-				<ul class="d-flex-start align-items-center" style="width:100%;">
+				<ul class="d-flex-start align-items-center pr-2" style="width:100%">
 	                <li style="display: inline; width:20%;"  class="mb-1">
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 12px; padding:5px 10px; background-color: #595959;" 
