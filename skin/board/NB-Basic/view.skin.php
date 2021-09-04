@@ -231,14 +231,14 @@ if ($gr_id=='review') {
 				<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
 	                <li style="display: inline; margin-right:1px;" class="mb-1">
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
-	                        style="display: inline; color:#ffffff; font-size: 12px; padding:5px 10px; background-color: #595959;" 
+	                        style="display: inline; color:#ffffff; font-size: 12px; padding:5px 15px; background-color: #595959;" 
 							class="btn">
 							전화
 						</a>
 	                </li>
 	                <li style="display: inline; margin-right:1px;" class="mb-1">
 						<a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
-	                        style="display: inline; color:#ffffff;font-size: 12px; padding:5px 10px; background-color: #595959;"
+	                        style="display: inline; color:#ffffff;font-size: 12px; padding:5px 15px; background-color: #595959;"
 	                        class="btn">
 							문자
 						</a>
