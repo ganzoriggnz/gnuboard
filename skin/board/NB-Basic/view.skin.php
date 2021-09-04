@@ -232,21 +232,21 @@ if ($gr_id=='review') {
 	                <li style="display: inline; margin-right:1px;">
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
-							class="btn">
+							class="btn mb-1">
 								전화걸기
 						</a>
 	                </li>
 	                <li style="display: inline; margin-right:1px;">
 						<a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
 	                        style="display: inline; color:#ffffff;font-size: 12px; padding:5px; background-color: #595959;"
-	                        class="btn">
+	                        class="btn mb-1">
 	                        	문자보내기
 						</a>
 					</li>
 					<li style="display: inline; margin-right:1px;">
 						<a href="#viewcomment"	
 							style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
-							class="btn">
+							class="btn mb-1">
 								댓글바로가기
 						</a>
 	                </li>
@@ -255,7 +255,7 @@ if ($gr_id=='review') {
 							<a href="#" 
 								onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
-								class="btn">
+								class="btn mb-1">
 									후기바로가기
 							</a>
 						</li>
@@ -263,7 +263,7 @@ if ($gr_id=='review') {
 							<a href="#"
 								onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
-								class="btn"> 
+								class="btn mb-1"> 
 									업소후기작성
 							</a>
 						</li>
@@ -272,7 +272,7 @@ if ($gr_id=='review') {
 						<li style="display: inline; margin-right:1px;">
 							<a href="#"
 								onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
-								class="btn" 
+								class="btn mb-1" 
 								title="업소정보" 
 								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;">
 									업소정보
