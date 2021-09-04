@@ -155,11 +155,11 @@ if ($gr_id=='review') {
 	        </div>
 	        <div class="clearfix f-sm text-muted pt-2 pr-2">
 	            <h3 class="sr-only">컨텐츠 정보</h3>
-				<ul class="<?php echo $bo_table == 'free' ? 'align-items-start' : 'align-items-center'; ?> d-flex-start mr-2">
+				<ul class="d-flex-start align-items-center mr-2">
 					<li id="bo_v_btn" class="flex-grow-1">
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
-	                    <div style="float:right">
+	                    <div style="float:left">
 							<?php 
 							$now = G5_TIME_YMDHIS; 
 							$finish_date = date('Y-m-d', strtotime('+3 days', strtotime($member['mb_4']))); 
@@ -327,7 +327,7 @@ if ($gr_id=='review') {
 					<li id="bo_v_btn" class="flex-grow-1">
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
-	                    <div style="float:left">
+	                    <div style="float:right">
 							<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
 							<a href="<?php echo $update_href ?>" class="btn-vw mb-2" role="button">
 								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
