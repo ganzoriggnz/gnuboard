@@ -229,14 +229,14 @@ if ($gr_id=='review') {
 			<div class="clearfix f-sm text-muted pr-2">
 				<!-- start    mobile   -->
 				<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
-	                <li style="display: inline; margin-right:1px;" class="mb-1">
+	                <li style="display: inline; margin-right:1px;" class="mb-1 px-2">
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
 							class="btn">
 							전화
 						</a>
 	                </li>
-	                <li style="display: inline; margin-right:1px;" class="mb-1">
+	                <li style="display: inline; margin-right:1px;" class="mb-1 px-2">
 						<a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
 	                        style="display: inline; color:#ffffff;font-size: 12px; padding:5px; background-color: #595959;"
 	                        class="btn">
