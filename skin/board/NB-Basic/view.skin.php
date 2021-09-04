@@ -155,7 +155,7 @@ if ($gr_id=='review') {
 	        </div>
 	        <div class="clearfix f-sm text-muted pt-2 pr-2">
 	            <h3 class="sr-only">컨텐츠 정보</h3>
-				<ul class="<?php echo $bo_table == 'free' ? 'd-flex-end' : 'd-flex-start'; ?> d-flex-start align-items-center mr-2">
+				<ul class="<?php echo $bo_table == 'free' ? 'align-items-start' : 'align-items-center'; ?> d-flex-start mr-2">
 					<li id="bo_v_btn" class="flex-grow-1">
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
