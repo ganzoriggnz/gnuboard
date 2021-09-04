@@ -181,13 +181,13 @@ if ($gr_id=='review') {
 								글삭제
 							</a>
 							<?php } ?>
-							<?php  if ($copy_href) { ?>
+							<!-- <?php  if ($copy_href) { ?>
 							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
 								class="btn-vw mb-2" role="button">
 								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
 								글복사
 							</a>
-							<?php } ?>
+							<?php } ?> -->
 							<?php if ($move_href) { ?>
 							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
 								class="btn-vw mb-2" role="button">
@@ -342,13 +342,13 @@ if ($gr_id=='review') {
 								글삭제
 							</a>
 							<?php } ?>
-							<?php if ($copy_href) { ?>
+							<!-- <?php if ($copy_href) { ?>
 							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
 								class="btn-vw mb-2" role="button">
 								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
 								글복사
 							</a>
-							<?php } ?>
+							<?php } ?> -->
 							<?php if ($move_href) { ?>
 							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
 								class="btn-vw mb-2" role="button">
@@ -527,13 +527,13 @@ if ($gr_id=='review') {
 								글삭제
 							</a>
 							<?php } ?>
-							<?php if ($copy_href && strpos($bo_table,'_at') === false) { ?>
+							<!-- <?php if ($copy_href && strpos($bo_table,'_at') === false) { ?>
 							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
 								class="btn-vw py-2" role="button">
 								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
 								글복사
 							</a>
-							<?php } ?>
+							<?php } ?> -->
 							<?php if ($move_href) { ?>
 							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
 								class="btn-vw py-2" role="button">
