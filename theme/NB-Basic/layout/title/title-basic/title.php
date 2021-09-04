@@ -75,31 +75,31 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 													|| $is_admin 
 													|| ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") 
 													|| ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-												<div href="<?php echo $update_href ?>" class="btn-vw mb-2" style="color:#ffffff;width:60px;" role="button">
+												<a href="<?php echo $update_href ?>" class="btn-vw mb-2" style="color:#ffffff;width:80px;" role="button">
 													글수정
-												</div>
+												</a>
 												<?php } } ?>
 												<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
 												if ($delete_href) {  ?>
-												<div href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-													class="btn-vw mb-2" style="color:#ffffff;width:60px;" role="button">
+												<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
+													class="btn-vw mb-2" style="color:#ffffff;width:80px;" role="button">
 													글삭제
-												</div>
+												</a>
 												<?php } ?>
 												<?php if ($move_href) { ?>
-												<div href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-													class="btn-vw mb-2" style="color:#ffffff;width:60px;" role="button">
+												<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
+													class="btn-vw mb-2" style="color:#ffffff;width:80px;" role="button">
 													글이동
-												</div>
+												</a>
 												<?php } }?>
-												<div href="<?php echo $list_href ?>" class="btn-vw mb-2" style="color:#ffffff;width:60px;" title="목록" role="button">
+												<a href="<?php echo $list_href ?>" class="btn-vw mb-2" style="color:#ffffff;width:80px;" title="목록" role="button">
 													목록
-												</div>
+												</a>
 
 												<?php if ($write_href) { ?>
-												<div href="<?php echo $write_href ?>" class="btn-vw mb-2" style="color:#ffffff;width:60px;" title="글쓰기" role="button">
+												<a href="<?php echo $write_href ?>" class="btn-vw mb-2" style="color:#ffffff;width:80px;" title="글쓰기" role="button">
 													글쓰기
-												</div>
+												</a>
 												<?php } ?>
 											</div>
 											<?php
