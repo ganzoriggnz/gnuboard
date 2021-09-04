@@ -55,7 +55,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 								}
 							?>
 							<?php if($tnav_txt) { ?>
-								<li class="breadcrumb-item active mb-0" aria-current="page">
+								<li class="breadcrumb-item active mb-0 mr-3" aria-current="page">
 									<a href="#"><?php echo $tnav_txt ?></a>
 								</li>
 							<?php } ?>
