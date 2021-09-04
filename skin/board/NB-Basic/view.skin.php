@@ -159,7 +159,7 @@ if ($gr_id=='review') {
 					<li id="bo_v_btn" class="flex-grow-1">
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
-	                    <div style="float:left">
+	                    <div style="float:right">
 							<?php 
 							$now = G5_TIME_YMDHIS; 
 							$finish_date = date('Y-m-d', strtotime('+3 days', strtotime($member['mb_4']))); 
