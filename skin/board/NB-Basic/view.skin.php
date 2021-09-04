@@ -119,7 +119,7 @@ if ($gr_id=='review') {
 	    <section id="bo_v_info" class="f-sm font-weight-normal px-3" style="margin-bottom: 0px !important;">
 	        <div class="clearfix bg-light border-top text-muted py-2">
 	            <h3 class="sr-only">작성자 정보</h3>
-	            <ul class="d-flex-start align-items-center"  style="display: flex;flex-direction: row; flex-wrap: wrap">
+	            <ul class="d-flex-start align-items-center">
 	                <li>
 	                    <span class="sr-only">작성자</span>
 	                    <!-- hulan nemsen level mark -->
@@ -156,7 +156,7 @@ if ($gr_id=='review') {
 	       
 			<div class="clearfix f-sm text-muted">
 				<!-- start    mobile   -->
-				<ul class="d-flex-start align-items-center pr-2" style="width:100%">
+				<ul class="d-flex-start align-items-center"  style="display: flex;flex-direction: row; flex-wrap: wrap" >
 	                <li style="display: inline; width:20%;"  class="mb-1">
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 12px; padding:5px 10px; background-color: #595959;" 
