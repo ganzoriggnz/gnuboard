@@ -42,7 +42,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 			<div class="d-flex pb-1 pl-0">
 				<div class="align-self-start d-sm-block">
 					<nav aria-label="breadcrumb" class="f-sm">
-						<ol class="breadcrumb bg-transparent p-0 m-0" style="display:flex;">
+						<div class="breadcrumb bg-transparent p-0 m-0 row" >
 							<?php
 								// 페이지 설명글 없으면 현재 위치 출력
 								$tnav_cnt = 0;
@@ -55,18 +55,18 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 								}
 							?>
 							<?php if($tnav_txt) { ?>
-								<li class="breadcrumb-item active mb-0" aria-current="page">
+								<div class="breadcrumb-item active mb-0 col-sm-2" aria-current="page">
 									<a href="#"><?php echo $tnav_txt ?></a>
-								</li>
+								</div>
 							<?php } ?>
 							<!-- <li>
 								<div class="clearfix f-sm text-muted pt-2 pr-2">
 									<h3 class="sr-only">컨텐츠 정보</h3>
 									<ul class="d-flex-start align-items-center mr-2"> -->
-										<li id="bo_v_btn" style="width:80%;display: flex;flex-direction: row;flex-wrap: wrap;justify-content: flex-end;align-items: center;">
+										<div id="bo_v_btn" >
 											<!-- 게시물 상단 버튼 시작 { -->
 											<?php ob_start(); ?>
-											<div>
+											<div class="col-sm-10">
 												<?php 
 												$now = G5_TIME_YMDHIS; 
 												$finish_date = date('Y-m-d', strtotime('+3 days', strtotime($member['mb_4']))); 
@@ -112,7 +112,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 										ob_end_flush();
 										?>
 											<!-- } 게시물 상단 버튼 끝 -->
-										</li>
+												</div>
 									<!-- </ul>
 								</div>
 							</li> -->
@@ -126,7 +126,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 									</li>
 								<?php } ?>
 							<?php } ?> -->
-						</ol>
+						</div>
 					</nav>
 				</div>
 			</div>
