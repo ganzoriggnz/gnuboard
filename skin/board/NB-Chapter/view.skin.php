@@ -189,12 +189,12 @@ $view_subject = get_text($view['wr_subject']);
 										글삭제
 									</a>
 								<?php } ?>
-								<?php if ($copy_href) { ?>
+								<!-- <?php if ($copy_href) { ?>
 									<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;" class="btn btn-primary py-2" role="button">
 										<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
 										글복사		
 									</a>
-								<?php } ?>
+								<?php } ?> -->
 								<?php if ($move_href) { ?>
 									<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;" class="btn btn-primary py-2" role="button">
 										<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
