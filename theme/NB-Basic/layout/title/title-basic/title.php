@@ -2,7 +2,36 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 add_stylesheet('<link rel="stylesheet" href="'.$nt_title_url.'/title.css">', 0);
+$write_href = '';
+if ($member['mb_level'] >= $board['bo_write_level']) {
+    $write_href = short_url_clean(G5_BBS_URL.'/write.php?bo_table='.$bo_table);
+}
 
+// 답변 링크
+$reply_href = '';
+if ($member['mb_level'] >= $board['bo_reply_level']) {
+    $reply_href = short_url_clean(G5_BBS_URL.'/write.php?w=r&amp;bo_table='.$bo_table.'&amp;wr_id='.$wr_id.$qstr);
+}
+
+// 수정, 삭제 링크
+$update_href = $delete_href = '';
+// 로그인중이고 자신의 글이라면 또는 관리자라면 비밀번호를 묻지 않고 바로 수정, 삭제 가능
+if (($member['mb_id'] && ($member['mb_id'] === $write['mb_id'])) || $is_admin) {
+    $update_href = short_url_clean(G5_BBS_URL.'/write.php?w=u&amp;bo_table='.$bo_table.'&amp;wr_id='.$wr_id.'&amp;page='.$page.$qstr);
+    set_session('ss_delete_token', $token = uniqid(time()));
+    $delete_href = G5_BBS_URL.'/delete.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id.'&amp;token='.$token.'&amp;page='.$page.urldecode($qstr);
+}
+else if (!$write['mb_id']) { // 회원이 쓴 글이 아니라면
+    $update_href = G5_BBS_URL.'/password.php?w=u&amp;bo_table='.$bo_table.'&amp;wr_id='.$wr_id.'&amp;page='.$page.$qstr;
+    $delete_href = G5_BBS_URL.'/password.php?w=d&amp;bo_table='.$bo_table.'&amp;wr_id='.$wr_id.'&amp;page='.$page.$qstr;
+}
+
+// 최고, 그룹관리자라면 글 복사, 이동 가능
+$copy_href = $move_href = '';
+if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' || $member['mb_level'] > 23)) {
+    $copy_href = G5_BBS_URL.'/move.php?sw=copy&amp;bo_table='.$bo_table.'&amp;wr_id='.$wr_id.'&amp;page='.$page.$qstr;
+    $move_href = G5_BBS_URL.'/move.php?sw=move&amp;bo_table='.$bo_table.'&amp;wr_id='.$wr_id.'&amp;page='.$page.$qstr;
+}
 ?>
 
 <!-- Page Title -->
