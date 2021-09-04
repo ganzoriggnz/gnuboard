@@ -88,7 +88,7 @@ if ($gr_id=='review') {
 	<!-- 게시물 읽기 시작 { -->
 	<article id="bo_v" class="mb-4">
 
-	    <header class="font-weight-normal mb-2 px-sm-0">
+	    <header class="font-weight-normal mb-2 px-3 px-sm-0">
 	        <?php if ($category_name) { ?>
 	        <div class="f-sm text-muted">
 	            <span class="sr-only">분류</span>
@@ -391,7 +391,8 @@ if ($gr_id=='review') {
 						<a href="#viewcomment"	
 							style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
 							class="btn">
-							ㅁ댓글가기
+							<i class="fa fa-arrow-down" aria-hidden="true"></i>
+							댓글가기
 						</a>
 	                </li>
 					<?php if ($gr_id=='review') { ?>
@@ -406,7 +407,8 @@ if ($gr_id=='review') {
 								class="btn" 
 								title="업소정보" 
 								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;">
-								ㅁ업소정보
+								<i class="fa fa-list-alt" aria-hidden="true"></i>
+								업소정보
 							</a>
 						</li>
 					<?php } ?> 
