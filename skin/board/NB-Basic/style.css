@@ -199,7 +199,7 @@
 	background-color:  #e4c980;
 	border-color:  #e4c980;
 	color: #fff;
-	width:72px; 
+	width:70px; 
 	height:29px;
 	display: inline-block;
     font-weight: 400;
@@ -256,6 +256,6 @@
 @media (max-width: 576px) {
 	.btn-vw {
 	height:25px;
-	padding-top: 1px;
+	padding-top: 2px;
 	}
 }
