@@ -195,12 +195,12 @@ if ($gr_id=='review') {
 								글이동
 							</a>
 							<?php } }?>
-							<?php if ($view['mb_id'] == $member['mb_id']) { ?>
+							<!-- <?php if ($view['mb_id'] == $member['mb_id']) { ?>
 							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button" style="width:80px;">
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
 								검색목록
 							</a>
-							<?php } ?>							
+							<?php } ?>							 -->
 	                        <a href="<?php echo $list_href ?>" class="btn-vw mb-2" title="목록" role="button">
 	                            <i class="fa fa-list fa-fw" aria-hidden="true"></i>
 	                            목록
@@ -356,12 +356,12 @@ if ($gr_id=='review') {
 								글이동
 							</a>
 							<?php } }?>
-							<?php if ($search_href) { ?>
+							<!-- <?php if ($search_href) { ?>
 							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button" style="width:80px;">
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
 								검색목록
 							</a>
-							<?php } ?>	
+							<?php } ?>	 -->
 	                        <a href="<?php echo $list_href ?>" class="btn-vw mb-2" title="목록" role="button">
 	                            <i class="fa fa-list fa-fw" aria-hidden="true"></i>
 	                            목록
@@ -541,12 +541,12 @@ if ($gr_id=='review') {
 								글이동
 							</a>
 							<?php } }?>
-							<?php if ($view['mb_id'] == $member['mb_id']) { ?>
+							<!-- <?php if ($view['mb_id'] == $member['mb_id']) { ?>
 							<a href="<?php echo $search_href ?>" class="btn-vw py-2" role="button">
 								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
 								검색목록
 							</a>
-							<?php } ?>
+							<?php } ?> -->
 
 	                        <a href="<?php echo $list_href ?>" class="btn-vw py-2" title="목록" role="button">
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
