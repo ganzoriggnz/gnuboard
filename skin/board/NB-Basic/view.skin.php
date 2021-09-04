@@ -388,11 +388,20 @@ if ($gr_id=='review') {
 								style="border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
 					</li>
 					<?php if ($gr_id=='review') { ?>
-					<li style="display: inline;">
+					<!-- <li style="display: inline;">
 						<a href="#"						
 						onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
 						style="border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-list-alt" aria-hidden="true"></i> 업소정보</a>
-					</li>
+					</li> -->
+					<li style="display: inline; margin-right:1px;" class="mb-1">
+							<a href="#"
+								onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
+								class="btn" 
+								title="업소정보" 
+								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;">
+									업소정보
+							</a>
+						</li>
 					<?php } ?>
 	            </ul>
 			</div>
