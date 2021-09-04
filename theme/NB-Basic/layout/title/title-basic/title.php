@@ -56,7 +56,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 							?>
 							<?php if($tnav_txt) { ?>
 								<li class="breadcrumb-item active mb-0 mr-3" aria-current="page">
-									<a href="#" class="mt-2" style="font-size:18px !important;"><?php echo $tnav_txt ?></a>
+									<a href="#" class="mt-2" style="font-size:16px !important;"><?php echo $tnav_txt ?></a>
 								</li>
 							<?php } ?>
 							<?php if(isset($_GET['wr_id'])): ?>
