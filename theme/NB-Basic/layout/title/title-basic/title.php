@@ -66,7 +66,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 										<li id="bo_v_btn" style="width:80%;display: flex;flex-direction: row;flex-wrap: wrap;justify-content: flex-end;align-items: center;">
 											<!-- 게시물 상단 버튼 시작 { -->
 											<?php ob_start(); ?>
-											<div style="float:left">
+											<div>
 												<?php 
 												$now = G5_TIME_YMDHIS; 
 												$finish_date = date('Y-m-d', strtotime('+3 days', strtotime($member['mb_4']))); 
