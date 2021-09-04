@@ -60,7 +60,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 								</li>
 							<?php } ?>
 							<?php if(isset($_GET['wr_id'])): ?>
-								<li id="bo_v_btn" style="width:70%;display: flex;flex-wrap: wrap;justify-content: flex-end;">
+								<li id="bo_v_btn" style="width:70%;display: flex;flex-wrap: wrap;justify-content: flex-end;" class="mt-1">
 											<!-- 게시물 상단 버튼 시작 { -->
 											<?php ob_start(); ?>
 												<?php 
