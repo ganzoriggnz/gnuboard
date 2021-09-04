@@ -328,12 +328,12 @@ if ($gr_id=='review') {
 	                    <!-- 게시물 상단 버튼 시작 { -->
 	                    <?php ob_start(); ?>
 	                    <div style="float:right">
-							<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
+							<!-- <?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
 							<a href="<?php echo $update_href ?>" class="btn-vw mb-2" role="button">
 								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
 								글수정
 							</a>
-							<?php } } ?>
+							<?php } } ?> -->
 							<?php if( $view['mb_id'] == $member['mb_id'] || $member['mb_level'] == '30' || $member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
 							if ($delete_href) {  ?>
 							<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
