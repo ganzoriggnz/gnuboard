@@ -552,12 +552,12 @@ if ($gr_id=='review') {
 	                            <i class="fa fa-list fa-md" aria-hidden="true"></i>
 	                            목록
 	                        </a>
-	                        <?php if ($reply_href) { ?>
+	                        <!-- <?php if ($reply_href) { ?>
 	                        <a href="<?php echo $reply_href ?>" class="btn-vw py-2" title="답변" role="button">
 	                            <i class="fa fa-reply fa-md" aria-hidden="true"></i>
 	                            답변
 	                        </a>
-	                        <?php } ?>
+	                        <?php } ?> -->
 	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
 	                        <a href="<?php echo $write_href ?>" class="btn-vw py-2" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-md" aria-hidden="true"></i>
