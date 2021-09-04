@@ -62,11 +62,11 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 							<li>
 								<div class="clearfix f-sm text-muted pt-2 pr-2">
 									<h3 class="sr-only">컨텐츠 정보</h3>
-									<ul class="d-flex-start align-items-center mr-2">
+									<ul class="d-flex-start align-items-end mr-2">
 										<li id="bo_v_btn" class="flex-grow-1">
 											<!-- 게시물 상단 버튼 시작 { -->
 											<?php ob_start(); ?>
-											<div style="float:left">
+											<div style="float:right">
 												<?php 
 												$now = G5_TIME_YMDHIS; 
 												$finish_date = date('Y-m-d', strtotime('+3 days', strtotime($member['mb_4']))); 
@@ -100,12 +100,12 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 													목록
 												</a>
 
-												<!-- <?php if ($write_href) { ?>
-												<a href="<?php echo $write_href ?>" class="btn-vw mb-2" title="글쓰기" role="button">
+												<?php if ($write_href) { ?>
+												<a href="<?php echo $write_href ?>" class="btn-vw mb-2" style="color:#ffffff;" title="글쓰기" role="button">
 													<i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
 													글쓰기
 												</a>
-												<?php } ?> -->
+												<?php } ?>
 											</div>
 											<?php
 										$link_buttons = ob_get_contents();
