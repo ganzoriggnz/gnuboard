@@ -42,7 +42,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 			<div class="d-flex pb-1 pl-0">
 				<div class="align-self-start d-sm-block">
 					<nav aria-label="breadcrumb" class="f-sm">
-						<ol class="breadcrumb bg-transparent p-0 m-0" style="display:flex;">
+						<ol class="breadcrumb bg-transparent p-0 m-0" style="display:flex; flex-wrap: nowrap">
 							<?php
 								// 페이지 설명글 없으면 현재 위치 출력
 								$tnav_cnt = 0;
@@ -75,29 +75,29 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 													|| $is_admin 
 													|| ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") 
 													|| ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-												<a href="<?php echo $update_href ?>" style="width:50px;" class="btn-vw mb-2" style="color:#ffffff;" role="button">
+												<a href="<?php echo $update_href ?>" class="btn-vw mb-2" style="color:#ffffff;" role="button">
 													글수정
 												</a>
 												<?php } } ?>
 												<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
 												if ($delete_href) {  ?>
 												<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-													style="width:50px;" class="btn-vw mb-2" style="color:#ffffff;" role="button">
+													class="btn-vw mb-2" style="color:#ffffff;" role="button">
 													글삭제
 												</a>
 												<?php } ?>
 												<?php if ($move_href) { ?>
 												<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-													style="width:50px;" class="btn-vw mb-2" style="color:#ffffff;" role="button">
+													class="btn-vw mb-2" style="color:#ffffff;" role="button">
 													글이동
 												</a>
 												<?php } }?>
-												<a href="<?php echo $list_href ?>" style="width:50px;" class="btn-vw mb-2" style="color:#ffffff;" title="목록" role="button">
+												<a href="<?php echo $list_href ?>" class="btn-vw mb-2" style="color:#ffffff;" title="목록" role="button">
 													목록
 												</a>
 
 												<?php if ($write_href) { ?>
-												<a href="<?php echo $write_href ?>" style="width:50px;" class="btn-vw mb-2" style="color:#ffffff;" title="글쓰기" role="button">
+												<a href="<?php echo $write_href ?>" class="btn-vw mb-2" style="color:#ffffff;" title="글쓰기" role="button">
 													글쓰기
 												</a>
 												<?php } ?>
