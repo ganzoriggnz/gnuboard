@@ -408,8 +408,8 @@ if ($gr_id=='review') {
 								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;">
 									업소정보
 							</a>
-						</li>
-					<?php } ?> -->
+						</li>-->
+					<?php } ?> 
 	            </ul>
 			</div>
 	    </section>
