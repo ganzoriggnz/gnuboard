@@ -59,14 +59,13 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 									<a href="#"><?php echo $tnav_txt ?></a>
 								</li>
 							<?php } ?>
-							<li class="breadcrumb-item">
+							<!-- <li>
 								<div class="clearfix f-sm text-muted pt-2 pr-2">
 									<h3 class="sr-only">컨텐츠 정보</h3>
 									<ul class="d-flex-start align-items-center mr-2">
 										<li id="bo_v_btn" class="flex-grow-1">
-											<!-- 게시물 상단 버튼 시작 { -->
 											<?php ob_start(); ?>
-											<div style="float:left">
+											<div style="float:left"> -->
 												<?php 
 												$now = G5_TIME_YMDHIS; 
 												$finish_date = date('Y-m-d', strtotime('+3 days', strtotime($member['mb_4']))); 
@@ -75,47 +74,56 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 													|| $is_admin 
 													|| ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") 
 													|| ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-												<a href="<?php echo $update_href ?>" class="btn-vw mb-2" style="color:#ffffff;" role="button">
-													<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
-													글수정
-												</a>
+													<li>
+														<a href="<?php echo $update_href ?>" class="btn-vw mb-2" style="color:#ffffff;" role="button">
+															<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+															글수정
+														</a>
+													</li>
 												<?php } } ?>
 												<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
 												if ($delete_href) {  ?>
-												<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-													class="btn-vw mb-2" style="color:#ffffff;" role="button">
-													<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
-													글삭제
-												</a>
+												<li>
+													<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
+														class="btn-vw mb-2" style="color:#ffffff;" role="button">
+														<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+														글삭제
+													</a>
+												</li>
 												<?php } ?>
 												<?php if ($move_href) { ?>
-												<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-													class="btn-vw mb-2" style="color:#ffffff;" role="button">
-													<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
-													글이동
-												</a>
+													<li>
+														<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
+															class="btn-vw mb-2" style="color:#ffffff;" role="button">
+															<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
+															글이동
+														</a>
+													</li>
 												<?php } }?>
-												<a href="<?php echo $list_href ?>" class="btn-vw mb-2" style="color:#ffffff;" title="목록" role="button">
-													<i class="fa fa-list fa-fw" aria-hidden="true"></i>
-													목록
-												</a>
+												<li>
+													<a href="<?php echo $list_href ?>" class="btn-vw mb-2" style="color:#ffffff;" title="목록" role="button">
+														<i class="fa fa-list fa-fw" aria-hidden="true"></i>
+														목록
+													</a>
+												</li>
 
 												<?php if ($write_href) { ?>
-												<a href="<?php echo $write_href ?>" class="btn-vw mb-2" style="color:#ffffff;" title="글쓰기" role="button">
-													<i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
-													글쓰기
-												</a>
+													<li>
+														<a href="<?php echo $write_href ?>" class="btn-vw mb-2" style="color:#ffffff;" title="글쓰기" role="button">
+															<i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+															글쓰기
+														</a>
+													</li>
 												<?php } ?>
-											</div>
+											<!-- </div>
 											<?php
 										$link_buttons = ob_get_contents();
 										ob_end_flush();
 										?>
-											<!-- } 게시물 상단 버튼 끝 -->
 										</li>
 									</ul>
 								</div>
-							</li>
+							</li> -->
 							<!-- <?php if($tnav_cnt) { ?>
 								<li class="breadcrumb-item mb-0">
 									<a href="<?php echo NT_HOME_URL ?>"><i class="fa fa-home"></i></a>
