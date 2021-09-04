@@ -153,79 +153,7 @@ if ($gr_id=='review') {
 	                <?php } ?>
 	            </ul>
 	        </div>
-	        <div class="clearfix f-sm text-muted pt-2 pr-2">
-	            <h3 class="sr-only">컨텐츠 정보</h3>
-				<ul class="d-flex-start align-items-center mr-2">
-					<li id="bo_v_btn" class="flex-grow-1">
-	                    <!-- 게시물 상단 버튼 시작 { -->
-	                    <?php ob_start(); ?>
-	                    <div style="float:left">
-							<?php 
-							$now = G5_TIME_YMDHIS; 
-							$finish_date = date('Y-m-d', strtotime('+3 days', strtotime($member['mb_4']))); 
-							if ($update_href) { 
-								if(($member['mb_level'] == '26') 
-								|| $is_admin 
-								|| ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") 
-								|| ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-							<a href="<?php echo $update_href ?>" class="btn-vw mb-2" role="button">
-								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
-								글수정
-							</a>
-							<?php } } ?>
-							<?php if($member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
-							if ($delete_href) {  ?>
-							<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-								class="btn-vw mb-2" role="button">
-								<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
-								글삭제
-							</a>
-							<?php } ?>
-							<!-- <?php  if ($copy_href) { ?>
-							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
-								class="btn-vw mb-2" role="button">
-								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
-								글복사
-							</a>
-							<?php } ?> -->
-							<?php if ($move_href) { ?>
-							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-								class="btn-vw mb-2" role="button">
-								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
-								글이동
-							</a>
-							<?php } }?>
-							<!-- <?php if ($view['mb_id'] == $member['mb_id']) { ?>
-							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button" style="width:80px;">
-								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
-								검색목록
-							</a>
-							<?php } ?>							 -->
-	                        <a href="<?php echo $list_href ?>" class="btn-vw mb-2" title="목록" role="button">
-	                            <i class="fa fa-list fa-fw" aria-hidden="true"></i>
-	                            목록
-	                        </a>
-	                        <!-- <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn-vw mb-2" title="답변" role="button">
-	                            <i class="fa fa-reply fa-fw" aria-hidden="true"></i>
-	                            답변
-	                        </a>
-	                        <?php } ?> -->
-	                        <?php if ($write_href) { ?>
-	                        <a href="<?php echo $write_href ?>" class="btn-vw mb-2" title="글쓰기" role="button">
-	                            <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
-	                            글쓰기
-	                        </a>
-	                        <?php } ?>
-	                    </div>
-	                    <?php
-					$link_buttons = ob_get_contents();
-					ob_end_flush();
-					?>
-	                    <!-- } 게시물 상단 버튼 끝 -->
-					</li>
-				</ul>
-	        </div>
+	       
 			<div class="clearfix f-sm text-muted pr-2">
 				<!-- start    mobile   -->
 				<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
@@ -321,67 +249,7 @@ if ($gr_id=='review') {
 	                <?php } ?>
 	            </ul>
 	        </div>
-	        <div class="clearfix f-sm text-muted pt-2 pr-2">
-	            <h3 class="sr-only">컨텐츠 정보</h3>
-				<ul class="d-flex-start <?php echo $bo_table == 'free' ? 'align-items-end' : 'align-items-start'; ?>">
-					<li id="bo_v_btn" class="flex-grow-1">
-	                    <!-- 게시물 상단 버튼 시작 { -->
-	                    <?php ob_start(); ?>
-	                    <div <?php echo $bo_table == 'free' ? 'style="float:right"' : 'style="float:left"'; ?> >
-							<?php $now = G5_TIME_YMDHIS; $finish_date = date('Y-m-d H:i:s', strtotime('+3 days', strtotime($member['mb_4']))); if ($update_href) { if(($member['mb_level'] == '26' && $finish_date >= $now && $gr_id =="attendance") || $is_admin || ($member['mb_level'] != '26' && $member['mb_level'] != '27' && $gr_id !="attendance") || ($member['mb_level'] == '27' && $gr_id =="attendance")){?>
-							<a href="<?php echo $update_href ?>" class="btn-vw mb-2" role="button">
-								<i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
-								글수정
-							</a>
-							<?php } } ?>
-							<?php if( $view['mb_id'] == $member['mb_id'] || $member['mb_level'] == '30' || $member['mb_level'] != '24' && $member['mb_level'] != '25' && (($gr_id=='attendance' && $member['mb_level'] != 26 && $member['mb_level'] != 27) || $gr_id=='community' || $gr_id=='review' || $gr_id=='library')) { 
-							if ($delete_href) {  ?>
-							<a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;"
-								class="btn-vw mb-2" role="button">
-								<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
-								글삭제
-							</a>
-							<?php } ?>
-							<!-- <?php if ($copy_href) { ?>
-							<a href="<?php echo $copy_href ?>" onclick="board_move(this.href); return false;"
-								class="btn-vw mb-2" role="button">
-								<i class="fa fa-files-o fa-fw" aria-hidden="true"></i>
-								글복사
-							</a>
-							<?php } ?> -->
-							<?php if ($move_href) { ?>
-							<a href="<?php echo $move_href ?>" onclick="board_move(this.href); return false;"
-								class="btn-vw mb-2" role="button">
-								<i class="fa fa-arrows fa-fw" aria-hidden="true"></i>
-								글이동
-							</a>
-							<?php } }?>
-							<!-- <?php if ($search_href) { ?>
-							<a href="<?php echo $search_href ?>" class="btn-vw mb-2" title="검색목록" role="button" style="width:80px;">
-								<i class="fa fa-search fa-fw" aria-hidden="true"></i>
-								검색목록
-							</a>
-							<?php } ?>	 -->
-	                        <a href="<?php echo $list_href ?>" class="btn-vw mb-2" title="목록" role="button">
-	                            <i class="fa fa-list fa-fw" aria-hidden="true"></i>
-	                            목록
-	                        </a>
-	                        
-	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
-	                        <a href="<?php echo $write_href ?>" class="btn-vw mb-2" title="글쓰기" role="button">
-	                            <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
-	                            글쓰기
-	                        </a>
-	                        <?php } ?>	                      
-	                    </div>
-	                    <?php
-					$link_buttons = ob_get_contents();
-					ob_end_flush();
-					?>
-	                    <!-- } 게시물 상단 버튼 끝 -->
-	                </li>
-				</ul>			
-	        </div>
+	       
 			<div class="clearfix f-sm text-muted pr-2">
 	            <ul class="d-flex-start align-items-center">
 					<!-- <li style="display: inline;"><a href="#viewcomment"		
