@@ -49,11 +49,11 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
                     ?>
                 <tr style="border:1px solid #d3d3d3;font-size: 10px; text-align: center; ">
                     <th class="cl_tr"><a
-                            href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $my_row['bo_table']."&wr_id=".$my_row['wr_id']?>"
+                            href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $my_row['bo_table'];?>"
                             style="color: #6c757d;">
                             <?php echo $board_row['bo_subject'];?>
                         </a></th>
-                    <th class="cl_tl" style="text-align: left;">
+                    <th class="cl_tl" style="text-align: center;">
                         <a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $my_row['bo_table']."&wr_id=".$my_row['wr_id'] ?>"
                             style="color: #6c757d;">
                             <?php                                
