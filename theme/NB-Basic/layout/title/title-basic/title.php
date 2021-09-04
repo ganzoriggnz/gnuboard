@@ -59,7 +59,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 									<a href="#"><?php echo $tnav_txt ?></a>
 								</li>
 							<?php } ?>
-							<li class="breadcrumb-item">
+							<li>
 								<div class="clearfix f-sm text-muted pt-2 pr-2">
 									<h3 class="sr-only">컨텐츠 정보</h3>
 									<ul class="d-flex-start align-items-center mr-2">
