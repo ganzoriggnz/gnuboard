@@ -384,9 +384,16 @@ if ($gr_id=='review') {
 	        </div>
 			<div class="clearfix f-sm text-muted pr-2">
 	            <ul class="d-flex-start align-items-center">
-					<li style="display: inline;"><a href="#viewcomment"		
+					<!-- <li style="display: inline;"><a href="#viewcomment"		
 								style="border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
-					</li>
+					</li> -->
+					<li style="display: inline; margin-right:1px;" class="mb-1">
+						<a href="#viewcomment"	
+							style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
+							class="btn">
+							댓글가기
+						</a>
+	                </li>
 					<?php if ($gr_id=='review') { ?>
 					<!-- <li style="display: inline;">
 						<a href="#"						
