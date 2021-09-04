@@ -42,10 +42,8 @@ add_stylesheet('<link rel="stylesheet" href="' . $member_skin_url . '/style.css"
             </thead>
             <tbody>
 
-                <?php
-
-        
-        for ($i = 0; $i < count($result);   $i++) { ?>
+                <?php 
+                for ($i = 0; $i < count($result);   $i++) { echo $i;?>
                 <tr style="border:1px solid #d3d3d3;font-size: 10px; text-align: center; ">
                     <th class="cl_tr"><a
                             href="<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $list[$i]['bo_table']."&wr_id=".$list[$i]['wr_id']?>"
