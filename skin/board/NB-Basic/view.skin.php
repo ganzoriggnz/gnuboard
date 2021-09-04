@@ -119,7 +119,7 @@ if ($gr_id=='review') {
 	    <section id="bo_v_info" class="f-sm font-weight-normal px-3" style="margin-bottom: 0px !important;">
 	        <div class="clearfix bg-light border-top text-muted py-2">
 	            <h3 class="sr-only">작성자 정보</h3>
-	            <ul class="d-flex-start align-items-center">
+	            <ul class="d-flex-start align-items-center"  style="display: flex;flex-direction: row; flex-wrap: wrap">
 	                <li>
 	                    <span class="sr-only">작성자</span>
 	                    <!-- hulan nemsen level mark -->
