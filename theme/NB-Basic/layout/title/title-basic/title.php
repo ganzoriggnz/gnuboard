@@ -59,7 +59,6 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 									<a href="#"><?php echo $tnav_txt ?></a>
 								</li>
 							<?php } ?>
-							<div class="text-align-right">
 							<?php if(isset($_GET['wr_id'])): ?>	
 								<?php 
 								$now = G5_TIME_YMDHIS; 
@@ -111,7 +110,6 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 									</li>
 								<?php } ?>
 							<?php endif; ?>
-							</div>
 						</ol>
 					</nav>
 				</div>
