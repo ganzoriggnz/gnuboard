@@ -205,12 +205,12 @@ if ($gr_id=='review') {
 	                            <i class="fa fa-list fa-fw" aria-hidden="true"></i>
 	                            목록
 	                        </a>
-	                        <?php if ($reply_href) { ?>
+	                        <!-- <?php if ($reply_href) { ?>
 	                        <a href="<?php echo $reply_href ?>" class="btn-vw mb-2" title="답변" role="button">
 	                            <i class="fa fa-reply fa-fw" aria-hidden="true"></i>
 	                            답변
 	                        </a>
-	                        <?php } ?>
+	                        <?php } ?> -->
 	                        <?php if ($write_href) { ?>
 	                        <a href="<?php echo $write_href ?>" class="btn-vw mb-2" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
@@ -233,21 +233,21 @@ if ($gr_id=='review') {
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
 							class="btn">
-								전화걸기
+							전화
 						</a>
 	                </li>
 	                <li style="display: inline; margin-right:1px;" class="mb-1">
 						<a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
 	                        style="display: inline; color:#ffffff;font-size: 12px; padding:5px; background-color: #595959;"
 	                        class="btn">
-	                        	문자보내기
+							문자
 						</a>
 					</li>
 					<li style="display: inline; margin-right:1px;" class="mb-1">
 						<a href="#viewcomment"	
 							style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
 							class="btn">
-								댓글바로가기
+							댓글가기
 						</a>
 	                </li>
 				    <?php if ($gr_id=='attendance') { ?>
@@ -256,7 +256,7 @@ if ($gr_id=='review') {
 								onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
 								class="btn">
-									후기바로가기
+								후기가기
 							</a>
 						</li>
 						<li style="display: inline; margin-right:1px;" class="mb-1">
@@ -264,7 +264,7 @@ if ($gr_id=='review') {
 								onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 								style="display: inline; color:#ffffff; font-size: 12px; padding:5px; background-color: #595959;" 
 								class="btn"> 
-									업소후기작성
+								후기작성
 							</a>
 						</li>
 	                <?php } ?>
@@ -366,12 +366,7 @@ if ($gr_id=='review') {
 	                            <i class="fa fa-list fa-fw" aria-hidden="true"></i>
 	                            목록
 	                        </a>
-	                        <?php if ($reply_href) { ?>
-	                        <a href="<?php echo $reply_href ?>" class="btn-vw mb-2" title="답변" role="button" style="width:65px;">
-	                            <i class="fa fa-reply fa-fw" aria-hidden="true"></i>
-	                            답변
-	                        </a>
-	                        <?php } ?>
+	                        
 	                        <?php if ($write_href && ($bo_table != "free" && $bo_table != "event" || ($bo_table == "free" && $member['mb_level'] != 26 && $member['mb_level'] != 27) || ($bo_table == "event" && ($member['mb_level'] == 24 || $member['mb_level'] == 25 ||  $is_admin == 'super' )))) { ?>
 	                        <a href="<?php echo $write_href ?>" class="btn-vw mb-2" title="글쓰기" role="button">
 	                            <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
