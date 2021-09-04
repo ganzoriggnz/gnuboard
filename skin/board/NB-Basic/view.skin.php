@@ -646,7 +646,7 @@ if ($gr_id=='review') {
 	                </button>
 	                <?php } ?>
 	                <!--  hulan zassan level 24,25is board .group admin, and admin or group admin board admin can blind  -->
-	                <?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin ||$member['mb_id'] == $board['bo_admin'] || $member['mb_id'] == $group['gr_admin'])) { // 블라인드 ?>
+	                <?php if (IS_NA_BBS && $boset['na_shingo'] && ($is_admin || in_array($member['mb_id'], explode(",", $board['bo_admin'])) || in_array($member['mb_id'], explode(",", $group['gr_admin'])))) { // 블라인드 ?>
 	                <button type="button" class="btn btn-basic"  <?php if(G5_IS_MOBILE) { echo 'style="font-size: 10px;"';} else { echo '';} ?>
 	                    onclick="na_shingo('<?php echo $bo_table ?>', '<?php echo $wr_id ?>');" title="블라인드">
 	                    <i class="fa fa-ban" aria-hidden="true"></i> 
