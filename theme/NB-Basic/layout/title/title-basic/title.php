@@ -42,7 +42,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 			<div class="d-flex pb-1 pl-0">
 				<div class="align-self-start d-sm-block">
 					<nav aria-label="breadcrumb" class="f-sm">
-						<ol class="breadcrumb bg-transparent p-0 m-0" style="display:flex; flex-flow:row-reverse wrap;">
+						<ol class="breadcrumb bg-transparent p-0 m-0" style="display:flex;">
 							<?php
 								// 페이지 설명글 없으면 현재 위치 출력
 								$tnav_cnt = 0;
@@ -63,7 +63,7 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group' ||
 								<div class="clearfix f-sm text-muted pt-2 pr-2">
 									<h3 class="sr-only">컨텐츠 정보</h3>
 									<ul class="d-flex-start align-items-center mr-2"> -->
-										<li id="bo_v_btn" style="display:flex; justify-content: flex-end;">
+										<li id="bo_v_btn" style="display:flex; justify-content: flex-end;  flex-flow:row-reverse wrap;">
 											<!-- 게시물 상단 버튼 시작 { -->
 											<?php ob_start(); ?>
 											<div style="float:left">
