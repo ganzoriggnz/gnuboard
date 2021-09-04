@@ -559,21 +559,21 @@ if ($gr_id=='review') {
 				<div class="clearfix f-sm text-muted pr-2 mt-3">
 				<!-- start    mobile   -->
 					<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
-						<li style="display: inline; margin-right:1px;" class="mb-1">
+						<li style="display: inline; width:20%;" class="mb-1">
 							<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 								style="display: inline; color:#ffffff; font-size: 12px; padding:5px 10px; background-color: #595959;" 
 								class="btn">
 								전화하기
 							</a>
 						</li>
-						<li style="display: inline; margin-right:1px;" class="mb-1">
+						<li style="display: inline; width:20%;" class="mb-1">
 							<a href="<?php echo 'sms:'.$phone['mb_hp'] ?>" 
 								style="display: inline; color:#ffffff;font-size: 12px; padding:5px 10px; background-color: #595959;"
 								class="btn">
 								문자하기
 							</a>
 						</li>
-						<li style="display: inline; margin-right:1px;" class="mb-1">
+						<li style="display: inline; width:20%;" class="mb-1">
 							<a href="#viewcomment"	
 								style="display: inline; color:#ffffff; font-size: 12px; padding:5px 10px; background-color: #595959;" 
 								class="btn">
@@ -581,7 +581,7 @@ if ($gr_id=='review') {
 							</a>
 						</li>
 						<?php if ($gr_id=='attendance') { ?>
-							<li style="display: inline; margin-right:1px;" class="mb-1">
+							<li style="display: inline; width:20%;" class="mb-1">
 								<a href="#" 
 									onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 									style="display: inline; color:#ffffff; font-size: 12px; padding:5px 10px; background-color: #595959;" 
@@ -589,7 +589,7 @@ if ($gr_id=='review') {
 									후기가기
 								</a>
 							</li>
-							<li style="display: inline; margin-right:1px;" class="mb-1">
+							<li style="display: inline; width:20%;" class="mb-1">
 								<a href="#"
 									onclick="location.href='<?php echo G5_BBS_URL ?>/write.php?bo_table=<?php echo $re;?>&nameid=<?php echo $view['mb_id'];?>'"
 									style="display: inline; color:#ffffff; font-size: 12px; padding:5px 10px; background-color: #595959;" 
@@ -599,7 +599,7 @@ if ($gr_id=='review') {
 							</li>
 						<?php } ?>
 						<?php if ($gr_id=='review') { ?>
-							<li style="display: inline; margin-right:1px;" class="mb-1">
+							<li style="display: inline; width:20%;" class="mb-1">
 								<a href="#"
 									onclick="location.href='<?php echo G5_BBS_URL ?>/board.php?bo_table=<?php echo $at;?>&wr_id=<?php echo $atwr_id['wr_id'];?>'"
 									class="btn" 
