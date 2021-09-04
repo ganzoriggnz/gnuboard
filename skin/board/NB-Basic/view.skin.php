@@ -746,7 +746,7 @@ if ($gr_id=='review') {
 				</div>
 			<?php elseif(G5_IS_MOBILE && $gr_id != "attendance"): ?>
 				<div class="clearfix f-sm text-muted pr-2 mt-3">
-					<ul class="d-flex-start align-items-start">
+					<ul class="d-flex-start align-items-start" style="display: flex;flex-direction: row; flex-wrap: wrap">
 						<!-- <li style="display: inline;"><a href="#viewcomment"		
 									style="border:1px solid #e5e5e5; font-size: 10px;" class="btn"><i class="fa fa-arrow-down" aria-hidden="true"></i> 댓글바로가기</a>
 						</li> -->
