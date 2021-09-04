@@ -154,9 +154,9 @@ if ($gr_id=='review') {
 	            </ul>
 	        </div>
 	       
-			<div class="clearfix f-sm text-muted pr-2">
+			<div class="clearfix f-sm text-muted">
 				<!-- start    mobile   -->
-				<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
+				<ul class="d-flex-start align-items-center" style="width:100%;">
 	                <li style="display: inline; width:20%;"  class="mb-1">
 						<a href="<?php echo 'tel:'.$phone['mb_hp'] ?>"
 	                        style="display: inline; color:#ffffff; font-size: 12px; padding:5px 10px; background-color: #595959;" 
@@ -556,7 +556,7 @@ if ($gr_id=='review') {
 	            </div>				
 	        <?php } ?>
 			<?php if(G5_IS_MOBILE &&  $gr_id == "attendance") :?>
-				<div class="clearfix f-sm text-muted pr-2 mt-3">
+				<div class="clearfix f-sm text-muted mt-3">
 				<!-- start    mobile   -->
 					<ul class="d-flex-start align-items-center" style="display: flex;flex-direction: row; flex-wrap: wrap">
 						<li style="display: inline; width:20%;" class="mb-1">
