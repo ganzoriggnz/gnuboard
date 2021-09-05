@@ -159,10 +159,10 @@ if( isset($_POST['id'])){
                         <div class="modal-dialog" role="document">
                             <div class="modal-content" style="width: 350px; height: 340px; font-weight: bold;">
                                 <?php   
-                                    $sql2 = "SELECT a.co_entity, b.mb_id, b.mb_name, b.mb_6 FROM {$g5['coupon_table']} a INNER JOIN {$g5['member_table']} b ON a.mb_id = b.mb_id WHERE a.co_entity = '{$user_entity[$cnt]['co_entity']}'";
+                                    $sql2 = "SELECT a.co_entity, b.mb_id, b.mb_name, b.mb_6 FROM {$g5['coupon_table']} a INNER JOIN {$g5['member_table']} b ON a.mb_id = b.mb_id WHERE a.mb_id = '{$row['mb_id']}'";
                                     $row2 = sql_fetch($sql2);  
                                                       
-                                    $sql3 = "SELECT * FROM {$g5['coupon_table']} WHERE co_entity = '{$user_entity[$cnt]['co_entity']}' AND co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime'";
+                                    $sql3 = "SELECT * FROM {$g5['coupon_table']} WHERE mb_id = '{$row['mb_id']}' AND co_begin_datetime='$co_begin_datetime' AND co_end_datetime='$co_end_datetime'";
                                     $row3 = sql_fetch($sql3); 
                                     
                                     $diff_s = number_format($row3['co_sale_num'] - $row3['co_sent_snum']);
