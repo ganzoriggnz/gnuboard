@@ -91,15 +91,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$coupon_create_skin_url.'/style.c
                 var co_insert = $('#co_insert').val();
                 var co_no = $('#co_no').val();
 
-                // if(co_created > co_insert){ //огноо
-                //     $('.popup_box2').css("display", "block");
-                //     $('.btn1').click(function(){
-                //         $('.popup_box2').css("display", "none");
-                //     });
-                //     return false;
-                // }
-                // else 
-                if((co_cnt+1) > total_cnt) {
+                if(co_created > co_insert){ //огноо
+                    $('.popup_box2').css("display", "block");
+                    $('.btn1').click(function(){
+                        $('.popup_box2').css("display", "none");
+                    });
+                    return false;
+                }
+                else if((co_cnt+1) > total_cnt) {
                     $('.popup_box3').css("display", "block");
                     $('.btn1').click(function(){
                         $('.popup_box3').css("display", "none");
